@@ -1,0 +1,4 @@
+[submodule "Thirdparty/GameFramework"]
+	path = Thirdparty/GameFramework
+	url = https://github.com/Meland-Inc/GameFramework
+	branch = meland-main
