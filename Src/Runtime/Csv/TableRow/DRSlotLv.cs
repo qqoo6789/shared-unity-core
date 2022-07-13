@@ -14,7 +14,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /** __DATA_TABLE_COMMENT__*/
 /// </summary>
-public class DRRoleLv : DataRowBase
+public class DRSlotLv : DataRowBase
 {
     private int _id = 0;
 
@@ -22,6 +22,15 @@ public class DRRoleLv : DataRowBase
     /// /**获取id。*/
     /// </summary>
     public override int Id => _id;
+
+    /// <summary>
+  /**获取插槽。*/
+    /// </summary>
+    public int Slot
+    {
+        get;
+        private set;
+    }
 
     /// <summary>
   /**获取等级。*/
@@ -42,9 +51,9 @@ public class DRRoleLv : DataRowBase
     }
 
     /// <summary>
-  /**获取死亡惩罚经验。*/
+  /**获取升级meld。*/
     /// </summary>
-    public int DeathExpLoss
+    public int UseMELD
     {
         get;
         private set;
@@ -146,9 +155,10 @@ public class DRRoleLv : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
+        Slot = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        DeathExpLoss = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        UseMELD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HpRecovery = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Att = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -171,9 +181,10 @@ public class DRRoleLv : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
+                Slot = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
-                DeathExpLoss = binaryReader.Read7BitEncodedInt32();
+                UseMELD = binaryReader.Read7BitEncodedInt32();
                 Hp = binaryReader.Read7BitEncodedInt32();
                 HpRecovery = binaryReader.Read7BitEncodedInt32();
                 Att = binaryReader.Read7BitEncodedInt32();

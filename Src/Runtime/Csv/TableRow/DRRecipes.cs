@@ -24,6 +24,15 @@ public class DRRecipes : DataRowBase
     public override int Id => _id;
 
     /// <summary>
+  /**获取图鉴归属技能。*/
+    /// </summary>
+    public int CraftSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取图鉴ICON。*/
     /// </summary>
     public string Icon
@@ -72,6 +81,15 @@ public class DRRecipes : DataRowBase
   /**获取排序优先。*/
     /// </summary>
     public int RecipesSort
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取图鉴展示类型。*/
+    /// </summary>
+    public int DisplayType
     {
         get;
         private set;
@@ -149,18 +167,29 @@ public class DRRecipes : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取使用MELD数量。*/
+    /// </summary>
+    public int UseMELD
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
+        CraftSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Icon = columnStrings[index++];
         Name = columnStrings[index++];
         Desc = columnStrings[index++];
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Level = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RecipesSort = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        DisplayType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockCondition = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ProductId = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
@@ -169,6 +198,7 @@ public class DRRecipes : DataRowBase
         SourceText = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MatItemId = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         UseDitamin = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        UseMELD = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -181,12 +211,14 @@ public class DRRecipes : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
+                CraftSkill = binaryReader.Read7BitEncodedInt32();
                 Icon = binaryReader.ReadString();
                 Name = binaryReader.ReadString();
                 Desc = binaryReader.ReadString();
                 Type = binaryReader.Read7BitEncodedInt32();
                 Level = binaryReader.Read7BitEncodedInt32();
                 RecipesSort = binaryReader.Read7BitEncodedInt32();
+                DisplayType = binaryReader.Read7BitEncodedInt32();
                 UnlockType = binaryReader.Read7BitEncodedInt32();
                 UnlockCondition = binaryReader.Read7BitEncodedInt32();
                 ProductId = binaryReader.ReadArrayList<Int32>();
@@ -195,6 +227,7 @@ public class DRRecipes : DataRowBase
                 SourceText = binaryReader.Read7BitEncodedInt32();
                 MatItemId = binaryReader.ReadArrayList<Int32>();
                 UseDitamin = binaryReader.Read7BitEncodedInt32();
+                UseMELD = binaryReader.Read7BitEncodedInt32();
             }
         }
 
