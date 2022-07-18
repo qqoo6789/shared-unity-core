@@ -44,12 +44,14 @@ namespace Meland.Editor.DataTableTools
             {
                 DataTableGeneratorUtil.UpdateCsv();
                 DataTableGeneratorUtil.GenerateDataTables();
+                SharedCoresVersionTool.UpdateCsvVersion();
                 AssetDatabase.Refresh();
             }
 
             if (GUILayout.Button("生成配置脚本"))
             {
                 DataTableGeneratorUtil.GenerateDataTableCodes();
+                SharedCoresVersionTool.UpdateCsvVersion();
                 AssetDatabase.Refresh();
             }
         }
