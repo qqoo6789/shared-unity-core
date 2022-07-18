@@ -10,7 +10,7 @@ using UnityEditor;
 using UnityEngine;
 public class SharedCoresVersion
 {
-    public int? ConfigVersion; //服务器场景配置版本
+    public int? ConfigVersion; //服务器场景数据配置版本 例如，刷新点，攻占区域等
     public int? CsvVersion;//表版本
     public int? SceneVersion;//场景版本
     public int? NavMeshVersion;//寻路数据版本
