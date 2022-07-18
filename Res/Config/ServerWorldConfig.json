@@ -1,1 +1,1 @@
-﻿{"ResourcesPoint":[],"LandList":[]}
+﻿{"ResourcesPoint":[{"X":-4.21,"Y":0.0,"Z":0.0,"ResourceType":1,"ResourceId":"1","UpdateInterval":1000,"Radius":10.0,"PatrolRadius":1.0,"PatrolSpd":11.0},{"X":0.0,"Y":0.0,"Z":0.0,"ResourceType":1,"ResourceId":"1","UpdateInterval":1000,"Radius":10.0,"PatrolRadius":1.0,"PatrolSpd":11.0},{"X":0.0,"Y":-4.17,"Z":-4.17,"ResourceType":1,"ResourceId":"1","UpdateInterval":1000,"Radius":10.0,"PatrolRadius":1.0,"PatrolSpd":11.0}],"LandList":[{"MinX":7,"MaxX":11,"MinZ":-4,"MaxZ":3}]}
