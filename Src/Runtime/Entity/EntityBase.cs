@@ -10,7 +10,11 @@ public class EntityBase
     /// </summary>
     /// <value></value>
     protected GameObject Root;
-
+    /// <summary>
+    /// 逻辑实体的root节点的id，用于通过root节点id来获取逻辑实体
+    /// </summary>
+    /// <returns></returns>
+    public int RootID => Root.GetInstanceID();
     /// <summary>
     /// 场景实体变换 也是Root节点的变换 一定不为空
     /// </summary>

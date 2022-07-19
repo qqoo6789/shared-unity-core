@@ -11,6 +11,11 @@ public class EntityMgr : MonoBehaviour
     /// <returns></returns>
     protected readonly Dictionary<long, EntityBase> EntityDic = new();
     /// <summary>
+    /// 场景所有实体 包括了主角,通过root节点id作为key
+    /// </summary>
+    /// <returns></returns>
+    protected readonly Dictionary<int, EntityBase> EntityRootDic = new();
+    /// <summary>
     /// 实体工厂，用于创建实体
     /// </summary>
     private EntityFactory _factory;
@@ -39,6 +44,23 @@ public class EntityMgr : MonoBehaviour
     }
 
     /// <summary>
+    /// 通过实体显示节点反查逻辑实体
+    /// </summary>
+    /// <param name="go"></param>
+    /// <returns></returns>
+    public EntityBase GetEntityWithRoot(GameObject go)
+    {
+        int goID = go.GetInstanceID();
+        if (EntityRootDic.TryGetValue(goID, out EntityBase entity))
+        {
+            return entity;
+        }
+
+        Log.Warning($"Can not find entity with root, name: {go.name}, id: {goID}");
+        return null;
+    }
+
+    /// <summary>
     /// 添加一个场景实体 主角使用另外一个方法
     /// </summary>
     /// <param name="entityID"></param>
@@ -62,7 +84,7 @@ public class EntityMgr : MonoBehaviour
             Log.Error($"Entity {entityID} init failed,type={entityType},error={e}");
         }
         EntityDic.Add(entityID, entity);
-
+        EntityRootDic.Add(entity.RootID, entity);
         return entity;
     }
 
@@ -79,6 +101,7 @@ public class EntityMgr : MonoBehaviour
         }
 
         _ = EntityDic.Remove(entityID);
+        _ = EntityRootDic.Remove(entity.RootID);
         try
         {
             entity.Dispose();
