@@ -74,7 +74,7 @@ public class EntityBase
         Transform.SetParent(parent, false);
     }
 
-    public T GetComponent<T>() where T : Component
+    public T GetComponent<T>()
     {
         return Root.GetComponent<T>();
     }
@@ -84,7 +84,7 @@ public class EntityBase
         return Root.AddComponent<T>();
     }
 
-    public bool TryGetComponent<T>(out T component) where T : Component
+    public bool TryGetComponent<T>(out T component)
     {
         return Root.TryGetComponent(out component);
     }
