@@ -3,30 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-public class EntityMgr : MonoBehaviour
+public class EntityMgr<TEntity, TFactory> : MonoBehaviour where TEntity : EntityBase, new() where TFactory : EntityFactory<TEntity>, new()
 {
     /// <summary>
     /// 场景所有实体 包括了主角
     /// </summary>
     /// <returns></returns>
-    protected readonly Dictionary<long, EntityBase> EntityDic = new();
+    protected readonly Dictionary<long, TEntity> EntityDic = new();
     /// <summary>
     /// 场景所有实体 包括了主角,通过root节点id作为key
     /// </summary>
     /// <returns></returns>
-    protected readonly Dictionary<int, EntityBase> EntityRootDic = new();
+    protected readonly Dictionary<int, TEntity> EntityRootDic = new();
     /// <summary>
     /// 实体工厂，用于创建实体
     /// </summary>
-    private EntityFactory _factory;
-    protected EntityFactory Factory => _factory ??= GetFactory();
+    protected TFactory Factory = new();
 
     /// <summary>
     /// 获取存在的场景实体
     /// </summary>
     /// <param name="id"></param>
     /// <returns>如果没有会返回null</returns>
-    public EntityBase GetEntity(long id)
+    public TEntity GetEntity(long id)
     {
         //EntityBase是个复杂对象的时候，可以用这个方法来获取效率会更高，有待观察 https://blog.csdn.net/sigmeta/article/details/121534293
         // if (EntityDic.ContainsKey(id))
@@ -34,7 +33,7 @@ public class EntityMgr : MonoBehaviour
         //     return EntityDic[id];
         // }
 
-        if (EntityDic.TryGetValue(id, out EntityBase entity))
+        if (EntityDic.TryGetValue(id, out TEntity entity))
         {
             return entity;
         }
@@ -48,10 +47,10 @@ public class EntityMgr : MonoBehaviour
     /// </summary>
     /// <param name="go"></param>
     /// <returns></returns>
-    public EntityBase GetEntityWithRoot(GameObject go)
+    public TEntity GetEntityWithRoot(GameObject go)
     {
         int goID = go.GetInstanceID();
-        if (EntityRootDic.TryGetValue(goID, out EntityBase entity))
+        if (EntityRootDic.TryGetValue(goID, out TEntity entity))
         {
             return entity;
         }
@@ -66,7 +65,7 @@ public class EntityMgr : MonoBehaviour
     /// <param name="entityID"></param>
     /// <param name="entityType"></param>
     /// <returns></returns>
-    public virtual EntityBase AddEntity(long entityID, eEntityType entityType)
+    public virtual TEntity AddEntity(long entityID, eEntityType entityType)
     {
         if (EntityDic.ContainsKey(entityID))
         {
@@ -74,7 +73,7 @@ public class EntityMgr : MonoBehaviour
             RemoveEntity(entityID);
         }
 
-        EntityBase entity = CreateEntity(entityID, entityType);
+        TEntity entity = CreateEntity(entityID, entityType);
         try
         {
             entity.Init();
@@ -94,7 +93,7 @@ public class EntityMgr : MonoBehaviour
     /// <param name="entityID"></param>
     public void RemoveEntity(long entityID)
     {
-        if (!EntityDic.TryGetValue(entityID, out EntityBase entity))
+        if (!EntityDic.TryGetValue(entityID, out TEntity entity))
         {
             Log.Error($"Entity {entityID} not exist");
             return;
@@ -112,17 +111,8 @@ public class EntityMgr : MonoBehaviour
         }
     }
 
-    protected virtual EntityBase CreateEntity(long entityID, eEntityType entityType)
+    protected virtual TEntity CreateEntity(long entityID, eEntityType entityType)
     {
-        return Factory.CreateSceneEntity<EntityBase>(entityID, entityType);
-    }
-
-    /// <summary>
-    /// 获取实体工厂，子类可以按需重写，返回继承自EntityFactory的实体工厂类
-    /// </summary>
-    /// <returns></returns>
-    protected virtual EntityFactory GetFactory()
-    {
-        return new();
+        return Factory.CreateSceneEntity(entityID, entityType);
     }
 }

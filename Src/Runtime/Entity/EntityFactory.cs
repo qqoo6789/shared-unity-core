@@ -1,11 +1,11 @@
 /// <summary>
 /// 实体工厂
 /// </summary>
-public class EntityFactory
+public class EntityFactory<TEntity> where TEntity : EntityBase, new()
 {
-    public T CreateSceneEntity<T>(long id, eEntityType type) where T : EntityBase, new()
+    public TEntity CreateSceneEntity(long id, eEntityType type)
     {
-        T entity = new();
+        TEntity entity = new();
         entity.InitBaseInfo(id, type);
         return AssemblyEntity(entity);//返回装备后的实体
     }
@@ -14,7 +14,7 @@ public class EntityFactory
     /// 根据实体类型装配出不同feature的实体
     /// </summary>
     /// <param name="entity"></param>
-    protected virtual T AssemblyEntity<T>(T entity) where T : EntityBase
+    protected virtual TEntity AssemblyEntity(TEntity entity)
     {
         //Example:
         // if (entity.BaseData.Type == eEntityType.monster)
