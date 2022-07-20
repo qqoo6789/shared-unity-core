@@ -21,14 +21,20 @@ public class EntityBase
     public Transform Transform => Root.transform;
 
     /// <summary>
-    /// entity base data
+    /// 加速获取 缓存了 entity最基础的数据组件引用
     /// </summary>
-    public EntityBaseData BaseData { get; protected set; }
+    public readonly EntityBaseData BaseData;
+
+    /// <summary>
+    /// 加速获取 缓存了 enitty 内部事件的组件
+    /// </summary>
+    public readonly EntityEvent EntityEvent;
 
     public EntityBase()
     {
         InitRoot();
         BaseData = Root.AddComponent<EntityBaseData>();
+        EntityEvent = Root.AddComponent<EntityEvent>();
     }
 
     public virtual void Init()
