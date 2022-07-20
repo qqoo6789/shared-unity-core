@@ -373,7 +373,27 @@ int,string,null,int,string,int,int,int,string,int[],bool,bool,bool,bool,int,int,
 31002111,ÂÌÉ«Ô¿³×,,7,ÂÌÉ«Ô¿³×,4,,1,JMG3L43_1_1_01_ic,1,0,0,1,0,7,,,,0,10004,1002,,,0,JMG3L43_1_1_01_ic,
 31002112,À¶É«Ô¿³×,,7,À¶É«Ô¿³×,4,,1,JMG3L43_1_1_02_ic,1,0,0,1,0,7,,,,0,10004,1002,,,0,JMG3L43_1_1_02_ic,
 31002113,ºìÉ«Ô¿³×,,7,ºìÉ«Ô¿³×,4,,1,JMG3L43_1_1_03_ic,1,0,0,1,0,7,,,,0,10004,1002,,,0,JMG3L43_1_1_03_ic,
-31002114,³ÈÉ«Ô¿³×,,7,³ÈÉ«Ô¿³×,4,,1,JMG3L43_1_1_04_ic,1,0,0,1,0,6,,,,0,10004,1002,,,0,JMG3L43_1_1_04_ic,
+31002114,³ÈÉ«Ô¿³×,,7,³ÈÉ«Ô¿³×,4,,1,JMG3L43_1_1_04_ic,1,0,0,1,0,7,,,,0,10004,1002,,,0,JMG3L43_1_1_04_ic,
+60000001,Weapon Scroll Lv10,,7,Weapon Scroll Lv10,4,,99,icon_hechengfu_wuqi_0,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_0,1
+60000002,Weapon Scroll Lv20,,7,Weapon Scroll Lv20,4,,99,icon_hechengfu_wuqi_1,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_1,1
+60000003,Weapon Scroll Lv30,,7,Weapon Scroll Lv30,4,,99,icon_hechengfu_wuqi_2,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_2,1
+60000004,Weapon Scroll Lv40,,7,Weapon Scroll Lv40,4,,99,icon_hechengfu_wuqi_3,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_3,1
+60000005,Weapon Scroll Lv50,,7,Weapon Scroll Lv50,4,,99,icon_hechengfu_wuqi_4,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_4,1
+60000006,Weapon Scroll Lv60,,7,Weapon Scroll Lv60,4,,99,icon_hechengfu_wuqi_5,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_5,1
+60000007,Weapon Scroll Lv70,,7,Weapon Scroll Lv70,4,,99,icon_hechengfu_wuqi_6,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_6,1
+60000008,Weapon Scroll Lv80,,7,Weapon Scroll Lv80,4,,99,icon_hechengfu_wuqi_7,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_7,1
+60000009,Weapon Scroll Lv90,,7,Weapon Scroll Lv90,4,,99,icon_hechengfu_wuqi_8,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_8,1
+60000010,Weapon Scroll Lv100,,7,Weapon Scroll Lv100,4,,99,icon_hechengfu_wuqi_9,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_9,1
+60000011,Defence Scroll Lv10,,7,Defence Scroll Lv10,4,,99,icon_hechengfu_fangju_0,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_0,1
+60000012,Defence Scroll Lv20,,7,Defence Scroll Lv20,4,,99,icon_hechengfu_fangju_1,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_1,1
+60000013,Defence Scroll Lv30,,7,Defence Scroll Lv30,4,,99,icon_hechengfu_fangju_2,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_2,1
+60000014,Defence Scroll Lv40,,7,Defence Scroll Lv40,4,,99,icon_hechengfu_fangju_3,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_3,1
+60000015,Defence Scroll Lv50,,7,Defence Scroll Lv50,4,,99,icon_hechengfu_fangju_4,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_4,1
+60000016,Defence Scroll Lv60,,7,Defence Scroll Lv60,4,,99,icon_hechengfu_fangju_5,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_5,1
+60000017,Defence Scroll Lv70,,7,Defence Scroll Lv70,4,,99,icon_hechengfu_fangju_6,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_6,1
+60000018,Defence Scroll Lv80,,7,Defence Scroll Lv80,4,,99,icon_hechengfu_fangju_7,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_7,1
+60000019,Defence Scroll Lv90,,7,Defence Scroll Lv90,4,,99,icon_hechengfu_fangju_8,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_8,1
+60000020,Defence Scroll Lv100,,7,Defence Scroll Lv100,4,,99,icon_hechengfu_fangju_9,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_9,1
 61000001,Grilled Chicken Thigh Blueprint,¿¾¼¦ÍÈÅä·½,6,"For unlocking ""Recipe: Grilled Chicken Thigh""",3,,99,MV01_ca_blueprint_01_grilledChickenThigh,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_01_grilledChickenThigh,1
 61000002,Grilled Chicken Wing Blueprint,¿¾¼¦³áÅä·½,6,"For unlocking ""Recipe: Grilled Chicken Wing""",3,,99,MV01_ca_blueprint_02_grilledChickenWing,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_02_grilledChickenWing,1
 61000003,Roast Chicken Blueprint,¿¾Õû¼¦Åä·½,6,"For unlocking ""Recipe: Roast Chicken""",3,,99,MV01_ca_blueprint_03_roastChicken,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_03_roastChicken,1
@@ -419,6 +439,8 @@ int,string,null,int,string,int,int,int,string,int[],bool,bool,bool,bool,int,int,
 71020005,Hide Gloves,ÊÞÆ¤ÊÖÌ×,5,Hide Gloves,1,,1,MV01_eq_glove_01_animalSkin_ic,"1,2,3",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_glove_01_animalSkin_ic,1
 71029998,Test Sword,¶ÌÇ°Ò¡²âÊÔ½£,5,Dinosaur Bone Sword,1,,1,MV01_eq_sword_01_dinosaurBone_ic,"1,2,3,4,5",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_sword_01_dinosaurBone_ic,1
 71029999,Test Equipment,²âÊÔ×°±¸,5,Test Equipment,1,,1,ic_panda_hair,1,0,0,1,0,5,,,,0,10004,1002,,,0,ic_panda_hair,1
+79999901,MELD,ÓÃÓÚÅäÖÃMELDiconºÍÃèÊö,-2,Currency of Meland,1,,999,MELD_ic,1,0,0,1,0,-2,,,,0,10004,1002,,,0,MELD_ic,0
+79999902,EXP,ÓÃÓÚÅäÖÃ¾­ÑéÖµiconºÍÃèÊö,-2,For upgrading Role and Slot,1,,999,EXP_ic,1,0,0,1,0,-2,,,,0,10004,1002,,,0,EXP_ic,0
 80000001,Sentry,,9,"A solid guardian of your land, can reduce the answering time when the surrounding land is invaded",3,,1,Z_mlNFTdj_1_1_04_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_04_ic,
 80000002,Sentry,,9,"A solid guardian of your land, can reduce the answering time when the surrounding land is invaded",3,,1,Z_mlNFTdj_1_1_05_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_05_ic,
 80000003,Sentry,,9,"A solid guardian of your land, can reduce the answering time when the surrounding land is invaded",3,,1,Z_mlNFTdj_1_1_06_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_06_ic,
