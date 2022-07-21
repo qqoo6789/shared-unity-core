@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -5,4 +6,13 @@ using UnityEngine;
 /// </summary>
 public class EntityEvent : MonoBehaviour
 {
+    /// <summary>
+    /// 开始移动
+    /// </summary>
+    public Action StartMove;
+
+    /// <summary>
+    /// 停止移动
+    /// </summary>
+    public Action StopMove;
 }

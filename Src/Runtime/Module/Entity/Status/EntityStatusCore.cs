@@ -3,7 +3,7 @@ using GameFramework.Fsm;
 /// <summary>
 /// 实体上的各种状态的基类 实体状态类直接可以在内部任意时间切换状态 不要求再update 切换时取OwnerFsm
 /// </summary>
-public class EntityStatusBase : FsmState<EntityStatusCtrl>
+public class EntityStatusCore : FsmState<EntityStatusCtrl>
 {
     /// <summary>
     /// 状态的owner状态机 用来切换状态和查看状态
@@ -18,6 +18,8 @@ public class EntityStatusBase : FsmState<EntityStatusCtrl>
 
     protected override void OnInit(IFsm<EntityStatusCtrl> fsm)
     {
+        base.OnInit(fsm);
+
         OwnerFsm = fsm;
         StatusCtrl = fsm.Owner;
     }
