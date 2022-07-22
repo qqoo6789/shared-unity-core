@@ -2,7 +2,9 @@
     "name": "SharedCore.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:122df4e7707ce4461af1a1456e030f66"
+        "GUID:122df4e7707ce4461af1a1456e030f66",
+        "GUID:2a5f3032e5a3b416abb94d22b3c4a942",
+        "GUID:c1e1189e306e94dcda37d81eb929962f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
