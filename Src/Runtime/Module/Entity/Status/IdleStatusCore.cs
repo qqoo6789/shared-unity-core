@@ -1,16 +1,13 @@
-using System;
 using GameFramework.Fsm;
 
 /// <summary>
 /// 闲置状态通用状态基类
 /// </summary>
-public abstract class IdleStatusCore : EntityStatusCore
+public class IdleStatusCore : EntityStatusCore
 {
-    /// <summary>
-    /// 子类确定Move状态类型
-    /// </summary>
-    /// <returns></returns>
-    protected virtual Type MoveStatusType => typeof(MoveStatusCore);
+    public static new string Name = "idle";
+
+    public override string StatusName => Name;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -28,6 +25,6 @@ public abstract class IdleStatusCore : EntityStatusCore
 
     private void OnStartMove()
     {
-        ChangeState(OwnerFsm, MoveStatusType);
+        ChangeState(OwnerFsm, MoveStatusCore.Name);
     }
 }
