@@ -27,13 +27,13 @@ public class EntityStatusCtrl : MonoBehaviour
     }
     private IFsm<EntityStatusCtrl> _fsm;//当前状态机 状态机名字就是EntityBase Root GetInstanceID()
 
-    private static IFsmManager _cacheFsmMgr;//不用每次去GameFrameworkEntry获取 获取代码底层是遍历 有性能损耗 后续优化成字典后就可以不用缓存了
+    private static IFsmManager s_cacheFsmMgr;//不用每次去GameFrameworkEntry获取 获取代码底层是遍历 有性能损耗 后续优化成字典后就可以不用缓存了
 
     private void OnDestroy()
     {
         if (_fsm != null)
         {
-            GetFsmManager().DestroyFsm(_fsm);
+            _ = GetFsmManager().DestroyFsm(_fsm);
             _fsm = null;
         }
         _entityEvent = null;
@@ -65,12 +65,12 @@ public class EntityStatusCtrl : MonoBehaviour
 
     private IFsmManager GetFsmManager()
     {
-        if (_cacheFsmMgr == null)
+        if (s_cacheFsmMgr == null)
         {
-            _cacheFsmMgr = GameFrameworkEntry.GetModule<IFsmManager>();
+            s_cacheFsmMgr = GameFrameworkEntry.GetModule<IFsmManager>();
         }
 
-        return _cacheFsmMgr;
+        return s_cacheFsmMgr;
     }
 
     /// <summary>
