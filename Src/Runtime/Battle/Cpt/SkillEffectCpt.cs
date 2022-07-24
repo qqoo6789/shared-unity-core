@@ -30,12 +30,15 @@ public class SkillEffectCpt : MonoBehaviour
         for (int i = _skillEffects.Count - 1; i >= 0; i--)
         {
             SkillEffectBase effect = _skillEffects[i];
-            effect.Update();
             if (effect.DestroyTimestamp > 0 && curTimeStamp >= effect.DestroyTimestamp)
             {
                 effect.RemoveEffect();
                 effect.Dispose();
                 _skillEffects.RemoveAt(i);
+            }
+            else
+            {
+                effect.Update();
             }
         }
     }
@@ -53,9 +56,7 @@ public class SkillEffectCpt : MonoBehaviour
             effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration * 1000) : -1;
             AddEffectTimeList(effect);
         }
-
-        //瞬发效果
-        if (effect.Duration == 0)
+        else
         {
             effect.Start();
             effect.RemoveEffect();

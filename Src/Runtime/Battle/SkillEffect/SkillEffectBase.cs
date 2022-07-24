@@ -1,3 +1,4 @@
+using System;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
@@ -15,16 +16,16 @@ public class SkillEffectBase : IReference
     /// 持续时间 小于零代表一致持续  0代表立即执行销毁  大于0即到时自动销毁
     /// </summary>
     public int Duration => _duration;
-    protected string _fromID;//技能施法者 有可能为null  也可能不在视野内
+    protected long _fromID;//技能施法者 有可能为null  也可能不在视野内
     /// <summary>
     /// 技能释放者ID
     /// </summary>
-    public string FromID => _fromID;
-    protected string _targetID;//技能接收者 一般就是最后应用效果的实体
+    public long FromID => _fromID;
+    protected long _targetID;//技能接收者 一般就是最后应用效果的实体
     /// <summary>
     /// 技能接受者ID
     /// </summary>
-    public string TargetID => _targetID;
+    public long TargetID => _targetID;
     protected long _destroyTimestamp;
     /// <summary>
     /// 效果销毁时间 ms
@@ -57,7 +58,7 @@ public class SkillEffectBase : IReference
     /// <param name="fromID">技能释放者ID</param>
     /// <param name="targetID">技能接受者ID</param>
     /// <param name="duration">持续时间</param>
-    public virtual void SetData(int skillID, int effectID, string fromID, string targetID, int duration)
+    public virtual void SetData(int skillID, int effectID, long fromID, long targetID, int duration)
     {
         _skillID = skillID;
         _effectID = effectID;
@@ -70,15 +71,15 @@ public class SkillEffectBase : IReference
     /// 设置自定义数据
     /// </summary>
     /// <param name="data">自定义数据</param>
-    public virtual void SetCustomData(System.Object data)
+    public virtual void SetCustomData(object data)
     {
         //
     }
     public virtual void Clear()
     {
         _duration = 0;
-        _fromID = null;
-        _targetID = null;
+        _fromID = 0;
+        _targetID = 0;
         _destroyTimestamp = 0;
         _effectID = 0;
         _skillID = 0;
@@ -143,6 +144,12 @@ public class SkillEffectBase : IReference
 
         OnRemove();
         _refOwner = null;
+    }
+
+    public static SkillEffectBase Create(Type skillEffectClass)
+    {
+        SkillEffectBase effect = ReferencePool.Acquire(skillEffectClass) as SkillEffectBase;
+        return effect;
     }
 
     /// <summary>

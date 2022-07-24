@@ -31,7 +31,7 @@ public class SkillEffectFactory
     /// <param name="targetID">技能接收ID</param>
     /// <param name="duration">技能持续时间 小于0代表一致持续  0代表立即执行销毁  大于0即到时自动销毁</param>
     /// <returns></returns>
-    public SkillEffectBase createOneSkillEffect(int skillID, int effectID, string fromID, string targetID, int duration = 0)
+    public SkillEffectBase createOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0)
     {
         if (s_skillEffectMap == null)
         {
@@ -45,7 +45,7 @@ public class SkillEffectFactory
         }
 
         s_skillEffectMap.TryGetValue((BattleDefine.eSkillEffectId)effectID, out Type skillEffectClass);
-        SkillEffectBase effect = ReferencePool.Acquire(skillEffectClass) as SkillEffectBase;
+        SkillEffectBase effect = SkillEffectBase.Create(skillEffectClass);
         effect.SetData(skillID, effectID, fromID, targetID, duration);
         return effect;
     }
