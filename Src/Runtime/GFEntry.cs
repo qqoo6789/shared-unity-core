@@ -7,17 +7,17 @@
  */
 using GameFramework.DataTable;
 
-static internal class GFEntry
+internal static class GFEntry
 {
     /// <summary>
     /// 获取数据表组件。
     /// </summary>
-    public static IDataTableManager DataTable
+    public static IDataTableComponent DataTable
     {
         get;
         private set;
     }
-    public static void SetDataTable(IDataTableManager dataTable)
+    public static void SetDataTable(IDataTableComponent dataTable)
     {
         DataTable = dataTable;
     }
