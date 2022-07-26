@@ -21,9 +21,14 @@ public class EntityBase
     public Transform Transform => Root.transform;
 
     /// <summary>
-    /// entity base data
+    /// 加速获取 缓存了 entity最基础的数据组件引用
     /// </summary>
-    public EntityBaseData BaseData { get; protected set; }
+    public readonly EntityBaseData BaseData;
+
+    /// <summary>
+    /// 加速获取 缓存了 enitty 内部事件的组件 子类构建时就需要添加好对应组件
+    /// </summary>
+    public EntityEvent EntityEvent { get; protected set; }
 
     public EntityBase()
     {
@@ -31,17 +36,18 @@ public class EntityBase
         BaseData = Root.AddComponent<EntityBaseData>();
     }
 
-    public virtual void Init()
-    {
-        InitToScene();
-    }
-
     public virtual void Dispose()
     {
         UnInitFromScene();
         BaseData.Reset();
+
         Object.Destroy(Root);
         Root = null;
+    }
+
+    public virtual void Init()
+    {
+        InitToScene();
     }
 
     protected virtual void InitRoot()
