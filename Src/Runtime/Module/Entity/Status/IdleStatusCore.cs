@@ -9,22 +9,33 @@ public class IdleStatusCore : EntityStatusCore
 
     public override string StatusName => Name;
 
+    private EntityInputData _inputData;
+
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
 
-        StatusCtrl.EntityEvent.StartMove += OnStartMove;
+        _inputData = StatusCtrl.GetComponent<EntityInputData>();
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        StatusCtrl.EntityEvent.StartMove -= OnStartMove;
+        _inputData = null;
 
         base.OnLeave(fsm, isShutdown);
     }
 
-    private void OnStartMove()
+    protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
-        ChangeState(OwnerFsm, MoveStatusCore.Name);
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+
+        if (_inputData.InputMoveDirection != null)
+        {
+            ChangeState(fsm, DirectionMoveStatusCore.Name);
+        }
+        else if (_inputData.InputMovePath != null)
+        {
+            ChangeState(fsm, PathMoveStatusCore.Name);
+        }
     }
 }

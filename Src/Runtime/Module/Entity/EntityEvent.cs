@@ -6,13 +6,9 @@ using UnityEngine;
 /// </summary>
 public class EntityEvent : MonoBehaviour
 {
-    /// <summary>
-    /// 开始移动
-    /// </summary>
-    public Action StartMove;
 
     /// <summary>
-    /// 停止移动
+    /// 输入的移动路径变化了 T0:path
     /// </summary>
-    public Action StopMove;
+    public Action<Vector3[]> InputMovePathChanged;
 }
