@@ -5,7 +5,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 路径移动状态
 /// </summary>
-public abstract class PathMoveStatusCore : EntityStatusCore
+public class PathMoveStatusCore : ListenEventStatusCore
 {
     public static new string Name = "pathMove";
 
@@ -13,14 +13,10 @@ public abstract class PathMoveStatusCore : EntityStatusCore
 
     private EntityInputData _inputData;
     private PathMove _pathMove;
-    private EntityEvent _entityEvent;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
-
-        _entityEvent = StatusCtrl.GetComponent<EntityEvent>();
-        _entityEvent.InputMovePathChanged += OnPathChanged;
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
 
@@ -46,9 +42,6 @@ public abstract class PathMoveStatusCore : EntityStatusCore
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        _entityEvent.InputMovePathChanged -= OnPathChanged;
-        _entityEvent = null;
-
         if (_inputData != null)
         {
             _inputData.SetInputMovePath(null, false);
@@ -63,6 +56,18 @@ public abstract class PathMoveStatusCore : EntityStatusCore
         }
 
         base.OnLeave(fsm, isShutdown);
+    }
+
+    protected override void AddEvent(EntityEvent entityEvent)
+    {
+        entityEvent.InputMovePathChanged += OnPathChanged;
+        entityEvent.InputSkillRelease += OnInputSkillRelease;
+    }
+
+    protected override void RemoveEvent(EntityEvent entityEvent)
+    {
+        entityEvent.InputMovePathChanged -= OnPathChanged;
+        entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
     private void OnMoveFinish(PathMove pathMove)
@@ -80,5 +85,11 @@ public abstract class PathMoveStatusCore : EntityStatusCore
         }
 
         _pathMove.MovePath(_inputData.InputMovePath, OnMoveFinish);
+    }
+
+    private void OnInputSkillRelease(int skillID)
+    {
+        OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+        ChangeState(OwnerFsm, SkillForwardStatusCore.Name);
     }
 }

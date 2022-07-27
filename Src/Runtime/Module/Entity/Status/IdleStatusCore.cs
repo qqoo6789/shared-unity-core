@@ -3,7 +3,7 @@ using GameFramework.Fsm;
 /// <summary>
 /// 闲置状态通用状态基类
 /// </summary>
-public class IdleStatusCore : EntityStatusCore
+public class IdleStatusCore : ListenEventStatusCore
 {
     public static new string Name = "idle";
 
@@ -37,5 +37,21 @@ public class IdleStatusCore : EntityStatusCore
         {
             ChangeState(fsm, PathMoveStatusCore.Name);
         }
+    }
+
+    protected override void AddEvent(EntityEvent entityEvent)
+    {
+        entityEvent.InputSkillRelease += OnInputSkillRelease;
+    }
+
+    protected override void RemoveEvent(EntityEvent entityEvent)
+    {
+        entityEvent.InputSkillRelease -= OnInputSkillRelease;
+    }
+
+    private void OnInputSkillRelease(int skillID)
+    {
+        OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+        ChangeState(OwnerFsm, SkillForwardStatusCore.Name);
     }
 }
