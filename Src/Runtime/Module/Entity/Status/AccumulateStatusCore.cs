@@ -57,7 +57,7 @@ public abstract class AccumulateStatusCore : EntityStatusCore
             CancelToken.Cancel();
         }
         CancelToken = new();
-        await UniTask.Delay(TimeSpan.FromMilliseconds(DRSkill.AccuTime), false, PlayerLoopTiming.Update, CancelToken.Token);
+        await UniTask.Delay(DRSkill.AccuTime, false, PlayerLoopTiming.Update, CancelToken.Token);
         CancelToken = null;
         AccumulateEnd();
     }
