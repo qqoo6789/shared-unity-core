@@ -5,6 +5,10 @@ using GameFramework.Fsm;
 /// </summary>
 public class EntityStatusCore : FsmState<EntityStatusCtrl>
 {
+    public static string Name = "entityUnkownStatus";
+
+    public override string StatusName => Name;
+
     /// <summary>
     /// 状态的owner状态机 用来切换状态和查看状态
     /// </summary>

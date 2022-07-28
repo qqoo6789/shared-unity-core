@@ -98,4 +98,24 @@ public class EntityBase
     {
         return Root.TryGetComponent(out component);
     }
+
+    public bool HasComponent<T>()
+    {
+        return Root.TryGetComponent(out T t);
+    }
+
+    /// <summary>
+    /// 慎用 会导致维护性下降 不能明确知道添加组件的位置 获取组件 如果没有会添加一个保证一定有组件
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public T GetOrAddComponent<T>() where T : Component
+    {
+        if (Root.TryGetComponent(out T t))
+        {
+            return t;
+        }
+
+        return Root.AddComponent<T>();
+    }
 }

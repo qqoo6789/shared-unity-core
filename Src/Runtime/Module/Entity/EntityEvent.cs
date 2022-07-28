@@ -7,12 +7,11 @@ using UnityEngine;
 public class EntityEvent : MonoBehaviour
 {
     /// <summary>
-    /// 开始移动
+    /// 输入的移动路径变化了 T0:path
     /// </summary>
-    public Action StartMove;
-
+    public Action<Vector3[]> InputMovePathChanged;
     /// <summary>
-    /// 停止移动
+    /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID
     /// </summary>
-    public Action StopMove;
+    public Action<int> InputSkillRelease;
 }

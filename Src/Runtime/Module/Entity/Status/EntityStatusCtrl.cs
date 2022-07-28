@@ -25,16 +25,21 @@ public class EntityStatusCtrl : MonoBehaviour
             return _entityEvent;
         }
     }
-    private IFsm<EntityStatusCtrl> _fsm;//当前状态机 状态机名字就是EntityBase Root GetInstanceID()
 
-    private static IFsmManager _cacheFsmMgr;//不用每次去GameFrameworkEntry获取 获取代码底层是遍历 有性能损耗 后续优化成字典后就可以不用缓存了
+    /// <summary>
+    /// 当前状态机 状态机名字就是EntityBase Root GetInstanceID()
+    /// </summary>
+    /// <value></value>
+    public IFsm<EntityStatusCtrl> Fsm { get; private set; }
+
+    private static IFsmManager s_cacheFsmMgr;//不用每次去GameFrameworkEntry获取 获取代码底层是遍历 有性能损耗 后续优化成字典后就可以不用缓存了
 
     private void OnDestroy()
     {
-        if (_fsm != null)
+        if (Fsm != null)
         {
-            GetFsmManager().DestroyFsm(_fsm);
-            _fsm = null;
+            _ = GetFsmManager().DestroyFsm(Fsm);
+            Fsm = null;
         }
         _entityEvent = null;
     }
@@ -45,7 +50,7 @@ public class EntityStatusCtrl : MonoBehaviour
     /// <param name="states"></param>
     public void InitFsm(params FsmState<EntityStatusCtrl>[] states)
     {
-        _fsm = GetFsmManager().CreateFsm(GetHashCode().ToString(), this, states);
+        Fsm = GetFsmManager().CreateFsm(GetHashCode().ToString(), this, states);
     }
 
     /// <summary>
@@ -54,23 +59,23 @@ public class EntityStatusCtrl : MonoBehaviour
     /// <typeparam name="TStartStatus"></typeparam>
     public void StartStatus<TStartStatus>() where TStartStatus : FsmState<EntityStatusCtrl>
     {
-        if (_fsm == null)
+        if (Fsm == null)
         {
             Log.Error($"start status when not init fsm name={gameObject.name}");
             return;
         }
 
-        _fsm.Start<TStartStatus>();
+        Fsm.Start<TStartStatus>();
     }
 
     private IFsmManager GetFsmManager()
     {
-        if (_cacheFsmMgr == null)
+        if (s_cacheFsmMgr == null)
         {
-            _cacheFsmMgr = GameFrameworkEntry.GetModule<IFsmManager>();
+            s_cacheFsmMgr = GameFrameworkEntry.GetModule<IFsmManager>();
         }
 
-        return _cacheFsmMgr;
+        return s_cacheFsmMgr;
     }
 
     /// <summary>
