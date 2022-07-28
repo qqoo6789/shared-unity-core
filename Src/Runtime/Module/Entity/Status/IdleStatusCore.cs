@@ -1,4 +1,5 @@
 using GameFramework.Fsm;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 闲置状态通用状态基类
