@@ -5,7 +5,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 路径移动状态
 /// </summary>
-public class PathMoveStatusCore : ListenEventStatusCore
+public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name = "pathMove";
 
@@ -89,7 +89,22 @@ public class PathMoveStatusCore : ListenEventStatusCore
 
     private void OnInputSkillRelease(int skillID)
     {
+        if (!CheckCanSkill())
+        {
+            return;
+        }
+
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
         ChangeState(OwnerFsm, SkillForwardStatusCore.Name);
+    }
+
+    public bool CheckCanMove()
+    {
+        return true;
+    }
+
+    public bool CheckCanSkill()
+    {
+        return true;
     }
 }

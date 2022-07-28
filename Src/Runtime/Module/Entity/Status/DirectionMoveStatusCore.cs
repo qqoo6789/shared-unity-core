@@ -4,7 +4,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 方向移动状态
 /// </summary>
-public class DirectionMoveStatusCore : ListenEventStatusCore
+public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name = "directionMove";
 
@@ -66,7 +66,22 @@ public class DirectionMoveStatusCore : ListenEventStatusCore
 
     private void OnInputSkillRelease(int skillID)
     {
+        if (!CheckCanSkill())
+        {
+            return;
+        }
+
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
         ChangeState(OwnerFsm, SkillForwardStatusCore.Name);
+    }
+
+    public bool CheckCanMove()
+    {
+        return true;
+    }
+
+    public bool CheckCanSkill()
+    {
+        return true;
     }
 }

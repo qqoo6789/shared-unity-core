@@ -3,7 +3,7 @@ using GameFramework.Fsm;
 /// <summary>
 /// 闲置状态通用状态基类
 /// </summary>
-public class IdleStatusCore : ListenEventStatusCore
+public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name = "idle";
 
@@ -29,13 +29,16 @@ public class IdleStatusCore : ListenEventStatusCore
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
 
-        if (_inputData.InputMoveDirection != null)
+        if (CheckCanMove())
         {
-            ChangeState(fsm, DirectionMoveStatusCore.Name);
-        }
-        else if (_inputData.InputMovePath != null)
-        {
-            ChangeState(fsm, PathMoveStatusCore.Name);
+            if (_inputData.InputMoveDirection != null)
+            {
+                ChangeState(fsm, DirectionMoveStatusCore.Name);
+            }
+            else if (_inputData.InputMovePath != null)
+            {
+                ChangeState(fsm, PathMoveStatusCore.Name);
+            }
         }
     }
 
@@ -51,7 +54,22 @@ public class IdleStatusCore : ListenEventStatusCore
 
     private void OnInputSkillRelease(int skillID)
     {
+        if (!CheckCanSkill())
+        {
+            return;
+        }
+
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
         ChangeState(OwnerFsm, SkillForwardStatusCore.Name);
+    }
+
+    public bool CheckCanMove()
+    {
+        return true;
+    }
+
+    public bool CheckCanSkill()
+    {
+        return true;
     }
 }
