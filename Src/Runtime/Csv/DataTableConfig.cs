@@ -75,6 +75,8 @@ public static class DataTableConfig
         "SlotLv",
         "Struct",
         "Task",
+        "TaskList",
+        "TaskReward",
         "TemplateDungeons",
         "TemplatePass",
         "TextSound",
