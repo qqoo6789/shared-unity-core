@@ -1,4 +1,5 @@
 using System.Threading;
+using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
 using UnityGameFramework.Runtime;
 
@@ -21,7 +22,7 @@ public abstract class SkillForwardStatusCore : EntityStatusCore
         base.OnEnter(fsm);
 
         int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        CurSkillCfg = TemporaryInterface.GetDataTable<DRSkill>().GetDataRow(skillID);
+        CurSkillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
 
         try
         {
@@ -79,7 +80,7 @@ public abstract class SkillForwardStatusCore : EntityStatusCore
         try
         {
             _forwardTimeToken = new();
-            await TemporaryInterface.Delay(CurSkillCfg.ForwardReleaseTime, false, PlayerLoopTiming.Update, _forwardTimeToken.Token);
+            await UniTask.Delay(CurSkillCfg.ForwardReleaseTime, false, PlayerLoopTiming.Update, _forwardTimeToken.Token);
         }
         catch (System.Exception)
         {
