@@ -68,7 +68,7 @@ public class EntityBase
         //todo;
     }
 
-    public void InitBaseInfo(long id, eEntityType type)
+    public void InitBaseInfo(long id, MelandGame3.EntityType type)
     {
         BaseData.Init(id, type);
         Root.name = $"{type}_{id}";

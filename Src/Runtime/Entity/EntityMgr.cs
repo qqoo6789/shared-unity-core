@@ -65,7 +65,7 @@ public class EntityMgr<TEntity, TFactory> : MonoBehaviour where TEntity : Entity
     /// <param name="entityID"></param>
     /// <param name="entityType"></param>
     /// <returns></returns>
-    public virtual TEntity AddEntity(long entityID, eEntityType entityType)
+    public virtual TEntity AddEntity(long entityID, MelandGame3.EntityType entityType)
     {
         if (EntityDic.ContainsKey(entityID))
         {
@@ -111,7 +111,7 @@ public class EntityMgr<TEntity, TFactory> : MonoBehaviour where TEntity : Entity
         }
     }
 
-    protected virtual TEntity CreateEntity(long entityID, eEntityType entityType)
+    protected virtual TEntity CreateEntity(long entityID, MelandGame3.EntityType entityType)
     {
         return Factory.CreateSceneEntity(entityID, entityType);
     }

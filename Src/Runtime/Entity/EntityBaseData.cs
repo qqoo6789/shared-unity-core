@@ -4,12 +4,12 @@ public class EntityBaseData : MonoBehaviour
     [SerializeField]
     private long _id;
     [SerializeField]
-    private eEntityType _type;
+    private MelandGame3.EntityType _type;
 
     public long Id => _id;
-    public eEntityType Type => _type;
+    public MelandGame3.EntityType Type => _type;
 
-    public void Init(long id, eEntityType type)
+    public void Init(long id, MelandGame3.EntityType type)
     {
         _id = id;
         _type = type;
@@ -18,6 +18,6 @@ public class EntityBaseData : MonoBehaviour
     public void Reset()
     {
         _id = 0;
-        _type = eEntityType.unknown;
+        _type = MelandGame3.EntityType.EntityTypeAll;
     }
 }
