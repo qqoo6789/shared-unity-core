@@ -5,9 +5,18 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 寻路移动基类 业务层直接获取基类操作 需要外部自己设置PathMove组件和其中速度参数 寻路组件不重复设置 子类可能是navmesh寻路 也可能是A星等别的方式
 /// </summary>
+[RequireComponent(typeof(PathMove))]
 public abstract class FindPathMove : MonoBehaviour
 {
     private PathMove _pathMove;
+    protected PathMove PathMove => _pathMove;
+    protected Action<FindPathMove> MoveFinishCB;
+
+    /// <summary>
+    /// 当期目标点 停止移动后会置空
+    /// </summary>
+    /// <value></value>
+    protected Vector3? Destination { get; private set; }
 
     protected virtual void Start()
     {
@@ -19,11 +28,9 @@ public abstract class FindPathMove : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        if (_pathMove != null)
-        {
-            _pathMove.StopMove();
-            _pathMove = null;
-        }
+        StopMove();
+
+        _pathMove = null;
     }
 
     /// <summary>
@@ -32,7 +39,7 @@ public abstract class FindPathMove : MonoBehaviour
     /// <param name="destination">目的地 如果目的地不能走路 有可能最终走到附近一点点可以走路的地方</param>
     /// <param name="moveFinishCB">移动到终点后回调</param>
     /// <returns></returns>
-    public bool MoveToPosition(Vector3 destination, Action<FindPathMove> moveFinishCB)
+    public bool MoveToPosition(Vector3 destination, Action<FindPathMove> moveFinishCB = null)
     {
         if (_pathMove == null)
         {
@@ -40,6 +47,9 @@ public abstract class FindPathMove : MonoBehaviour
         }
 
         StopMove();
+
+        Destination = destination;
+        MoveFinishCB = moveFinishCB;
 
         Vector3[] path = FindPath(destination);
         if (path == null || path.Length == 0)
@@ -49,7 +59,11 @@ public abstract class FindPathMove : MonoBehaviour
 
         _pathMove.MovePath(path, (target) =>
         {
-            moveFinishCB?.Invoke(this);
+            //移动到达终点
+            MoveFinishCB?.Invoke(this);
+
+            Destination = null;
+            MoveFinishCB = null;
         });
         return true;
     }
@@ -63,6 +77,9 @@ public abstract class FindPathMove : MonoBehaviour
         {
             _pathMove.StopMove();
         }
+
+        Destination = null;
+        MoveFinishCB = null;
     }
 
     /// <summary>
