@@ -25,6 +25,11 @@ public class PathMove : MonoBehaviour
 
     private Tweener _curMoveTweener;
 
+    /// <summary>
+    /// 是否正在移动
+    /// </summary>
+    public bool IsMoving => _curPath != null;
+
     private void Awake()
     {
         _moveSpeed = 1;//不能为0的初始速度
