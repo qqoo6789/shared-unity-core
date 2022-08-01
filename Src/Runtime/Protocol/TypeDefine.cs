@@ -24,21 +24,21 @@ namespace MelandGame3 {
     static TypeDefineReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChB0eXBlRGVmaW5lLnByb3RvEgtNZWxhbmRHYW1lMyrWBAoKRW50aXR5VHlw",
+            "ChB0eXBlRGVmaW5lLnByb3RvEgtNZWxhbmRHYW1lMyrxBAoKRW50aXR5VHlw",
             "ZRIcChhFbnRpdHlUeXBlX0VudGl0eVR5cGVBbGwQABIiCh5FbnRpdHlUeXBl",
             "X0VudGl0eVR5cGVNYXBPYmplY3QQARIfChtFbnRpdHlUeXBlX0VudGl0eVR5",
-            "cGVQbGF5ZXIQAhIcChhFbnRpdHlUeXBlX0VudGl0eVR5cGVOcGMQBBIgChxF",
-            "bnRpdHlUeXBlX0VudGl0eVR5cGVNb25zdGVyEAgSJgoiRW50aXR5VHlwZV9F",
-            "bnRpdHlUeXBlUmVzb3VyY2VQb2ludBAQEiYKIkVudGl0eVR5cGVfRW50aXR5",
-            "VHlwZUZhbGxpbmdPYmplY3QQIBIhCh1FbnRpdHlUeXBlX0VudGl0eVR5cGVN",
-            "YXRlcmlhbBBAEh0KGEVudGl0eVR5cGVfRW50aXR5VHlwZUJvdBCAARIkCh9F",
-            "bnRpdHlUeXBlX0VudGl0eVR5cGVGYWxsaW5nQm94EIACEh8KGkVudGl0eVR5",
-            "cGVfRW50aXR5VHlwZVZhcmlhEIAEEh8KGkVudGl0eVR5cGVfRW50aXR5VHlw",
-            "ZVBsYW50EIAIEh0KGEVudGl0eVR5cGVfRW50aXR5VHlwZVBldBCAEBImCiFF",
-            "bnRpdHlUeXBlX0VudGl0eVR5cGVTcGVjaWFsQnVpbGQQgCASIAobRW50aXR5",
-            "VHlwZV9FbnRpdHlUeXBlUHVwcGV0EIBAEiIKHEVudGl0eVR5cGVfRW50aXR5",
-            "VHlwZVRlcnJhaW4QgIABEh4KGEVudGl0eVR5cGVfRW50aXR5VHlwZU1heBCA",
-            "gARiBnByb3RvMw=="));
+            "cGVQbGF5ZXIQAhIZChVFbnRpdHlUeXBlX01haW5QbGF5ZXIQAxIcChhFbnRp",
+            "dHlUeXBlX0VudGl0eVR5cGVOcGMQBBIgChxFbnRpdHlUeXBlX0VudGl0eVR5",
+            "cGVNb25zdGVyEAgSJgoiRW50aXR5VHlwZV9FbnRpdHlUeXBlUmVzb3VyY2VQ",
+            "b2ludBAQEiYKIkVudGl0eVR5cGVfRW50aXR5VHlwZUZhbGxpbmdPYmplY3QQ",
+            "IBIhCh1FbnRpdHlUeXBlX0VudGl0eVR5cGVNYXRlcmlhbBBAEh0KGEVudGl0",
+            "eVR5cGVfRW50aXR5VHlwZUJvdBCAARIkCh9FbnRpdHlUeXBlX0VudGl0eVR5",
+            "cGVGYWxsaW5nQm94EIACEh8KGkVudGl0eVR5cGVfRW50aXR5VHlwZVZhcmlh",
+            "EIAEEh8KGkVudGl0eVR5cGVfRW50aXR5VHlwZVBsYW50EIAIEh0KGEVudGl0",
+            "eVR5cGVfRW50aXR5VHlwZVBldBCAEBImCiFFbnRpdHlUeXBlX0VudGl0eVR5",
+            "cGVTcGVjaWFsQnVpbGQQgCASIAobRW50aXR5VHlwZV9FbnRpdHlUeXBlUHVw",
+            "cGV0EIBAEiIKHEVudGl0eVR5cGVfRW50aXR5VHlwZVRlcnJhaW4QgIABEh4K",
+            "GEVudGl0eVR5cGVfRW50aXR5VHlwZU1heBCAgARiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::MelandGame3.EntityType), }, null, null));
@@ -60,6 +60,7 @@ namespace MelandGame3 {
     /// 玩家
     /// </summary>
     [pbr::OriginalName("EntityType_EntityTypePlayer")] EntityTypePlayer = 2,
+    [pbr::OriginalName("EntityType_MainPlayer")] MainPlayer = 3,
     /// <summary>
     /// npc
     /// </summary>
