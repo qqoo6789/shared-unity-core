@@ -6,7 +6,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 技能前摇状态
 /// </summary>
-public abstract class SkillForwardStatusCore : EntityStatusCore
+public abstract class SkillForwardStatusCore : EntityStatusCore, IEntityCanMove
 {
     public static new string Name => "skillForward";
 
@@ -55,19 +55,15 @@ public abstract class SkillForwardStatusCore : EntityStatusCore
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
 
-        if (_inputData)
+        if (CheckCanMove())
         {
-            //能打断 时有移动输入时切换移动
-            if (CurSkillCfg.AccuBreakable)
+            if (_inputData.InputMoveDirection != null)
             {
-                if (_inputData.InputMoveDirection != null)
-                {
-                    ChangeState(fsm, DirectionMoveStatusCore.Name);
-                }
-                else if (_inputData.InputMovePath != null)
-                {
-                    ChangeState(fsm, PathMoveStatusCore.Name);
-                }
+                ChangeState(fsm, DirectionMoveStatusCore.Name);
+            }
+            else if (_inputData.InputMovePath != null)
+            {
+                ChangeState(fsm, PathMoveStatusCore.Name);
             }
         }
     }
@@ -105,4 +101,9 @@ public abstract class SkillForwardStatusCore : EntityStatusCore
     /// </summary>
     /// <param name="drSkill"></param>
     protected abstract void SkillForwardExecute(DRSkill drSkill);
+
+    public bool CheckCanMove()
+    {
+        return _inputData && CurSkillCfg.AccuBreakable;//能打断 时有移动输入时切换移动
+    }
 }

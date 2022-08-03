@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 蓄力状态
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/AccumulateStatusCore.cs
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/AccumulateStatusCore.cs
  * 
  */
 using System;
@@ -14,7 +14,7 @@ using Cysharp.Threading.Tasks;
 /// <summary>
 /// 蓄力状态通用状态基类 
 /// </summary>
-public abstract class AccumulateStatusCore : EntityStatusCore
+public abstract class AccumulateStatusCore : EntityStatusCore, IEntityCanMove
 {
     protected int SkillID;
     protected long TargetID;
@@ -64,5 +64,10 @@ public abstract class AccumulateStatusCore : EntityStatusCore
     protected virtual void AccumulateEnd()
     {
         ChangeState(OwnerFsm, SkillStatusType);
+    }
+
+    public bool CheckCanMove()
+    {
+        return DRSkill.AccuBreakable;
     }
 }
