@@ -1,58 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 技能形状基类，所有的技能形状都应该继承自这个类
+/// </summary>
 public abstract class SkillShapeBase
 {
-    /// <summary>
-    /// 技能目标层级
-    /// </summary>
-    protected int TargetLayer;
-    /// <summary>
-    /// 技能阻挡层级
-    /// </summary>
-    protected int BlockLayer;
-    /// <summary>
-    /// 技能范围锚点，作为检测是否命中目标射线的起点
-    /// </summary>
-    /// <returns></returns>
-    protected Vector3 Anchor => GetAnchor();
-
-    public void SetBlockLayer(int layer)
-    {
-        BlockLayer = layer;
-    }
-
-    public void SetBlockLayer(params string[] layerNames)
-    {
-        BlockLayer = LayerMask.GetMask(layerNames);
-    }
-
-    public void SetTargetLayer(int layer)
-    {
-        TargetLayer = layer;
-    }
-
-    public void SetTargetLayer(params string[] layerNames)
-    {
-        TargetLayer = LayerMask.GetMask(layerNames);
-    }
-
+    protected Vector3 Anchor;
     /// <summary>
     /// 检测范围内收到攻击的碰撞体
     /// </summary>
     /// <param name="targetLayer">技能目标层</param>
     /// <param name="blockLayer">技能阻挡曾</param>
     /// <returns></returns>
-    public List<Collider> Check(int targetLayer, int blockLayer)
+    public List<Collider> CheckHited(int targetLayer, int blockLayer)
     {
-        TargetLayer = targetLayer;
-        BlockLayer = blockLayer;
         List<Collider> hitColliderList = new();
-        Collider[] allColliders = CheckAll();
+        Collider[] allColliders = CheckAll(targetLayer);
         if (allColliders != null && allColliders.Length > 0)
         {
-            foreach (var collider in allColliders)
+            foreach (Collider collider in allColliders)
             {
-                if (SkillUtil.CheckP2P(Anchor, collider.transform.position, BlockLayer))
+                if (SkillUtil.CheckP2P(Anchor, collider.transform.position, blockLayer))
                 {
                     hitColliderList.Add(collider);
                 }
@@ -63,15 +31,19 @@ public abstract class SkillShapeBase
 
     /// <summary>
     /// 检测范围内收到攻击的碰撞体
-    /// 这里没有传blockLayer,不考虑遮挡关系，直接返回所有碰撞器
+    /// 这里没有传blockLayer，不考虑遮挡关系，范围内所有碰撞体都会被检测到
     /// </summary>
     /// <param name="targetLayer"></param>
     /// <returns></returns>
-    public Collider[] Check(int targetLayer)
+    public Collider[] CheckHited(int targetLayer)
     {
-        return CheckAll();
+        return CheckAll(targetLayer);
     }
 
-    protected abstract Collider[] CheckAll();
-    public abstract Vector3 GetAnchor();
+    /// <summary>
+    /// 检测范围内targetLayer层的所有碰撞体
+    /// </summary>
+    /// <param name="targetLayer"></param>
+    /// <returns></returns>
+    protected abstract Collider[] CheckAll(int targetLayer);
 }

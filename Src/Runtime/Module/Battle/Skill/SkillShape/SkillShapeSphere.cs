@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// 球形技能范围
+/// </summary>
 public class SkillShapeSphere : SkillShapeBase
 {
     private Vector3 _center;
@@ -9,15 +11,11 @@ public class SkillShapeSphere : SkillShapeBase
     {
         _center = center;
         _radius = radius;
+        Anchor = center;
     }
 
-    protected override Collider[] CheckAll()
+    protected override Collider[] CheckAll(int targetLayer)
     {
-        return Physics.OverlapSphere(_center, _radius, TargetLayer);
-    }
-
-    public override Vector3 GetAnchor()
-    {
-        return _center;
+        return Physics.OverlapSphere(_center, _radius, targetLayer);
     }
 }

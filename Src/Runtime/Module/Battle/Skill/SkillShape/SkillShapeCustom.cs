@@ -5,15 +5,8 @@ using UnityEngine;
 /// </summary>
 public class SkillShapeCustom : SkillShapeBase
 {
-    public override Vector3 GetAnchor()
+    protected override Collider[] CheckAll(int targetLayer)
     {
-        //todo
-        throw new System.NotImplementedException();
-    }
-
-    protected override Collider[] CheckAll()
-    {
-        //todo
         throw new System.NotImplementedException();
     }
 }
