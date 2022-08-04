@@ -346,7 +346,7 @@ namespace MelandGame3 {
             "A2F0dBgDIAEoBRIRCglhdHRfc3BlZWQYBCABKAUSCwoDZGVmGAUgASgFEhIK",
             "CmhwX2N1cnJlbnQYBiABKAUSEAoIaHBfbGltaXQYByABKAUSEQoJY3JpdF9y",
             "YXRlGAggASgFEhAKCGNyaXRfZG1nGAkgASgFEhAKCGhpdF9yYXRlGAogASgF",
-            "EhEKCW1pc3NfcmF0ZRgLIAEoBRISCgptb3ZlX3NwZWVkGAwgASgFEhAKCHB1",
+            "EhEKCW1pc3NfcmF0ZRgLIAEoBRISCgptb3ZlX3NwZWVkGAwgASgCEhAKCHB1",
             "c2hfZG1nGA0gASgFEhEKCXB1c2hfZGlzdBgOIAEoBRITCgtocF9yZWNvdmVy",
             "eRgVIAEoBRIUCgxodW5ncnlfbGltaXQYGSABKAUSFQoNdGhpcnN0eV9saW1p",
             "dBgaIAEoBRIVCg1mYXRpZ3VlX2xpbWl0GBsgASgFEhcKD2ZhdGlndWVfY3Vy",
@@ -29520,13 +29520,13 @@ namespace MelandGame3 {
 
     /// <summary>Field number for the "move_speed" field.</summary>
     public const int MoveSpeedFieldNumber = 12;
-    private int moveSpeed_;
+    private float moveSpeed_;
     /// <summary>
     /// 移动速度
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int MoveSpeed {
+    public float MoveSpeed {
       get { return moveSpeed_; }
       set {
         moveSpeed_ = value;
@@ -29664,7 +29664,7 @@ namespace MelandGame3 {
       if (CritDmg != other.CritDmg) return false;
       if (HitRate != other.HitRate) return false;
       if (MissRate != other.MissRate) return false;
-      if (MoveSpeed != other.MoveSpeed) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(MoveSpeed, other.MoveSpeed)) return false;
       if (PushDmg != other.PushDmg) return false;
       if (PushDist != other.PushDist) return false;
       if (HpRecovery != other.HpRecovery) return false;
@@ -29690,7 +29690,7 @@ namespace MelandGame3 {
       if (CritDmg != 0) hash ^= CritDmg.GetHashCode();
       if (HitRate != 0) hash ^= HitRate.GetHashCode();
       if (MissRate != 0) hash ^= MissRate.GetHashCode();
-      if (MoveSpeed != 0) hash ^= MoveSpeed.GetHashCode();
+      if (MoveSpeed != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(MoveSpeed);
       if (PushDmg != 0) hash ^= PushDmg.GetHashCode();
       if (PushDist != 0) hash ^= PushDist.GetHashCode();
       if (HpRecovery != 0) hash ^= HpRecovery.GetHashCode();
@@ -29760,9 +29760,9 @@ namespace MelandGame3 {
         output.WriteRawTag(88);
         output.WriteInt32(MissRate);
       }
-      if (MoveSpeed != 0) {
-        output.WriteRawTag(96);
-        output.WriteInt32(MoveSpeed);
+      if (MoveSpeed != 0F) {
+        output.WriteRawTag(101);
+        output.WriteFloat(MoveSpeed);
       }
       if (PushDmg != 0) {
         output.WriteRawTag(104);
@@ -29846,9 +29846,9 @@ namespace MelandGame3 {
         output.WriteRawTag(88);
         output.WriteInt32(MissRate);
       }
-      if (MoveSpeed != 0) {
-        output.WriteRawTag(96);
-        output.WriteInt32(MoveSpeed);
+      if (MoveSpeed != 0F) {
+        output.WriteRawTag(101);
+        output.WriteFloat(MoveSpeed);
       }
       if (PushDmg != 0) {
         output.WriteRawTag(104);
@@ -29921,8 +29921,8 @@ namespace MelandGame3 {
       if (MissRate != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(MissRate);
       }
-      if (MoveSpeed != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MoveSpeed);
+      if (MoveSpeed != 0F) {
+        size += 1 + 4;
       }
       if (PushDmg != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(PushDmg);
@@ -29990,7 +29990,7 @@ namespace MelandGame3 {
       if (other.MissRate != 0) {
         MissRate = other.MissRate;
       }
-      if (other.MoveSpeed != 0) {
+      if (other.MoveSpeed != 0F) {
         MoveSpeed = other.MoveSpeed;
       }
       if (other.PushDmg != 0) {
@@ -30073,8 +30073,8 @@ namespace MelandGame3 {
             MissRate = input.ReadInt32();
             break;
           }
-          case 96: {
-            MoveSpeed = input.ReadInt32();
+          case 101: {
+            MoveSpeed = input.ReadFloat();
             break;
           }
           case 104: {
@@ -30164,8 +30164,8 @@ namespace MelandGame3 {
             MissRate = input.ReadInt32();
             break;
           }
-          case 96: {
-            MoveSpeed = input.ReadInt32();
+          case 101: {
+            MoveSpeed = input.ReadFloat();
             break;
           }
           case 104: {
