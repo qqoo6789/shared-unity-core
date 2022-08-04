@@ -1,55 +1,52 @@
-using System;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
+using System;
 using GameFramework;
 using UnityEngine;
 
 public class SkillEffectBase : IReference
 {
-    protected int _duration = 0;
     /// <summary>
     /// 持续时间 小于零代表一致持续  0代表立即执行销毁  大于0即到时自动销毁
     /// </summary>
-    public int Duration => _duration;
-    protected long _fromID;//技能施法者 有可能为null  也可能不在视野内
+    public int Duration { get; private set; }
+
     /// <summary>
     /// 技能释放者ID
     /// </summary>
-    public long FromID => _fromID;
-    protected long _targetID;//技能接收者 一般就是最后应用效果的实体
+    public long FromID { get; private set; }
+
     /// <summary>
     /// 技能接受者ID
     /// </summary>
-    public long TargetID => _targetID;
-    protected long _destroyTimestamp;
+    public long TargetID { get; private set; }
+
     /// <summary>
     /// 效果销毁时间 ms
     /// </summary>
-    public long DestroyTimestamp { set; get; }
-    protected int _skillID;
+    public long DestroyTimestamp { get; set; }
     /// <summary>
     /// 技能ID
     /// </summary>
-    public int SkillID => _skillID;
-    protected int _effectID;
+    public int SkillID { get; private set; }
     /// <summary>
     /// 效果ID
     /// </summary>
-    public int EffectID => _effectID;
+    public int EffectID { get; private set; }
     /// <summary>
     /// 效果是否重复叠加
     /// </summary>
     public virtual bool IsRepeat => false;
-    private GameObject _refOwner;
+
     /// <summary>
     /// 宿主对象
     /// </summary>
-    public GameObject RefOwner => _refOwner;
+    public GameObject RefOwner { get; private set; }
     /// <summary>
     /// 设置效果数据
     /// </summary>
@@ -60,11 +57,11 @@ public class SkillEffectBase : IReference
     /// <param name="duration">持续时间</param>
     public virtual void SetData(int skillID, int effectID, long fromID, long targetID, int duration)
     {
-        _skillID = skillID;
-        _effectID = effectID;
-        _fromID = fromID;
-        _targetID = targetID;
-        _duration = duration;
+        SkillID = skillID;
+        EffectID = effectID;
+        FromID = fromID;
+        TargetID = targetID;
+        Duration = duration;
 
     }
     /// <summary>
@@ -77,13 +74,13 @@ public class SkillEffectBase : IReference
     }
     public virtual void Clear()
     {
-        _duration = 0;
-        _fromID = 0;
-        _targetID = 0;
-        _destroyTimestamp = 0;
-        _effectID = 0;
-        _skillID = 0;
-        _refOwner = null;
+        Duration = 0;
+        FromID = 0;
+        TargetID = 0;
+        DestroyTimestamp = 0;
+        EffectID = 0;
+        SkillID = 0;
+        RefOwner = null;
     }
     /// <summary>
     /// 添加后执行第一次
@@ -120,30 +117,30 @@ public class SkillEffectBase : IReference
     /// </summary>
     public virtual void OnRefreshRepeat(SkillEffectBase newEffect)
     {
-        _destroyTimestamp = newEffect.DestroyTimestamp;
+        DestroyTimestamp = newEffect.DestroyTimestamp;
     }
 
     //添加效果
     public void AddEffect(GameObject owner)
     {
-        if (_refOwner)
+        if (RefOwner)
         {
             return;
         }
-        _refOwner = owner;
+        RefOwner = owner;
         OnAdd();
     }
 
     //删除效果
     public void RemoveEffect()
     {
-        if (_refOwner == null)
+        if (RefOwner == null)
         {
             return;
         }
 
         OnRemove();
-        _refOwner = null;
+        RefOwner = null;
     }
 
     public static SkillEffectBase Create(Type skillEffectClass)
