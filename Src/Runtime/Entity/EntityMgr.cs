@@ -73,18 +73,18 @@ public class EntityMgr<TEntity, TFactory> : MonoBehaviour where TEntity : Entity
             RemoveEntity(entityID);
         }
 
-        TEntity entity = CreateEntity(entityID, entityType);
         try
         {
-            entity.Init();
+            TEntity entity = CreateEntity(entityID, entityType);
+            EntityDic.Add(entityID, entity);
+            EntityRootDic.Add(entity.RootID, entity);
+            return entity;
         }
         catch (Exception e)
         {
             Log.Error($"Entity {entityID} init failed,type={entityType},error={e}");
+            return null;
         }
-        EntityDic.Add(entityID, entity);
-        EntityRootDic.Add(entity.RootID, entity);
-        return entity;
     }
 
     /// <summary>

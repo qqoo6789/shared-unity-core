@@ -20,11 +20,11 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="clientPos"></param>
     /// <returns></returns>
-    public static MelandGame3.EntityLocation LocToNet(Vector3 clientPos)
+    public static MelandGame3.EntityLocation LocToNet(Vector3 clientPos, int mapId = 0)
     {
         return new MelandGame3.EntityLocation()
         {
-            MapId = 0,
+            MapId = mapId,
             Loc = Vector3ToNet(clientPos)
         };
     }

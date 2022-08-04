@@ -13,6 +13,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     private EntityInputData _inputData;
     private PathMove _pathMove;
+    protected PathMove PathMove => _pathMove;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -28,7 +29,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
             return;
         }
 
-        if (!StatusCtrl.TryGetComponent<PathMove>(out _pathMove))
+        if (!StatusCtrl.TryGetComponent(out _pathMove))
         {
             Log.Error($"path move status enter,not find PathMove,name={StatusCtrl.gameObject.name}");
             ChangeState(fsm, IdleStatusCore.Name);

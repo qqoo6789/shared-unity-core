@@ -68,6 +68,21 @@ public class EntityStatusCtrl : MonoBehaviour
         Fsm.Start<TStartStatus>();
     }
 
+    /// <summary>
+    /// 启动状态 需要给定启动状态
+    /// </summary>
+    /// <typeparam name="TStartStatus"></typeparam>
+    public void StartStatus(string name)
+    {
+        if (Fsm == null)
+        {
+            Log.Error($"start status when not init fsm name={gameObject.name}");
+            return;
+        }
+
+        Fsm.Start(name);
+    }
+
     private IFsmManager GetFsmManager()
     {
         if (s_cacheFsmMgr == null)
