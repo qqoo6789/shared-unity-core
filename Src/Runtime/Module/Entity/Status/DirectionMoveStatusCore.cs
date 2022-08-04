@@ -72,7 +72,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         }
 
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-        ChangeState(OwnerFsm, SkillForwardStatusCore.Name);
+        ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 
     public bool CheckCanMove()

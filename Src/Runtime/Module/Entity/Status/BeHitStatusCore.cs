@@ -2,10 +2,9 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 受击状态 理论上受击状态只有表现,服务器用不到
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
  * 
  */
-using System;
 using GameFramework.Fsm;
 
 /// <summary>
@@ -13,11 +12,7 @@ using GameFramework.Fsm;
 /// </summary>
 public abstract class BeHitStatusCore : EntityStatusCore, IEntityCanMove, IEntityCanSkill
 {
-    /// <summary>
-    /// 子类确定Idle状态类型
-    /// </summary>
-    /// <value></value>
-    protected virtual Type IdleStatusType => typeof(IdleStatusCore);
+    public static new string Name => "beHit";
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -31,7 +26,7 @@ public abstract class BeHitStatusCore : EntityStatusCore, IEntityCanMove, IEntit
 
     protected virtual void OnBeHitComplete()
     {
-        ChangeState(OwnerFsm, IdleStatusType);
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     public bool CheckCanMove()
