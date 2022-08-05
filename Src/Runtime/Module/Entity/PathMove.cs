@@ -38,6 +38,11 @@ public class PathMove : MonoBehaviour
     /// 位置更新事件 T0：最新位置
     /// </summary>
     public event Action<Vector3> OnPosUpdatedEvent;
+    /// <summary>
+    /// 路径拐点变化 如果先监听了再移动 会立马回调下一个拐点位置 T0：下个目标拐点位置
+    /// </summary>
+    public event Action<Vector3> OnWaypointChangedEvent;
+
     private void Awake()
     {
         _moveSpeed = 1;//不能为0的初始速度
@@ -141,6 +146,7 @@ public class PathMove : MonoBehaviour
         {
             _curMoveTweener.SetEase(Ease.Linear).onComplete += OnMoveArrived;
             _curMoveTweener.onUpdate += OnPosUpdated;
+            _curMoveTweener.onWaypointChange += OnWaypointChanged;
         }
     }
 
@@ -159,6 +165,26 @@ public class PathMove : MonoBehaviour
     {
         OnPosUpdatedEvent?.Invoke(transform.position);
     }
+
+    private void OnWaypointChanged(int index)
+    {
+        //index 是到拐点本身   如果路径长度为4  会在0~4 一开始移动会到0 最后一个点会是4
+        if (index > _curPath.Length)//正常情况最后一次回调就是index==_curPath.Length
+        {
+            Log.Error($"path move not find way point index:{index} curLenght:{_curPath.Length}");
+            return;
+        }
+
+        //tween本意是到拐点回调 所以最后index是这样 但是我们为了回调当做目标点更新
+        if (index == _curPath.Length)
+        {
+            return;
+        }
+
+        Vector3 waypoint = _curPath[index];
+        OnWaypointChangedEvent?.Invoke(waypoint);
+    }
+
     /// <summary>
     /// 计算路径所需时间
     /// </summary>

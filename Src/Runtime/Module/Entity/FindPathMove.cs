@@ -1,16 +1,25 @@
 using System;
 using UnityEngine;
-using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 寻路移动基类 业务层直接获取基类操作 需要外部自己设置PathMove组件和其中速度参数 寻路组件不重复设置 子类可能是navmesh寻路 也可能是A星等别的方式
 /// </summary>
-[RequireComponent(typeof(PathMove))]
 public abstract class FindPathMove : MonoBehaviour
 {
-    private PathMove _pathMove;
-    protected PathMove PathMove => _pathMove;
-    protected Action<FindPathMove> MoveFinishCB;
+    [Tooltip("勾上后只会输入程序需要的移动数据，不会自动执行移动")]
+    public bool OnlyInputMoveData = false;
+
+    # region 仅仅输入移动数据方式
+    private EntityInputData _inputData;//只有在OnlyInputMoveData==true下才有效 此时不会真的移动 只会输入到该组件类 由状态机驱动移动
+    private EntityEvent _entityEvent;
+    #endregion
+
+    # region 能够执行移动方式
+    private PathMove _pathMove;//只有在OnlyInputMoveData==false下 代表需要自动移动时才直接控制这个组件移动
+    private bool _addedPathMove = false;
+    #endregion
+
+    protected Action<FindPathMove> MoveArrivedCB;
 
     /// <summary>
     /// 当期目标点 停止移动后会置空
@@ -20,9 +29,19 @@ public abstract class FindPathMove : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (!TryGetComponent(out _pathMove))
+        if (OnlyInputMoveData)
         {
-            Log.Error($"find path move not find path move component,name={gameObject.name}");
+            _inputData = GetComponent<EntityInputData>();
+            _entityEvent = GetComponent<EntityEvent>();
+            _entityEvent.OnEntityPathMoveArrived += OnMoveArrived;
+        }
+        else
+        {
+            if (!TryGetComponent(out _pathMove))
+            {
+                _pathMove = gameObject.AddComponent<PathMove>();
+                _addedPathMove = true;
+            }
         }
     }
 
@@ -30,41 +49,51 @@ public abstract class FindPathMove : MonoBehaviour
     {
         StopMove();
 
-        _pathMove = null;
+        if (OnlyInputMoveData)
+        {
+            _inputData = null;
+            _entityEvent.OnEntityPathMoveArrived -= OnMoveArrived;
+            _entityEvent = null;
+        }
+        else
+        {
+            if (_addedPathMove)
+            {
+                Destroy(_pathMove);
+            }
+            _pathMove = null;
+        }
     }
 
     /// <summary>
     /// 移动到某个点 可能会寻路失败 返回false
     /// </summary>
     /// <param name="destination">目的地 如果目的地不能走路 有可能最终走到附近一点点可以走路的地方</param>
-    /// <param name="moveFinishCB">移动到终点后回调</param>
+    /// <param name="moveArrivedCB">移动到终点后回调 对仅仅是寻路输入移动数据的情况下无效 需要自行监听事件</param>
     /// <returns></returns>
-    public bool MoveToPosition(Vector3 destination, Action<FindPathMove> moveFinishCB = null)
+    public bool MoveToPosition(Vector3 destination, Action<FindPathMove> moveArrivedCB = null)
     {
-        if (_pathMove == null)
-        {
-            return false;
-        }
-
         StopMove();
 
         Destination = destination;
-        MoveFinishCB = moveFinishCB;
+        MoveArrivedCB = moveArrivedCB;
 
         Vector3[] path = FindPath(destination);
+
         if (path == null || path.Length == 0)
         {
             return false;
         }
 
-        _pathMove.MovePath(path, (target) =>
+        if (OnlyInputMoveData)
         {
-            //移动到达终点
-            MoveFinishCB?.Invoke(this);
+            _inputData.SetInputMovePath(path);
+        }
+        else
+        {
+            _pathMove.MovePath(path, (target) => OnMoveArrived());
+        }
 
-            Destination = null;
-            MoveFinishCB = null;
-        });
         return true;
     }
 
@@ -73,13 +102,26 @@ public abstract class FindPathMove : MonoBehaviour
     /// </summary>
     public void StopMove()
     {
-        if (_pathMove != null)
+        if (OnlyInputMoveData)
+        {
+            _inputData.SetInputMovePath(null);
+        }
+        else
         {
             _pathMove.StopMove();
         }
 
         Destination = null;
-        MoveFinishCB = null;
+        MoveArrivedCB = null;
+    }
+
+    private void OnMoveArrived()
+    {
+        //移动到达终点
+        MoveArrivedCB?.Invoke(this);
+
+        Destination = null;
+        MoveArrivedCB = null;
     }
 
     /// <summary>

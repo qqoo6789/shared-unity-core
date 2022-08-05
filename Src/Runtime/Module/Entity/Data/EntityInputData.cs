@@ -51,4 +51,13 @@ public class EntityInputData : MonoBehaviour
             _entityEvent.InputMovePathChanged?.Invoke(path);
         }
     }
+
+    /// <summary>
+    /// 所有移动输入停止
+    /// </summary>
+    public void InputMoveStop()
+    {
+        InputMoveDirection = null;
+        InputMovePath = null;
+    }
 }
