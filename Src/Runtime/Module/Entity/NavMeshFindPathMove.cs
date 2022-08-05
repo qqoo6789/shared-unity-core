@@ -30,6 +30,12 @@ public class NavMeshFindPathMove : FindPathMove
             return null;
         }
 
+        //TODO:需要解决 不应该这样 怪物出生在寻路数据外 这里报错太多 先屏蔽掉
+        if (!_refNavMeshAgent.isOnNavMesh)
+        {
+            return null;
+        }
+
         if (!_refNavMeshAgent.CalculatePath(destination, _buffResultPath))
         {
             return null;
