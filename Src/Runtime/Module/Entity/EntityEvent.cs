@@ -14,4 +14,8 @@ public class EntityEvent : MonoBehaviour
     /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID
     /// </summary>
     public Action<int> InputSkillRelease;
+    /// <summary>
+    /// 实体路径移动到达目标点 中途停止不会广播 只有通过实体本身路径移动才会广播 单纯使用通用移动脚本直接移动的不会广播
+    /// </summary>
+    public Action OnEntityPathMoveArrived;
 }
