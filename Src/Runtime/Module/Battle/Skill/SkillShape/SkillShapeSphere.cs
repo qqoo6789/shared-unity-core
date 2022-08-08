@@ -7,11 +7,12 @@ public class SkillShapeSphere : SkillShapeBase
     private Vector3 _center;
     private float _radius;
 
-    public SkillShapeSphere(Vector3 center, float radius)
+    public void Init(Vector3 center, float radius)
     {
         _center = center;
         _radius = radius;
         Anchor = center;
+        InitShape = true;
     }
 
     protected override Collider[] CheckAll(int targetLayer)

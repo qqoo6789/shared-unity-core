@@ -14,20 +14,22 @@ public class SkillShapeCapsule : SkillShapeBase
     /// <param name="p2">胶囊体端点2</param>
     /// <param name="radius">胶囊球形半径</param>
     /// <param name="anchor">伤害锚点</param>
-    public SkillShapeCapsule(Vector3 p1, Vector3 p2, float radius, Vector3 anchor)
+    public void Init(Vector3 p1, Vector3 p2, float radius, Vector3 anchor)
     {
         _p1 = p1;
         _p2 = p2;
         _radius = radius;
         Anchor = anchor;
+        InitShape = true;
     }
 
-    public SkillShapeCapsule(Vector3 p1, Vector3 p2, float radius)
+    public void Init(Vector3 p1, Vector3 p2, float radius)
     {
         _p1 = p1;
         _p2 = p2;
         _radius = radius;
         Anchor = (_p1 + _p2) / 2;
+        InitShape = true;
     }
 
     protected override Collider[] CheckAll(int targetLayer)

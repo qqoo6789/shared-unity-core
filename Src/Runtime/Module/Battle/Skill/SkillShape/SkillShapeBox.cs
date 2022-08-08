@@ -11,42 +11,46 @@ public class SkillShapeBox : SkillShapeBase
 
 
     /// <summary>
-    /// 全参数构造函数
+    /// 全参数初始化函数
     /// </summary>
     /// <param name="center">box中心点</param>
     /// <param name="halfSize">中心点到box的xyz面的距离，主要如果要表达变长为10的立方体，这是halfSize的值应该是new Vector3(10,10,10)</param>
     /// <param name="rotation">box的旋转状态</param>
     /// <param name="anchor">技能锚点</param>
-    public SkillShapeBox(Vector3 center, Vector3 halfSize, Quaternion rotation, Vector3 anchor)
+    public void Init(Vector3 center, Vector3 halfSize, Quaternion rotation, Vector3 anchor)
     {
         _center = center;
         _halfSize = halfSize;
         _rotation = rotation;
         Anchor = anchor;
+        InitShape = true;
     }
 
-    public SkillShapeBox(Vector3 center, Vector3 halfSize, Quaternion rotation)
+    public void Init(Vector3 center, Vector3 halfSize, Quaternion rotation)
     {
         _center = center;
         _halfSize = halfSize;
         _rotation = rotation;
         Anchor = center;
+        InitShape = true;
     }
 
-    public SkillShapeBox(Vector3 center, Vector3 halfSize)
+    public void Init(Vector3 center, Vector3 halfSize)
     {
         _center = center;
         _halfSize = halfSize;
         _rotation = Quaternion.identity;
         Anchor = center;
+        InitShape = true;
     }
 
-    public SkillShapeBox(Vector3 center, Vector3 halfSize, Vector3 anchor)
+    public void Init(Vector3 center, Vector3 halfSize, Vector3 anchor)
     {
         _center = center;
         _halfSize = halfSize;
         _rotation = Quaternion.identity;
         Anchor = anchor;
+        InitShape = true;
     }
 
     protected override Collider[] CheckAll(int targetLayer)
