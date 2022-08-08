@@ -176,6 +176,15 @@ public class DRRecipes : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取客户端分类等级。*/
+    /// </summary>
+    public int ClassifyLevel
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -199,6 +208,7 @@ public class DRRecipes : DataRowBase
         MatItemId = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         UseDitamin = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UseMELD = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        ClassifyLevel = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -228,6 +238,7 @@ public class DRRecipes : DataRowBase
                 MatItemId = binaryReader.ReadArrayList<Int32>();
                 UseDitamin = binaryReader.Read7BitEncodedInt32();
                 UseMELD = binaryReader.Read7BitEncodedInt32();
+                ClassifyLevel = binaryReader.Read7BitEncodedInt32();
             }
         }
 
