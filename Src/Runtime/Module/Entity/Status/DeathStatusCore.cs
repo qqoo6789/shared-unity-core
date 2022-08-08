@@ -27,6 +27,7 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        CancelTimeDeath();
         base.OnLeave(fsm, isShutdown);
     }
 
