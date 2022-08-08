@@ -7,6 +7,7 @@ public class EntityFactory<TEntity> where TEntity : EntityBase, new()
     {
         TEntity entity = new();
         entity.InitBaseInfo(id, type);
+        entity.Init();
         return AssemblyEntity(entity);//返回装备后的实体
     }
 

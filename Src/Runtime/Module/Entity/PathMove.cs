@@ -21,6 +21,10 @@ public class PathMove : MonoBehaviour
 
     [SerializeField]
     private Vector3[] _curPath;
+    /// <summary>
+    /// 当前路径 不要修改 没有GC
+    /// </summary>
+    public Vector3[] CurPath => _curPath;
     private Action<PathMove> _arrivedCB;
 
     private Tweener _curMoveTweener;
@@ -30,6 +34,10 @@ public class PathMove : MonoBehaviour
     /// </summary>
     public bool IsMoving => _curPath != null;
 
+    /// <summary>
+    /// 位置更新事件 T0：最新位置
+    /// </summary>
+    public event Action<Vector3> OnPosUpdatedEvent;
     private void Awake()
     {
         _moveSpeed = 1;//不能为0的初始速度
@@ -132,6 +140,7 @@ public class PathMove : MonoBehaviour
         if (_curMoveTweener != null)
         {
             _curMoveTweener.SetEase(Ease.Linear).onComplete += OnMoveArrived;
+            _curMoveTweener.onUpdate += OnPosUpdated;
         }
     }
 
@@ -146,6 +155,10 @@ public class PathMove : MonoBehaviour
         _curPath = null;
     }
 
+    private void OnPosUpdated()
+    {
+        OnPosUpdatedEvent?.Invoke(transform.position);
+    }
     /// <summary>
     /// 计算路径所需时间
     /// </summary>
