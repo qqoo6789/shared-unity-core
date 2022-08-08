@@ -22,10 +22,12 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
     protected CancellationTokenSource CancelToken;
 
     public static new string Name => "skillAccumulate";
+    private EntityBattleDataCore _battleData;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
+        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         TargetID = fsm.GetData<VarInt64>(StatusDataDefine.SKILL_TARGET_ID).Value;
         DRSkill = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
@@ -54,12 +56,17 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
     {
         CancelTimeAccumulate();
         _inputData = null;
+        _battleData = null;
         base.OnLeave(fsm, isShutdown);
     }
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-
+        if (_battleData && !_battleData.IsLive())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
         if (CheckCanMove())
         {
             if (_inputData.InputMoveDirection != null)

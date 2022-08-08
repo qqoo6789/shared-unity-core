@@ -14,6 +14,7 @@ public class SkillCastStatusCore : EntityStatusCore
 
     protected DRSkill CurSkillCfg;
     private CancellationTokenSource _castTimeToken;
+    private EntityBattleDataCore _battleData;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -21,6 +22,7 @@ public class SkillCastStatusCore : EntityStatusCore
 
         int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         CurSkillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
 
         try
         {
@@ -38,6 +40,7 @@ public class SkillCastStatusCore : EntityStatusCore
     {
         CancelTimeCastFinish();
         CurSkillCfg = null;
+        _battleData = null;
 
         base.OnLeave(fsm, isShutdown);
     }
@@ -58,6 +61,11 @@ public class SkillCastStatusCore : EntityStatusCore
             return;
         }
         _castTimeToken = null;
+        if (_battleData && !_battleData.IsLive())
+        {
+            ChangeState(OwnerFsm, DeathStatusCore.Name);
+            return;
+        }
         ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 

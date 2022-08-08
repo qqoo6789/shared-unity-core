@@ -13,20 +13,31 @@ using GameFramework.Fsm;
 public abstract class BeHitStatusCore : EntityStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name => "beHit";
-
+    private EntityBattleDataCore _battleData;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
+        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        _battleData = null;
         base.OnLeave(fsm, isShutdown);
     }
 
     protected virtual void OnBeHitComplete()
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
+    }
+    protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+        if (_battleData && !_battleData.IsLive())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
     }
 
     public bool CheckCanMove()

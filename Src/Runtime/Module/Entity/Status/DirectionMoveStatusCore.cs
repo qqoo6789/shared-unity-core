@@ -12,12 +12,14 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
 
     private EntityInputData _inputData;
     private DirectionMove _directionMove;
+    private EntityBattleDataCore _battleData;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
+        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         if (StatusCtrl.TryGetComponent<DirectionMove>(out _directionMove))
         {
             _directionMove.enabled = true;//开启方向移动组件去移动
@@ -33,6 +35,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
         _inputData = null;
+        _battleData = null;
 
         if (_directionMove)
         {
@@ -46,7 +49,11 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-
+        if (_battleData && !_battleData.IsLive())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
         if (_inputData.InputMoveDirection == null)
         {
             ChangeState(fsm, IdleStatusCore.Name);

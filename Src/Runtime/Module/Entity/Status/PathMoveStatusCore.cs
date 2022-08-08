@@ -14,12 +14,14 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     private EntityInputData _inputData;
     private PathMove _pathMove;
     protected PathMove PathMove => _pathMove;
+    private EntityBattleDataCore _battleData;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
+        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
 
         Vector3[] path = _inputData.InputMovePath;
         if (path == null || path.Length == 0)
@@ -43,6 +45,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        _battleData = null;
         if (_inputData != null)
         {
             _inputData.SetInputMovePath(null, false);
@@ -75,7 +78,15 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
-
+    protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+        if (_battleData && !_battleData.IsLive())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
+    }
     //路径改了
     private void OnPathChanged(Vector3[] path)
     {

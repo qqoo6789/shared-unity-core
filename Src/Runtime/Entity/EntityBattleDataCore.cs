@@ -120,4 +120,12 @@ public class EntityBattleDataCore : MonoBehaviour
         IsInvincible = invincible;
         return true;
     }
+
+    /// <summary>
+    /// 是否存活
+    /// </summary>
+    public bool IsLive()
+    {
+        return HP > 0;
+    }
 }
