@@ -1,10 +1,45 @@
+/** 
+ * @Author XQ
+ * @Date 2022-08-09 17:39:06
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Util/NetUtilCore.cs
+ */
+using System;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 处理网络数据转换的工具类 共享库
 /// </summary>
 public static class NetUtilCore
 {
+    /// <summary>
+    /// 实体ID从协议转long型 TODO:将来这个方法会废弃掉 方便一键替换
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static long EntityIDFromNet(string id)
+    {
+        try
+        {
+            return Convert.ToInt64(id);
+        }
+        catch (Exception)
+        {
+            Log.Error($"entity id error : {id}");
+            return -1;
+        }
+    }
+
+    /// <summary>
+    /// 实体ID转成协议需要string型 TODO:将来这个方法会废弃掉 方便一键替换
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static string EntityIDToNet(long id)
+    {
+        return id.ToString();
+    }
+
     /// <summary>
     /// 协议 location 转客户端坐标
     /// </summary>
