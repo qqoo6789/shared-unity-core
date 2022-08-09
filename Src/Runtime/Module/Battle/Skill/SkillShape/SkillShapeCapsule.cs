@@ -13,7 +13,7 @@ public class SkillShapeCapsule : SkillShapeBase
     /// <param name="p1">胶囊体端点1</param>
     /// <param name="p2">胶囊体端点2</param>
     /// <param name="radius">胶囊球形半径</param>
-    /// <param name="anchor">伤害锚点</param>
+    /// <param name="anchor">伤害锚点,注意，该锚点是世界坐标系</param>
     public void Init(Vector3 p1, Vector3 p2, float radius, Vector3 anchor)
     {
         _p1 = p1;

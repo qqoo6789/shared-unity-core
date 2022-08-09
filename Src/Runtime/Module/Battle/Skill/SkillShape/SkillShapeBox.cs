@@ -16,7 +16,7 @@ public class SkillShapeBox : SkillShapeBase
     /// <param name="center">box中心点</param>
     /// <param name="halfSize">中心点到box的xyz面的距离，主要如果要表达变长为10的立方体，这是halfSize的值应该是new Vector3(10,10,10)</param>
     /// <param name="rotation">box的旋转状态</param>
-    /// <param name="anchor">技能锚点</param>
+    /// <param name="anchor">技能锚点,注意，该锚点是世界坐标系</param>
     public void Init(Vector3 center, Vector3 halfSize, Quaternion rotation, Vector3 anchor)
     {
         _center = center;
