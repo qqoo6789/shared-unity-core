@@ -2,10 +2,9 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 受击状态 理论上受击状态只有表现,服务器用不到
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
  * 
  */
-using System;
 using GameFramework.Fsm;
 
 /// <summary>
@@ -13,25 +12,32 @@ using GameFramework.Fsm;
 /// </summary>
 public abstract class BeHitStatusCore : EntityStatusCore, IEntityCanMove, IEntityCanSkill
 {
-    /// <summary>
-    /// 子类确定Idle状态类型
-    /// </summary>
-    /// <value></value>
-    protected virtual Type IdleStatusType => typeof(IdleStatusCore);
-
+    public static new string Name => "beHit";
+    private EntityBattleDataCore _battleData;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
+        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        _battleData = null;
         base.OnLeave(fsm, isShutdown);
     }
 
     protected virtual void OnBeHitComplete()
     {
-        ChangeState(OwnerFsm, IdleStatusType);
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
+    }
+    protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+        if (_battleData && !_battleData.IsLive())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
     }
 
     public bool CheckCanMove()

@@ -2,24 +2,21 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能效果组件
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Battle/Cpt/SkillEffectCpt.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
  * 
  */
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillEffectCpt : MonoBehaviour
 {
-    public List<SkillEffectBase> _skillEffects;
-    // Start is called before the first frame update
-    void Awake()
+    private List<SkillEffectBase> _skillEffects;
+    private void Awake()
     {
         _skillEffects = new();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_skillEffects.Count <= 0)
         {

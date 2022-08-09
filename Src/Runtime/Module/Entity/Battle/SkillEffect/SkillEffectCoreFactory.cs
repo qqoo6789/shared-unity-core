@@ -2,25 +2,24 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:49:14
  * @Description: 技能效果球工厂
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Battle/SkillEffect/SkillEffectFactory.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectCoreFactory.cs
  * 
  */
 using System;
 using System.Collections.Generic;
-using GameFramework;
 using UnityGameFramework.Runtime;
 
 
-public class SkillEffectFactory
+public class SkillEffectCoreFactory
 {
-    protected Dictionary<BattleDefine.eSkillEffectId, Type> s_skillEffectMap;
+    protected Dictionary<BattleDefine.eSkillEffectId, Type> SkillEffectMap;
 
     /// <summary>
     /// 初始化效果工厂Map
     /// </summary>
     public virtual void InitSkillEffectMap()
     {
-        s_skillEffectMap = new();
+        SkillEffectMap = new();
     }
     /// <summary>
     /// 创建技能效果
@@ -31,20 +30,20 @@ public class SkillEffectFactory
     /// <param name="targetID">技能接收ID</param>
     /// <param name="duration">技能持续时间 小于0代表一致持续  0代表立即执行销毁  大于0即到时自动销毁</param>
     /// <returns></returns>
-    public SkillEffectBase createOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0)
+    public SkillEffectBase CreateOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0)
     {
-        if (s_skillEffectMap == null)
+        if (SkillEffectMap == null)
         {
             Log.Error($"createOneSkillEffect Error not init skill effect map");
             return null;
         }
-        if (!s_skillEffectMap.ContainsKey((BattleDefine.eSkillEffectId)effectID))
+        if (!SkillEffectMap.ContainsKey((BattleDefine.eSkillEffectId)effectID))
         {
             Log.Error($"createOneSkillEffect Error effectID is Unknown  skillID = {skillID} effectID = {effectID}");
             return null;
         }
 
-        s_skillEffectMap.TryGetValue((BattleDefine.eSkillEffectId)effectID, out Type skillEffectClass);
+        Type skillEffectClass = SkillEffectMap[(BattleDefine.eSkillEffectId)effectID];
         SkillEffectBase effect = SkillEffectBase.Create(skillEffectClass);
         effect.SetData(skillID, effectID, fromID, targetID, duration);
         return effect;
