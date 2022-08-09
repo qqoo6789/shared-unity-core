@@ -43,7 +43,7 @@ public class SkillEffectCoreFactory
             return null;
         }
 
-        _ = SkillEffectMap.TryGetValue((BattleDefine.eSkillEffectId)effectID, out Type skillEffectClass);
+        Type skillEffectClass = SkillEffectMap[(BattleDefine.eSkillEffectId)effectID];
         SkillEffectBase effect = SkillEffectBase.Create(skillEffectClass);
         effect.SetData(skillID, effectID, fromID, targetID, duration);
         return effect;
