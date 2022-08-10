@@ -22,6 +22,7 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
     protected CancellationTokenSource CancelToken;
 
     public static new string Name => "skillAccumulate";
+    public override string StatusName => Name;
     private EntityBattleDataCore _battleData;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
