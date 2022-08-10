@@ -21,7 +21,7 @@ public abstract class DirectionMove : MonoBehaviour
     /// 正在移动
     /// </summary>
     /// <value></value>
-    protected bool IsMoving { get; private set; }
+    protected bool IsMoving { get; private set; } = true;//默认true 让美术预览时自动移动
 
     protected virtual void Start()
     {
