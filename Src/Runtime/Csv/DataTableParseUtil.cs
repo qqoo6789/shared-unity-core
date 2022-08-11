@@ -1,10 +1,10 @@
 ﻿/*
  * @Author: xiang huan
  * @Date: 2022-05-20 10:05:57
- * @LastEditTime: 2022-07-06 16:41:35
+ * @LastEditTime: 2022-08-11 11:10:38
  * @LastEditors: Please set LastEditors
  * @Description: 
- * @FilePath: /meland-unity/Assets/Src/Csv/DataTableParseUtil.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/DataTableParseUtil.cs
  * 
  */
 
@@ -104,19 +104,22 @@ public static class DataTableParseUtil
     public static T[] ParseArray<T>(string value)
     {
         string[] valueList = value.Split(',');
-        T[] values = new T[valueList.Length];
-        for (int i = 0; i < valueList.Length; i++)
+        List<T> values = new();
+        if (value.Length > 0 && valueList != null)
         {
-            values[i] = (T)ChangeType<T>(valueList[i]);
+            for (int i = 0; i < valueList.Length; i++)
+            {
+                values.Add((T)ChangeType<T>(valueList[i]));
+            }
         }
-        return values;
+        return values.ToArray();
     }
 
     public static T[][] ParseArrayList<T>(string value)
     {
         string[] valuesList = value.Split(';');
         List<T[]> arrayList = new();
-        if (valuesList != null)
+        if (value.Length > 0 && valuesList != null)
         {
             for (int i = 0; i < valuesList.Length; i++)
             {

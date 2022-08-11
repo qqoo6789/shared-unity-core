@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-26 15:38:17
  * @Description: 共享库GFEntry引用
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/GFEntry.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/GFEntry.cs
  * 
  */
 using GameFramework.DataTable;
@@ -20,5 +20,16 @@ internal static class GFEntry
     public static void SetDataTable(IDataTableComponent dataTable)
     {
         DataTable = dataTable;
+    }
+
+    public static SkillEffectCoreFactory SkillEffectFactory
+    {
+        get;
+        private set;
+    }
+
+    public static void SetSkillEffectFactory(SkillEffectCoreFactory skillEffectFactory)
+    {
+        SkillEffectFactory = skillEffectFactory;
     }
 }

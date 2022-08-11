@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -42,6 +42,10 @@ public class SkillEffectBase : IReference
     /// 效果是否重复叠加
     /// </summary>
     public virtual bool IsRepeat => false;
+    /// <summary>
+    /// 效果数据
+    /// </summary>
+    public object EffectData { get; private set; }
 
     /// <summary>
     /// 宿主对象
@@ -64,14 +68,27 @@ public class SkillEffectBase : IReference
         Duration = duration;
 
     }
+
     /// <summary>
-    /// 设置自定义数据
+    /// 设置效果数据
     /// </summary>
-    /// <param name="data">自定义数据</param>
-    public virtual void SetCustomData(object data)
+    /// <param name="data"效果数据</param>
+    public virtual void SetEffectData(object data)
     {
-        //
+        EffectData = data;
     }
+
+    /// <summary>
+    /// 创建技能效果数据 子类复写
+    /// </summary>
+    /// <param name="parameters">参数数组</param>
+    /// <param name="fromEntity">发送方</param>
+    /// <param name="targetEntity">接受方</param>
+    public virtual object CreateEffectData(int[] parameters, EntityBase fromEntity, EntityBase targetEntity)
+    {
+        return null;
+    }
+
     public virtual void Clear()
     {
         Duration = 0;
@@ -81,6 +98,7 @@ public class SkillEffectBase : IReference
         EffectID = 0;
         SkillID = 0;
         RefOwner = null;
+        EffectData = null;
     }
     /// <summary>
     /// 添加后执行第一次

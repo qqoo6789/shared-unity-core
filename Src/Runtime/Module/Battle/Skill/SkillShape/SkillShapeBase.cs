@@ -91,8 +91,13 @@ public abstract class SkillShapeBase : IReference
     /// 技能形状回池
     /// </summary>
     /// <param name="shape"></param>
-    public void Release(SkillShapeBase shape)
+    public static void Release(SkillShapeBase shape)
     {
         ReferencePool.Release(shape);
+    }
+
+    public virtual void DrawGizmos()
+    {
+
     }
 }

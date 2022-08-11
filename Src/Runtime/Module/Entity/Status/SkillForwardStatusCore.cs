@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
@@ -104,6 +105,29 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     /// </summary>
     /// <param name="drSkill"></param>
     protected abstract void SkillForwardExecute(DRSkill drSkill);
+
+    /// <summary>
+    /// 执行前摇效果 子类调用
+    /// </summary>
+    /// <param name="drSkill">技能表数据</param>
+    /// <param name="entity">实体</param>
+    protected void SkillForwardEffectExecute(DRSkill drSkill, EntityBase entity)
+    {
+        SkillEffectCpt effectCpt = entity.GetComponent<SkillEffectCpt>();
+        List<SkillEffectBase> skillEffects = SkillConfigParse.ParseSkillEffect(drSkill, entity, entity, drSkill.EffectForward);
+        for (int i = 0; i < skillEffects.Count; i++)
+        {
+            try
+            {
+                effectCpt.ApplyOneEffect(skillEffects[i]);
+            }
+            catch (System.Exception)
+            {
+                Log.Error($"skill forward skill effect apply error skillID = {drSkill.Id}, effectID = {skillEffects[i].EffectID}");
+                continue;
+            }
+        }
+    }
 
     public bool CheckCanMove()
     {

@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 蓄力状态
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
  * 
  */
 using System.Threading;
@@ -14,7 +14,8 @@ using System;
 /// <summary>
 /// 蓄力状态通用状态基类 
 /// </summary>
-public abstract class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
+
+public class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMove
 {
     protected int SkillID;
     protected long TargetID;

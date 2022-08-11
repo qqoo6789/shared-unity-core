@@ -16,4 +16,8 @@ public static class SharedGFEntryUtil
     {
         GFEntry.SetDataTable(dataTable);
     }
+    public static void SetSkillEffectFactory(SkillEffectCoreFactory skillEffectFactory)
+    {
+        GFEntry.SetSkillEffectFactory(skillEffectFactory);
+    }
 }
