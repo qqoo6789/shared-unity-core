@@ -30,7 +30,14 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
         base.OnEnter(fsm);
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        TargetID = fsm.GetData<VarInt64>(StatusDataDefine.SKILL_TARGET_ID).Value;
+        if (fsm.HasData(StatusDataDefine.SKILL_TARGET_ID))
+        {
+            TargetID = fsm.GetData<VarInt64>(StatusDataDefine.SKILL_TARGET_ID).Value;
+        }
+        else
+        {
+            TargetID = -1;
+        }
         DRSkill = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
 
         if (DRSkill == null)
