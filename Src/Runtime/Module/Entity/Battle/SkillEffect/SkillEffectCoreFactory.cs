@@ -12,7 +12,7 @@ using UnityGameFramework.Runtime;
 
 public class SkillEffectCoreFactory
 {
-    protected Dictionary<BattleDefine.eSkillEffectId, Type> SkillEffectMap;
+    protected Dictionary<BattleDefine.eSkillEffectType, Type> SkillEffectMap;
 
     /// <summary>
     /// 初始化效果工厂Map
@@ -25,27 +25,27 @@ public class SkillEffectCoreFactory
     /// 创建技能效果
     /// </summary>
     /// <param name="skillID">技能ID</param>
-    /// <param name="effectID">效果ID</param>
+    /// <param name="effectType">效果类型</param>
     /// <param name="fromID">技能释放者ID</param>
     /// <param name="targetID">技能接收ID</param>
     /// <param name="duration">技能持续时间 小于0代表一致持续  0代表立即执行销毁  大于0即到时自动销毁</param>
     /// <returns></returns>
-    public SkillEffectBase CreateOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0)
+    public SkillEffectBase CreateOneSkillEffect(int skillID, int effectType, long fromID, long targetID, int duration = 0)
     {
         if (SkillEffectMap == null)
         {
             Log.Error($"createOneSkillEffect Error not init skill effect map");
             return null;
         }
-        if (!SkillEffectMap.ContainsKey((BattleDefine.eSkillEffectId)effectID))
+        if (!SkillEffectMap.ContainsKey((BattleDefine.eSkillEffectType)effectType))
         {
-            Log.Error($"createOneSkillEffect Error effectID is Unknown  skillID = {skillID} effectID = {effectID}");
+            Log.Error($"createOneSkillEffect Error effectID is Unknown  skillID = {skillID} effectID = {effectType}");
             return null;
         }
 
-        Type skillEffectClass = SkillEffectMap[(BattleDefine.eSkillEffectId)effectID];
+        Type skillEffectClass = SkillEffectMap[(BattleDefine.eSkillEffectType)effectType];
         SkillEffectBase effect = SkillEffectBase.Create(skillEffectClass);
-        effect.SetData(skillID, effectID, fromID, targetID, duration);
+        effect.SetData(skillID, effectType, fromID, targetID, duration);
         return effect;
     }
 }

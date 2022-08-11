@@ -54,7 +54,7 @@ public static class SkillConfigParse
             }
             try
             {
-                SkillEffectBase skillBase = GFEntry.SkillEffectFactory.CreateOneSkillEffect(curSkillCfg.Id, effectID, formEntity.BaseData.Id, targetEntity.BaseData.Id, skillEffectCfg.Duration);
+                SkillEffectBase skillBase = GFEntry.SkillEffectFactory.CreateOneSkillEffect(curSkillCfg.Id, skillEffectCfg.EffectType, formEntity.BaseData.Id, targetEntity.BaseData.Id, skillEffectCfg.Duration);
                 object data = skillBase.CreateEffectData(skillEffectCfg.Parameters, formEntity, targetEntity);
                 skillBase.SetEffectData(data);
                 skillEffects.Add(skillBase);

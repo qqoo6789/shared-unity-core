@@ -8,7 +8,7 @@
 
 public static class BattleDefine
 {
-    public enum eSkillEffectId : int
+    public enum eSkillEffectType : int
     {
         EffectIdUnknown = 0,
         NormalDamageSE = 1001,
