@@ -9,11 +9,12 @@ using System.Threading;
 using GameFramework.Fsm;
 using UnityGameFramework.Runtime;
 using Cysharp.Threading.Tasks;
+using System;
 
 /// <summary>
 /// 蓄力状态通用状态基类 
 /// </summary>
-public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMove
+public abstract class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
 {
     protected int SkillID;
     protected long TargetID;
@@ -24,6 +25,8 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
     public static new string Name => "skillAccumulate";
     public override string StatusName => Name;
     private EntityBattleDataCore _battleData;
+
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -67,6 +70,7 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
         _battleData = null;
         base.OnLeave(fsm, isShutdown);
     }
+
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);

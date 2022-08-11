@@ -10,17 +10,21 @@
  * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
  * 
  */
+using System;
 using GameFramework.Fsm;
 
 /// <summary>
 /// 受击状态通用状态基类
 /// </summary>
-public abstract class BeHitStatusCore : EntityStatusCore, IEntityCanMove, IEntityCanSkill
+public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name => "beHit";
     public override string StatusName => Name;
 
     private EntityBattleDataCore _battleData;
+
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
+
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);

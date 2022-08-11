@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
@@ -6,7 +7,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 技能前摇状态
 /// </summary>
-public abstract class SkillForwardStatusCore : EntityStatusCore, IEntityCanMove
+public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCanMove
 {
     public static new string Name => "skillForward";
 
@@ -16,6 +17,8 @@ public abstract class SkillForwardStatusCore : EntityStatusCore, IEntityCanMove
 
     protected DRSkill CurSkillCfg;
     private EntityInputData _inputData;
+
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
