@@ -1,3 +1,8 @@
+/** 
+ * @Author XQ
+ * @Date 2022-08-10 16:27:01
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/DirectionMoveStatusCore.cs
+ */
 using GameFramework.Fsm;
 using UnityGameFramework.Runtime;
 
@@ -20,9 +25,9 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
-        if (StatusCtrl.TryGetComponent<DirectionMove>(out _directionMove))
+        if (StatusCtrl.TryGetComponent(out _directionMove))
         {
-            _directionMove.enabled = true;//开启方向移动组件去移动
+            _directionMove.ChangeMoveStatus(true);
             _directionMove.MoveSpeed = StatusCtrl.GetComponent<EntityMoveData>().Speed;
             return;
         }
@@ -39,7 +44,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
 
         if (_directionMove)
         {
-            _directionMove.enabled = false;
+            _directionMove.ChangeMoveStatus(false);
             _directionMove = null;
         }
 
