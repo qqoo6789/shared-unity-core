@@ -9,21 +9,24 @@
 /// </summary>
 public class SEInvincible : SkillEffectBase
 {
+    private EntityBattleDataCore _battleData;
+
     public override void OnAdd()
     {
         base.OnAdd();
 
-        if (RefOwner.TryGetComponent(out EntityBattleDataCore battleData))
+        if (RefOwner.TryGetComponent(out _battleData))
         {
-            battleData.ChangeInvincible(true);
+            _battleData.ChangeInvincible(true);
         }
     }
 
     public override void OnRemove()
     {
-        if (RefOwner.TryGetComponent(out EntityBattleDataCore battleData))
+        if (_battleData != null)
         {
-            battleData.ChangeInvincible(false);
+            _battleData.ChangeInvincible(false);
+            _battleData = null;
         }
 
         base.OnRemove();
