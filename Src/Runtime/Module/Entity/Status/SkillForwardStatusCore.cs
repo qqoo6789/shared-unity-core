@@ -18,6 +18,8 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
     protected DRSkill CurSkillCfg;
     private EntityInputData _inputData;
+    protected long[] Targets;
+    protected UnityEngine.Vector3 SkillDir;
 
     protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
 
@@ -26,6 +28,8 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         base.OnEnter(fsm);
 
         int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
+        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
+        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
         CurSkillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
 
         try
@@ -51,6 +55,8 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
         _inputData = null;
         CurSkillCfg = null;
+        Targets = null;
+        SkillDir = UnityEngine.Vector3.zero;
 
         base.OnLeave(fsm, isShutdown);
     }

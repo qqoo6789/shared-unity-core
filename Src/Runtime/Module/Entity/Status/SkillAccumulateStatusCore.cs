@@ -1,3 +1,4 @@
+using System.Numerics;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
@@ -18,7 +19,8 @@ using System;
 public class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMove
 {
     protected int SkillID;
-    protected long TargetID;
+    protected long[] Targets;
+    protected UnityEngine.Vector3 SkillDir;
     protected DRSkill DRSkill;
     private EntityInputData _inputData;
     protected CancellationTokenSource CancelToken;
@@ -34,14 +36,8 @@ public class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMove
         base.OnEnter(fsm);
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        if (fsm.HasData(StatusDataDefine.SKILL_TARGET_ID))
-        {
-            TargetID = fsm.GetData<VarInt64>(StatusDataDefine.SKILL_TARGET_ID).Value;
-        }
-        else
-        {
-            TargetID = -1;
-        }
+        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
+        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
         DRSkill = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
 
         if (DRSkill == null)
@@ -69,6 +65,8 @@ public class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMove
         CancelTimeAccumulate();
         _inputData = null;
         _battleData = null;
+        Targets = null;
+        SkillDir = UnityEngine.Vector3.zero;
         base.OnLeave(fsm, isShutdown);
     }
 

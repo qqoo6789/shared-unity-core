@@ -99,7 +99,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         _pathMove.MovePath(_inputData.InputMovePath, OnMoveFinish);
     }
 
-    private void OnInputSkillRelease(int skillID)
+    private void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets)
     {
         if (!CheckCanSkill())
         {
@@ -107,6 +107,8 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         }
 
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+        OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
+        OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
         ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 

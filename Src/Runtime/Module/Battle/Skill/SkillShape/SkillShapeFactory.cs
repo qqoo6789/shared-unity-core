@@ -12,7 +12,7 @@ using UnityGameFramework.Runtime;
 
 public class SkillShapeFactory
 {
-    public delegate SkillShapeBase CreateSkillShape(int[] parameters, EntityBase entity);
+    public delegate SkillShapeBase CreateSkillShape(int[] parameters, EntityBase entity, Vector3 dir);
     protected static Dictionary<BattleDefine.eSkillShapeId, CreateSkillShape> SkillShapeMap = new()
     {
         {BattleDefine.eSkillShapeId.SkillShapeBox, CreateSkillShapeBox},
@@ -24,7 +24,7 @@ public class SkillShapeFactory
     /// 创建技能形状
     /// </summary>
     /// <returns></returns>
-    public static SkillShapeBase CreateOneSkillShape(int[] parameters, EntityBase entity)
+    public static SkillShapeBase CreateOneSkillShape(int[] parameters, EntityBase entity, Vector3 dir)
     {
         if (parameters == null || parameters.Length < 1)
         {
@@ -43,7 +43,7 @@ public class SkillShapeFactory
         try
         {
             CreateSkillShape func = SkillShapeMap[(BattleDefine.eSkillShapeId)shapeID];
-            shape = func.Invoke(parameters, entity);
+            shape = func.Invoke(parameters, entity, dir);
         }
         catch (System.Exception)
         {
@@ -53,7 +53,7 @@ public class SkillShapeFactory
         return shape;
     }
 
-    private static SkillShapeBase CreateSkillShapeBox(int[] parameters, EntityBase entity)
+    private static SkillShapeBase CreateSkillShapeBox(int[] parameters, EntityBase entity, Vector3 dir)
     {
         if (parameters.Length < 4)
         {
@@ -64,7 +64,7 @@ public class SkillShapeFactory
         float zHalf = parameters[2] * MathUtil.CM2M / 2; //宽
         float yHalf = parameters[3] * MathUtil.CM2M / 2; //高
         Vector3 halfSize = new(xHalf, yHalf, zHalf);
-        Vector3 forward = entity.Transform.forward;
+        Vector3 forward = dir != Vector3.zero ? dir : entity.Transform.forward;
         Vector3 moveDir = forward.normalized * xHalf;
         Vector3 anchor = entity.Transform.position;
         Vector3 centerPos = anchor + moveDir;
@@ -76,7 +76,7 @@ public class SkillShapeFactory
         return shape;
     }
 
-    private static SkillShapeBase CreateSkillShapeSphere(int[] parameters, EntityBase entity)
+    private static SkillShapeBase CreateSkillShapeSphere(int[] parameters, EntityBase entity, Vector3 dir)
     {
         if (parameters.Length < 2)
         {
@@ -89,7 +89,7 @@ public class SkillShapeFactory
         shape.Init(centerPos, radius);
         return shape;
     }
-    private static SkillShapeBase CreateSkillShapeCapsule(int[] parameters, EntityBase entity)
+    private static SkillShapeBase CreateSkillShapeCapsule(int[] parameters, EntityBase entity, Vector3 dir)
     {
 
         float height = parameters[1] * MathUtil.CM2M; //高度
