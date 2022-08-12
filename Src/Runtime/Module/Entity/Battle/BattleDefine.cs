@@ -21,4 +21,7 @@ public static class BattleDefine
         SkillShapeSphere = 2,
         SkillShapeCapsule = 3,
     }
+
+    public const string LAYER_MASK_MONSTER = "Monster";
+    public const string LAYER_MASK_PLAYER = "Player";
 }

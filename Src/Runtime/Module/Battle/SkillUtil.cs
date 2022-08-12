@@ -44,8 +44,8 @@ public static partial class SkillUtil
     public static int GetEntityTargetLayer(MelandGame3.EntityType type)
     {
         int targetLayer;
-        int monsterLayer = LayerMask.GetMask("Monster");
-        int playerLayer = LayerMask.GetMask("Player");
+        int monsterLayer = LayerMask.GetMask(BattleDefine.LAYER_MASK_MONSTER);
+        int playerLayer = LayerMask.GetMask(BattleDefine.LAYER_MASK_PLAYER);
         switch (type)
         {
             case MelandGame3.EntityType.MainPlayer:

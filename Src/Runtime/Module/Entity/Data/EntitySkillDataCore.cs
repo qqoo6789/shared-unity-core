@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntitySkillDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
 using UnityEngine;
@@ -12,12 +12,20 @@ using System.Collections.Generic;
 public class EntitySkillDataCore : MonoBehaviour
 {
     /// <summary>
-    /// 技能CD
+    /// 技能CD int 技能ID  long 到期时间戳ms
     /// </summary>
     public Dictionary<int, long> CDMap { get; private set; }
     private void Awake()
     {
         CDMap = new();
+    }
+
+    /// <summary>
+    /// 是否技能CD
+    /// </summary>
+    public bool IsSkillCD(int skillID)
+    {
+        return GetSkillCD(skillID) > 0;
     }
 
     /// <summary>
@@ -28,7 +36,7 @@ public class EntitySkillDataCore : MonoBehaviour
         if (CDMap.TryGetValue(skillID, out long value))
         {
             long curTimeStamp = TimeUtil.GetTimeStamp();
-            return value - curTimeStamp;
+            return value > curTimeStamp ? value - curTimeStamp : 0;
         }
         return 0;
     }
