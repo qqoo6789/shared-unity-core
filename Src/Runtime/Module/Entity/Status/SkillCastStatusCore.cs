@@ -1,3 +1,9 @@
+/** 
+ * @Author XQ
+ * @Date 2022-08-10 16:27:01
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillCastStatusCore.cs
+ */
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
@@ -6,7 +12,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 技能施法状态 正式产生伤害阶段
 /// </summary>
-public class SkillCastStatusCore : EntityStatusCore
+public class SkillCastStatusCore : ListenEventStatusCore
 {
     public static new string Name => "skillCast";
 
@@ -15,6 +21,9 @@ public class SkillCastStatusCore : EntityStatusCore
     protected DRSkill CurSkillCfg;
     private CancellationTokenSource _castTimeToken;
     private EntityBattleDataCore _battleData;
+
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
+
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {

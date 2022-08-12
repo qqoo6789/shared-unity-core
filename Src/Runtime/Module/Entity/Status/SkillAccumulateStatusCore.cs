@@ -9,11 +9,12 @@ using System.Threading;
 using GameFramework.Fsm;
 using UnityGameFramework.Runtime;
 using Cysharp.Threading.Tasks;
+using System;
 
 /// <summary>
 /// 蓄力状态通用状态基类 
 /// </summary>
-public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMove
+public abstract class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
 {
     protected int SkillID;
     protected long TargetID;
@@ -25,12 +26,21 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
     public override string StatusName => Name;
     private EntityBattleDataCore _battleData;
 
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
+
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        TargetID = fsm.GetData<VarInt64>(StatusDataDefine.SKILL_TARGET_ID).Value;
+        if (fsm.HasData(StatusDataDefine.SKILL_TARGET_ID))
+        {
+            TargetID = fsm.GetData<VarInt64>(StatusDataDefine.SKILL_TARGET_ID).Value;
+        }
+        else
+        {
+            TargetID = -1;
+        }
         DRSkill = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
 
         if (DRSkill == null)
@@ -60,6 +70,7 @@ public abstract class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMo
         _battleData = null;
         base.OnLeave(fsm, isShutdown);
     }
+
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);

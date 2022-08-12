@@ -71,18 +71,9 @@ public class DRRole : DataRowBase
     }
 
     /// <summary>
-  /**获取采集技能。*/
+  /**获取翻滚技能ID。*/
     /// </summary>
-    public int CollectSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取开宝箱技能。*/
-    /// </summary>
-    public int OpenChestSkill
+    public int JumpRollSkill
     {
         get;
         private set;
@@ -92,15 +83,6 @@ public class DRRole : DataRowBase
   /**获取身体大小(半径像素)。*/
     /// </summary>
     public int BodyCapacity
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取点亮半径。*/
-    /// </summary>
-    public int LightRadius
     {
         get;
         private set;
@@ -144,10 +126,8 @@ public class DRRole : DataRowBase
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleDefaultAvatar = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         RoleDefaultSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CollectSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        OpenChestSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        JumpRollSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        LightRadius = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GrasslandRunSound = columnStrings[index++];
         PickUpSound = columnStrings[index++];
         RoleIcon = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
@@ -168,10 +148,8 @@ public class DRRole : DataRowBase
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 RoleDefaultAvatar = binaryReader.ReadArray<Int32>();
                 RoleDefaultSkill = binaryReader.Read7BitEncodedInt32();
-                CollectSkill = binaryReader.Read7BitEncodedInt32();
-                OpenChestSkill = binaryReader.Read7BitEncodedInt32();
+                JumpRollSkill = binaryReader.Read7BitEncodedInt32();
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
-                LightRadius = binaryReader.Read7BitEncodedInt32();
                 GrasslandRunSound = binaryReader.ReadString();
                 PickUpSound = binaryReader.ReadString();
                 RoleIcon = binaryReader.ReadArray<String>();
