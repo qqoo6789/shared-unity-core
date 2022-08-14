@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
+using MelandGame3;
 using UnityGameFramework.Runtime;
 
 /// <summary>
@@ -120,12 +121,15 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     protected void SkillForwardEffectExecute(DRSkill drSkill, EntityBase entity)
     {
         SkillEffectCpt effectCpt = entity.GetComponent<SkillEffectCpt>();
-        List<SkillEffectBase> skillEffects = SkillConfigParse.ParseSkillEffect(drSkill, entity, entity, drSkill.EffectForward);
+        List<SkillEffectBase> skillEffects = SkillConfigParse.ParseSkillEffect(drSkill, entity.BaseData.Id, entity.BaseData.Id, drSkill.EffectForward);
         for (int i = 0; i < skillEffects.Count; i++)
         {
             try
             {
-                effectCpt.ApplyOneEffect(skillEffects[i]);
+                SkillEffectBase skillEffect = skillEffects[i];
+                DamageEffect effectData = skillEffect.CreateEffectData(entity, entity) as DamageEffect;
+                skillEffect.SetEffectData(effectData);
+                effectCpt.ApplyOneEffect(skillEffect);
             }
             catch (System.Exception)
             {

@@ -20,7 +20,7 @@ public class NormalDamageCoreSE : SkillEffectBase
         DamageEffect effect = EffectData as DamageEffect;
         if (RefOwner.TryGetComponent(out EntityBattleDataCore battleData))
         {
-            battleData.SetHP(battleData.HP + effect.DamageValue.DeltaInt);
+            battleData.SetHP(effect.DamageValue.CurrentInt);
         }
     }
 }

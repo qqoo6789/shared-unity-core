@@ -1,7 +1,7 @@
 ﻿/*
  * @Author: xiang huan
  * @Date: 2022-05-20 10:05:57
- * @LastEditTime: 2022-08-11 11:10:38
+ * @LastEditTime: 2022-08-12 20:30:01
  * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/DataTableParseUtil.cs
@@ -105,7 +105,7 @@ public static class DataTableParseUtil
     {
         string[] valueList = value.Split(',');
         List<T> values = new();
-        if (value.Length > 0 && valueList != null)
+        if (!string.IsNullOrEmpty(value) && valueList != null)
         {
             for (int i = 0; i < valueList.Length; i++)
             {
@@ -119,7 +119,7 @@ public static class DataTableParseUtil
     {
         string[] valuesList = value.Split(';');
         List<T[]> arrayList = new();
-        if (value.Length > 0 && valuesList != null)
+        if (!string.IsNullOrEmpty(value) && valuesList != null)
         {
             for (int i = 0; i < valuesList.Length; i++)
             {

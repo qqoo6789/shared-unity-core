@@ -39,6 +39,10 @@ public class SkillEffectBase : IReference
     /// </summary>
     public int EffectID { get; private set; }
     /// <summary>
+    /// 效果配置
+    /// </summary>
+    public DRSkillEffect EffectCfg { get; private set; }
+    /// <summary>
     /// 效果是否重复叠加
     /// </summary>
     public virtual bool IsRepeat => false;
@@ -59,10 +63,11 @@ public class SkillEffectBase : IReference
     /// <param name="fromID">技能释放者ID</param>
     /// <param name="targetID">技能接受者ID</param>
     /// <param name="duration">持续时间</param>
-    public virtual void SetData(int skillID, int effectID, long fromID, long targetID, int duration)
+    public virtual void SetData(int skillID, DRSkillEffect effectCfg, long fromID, long targetID, int duration)
     {
         SkillID = skillID;
-        EffectID = effectID;
+        EffectID = effectCfg.Id;
+        EffectCfg = effectCfg;
         FromID = fromID;
         TargetID = targetID;
         Duration = duration;
@@ -84,7 +89,7 @@ public class SkillEffectBase : IReference
     /// <param name="parameters">参数数组</param>
     /// <param name="fromEntity">发送方</param>
     /// <param name="targetEntity">接受方</param>
-    public virtual object CreateEffectData(int[] parameters, EntityBase fromEntity, EntityBase targetEntity)
+    public virtual object CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
     {
         return null;
     }
@@ -96,6 +101,7 @@ public class SkillEffectBase : IReference
         TargetID = 0;
         DestroyTimestamp = 0;
         EffectID = 0;
+        EffectCfg = null;
         SkillID = 0;
         RefOwner = null;
         EffectData = null;

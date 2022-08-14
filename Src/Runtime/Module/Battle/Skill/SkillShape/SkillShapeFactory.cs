@@ -64,7 +64,8 @@ public class SkillShapeFactory
         float zHalf = parameters[2] * MathUtil.CM2M / 2; //宽
         float yHalf = parameters[3] * MathUtil.CM2M / 2; //高
         Vector3 halfSize = new(xHalf, yHalf, zHalf);
-        Vector3 forward = dir != Vector3.zero ? dir : entity.Transform.forward;
+
+        Vector3 forward = dir.ApproximatelyEquals(Vector3.zero) ? entity.Transform.forward : dir;
         Vector3 moveDir = forward.normalized * xHalf;
         Vector3 anchor = entity.Transform.position;
         Vector3 centerPos = anchor + moveDir;

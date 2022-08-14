@@ -22,6 +22,9 @@ public static class BattleDefine
         SkillShapeCapsule = 3,
     }
 
-    public const string LAYER_MASK_MONSTER = "Monster";
-    public const string LAYER_MASK_PLAYER = "Player";
+    public enum eLayerMask : int
+    {
+        Monster = 6,
+        Player = 7
+    }
 }

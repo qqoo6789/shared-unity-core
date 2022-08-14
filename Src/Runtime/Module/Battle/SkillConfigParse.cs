@@ -17,7 +17,7 @@ public static class SkillConfigParse
     /// </summary>
     /// <param name="skillID"></param>
     /// <returns></returns>
-    public static List<SkillEffectBase> ParseSkillForwardEffect(int skillID, EntityBase formEntity)
+    public static List<SkillEffectBase> ParseSkillForwardEffect(int skillID, long formID, long targetID)
     {
         if (skillID <= 0)
         {
@@ -31,11 +31,11 @@ public static class SkillConfigParse
             Log.Error($"ParseSkillEffect Error skillID is not exist, skillID = {skillID}");
             return null;
         }
-        List<SkillEffectBase> skillEffects = ParseSkillEffect(drSkill, formEntity, formEntity, drSkill.EffectForward);
+        List<SkillEffectBase> skillEffects = ParseSkillEffect(drSkill, formID, targetID, drSkill.EffectForward);
         return skillEffects;
     }
 
-    public static List<SkillEffectBase> ParseSkillEffect(DRSkill curSkillCfg, EntityBase formEntity, EntityBase targetEntity, int[] effectList)
+    public static List<SkillEffectBase> ParseSkillEffect(DRSkill curSkillCfg, long formID, long targetID, int[] effectList)
     {
         List<SkillEffectBase> skillEffects = new();
         if (effectList == null || effectList.Length <= 0)
@@ -49,14 +49,12 @@ public static class SkillConfigParse
             DRSkillEffect skillEffectCfg = GFEntry.DataTable.GetDataTable<DRSkillEffect>().GetDataRow(effectID);
             if (skillEffectCfg == null)
             {
-                Log.Error($"not find skill effect  skillID = {curSkillCfg.Id} effectID = {effectID}");
+                Log.Error($"not find skill effect skillID = {curSkillCfg.Id} effectID = {effectID}");
                 continue;
             }
             try
             {
-                SkillEffectBase skillBase = GFEntry.SkillEffectFactory.CreateOneSkillEffect(curSkillCfg.Id, skillEffectCfg.EffectType, formEntity.BaseData.Id, targetEntity.BaseData.Id, skillEffectCfg.Duration);
-                object data = skillBase.CreateEffectData(skillEffectCfg.Parameters, formEntity, targetEntity);
-                skillBase.SetEffectData(data);
+                SkillEffectBase skillBase = GFEntry.SkillEffectFactory.CreateOneSkillEffect(curSkillCfg.Id, effectID, formID, targetID, skillEffectCfg.Duration);
                 skillEffects.Add(skillBase);
             }
             catch (System.Exception)
