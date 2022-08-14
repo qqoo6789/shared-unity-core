@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 /** 
@@ -22,7 +23,7 @@ public class JumpRollEventFunc : EntityStatusEventFunctionBase
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    private void OnInputSkillRelease(int skillID)
+    private void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets)
     {
         if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData))
         {
@@ -30,6 +31,8 @@ public class JumpRollEventFunc : EntityStatusEventFunctionBase
             if (playerData.DRRole.JumpRollSkill == skillID)
             {
                 OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+                OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
+                OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
                 EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
                 return;
             }

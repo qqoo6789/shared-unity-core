@@ -16,7 +16,7 @@ using System;
 /// 蓄力状态通用状态基类 
 /// </summary>
 
-public class SkillAccumulateStatusCore : EntityStatusCore, IEntityCanMove
+public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
 {
     protected int SkillID;
     protected long[] Targets;
