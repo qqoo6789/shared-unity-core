@@ -127,7 +127,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             try
             {
                 SkillEffectBase skillEffect = skillEffects[i];
-                DamageEffect effectData = skillEffect.CreateEffectData(entity, entity) as DamageEffect;
+                DamageEffect effectData = skillEffect.CreateEffectData(entity, entity);
                 skillEffect.SetEffectData(effectData);
                 effectCpt.ApplyOneEffect(skillEffect);
             }

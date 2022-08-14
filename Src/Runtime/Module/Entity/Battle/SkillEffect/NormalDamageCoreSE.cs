@@ -6,7 +6,6 @@
  * 
  */
 
-using MelandGame3;
 
 public class NormalDamageCoreSE : SkillEffectBase
 {
@@ -17,10 +16,9 @@ public class NormalDamageCoreSE : SkillEffectBase
         {
             return;
         }
-        DamageEffect effect = EffectData as DamageEffect;
         if (RefOwner.TryGetComponent(out EntityBattleDataCore battleData))
         {
-            battleData.SetHP(effect.DamageValue.CurrentInt);
+            battleData.SetHP(EffectData.DamageValue.CurrentInt);
         }
     }
 }

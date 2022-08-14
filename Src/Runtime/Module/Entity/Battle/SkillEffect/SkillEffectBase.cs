@@ -7,6 +7,7 @@
  */
 using System;
 using GameFramework;
+using MelandGame3;
 using UnityEngine;
 
 public class SkillEffectBase : IReference
@@ -49,7 +50,7 @@ public class SkillEffectBase : IReference
     /// <summary>
     /// 效果数据
     /// </summary>
-    public object EffectData { get; private set; }
+    public DamageEffect EffectData { get; private set; }
 
     /// <summary>
     /// 宿主对象
@@ -78,7 +79,7 @@ public class SkillEffectBase : IReference
     /// 设置效果数据
     /// </summary>
     /// <param name="data"效果数据</param>
-    public virtual void SetEffectData(object data)
+    public virtual void SetEffectData(DamageEffect data)
     {
         EffectData = data;
     }
@@ -89,7 +90,7 @@ public class SkillEffectBase : IReference
     /// <param name="parameters">参数数组</param>
     /// <param name="fromEntity">发送方</param>
     /// <param name="targetEntity">接受方</param>
-    public virtual object CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
+    public virtual DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
     {
         return null;
     }
