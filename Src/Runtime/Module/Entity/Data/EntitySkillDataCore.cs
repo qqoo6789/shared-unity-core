@@ -15,7 +15,7 @@ public class EntitySkillDataCore : MonoBehaviour
     /// 技能CD int 技能ID  long 到期时间戳ms
     /// </summary>
     public Dictionary<int, long> CDMap { get; private set; }
-    private void Awake()
+    protected virtual void Awake()
     {
         CDMap = new();
     }
