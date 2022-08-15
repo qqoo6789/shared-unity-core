@@ -72,7 +72,7 @@ public class DRSkill : DataRowBase
     /// <summary>
   /**获取作用于敌方技能效果。*/
     /// </summary>
-    public int[][] EffectEnemy
+    public int[] EffectEnemy
     {
         get;
         private set;
@@ -81,7 +81,16 @@ public class DRSkill : DataRowBase
     /// <summary>
   /**获取作用于己方技能效果。*/
     /// </summary>
-    public int[][] EffectSelf
+    public int[] EffectSelf
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取技能前摇效果。*/
+    /// </summary>
+    public int[] EffectForward
     {
         get;
         private set;
@@ -296,8 +305,9 @@ public class DRSkill : DataRowBase
         InfluenceTargetType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillIcon = columnStrings[index++];
-        EffectEnemy = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        EffectSelf = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         AccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AccuAct = columnStrings[index++];
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -336,8 +346,9 @@ public class DRSkill : DataRowBase
                 InfluenceTargetType = binaryReader.ReadArray<Int32>();
                 SkillCD = binaryReader.Read7BitEncodedInt32();
                 SkillIcon = binaryReader.ReadString();
-                EffectEnemy = binaryReader.ReadArrayList<Int32>();
-                EffectSelf = binaryReader.ReadArrayList<Int32>();
+                EffectEnemy = binaryReader.ReadArray<Int32>();
+                EffectSelf = binaryReader.ReadArray<Int32>();
+                EffectForward = binaryReader.ReadArray<Int32>();
                 AccuTime = binaryReader.Read7BitEncodedInt32();
                 AccuAct = binaryReader.ReadString();
                 AccuEff = binaryReader.Read7BitEncodedInt32();

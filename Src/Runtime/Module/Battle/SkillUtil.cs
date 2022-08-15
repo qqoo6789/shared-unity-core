@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public static partial class SkillUtil
@@ -38,5 +39,24 @@ public static partial class SkillUtil
 
         bool result = !Physics.Linecast(origin, target, out hitInfo, blockLayer);
         return result;
+    }
+
+    public static int GetEntityTargetLayer(MelandGame3.EntityType type)
+    {
+        int targetLayer;
+        switch (type)
+        {
+            case MelandGame3.EntityType.MainPlayer:
+            case MelandGame3.EntityType.EntityTypePlayer:
+                targetLayer = 1 << LayerMask.MONSTER;
+                break;
+            case MelandGame3.EntityType.EntityTypeMonster:
+                targetLayer = 1 << LayerMask.PLAYER;
+                break;
+            default:
+                targetLayer = 0;
+                break;
+        }
+        return targetLayer;
     }
 }

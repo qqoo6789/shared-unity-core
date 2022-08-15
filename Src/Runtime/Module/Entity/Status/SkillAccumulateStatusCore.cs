@@ -1,8 +1,9 @@
+using System.Numerics;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 蓄力状态
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
  * 
  */
 using System.Threading;
@@ -14,10 +15,12 @@ using System;
 /// <summary>
 /// 蓄力状态通用状态基类 
 /// </summary>
-public abstract class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
+
+public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
 {
     protected int SkillID;
-    protected long TargetID;
+    protected long[] Targets;
+    protected UnityEngine.Vector3 SkillDir;
     protected DRSkill DRSkill;
     private EntityInputData _inputData;
     protected CancellationTokenSource CancelToken;
@@ -33,14 +36,8 @@ public abstract class SkillAccumulateStatusCore : ListenEventStatusCore, IEntity
         base.OnEnter(fsm);
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        if (fsm.HasData(StatusDataDefine.SKILL_TARGET_ID))
-        {
-            TargetID = fsm.GetData<VarInt64>(StatusDataDefine.SKILL_TARGET_ID).Value;
-        }
-        else
-        {
-            TargetID = -1;
-        }
+        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
+        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
         DRSkill = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
 
         if (DRSkill == null)
@@ -68,6 +65,8 @@ public abstract class SkillAccumulateStatusCore : ListenEventStatusCore, IEntity
         CancelTimeAccumulate();
         _inputData = null;
         _battleData = null;
+        Targets = null;
+        SkillDir = UnityEngine.Vector3.zero;
         base.OnLeave(fsm, isShutdown);
     }
 

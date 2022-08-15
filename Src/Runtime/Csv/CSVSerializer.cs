@@ -80,7 +80,7 @@ public class CSVSerializer
             }
         }
 
-        if (token.Length > 0)
+        if (token.Length > 0 || text[^1] == separator)
         {
             line.Add(token.ToString());
         }

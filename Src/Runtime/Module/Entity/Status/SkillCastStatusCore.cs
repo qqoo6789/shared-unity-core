@@ -17,6 +17,8 @@ public class SkillCastStatusCore : ListenEventStatusCore
     public static new string Name => "skillCast";
 
     public override string StatusName => Name;
+    protected long[] Targets;
+    protected UnityEngine.Vector3 SkillDir;
 
     protected DRSkill CurSkillCfg;
     private CancellationTokenSource _castTimeToken;
@@ -29,7 +31,10 @@ public class SkillCastStatusCore : ListenEventStatusCore
     {
         base.OnEnter(fsm);
 
-        int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
+        int skillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
+        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
+        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
+
         CurSkillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
 
@@ -50,7 +55,11 @@ public class SkillCastStatusCore : ListenEventStatusCore
         CancelTimeCastFinish();
         CurSkillCfg = null;
         _battleData = null;
-
+        Targets = null;
+        SkillDir = UnityEngine.Vector3.zero;
+        _ = fsm.RemoveData(StatusDataDefine.SKILL_ID);
+        _ = fsm.RemoveData(StatusDataDefine.SKILL_DIR);
+        _ = fsm.RemoveData(StatusDataDefine.SKILL_TARGETS);
         base.OnLeave(fsm, isShutdown);
     }
 

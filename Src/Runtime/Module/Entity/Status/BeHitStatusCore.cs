@@ -7,7 +7,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 受击状态 理论上受击状态只有表现,服务器用不到
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
  * 
  */
 using System;
@@ -19,12 +19,11 @@ using GameFramework.Fsm;
 public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name => "beHit";
-    public override string StatusName => Name;
-
     private EntityBattleDataCore _battleData;
 
     protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
 
+    public override string StatusName => Name;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);

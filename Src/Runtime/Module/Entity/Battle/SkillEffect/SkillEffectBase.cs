@@ -2,11 +2,12 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
 using GameFramework;
+using MelandGame3;
 using UnityEngine;
 
 public class SkillEffectBase : IReference
@@ -39,9 +40,17 @@ public class SkillEffectBase : IReference
     /// </summary>
     public int EffectID { get; private set; }
     /// <summary>
+    /// 效果配置
+    /// </summary>
+    public DRSkillEffect EffectCfg { get; private set; }
+    /// <summary>
     /// 效果是否重复叠加
     /// </summary>
     public virtual bool IsRepeat => false;
+    /// <summary>
+    /// 效果数据
+    /// </summary>
+    public DamageEffect EffectData { get; private set; }
 
     /// <summary>
     /// 宿主对象
@@ -55,23 +64,37 @@ public class SkillEffectBase : IReference
     /// <param name="fromID">技能释放者ID</param>
     /// <param name="targetID">技能接受者ID</param>
     /// <param name="duration">持续时间</param>
-    public virtual void SetData(int skillID, int effectID, long fromID, long targetID, int duration)
+    public virtual void SetData(int skillID, DRSkillEffect effectCfg, long fromID, long targetID, int duration)
     {
         SkillID = skillID;
-        EffectID = effectID;
+        EffectID = effectCfg.Id;
+        EffectCfg = effectCfg;
         FromID = fromID;
         TargetID = targetID;
         Duration = duration;
 
     }
+
     /// <summary>
-    /// 设置自定义数据
+    /// 设置效果数据
     /// </summary>
-    /// <param name="data">自定义数据</param>
-    public virtual void SetCustomData(object data)
+    /// <param name="data"效果数据</param>
+    public virtual void SetEffectData(DamageEffect data)
     {
-        //
+        EffectData = data;
     }
+
+    /// <summary>
+    /// 创建技能效果数据 子类复写
+    /// </summary>
+    /// <param name="parameters">参数数组</param>
+    /// <param name="fromEntity">发送方</param>
+    /// <param name="targetEntity">接受方</param>
+    public virtual DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
+    {
+        return null;
+    }
+
     public virtual void Clear()
     {
         Duration = 0;
@@ -79,8 +102,10 @@ public class SkillEffectBase : IReference
         TargetID = 0;
         DestroyTimestamp = 0;
         EffectID = 0;
+        EffectCfg = null;
         SkillID = 0;
         RefOwner = null;
+        EffectData = null;
     }
     /// <summary>
     /// 添加后执行第一次

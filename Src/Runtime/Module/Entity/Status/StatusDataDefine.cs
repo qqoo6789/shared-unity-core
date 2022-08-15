@@ -4,5 +4,6 @@
 public static class StatusDataDefine
 {
     public const string SKILL_ID = "SKILL_ID";
-    public const string SKILL_TARGET_ID = "SKILL_TARGET_ID";
+    public const string SKILL_DIR = "SKILL_DIR";
+    public const string SKILL_TARGETS = "SKILL_TARGETS";
 }
