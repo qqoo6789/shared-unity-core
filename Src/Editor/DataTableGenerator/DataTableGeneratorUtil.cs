@@ -33,10 +33,11 @@ namespace Meland.Editor.DataTableTools
         public static void UpdateCsv()
         {
             string csvPath = Utility.Path.GetRegularPath(DataTableGenerator.DATA_TABLE_CSV_PATH);
-            if (!Directory.Exists(csvPath))
+            if (Directory.Exists(csvPath))
             {
-                _ = Directory.CreateDirectory(csvPath);
+                Directory.Delete(csvPath, true);
             }
+            _ = Directory.CreateDirectory(csvPath);
             DirectoryInfo direction = new(SVNCsvPath);
             FileInfo[] files = direction.GetFiles("*.csv", SearchOption.AllDirectories);
             for (int i = 0; i < files.Length; i++)
@@ -47,6 +48,13 @@ namespace Meland.Editor.DataTableTools
         }
         public static void GenerateDataTables()
         {
+            //清空bytes目录
+            if (Directory.Exists(DataTableGenerator.DATA_TABLE_PATH))
+            {
+                Directory.Delete(DataTableGenerator.DATA_TABLE_PATH, true);
+            }
+            _ = Directory.CreateDirectory(DataTableGenerator.DATA_TABLE_PATH);
+
             string csvPath = Utility.Path.GetRegularPath(DataTableGenerator.DATA_TABLE_CSV_PATH);
             DirectoryInfo direction = new(csvPath);
             FileInfo[] files = direction.GetFiles("*.csv", SearchOption.AllDirectories);
@@ -71,6 +79,13 @@ namespace Meland.Editor.DataTableTools
 
         public static void GenerateDataTableCodes()
         {
+            //清空脚本目录
+            if (Directory.Exists(DataTableGenerator.CSHARP_CODE_PATH))
+            {
+                Directory.Delete(DataTableGenerator.CSHARP_CODE_PATH, true);
+            }
+            _ = Directory.CreateDirectory(DataTableGenerator.CSHARP_CODE_PATH);
+
             string csvPath = Utility.Path.GetRegularPath(DataTableGenerator.DATA_TABLE_CSV_PATH);
             DirectoryInfo direction = new(csvPath);
             FileInfo[] files = direction.GetFiles("*.csv", SearchOption.AllDirectories);

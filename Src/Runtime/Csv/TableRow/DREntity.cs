@@ -227,7 +227,7 @@ public class DREntity : DataRowBase
     /// <summary>
   /**获取光效锚点偏移。*/
     /// </summary>
-    public int[] LightOffset
+    public int[] LightOffset 
     {
         get;
         private set;
@@ -386,7 +386,7 @@ public class DREntity : DataRowBase
         SceneEffectAnchor = DataTableParseUtil.ParseInt(columnStrings[index++]);
         index++;
         LightEffect = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        LightOffset = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        LightOffset  = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ObjectBagShowType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         RectIcon = columnStrings[index++];
@@ -434,7 +434,7 @@ public class DREntity : DataRowBase
                 IdleEffect = binaryReader.Read7BitEncodedInt32();
                 SceneEffectAnchor = binaryReader.Read7BitEncodedInt32();
                 LightEffect = binaryReader.ReadArray<String>();
-                LightOffset = binaryReader.ReadArray<Int32>();
+                LightOffset  = binaryReader.ReadArray<Int32>();
                 DropId = binaryReader.Read7BitEncodedInt32();
                 ObjectBagShowType = binaryReader.ReadArray<Int32>();
                 RectIcon = binaryReader.ReadString();
@@ -454,3 +454,4 @@ public class DREntity : DataRowBase
         return true;
     }
 }
+

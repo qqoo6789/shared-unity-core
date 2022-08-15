@@ -17,9 +17,9 @@ namespace Meland.Editor.DataTableTools
 {
     public sealed class DataTableGenerator
     {
-        private const string DATA_TABLE_PATH = "Assets/Plugins/SharedCore/Res/DataTable/Bytes";
+        public const string DATA_TABLE_PATH = "Assets/Plugins/SharedCore/Res/DataTable/Bytes";
         public static string DATA_TABLE_CSV_PATH = "Assets/Plugins/SharedCore/Res/DataTable/Csv";
-        private const string CSHARP_CODE_PATH = "Assets/Plugins/SharedCore/Src/Runtime/Csv/TableRow";
+        public const string CSHARP_CODE_PATH = "Assets/Plugins/SharedCore/Src/Runtime/Csv/TableRow";
         private const string CSHARP_CODE_TEMPLATE_FILE_NAME = "Assets/Plugins/SharedCore/Src/Editor/DataTableGenerator/Template/DataTableCodeTemplate.txt";
         public static string DATA_TABLE_CONFIG_TEMPLATE_NAME = "Assets/Plugins/SharedCore/Src/Editor/DataTableGenerator/Template/DataTableConfigTemplate.txt";
         public static string DATA_TABLE_CONFIG_NAME = "Assets/Plugins/SharedCore/Src/Runtime/Csv/DataTableConfig.cs";
