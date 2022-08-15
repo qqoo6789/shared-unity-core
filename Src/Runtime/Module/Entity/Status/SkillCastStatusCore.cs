@@ -24,7 +24,7 @@ public class SkillCastStatusCore : ListenEventStatusCore
     private CancellationTokenSource _castTimeToken;
     private EntityBattleDataCore _battleData;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
 
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)

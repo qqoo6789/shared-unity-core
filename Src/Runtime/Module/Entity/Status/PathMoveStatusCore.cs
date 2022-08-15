@@ -1,6 +1,7 @@
 using UnityEngine;
 using GameFramework.Fsm;
 using UnityGameFramework.Runtime;
+using System;
 
 /// <summary>
 /// 路径移动状态
@@ -10,6 +11,8 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     public static new string Name = "pathMove";
 
     public override string StatusName => Name;
+
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(WaitToBattleStatusEventFunc) };
 
     private EntityInputData _inputData;
     private PathMove _pathMove;
@@ -65,13 +68,11 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     protected override void AddEvent(EntityEvent entityEvent)
     {
         entityEvent.InputMovePathChanged += OnPathChanged;
-        entityEvent.InputSkillRelease += OnInputSkillRelease;
     }
 
     protected override void RemoveEvent(EntityEvent entityEvent)
     {
         entityEvent.InputMovePathChanged -= OnPathChanged;
-        entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
     private void OnMoveFinish(PathMove pathMove)
@@ -97,19 +98,6 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         }
 
         _pathMove.MovePath(_inputData.InputMovePath, OnMoveFinish);
-    }
-
-    private void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets)
-    {
-        if (!CheckCanSkill())
-        {
-            return;
-        }
-
-        OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-        OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
-        OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
-        ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 
     public bool CheckCanMove()

@@ -22,7 +22,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {

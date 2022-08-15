@@ -29,7 +29,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
     public override string StatusName => Name;
     private EntityBattleDataCore _battleData;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {

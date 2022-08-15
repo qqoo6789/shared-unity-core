@@ -1,17 +1,16 @@
+/* 
+ * @Author XQ
+ * @Date 2022-08-15 11:15:06
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/OnInputSkillInBattleStatusEventFunc.cs
+ */
+
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-/** 
-* @Author XQ
-* @Date 2022-08-11 20:21:20
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/JumpRollEventFunc.cs
-*/
-
 /// <summary>
-/// 需要监听翻滚技能的功能 
-/// !!! 不要挂载到Idle和move这些本来就监听了技能的状态上 主要是给技能状态使用的
+/// 在战斗状态中监听到输入技能  和 WaitToBattleStatusEventFunc 对立
 /// </summary>
-public class JumpRollEventFunc : EntityStatusEventFunctionBase
+public class OnInputSkillInBattleStatusEventFunc : EntityStatusEventFunctionBase
 {
     public override void AddEvent(EntityEvent entityEvent)
     {

@@ -21,7 +21,7 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
     public static new string Name => "beHit";
     private EntityBattleDataCore _battleData;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(JumpRollEventFunc) };
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
 
     public override string StatusName => Name;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
