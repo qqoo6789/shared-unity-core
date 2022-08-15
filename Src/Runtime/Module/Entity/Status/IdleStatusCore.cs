@@ -20,6 +20,9 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
     private EntityInputData _inputData;
     private EntityBattleDataCore _battleData;
 
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitMoveEventFunc)
+    };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);

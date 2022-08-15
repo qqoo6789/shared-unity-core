@@ -1,8 +1,4 @@
-/** 
- * @Author XQ
- * @Date 2022-08-10 10:48:05
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
- */
+
 /*
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
@@ -21,7 +17,10 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
     public static new string Name => "beHit";
     private EntityBattleDataCore _battleData;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(OnInputSkillInBattleStatusEventFunc),
+        typeof(BeHitMoveEventFunc)
+     };
 
     public override string StatusName => Name;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)

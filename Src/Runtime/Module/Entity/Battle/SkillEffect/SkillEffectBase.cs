@@ -83,6 +83,18 @@ public class SkillEffectBase : IReference
     {
         EffectData = data;
     }
+    private EntityEvent _entityEvent;//缓存实体上的事件组件 节省性能
+    public EntityEvent EntityEvent
+    {
+        get
+        {
+            if (_entityEvent == null)
+            {
+                _entityEvent = RefOwner.GetComponent<EntityEvent>();
+            }
+            return _entityEvent;
+        }
+    }
 
     /// <summary>
     /// 创建技能效果数据 子类复写

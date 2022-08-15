@@ -7,7 +7,7 @@
  */
 
 
-public class NormalDamageCoreSE : SkillEffectBase
+public class SENormalDamageCore : SkillEffectBase
 {
     public override bool IsRepeat => true;
     public override void Start()

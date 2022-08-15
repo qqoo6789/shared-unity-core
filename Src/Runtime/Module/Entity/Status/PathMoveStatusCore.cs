@@ -18,7 +18,9 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     private PathMove _pathMove;
     protected PathMove PathMove => _pathMove;
     private EntityBattleDataCore _battleData;
-
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitMoveEventFunc)
+    };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);

@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 自定义的一些数学工具
 /// </summary>
-public static class MathUtil
+public static class MathUtilCore
 {
     /// <summary>
     /// 米转厘米

@@ -26,7 +26,9 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     private EntityInputData _inputData;
     private DirectionMove _directionMove;
     private EntityBattleDataCore _battleData;
-
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitMoveEventFunc)
+    };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);

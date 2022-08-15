@@ -27,4 +27,8 @@ public class EntityEvent : MonoBehaviour
     /// 实体重生
     /// </summary>
     public Action EntityBeReborn;
+    /// <summary>
+    /// 受击移动 T0:持续时间
+    /// </summary>
+    public Action<int> EntityBeHitMove;
 }

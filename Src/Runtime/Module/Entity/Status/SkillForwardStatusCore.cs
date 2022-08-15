@@ -14,7 +14,11 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     public static new string Name => "skillForward";
 
     public override string StatusName => Name;
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
+	protected override Type[] EventFunctionTypes => new Type[]
+    {
+        typeof(OnInputSkillInBattleStatusEventFunc),
+        typeof(BeHitMoveEventFunc)
+    };
 
     private CancellationTokenSource _forwardTimeToken;
 
@@ -22,6 +26,8 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     private EntityInputData _inputData;
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
+
+
     /// <summary>
     /// 是否正常继续战斗状态离开的 false以为着是打断离开的
     /// </summary>

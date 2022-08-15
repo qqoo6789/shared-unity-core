@@ -60,9 +60,9 @@ public class SkillShapeFactory
             return null;
         }
 
-        float xHalf = parameters[1] * MathUtil.CM2M / 2; //长
-        float zHalf = parameters[2] * MathUtil.CM2M / 2; //宽
-        float yHalf = parameters[3] * MathUtil.CM2M / 2; //高
+        float xHalf = parameters[1] * MathUtilCore.CM2M / 2; //长
+        float zHalf = parameters[2] * MathUtilCore.CM2M / 2; //宽
+        float yHalf = parameters[3] * MathUtilCore.CM2M / 2; //高
         Vector3 halfSize = new(xHalf, yHalf, zHalf);
 
         Vector3 forward = dir.ApproximatelyEquals(Vector3.zero) ? entity.Transform.forward : dir;
@@ -84,7 +84,7 @@ public class SkillShapeFactory
             return null;
         }
 
-        float radius = parameters[1] * MathUtil.CM2M; //半径
+        float radius = parameters[1] * MathUtilCore.CM2M; //半径
         Vector3 centerPos = entity.Transform.position;
         SkillShapeSphere shape = SkillShapeBase.Create<SkillShapeSphere>();
         shape.Init(centerPos, radius);
@@ -93,8 +93,8 @@ public class SkillShapeFactory
     private static SkillShapeBase CreateSkillShapeCapsule(int[] parameters, EntityBase entity, Vector3 dir)
     {
 
-        float height = parameters[1] * MathUtil.CM2M; //高度
-        float radius = parameters[2] * MathUtil.CM2M; //半径
+        float height = parameters[1] * MathUtilCore.CM2M; //高度
+        float radius = parameters[2] * MathUtilCore.CM2M; //半径
         Vector3 centerPos = entity.Transform.position;
         Vector3 pos1 = centerPos - (height / 2 * Vector3.up);
         Vector3 pos2 = centerPos + (height / 2 * Vector3.up);
