@@ -21,10 +21,4 @@ public static class BattleDefine
         SkillShapeSphere = 2,
         SkillShapeCapsule = 3,
     }
-
-    public enum eLayerMask : int
-    {
-        Monster = 6,
-        Player = 7
-    }
 }

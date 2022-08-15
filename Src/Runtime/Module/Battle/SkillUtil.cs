@@ -48,10 +48,10 @@ public static partial class SkillUtil
         {
             case MelandGame3.EntityType.MainPlayer:
             case MelandGame3.EntityType.EntityTypePlayer:
-                targetLayer = 1 << (int)BattleDefine.eLayerMask.Monster;
+                targetLayer = 1 << LayerMask.MONSTER;
                 break;
             case MelandGame3.EntityType.EntityTypeMonster:
-                targetLayer = 1 << (int)BattleDefine.eLayerMask.Player;
+                targetLayer = 1 << LayerMask.PLAYER;
                 break;
             default:
                 targetLayer = 0;
