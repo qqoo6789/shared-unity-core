@@ -144,7 +144,7 @@ public class DRSkill : DataRowBase
     /// <summary>
   /**获取技能释放动作。*/
     /// </summary>
-    public string[] ReleaseAct
+    public string ReleaseAct
     {
         get;
         private set;
@@ -313,7 +313,7 @@ public class DRSkill : DataRowBase
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuTab = columnStrings[index++];
-        ReleaseAct = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        ReleaseAct = columnStrings[index++];
         ReleaseEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ForwardReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -354,7 +354,7 @@ public class DRSkill : DataRowBase
                 AccuEff = binaryReader.Read7BitEncodedInt32();
                 AccuBreakable = binaryReader.ReadBoolean();
                 AccuTab = binaryReader.ReadString();
-                ReleaseAct = binaryReader.ReadArray<String>();
+                ReleaseAct = binaryReader.ReadString();
                 ReleaseEff = binaryReader.Read7BitEncodedInt32();
                 ReleaseTime = binaryReader.Read7BitEncodedInt32();
                 ForwardReleaseTime = binaryReader.Read7BitEncodedInt32();

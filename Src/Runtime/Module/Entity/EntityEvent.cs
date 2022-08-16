@@ -1,3 +1,8 @@
+/* 
+ * @Author XQ
+ * @Date 2022-08-15 11:15:06
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ */
 using System;
 using UnityEngine;
 
@@ -14,6 +19,10 @@ public class EntityEvent : MonoBehaviour
     /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID T1:技能朝向 T2:技能目标列表
     /// </summary>
     public Action<int, Vector3, long[]> InputSkillRelease;
+    /// <summary>
+    /// 开始翻滚技能
+    /// </summary>
+    public Action StartJumpRoll;
     /// <summary>
     /// 实体路径移动到达目标点 中途停止不会广播 只有通过实体本身路径移动才会广播 单纯使用通用移动脚本直接移动的不会广播
     /// </summary>
