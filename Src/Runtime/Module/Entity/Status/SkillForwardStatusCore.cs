@@ -14,6 +14,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     public static new string Name => "skillForward";
 
     public override string StatusName => Name;
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
 
     private CancellationTokenSource _forwardTimeToken;
 
@@ -21,12 +22,16 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     private EntityInputData _inputData;
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
-
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
+    /// <summary>
+    /// 是否正常继续战斗状态离开的 false以为着是打断离开的
+    /// </summary>
+    protected bool IsContinueBattleLeave;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
+
+        IsContinueBattleLeave = false;
 
         int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
@@ -58,6 +63,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         CurSkillCfg = null;
         Targets = null;
         SkillDir = UnityEngine.Vector3.zero;
+        IsContinueBattleLeave = false;
 
         base.OnLeave(fsm, isShutdown);
     }
@@ -94,6 +100,8 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             return;
         }
         _forwardTimeToken = null;
+
+        IsContinueBattleLeave = true;
         ChangeState(OwnerFsm, SkillCastStatusCore.Name);
     }
 

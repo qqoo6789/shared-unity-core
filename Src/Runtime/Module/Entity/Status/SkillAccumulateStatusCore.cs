@@ -1,4 +1,3 @@
-using System.Numerics;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
@@ -28,12 +27,18 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
     public static new string Name => "skillAccumulate";
     public override string StatusName => Name;
     private EntityBattleDataCore _battleData;
+    /// <summary>
+    /// 是否正常继续战斗状态离开的 false以为着是打断离开的
+    /// </summary>
+    protected bool IsContinueBattleLeave;
 
     protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
+        IsContinueBattleLeave = false;
+
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
@@ -67,6 +72,8 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
         _battleData = null;
         Targets = null;
         SkillDir = UnityEngine.Vector3.zero;
+        IsContinueBattleLeave = false;
+
         base.OnLeave(fsm, isShutdown);
     }
 
@@ -118,6 +125,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
     }
     protected virtual void AccumulateEnd()
     {
+        IsContinueBattleLeave = true;
         ChangeState(OwnerFsm, SkillForwardStatusCore.Name);
     }
 

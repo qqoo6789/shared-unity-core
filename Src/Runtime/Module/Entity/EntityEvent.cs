@@ -20,10 +20,6 @@ public class EntityEvent : MonoBehaviour
     /// </summary>
     public Action<int, Vector3, long[]> InputSkillRelease;
     /// <summary>
-    /// 开始翻滚技能
-    /// </summary>
-    public Action StartJumpRoll;
-    /// <summary>
     /// 实体路径移动到达目标点 中途停止不会广播 只有通过实体本身路径移动才会广播 单纯使用通用移动脚本直接移动的不会广播
     /// </summary>
     public Action OnEntityPathMoveArrived;
