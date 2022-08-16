@@ -7,6 +7,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 
 /// <summary>
@@ -24,8 +25,7 @@ public class SkillCastStatusCore : ListenEventStatusCore
     private CancellationTokenSource _castTimeToken;
     private EntityBattleDataCore _battleData;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
-
+    private bool _continueNextSkill;//是否继续下一个技能
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -56,13 +56,51 @@ public class SkillCastStatusCore : ListenEventStatusCore
         CurSkillCfg = null;
         _battleData = null;
         Targets = null;
-        SkillDir = UnityEngine.Vector3.zero;
-        _ = fsm.RemoveData(StatusDataDefine.SKILL_ID);
-        _ = fsm.RemoveData(StatusDataDefine.SKILL_DIR);
-        _ = fsm.RemoveData(StatusDataDefine.SKILL_TARGETS);
+        SkillDir = Vector3.zero;
+
+        if (!_continueNextSkill)
+        {
+            _ = fsm.RemoveData(StatusDataDefine.SKILL_ID);
+            _ = fsm.RemoveData(StatusDataDefine.SKILL_DIR);
+            _ = fsm.RemoveData(StatusDataDefine.SKILL_TARGETS);
+            _continueNextSkill = false;
+        }
         base.OnLeave(fsm, isShutdown);
     }
 
+    protected override void AddEvent(EntityEvent entityEvent)
+    {
+        base.AddEvent(entityEvent);
+
+        entityEvent.InputSkillRelease += OnInputSkillRelease;
+    }
+
+    protected override void RemoveEvent(EntityEvent entityEvent)
+    {
+        base.RemoveEvent(entityEvent);
+
+        entityEvent.InputSkillRelease -= OnInputSkillRelease;
+    }
+
+    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets)
+    {
+        if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData))
+        {
+            //是翻滚动作
+            if (playerData.DRRole.JumpRollSkill == skillID)
+            {
+                SeContinueNextSkill(true);
+
+                EntityEvent.StartJumpRoll?.Invoke();
+
+                OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+                OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
+                OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+                ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
+                return;
+            }
+        }
+    }
 
     //施法完成定时
     private async void TimeCastFinish()
@@ -102,4 +140,13 @@ public class SkillCastStatusCore : ListenEventStatusCore
     /// </summary>
     /// <param name="curSkillCfg"></param>
     protected virtual void SkillCastExecute(DRSkill curSkillCfg) { }
+
+    /// <summary>
+    /// 设置是否继续下一个技能 如果有下一个技能 基类就不会离开状态清理技能数据
+    /// </summary>
+    /// <param name="isContinue"></param>
+    protected void SeContinueNextSkill(bool isContinue)
+    {
+        _continueNextSkill = isContinue;
+    }
 }
