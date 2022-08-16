@@ -6,6 +6,11 @@ using UnityEngine;
 public class EntityBase
 {
     /// <summary>
+    /// 实体是否初始化，dispose后变为false
+    /// </summary>
+    /// <value></value>
+    public bool Inited { get; protected set; } = false;
+    /// <summary>
     /// 逻辑实体根节点 可以挂载逻辑实体相关逻辑 一定不为空
     /// </summary>
     /// <value></value>
@@ -38,6 +43,7 @@ public class EntityBase
 
     public virtual void Dispose()
     {
+        Inited = false;
         UnInitFromScene();
         BaseData.Reset();
 
@@ -47,6 +53,7 @@ public class EntityBase
 
     public virtual void Init()
     {
+        Inited = true;
         InitToScene();
     }
 
