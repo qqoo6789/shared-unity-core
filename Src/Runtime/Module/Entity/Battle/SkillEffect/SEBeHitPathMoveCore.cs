@@ -7,11 +7,33 @@
  */
 
 
+using MelandGame3;
+using UnityGameFramework.Runtime;
+
 public class SEBeHitPathMoveCore : SEPathMoveCore
 {
     public override void OnAdd()
     {
         base.OnAdd();
         EntityEvent.EntityBeHitMove?.Invoke(EffectCfg.Duration);
+    }
+
+    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
+    {
+        if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
+        {
+            Log.Error($"SEPathMove Parameters Error EffectID = {EffectID}");
+            return null;
+        }
+        float distance = EffectCfg.Parameters[0] * MathUtilCore.CM2M;
+        UnityEngine.Vector3 curPos = targetEntity.Transform.position;
+        UnityEngine.Vector3 moveDir = targetEntity.Transform.position - fromEntity.Transform.position;
+        UnityEngine.Vector3 targetPos = curPos + (moveDir.normalized * distance);
+        DamageEffect effect = new();
+        effect.EffectType = (DamageEffectId)EffectCfg.EffectType;
+        effect.BeatBackValue = new();
+        effect.BeatBackValue.CurLoc = NetUtilCore.LocToNet(curPos);
+        effect.BeatBackValue.BackToPos = NetUtilCore.LocToNet(targetPos);
+        return effect;
     }
 }
