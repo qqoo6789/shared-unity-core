@@ -48,7 +48,6 @@ public class EntityBase
         BaseData.Reset();
 
         Object.Destroy(Root);
-        Root = null;
     }
 
     public virtual void Init()
