@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 技能路径移动效果
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
  * 
  */
 
@@ -13,8 +13,6 @@ using UnityGameFramework.Runtime;
 public class SEPathMoveCore : SkillEffectBase
 {
     protected PathMove PathMove;
-    protected Vector3 MovePos;
-
     public override void OnAdd()
     {
         if (EffectData == null)
@@ -31,7 +29,7 @@ public class SEPathMoveCore : SkillEffectBase
         float time = distance / (EffectCfg.Duration * TimeUtil.MS2S);
         PathMove.enabled = true;
         PathMove.SetMoveSpeed(time);
-        PathMove.MovePoint(MovePos);
+        PathMove.MovePoint(targetPos);
     }
 
     public override void OnRemove()
