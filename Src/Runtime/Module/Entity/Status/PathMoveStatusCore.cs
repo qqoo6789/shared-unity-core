@@ -12,14 +12,13 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     public override string StatusName => Name;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(WaitToBattleStatusEventFunc) };
-
     private EntityInputData _inputData;
     private PathMove _pathMove;
     protected PathMove PathMove => _pathMove;
     private EntityBattleDataCore _battleData;
     protected override Type[] EventFunctionTypes => new Type[] {
-        typeof(BeHitMoveEventFunc)
+        typeof(BeHitMoveEventFunc),
+        typeof(WaitToBattleStatusEventFunc)
     };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
