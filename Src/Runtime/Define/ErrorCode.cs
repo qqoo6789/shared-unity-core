@@ -16,6 +16,7 @@ public enum eErrorCode : int
     pickDropNotYours = 0002002,//拾取物品不是自己的
     pickDropOverdue = 0002003,//拾取物品过期
     pickDropOverRange = 0002004,//拾取物品超出范围
+    pickDropPickerIllegal = 0002005,//拾取者非法
     inputSkillFail = 0003001,
     inputSkillStatusFail = 0003002,
     inputSkillCDFail = 0003003,
