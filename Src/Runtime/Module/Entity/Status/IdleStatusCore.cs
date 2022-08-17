@@ -1,6 +1,6 @@
 /* 
  * @Author XQ
- * @Date 2022-08-15 11:15:06
+ * @Date 2022-08-17 10:37:20
  * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/IdleStatusCore.cs
  */
 using System;
@@ -65,7 +65,7 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
         return true;
     }
 
-    public bool CheckCanSkill()
+    public bool CheckCanSkill(int skillId)
     {
         return true;
     }

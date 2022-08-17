@@ -13,7 +13,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 技能施法状态 正式产生伤害阶段
 /// </summary>
-public class SkillCastStatusCore : ListenEventStatusCore
+public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 {
     public static new string Name => "skillCast";
 
@@ -146,5 +146,16 @@ public class SkillCastStatusCore : ListenEventStatusCore
     protected void SeContinueNextSkill(bool isContinue)
     {
         _continueNextSkill = isContinue;
+    }
+
+    public bool CheckCanSkill(int skillID)
+    {
+        if (skillID == 0)
+        {
+            return false;
+        }
+
+        //现在没有强校验技能具体技能
+        return true;
     }
 }

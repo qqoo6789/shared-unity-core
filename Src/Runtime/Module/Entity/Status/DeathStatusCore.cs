@@ -92,7 +92,7 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
         return false;
     }
 
-    public bool CheckCanSkill()
+    public bool CheckCanSkill(int skillId)
     {
         return false;
     }

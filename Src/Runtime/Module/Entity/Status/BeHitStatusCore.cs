@@ -1,4 +1,3 @@
-
 /*
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
@@ -54,7 +53,7 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
         return true;
     }
 
-    public bool CheckCanSkill()
+    public bool CheckCanSkill(int skillId)
     {
         return true;
     }

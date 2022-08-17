@@ -27,7 +27,7 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
             return;
         }
 
-        if (!entityCanSkill.CheckCanSkill())
+        if (!entityCanSkill.CheckCanSkill(skillID))
         {
             return;
         }

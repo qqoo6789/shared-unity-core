@@ -104,8 +104,9 @@ public static class EntityBehaviorCheckLogic
     /// 检查实体是否能够放技能
     /// </summary>
     /// <param name="entity"></param>
+    /// <param name="skillID">需要检测的具体技能ID  如果想要知道任意技能是否能够释放 就传入0</param>
     /// <returns></returns>
-    public static bool CheckEntityCanSkill(EntityBase entity)
+    public static bool CheckEntityCanSkill(EntityBase entity, int skillID)
     {
         FsmState<EntityStatusCtrl> curStatus = GetCurrentStatus(entity);
         if (curStatus == null)
@@ -118,6 +119,6 @@ public static class EntityBehaviorCheckLogic
             return false;
         }
 
-        return judge.CheckCanSkill();
+        return judge.CheckCanSkill(skillID);
     }
 }

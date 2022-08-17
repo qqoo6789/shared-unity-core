@@ -9,7 +9,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 技能前摇状态
 /// </summary>
-public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCanMove
+public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name => "skillForward";
 
@@ -156,5 +156,16 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     public bool CheckCanMove()
     {
         return _inputData && CurSkillCfg.AccuBreakable;//能打断 时有移动输入时切换移动
+    }
+
+    public bool CheckCanSkill(int skillID)
+    {
+        if (skillID == 0)
+        {
+            return false;
+        }
+
+        //现在没有强校验技能具体技能
+        return true;
     }
 }

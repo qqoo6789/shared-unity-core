@@ -106,7 +106,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         return true;
     }
 
-    public bool CheckCanSkill()
+    public bool CheckCanSkill(int skillId)
     {
         return true;
     }

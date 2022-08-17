@@ -15,7 +15,7 @@ using System;
 /// 蓄力状态通用状态基类 
 /// </summary>
 
-public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
+public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     protected int SkillID;
     protected long[] Targets;
@@ -136,5 +136,16 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
     public bool CheckCanMove()
     {
         return _inputData && CurSkillCfg.AccuBreakable;
+    }
+
+    public bool CheckCanSkill(int skillID)
+    {
+        if (skillID == 0)
+        {
+            return false;
+        }
+
+        //现在没有强校验技能具体技能
+        return true;
     }
 }
