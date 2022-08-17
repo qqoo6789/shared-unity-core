@@ -16,6 +16,10 @@ public class EntityBase
     /// <value></value>
     protected GameObject Root;
     /// <summary>
+    /// 场景逻辑节点的名字
+    /// </summary>
+    public string Name => Root.name;
+    /// <summary>
     /// 逻辑实体的root节点的id，用于通过root节点id来获取逻辑实体
     /// </summary>
     /// <returns></returns>
@@ -72,6 +76,24 @@ public class EntityBase
     protected virtual void UnInitFromScene()
     {
         //todo;
+    }
+
+    /// <summary>
+    /// 统一的 设置位置的地方 除了一些基础组件自己控制了位置 其他都用这个方法
+    /// </summary>
+    /// <param name="pos"></param>
+    public virtual void SetPosition(Vector3 pos)
+    {
+        Transform.position = pos;
+    }
+
+    /// <summary>
+    /// 统一的 设置正方向朝向的地方
+    /// </summary>
+    /// <param name="dir"></param>
+    public virtual void SetDir(Vector3 dir)
+    {
+        Transform.forward = dir;
     }
 
     public void InitBaseInfo(long id, MelandGame3.EntityType type)

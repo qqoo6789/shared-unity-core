@@ -32,6 +32,8 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
             return;
         }
 
+        StatusCtrl.transform.forward = dir;
+
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
         OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
         OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
