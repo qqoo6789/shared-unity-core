@@ -64,7 +64,7 @@ public class DRRole : DataRowBase
     /// <summary>
   /**获取无装备时技能ID(1002002)。*/
     /// </summary>
-    public int RoleDefaultSkill
+    public int[] RoleDefaultSkill
     {
         get;
         private set;
@@ -125,7 +125,7 @@ public class DRRole : DataRowBase
         RoleSex = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleDefaultAvatar = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        RoleDefaultSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RoleDefaultSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         JumpRollSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GrasslandRunSound = columnStrings[index++];
@@ -147,7 +147,7 @@ public class DRRole : DataRowBase
                 RoleSex = binaryReader.Read7BitEncodedInt32();
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 RoleDefaultAvatar = binaryReader.ReadArray<Int32>();
-                RoleDefaultSkill = binaryReader.Read7BitEncodedInt32();
+                RoleDefaultSkill = binaryReader.ReadArray<Int32>();
                 JumpRollSkill = binaryReader.Read7BitEncodedInt32();
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
                 GrasslandRunSound = binaryReader.ReadString();

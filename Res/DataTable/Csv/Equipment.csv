@@ -1,7 +1,7 @@
 装备ID,"装备类型
 ",备注,耐久度上限,键ICON展示,avatar资源,挂载技能,备注,增加血量,增加生命恢复,增加普通攻击,增加攻击速度,增加普通防御,增加暴击点数,增加暴击伤害点数,增加命中点数,增加闪避点数,移动速度,装备音效,攻击音效,点亮半径增加(像素),修理材料
 itemId,gearType,null,gearDurabilityMax,keyIcon,gearAvatar,givenSkillId,null,gearAddHp,gearAddHpRec,gearAddAtt,gearAddAttSpd,gearAddDef,gearAddCritRate,gearAddCritDmg,gearAddHitPoint,gearAddMissPoint,gearAddSpeed,equipMusic,attackSound,lightRadiusAdd,repairNeed
-int,int,null,int,string,int,int,string,int[][],int[][],int[][],int[][],int[][],int[][],int[][],int[][],int[][],int[][],string,string,int,int[][]
+int,int,null,int,string,int,int[],string,int[][],int[][],int[][],int[][],int[][],int[][],int[][],int[][],int[][],int[][],string,string,int,int[][]
 1110003,11,源码建造枪,200,icon_main_shoot,11022,,,,,,,,,,,,,,,,
 1110004,1,建造头盔,200,icon_main_shoot,10075,,,,,,,,,,,,,,,,
 1110005,11,源码删除枪,200,icon_main_shoot,11024,,,,,,,,,,,,,,,,
