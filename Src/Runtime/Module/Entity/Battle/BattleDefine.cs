@@ -14,6 +14,7 @@ public static class BattleDefine
         SENormalDamage = 1001,
         SEPathMove = 1002,
         SEBeHitPathMove = 1003,
+        SEInvincible = 1004,
     }
 
     public enum eSkillShapeId : int
