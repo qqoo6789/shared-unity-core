@@ -132,7 +132,8 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             ChangeState(OwnerFsm, DeathStatusCore.Name);
             return;
         }
-        ChangeState(OwnerFsm, IdleStatusCore.Name);
+
+        OnFinishChangeToNextStatus();
     }
 
     // 取消施法完成定时
@@ -150,6 +151,13 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     /// </summary>
     /// <param name="curSkillCfg"></param>
     protected virtual void SkillCastExecute(DRSkill curSkillCfg) { }
+    /// <summary>
+    /// 后摇完成需要切换到下一个状态的时候覆写
+    /// </summary>
+    protected virtual void OnFinishChangeToNextStatus()
+    {
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
+    }
 
     /// <summary>
     /// 设置是否继续下一个技能 如果有下一个技能 基类就不会离开状态清理技能数据
