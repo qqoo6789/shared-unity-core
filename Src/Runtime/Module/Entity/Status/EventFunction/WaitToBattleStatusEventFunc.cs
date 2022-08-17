@@ -20,7 +20,7 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    protected virtual void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets)
+    protected virtual void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets, bool isTry)
     {
         if (EntityStatus is not IEntityCanSkill entityCanSkill)
         {

@@ -82,21 +82,31 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets)
+    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry)
     {
-        if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData))
+        bool valid = false;
+
+        if (!isTry)
+        {
+            valid = true;
+        }
+        else//尝试释放
         {
             //是翻滚动作
-            if (playerData.DRRole.JumpRollSkill == skillID)
+            if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == skillID)
             {
-                SeContinueNextSkill(true);
-
-                OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-                OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
-                OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
-                ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
-                return;
+                valid = true;
             }
+        }
+
+        if (valid)
+        {
+            SeContinueNextSkill(true);
+
+            OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+            OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
+            OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+            ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
         }
     }
 

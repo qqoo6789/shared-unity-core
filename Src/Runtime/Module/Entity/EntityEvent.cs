@@ -16,9 +16,9 @@ public class EntityEvent : MonoBehaviour
     /// </summary>
     public Action<Vector3[]> InputMovePathChanged;
     /// <summary>
-    /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID T1:技能朝向 T2:技能目标列表
+    /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID T1:dir技能朝向 T2:targets技能目标列表 T3:isTry 是否尝试释放技能不是尝试代表一定要放
     /// </summary>
-    public Action<int, Vector3, long[]> InputSkillRelease;
+    public Action<int, Vector3, long[], bool> InputSkillRelease;
     /// <summary>
     /// 实体路径移动到达目标点 中途停止不会广播 只有通过实体本身路径移动才会广播 单纯使用通用移动脚本直接移动的不会广播
     /// </summary>

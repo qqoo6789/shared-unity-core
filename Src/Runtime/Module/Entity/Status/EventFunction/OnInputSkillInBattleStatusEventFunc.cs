@@ -22,19 +22,29 @@ public class OnInputSkillInBattleStatusEventFunc : EntityStatusEventFunctionBase
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    private void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets)
+    private void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry)
     {
-        if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData))
+        bool valid = false;
+
+        if (!isTry)
+        {
+            valid = true;
+        }
+        else//尝试释放
         {
             //是翻滚动作
-            if (playerData.DRRole.JumpRollSkill == skillID)
+            if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == skillID)
             {
-                OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-                OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
-                OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
-                EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
-                return;
+                valid = true;
             }
+        }
+
+        if (valid)
+        {
+            OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+            OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
+            OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+            EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
         }
     }
 }
