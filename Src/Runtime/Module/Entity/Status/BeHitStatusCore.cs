@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 受击状态 理论上受击状态只有表现,服务器用不到
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
  * 
  */
 using System;
@@ -37,7 +37,15 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
-
+    protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+        if (_battleData && !_battleData.IsLive())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
+    }
     public bool CheckCanMove()
     {
         return true;
