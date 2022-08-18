@@ -71,19 +71,20 @@ public class SkillEffectCpt : MonoBehaviour
         }
         else
         {
-            SkillEffectBase oldEffect = _skillEffects.Find(value =>
+            int oldIndex = _skillEffects.FindIndex(value =>
             {
                 return value.EffectID == effect.EffectID;
             });
-            if (oldEffect != null)
+            if (oldIndex >= 0)
             {
-                oldEffect.OnRefreshRepeat(effect);
+                SkillEffectBase oldEffect = _skillEffects[oldIndex];
+                effect.OnRefreshRepeat(oldEffect);
+                oldEffect.RemoveEffect();
+                oldEffect.Dispose();
+                _skillEffects.RemoveAt(oldIndex);
             }
-            else
-            {
-                effect.Start();
-                _skillEffects.Add(effect);
-            }
+            effect.Start();
+            _skillEffects.Add(effect);
         }
     }
 
