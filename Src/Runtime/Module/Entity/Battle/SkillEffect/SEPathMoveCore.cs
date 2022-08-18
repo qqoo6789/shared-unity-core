@@ -52,7 +52,7 @@ public class SEPathMoveCore : SkillEffectBase
         Vector3 curPos = targetEntity.Transform.position;
         Vector3 forward = targetEntity.Transform.forward;
         forward.Set(forward.x, 0, forward.z);
-        Vector3 targetPos = curPos + (forward * distance);
+        Vector3 targetPos = curPos + (forward.normalized * distance);
         MelandGame3.DamageEffect effect = new();
         effect.EffectType = (MelandGame3.DamageEffectId)EffectCfg.EffectType;
         effect.BeatBackValue = new();
