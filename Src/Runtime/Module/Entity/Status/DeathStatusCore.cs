@@ -18,7 +18,7 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
 
     public override string StatusName => Name;
     protected CancellationTokenSource CancelToken;
-    protected virtual int DeathTime => 1000;
+    protected virtual int DeathTime => 3000;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
