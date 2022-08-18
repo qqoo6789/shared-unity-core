@@ -28,6 +28,7 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
         float distance = EffectCfg.Parameters[0] * MathUtilCore.CM2M;
         UnityEngine.Vector3 curPos = targetEntity.Transform.position;
         UnityEngine.Vector3 moveDir = targetEntity.Transform.position - fromEntity.Transform.position;
+        moveDir.Set(moveDir.x, 0, moveDir.z);
         UnityEngine.Vector3 targetPos = curPos + (moveDir.normalized * distance);
         DamageEffect effect = new();
         effect.EffectType = (DamageEffectId)EffectCfg.EffectType;
