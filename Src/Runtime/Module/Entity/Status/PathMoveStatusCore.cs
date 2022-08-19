@@ -69,11 +69,18 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     protected override void AddEvent(EntityEvent entityEvent)
     {
         entityEvent.InputMovePathChanged += OnPathChanged;
+        entityEvent.SpecialMoveStartNotMoveStatus += OnSpecialMoveStart;
     }
 
     protected override void RemoveEvent(EntityEvent entityEvent)
     {
         entityEvent.InputMovePathChanged -= OnPathChanged;
+        entityEvent.SpecialMoveStartNotMoveStatus -= OnSpecialMoveStart;
+    }
+
+    private void OnSpecialMoveStart()
+    {
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     private void OnMoveFinish(PathMove pathMove)

@@ -25,6 +25,8 @@ public class SEPathMoveCore : SkillEffectBase
             return;
         }
 
+        RefOwner.GetComponent<EntityEvent>().SpecialMoveStartNotMoveStatus?.Invoke();
+
         Vector3 targetPos = NetUtilCore.LocFromNet(EffectData.BeatBackValue.BackToPos);
         float distance = Vector3.Distance(RefOwner.transform.position, targetPos);
         float time = distance / (EffectCfg.Duration * TimeUtil.MS2S);

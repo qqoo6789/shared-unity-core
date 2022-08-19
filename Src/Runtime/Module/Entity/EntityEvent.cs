@@ -31,4 +31,8 @@ public class EntityEvent : MonoBehaviour
     /// 受击移动 T0:持续时间
     /// </summary>
     public Action<int> EntityBeHitMove;
+    /// <summary>
+    /// 非移动状态的特殊移动开始 往往是技能效果的强制移动等触发
+    /// </summary>
+    public Action SpecialMoveStartNotMoveStatus;
 }
