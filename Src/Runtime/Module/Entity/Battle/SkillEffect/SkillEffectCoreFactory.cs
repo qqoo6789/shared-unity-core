@@ -38,7 +38,7 @@ public class SkillEffectCoreFactory
             return null;
         }
 
-        DRSkillEffect skillEffectCfg = GFEntry.DataTable.GetDataTable<DRSkillEffect>().GetDataRow(effectID);
+        DRSkillEffect skillEffectCfg = GFEntryCore.DataTable.GetDataTable<DRSkillEffect>().GetDataRow(effectID);
         if (skillEffectCfg == null)
         {
             Log.Error($"createOneSkillEffect Error skillEffectCfg is null  skillID = {skillID} effectID = {effectID}");

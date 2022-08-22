@@ -43,7 +43,7 @@ public class PlayerRoleDataCore : EntityComponentBase
 
     public void SetRoleCfgID(int roleCfgID)
     {
-        DRRole = GFEntry.DataTable.GetDataTable<DRRole>().GetDataRow(roleCfgID);
+        DRRole = GFEntryCore.DataTable.GetDataTable<DRRole>().GetDataRow(roleCfgID);
 
         if (DRRole == null)
         {

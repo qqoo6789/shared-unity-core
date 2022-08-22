@@ -46,7 +46,7 @@ public class EntitySkillDataCore : MonoBehaviour
     /// </summary>
     public void ResetSkillCD(int skillID)
     {
-        DRSkill CurSkillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        DRSkill CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
         if (CurSkillCfg == null)
         {
             Log.Error($"EntitySkillDataCore GetSkillCD Error skillID = {skillID}");

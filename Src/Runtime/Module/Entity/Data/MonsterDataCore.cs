@@ -16,7 +16,7 @@ public class MonsterDataCore : EntityComponentBase
 
     public void SetMonsterConfigID(int cfgID)
     {
-        DRMonster = GFEntry.DataTable.GetDataTable<DRMonster>().GetDataRow(cfgID);
+        DRMonster = GFEntryCore.DataTable.GetDataTable<DRMonster>().GetDataRow(cfgID);
 
         if (DRMonster == null)
         {

@@ -2,12 +2,12 @@
  * @Author: xiang huan
  * @Date: 2022-07-26 15:38:17
  * @Description: 共享库GFEntry引用
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/GFEntry.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/GFEntry.cs
  * 
  */
 using GameFramework.DataTable;
 
-internal static class GFEntry
+public static class GFEntryCore
 {
     /// <summary>
     /// 获取数据表组件。

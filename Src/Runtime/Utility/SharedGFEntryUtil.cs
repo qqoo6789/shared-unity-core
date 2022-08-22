@@ -14,10 +14,10 @@ public static class SharedGFEntryUtil
 {
     public static void SetDataTable(IDataTableComponent dataTable)
     {
-        GFEntry.SetDataTable(dataTable);
+        GFEntryCore.SetDataTable(dataTable);
     }
     public static void SetSkillEffectFactory(SkillEffectCoreFactory skillEffectFactory)
     {
-        GFEntry.SetSkillEffectFactory(skillEffectFactory);
+        GFEntryCore.SetSkillEffectFactory(skillEffectFactory);
     }
 }
