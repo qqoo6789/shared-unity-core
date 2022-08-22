@@ -10,6 +10,10 @@ using UnityEngine;
 public class EntityComponentBase : MonoBehaviour
 {
     private EntityBase _refEntity;
+    /// <summary>
+    /// 获取组件所挂载的实体的反引用
+    /// </summary>
+    /// <value></value>
     public EntityBase RefEntity
     {
         get
