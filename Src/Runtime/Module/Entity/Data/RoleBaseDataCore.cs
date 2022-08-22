@@ -8,7 +8,7 @@ using UnityEngine;
 /// <summary>
 /// 实体角色基础数据
 /// </summary>
-public class RoleBaseDataCore : MonoBehaviour
+public class RoleBaseDataCore : EntityComponentBase
 {
     public string Name { get; protected set; }
 

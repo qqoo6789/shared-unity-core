@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 实体上的战斗数据 双端通用的核心数据
 /// </summary>
-public class EntityBattleDataCore : MonoBehaviour
+public class EntityBattleDataCore : EntityComponentBase
 {
     /// <summary>
     /// 当前血量

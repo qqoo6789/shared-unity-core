@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 实体移动数据
 /// </summary>
-public class EntityMoveData : MonoBehaviour
+public class EntityMoveData : EntityComponentBase
 {
     /// <summary>
     /// 移动速度 m/s

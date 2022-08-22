@@ -10,7 +10,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 玩家场景角色数据
 /// </summary>
-public class PlayerRoleDataCore : MonoBehaviour
+public class PlayerRoleDataCore : EntityComponentBase
 {
     /// <summary>
     /// 性别
