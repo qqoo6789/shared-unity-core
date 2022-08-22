@@ -129,6 +129,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         _castTimeToken = null;
         if (_battleData && !_battleData.IsLive())
         {
+            OnBeforeChangeToDeath();
             ChangeState(OwnerFsm, DeathStatusCore.Name);
             return;
         }
@@ -158,6 +159,11 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
+
+    /// <summary>
+    /// 在死亡了 需要切换到死亡状态前执行的额外操作
+    /// </summary>
+    protected virtual void OnBeforeChangeToDeath() { }
 
     /// <summary>
     /// 设置是否继续下一个技能 如果有下一个技能 基类就不会离开状态清理技能数据
