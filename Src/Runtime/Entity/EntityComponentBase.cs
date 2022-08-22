@@ -9,5 +9,17 @@ using UnityEngine;
 /// </summary>
 public class EntityComponentBase : MonoBehaviour
 {
+    private EntityBase _refEntity;
+    public EntityBase RefEntity
+    {
+        get
+        {
+            if (_refEntity == null)
+            {
+                _refEntity = GFEntryCore.GetModule<EntityMgr<EntityBase, EntityFactory<EntityBase>>>().GetEntityWithRoot(gameObject);
+            }
 
+            return _refEntity;
+        }
+    }
 }
