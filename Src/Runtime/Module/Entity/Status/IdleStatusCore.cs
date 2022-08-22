@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-17 10:37:20
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/IdleStatusCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/IdleStatusCore.cs
  */
 using System;
 using GameFramework.Fsm;
@@ -15,13 +15,12 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
 
     public override string StatusName => Name;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(WaitToBattleStatusEventFunc) };
-
     private EntityInputData _inputData;
     private EntityBattleDataCore _battleData;
 
     protected override Type[] EventFunctionTypes => new Type[] {
-        typeof(BeHitMoveEventFunc)
+        typeof(BeHitMoveEventFunc),
+        typeof(WaitToBattleStatusEventFunc)
     };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
