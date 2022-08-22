@@ -1,3 +1,8 @@
+/* 
+ * @Author XQ
+ * @Date 2022-08-15 11:15:06
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ */
 using System;
 using UnityEngine;
 

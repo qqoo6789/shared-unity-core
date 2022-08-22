@@ -1,5 +1,10 @@
+/* 
+ * @Author XQ
+ * @Date 2022-08-15 11:15:06
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/IdleStatusCore.cs
+ */
+using System;
 using GameFramework.Fsm;
-using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 闲置状态通用状态基类
@@ -9,6 +14,8 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
     public static new string Name = "idle";
 
     public override string StatusName => Name;
+
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(WaitToBattleStatusEventFunc) };
 
     private EntityInputData _inputData;
     private EntityBattleDataCore _battleData;
@@ -48,29 +55,6 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
                 ChangeState(fsm, PathMoveStatusCore.Name);
             }
         }
-    }
-
-    protected override void AddEvent(EntityEvent entityEvent)
-    {
-        entityEvent.InputSkillRelease += OnInputSkillRelease;
-    }
-
-    protected override void RemoveEvent(EntityEvent entityEvent)
-    {
-        entityEvent.InputSkillRelease -= OnInputSkillRelease;
-    }
-
-    private void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets)
-    {
-        if (!CheckCanSkill())
-        {
-            return;
-        }
-
-        OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-        OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
-        OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
-        ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 
     public bool CheckCanMove()

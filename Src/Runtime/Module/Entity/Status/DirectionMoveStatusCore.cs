@@ -1,8 +1,14 @@
+/* 
+ * @Author XQ
+ * @Date 2022-08-15 11:15:06
+ * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/DirectionMoveStatusCore.cs
+ */
 /** 
  * @Author XQ
  * @Date 2022-08-10 16:27:01
  * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/DirectionMoveStatusCore.cs
  */
+using System;
 using GameFramework.Fsm;
 using UnityGameFramework.Runtime;
 
@@ -14,6 +20,8 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     public static new string Name = "directionMove";
 
     public override string StatusName => Name;
+
+    protected override Type[] EventFunctionTypes => new Type[] { typeof(WaitToBattleStatusEventFunc) };
 
     private EntityInputData _inputData;
     private DirectionMove _directionMove;
@@ -63,30 +71,6 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         {
             ChangeState(fsm, IdleStatusCore.Name);
         }
-    }
-
-
-    protected override void AddEvent(EntityEvent entityEvent)
-    {
-        entityEvent.InputSkillRelease += OnInputSkillRelease;
-    }
-
-    protected override void RemoveEvent(EntityEvent entityEvent)
-    {
-        entityEvent.InputSkillRelease -= OnInputSkillRelease;
-    }
-
-    private void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets)
-    {
-        if (!CheckCanSkill())
-        {
-            return;
-        }
-
-        OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-        OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
-        OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
-        ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 
     public bool CheckCanMove()
