@@ -2,14 +2,14 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using System.Collections.Generic;
 
-public class EntitySkillDataCore : MonoBehaviour
+public class EntitySkillDataCore : EntityComponentBase
 {
     /// <summary>
     /// 技能CD int 技能ID  long 到期时间戳ms
