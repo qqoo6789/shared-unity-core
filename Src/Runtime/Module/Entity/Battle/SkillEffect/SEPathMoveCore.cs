@@ -30,7 +30,6 @@ public class SEPathMoveCore : SkillEffectBase
         Vector3 targetPos = NetUtilCore.LocFromNet(EffectData.BeatBackValue.BackToPos);
         float distance = Vector3.Distance(RefOwner.transform.position, targetPos);
         float time = distance / (EffectCfg.Duration * TimeUtil.MS2S);
-        PathMove.enabled = true;
         PathMove.SetMoveSpeed(time);
         PathMove.MovePoint(targetPos);
     }
@@ -39,7 +38,6 @@ public class SEPathMoveCore : SkillEffectBase
     {
         if (PathMove != null)
         {
-            PathMove.enabled = false;
             PathMove = null;
         }
     }
