@@ -31,7 +31,7 @@ public class SEPathMoveCore : SkillEffectBase
         float distance = Vector3.Distance(RefOwner.transform.position, targetPos);
         float time = distance / (EffectCfg.Duration * TimeUtil.MS2S);
         PathMove.SetMoveSpeed(time);
-        PathMove.MovePoint(targetPos);
+        _ = PathMove.TryMoveToPoint(targetPos);
     }
 
     public override void OnRemove()

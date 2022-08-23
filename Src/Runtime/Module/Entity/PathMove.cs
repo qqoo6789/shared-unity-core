@@ -8,6 +8,8 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public class PathMove : MonoBehaviour
 {
+    //移动检查时的回退距离 防止update时在碰撞体内不会退会直接穿透
+    private const float MOVE_CHECK_BACK_DISTANCE = 0.1f;
     /// <summary>
     /// 是否是刚体移动
     /// </summary>
@@ -74,6 +76,36 @@ public class PathMove : MonoBehaviour
         }
 
         _moveSpeed = speed;
+    }
+
+    /// <summary>
+    /// 尝试移动到某个点 如果被阻挡则到阻挡点 返回有没有阻挡
+    /// </summary>
+    /// <param name="targetPoint">期望到的目标点</param>
+    /// <param name="arrivedCB"></param>
+    /// <returns></returns>
+    public bool TryMoveToPoint(Vector3 targetPoint, Action<PathMove> arrivedCB = null)
+    {
+        Vector3 curPosition = IsRigidbodyMove && CheckRigidbody() ? _refRigidbody.position : transform.position;
+        Vector3 dir = targetPoint - curPosition;
+        Vector3 curCheckPos = curPosition + (-dir.normalized * MOVE_CHECK_BACK_DISTANCE);//回退一点
+        curCheckPos.y += MoveDefine.MOVE_STEP_HEIGHT;//抬到步高检测 否则在地表检测
+
+        Vector3 targetCheckPos = targetPoint;
+        targetCheckPos.y += MoveDefine.MOVE_STEP_HEIGHT;
+
+        if (SkillUtil.CheckP2P(curCheckPos, targetCheckPos, out RaycastHit hitInfo, MLayerMask.MASK_SCENE_OBSTRUCTION))
+        {
+            MovePoint(targetPoint, arrivedCB);
+            return true;
+        }
+        else
+        {
+            Vector3 hitPoint = hitInfo.point;
+            hitPoint.y = targetPoint.y;//碰撞的点是抬高后的点
+            MovePoint(hitPoint, arrivedCB);
+            return false;
+        }
     }
 
     /// <summary>
