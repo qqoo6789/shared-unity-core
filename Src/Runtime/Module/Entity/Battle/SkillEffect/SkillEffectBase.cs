@@ -13,7 +13,7 @@ using UnityEngine;
 public class SkillEffectBase : IReference
 {
     /// <summary>
-    /// 持续时间 小于零代表一致持续  0代表立即执行销毁  大于0即到时自动销毁
+    /// 持续时间 小于零代表一致持续  0代表立即执行销毁  大于0即到时自动销毁 单位ms
     /// </summary>
     public int Duration { get; private set; }
 
