@@ -11,7 +11,10 @@ public static class BattleDefine
     public enum eSkillEffectType : int
     {
         EffectIdUnknown = 0,
-        NormalDamageSE = 1001,
+        SENormalDamage = 1001,
+        SEPathMove = 1002,
+        SEBeHitPathMove = 1003,
+        SEInvincible = 1004,
     }
 
     public enum eSkillShapeId : int

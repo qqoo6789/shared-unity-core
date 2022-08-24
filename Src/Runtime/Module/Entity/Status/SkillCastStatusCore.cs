@@ -13,7 +13,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 技能施法状态 正式产生伤害阶段
 /// </summary>
-public class SkillCastStatusCore : ListenEventStatusCore
+public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 {
     public static new string Name => "skillCast";
 
@@ -82,21 +82,33 @@ public class SkillCastStatusCore : ListenEventStatusCore
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets)
+    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry)
     {
-        if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData))
+        bool valid = false;
+
+        if (!isTry)
+        {
+            valid = true;
+        }
+        else//尝试释放
         {
             //是翻滚动作
-            if (playerData.DRRole.JumpRollSkill == skillID)
+            if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == skillID)
             {
-                SeContinueNextSkill(true);
-
-                OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-                OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
-                OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
-                ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
-                return;
+                valid = true;
             }
+        }
+
+        if (valid)
+        {
+            SeContinueNextSkill(true);
+
+            StatusCtrl.transform.forward = dir;
+
+            OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
+            OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
+            OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+            ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
         }
     }
 
@@ -120,7 +132,8 @@ public class SkillCastStatusCore : ListenEventStatusCore
             ChangeState(OwnerFsm, DeathStatusCore.Name);
             return;
         }
-        ChangeState(OwnerFsm, IdleStatusCore.Name);
+
+        OnFinishChangeToNextStatus();
     }
 
     // 取消施法完成定时
@@ -138,6 +151,13 @@ public class SkillCastStatusCore : ListenEventStatusCore
     /// </summary>
     /// <param name="curSkillCfg"></param>
     protected virtual void SkillCastExecute(DRSkill curSkillCfg) { }
+    /// <summary>
+    /// 后摇完成需要切换到下一个状态的时候覆写
+    /// </summary>
+    protected virtual void OnFinishChangeToNextStatus()
+    {
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
+    }
 
     /// <summary>
     /// 设置是否继续下一个技能 如果有下一个技能 基类就不会离开状态清理技能数据
@@ -146,5 +166,16 @@ public class SkillCastStatusCore : ListenEventStatusCore
     protected void SeContinueNextSkill(bool isContinue)
     {
         _continueNextSkill = isContinue;
+    }
+
+    public bool CheckCanSkill(int skillID)
+    {
+        if (skillID == 0)
+        {
+            return false;
+        }
+
+        //现在没有强校验技能具体技能
+        return true;
     }
 }

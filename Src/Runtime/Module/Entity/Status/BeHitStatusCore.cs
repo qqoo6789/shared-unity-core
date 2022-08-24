@@ -1,13 +1,8 @@
-/** 
- * @Author XQ
- * @Date 2022-08-10 10:48:05
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
- */
 /*
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 受击状态 理论上受击状态只有表现,服务器用不到
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
  * 
  */
 using System;
@@ -20,8 +15,10 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
 {
     public static new string Name => "beHit";
     private EntityBattleDataCore _battleData;
-
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitMoveEventFunc),
+        typeof(WaitToBattleStatusEventFunc)
+     };
 
     public override string StatusName => Name;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
@@ -49,13 +46,12 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
             return;
         }
     }
-
     public bool CheckCanMove()
     {
         return true;
     }
 
-    public bool CheckCanSkill()
+    public bool CheckCanSkill(int skillId)
     {
         return true;
     }

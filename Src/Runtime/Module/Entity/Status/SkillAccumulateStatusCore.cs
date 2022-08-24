@@ -15,12 +15,12 @@ using System;
 /// 蓄力状态通用状态基类 
 /// </summary>
 
-public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
+public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     protected int SkillID;
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
-    protected DRSkill DRSkill;
+    protected DRSkill CurSkillCfg;
     private EntityInputData _inputData;
     protected CancellationTokenSource CancelToken;
 
@@ -32,7 +32,10 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
     /// </summary>
     protected bool IsContinueBattleLeave;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(OnInputSkillInBattleStatusEventFunc) };
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(OnInputSkillInBattleStatusEventFunc),
+        typeof(BeHitMoveEventFunc)
+    };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -43,19 +46,19 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
         Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
-        DRSkill = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
+        CurSkillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
 
-        if (DRSkill == null)
+        if (CurSkillCfg == null)
         {
             Log.Error($"AccumulateStatusCore DRSkill is null skillID = {SkillID}");
             return;
         }
-        if (DRSkill.AccuBreakable)
+        if (CurSkillCfg.AccuBreakable)
         {
             _inputData = StatusCtrl.GetComponent<EntityInputData>();
         }
 
-        if (DRSkill.AccuTime > 0)
+        if (CurSkillCfg.AccuTime > 0)
         {
             AccumulateStart();
         }
@@ -72,6 +75,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
         _battleData = null;
         Targets = null;
         SkillDir = UnityEngine.Vector3.zero;
+        CurSkillCfg = null;
         IsContinueBattleLeave = false;
 
         base.OnLeave(fsm, isShutdown);
@@ -114,7 +118,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
         try
         {
             CancelToken = new();
-            await UniTask.Delay(DRSkill.AccuTime, false, PlayerLoopTiming.Update, CancelToken.Token);
+            await UniTask.Delay(CurSkillCfg.AccuTime, false, PlayerLoopTiming.Update, CancelToken.Token);
             CancelToken = null;
         }
         catch (System.Exception)
@@ -131,6 +135,17 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove
 
     public bool CheckCanMove()
     {
-        return _inputData && DRSkill.AccuBreakable;
+        return _inputData && CurSkillCfg.AccuBreakable;
+    }
+
+    public bool CheckCanSkill(int skillID)
+    {
+        if (skillID == 0)
+        {
+            return false;
+        }
+
+        //现在没有强校验技能具体技能
+        return true;
     }
 }

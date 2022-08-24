@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -13,7 +13,7 @@ using UnityEngine;
 public class SkillEffectBase : IReference
 {
     /// <summary>
-    /// 持续时间 小于零代表一致持续  0代表立即执行销毁  大于0即到时自动销毁
+    /// 持续时间 小于零代表一致持续  0代表立即执行销毁  大于0即到时自动销毁 单位ms
     /// </summary>
     public int Duration { get; private set; }
 
@@ -83,6 +83,18 @@ public class SkillEffectBase : IReference
     {
         EffectData = data;
     }
+    private EntityEvent _entityEvent;//缓存实体上的事件组件 节省性能
+    public EntityEvent EntityEvent
+    {
+        get
+        {
+            if (_entityEvent == null)
+            {
+                _entityEvent = RefOwner.GetComponent<EntityEvent>();
+            }
+            return _entityEvent;
+        }
+    }
 
     /// <summary>
     /// 创建技能效果数据 子类复写
@@ -138,11 +150,11 @@ public class SkillEffectBase : IReference
     }
 
     /// <summary>
-    /// 效果球不允许重复时，效果球不会重复添加，而会调用OnRefreshRepeat去重新刷新效果，具体如何刷新，根据你实现的效果而定
+    /// 效果球不允许重复时，新的效果球会覆盖老的，会调用OnRefreshRepeat用老的效果去重新刷新新效果，具体如何刷新，根据你实现的效果而定
     /// </summary>
-    public virtual void OnRefreshRepeat(SkillEffectBase newEffect)
+    public virtual void OnRefreshRepeat(SkillEffectBase oldEffect)
     {
-        DestroyTimestamp = newEffect.DestroyTimestamp;
+        //
     }
 
     //添加效果

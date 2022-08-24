@@ -20,17 +20,19 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    protected virtual void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets)
+    protected virtual void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets, bool isTry)
     {
         if (EntityStatus is not IEntityCanSkill entityCanSkill)
         {
             return;
         }
 
-        if (!entityCanSkill.CheckCanSkill())
+        if (!entityCanSkill.CheckCanSkill(skillID))
         {
             return;
         }
+
+        StatusCtrl.transform.forward = dir;
 
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
         OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);

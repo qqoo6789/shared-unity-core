@@ -12,13 +12,14 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     public override string StatusName => Name;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(WaitToBattleStatusEventFunc) };
-
     private EntityInputData _inputData;
     private PathMove _pathMove;
     protected PathMove PathMove => _pathMove;
     private EntityBattleDataCore _battleData;
-
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitMoveEventFunc),
+        typeof(WaitToBattleStatusEventFunc)
+    };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
@@ -68,11 +69,18 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     protected override void AddEvent(EntityEvent entityEvent)
     {
         entityEvent.InputMovePathChanged += OnPathChanged;
+        entityEvent.SpecialMoveStartNotMoveStatus += OnSpecialMoveStart;
     }
 
     protected override void RemoveEvent(EntityEvent entityEvent)
     {
         entityEvent.InputMovePathChanged -= OnPathChanged;
+        entityEvent.SpecialMoveStartNotMoveStatus -= OnSpecialMoveStart;
+    }
+
+    private void OnSpecialMoveStart()
+    {
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     private void OnMoveFinish(PathMove pathMove)
@@ -105,7 +113,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         return true;
     }
 
-    public bool CheckCanSkill()
+    public bool CheckCanSkill(int skillId)
     {
         return true;
     }

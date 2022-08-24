@@ -21,12 +21,13 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
 
     public override string StatusName => Name;
 
-    protected override Type[] EventFunctionTypes => new Type[] { typeof(WaitToBattleStatusEventFunc) };
-
     private EntityInputData _inputData;
     private DirectionMove _directionMove;
     private EntityBattleDataCore _battleData;
-
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitMoveEventFunc),
+        typeof(WaitToBattleStatusEventFunc)
+    };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
@@ -78,7 +79,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         return true;
     }
 
-    public bool CheckCanSkill()
+    public bool CheckCanSkill(int skillId)
     {
         return true;
     }

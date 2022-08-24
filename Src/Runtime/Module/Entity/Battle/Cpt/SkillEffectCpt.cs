@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能效果组件
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -50,7 +50,7 @@ public class SkillEffectCpt : MonoBehaviour
         effect.AddEffect(gameObject);
         if (effect.Duration != 0)
         {
-            effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + (effect.Duration * 1000)) : -1;
+            effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration) : -1;
             AddEffectTimeList(effect);
         }
         else
@@ -71,19 +71,20 @@ public class SkillEffectCpt : MonoBehaviour
         }
         else
         {
-            SkillEffectBase oldEffect = _skillEffects.Find(value =>
+            int oldIndex = _skillEffects.FindIndex(value =>
             {
                 return value.EffectID == effect.EffectID;
             });
-            if (oldEffect != null)
+            if (oldIndex >= 0)
             {
-                oldEffect.OnRefreshRepeat(effect);
+                SkillEffectBase oldEffect = _skillEffects[oldIndex];
+                effect.OnRefreshRepeat(oldEffect);
+                oldEffect.RemoveEffect();
+                oldEffect.Dispose();
+                _skillEffects.RemoveAt(oldIndex);
             }
-            else
-            {
-                effect.Start();
-                _skillEffects.Add(effect);
-            }
+            effect.Start();
+            _skillEffects.Add(effect);
         }
     }
 

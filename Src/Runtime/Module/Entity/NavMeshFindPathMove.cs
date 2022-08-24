@@ -30,16 +30,21 @@ public class NavMeshFindPathMove : FindPathMove
             return null;
         }
 
+        _refNavMeshAgent.enabled = true;
         //TODO:需要解决 不应该这样 怪物出生在寻路数据外 这里报错太多 先屏蔽掉
         if (!_refNavMeshAgent.isOnNavMesh)
         {
+            _refNavMeshAgent.enabled = false;
             return null;
         }
 
         if (!_refNavMeshAgent.CalculatePath(destination, _buffResultPath))
         {
+            _refNavMeshAgent.enabled = false;
             return null;
         }
+
+        _refNavMeshAgent.enabled = false;
 
         if (_buffResultPath.corners == null || _buffResultPath.corners.Length <= 1)//<=1 是因为第一个点是起始位置 马上要剔除的
         {
