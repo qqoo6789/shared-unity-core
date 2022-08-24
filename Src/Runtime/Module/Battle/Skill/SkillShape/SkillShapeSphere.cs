@@ -19,4 +19,9 @@ public class SkillShapeSphere : SkillShapeBase
     {
         return Physics.OverlapSphere(_center, _radius, targetLayer);
     }
+    public override void DrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(_center, _radius);
+    }
 }

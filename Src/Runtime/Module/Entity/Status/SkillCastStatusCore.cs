@@ -40,6 +40,12 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
         try
         {
+#if UNITY_EDITOR
+            if (StatusCtrl.TryGetComponent(out SkillShapeGizmos skillShapeGizmos))
+            {
+                skillShapeGizmos.StartDraw(CurSkillCfg.SkillRange, StatusCtrl.gameObject, SkillDir);
+            }
+#endif
             SkillCastExecute(CurSkillCfg);
         }
         catch (System.Exception e)
@@ -57,6 +63,12 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         _battleData = null;
         Targets = null;
         SkillDir = Vector3.zero;
+#if UNITY_EDITOR
+        if (StatusCtrl.TryGetComponent(out SkillShapeGizmos skillShapeGizmos))
+        {
+            skillShapeGizmos.StopDraw();
+        }
+#endif
 
         if (!_continueNextSkill)
         {
