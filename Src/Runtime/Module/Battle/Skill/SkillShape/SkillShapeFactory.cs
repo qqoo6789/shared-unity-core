@@ -65,11 +65,11 @@ public class SkillShapeFactory
         float yHalf = parameters[3] * MathUtilCore.CM2M / 2; //高
         Vector3 halfSize = new(xHalf, yHalf, zHalf);
 
-        Vector3 forward = dir.ApproximatelyEquals(Vector3.zero) ? entity.Transform.forward : dir;
+        Vector3 forward = dir.ApproximatelyEquals(Vector3.zero) ? entity.Forward : dir;
         Vector3 moveDir = forward.normalized * xHalf;
-        Vector3 anchor = entity.Transform.position;
+        Vector3 anchor = entity.Position;
         Vector3 centerPos = anchor + moveDir;
-        Quaternion rotation = entity.Transform.rotation;
+        Quaternion rotation = entity.Rotation;
 
 
         SkillShapeBox shape = SkillShapeBase.Create<SkillShapeBox>();
@@ -85,7 +85,7 @@ public class SkillShapeFactory
         }
 
         float radius = parameters[1] * MathUtilCore.CM2M; //半径
-        Vector3 centerPos = entity.Transform.position;
+        Vector3 centerPos = entity.Position;
         SkillShapeSphere shape = SkillShapeBase.Create<SkillShapeSphere>();
         shape.Init(centerPos, radius);
         return shape;
@@ -95,7 +95,7 @@ public class SkillShapeFactory
 
         float height = parameters[1] * MathUtilCore.CM2M; //高度
         float radius = parameters[2] * MathUtilCore.CM2M; //半径
-        Vector3 centerPos = entity.Transform.position;
+        Vector3 centerPos = entity.Position;
         Vector3 pos1 = centerPos - (height / 2 * Vector3.up);
         Vector3 pos2 = centerPos + (height / 2 * Vector3.up);
 

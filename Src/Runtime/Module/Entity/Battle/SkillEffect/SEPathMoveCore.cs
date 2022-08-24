@@ -49,8 +49,8 @@ public class SEPathMoveCore : SkillEffectBase
             return null;
         }
         float distance = EffectCfg.Parameters[0] * MathUtilCore.CM2M;
-        Vector3 curPos = targetEntity.Transform.position;
-        Vector3 forward = targetEntity.Transform.forward;
+        Vector3 curPos = targetEntity.Position;
+        Vector3 forward = targetEntity.Forward;
         forward.Set(forward.x, 0, forward.z);
         Vector3 targetPos = curPos + (forward.normalized * distance);
         MelandGame3.DamageEffect effect = new();

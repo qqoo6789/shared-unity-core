@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 场景实体,前后端可以直接使用，或者根据差异化派生出新的类
@@ -25,9 +26,23 @@ public class EntityBase
     /// <returns></returns>
     public int RootID => Root.GetInstanceID();
     /// <summary>
-    /// 场景实体变换 也是Root节点的变换 一定不为空
+    /// 场景实体变换 只能给 也是Root节点的变换  不能使用上面的坐标等属性 也不能赋值  有统一的方法
     /// </summary>
-    public Transform Transform => Root.transform;
+    private Transform _transform;
+    public Vector3 Position => _transform.position;
+    /// <summary>
+    /// 正方向向量
+    /// </summary>
+    public Vector3 Forward => _transform.forward;
+    /// <summary>
+    /// 欧拉角 里面都是弧度
+    /// </summary>
+    public Vector3 EulerAngles => _transform.eulerAngles;
+    /// <summary>
+    /// 最常见的本地缩放值
+    /// </summary>
+    public Vector3 Scale => _transform.localScale;
+    public Quaternion Rotation => _transform.rotation;
 
     /// <summary>
     /// 加速获取 缓存了 entity最基础的数据组件引用
@@ -38,6 +53,15 @@ public class EntityBase
     /// 加速获取 缓存了 enitty 内部事件的组件 子类构建时就需要添加好对应组件
     /// </summary>
     public EntityEvent EntityEvent { get; protected set; }
+
+    /// <summary>
+    /// 不要乱用 读写相关属性都有独立方法 只能在特定情境下只能通过获取Transform来获取时使用
+    /// </summary>
+    /// <returns></returns>
+    public Transform GetTransform()
+    {
+        return _transform;
+    }
 
     public EntityBase()
     {
@@ -62,7 +86,13 @@ public class EntityBase
 
     protected virtual void InitRoot()
     {
-        Root = new GameObject();
+        SetRoot(new GameObject());
+    }
+
+    protected void SetRoot(GameObject root)
+    {
+        Root = root;
+        _transform = Root.transform;
     }
 
     /// <summary>
@@ -84,16 +114,22 @@ public class EntityBase
     /// <param name="pos"></param>
     public virtual void SetPosition(Vector3 pos)
     {
-        Transform.position = pos;
+        _transform.position = pos;
     }
 
     /// <summary>
-    /// 统一的 设置正方向朝向的地方
+    /// 统一的 设置正方向朝向的地方 上层需要使方向水平 目前实体水平上不旋转
     /// </summary>
-    /// <param name="dir"></param>
-    public virtual void SetDir(Vector3 dir)
+    /// <param name="forward"></param>
+    public virtual void SetForward(Vector3 forward)
     {
-        Transform.forward = dir;
+        //限制y轴不变 都是水平的 目前看起来实体这样也才更加合理 为什么要打印是因为业务层没有考虑到0说明其他地方也可能会有问题
+        if (forward.y.ApproximatelyEquals(0))
+        {
+            Log.Warning($"entity y of dir can not set 0 name={Name} id={BaseData.Id} type={BaseData.Type}");
+            forward.y = 0;
+        }
+        _transform.forward = forward;
     }
 
     public void InitBaseInfo(long id, MelandGame3.EntityType type)
@@ -109,7 +145,7 @@ public class EntityBase
 
     public void SetRootParent(Transform parent)
     {
-        Transform.SetParent(parent, false);
+        _transform.SetParent(parent, false);
     }
 
     public T GetComponent<T>()
