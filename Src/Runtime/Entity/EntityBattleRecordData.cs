@@ -33,17 +33,17 @@ public class EntityBattleRecordData : MonoBehaviour
     /// <param name="isLive">当前实体是否存活</param>
     public void AddDamageRecord(long formId, int damageNum, bool isLive)
     {
-        if (DamageRecordMap.TryGetValue(entityId, out int value))
+        if (DamageRecordMap.TryGetValue(formId, out int value))
         {
-            DamageRecordMap[entityId] = value + damageNum;
+            DamageRecordMap[formId] = value + damageNum;
         }
         else
         {
-            DamageRecordMap.Add(entityId, damageNum);
+            DamageRecordMap.Add(formId, damageNum);
         }
         if (!isLive && EndDamageEntityID == 0)
         {
-            EndDamageEntityID = entityId;
+            EndDamageEntityID = formId;
         }
     }
 }
