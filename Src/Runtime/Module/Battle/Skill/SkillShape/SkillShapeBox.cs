@@ -57,4 +57,14 @@ public class SkillShapeBox : SkillShapeBase
     {
         return Physics.OverlapBox(_center, _halfSize, _rotation, targetLayer);
     }
+
+    public override void DrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Matrix4x4 oldMatrix = Gizmos.matrix;
+        Matrix4x4 rotationMatrix = Matrix4x4.TRS(_center, _rotation, Vector3.one);
+        Gizmos.matrix = rotationMatrix;
+        Gizmos.DrawCube(Vector3.zero, _halfSize * 2);
+        Gizmos.matrix = oldMatrix;
+    }
 }

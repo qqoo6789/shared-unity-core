@@ -36,4 +36,10 @@ public class SkillShapeCapsule : SkillShapeBase
     {
         return Physics.OverlapCapsule(_p1, _p2, _radius, targetLayer);
     }
+
+    public override void DrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(_p1, _p2);
+    }
 }
