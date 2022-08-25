@@ -54,7 +54,6 @@ public class SEPathMoveCore : SkillEffectBase
         forward.Set(forward.x, 0, forward.z);
         Vector3 targetPos = curPos + (forward.normalized * distance);
         MelandGame3.DamageEffect effect = new();
-        effect.EffectType = (MelandGame3.DamageEffectId)EffectCfg.EffectType;
         effect.BeatBackValue = new();
         effect.BeatBackValue.CurLoc = NetUtilCore.LocToNet(curPos);
         effect.BeatBackValue.BackToPos = NetUtilCore.LocToNet(targetPos);
