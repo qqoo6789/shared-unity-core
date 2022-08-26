@@ -49,7 +49,8 @@ public static class GFEntryCore
         Type type = module.GetType();
         if (s_GFEntryDict.ContainsKey(type))
         {
-            Log.Warning($"GFEntry module is already exist, type {type.Name}.");
+            Log.Error($"GFEntry module is already exist, type {type.Name}.");
+            return;
         }
 
         s_GFEntryDict.Add(type, module);
@@ -60,7 +61,8 @@ public static class GFEntryCore
         Type type = module.GetType();
         if (!s_GFEntryDict.ContainsKey(type))
         {
-            Log.Warning($"GFEntry module is not exist, type {type.Name}.");
+            Log.Error($"GFEntry module is not exist, type {type.Name}.");
+            return;
         }
 
         s_GFEntryDict.Remove(type);
