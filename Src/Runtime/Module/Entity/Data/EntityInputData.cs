@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 实体上的输入数据 持续性的数据  瞬发性的命令通过事件及时广播出去不在这里
 /// </summary>
-public class EntityInputData : EntityComponentBase
+public class EntityInputData : EntityBaseComponent
 {
     /// <summary>
     /// 当前输入了方向性移动 空代表没有输入

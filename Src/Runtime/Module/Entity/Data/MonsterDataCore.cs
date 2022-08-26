@@ -9,7 +9,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 怪物基础数据
 /// </summary>
-public class MonsterDataCore : EntityComponentBase
+public class MonsterDataCore : EntityBaseComponent
 {
     public int configId => DRMonster == null ? -1 : DRMonster.Id;
     public DRMonster DRMonster { get; protected set; }

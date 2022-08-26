@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityGameFramework.Runtime;
 using System.Collections.Generic;
 
-public class EntitySkillDataCore : EntityComponentBase
+public class EntitySkillDataCore : EntityBaseComponent
 {
     /// <summary>
     /// 技能CD int 技能ID  long 到期时间戳ms

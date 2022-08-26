@@ -8,7 +8,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillEffectCpt : EntityComponentBase
+public class SkillEffectCpt : EntityBaseComponent
 {
     private List<SkillEffectBase> _skillEffects;
     private void Awake()

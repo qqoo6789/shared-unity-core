@@ -6,7 +6,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 路径移动
 /// </summary>
-public class PathMove : EntityComponentBase
+public class PathMove : EntityBaseComponent
 {
     /// <summary>
     /// 是否是刚体移动

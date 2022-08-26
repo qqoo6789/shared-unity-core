@@ -7,20 +7,20 @@ using UnityEngine;
 /// <summary>
 /// 获取组件所挂载的实体
 /// </summary>
-public class EntityComponentBase : MonoBehaviour
+public class EntityComponentCore<T> : MonoBehaviour where T : EntityBase, new()
 {
-    private EntityBase _refEntity;
+    private T _refEntity;
     /// <summary>
     /// 获取组件所挂载的实体的反引用
     /// </summary>
     /// <value></value>
-    protected EntityBase RefEntity
+    protected T RefEntity
     {
         get
         {
             if (_refEntity == null)
             {
-                _refEntity = GFEntryCore.GetModule<EntityMgr<EntityBase, EntityFactory<EntityBase>>>().GetEntityWithRoot(gameObject);
+                _refEntity = GFEntryCore.GetModule<EntityMgr<T, EntityFactory<T>>>().GetEntityWithRoot(gameObject);
             }
 
             return _refEntity;
