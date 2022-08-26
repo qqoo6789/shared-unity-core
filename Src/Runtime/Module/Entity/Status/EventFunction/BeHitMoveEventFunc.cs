@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-12 13:59:29
  * @Description: 受击移动事件
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/BeHitMoveEventFunc.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/BeHitMoveEventFunc.cs
  * 
  */
 using UnityGameFramework.Runtime;
@@ -24,7 +24,7 @@ public class BeHitMoveEventFunc : EntityStatusEventFunctionBase
         if (EntityStatus.StatusName == SkillAccumulateStatusCore.Name || EntityStatus.StatusName == SkillForwardStatusCore.Name)
         {
             int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-            DRSkill skillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+            DRSkill skillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
             if (!skillCfg.AccuBreakable)
             {
                 return;
