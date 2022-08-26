@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 技能路径移动效果
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
  * 
  */
 
@@ -41,7 +41,8 @@ public class SEPathMoveCore : SkillEffectBase
             PathMove = null;
         }
     }
-    public override MelandGame3.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
+
+    public override MelandGame3.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
     {
         if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
         {
