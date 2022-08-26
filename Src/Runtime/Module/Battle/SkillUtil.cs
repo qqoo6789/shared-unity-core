@@ -33,7 +33,7 @@ public static partial class SkillUtil
     {
         if (origin.ApproximatelyEquals(target))
         {
-            hitInfo = new RaycastHit();
+            hitInfo = default;
             return true;
         }
 
