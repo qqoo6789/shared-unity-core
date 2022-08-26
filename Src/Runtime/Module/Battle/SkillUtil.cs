@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public static partial class SkillUtil
@@ -58,5 +59,36 @@ public static partial class SkillUtil
                 break;
         }
         return targetLayer;
+    }
+    /// <summary>
+    /// 搜索目标列表
+    /// </summary>
+    /// <param name="entity">实体ID</param>
+    /// <param name="skillRange">技能范围配置</param>
+    /// <param name="skillDir">技能方向</param>
+    public static List<EntityBase> SearchTargetEntityList(EntityBase entity, int[] skillRange, Vector3 skillDir)
+    {
+        List<EntityBase> targetEntityList = new();
+        SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, entity.Root, skillDir);
+        int targetLayer = GetEntityTargetLayer(entity.BaseData.Type);
+        Collider[] colliders = shape.CheckHited(targetLayer);
+        SkillShapeBase.Release(shape);
+
+        if (colliders == null || colliders.Length <= 0)
+        {
+            return targetEntityList;
+        }
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject.TryGetComponent(out EntityReferenceData refData))
+            {
+                if (refData.Entity != null && refData.Entity.BaseData.Id != entity.BaseData.Id)
+                {
+                    targetEntityList.Add(refData.Entity);
+                }
+            }
+        }
+        return targetEntityList;
     }
 }

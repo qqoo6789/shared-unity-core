@@ -15,7 +15,7 @@ public class EntityBase
     /// 逻辑实体根节点 可以挂载逻辑实体相关逻辑 一定不为空
     /// </summary>
     /// <value></value>
-    protected GameObject Root;
+    public GameObject Root { get; protected set; }
     /// <summary>
     /// 场景逻辑节点的名字
     /// </summary>
