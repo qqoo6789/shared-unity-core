@@ -14,7 +14,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     public static new string Name => "skillForward";
 
     public override string StatusName => Name;
-	protected override Type[] EventFunctionTypes => new Type[]
+    protected override Type[] EventFunctionTypes => new Type[]
     {
         typeof(OnInputSkillInBattleStatusEventFunc),
         typeof(BeHitMoveEventFunc)
@@ -142,6 +142,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             {
                 SkillEffectBase skillEffect = skillEffects[i];
                 DamageEffect effectData = skillEffect.CreateEffectData(entity, entity);
+                effectData.EffectType = (DamageEffectId)skillEffect.EffectCfg.Id;
                 skillEffect.SetEffectData(effectData);
                 effectCpt.ApplyOneEffect(skillEffect);
             }

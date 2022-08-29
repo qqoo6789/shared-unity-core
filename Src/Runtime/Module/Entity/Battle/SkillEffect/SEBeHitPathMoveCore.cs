@@ -31,7 +31,6 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
         moveDir.Set(moveDir.x, 0, moveDir.z);
         UnityEngine.Vector3 targetPos = curPos + (moveDir.normalized * distance);
         DamageEffect effect = new();
-        effect.EffectType = (DamageEffectId)EffectCfg.EffectType;
         effect.BeatBackValue = new();
         effect.BeatBackValue.CurLoc = NetUtilCore.LocToNet(curPos);
         effect.BeatBackValue.BackToPos = NetUtilCore.LocToNet(targetPos);
