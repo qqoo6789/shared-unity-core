@@ -7,23 +7,12 @@ using UnityEngine;
 /// <summary>
 /// 获取组件所挂载的实体
 /// </summary>
-public class EntityComponentCore<T> : MonoBehaviour where T : EntityBase, new()
+public abstract class EntityComponentCore<T> : MonoBehaviour where T : EntityBase, new()
 {
-    private T _refEntity;
+    protected T RefEntityCache;
     /// <summary>
     /// 获取组件所挂载的实体的反引用
     /// </summary>
     /// <value></value>
-    protected T RefEntity
-    {
-        get
-        {
-            if (_refEntity == null)
-            {
-                _refEntity = GFEntryCore.GetModule<EntityMgr<T, EntityFactory<T>>>().GetEntityWithRoot(gameObject);
-            }
-
-            return _refEntity;
-        }
-    }
+    protected abstract T RefEntity { get; }
 }
