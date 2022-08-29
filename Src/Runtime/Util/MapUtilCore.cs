@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 自定义的一些数学工具
@@ -33,7 +33,12 @@ public static class MapUtilCore
     /// <returns></returns>
     public static Vector3 SampleTerrainWalkablePos(Vector3 position, float maxError = 10f)
     {
-        _ = NavMesh.SamplePosition(position, out NavMeshHit hit, maxError, NavMesh.AllAreas);
+        if (!NavMesh.SamplePosition(position, out NavMeshHit hit, maxError, NavMesh.AllAreas))
+        {
+            Log.Warning($"SampleTerrainWalkablePos not find position:{position}");
+            return position;
+        }
+
         return hit.position;
     }
 }
