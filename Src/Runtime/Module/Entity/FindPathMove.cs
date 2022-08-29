@@ -73,7 +73,7 @@ public abstract class FindPathMove : EntityBaseComponent
     /// <returns></returns>
     public bool MoveToPosition(Vector3 destination, Action<FindPathMove> moveArrivedCB = null)
     {
-        StopMove();
+        StopMove(true);
 
         Destination = destination;
         MoveArrivedCB = moveArrivedCB;
@@ -100,11 +100,11 @@ public abstract class FindPathMove : EntityBaseComponent
     /// <summary>
     /// 停止移动
     /// </summary>
-    public void StopMove()
+    public void StopMove(bool fromNextMove = false)
     {
         if (OnlyInputMoveData)
         {
-            _inputData.SetInputMovePath(null);
+            _inputData.SetInputMovePath(null, !fromNextMove);
         }
         else
         {
