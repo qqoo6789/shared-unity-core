@@ -48,12 +48,7 @@ public abstract class DirectionMove : EntityBaseComponent
     /// <param name="tickDelay"></param>
     protected void TickMove(float tickDelay)
     {
-        if (!enabled)
-        {
-            return;
-        }
-
-        if (InputData.InputMoveDirection == null)
+        if (!CheckIsMove())
         {
             return;
         }
@@ -62,12 +57,21 @@ public abstract class DirectionMove : EntityBaseComponent
         moveDir.Normalize();
         moveDir *= MoveSpeed * tickDelay;
         transform.forward = moveDir;
-        ApplyPosition(transform.position + moveDir);
+        ApplyMotion(moveDir);
     }
 
     /// <summary>
-    /// 子类应用目标位置
+    /// 检查是否在移动
     /// </summary>
-    /// <param name="targetPos"></param>
-    protected abstract void ApplyPosition(Vector3 targetPos);
+    /// <returns></returns>
+    protected bool CheckIsMove()
+    {
+        return enabled && IsMoving && InputData.InputMoveDirection != null;
+    }
+
+    /// <summary>
+    /// 子类应用目标移动增量 每帧的增量
+    /// </summary>
+    /// <param name="motion">本帧的移动增量</param>
+    protected abstract void ApplyMotion(Vector3 motion);
 }

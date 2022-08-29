@@ -12,14 +12,16 @@ public class RigidbodyDirectionMove : DirectionMove
     {
         RefRigid.AddForce(PushDownForce, ForceMode.Force);//持续下压 否则在持续碰撞下会逐渐上移 暂时没有使用重力
 
-        if (IsMoving)
+        if (!CheckIsMove())
         {
-            TickMove(Time.fixedDeltaTime);
+            return;
         }
+
+        TickMove(Time.fixedDeltaTime);
     }
 
-    protected override void ApplyPosition(Vector3 targetPos)
+    protected override void ApplyMotion(Vector3 motion)
     {
-        RefRigid.MovePosition(targetPos);
+        RefRigid.MovePosition(RefRigid.position + motion);
     }
 }

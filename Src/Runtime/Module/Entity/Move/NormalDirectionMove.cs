@@ -10,8 +10,8 @@ public class NormalDirectionMove : DirectionMove
         TickMove(Time.deltaTime);
     }
 
-    protected override void ApplyPosition(Vector3 targetPos)
+    protected override void ApplyMotion(Vector3 motion)
     {
-        transform.position = targetPos;
+        transform.position += motion;
     }
 }
