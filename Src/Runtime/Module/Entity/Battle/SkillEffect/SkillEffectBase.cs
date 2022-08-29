@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -97,12 +97,22 @@ public class SkillEffectBase : IReference
     }
 
     /// <summary>
-    /// 创建技能效果数据 子类复写
+    /// 检测能否应用效果
     /// </summary>
-    /// <param name="parameters">参数数组</param>
     /// <param name="fromEntity">发送方</param>
     /// <param name="targetEntity">接受方</param>
-    public virtual DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
+    public virtual bool CheckApplyEffect(EntityBase fromEntity, EntityBase targetEntity)
+    {
+        return true;
+    }
+
+    /// <summary>
+    /// 创建技能效果数据 子类复写
+    /// </summary>
+    /// <param name="fromEntity">发送方</param>
+    /// <param name="targetEntity">接受方</param>
+    /// <param name="skillDir">技能方向</param>
+    public virtual DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
     {
         return null;
     }

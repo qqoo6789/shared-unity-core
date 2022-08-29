@@ -48,7 +48,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         {
             SkillForwardExecute(CurSkillCfg);
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             Log.Error($"skill forward execute error ={e}");
         }
@@ -101,7 +101,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             _forwardTimeToken = new();
             await UniTask.Delay(CurSkillCfg.ForwardReleaseTime, false, PlayerLoopTiming.Update, _forwardTimeToken.Token);
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             return;
         }
@@ -141,12 +141,14 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             try
             {
                 SkillEffectBase skillEffect = skillEffects[i];
-                DamageEffect effectData = skillEffect.CreateEffectData(entity, entity);
-                effectData.EffectType = (DamageEffectId)skillEffect.EffectCfg.Id;
-                skillEffect.SetEffectData(effectData);
-                effectCpt.ApplyOneEffect(skillEffect);
+                if (skillEffect.CheckApplyEffect(entity, entity))
+                {
+                    DamageEffect effectData = skillEffect.CreateEffectData(entity, entity, SkillDir);
+                    skillEffect.SetEffectData(effectData);
+                    effectCpt.ApplyOneEffect(skillEffect);
+                }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 Log.Error($"skill forward skill effect apply error skillID = {drSkill.Id}, effectID = {skillEffects[i].EffectID}");
                 continue;

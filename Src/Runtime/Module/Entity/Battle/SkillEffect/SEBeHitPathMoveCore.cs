@@ -18,7 +18,25 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
         EntityEvent.EntityBeHitMove?.Invoke(EffectCfg.Duration);
     }
 
-    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity)
+    /// <summary>
+    /// 检测能否应用效果
+    /// </summary>
+    /// <param name="fromEntity">发送方</param>
+    /// <param name="targetEntity">接受方</param>
+    public override bool CheckApplyEffect(EntityBase fromEntity, EntityBase targetEntity)
+    {
+        //目标方已经死亡
+        if (targetEntity.TryGetComponent(out EntityBattleDataCore targetBattleData))
+        {
+            if (!targetBattleData.IsLive())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
     {
         if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
         {
@@ -27,7 +45,7 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
         }
         float distance = EffectCfg.Parameters[0] * MathUtilCore.CM2M;
         UnityEngine.Vector3 curPos = targetEntity.Position;
-        UnityEngine.Vector3 moveDir = targetEntity.Position - fromEntity.Position;
+        UnityEngine.Vector3 moveDir = skillDir;
         moveDir.Set(moveDir.x, 0, moveDir.z);
         UnityEngine.Vector3 targetPos = curPos + (moveDir.normalized * distance);
         DamageEffect effect = new();
