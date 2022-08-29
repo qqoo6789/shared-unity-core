@@ -142,6 +142,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取蓄力音效。*/
+    /// </summary>
+    public string[] AccuSound
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取技能释放动作。*/
     /// </summary>
     public string ReleaseAct
@@ -154,6 +163,15 @@ public class DRSkill : DataRowBase
   /**获取技能释放特效。*/
     /// </summary>
     public int ReleaseEff
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取释放音效。*/
+    /// </summary>
+    public string[] ReleaseSound
     {
         get;
         private set;
@@ -313,8 +331,10 @@ public class DRSkill : DataRowBase
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuTab = columnStrings[index++];
+        AccuSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         ReleaseAct = columnStrings[index++];
         ReleaseEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ForwardReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
@@ -354,8 +374,10 @@ public class DRSkill : DataRowBase
                 AccuEff = binaryReader.Read7BitEncodedInt32();
                 AccuBreakable = binaryReader.ReadBoolean();
                 AccuTab = binaryReader.ReadString();
+                AccuSound = binaryReader.ReadArray<String>();
                 ReleaseAct = binaryReader.ReadString();
                 ReleaseEff = binaryReader.Read7BitEncodedInt32();
+                ReleaseSound = binaryReader.ReadArray<String>();
                 ReleaseTime = binaryReader.Read7BitEncodedInt32();
                 ForwardReleaseTime = binaryReader.Read7BitEncodedInt32();
                 RangeTips = binaryReader.ReadBoolean();
