@@ -25,7 +25,7 @@ public static class SkillConfigParse
             return null;
         }
 
-        DRSkill drSkill = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        DRSkill drSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
         if (drSkill == null)
         {
             Log.Error($"ParseSkillEffect Error skillID is not exist, skillID = {skillID}");
@@ -46,7 +46,7 @@ public static class SkillConfigParse
         for (int i = 0; i < effectList.Length; i++)
         {
             int effectID = effectList[i];
-            DRSkillEffect skillEffectCfg = GFEntry.DataTable.GetDataTable<DRSkillEffect>().GetDataRow(effectID);
+            DRSkillEffect skillEffectCfg = GFEntryCore.DataTable.GetDataTable<DRSkillEffect>().GetDataRow(effectID);
             if (skillEffectCfg == null)
             {
                 Log.Error($"not find skill effect skillID = {curSkillCfg.Id} effectID = {effectID}");
@@ -54,7 +54,7 @@ public static class SkillConfigParse
             }
             try
             {
-                SkillEffectBase skillBase = GFEntry.SkillEffectFactory.CreateOneSkillEffect(curSkillCfg.Id, effectID, formID, targetID, skillEffectCfg.Duration);
+                SkillEffectBase skillBase = GFEntryCore.SkillEffectFactory.CreateOneSkillEffect(curSkillCfg.Id, effectID, formID, targetID, skillEffectCfg.Duration);
                 skillEffects.Add(skillBase);
             }
             catch (System.Exception)

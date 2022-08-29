@@ -6,7 +6,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 路径移动
 /// </summary>
-public class PathMove : MonoBehaviour
+public class PathMove : EntityBaseComponent
 {
     //移动检查时的回退距离 防止update时在碰撞体内不会退会直接穿透
     private const float MOVE_CHECK_BACK_DISTANCE = 0.1f;

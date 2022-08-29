@@ -2,13 +2,13 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能效果组件
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
  * 
  */
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillEffectCpt : MonoBehaviour
+public class SkillEffectCpt : EntityBaseComponent
 {
     private List<SkillEffectBase> _skillEffects;
     private void Awake()

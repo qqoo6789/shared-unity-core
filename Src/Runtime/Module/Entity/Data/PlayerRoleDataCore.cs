@@ -10,7 +10,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 玩家场景角色数据
 /// </summary>
-public class PlayerRoleDataCore : MonoBehaviour
+public class PlayerRoleDataCore : EntityBaseComponent
 {
     /// <summary>
     /// 性别
@@ -43,7 +43,7 @@ public class PlayerRoleDataCore : MonoBehaviour
 
     public void SetRoleCfgID(int roleCfgID)
     {
-        DRRole = GFEntry.DataTable.GetDataTable<DRRole>().GetDataRow(roleCfgID);
+        DRRole = GFEntryCore.DataTable.GetDataTable<DRRole>().GetDataRow(roleCfgID);
 
         if (DRRole == null)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 寻路移动基类 业务层直接获取基类操作 需要外部自己设置PathMove组件和其中速度参数 寻路组件不重复设置 子类可能是navmesh寻路 也可能是A星等别的方式
 /// </summary>
-public abstract class FindPathMove : MonoBehaviour
+public abstract class FindPathMove : EntityBaseComponent
 {
     [Tooltip("勾上后只会输入程序需要的移动数据，不会自动执行移动")]
     public bool OnlyInputMoveData = false;

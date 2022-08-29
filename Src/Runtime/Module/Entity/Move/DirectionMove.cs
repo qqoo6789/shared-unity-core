@@ -9,7 +9,7 @@ using UnityEngine;
 /// 执行方向移动 拿到方向 每帧执行 需要子类来驱动具体执行
 /// </summary>
 [RequireComponent(typeof(EntityInputData))]
-public abstract class DirectionMove : MonoBehaviour
+public abstract class DirectionMove : EntityBaseComponent
 {
     protected EntityInputData InputData;
 

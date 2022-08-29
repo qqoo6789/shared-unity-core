@@ -35,7 +35,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
         Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
 
-        CurSkillCfg = GFEntry.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
 
         try

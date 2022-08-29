@@ -6,7 +6,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 实体上控制自身状态的功能组件 使用之前需要初始化状态机
 /// </summary>
-public class EntityStatusCtrl : MonoBehaviour
+public class EntityStatusCtrl : EntityBaseComponent
 {
     private EntityEvent _entityEvent;//缓存实体上的事件组件 节省性能
 
