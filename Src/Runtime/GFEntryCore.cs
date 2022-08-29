@@ -70,9 +70,12 @@ public static class GFEntryCore
 
     public static T GetModule<T>() where T : class
     {
-        if (s_GFEntryDict.TryGetValue(typeof(T), out object module))
+        foreach (KeyValuePair<Type, object> item in s_GFEntryDict)
         {
-            return module as T;
+            if (item.Value is T)
+            {
+                return item.Value as T;
+            }
         }
 
         Log.Error($"GFEntry module is not exist, type {typeof(T).Name}.");
