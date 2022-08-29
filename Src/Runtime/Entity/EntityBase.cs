@@ -17,6 +17,11 @@ public class EntityBase
     /// <value></value>
     protected GameObject Root;
     /// <summary>
+    /// 谨慎使用，不允许往上添加组件和直接修改Transform
+    /// </summary>
+    /// <value></value>
+    public GameObject EntityRoot => Root;
+    /// <summary>
     /// 场景逻辑节点的名字
     /// </summary>
     public string Name => Root.name;
