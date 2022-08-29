@@ -69,7 +69,7 @@ public static partial class SkillUtil
     public static List<EntityBase> SearchTargetEntityList(EntityBase entity, int[] skillRange, Vector3 skillDir)
     {
         List<EntityBase> targetEntityList = new();
-        SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, entity.Root, skillDir);
+        SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, entity.EntityRoot, skillDir);
         int targetLayer = GetEntityTargetLayer(entity.BaseData.Type);
         Collider[] colliders = shape.CheckHited(targetLayer);
         SkillShapeBase.Release(shape);

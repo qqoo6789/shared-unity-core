@@ -15,7 +15,12 @@ public class EntityBase
     /// 逻辑实体根节点 可以挂载逻辑实体相关逻辑 一定不为空
     /// </summary>
     /// <value></value>
-    public GameObject Root { get; protected set; }
+    protected GameObject Root;
+    /// <summary>
+    /// 谨慎使用，不允许往上添加组件和直接修改Transform
+    /// </summary>
+    /// <value></value>
+    public GameObject EntityRoot => Root;
     /// <summary>
     /// 场景逻辑节点的名字
     /// </summary>
