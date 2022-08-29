@@ -214,8 +214,6 @@ public class PathMove : EntityBaseComponent
         }
 
         Vector3 nextPoint = _curPath[index];
-        Vector3 moveDirVector3 = nextPoint - transform.position;
-        transform.forward = new Vector3(moveDirVector3.x, transform.forward.y, moveDirVector3.z);
         OnWaypointChangedEvent?.Invoke(nextPoint);
     }
 

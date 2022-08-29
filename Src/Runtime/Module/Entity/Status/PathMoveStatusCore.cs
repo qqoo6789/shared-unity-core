@@ -45,10 +45,14 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         _pathMove.enabled = true;
         _pathMove.SetMoveSpeed(StatusCtrl.GetComponent<EntityMoveData>().Speed);
         _pathMove.MovePath(_inputData.InputMovePath, OnMoveFinish);
+
+        PathMove.OnWaypointChangedEvent += OnWaypointChanged;
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        PathMove.OnWaypointChangedEvent -= OnWaypointChanged;
+
         _battleData = null;
         if (_inputData != null)
         {
@@ -87,6 +91,19 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
+
+    /// <summary>
+    /// 到了路径拐点
+    /// </summary>
+    /// <param name="nextPoint">下一个准备去的点</param>
+    protected virtual void OnWaypointChanged(Vector3 nextPoint)
+    {
+        //改变朝向
+        Transform transform = StatusCtrl.transform;
+        Vector3 moveDirVector3 = nextPoint - transform.position;
+        transform.forward = new Vector3(moveDirVector3.x, transform.forward.y, moveDirVector3.z);
+    }
+
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
