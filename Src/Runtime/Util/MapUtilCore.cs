@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 自定义的一些数学工具
@@ -26,14 +26,22 @@ public static class MapUtilCore
     }
 
     /// <summary>
-    /// 根据给定的位置，获取离位置最近的课可行走位置，如果当前position可行走，则直接返回position
+    /// 根据给定的位置，获取离位置最近的课可行走位置
     /// </summary>
     /// <param name="position"></param>
+    /// <param name="walkablePos">地表可行走结果点</param>
     /// <param name="maxError"></param>
-    /// <returns></returns>
-    public static Vector3 SampleTerrainWalkablePos(Vector3 position, float maxError = 10f)
+    /// <returns>寻路异常返回false out原始位置</returns>
+    public static bool SampleTerrainWalkablePos(Vector3 position, out Vector3 walkablePos, float maxError = 10f)
     {
-        _ = NavMesh.SamplePosition(position, out NavMeshHit hit, maxError, NavMesh.AllAreas);
-        return hit.position;
+        if (!NavMesh.SamplePosition(position, out NavMeshHit hit, maxError, NavMesh.AllAreas))
+        {
+            Log.Warning($"SampleTerrainWalkablePos not find position:{position}");
+            walkablePos = position;
+            return false;
+        }
+
+        walkablePos = hit.position;
+        return true;
     }
 }
