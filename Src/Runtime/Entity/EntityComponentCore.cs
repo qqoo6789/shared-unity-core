@@ -20,7 +20,7 @@ public class EntityComponentCore<T> : MonoBehaviour where T : EntityBase, new()
         {
             if (_refEntity == null)
             {
-                _refEntity = GFEntryCore.GetModule<EntityMgr<T, EntityFactory<T>>>().GetEntityWithRoot(gameObject);
+                _refEntity = GFEntryCore.GetModule<IEntityMgr>().GetEntityWithRoot<T>(gameObject);
             }
 
             return _refEntity;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-public class EntityMgr<TEntity, TFactory> : MonoBehaviour where TEntity : EntityBase, new() where TFactory : EntityFactory<TEntity>, new()
+public class EntityMgr<TEntity, TFactory> : MonoBehaviour, IEntityMgr where TEntity : EntityBase, new() where TFactory : EntityFactory<TEntity>, new()
 {
     /// <summary>
     /// 场景所有实体 包括了主角
@@ -49,10 +49,21 @@ public class EntityMgr<TEntity, TFactory> : MonoBehaviour where TEntity : Entity
     /// <returns></returns>
     public TEntity GetEntityWithRoot(GameObject go)
     {
+        return GetEntityWithRoot<TEntity>(go);
+    }
+
+    /// <summary>
+    /// 运行函数时传入范型获取实体
+    /// </summary>
+    /// <param name="go"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public T GetEntityWithRoot<T>(GameObject go) where T : EntityBase
+    {
         int goID = go.GetInstanceID();
-        if (EntityRootDic.TryGetValue(goID, out TEntity entity))
+        if (EntityRootDic.ContainsKey(goID))
         {
-            return entity;
+            return EntityRootDic[goID] as T;
         }
 
         Log.Warning($"Can not find entity with root, name: {go.name}, id: {goID}");
