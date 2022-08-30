@@ -144,11 +144,13 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
                 if (skillEffect.CheckApplyEffect(entity, entity))
                 {
                     DamageEffect effectData = skillEffect.CreateEffectData(entity, entity, SkillDir);
-                    if (effectData != null)
+                    if (effectData == null)
                     {
-                        effectData.EffectType = (DamageEffectId)skillEffect.EffectCfg.Id;
-                        skillEffect.SetEffectData(effectData);
+                        continue;
                     }
+
+                    effectData.EffectType = (DamageEffectId)skillEffect.EffectCfg.Id;
+                    skillEffect.SetEffectData(effectData);
                     effectCpt.ApplyOneEffect(skillEffect);
                 }
             }
