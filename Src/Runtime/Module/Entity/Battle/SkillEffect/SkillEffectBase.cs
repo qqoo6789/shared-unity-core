@@ -114,7 +114,7 @@ public class SkillEffectBase : IReference
     /// <param name="skillDir">技能方向</param>
     public virtual DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
     {
-        return null;
+        return new DamageEffect();//现在网络传递时通过DamageEffect传递 id 这个不能为空
     }
 
     public virtual void Clear()
