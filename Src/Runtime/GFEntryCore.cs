@@ -5,14 +5,13 @@
  * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/GFEntryCore.cs
  * 
  */
-using System;
 using System.Collections.Generic;
 using GameFramework.DataTable;
 using UnityGameFramework.Runtime;
 
 public static class GFEntryCore
 {
-    private static Dictionary<Type, object> s_GFEntryDict = new();
+    private static List<object> s_GFEntryList = new();
     /// <summary>
     /// 获取数据表组件。
     /// </summary>
@@ -46,35 +45,34 @@ public static class GFEntryCore
 
     public static void AddModule(object module)
     {
-        Type type = module.GetType();
-        if (s_GFEntryDict.ContainsKey(type))
+        if (s_GFEntryList.IndexOf(module) != -1)
         {
-            Log.Error($"GFEntry module is already exist, type {type.Name}.");
+            Log.Error($"GFEntry module is already exist, type {module.GetType().Name}.");
             return;
         }
 
-        s_GFEntryDict.Add(type, module);
+        s_GFEntryList.Add(module);
     }
 
     public static void RemoveModule(object module)
     {
-        Type type = module.GetType();
-        if (!s_GFEntryDict.ContainsKey(type))
+        bool remove = s_GFEntryList.Remove(module);
+        if (!remove)
         {
-            Log.Error($"GFEntry module is not exist, type {type.Name}.");
-            return;
+            Log.Error($"GFEntry module is not exist, type {module.GetType().Name}.");
         }
-
-        s_GFEntryDict.Remove(type);
     }
-
+    /// <summary>
+    /// 注意！！！频繁获取会有性能损耗，如果有频繁获取的需求，请参照DataTable的获取方式
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public static T GetModule<T>() where T : class
     {
-        foreach (KeyValuePair<Type, object> item in s_GFEntryDict)
+        foreach (object item in s_GFEntryList)
         {
-            if (item.Value is T)
+            if (item is T)
             {
-                return item.Value as T;
+                return item as T;
             }
         }
 
