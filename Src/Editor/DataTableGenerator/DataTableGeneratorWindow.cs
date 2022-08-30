@@ -54,6 +54,15 @@ namespace Meland.Editor.DataTableTools
                 SharedCoresVersionTool.UpdateCsvVersion();
                 AssetDatabase.Refresh();
             }
+
+            if (GUILayout.Button("一键生成"))
+            {
+                DataTableGeneratorUtil.UpdateCsv();
+                DataTableGeneratorUtil.GenerateDataTables();
+                DataTableGeneratorUtil.GenerateDataTableCodes();
+                SharedCoresVersionTool.UpdateCsvVersion();
+                AssetDatabase.Refresh();
+            }
         }
     }
 }
