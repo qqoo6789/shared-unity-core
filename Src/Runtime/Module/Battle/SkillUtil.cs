@@ -60,6 +60,10 @@ public static partial class SkillUtil
         }
         return targetLayer;
     }
+    public static int GetEntityBlockLayer()
+    {
+        return 1 << MLayerMask.DEFAULT;
+    }
     /// <summary>
     /// 搜索目标列表
     /// </summary>
@@ -71,15 +75,16 @@ public static partial class SkillUtil
         List<EntityBase> targetEntityList = new();
         SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, entity.EntityRoot, skillDir);
         int targetLayer = GetEntityTargetLayer(entity.BaseData.Type);
-        Collider[] colliders = shape.CheckHited(targetLayer);
+        int blockLayer = GetEntityBlockLayer();
+        List<Collider> colliders = shape.CheckHited(targetLayer, blockLayer);
         SkillShapeBase.Release(shape);
 
-        if (colliders == null || colliders.Length <= 0)
+        if (colliders == null || colliders.Count <= 0)
         {
             return targetEntityList;
         }
 
-        for (int i = 0; i < colliders.Length; i++)
+        for (int i = 0; i < colliders.Count; i++)
         {
             if (colliders[i].gameObject.TryGetComponent(out EntityReferenceData refData))
             {
