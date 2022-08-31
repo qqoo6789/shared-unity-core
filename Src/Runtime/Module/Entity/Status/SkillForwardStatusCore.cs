@@ -144,14 +144,19 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
                 if (skillEffect.CheckApplyEffect(entity, entity))
                 {
                     DamageEffect effectData = skillEffect.CreateEffectData(entity, entity, SkillDir);
+                    if (effectData == null)
+                    {
+                        continue;
+                    }
+
                     effectData.EffectType = (DamageEffectId)skillEffect.EffectCfg.Id;
                     skillEffect.SetEffectData(effectData);
                     effectCpt.ApplyOneEffect(skillEffect);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Log.Error($"skill forward skill effect apply error skillID = {drSkill.Id}, effectID = {skillEffects[i].EffectID}");
+                Log.Error($"skill forward skill effect apply error skillID = {drSkill.Id}, effectID = {skillEffects[i].EffectID}\n error = {e}");
                 continue;
             }
         }
