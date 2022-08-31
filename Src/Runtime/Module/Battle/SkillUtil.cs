@@ -60,10 +60,7 @@ public static partial class SkillUtil
         }
         return targetLayer;
     }
-    public static int GetEntityBlockLayer()
-    {
-        return 1 << MLayerMask.DEFAULT;
-    }
+
     /// <summary>
     /// 搜索目标列表
     /// </summary>
@@ -75,8 +72,7 @@ public static partial class SkillUtil
         List<EntityBase> targetEntityList = new();
         SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, entity.EntityRoot, skillDir);
         int targetLayer = GetEntityTargetLayer(entity.BaseData.Type);
-        int blockLayer = GetEntityBlockLayer();
-        List<Collider> colliders = shape.CheckHited(targetLayer, blockLayer);
+        List<Collider> colliders = shape.CheckHited(targetLayer, MLayerMask.MASK_SCENE_OBSTRUCTION);
         SkillShapeBase.Release(shape);
 
         if (colliders == null || colliders.Count <= 0)
