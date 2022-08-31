@@ -19,7 +19,10 @@ public class EntityMoveBase : EntityBaseComponent
 
     private void OnDisable()
     {
-        StopMove();
+        if (IsMoving)
+        {
+            StopMove();
+        }
     }
 
     /// <summary>
@@ -49,6 +52,7 @@ public class EntityMoveBase : EntityBaseComponent
     public virtual void StartMove()
     {
         IsMoving = true;
+        enabled = true;
     }
 
     /// <summary>
@@ -57,6 +61,7 @@ public class EntityMoveBase : EntityBaseComponent
     public virtual void StopMove()
     {
         IsMoving = false;
+        enabled = false;
     }
 
     /// <summary>
@@ -65,5 +70,6 @@ public class EntityMoveBase : EntityBaseComponent
     protected virtual void FinishMove()
     {
         IsMoving = false;
+        enabled = false;
     }
 }
