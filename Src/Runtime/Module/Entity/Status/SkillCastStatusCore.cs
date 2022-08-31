@@ -26,6 +26,10 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     private EntityBattleDataCore _battleData;
 
     private bool _continueNextSkill;//是否继续下一个技能
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitMoveEventFunc)
+    };
+
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
