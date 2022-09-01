@@ -26,16 +26,14 @@ public abstract class DirectionMove : EntityMoveBase
 
     public override void StartMove()
     {
-        base.StartMove();
-
+        IsMoving = true;
         _enableMove = true;
     }
 
     public override void StopMove()
     {
         _enableMove = false;
-
-        base.StopMove();
+        IsMoving = false;
     }
 
     /// <summary>

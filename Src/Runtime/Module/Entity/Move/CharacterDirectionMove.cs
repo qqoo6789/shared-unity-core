@@ -3,40 +3,64 @@ using UnityEngine;
 /// <summary>
 /// 依靠CharacterController控制角色直线运动
 /// </summary>
-[RequireComponent(typeof(CharacterController))]
-public class CharacterDirectionMove : DirectionMove
+public sealed class CharacterDirectionMove : DirectionMove
 {
     [Header("是否使用重力")]
     public bool UseGravity = true;
 
     private CharacterController _controller;
+    private bool _isAddColliderLoadEvent;
 
     protected override void Start()
     {
         base.Start();
 
-        _controller = GetComponent<CharacterController>();
+        if (!TryGetComponent(out _controller))
+        {
+            //直接拿不到就要等待加载完成事件
+            _isAddColliderLoadEvent = true;
+            RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_isAddColliderLoadEvent)
+        {
+            _isAddColliderLoadEvent = false;
+            RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
+        }
+    }
+
+    private void OnColliderLoadFinish(GameObject go)
+    {
+        _controller = go.GetComponent<CharacterController>();
     }
 
     protected override void ApplyMotion(Vector3 motion)
     {
         if (UseGravity)
         {
-            _controller.SimpleMove(motion / Time.deltaTime);
+            _ = _controller.SimpleMove(motion / Time.deltaTime);
         }
         else
         {
-            _controller.Move(motion);
+            _ = _controller.Move(motion);
         }
     }
 
     private void Update()
     {
+        if (_controller == null)
+        {
+            return;
+        }
+
         if (!CheckIsMove())
         {
             if (UseGravity)
             {
-                _controller.SimpleMove(Vector3.zero);//没有移动也需要设置为0 否则不会应用重力
+                _ = _controller.SimpleMove(Vector3.zero);//没有移动也需要设置为0 否则不会应用重力
             }
             return;
         }

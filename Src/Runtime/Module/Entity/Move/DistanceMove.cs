@@ -36,12 +36,18 @@ public abstract class DistanceMove : EntityMoveBase
     /// <param name="tickDelay"></param>
     protected void TickMove(float tickDelay)
     {
+        if (_remainDistance <= 0)
+        {
+            return;
+        }
+
         float stepDistance = MoveSpeed * tickDelay;
 
         bool isArrived = false;
         if (_remainDistance <= stepDistance)
         {
             stepDistance = _remainDistance;
+            _remainDistance = -1;
             isArrived = true;
         }
         else

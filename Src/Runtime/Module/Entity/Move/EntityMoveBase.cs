@@ -15,7 +15,7 @@ public class EntityMoveBase : EntityBaseComponent
     /// 正在移动中
     /// </summary>
     /// <value></value>
-    public bool IsMoving { get; private set; }
+    public bool IsMoving { get; protected set; }
 
     private void OnDisable()
     {
