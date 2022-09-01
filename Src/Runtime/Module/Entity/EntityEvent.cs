@@ -39,4 +39,8 @@ public class EntityEvent : EntityBaseComponent
     /// 非移动状态的特殊移动开始 往往是技能效果的强制移动等触发
     /// </summary>
     public Action SpecialMoveStartNotMoveStatus;
+    /// <summary>
+    /// 碰撞盒加载完成 T0：碰撞盒所在GameObject
+    /// </summary>
+    public Action<GameObject> ColliderLoadFinish;
 }
