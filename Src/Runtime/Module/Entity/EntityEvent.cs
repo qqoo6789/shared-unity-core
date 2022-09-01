@@ -12,6 +12,10 @@ using UnityEngine;
 public class EntityEvent : EntityBaseComponent
 {
     /// <summary>
+    /// 实体数据初始化完成 已经可以使用了
+    /// </summary>
+    public Action EntityDataInitFinish;
+    /// <summary>
     /// 输入的移动路径变化了 T0:path
     /// </summary>
     public Action<Vector3[]> InputMovePathChanged;
