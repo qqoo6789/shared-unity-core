@@ -104,51 +104,6 @@ public class DRReward : DataRowBase
         private set;
     }
 
-    /// <summary>
-  /**获取货币1（type,num ）。*/
-    /// </summary>
-    public int[] Currency1 
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取货币2。*/
-    /// </summary>
-    public int[] Currency2
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取货币3。*/
-    /// </summary>
-    public int[] Currency3
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取货币4。*/
-    /// </summary>
-    public int[] Currency4
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取货币5。*/
-    /// </summary>
-    public int[] Currency5
-    {
-        get;
-        private set;
-    }
-
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -167,11 +122,6 @@ public class DRReward : DataRowBase
         Item4ObjectId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Item4Quality = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Currency1  = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Currency2 = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Currency3 = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Currency4 = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Currency5 = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
 
         return true;
     }
@@ -193,11 +143,6 @@ public class DRReward : DataRowBase
                 Item4ObjectId = binaryReader.Read7BitEncodedInt32();
                 Item4Quality = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
-                Currency1  = binaryReader.ReadArray<Int32>();
-                Currency2 = binaryReader.ReadArray<Int32>();
-                Currency3 = binaryReader.ReadArray<Int32>();
-                Currency4 = binaryReader.ReadArray<Int32>();
-                Currency5 = binaryReader.ReadArray<Int32>();
             }
         }
 
