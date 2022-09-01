@@ -78,6 +78,15 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
+  /**获取击杀经验。*/
+    /// </summary>
+    public int Exp
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取血量。*/
     /// </summary>
     public int Hp
@@ -295,6 +304,7 @@ public class DRMonster : DataRowBase
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Att = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AttSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -335,6 +345,7 @@ public class DRMonster : DataRowBase
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
+                Exp = binaryReader.Read7BitEncodedInt32();
                 Hp = binaryReader.Read7BitEncodedInt32();
                 Att = binaryReader.Read7BitEncodedInt32();
                 AttSpd = binaryReader.Read7BitEncodedInt32();
