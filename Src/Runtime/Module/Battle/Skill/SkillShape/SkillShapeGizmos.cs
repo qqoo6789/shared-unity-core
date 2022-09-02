@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-24 14:32:34
  * @Description: 技能范围绘制
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Battle/Skill/SkillShape/SkillShapeGizmos.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Battle/Skill/SkillShape/SkillShapeGizmos.cs
  * 
  */
 using UnityEngine;
@@ -15,7 +15,16 @@ public class SkillShapeGizmos : MonoBehaviour
         {
             StopDraw();
         }
-        _shape = SkillShapeFactory.CreateOneSkillShape(parameters, entity, dir);
+        Vector3 startPos;
+        if (entity.TryGetComponent(out EntityCollisionCore entityCollision) && entityCollision.BodyCollision != null)
+        {
+            startPos = entityCollision.BodyCollision.bounds.center;
+        }
+        else
+        {
+            startPos = entity.transform.position;
+        }
+        _shape = SkillShapeFactory.CreateOneSkillShape(parameters, startPos, dir);
     }
     public void StopDraw()
     {
