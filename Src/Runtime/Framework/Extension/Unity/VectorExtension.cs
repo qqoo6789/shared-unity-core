@@ -12,4 +12,9 @@ public static class VectorExtension
     {
         return a.x.ApproximatelyEquals(b.x) && a.y.ApproximatelyEquals(b.y) && a.z.ApproximatelyEquals(b.z);
     }
+
+    public static bool ApproximatelyEquals(this Vector2 a, Vector2 b)
+    {
+        return a.x.ApproximatelyEquals(b.x) && a.y.ApproximatelyEquals(b.y);
+    }
 }
