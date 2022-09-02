@@ -71,6 +71,9 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         entityCollider.radius = prefabCollider.radius;
         entityCollider.height = prefabCollider.height;
         entityCollider.center = prefabCollider.center;
+        entityCollider.slopeLimit = MoveDefine.MOVE_SLOPE_LIMIT;
+        entityCollider.stepOffset = MoveDefine.MOVE_STEP_HEIGHT;
+        entityCollider.skinWidth = MoveDefine.MOVE_SKIN_WIDTH;
         RefEntity.EntityRoot.layer = prefab.layer;//暂时直接直接赋值成碰撞盒的层
 
         CollisionObject = entityCollider.gameObject;
