@@ -18,7 +18,7 @@ public class EntityEvent : EntityBaseComponent
     /// <summary>
     /// 输入的移动路径变化了 T0:path
     /// </summary>
-    public Action<Vector3[]> InputMovePathChanged;
+    public Action InputMovePathChanged;
     /// <summary>
     /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID T1:dir技能朝向 T2:targets技能目标列表 T3:isTry 是否尝试释放技能不是尝试代表一定要放
     /// </summary>

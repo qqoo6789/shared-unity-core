@@ -14,7 +14,7 @@ public class EntityComponentCore<T> : MonoBehaviour where T : EntityBase, new()
     /// 获取组件所挂载的实体的反引用
     /// </summary>
     /// <value></value>
-    protected T RefEntity
+    public T RefEntity
     {
         get
         {

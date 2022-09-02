@@ -12,9 +12,8 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     public override string StatusName => Name;
 
-    private EntityInputData _inputData;
-    private PathMove _pathMove;
-    protected PathMove PathMove => _pathMove;
+    protected EntityInputData InputData { get; private set; }
+    private DistanceMove _distanceMove;
     private EntityBattleDataCore _battleData;
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
@@ -24,50 +23,72 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     {
         base.OnEnter(fsm);
 
-        _inputData = StatusCtrl.GetComponent<EntityInputData>();
+        InputData = StatusCtrl.GetComponent<EntityInputData>();
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
 
-        Vector3[] path = _inputData.InputMovePath;
-        if (path == null || path.Length == 0)
+        if (InputData.InputMovePath.Count == 0)
         {
-            Log.Error($"path move status enter,not find path ,data empth={path == null}");
+            Log.Error($"path move status enter,not find path ,data empth");
             ChangeState(fsm, IdleStatusCore.Name);
             return;
         }
 
-        if (!StatusCtrl.TryGetComponent(out _pathMove))
+        if (!StatusCtrl.TryGetComponent(out _distanceMove))
         {
             Log.Error($"path move status enter,not find PathMove,name={StatusCtrl.gameObject.name}");
             ChangeState(fsm, IdleStatusCore.Name);
             return;
         }
 
-        _pathMove.enabled = true;
-        _pathMove.SetMoveSpeed(StatusCtrl.GetComponent<EntityMoveData>().Speed);
-        _pathMove.MovePath(_inputData.InputMovePath, OnMoveFinish);
-
-        PathMove.OnWaypointChangedEvent += OnWaypointChanged;
+        MoveToNextPoint();
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        PathMove.OnWaypointChangedEvent -= OnWaypointChanged;
-
         _battleData = null;
-        if (_inputData != null)
+        if (InputData != null)
         {
-            _inputData.SetInputMovePath(null, false);
-            _inputData = null;
+            InputData.ClearInputMovePath(false);
+            InputData = null;
         }
 
-        if (_pathMove != null)
+        if (_distanceMove != null)
         {
-            _pathMove.StopMove();
-            _pathMove.enabled = false;
-            _pathMove = null;
+            _distanceMove.StopMove();
+            _distanceMove = null;
         }
 
         base.OnLeave(fsm, isShutdown);
+    }
+
+    private void MoveToNextPoint()
+    {
+        Vector3 nextPos = InputData.InputMovePath.Peek();
+        Vector3 offset = nextPos - StatusCtrl.RefEntity.Position;
+
+        //改变朝向
+        StatusCtrl.RefEntity.SetForward(new Vector3(offset.x, 0, offset.z));
+
+        //移动
+        float speed = StatusCtrl.GetComponent<EntityMoveData>().Speed;
+        _distanceMove.MoveTo(offset, offset.magnitude, speed, OnNextPointArrived);
+    }
+
+    /// <summary>
+    /// 下一个拐点走到了
+    /// </summary>
+    private void OnNextPointArrived()
+    {
+        _ = InputData.InputMovePath.Dequeue();
+
+        if (InputData.InputMovePath.Count == 0)
+        {
+            OnMoveFinish();
+        }
+        else
+        {
+            MoveToNextPoint();
+        }
     }
 
     protected override void AddEvent(EntityEvent entityEvent)
@@ -87,21 +108,9 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
-    private void OnMoveFinish(PathMove pathMove)
+    private void OnMoveFinish()
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
-    }
-
-    /// <summary>
-    /// 到了路径拐点
-    /// </summary>
-    /// <param name="nextPoint">下一个准备去的点</param>
-    protected virtual void OnWaypointChanged(Vector3 nextPoint)
-    {
-        //改变朝向
-        Transform transform = StatusCtrl.transform;
-        Vector3 moveDirVector3 = nextPoint - transform.position;
-        transform.forward = new Vector3(moveDirVector3.x, transform.forward.y, moveDirVector3.z);
     }
 
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
@@ -114,15 +123,15 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         }
     }
     //路径改了
-    private void OnPathChanged(Vector3[] path)
+    private void OnPathChanged()
     {
-        if (_inputData.InputMovePath == null)
+        if (InputData.InputMovePath.Count == 0)
         {
             ChangeState(OwnerFsm, IdleStatusCore.Name);
             return;
         }
 
-        _pathMove.MovePath(_inputData.InputMovePath, OnMoveFinish);
+        MoveToNextPoint();
     }
 
     public bool CheckCanMove()

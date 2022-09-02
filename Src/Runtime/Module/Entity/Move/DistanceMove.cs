@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -8,8 +9,9 @@ public abstract class DistanceMove : EntityMoveBase
 {
     private float _remainDistance = 0;//剩下未移动的距离
     private Vector3 _directionUnit;//移动方向单位
+    private Action _arrivedCB;
 
-    public void MoveTo(Vector3 dir, float distance, float speed)
+    public void MoveTo(Vector3 dir, float distance, float speed, Action arrivedCB = null)
     {
         if (dir == Vector3.zero)
         {
@@ -23,11 +25,30 @@ public abstract class DistanceMove : EntityMoveBase
             return;
         }
 
+        _arrivedCB = arrivedCB;
         _remainDistance = distance;
         SetMoveSpeed(speed);
         _directionUnit = dir.normalized;
 
         StartMove();
+    }
+
+    protected override void FinishMove()
+    {
+        if (_arrivedCB != null)
+        {
+            _arrivedCB.Invoke();
+            _arrivedCB = null;
+        }
+
+        base.FinishMove();
+    }
+
+    public override void StopMove()
+    {
+        _arrivedCB = null;
+
+        base.StopMove();
     }
 
     /// <summary>
