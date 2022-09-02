@@ -7,6 +7,11 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public abstract class DistanceMove : EntityMoveBase
 {
+    /// <summary>
+    /// 位置更新事件 T0：最新位置
+    /// </summary>
+    public event Action<Vector3> OnPosUpdatedEvent;
+
     private float _remainDistance = 0;//剩下未移动的距离
     private Vector3 _directionUnit;//移动方向单位
     private Action _arrivedCB;
@@ -78,6 +83,8 @@ public abstract class DistanceMove : EntityMoveBase
 
         Vector3 motion = _directionUnit * stepDistance;
         ApplyMotion(motion);
+
+        OnPosUpdatedEvent?.Invoke(transform.position);
 
         if (isArrived)
         {

@@ -35,7 +35,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
         if (!StatusCtrl.TryGetComponent(out _distanceMove))
         {
-            Log.Error($"path move status enter,not find PathMove,name={StatusCtrl.gameObject.name}");
+            Log.Error($"path move status enter,not find DistanceMove,name={StatusCtrl.gameObject.name}");
             ChangeState(fsm, IdleStatusCore.Name);
             return;
         }
@@ -61,7 +61,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         base.OnLeave(fsm, isShutdown);
     }
 
-    private void MoveToNextPoint()
+    protected virtual void MoveToNextPoint()
     {
         Vector3 nextPos = InputData.InputMovePath.Peek();
         Vector3 offset = nextPos - StatusCtrl.RefEntity.Position;
