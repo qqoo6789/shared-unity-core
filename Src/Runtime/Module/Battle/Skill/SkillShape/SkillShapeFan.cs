@@ -14,7 +14,7 @@ public class SkillShapeFan : SkillShapeBase
         _radius = radius;
         _angle = angle;
         _forward = forward;
-        _forward.y = 0;
+        _forward.y = 0;//取xz面的投影，不考虑倾斜的情况，扇形柱固定垂直xz面
         Anchor = center;
         InitShape = true;
     }
@@ -27,13 +27,16 @@ public class SkillShapeFan : SkillShapeBase
     {
         Vector3 pTop = Anchor + new Vector3(0, _height / 2, 0);
         Vector3 pBottom = Anchor - new Vector3(0, _height / 2, 0);
+        //通过胶囊体检测360度的碰撞盒
         Collider[] colliders = Physics.OverlapCapsule(pTop, pBottom, _radius, targetLayer);
 
         List<Collider> result = new();
         for (int i = 0; i < colliders.Length; i++)
         {
             Collider c = colliders[i];
+            //向量的y值都用Anchor.y（固定值就好，不一定是Anchor.y），不然计算出来的角度是错误的
             Vector3 toTarget = new Vector3(c.transform.position.x, Anchor.y, c.transform.position.z) - Anchor;
+            //通过角度就算碰撞盒是否在扇形范围内
             if (Vector3.Angle(c.transform.position - Anchor, _forward) <= _angle / 2)
             {
                 result.Add(c);
