@@ -52,7 +52,7 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
             {
                 ChangeState(fsm, DirectionMoveStatusCore.Name);
             }
-            else if (_inputData.InputMovePath != null)
+            else if (_inputData.InputMovePath.Count > 0)
             {
                 ChangeState(fsm, PathMoveStatusCore.Name);
             }

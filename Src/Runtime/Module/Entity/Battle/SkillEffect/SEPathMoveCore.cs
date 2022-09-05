@@ -12,33 +12,34 @@ using UnityGameFramework.Runtime;
 
 public class SEPathMoveCore : SkillEffectBase
 {
-    protected PathMove PathMove;
+    protected DistanceMove DistanceMove;
     public override void Start()
     {
         if (EffectData == null)
         {
             return;
         }
-        if (!RefOwner.TryGetComponent(out PathMove))
+        if (!RefOwner.TryGetComponent(out DistanceMove))
         {
-            Log.Error($"SEPathMoveCore not find PathMove cpt");
+            Log.Error($"SEPathMoveCore not find DistanceMove cpt");
             return;
         }
 
         RefOwner.GetComponent<EntityEvent>().SpecialMoveStartNotMoveStatus?.Invoke();
 
         Vector3 targetPos = NetUtilCore.LocFromNet(EffectData.BeatBackValue.BackToPos);
-        float distance = Vector3.Distance(RefOwner.transform.position, targetPos);
-        float time = distance / (EffectCfg.Duration * TimeUtil.MS2S);
-        PathMove.SetMoveSpeed(time);
-        _ = PathMove.TryMoveToPoint(targetPos);
+        Vector3 offset = targetPos - RefOwner.transform.position;
+        float distance = offset.magnitude;
+        float speed = distance / (EffectCfg.Duration * TimeUtil.MS2S);
+        DistanceMove.SetMoveSpeed(speed);
+        DistanceMove.MoveTo(offset, distance, speed);
     }
 
     public override void OnRemove()
     {
-        if (PathMove != null)
+        if (DistanceMove != null)
         {
-            PathMove = null;
+            DistanceMove = null;
         }
     }
 

@@ -104,7 +104,7 @@ public abstract class FindPathMove : EntityBaseComponent
     {
         if (OnlyInputMoveData)
         {
-            _inputData.SetInputMovePath(null, !fromNextMove);
+            _inputData.ClearInputMovePath(!fromNextMove);
         }
         else
         {

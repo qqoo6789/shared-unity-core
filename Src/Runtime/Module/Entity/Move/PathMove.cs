@@ -6,7 +6,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 路径移动
 /// </summary>
-public class PathMove : EntityBaseComponent
+public class PathMove : EntityMoveBase
 {
     //移动检查时的回退距离 防止update时在碰撞体内不会退会直接穿透
     private const float MOVE_CHECK_BACK_DISTANCE = 0.1f;
@@ -14,10 +14,6 @@ public class PathMove : EntityBaseComponent
     /// 是否是刚体移动
     /// </summary>
     public bool IsRigidbodyMove = false;
-
-    [SerializeField]
-    private float _moveSpeed;
-    public float MoveSpeed => _moveSpeed;
 
     private Rigidbody _refRigidbody;
 
@@ -32,11 +28,6 @@ public class PathMove : EntityBaseComponent
     private Tweener _curMoveTweener;
 
     /// <summary>
-    /// 是否正在移动
-    /// </summary>
-    public bool IsMoving => _curPath != null;
-
-    /// <summary>
     /// 位置更新事件 T0：最新位置
     /// </summary>
     public event Action<Vector3> OnPosUpdatedEvent;
@@ -45,37 +36,11 @@ public class PathMove : EntityBaseComponent
     /// </summary>
     public event Action<Vector3> OnWaypointChangedEvent;
 
-    private void Awake()
-    {
-        _moveSpeed = 1;//不能为0的初始速度
-    }
-
     private void OnDestroy()
     {
         StopMove();
 
         _refRigidbody = null;
-    }
-
-    /// <summary>
-    /// 设置移动速度 m/s
-    /// </summary>
-    /// <param name="speed"></param>
-    public void SetMoveSpeed(float speed)
-    {
-        if (speed <= 0)
-        {
-            Log.Error($"path move set speed <0 ={speed}");
-            return;
-        }
-
-        if (speed.ApproximatelyEquals(0))
-        {
-            Log.Error($"path move set speed approximately equals 0 ={speed}");
-            return;
-        }
-
-        _moveSpeed = speed;
     }
 
     /// <summary>
@@ -139,7 +104,7 @@ public class PathMove : EntityBaseComponent
     /// <summary>
     /// 停止移动
     /// </summary>
-    public void StopMove()
+    public override void StopMove()
     {
         _arrivedCB = null;
 
@@ -150,6 +115,8 @@ public class PathMove : EntityBaseComponent
         }
 
         _curPath = null;
+
+        base.StopMove();
     }
 
     private void ExecuteMove()
@@ -160,7 +127,7 @@ public class PathMove : EntityBaseComponent
             return;
         }
 
-        float duration = CalculatePathDuration(_curPath, _moveSpeed);
+        float duration = CalculatePathDuration(_curPath, MoveSpeed);
 
         if (IsRigidbodyMove)
         {
@@ -179,6 +146,8 @@ public class PathMove : EntityBaseComponent
             _curMoveTweener.SetEase(Ease.Linear).onComplete += OnMoveArrived;
             _curMoveTweener.onUpdate += OnPosUpdated;
             _curMoveTweener.onWaypointChange += OnWaypointChanged;
+
+            StartMove();
         }
     }
 
@@ -191,6 +160,7 @@ public class PathMove : EntityBaseComponent
         }
 
         _curPath = null;
+        FinishMove();
     }
 
     private void OnPosUpdated()

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 实体上的输入数据 持续性的数据  瞬发性的命令通过事件及时广播出去不在这里
@@ -11,31 +13,32 @@ public class EntityInputData : EntityBaseComponent
     /// <value></value>
     public Vector3? InputMoveDirection { get; private set; }
     /// <summary>
-    /// 当前输入了路径移动 执行完成后需要置空
+    /// 当前输入了路径移动 不为空
     /// </summary>
     /// <value></value>
-    public Vector3[] InputMovePath { get; private set; }
-
-    private EntityEvent _entityEvent;
-
-    private void Start()
-    {
-        _entityEvent = GetComponent<EntityEvent>();
-    }
+    public Queue<Vector3> InputMovePath { get; private set; } = new();
 
     /// <summary>
     /// 输入了方向移动 置空为没有方向移动
     /// </summary>
     /// <param name="moveDir"></param>
-    public void SetInputMoveDir(Vector3? moveDir)
+    public void SetInputMoveDir(Vector3 moveDir)
     {
         InputMoveDirection = moveDir;
 
         //方向移动优先级更高 需要取消路径移动
-        if (moveDir != null && InputMovePath != null)
+        if (InputMovePath.Count > 0)
         {
-            SetInputMovePath(null);
+            ClearInputMovePath(true);
         }
+    }
+
+    /// <summary>
+    /// 清理输入方向移动
+    /// </summary>
+    public void ClearInputMoveDir()
+    {
+        InputMoveDirection = null;
     }
 
     /// <summary>
@@ -44,11 +47,52 @@ public class EntityInputData : EntityBaseComponent
     /// <param name="path"></param>
     public void SetInputMovePath(Vector3[] path, bool needEvent = true)
     {
-        InputMovePath = path;
+        if (path == null || path.Length == 0)
+        {
+            Log.Error($"entity input move path error ,is null:{path == null}");
+            return;
+        }
+
+        ClearInputMovePath(false);
+
+        foreach (Vector3 pos in path)
+        {
+            InputMovePath.Enqueue(pos);
+        }
 
         if (needEvent)
         {
-            _entityEvent.InputMovePathChanged?.Invoke(path);
+            RefEntity.EntityEvent.InputMovePathChanged?.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// 输入移动到某个点
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="needEvent"></param>
+    public void SetInputMoveToPoint(Vector3 pos, bool needEvent = true)
+    {
+        ClearInputMovePath(false);
+
+        InputMovePath.Enqueue(pos);
+
+        if (needEvent)
+        {
+            RefEntity.EntityEvent.InputMovePathChanged?.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// 清理输入移动路径包括移动到一个点
+    /// </summary>
+    public void ClearInputMovePath(bool needEvent)
+    {
+        InputMovePath.Clear();
+
+        if (needEvent)
+        {
+            RefEntity.EntityEvent.InputMovePathChanged?.Invoke();
         }
     }
 
@@ -57,7 +101,7 @@ public class EntityInputData : EntityBaseComponent
     /// </summary>
     public void InputMoveStop()
     {
-        InputMoveDirection = null;
-        InputMovePath = null;
+        ClearInputMoveDir();
+        ClearInputMovePath(true);
     }
 }

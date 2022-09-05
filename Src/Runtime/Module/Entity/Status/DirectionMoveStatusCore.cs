@@ -36,8 +36,8 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         if (StatusCtrl.TryGetComponent(out _directionMove))
         {
-            _directionMove.ChangeMoveStatus(true);
-            _directionMove.MoveSpeed = StatusCtrl.GetComponent<EntityMoveData>().Speed;
+            _directionMove.SetMoveSpeed(StatusCtrl.GetComponent<EntityMoveData>().Speed);
+            _directionMove.StartMove();
             return;
         }
         else
@@ -53,7 +53,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
 
         if (_directionMove)
         {
-            _directionMove.ChangeMoveStatus(false);
+            _directionMove.StopMove();
             _directionMove = null;
         }
 

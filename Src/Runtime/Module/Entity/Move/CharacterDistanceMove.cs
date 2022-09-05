@@ -1,9 +1,9 @@
 using UnityEngine;
 
 /// <summary>
-/// 依靠CharacterController控制角色直线运动
+/// 使用角色控制器的距离移动
 /// </summary>
-public sealed class CharacterDirectionMove : DirectionMove
+public sealed class CharacterDistanceMove : DistanceMove
 {
     [Header("是否使用重力")]
     public bool UseGravity = true;
@@ -11,10 +11,8 @@ public sealed class CharacterDirectionMove : DirectionMove
     private CharacterController _controller;
     private bool _isAddColliderLoadEvent;
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-
         if (!TryGetComponent(out _controller))
         {
             //直接拿不到就要等待加载完成事件
@@ -37,34 +35,27 @@ public sealed class CharacterDirectionMove : DirectionMove
         _controller = go.GetComponent<CharacterController>();
     }
 
-    protected override void ApplyMotion(Vector3 motion)
-    {
-        if (UseGravity)
-        {
-            _ = _controller.SimpleMove(motion / Time.deltaTime);
-        }
-        else
-        {
-            _ = _controller.Move(motion);
-        }
-    }
-
     private void Update()
     {
+        TickMove(Time.deltaTime);
+    }
+
+    protected override void ApplyMotion(Vector3 motion)
+    {
+        //可能没加载好碰撞器
         if (_controller == null)
         {
             return;
         }
 
-        if (!CheckIsMove())
+        if (UseGravity)
         {
-            if (UseGravity)
-            {
-                _ = _controller.SimpleMove(Vector3.zero);//没有移动也需要设置为0 否则不会应用重力
-            }
-            return;
+            //这里由于给的是速度 所以如果本来motion已经不足一帧位移 这里也会按照一帧来算 所以实际可能比预计多处小于一帧的距离 但问题不大
+            _ = _controller.SimpleMove(motion.normalized * MoveSpeed);
         }
-
-        TickMove(Time.deltaTime);
+        else
+        {
+            _ = _controller.Move(motion);
+        }
     }
 }
