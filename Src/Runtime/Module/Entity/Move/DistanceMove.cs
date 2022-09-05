@@ -40,13 +40,9 @@ public abstract class DistanceMove : EntityMoveBase
 
     protected override void FinishMove()
     {
-        if (_arrivedCB != null)
-        {
-            _arrivedCB.Invoke();
-            _arrivedCB = null;
-        }
-
         base.FinishMove();
+
+        _arrivedCB?.Invoke();
     }
 
     public override void StopMove()
