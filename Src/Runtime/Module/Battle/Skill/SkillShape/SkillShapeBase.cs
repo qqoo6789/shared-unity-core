@@ -22,7 +22,7 @@ public abstract class SkillShapeBase : IReference
     /// <param name="targetLayer">技能目标层</param>
     /// <param name="blockLayer">技能阻挡曾</param>
     /// <returns></returns>
-    public Collider[] CheckHited(int targetLayer, int blockLayer)
+    public List<Collider> CheckHited(int targetLayer, int blockLayer)
     {
         if (!InitShape)
         {
@@ -42,7 +42,7 @@ public abstract class SkillShapeBase : IReference
                 }
             }
         }
-        return hitColliderList.ToArray();
+        return hitColliderList;
     }
 
     /// <summary>
