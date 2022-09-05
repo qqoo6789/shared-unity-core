@@ -12,7 +12,7 @@ public abstract class DistanceMove : EntityMoveBase
     /// </summary>
     public event Action<Vector3> OnPosUpdatedEvent;
 
-    private float _remainDistance = 0;//剩下未移动的距离
+    private float _remainDistance = -1;//剩下未移动的距离
     private Vector3 _directionUnit;//移动方向单位
     private Action _arrivedCB;
 
@@ -52,6 +52,7 @@ public abstract class DistanceMove : EntityMoveBase
     public override void StopMove()
     {
         _arrivedCB = null;
+        _remainDistance = -1;
 
         base.StopMove();
     }
