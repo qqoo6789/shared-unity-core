@@ -18,13 +18,6 @@ public class EntityInputData : EntityBaseComponent
     /// <value></value>
     public Queue<Vector3> InputMovePath { get; private set; } = new();
 
-    private EntityEvent _entityEvent;
-
-    private void Start()
-    {
-        _entityEvent = GetComponent<EntityEvent>();
-    }
-
     /// <summary>
     /// 输入了方向移动 置空为没有方向移动
     /// </summary>
@@ -69,7 +62,7 @@ public class EntityInputData : EntityBaseComponent
 
         if (needEvent)
         {
-            _entityEvent.InputMovePathChanged?.Invoke();
+            RefEntity.EntityEvent.InputMovePathChanged?.Invoke();
         }
     }
 
@@ -86,7 +79,7 @@ public class EntityInputData : EntityBaseComponent
 
         if (needEvent)
         {
-            _entityEvent.InputMovePathChanged?.Invoke();
+            RefEntity.EntityEvent.InputMovePathChanged?.Invoke();
         }
     }
 
@@ -99,7 +92,7 @@ public class EntityInputData : EntityBaseComponent
 
         if (needEvent)
         {
-            _entityEvent.InputMovePathChanged?.Invoke();
+            RefEntity.EntityEvent.InputMovePathChanged?.Invoke();
         }
     }
 
