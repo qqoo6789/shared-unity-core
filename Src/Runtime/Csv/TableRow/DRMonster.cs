@@ -105,7 +105,7 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取攻击速度。*/
+  /**获取冷却缩减。*/
     /// </summary>
     public int AttSpd
     {
