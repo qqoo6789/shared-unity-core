@@ -26,7 +26,7 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         {
             return;
         }
-        Destroy(CollisionObject);
+        //Destroy(CollisionObject);
         CollisionObject = null;
         BodyCollision = null;
     }
