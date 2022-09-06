@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -62,14 +63,9 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     public float RollDistance;
     /// <summary>
-    /// 翻滚CD时间 s
+    /// 战斗效果map  <效果key，添加计数>
     /// </summary>
-    public float RollCD;
-    private float _lastRollTime;//上次翻滚时间
-    /// <summary>
-    /// 是否在翻滚CD中
-    /// </summary>
-    public bool IsInRollCD => Time.realtimeSinceStartup - _lastRollTime >= RollCD;
+    private Dictionary<BattleDefine.eBattleEffectKey, int> _battleEffectMap = new();
 
     public virtual void SetHP(int hp)
     {
@@ -79,14 +75,6 @@ public class EntityBattleDataCore : EntityBaseComponent
     public virtual void SetHPMAX(int hpMax)
     {
         HPMAX = hpMax;
-    }
-
-    /// <summary>
-    /// 更新翻滚时间
-    /// </summary>
-    public void UpdateRollTime()
-    {
-        _lastRollTime = Time.realtimeSinceStartup;
     }
 
     /// <summary>
@@ -106,19 +94,47 @@ public class EntityBattleDataCore : EntityBaseComponent
     }
 
     /// <summary>
-    /// 改变无敌状态
+    /// 添加一个战斗效果
     /// </summary>
-    /// <param name="invincible"></param>
-    /// <returns>改变成功或者失败 状态没变为失败 主要给子类覆写使用</returns>
-    public virtual bool ChangeInvincible(bool invincible)
+    /// <param name="key"> 效果key</param>
+    /// <returns>/returns>
+    public void AddBattleEffect(BattleDefine.eBattleEffectKey key)
     {
-        if (IsInvincible == invincible)
+        if (_battleEffectMap.TryGetValue(key, out int num))
         {
-            return false;
+            _battleEffectMap[key] = num + 1;
         }
+        else
+        {
+            _battleEffectMap.Add(key, 1);
+        }
+    }
 
-        IsInvincible = invincible;
-        return true;
+    /// <summary>
+    /// 删除一个战斗效果
+    /// </summary>
+    /// <param name="key"> 效果key</param>
+    /// <returns>/returns>
+    public void RemoveBattleEffect(BattleDefine.eBattleEffectKey key)
+    {
+        if (_battleEffectMap.TryGetValue(key, out int num))
+        {
+            _battleEffectMap[key] = num - 1;
+            if (_battleEffectMap[key] <= 0)
+            {
+                _ = _battleEffectMap.Remove(key);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 删除一个战斗效果
+    /// </summary>
+    /// <param name="key"> 效果key</param>
+    /// <returns>/returns>
+    public bool HasBattleEffect(BattleDefine.eBattleEffectKey key)
+    {
+        return _battleEffectMap.ContainsKey(key);
     }
 
     /// <summary>
