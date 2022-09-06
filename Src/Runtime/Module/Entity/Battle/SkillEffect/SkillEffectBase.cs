@@ -128,6 +128,7 @@ public class SkillEffectBase : IReference
         SkillID = 0;
         RefOwner = null;
         EffectData = null;
+        _entityEvent = null;
     }
     /// <summary>
     /// 添加后执行第一次
