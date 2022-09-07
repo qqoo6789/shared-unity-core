@@ -23,5 +23,6 @@ public static class BattleDefine
         SkillShapeBox = 1,
         SkillShapeSphere = 2,
         SkillShapeCapsule = 3,
+        SkillShapeFan = 4,
     }
 }

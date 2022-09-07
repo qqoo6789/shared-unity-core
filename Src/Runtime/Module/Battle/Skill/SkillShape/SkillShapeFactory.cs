@@ -18,6 +18,7 @@ public class SkillShapeFactory
         {BattleDefine.eSkillShapeId.SkillShapeBox, CreateSkillShapeBox},
         {BattleDefine.eSkillShapeId.SkillShapeSphere, CreateSkillShapeSphere},
         {BattleDefine.eSkillShapeId.SkillShapeCapsule, CreateSkillShapeCapsule},
+        {BattleDefine.eSkillShapeId.SkillShapeFan, CreateSkillShapeFan},
     };
 
     /// <summary>
@@ -97,6 +98,16 @@ public class SkillShapeFactory
 
         SkillShapeCapsule shape = SkillShapeBase.Create<SkillShapeCapsule>();
         shape.Init(pos1, pos2, radius, centerPos);
+        return shape;
+    }
+    private static SkillShapeBase CreateSkillShapeFan(int[] parameters, Vector3 startPos, Vector3 dir)
+    {
+        float height = parameters[1] * MathUtilCore.CM2M; //高度
+        float radius = parameters[2] * MathUtilCore.CM2M; //半径
+        float angle = parameters[3] * MathUtilCore.CM2M; //角度
+        Vector3 centerPos = startPos;
+        SkillShapeFan shape = SkillShapeBase.Create<SkillShapeFan>();
+        shape.Init(centerPos, radius, angle, height, dir);
         return shape;
     }
 }
