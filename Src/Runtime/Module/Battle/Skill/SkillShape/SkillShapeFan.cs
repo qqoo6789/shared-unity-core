@@ -10,10 +10,18 @@ public class SkillShapeFan : SkillShapeBase
     private float _angle;
     private float _height;
     private Vector3 _forward;
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="center">扇形中心点</param>
+    /// <param name="radius">扇形半径</param>
+    /// <param name="angle">扇形角度，>=0&<=360</param>
+    /// <param name="height">扇形柱高度</param>
+    /// <param name="forward">扇形朝向</param>
     public void Init(Vector3 center, float radius, float angle, float height, Vector3 forward)
     {
         _radius = radius;
-        _angle = angle;
+        _angle = Math.Clamp(angle, 0, 360);
         _height = height;
         _forward = forward;
         _forward.y = 0;//取xz面的投影，不考虑倾斜的情况，扇形柱固定垂直xz面
