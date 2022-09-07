@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
@@ -13,6 +14,7 @@ public class SkillShapeFan : SkillShapeBase
     {
         _radius = radius;
         _angle = angle;
+        _height = height;
         _forward = forward;
         _forward.y = 0;//取xz面的投影，不考虑倾斜的情况，扇形柱固定垂直xz面
         Anchor = center;
@@ -34,10 +36,14 @@ public class SkillShapeFan : SkillShapeBase
         for (int i = 0; i < colliders.Length; i++)
         {
             Collider c = colliders[i];
-            //向量的y值都用Anchor.y（固定值就好，不一定是Anchor.y），不然计算出来的角度是错误的
+            if (Math.Abs(c.transform.position.y - Anchor.y) > _height / 2)
+            {
+                continue;
+            }
+            //向量的y值都用Anchor.y,不然计算出来的角度是错误的
             Vector3 toTarget = new Vector3(c.transform.position.x, Anchor.y, c.transform.position.z) - Anchor;
             //通过角度就算碰撞盒是否在扇形范围内
-            if (Vector3.Angle(c.transform.position - Anchor, _forward) <= _angle / 2)
+            if (Vector3.Angle(toTarget, _forward) <= _angle / 2)
             {
                 result.Add(c);
             }
