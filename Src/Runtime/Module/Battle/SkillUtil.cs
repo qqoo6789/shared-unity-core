@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 public static partial class SkillUtil
 {
@@ -101,5 +102,34 @@ public static partial class SkillUtil
             }
         }
         return targetEntityList;
+    }
+
+    /// <summary>
+    /// 计算技能CD
+    /// </summary>
+    /// <param name="skillID"></param>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    public static long CalculateSkillCD(int skillID, EntityBase entity)
+    {
+        DRSkill CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        if (CurSkillCfg == null)
+        {
+            Log.Error($"CalculateSkillCD  Error skillID = {skillID}");
+            return 0;
+        }
+        if (!entity.TryGetComponent(out EntityBattleDataCore entityBattleData))
+        {
+            Log.Error($"CalculateSkillCD  Not Find EntityBattleDataCore skillID = {skillID}");
+            return 0;
+        }
+        //AttSpeed暂时做冷却缩减使用
+        double cdScale = (10000 - entityBattleData.AttSpeed) / 10000;
+        long skillCD = (long)(CurSkillCfg.SkillCD * cdScale);
+        if (skillCD < 0)
+        {
+            skillCD = 0;
+        }
+        return skillCD;
     }
 }

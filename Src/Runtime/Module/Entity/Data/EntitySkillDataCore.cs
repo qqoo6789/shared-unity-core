@@ -2,11 +2,9 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
-using UnityEngine;
-using UnityGameFramework.Runtime;
 using System.Collections.Generic;
 
 public class EntitySkillDataCore : EntityBaseComponent
@@ -20,6 +18,21 @@ public class EntitySkillDataCore : EntityBaseComponent
         CDMap = new();
     }
 
+    public void InitSkillCD(Dictionary<int, long> cdMap)
+    {
+        if (cdMap == null || cdMap.Count <= 0)
+        {
+            return;
+        }
+        long curTimeStamp = TimeUtil.GetTimeStamp();
+        foreach (KeyValuePair<int, long> item in cdMap)
+        {
+            if (item.Value > curTimeStamp)
+            {
+                CDMap[item.Key] = item.Value;
+            }
+        }
+    }
     /// <summary>
     /// 是否技能CD
     /// </summary>
@@ -46,14 +59,9 @@ public class EntitySkillDataCore : EntityBaseComponent
     /// </summary>
     public void ResetSkillCD(int skillID)
     {
-        DRSkill CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
-        if (CurSkillCfg == null)
-        {
-            Log.Error($"EntitySkillDataCore GetSkillCD Error skillID = {skillID}");
-            return;
-        }
         long curTimeStamp = TimeUtil.GetTimeStamp();
-        long cdTime = curTimeStamp + CurSkillCfg.SkillCD;
+        long skillCD = SkillUtil.CalculateSkillCD(skillID, RefEntity);
+        long cdTime = curTimeStamp + skillCD;
         CDMap[skillID] = cdTime;
     }
 
