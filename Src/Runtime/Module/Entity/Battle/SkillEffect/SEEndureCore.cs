@@ -16,7 +16,7 @@ public class SEEndureCore : SkillEffectBase
 
         if (RefOwner.TryGetComponent(out _battleData))
         {
-            _battleData.AddBattleEffect(BattleDefine.eBattleEffectKey.Endure);
+            _battleData.AddBattleState(BattleDefine.eBattleState.Endure);
         }
     }
 
@@ -24,7 +24,7 @@ public class SEEndureCore : SkillEffectBase
     {
         if (_battleData != null)
         {
-            _battleData.RemoveBattleEffect(BattleDefine.eBattleEffectKey.Endure);
+            _battleData.RemoveBattleState(BattleDefine.eBattleState.Endure);
             _battleData = null;
         }
         base.OnRemove();

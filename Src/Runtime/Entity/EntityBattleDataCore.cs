@@ -63,9 +63,9 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     public float RollDistance;
     /// <summary>
-    /// 战斗效果map  <效果key，添加计数>
+    /// 战斗状态map  <状态key，添加计数>
     /// </summary>
-    private Dictionary<BattleDefine.eBattleEffectKey, int> _battleEffectMap = new();
+    private readonly Dictionary<BattleDefine.eBattleState, int> _battleStateMap = new();
 
     public virtual void SetHP(int hp)
     {
@@ -94,47 +94,47 @@ public class EntityBattleDataCore : EntityBaseComponent
     }
 
     /// <summary>
-    /// 添加一个战斗效果
+    /// 添加一个战斗状态
     /// </summary>
-    /// <param name="key"> 效果key</param>
+    /// <param name="key"> 状态key</param>
     /// <returns>/returns>
-    public void AddBattleEffect(BattleDefine.eBattleEffectKey key)
+    public void AddBattleState(BattleDefine.eBattleState key)
     {
-        if (_battleEffectMap.TryGetValue(key, out int num))
+        if (_battleStateMap.TryGetValue(key, out int num))
         {
-            _battleEffectMap[key] = num + 1;
+            _battleStateMap[key] = num + 1;
         }
         else
         {
-            _battleEffectMap.Add(key, 1);
+            _battleStateMap.Add(key, 1);
         }
     }
 
     /// <summary>
-    /// 删除一个战斗效果
+    /// 删除一个战斗状态
     /// </summary>
-    /// <param name="key"> 效果key</param>
+    /// <param name="key"> 状态key</param>
     /// <returns>/returns>
-    public void RemoveBattleEffect(BattleDefine.eBattleEffectKey key)
+    public void RemoveBattleState(BattleDefine.eBattleState key)
     {
-        if (_battleEffectMap.TryGetValue(key, out int num))
+        if (_battleStateMap.TryGetValue(key, out int num))
         {
-            _battleEffectMap[key] = num - 1;
-            if (_battleEffectMap[key] <= 0)
+            _battleStateMap[key] = num - 1;
+            if (_battleStateMap[key] <= 0)
             {
-                _ = _battleEffectMap.Remove(key);
+                _ = _battleStateMap.Remove(key);
             }
         }
     }
 
     /// <summary>
-    /// 删除一个战斗效果
+    /// 是否存在战斗状态
     /// </summary>
-    /// <param name="key"> 效果key</param>
+    /// <param name="key"> 状态key</param>
     /// <returns>/returns>
-    public bool HasBattleEffect(BattleDefine.eBattleEffectKey key)
+    public bool HasBattleState(BattleDefine.eBattleState key)
     {
-        return _battleEffectMap.ContainsKey(key);
+        return _battleStateMap.ContainsKey(key);
     }
 
     /// <summary>

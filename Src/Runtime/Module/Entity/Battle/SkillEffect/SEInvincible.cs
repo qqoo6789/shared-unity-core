@@ -17,7 +17,7 @@ public class SEInvincible : SkillEffectBase
 
         if (RefOwner.TryGetComponent(out _battleData))
         {
-            _battleData.AddBattleEffect(BattleDefine.eBattleEffectKey.Invincible);
+            _battleData.AddBattleState(BattleDefine.eBattleState.Invincible);
         }
     }
 
@@ -25,7 +25,7 @@ public class SEInvincible : SkillEffectBase
     {
         if (_battleData != null)
         {
-            _battleData.RemoveBattleEffect(BattleDefine.eBattleEffectKey.Invincible);
+            _battleData.RemoveBattleState(BattleDefine.eBattleState.Invincible);
             _battleData = null;
         }
 

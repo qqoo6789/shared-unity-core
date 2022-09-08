@@ -30,14 +30,6 @@ public class BeHitMoveEventFunc : EntityStatusEventFunctionBase
         //         return;
         //     }
         // }
-        if (StatusCtrl.TryGetComponent(out EntityBattleDataCore battleData))
-        {
-            //霸体效果
-            if (battleData.HasBattleEffect(BattleDefine.eBattleEffectKey.Endure))
-            {
-                return;
-            }
-        }
         //跳转受击移动状态
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.BE_HIT_MOVE_TIME, duration);
         EntityStatus.EventFuncChangeState(OwnerFsm, BeHitMoveStatusCore.Name);

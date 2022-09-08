@@ -26,7 +26,7 @@ public static class BattleDefine
         SkillShapeCapsule = 3,
         SkillShapeFan = 4,
     }
-    public enum eBattleEffectKey
+    public enum eBattleState
     {
         Invincible,  //无敌效果（攻击全miss）
         Endure,     //霸体效果（释放技能不可打断）  
