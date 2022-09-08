@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 实体上的战斗数据 双端通用的核心数据
@@ -124,6 +125,10 @@ public class EntityBattleDataCore : EntityBaseComponent
             {
                 _ = _battleStateMap.Remove(key);
             }
+        }
+        else
+        {
+            Log.Error($"RemoveBattleState Not Find State = {key}");
         }
     }
 
