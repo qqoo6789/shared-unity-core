@@ -225,9 +225,9 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取技能释放序列。*/
+  /**获取技能释放随机池。*/
     /// </summary>
-    public int[] SkillSequence
+    public int[][] SkillCastPool
     {
         get;
         private set;
@@ -320,7 +320,7 @@ public class DRMonster : DataRowBase
         PushDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
         PushDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        SkillSequence = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        SkillCastPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         NoShowCode = DataTableParseUtil.ParseBool(columnStrings[index++]);
         ObjectBagType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CodeBlockId = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -361,7 +361,7 @@ public class DRMonster : DataRowBase
                 PushDmg = binaryReader.Read7BitEncodedInt32();
                 PushDist = binaryReader.Read7BitEncodedInt32();
                 DropId = binaryReader.Read7BitEncodedInt32();
-                SkillSequence = binaryReader.ReadArray<Int32>();
+                SkillCastPool = binaryReader.ReadArrayList<Int32>();
                 NoShowCode = binaryReader.ReadBoolean();
                 ObjectBagType = binaryReader.Read7BitEncodedInt32();
                 CodeBlockId = binaryReader.Read7BitEncodedInt32();
