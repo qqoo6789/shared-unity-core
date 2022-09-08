@@ -15,8 +15,23 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
     public override void OnAdd()
     {
         base.OnAdd();
-        EntityEvent.EntityBeHitMove?.Invoke(EffectCfg.Duration);
+        ChangeBeHitMoveStatus();
     }
+
+    private void ChangeBeHitMoveStatus()
+    {
+        if (RefOwner.TryGetComponent(out EntityBattleDataCore battleData))
+        {
+            //霸体状态不应该进入击退状态
+            if (battleData.HasBattleState(BattleDefine.eBattleState.Endure))
+            {
+                return;
+            }
+        }
+        EntityEvent.EntityBeHitMove?.Invoke(EffectCfg.Duration);
+
+    }
+
 
     /// <summary>
     /// 检测能否应用效果
@@ -25,9 +40,9 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
     /// <param name="targetEntity">接受方</param>
     public override bool CheckApplyEffect(EntityBase fromEntity, EntityBase targetEntity)
     {
-        //目标方已经死亡
         if (targetEntity.TryGetComponent(out EntityBattleDataCore targetBattleData))
         {
+            //目标方已经死亡
             if (!targetBattleData.IsLive())
             {
                 return false;
