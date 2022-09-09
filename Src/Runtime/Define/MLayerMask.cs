@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: layer层级
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Define/MLayerMask.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Define/MLayerMask.cs
  * 
  */
 
@@ -18,6 +18,10 @@ public static class MLayerMask
     public const int TERRAIN = 6;
     public const int MONSTER = 10;
     public const int PLAYER = 11;
+    public const int DISTANCE_CULL_SMALL = 12;
+    public const int DISTANCE_CULL_MIDDLE = 13;
+    public const int DISTANCE_CULL_BIG = 14;
+
 
     /// <summary>
     /// 场景所有阻挡层mask
