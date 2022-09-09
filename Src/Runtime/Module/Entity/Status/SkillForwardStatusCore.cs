@@ -27,6 +27,21 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
 
+    private EntityFullSKillCastLogicCore _fullSkillCastLogic;//完整释放逻辑 将前摇后摇串起来
+
+    protected override void OnInit(IFsm<EntityStatusCtrl> fsm)
+    {
+        base.OnInit(fsm);
+
+        _fullSkillCastLogic = StatusCtrl.GetComponent<EntityFullSKillCastLogicCore>();
+    }
+
+    protected override void OnDestroy(IFsm<EntityStatusCtrl> fsm)
+    {
+        _fullSkillCastLogic = null;
+
+        base.OnDestroy(fsm);
+    }
 
     /// <summary>
     /// 是否正常继续战斗状态离开的 false以为着是打断离开的
@@ -59,10 +74,17 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         }
 
         TimeForwardFinish();
+
+        _fullSkillCastLogic.OnEnter(CurSkillCfg, Targets, SkillDir);
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        if (!IsContinueBattleLeave)
+        {
+            _fullSkillCastLogic.OnLeave();
+        }
+
         CancelTimeForwardFinish();
 
         _inputData = null;

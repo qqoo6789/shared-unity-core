@@ -31,6 +31,22 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     };
 
 
+    private EntityFullSKillCastLogicCore _fullSkillCastLogic;//完整释放逻辑 将前摇后摇串起来
+
+    protected override void OnInit(IFsm<EntityStatusCtrl> fsm)
+    {
+        base.OnInit(fsm);
+
+        _fullSkillCastLogic = StatusCtrl.GetComponent<EntityFullSKillCastLogicCore>();
+    }
+
+    protected override void OnDestroy(IFsm<EntityStatusCtrl> fsm)
+    {
+        _fullSkillCastLogic = null;
+
+        base.OnDestroy(fsm);
+    }
+
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
@@ -62,6 +78,8 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        _fullSkillCastLogic.OnLeave();
+
         CancelTimeCastFinish();
         CurSkillCfg = null;
         _battleData = null;
