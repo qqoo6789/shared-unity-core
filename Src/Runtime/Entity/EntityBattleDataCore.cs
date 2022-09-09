@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 实体上的战斗数据 双端通用的核心数据
@@ -62,14 +64,9 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     public float RollDistance;
     /// <summary>
-    /// 翻滚CD时间 s
+    /// 战斗状态map  <状态key，添加计数>
     /// </summary>
-    public float RollCD;
-    private float _lastRollTime;//上次翻滚时间
-    /// <summary>
-    /// 是否在翻滚CD中
-    /// </summary>
-    public bool IsInRollCD => Time.realtimeSinceStartup - _lastRollTime >= RollCD;
+    private readonly Dictionary<BattleDefine.eBattleState, int> _battleStateMap = new();
 
     public virtual void SetHP(int hp)
     {
@@ -79,14 +76,6 @@ public class EntityBattleDataCore : EntityBaseComponent
     public virtual void SetHPMAX(int hpMax)
     {
         HPMAX = hpMax;
-    }
-
-    /// <summary>
-    /// 更新翻滚时间
-    /// </summary>
-    public void UpdateRollTime()
-    {
-        _lastRollTime = Time.realtimeSinceStartup;
     }
 
     /// <summary>
@@ -106,19 +95,51 @@ public class EntityBattleDataCore : EntityBaseComponent
     }
 
     /// <summary>
-    /// 改变无敌状态
+    /// 添加一个战斗状态
     /// </summary>
-    /// <param name="invincible"></param>
-    /// <returns>改变成功或者失败 状态没变为失败 主要给子类覆写使用</returns>
-    public virtual bool ChangeInvincible(bool invincible)
+    /// <param name="key"> 状态key</param>
+    /// <returns>/returns>
+    public void AddBattleState(BattleDefine.eBattleState key)
     {
-        if (IsInvincible == invincible)
+        if (_battleStateMap.TryGetValue(key, out int num))
         {
-            return false;
+            _battleStateMap[key] = num + 1;
         }
+        else
+        {
+            _battleStateMap.Add(key, 1);
+        }
+    }
 
-        IsInvincible = invincible;
-        return true;
+    /// <summary>
+    /// 删除一个战斗状态
+    /// </summary>
+    /// <param name="key"> 状态key</param>
+    /// <returns>/returns>
+    public void RemoveBattleState(BattleDefine.eBattleState key)
+    {
+        if (_battleStateMap.TryGetValue(key, out int num))
+        {
+            _battleStateMap[key] = num - 1;
+            if (_battleStateMap[key] <= 0)
+            {
+                _ = _battleStateMap.Remove(key);
+            }
+        }
+        else
+        {
+            Log.Error($"RemoveBattleState Not Find State = {key}");
+        }
+    }
+
+    /// <summary>
+    /// 是否存在战斗状态
+    /// </summary>
+    /// <param name="key"> 状态key</param>
+    /// <returns>/returns>
+    public bool HasBattleState(BattleDefine.eBattleState key)
+    {
+        return _battleStateMap.ContainsKey(key);
     }
 
     /// <summary>
