@@ -70,7 +70,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         StatusCtrl.RefEntity.SetForward(new Vector3(offset.x, 0, offset.z));
 
         //移动
-        float speed = StatusCtrl.GetComponent<EntityMoveData>().Speed;
+        float speed = StatusCtrl.RefEntity.MoveData.Speed;
         _distanceMove.MoveTo(offset, offset.magnitude, speed, OnNextPointArrived);
     }
 

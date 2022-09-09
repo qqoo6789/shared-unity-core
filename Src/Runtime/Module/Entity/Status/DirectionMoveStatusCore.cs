@@ -36,7 +36,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         if (StatusCtrl.TryGetComponent(out _directionMove))
         {
-            _directionMove.SetMoveSpeed(StatusCtrl.GetComponent<EntityMoveData>().Speed);
+            _directionMove.SetMoveSpeed(StatusCtrl.RefEntity.MoveData.Speed);
             _directionMove.StartMove();
             return;
         }
