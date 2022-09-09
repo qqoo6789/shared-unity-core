@@ -10,6 +10,12 @@ public sealed class CharacterDistanceMove : DistanceMove
 
     private CharacterController _controller;
     private bool _isAddColliderLoadEvent;
+    private AutoGravity _autoGravity;
+
+    private void Awake()
+    {
+        StopMove();
+    }
 
     private void Start()
     {
@@ -19,6 +25,8 @@ public sealed class CharacterDistanceMove : DistanceMove
             _isAddColliderLoadEvent = true;
             RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
         }
+
+        _ = TryGetComponent(out _autoGravity);
     }
 
     private void OnDestroy()
@@ -57,5 +65,25 @@ public sealed class CharacterDistanceMove : DistanceMove
         {
             _ = _controller.Move(motion);
         }
+    }
+
+    public override void StartMove()
+    {
+        base.StartMove();
+
+        if (_autoGravity != null)
+        {
+            _autoGravity.StopGravity();
+        }
+    }
+
+    public override void StopMove()
+    {
+        if (_autoGravity != null)
+        {
+            _autoGravity.StartGravity();
+        }
+
+        base.StopMove();
     }
 }
