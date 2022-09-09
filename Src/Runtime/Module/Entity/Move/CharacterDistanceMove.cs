@@ -86,4 +86,14 @@ public sealed class CharacterDistanceMove : DistanceMove
 
         base.StopMove();
     }
+
+    protected override void FinishMove()
+    {
+        base.FinishMove();
+
+        if (_autoGravity != null)
+        {
+            _autoGravity.StartGravity();
+        }
+    }
 }
