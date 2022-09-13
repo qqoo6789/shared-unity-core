@@ -7,7 +7,7 @@ public class AutoGravity : EntityBaseComponent
 {
     private CharacterController _characterController;
     private bool _addColliderLoadEvent;
-    private bool _isFirstUpdate = true;
+    private bool _isControllerFirstUpdate = true; //角色控制器是否第一次更新
 
     private void Start()
     {
@@ -34,14 +34,14 @@ public class AutoGravity : EntityBaseComponent
 
     private void Update()
     {
-        if (_isFirstUpdate)//需要等一帧 否则应用重力后会把坐标改到00坐标了 猜测是刚添加好角色控制器需要等待一帧执行他的start进行初始化
+        if (_characterController == null)
         {
-            _isFirstUpdate = false;
             return;
         }
 
-        if (_characterController == null)
+        if (_isControllerFirstUpdate)//需要等一帧 否则应用重力后会把坐标改到00坐标了 猜测是刚添加好角色控制器需要等待一帧执行他的start进行初始化
         {
+            _isControllerFirstUpdate = false;
             return;
         }
 
