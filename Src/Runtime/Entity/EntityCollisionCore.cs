@@ -11,7 +11,7 @@ using UnityGameFramework.Runtime;
 public abstract class EntityCollisionCore : EntityBaseComponent
 {
     public GameObject CollisionObject { get; private set; }
-    public CharacterController BodyCollision { get; private set; }  //躯干碰撞盒
+    public Collider BodyCollision { get; private set; }  //躯干碰撞盒
     /// <summary>
     /// 加载碰撞预制体
     /// </summary>
