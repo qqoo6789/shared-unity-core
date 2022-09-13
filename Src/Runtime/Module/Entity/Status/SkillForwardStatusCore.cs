@@ -25,7 +25,6 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
 
-
     /// <summary>
     /// 是否正常继续战斗状态离开的 false以为着是打断离开的
     /// </summary>
@@ -57,10 +56,14 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         }
 
         TimeForwardFinish();
+
+        StatusCtrl.RefEntity.EntityEvent.EnterSkillForward?.Invoke(CurSkillCfg);
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        StatusCtrl.RefEntity.EntityEvent.ExitSkillForward?.Invoke(!IsContinueBattleLeave);
+
         CancelTimeForwardFinish();
 
         _inputData = null;

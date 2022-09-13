@@ -30,7 +30,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         typeof(BeHitMoveEventFunc)
     };
 
-
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
@@ -58,10 +57,14 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         }
 
         TimeCastFinish();
+
+        StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(CurSkillCfg);
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
+        StatusCtrl.RefEntity.EntityEvent.ExitSkillCast?.Invoke();
+
         CancelTimeCastFinish();
         CurSkillCfg = null;
         _battleData = null;
