@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
-using MelandGame3;
 using UnityGameFramework.Runtime;
 
 /// <summary>
@@ -134,32 +132,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     /// <param name="entity">实体</param>
     protected void SkillForwardEffectExecute(DRSkill drSkill, EntityBase entity)
     {
-        SkillEffectCpt effectCpt = entity.GetComponent<SkillEffectCpt>();
-        List<SkillEffectBase> skillEffects = SkillConfigParse.ParseSkillEffect(drSkill, entity.BaseData.Id, entity.BaseData.Id, drSkill.EffectForward);
-        for (int i = 0; i < skillEffects.Count; i++)
-        {
-            try
-            {
-                SkillEffectBase skillEffect = skillEffects[i];
-                if (skillEffect.CheckApplyEffect(entity, entity))
-                {
-                    DamageEffect effectData = skillEffect.CreateEffectData(entity, entity, SkillDir);
-                    if (effectData == null)
-                    {
-                        continue;
-                    }
-
-                    effectData.EffectType = (DamageEffectId)skillEffect.EffectCfg.Id;
-                    skillEffect.SetEffectData(effectData);
-                    effectCpt.ApplyOneEffect(skillEffect);
-                }
-            }
-            catch (Exception e)
-            {
-                Log.Error($"skill forward skill effect apply error skillID = {drSkill.Id}, effectID = {skillEffects[i].EffectID}\n error = {e}");
-                continue;
-            }
-        }
+        _ = SkillUtil.EntitySkillEffectExecute(drSkill, SkillDir, drSkill.EffectForward, entity, entity);
     }
 
     public bool CheckCanMove()

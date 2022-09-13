@@ -55,11 +55,6 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// <value></value>
     public bool IsInBattle { get; protected set; }
     /// <summary>
-    /// 是否无敌中
-    /// </summary>
-    /// <value></value>
-    public bool IsInvincible { get; protected set; }
-    /// <summary>
     /// 翻滚距离
     /// </summary>
     public float RollDistance;

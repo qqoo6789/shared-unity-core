@@ -132,4 +132,54 @@ public static partial class SkillUtil
         }
         return skillCD;
     }
+
+    /// <summary>
+    /// 实体技能效果执行
+    /// </summary>
+    /// <param name="skillCfg">技能配置</param>
+    /// <param name="skillDir">技能方向</param>
+    /// <param name="effectList">效果列表</param>
+    /// <param name="fromEntity">释放实体</param>
+    /// <param name="targetEntity">目标实体</param>
+    /// <returns></returns>
+    public static List<MelandGame3.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    {
+        List<MelandGame3.DamageEffect> effects = new();
+        if (effectList == null || effectList.Length <= 0)
+        {
+            return effects;
+        }
+        SkillEffectCpt effectCpt = targetEntity.GetComponent<SkillEffectCpt>();
+        List<SkillEffectBase> skillEffects = SkillConfigParse.ParseSkillEffect(skillCfg, fromEntity.BaseData.Id, targetEntity.BaseData.Id, effectList);
+        for (int i = 0; i < skillEffects.Count; i++)
+        {
+            try
+            {
+                SkillEffectBase skillEffect = skillEffects[i];
+                if (skillEffect.CheckApplyEffect(fromEntity, targetEntity))
+                {
+                    MelandGame3.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir);
+                    if (effectData == null)
+                    {
+                        continue;
+                    }
+                    effectData.EffectType = (MelandGame3.DamageEffectId)skillEffect.EffectCfg.Id;
+                    skillEffect.SetEffectData(effectData);
+                    effects.Add(effectData);
+                    effectCpt.ApplyOneEffect(skillEffect);//注意顺序，Effects如果是瞬间的，应用后会立即被清除
+                }
+                else
+                {
+                    skillEffect.Dispose();
+                }
+            }
+            catch (System.Exception)
+            {
+                Log.Error($"skill cast skill effect apply error skillID = {skillCfg.Id}, effectID = {skillEffects[i].EffectID}");
+                continue;
+            }
+        }
+        return effects;
+    }
+
 }
