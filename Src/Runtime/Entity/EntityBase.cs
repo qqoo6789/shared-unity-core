@@ -60,6 +60,12 @@ public class EntityBase
     public EntityEvent EntityEvent { get; protected set; }
 
     /// <summary>
+    /// 移动相关数据 由于服务器频繁查询 放到基类存放
+    /// </summary>
+    /// <value></value>
+    public EntityMoveData MoveData { get; set; }
+
+    /// <summary>
     /// 不要乱用 读写相关属性都有独立方法 只能在特定情境下只能通过获取Transform来获取时使用
     /// </summary>
     /// <returns></returns>

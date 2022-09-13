@@ -86,6 +86,11 @@ public static class EntityBehaviorCheckLogic
     /// <returns></returns>
     public static bool CheckEntityCanMove(EntityBase entity)
     {
+        if (!entity.MoveData.IsGrounded)
+        {
+            return false;
+        }
+
         FsmState<EntityStatusCtrl> curStatus = GetCurrentStatus(entity);
         if (curStatus == null)
         {
@@ -108,6 +113,11 @@ public static class EntityBehaviorCheckLogic
     /// <returns></returns>
     public static bool CheckEntityCanSkill(EntityBase entity, int skillID)
     {
+        if (!entity.MoveData.IsGrounded)
+        {
+            return false;
+        }
+
         FsmState<EntityStatusCtrl> curStatus = GetCurrentStatus(entity);
         if (curStatus == null)
         {
