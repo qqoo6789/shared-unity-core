@@ -124,7 +124,7 @@ public static partial class SkillUtil
             return 0;
         }
         //AttSpeed暂时做冷却缩减使用
-        double cdScale = (10000 - entityBattleData.AttSpeed) / 10000;
+        double cdScale = (10000 - entityBattleData.AttSpeed) / 10000.0;
         long skillCD = (long)(CurSkillCfg.SkillCD * cdScale);
         if (skillCD < 0)
         {
