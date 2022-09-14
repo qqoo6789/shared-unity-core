@@ -18,6 +18,6 @@ public class EntityBaseData : MonoBehaviour
     public void Reset()
     {
         _id = 0;
-        _type = GameMessageCore.EntityType.EntityTypeAll;
+        _type = GameMessageCore.EntityType.All;
     }
 }

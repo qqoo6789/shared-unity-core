@@ -13,24 +13,6 @@ using UnityGameFramework.Runtime;
 public static class NetUtilCore
 {
     /// <summary>
-    /// 实体ID从协议转long型 TODO:将来这个方法会废弃掉 方便一键替换
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    public static long EntityIDFromNet(string id)
-    {
-        try
-        {
-            return Convert.ToInt64(id);
-        }
-        catch (Exception)
-        {
-            Log.Error($"entity id error : {id}");
-            return -1;
-        }
-    }
-
-    /// <summary>
     /// 实体ID转成协议需要string型 TODO:将来这个方法会废弃掉 方便一键替换
     /// </summary>
     /// <param name="id"></param>
@@ -48,6 +30,11 @@ public static class NetUtilCore
     public static Vector3 LocFromNet(GameMessageCore.EntityLocation location)
     {
         return new Vector3(location.Loc.X, location.Loc.Y, location.Loc.Z);
+    }
+
+    public static Vector3 LocFromNet(GameMessageCore.Vector3 location)
+    {
+        return new Vector3(location.X, location.Y, location.Z);
     }
 
     /// <summary>

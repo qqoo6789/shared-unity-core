@@ -49,10 +49,10 @@ public static partial class SkillUtil
         switch (type)
         {
             case GameMessageCore.EntityType.MainPlayer:
-            case GameMessageCore.EntityType.EntityTypePlayer:
+            case GameMessageCore.EntityType.Player:
                 targetLayer = 1 << MLayerMask.MONSTER;
                 break;
-            case GameMessageCore.EntityType.EntityTypeMonster:
+            case GameMessageCore.EntityType.Monster:
                 targetLayer = 1 << MLayerMask.PLAYER;
                 break;
             default:
