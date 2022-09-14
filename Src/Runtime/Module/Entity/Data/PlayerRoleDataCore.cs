@@ -3,7 +3,7 @@
  * @Date 2022-08-09 09:51:55
  * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/PlayerRoleDataCore.cs
  */
-using MelandGame3;
+using GameMessageCore;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 

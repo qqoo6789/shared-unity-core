@@ -143,7 +143,7 @@ public class EntityBase
         _transform.forward = forward;
     }
 
-    public void InitBaseInfo(long id, MelandGame3.EntityType type)
+    public void InitBaseInfo(long id, GameMessageCore.EntityType type)
     {
         BaseData.Init(id, type);
         Root.name = $"{type}_{id}";

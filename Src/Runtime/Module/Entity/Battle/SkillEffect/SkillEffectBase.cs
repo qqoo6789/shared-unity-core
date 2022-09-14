@@ -7,7 +7,7 @@
  */
 using System;
 using GameFramework;
-using MelandGame3;
+using GameMessageCore;
 using UnityEngine;
 
 public class SkillEffectBase : IReference

@@ -7,7 +7,7 @@
  */
 
 
-using MelandGame3;
+using GameMessageCore;
 using UnityGameFramework.Runtime;
 
 public class SEBeHitPathMoveCore : SEPathMoveCore

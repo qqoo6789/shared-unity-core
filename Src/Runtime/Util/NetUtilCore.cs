@@ -45,7 +45,7 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="location"></param>
     /// <returns></returns>
-    public static Vector3 LocFromNet(MelandGame3.EntityLocation location)
+    public static Vector3 LocFromNet(GameMessageCore.EntityLocation location)
     {
         return new Vector3(location.Loc.X, location.Loc.Y, location.Loc.Z);
     }
@@ -55,9 +55,9 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="clientPos"></param>
     /// <returns></returns>
-    public static MelandGame3.EntityLocation LocToNet(Vector3 clientPos, int mapId = 0)
+    public static GameMessageCore.EntityLocation LocToNet(Vector3 clientPos, int mapId = 0)
     {
-        return new MelandGame3.EntityLocation()
+        return new GameMessageCore.EntityLocation()
         {
             MapId = mapId,
             Loc = Vector3ToNet(clientPos)
@@ -69,9 +69,9 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="clientVector3"></param>
     /// <returns></returns>
-    public static MelandGame3.Vector3 Vector3ToNet(Vector3 clientVector3)
+    public static GameMessageCore.Vector3 Vector3ToNet(Vector3 clientVector3)
     {
-        return new MelandGame3.Vector3()
+        return new GameMessageCore.Vector3()
         {
             X = clientVector3.x,
             Y = clientVector3.y,
@@ -84,7 +84,7 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="svrVector3"></param>
     /// <returns></returns>
-    public static Vector3 Vector3FromNet(MelandGame3.Vector3 svrVector3)
+    public static Vector3 Vector3FromNet(GameMessageCore.Vector3 svrVector3)
     {
         return svrVector3 == null
         ? Vector3.zero
@@ -96,7 +96,7 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="svrDir"></param>
     /// <returns></returns>
-    public static Vector3 DirFromNet(MelandGame3.Vector3 svrDir)
+    public static Vector3 DirFromNet(GameMessageCore.Vector3 svrDir)
     {
         if (svrDir == null)
         {
@@ -116,10 +116,10 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="clientDir"></param>
     /// <returns></returns>
-    public static MelandGame3.Vector3 DirToNet(Vector3 clientDir)
+    public static GameMessageCore.Vector3 DirToNet(Vector3 clientDir)
     {
         return clientDir == null
-            ? new MelandGame3.Vector3()
+            ? new GameMessageCore.Vector3()
             {
                 X = 0,
                 Y = 0,
