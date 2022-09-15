@@ -1,5 +1,11 @@
+/*
+ * @Author: xiang huan
+ * @Date: 2022-09-13 17:26:26
+ * @Description: 战斗数据
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * 
+ */
 using System.Collections.Generic;
-using UnityEngine;
 using UnityGameFramework.Runtime;
 
 /// <summary>
@@ -49,6 +55,10 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// 等级
     /// </summary>
     public int Level;
+    /// <summary>
+    /// 经验
+    /// </summary>
+    public int Exp;
     /// <summary>
     /// 是否在战斗状态中
     /// </summary>
