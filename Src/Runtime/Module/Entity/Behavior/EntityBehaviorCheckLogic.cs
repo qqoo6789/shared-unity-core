@@ -113,10 +113,11 @@ public static class EntityBehaviorCheckLogic
     /// <returns></returns>
     public static bool CheckEntityCanSkill(EntityBase entity, int skillID)
     {
-        if (!entity.MoveData.IsGrounded)
-        {
-            return false;
-        }
+        //现在下坡稍微有一点就会浮空 导致技能释放失败 这里先屏蔽 这里现在是玩家控制的 先不校验这个条件 重力还需要统一好好处理
+        // if (!entity.MoveData.IsGrounded)
+        // {
+        //     return false;
+        // }
 
         FsmState<EntityStatusCtrl> curStatus = GetCurrentStatus(entity);
         if (curStatus == null)
