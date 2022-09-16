@@ -28,7 +28,7 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
                 return;
             }
         }
-        EntityEvent.EntityBeHitMove?.Invoke(EffectCfg.Duration);
+        RefEntity.EntityEvent.EntityBeHitMove?.Invoke(EffectCfg.Duration);
 
     }
 
