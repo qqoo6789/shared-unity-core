@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能效果组件
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -47,7 +47,7 @@ public class SkillEffectCpt : EntityBaseComponent
         {
             return;
         }
-        effect.AddEffect(gameObject);
+        effect.AddEffect(RefEntity);
         if (effect.Duration != 0)
         {
             effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration) : -1;

@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 蓄力状态
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
  * 
  */
 using System.Threading;
@@ -26,7 +26,6 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
 
     public static new string Name => "skillAccumulate";
     public override string StatusName => Name;
-    private EntityBattleDataCore _battleData;
     /// <summary>
     /// 是否正常继续战斗状态离开的 false以为着是打断离开的
     /// </summary>
@@ -42,7 +41,6 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         base.OnEnter(fsm);
         IsContinueBattleLeave = false;
 
-        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
         SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
         Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
@@ -72,7 +70,6 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     {
         CancelTimeAccumulate();
         _inputData = null;
-        _battleData = null;
         Targets = null;
         SkillDir = UnityEngine.Vector3.zero;
         CurSkillCfg = null;
@@ -84,7 +81,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (_battleData && !_battleData.IsLive())
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;

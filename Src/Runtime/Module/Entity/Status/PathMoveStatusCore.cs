@@ -14,7 +14,6 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     protected EntityInputData InputData { get; private set; }
     private DistanceMove _distanceMove;
-    private EntityBattleDataCore _battleData;
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
         typeof(WaitToBattleStatusEventFunc)
@@ -24,7 +23,6 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         base.OnEnter(fsm);
 
         InputData = StatusCtrl.GetComponent<EntityInputData>();
-        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
 
         if (InputData.InputMovePath.Count == 0)
         {
@@ -45,7 +43,6 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        _battleData = null;
         if (InputData != null)
         {
             InputData.ClearInputMovePath(false);
@@ -116,7 +113,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (_battleData && !_battleData.IsLive())
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;
