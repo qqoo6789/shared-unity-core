@@ -23,7 +23,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
     protected DRSkill CurSkillCfg;
     private CancellationTokenSource _castTimeToken;
-    private EntityBattleDataCore _battleData;
 
     private bool _continueNextSkill;//是否继续下一个技能
     protected override Type[] EventFunctionTypes => new Type[] {
@@ -39,7 +38,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
 
         CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
-        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
 
         try
         {
@@ -67,7 +65,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
         CancelTimeCastFinish();
         CurSkillCfg = null;
-        _battleData = null;
         Targets = null;
         SkillDir = Vector3.zero;
 #if UNITY_EDITOR
@@ -146,7 +143,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             return;
         }
         _castTimeToken = null;
-        if (_battleData && !_battleData.IsLive())
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
         {
             OnBeforeChangeToDeath();
             ChangeState(OwnerFsm, DeathStatusCore.Name);

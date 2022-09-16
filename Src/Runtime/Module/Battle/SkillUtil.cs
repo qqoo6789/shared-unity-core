@@ -118,13 +118,13 @@ public static partial class SkillUtil
             Log.Error($"CalculateSkillCD  Error skillID = {skillID}");
             return 0;
         }
-        if (!entity.TryGetComponent(out EntityBattleDataCore entityBattleData))
+        if (entity.BattleDataCore == null)
         {
             Log.Error($"CalculateSkillCD  Not Find EntityBattleDataCore skillID = {skillID}");
             return 0;
         }
         //AttSpeed暂时做冷却缩减使用
-        double cdScale = (10000 - entityBattleData.AttSpeed) / 10000.0;
+        double cdScale = (10000 - entity.BattleDataCore.AttSpeed) / 10000.0;
         long skillCD = (long)(CurSkillCfg.SkillCD * cdScale);
         if (skillCD < 0)
         {
