@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 受击路径移动效果
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEBeHitPathMoveCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEBeHitPathMoveCore.cs
  * 
  */
 
@@ -20,10 +20,10 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
 
     private void ChangeBeHitMoveStatus()
     {
-        if (RefOwner.TryGetComponent(out EntityBattleDataCore battleData))
+        if (RefEntity.BattleDataCore != null)
         {
             //霸体状态不应该进入击退状态
-            if (battleData.HasBattleState(BattleDefine.eBattleState.Endure))
+            if (RefEntity.BattleDataCore.HasBattleState(BattleDefine.eBattleState.Endure))
             {
                 return;
             }
@@ -40,10 +40,10 @@ public class SEBeHitPathMoveCore : SEPathMoveCore
     /// <param name="targetEntity">接受方</param>
     public override bool CheckApplyEffect(EntityBase fromEntity, EntityBase targetEntity)
     {
-        if (targetEntity.TryGetComponent(out EntityBattleDataCore targetBattleData))
+        if (targetEntity.BattleDataCore != null)
         {
             //目标方已经死亡
-            if (!targetBattleData.IsLive())
+            if (!targetEntity.BattleDataCore.IsLive())
             {
                 return false;
             }

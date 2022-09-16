@@ -14,7 +14,6 @@ using GameFramework.Fsm;
 public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name => "beHit";
-    private EntityBattleDataCore _battleData;
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
         typeof(WaitToBattleStatusEventFunc)
@@ -24,12 +23,10 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
-        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        _battleData = null;
         base.OnLeave(fsm, isShutdown);
     }
 
@@ -40,7 +37,7 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (_battleData && !_battleData.IsLive())
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;

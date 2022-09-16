@@ -8,24 +8,22 @@
 
 public class SEEndureCore : SkillEffectBase
 {
-    private EntityBattleDataCore _battleData;
 
     public override void OnAdd()
     {
         base.OnAdd();
 
-        if (RefOwner.TryGetComponent(out _battleData))
+        if (RefEntity.BattleDataCore != null)
         {
-            _battleData.AddBattleState(BattleDefine.eBattleState.Endure);
+            RefEntity.BattleDataCore.AddBattleState(BattleDefine.eBattleState.Endure);
         }
     }
 
     public override void OnRemove()
     {
-        if (_battleData != null)
+        if (RefEntity.BattleDataCore != null)
         {
-            _battleData.RemoveBattleState(BattleDefine.eBattleState.Endure);
-            _battleData = null;
+            RefEntity.BattleDataCore.RemoveBattleState(BattleDefine.eBattleState.Endure);
         }
         base.OnRemove();
     }
