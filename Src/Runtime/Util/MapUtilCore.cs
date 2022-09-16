@@ -56,7 +56,7 @@ public static class MapUtilCore
     /// <returns>成功找到返回true</returns>
     public static bool SamplePosOnTerrain(Vector3 pos, out Vector3 resPos, float testDistance = float.MaxValue)
     {
-        if (Physics.Raycast(pos, Vector3.down, out RaycastHit hit, testDistance, MLayerMask.MASK_SCENE_OBSTRUCTION, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(pos, Vector3.down, out RaycastHit hit, testDistance, MLayerMask.MASK_SCENE_OBSTRUCTION, QueryTriggerInteraction.Ignore))
         {
             resPos = hit.point;
             return true;
@@ -74,7 +74,7 @@ public static class MapUtilCore
     /// <returns>成功找到返回true</returns>
     public static bool SamplePosOnTerrain(float x, float z, out Vector3 resPos, float testDistance = float.MaxValue)
     {
-        if (Physics.Raycast(new Vector3(x, HALF_FLOAT_MAX, z), Vector3.down, out RaycastHit hit, testDistance, MLayerMask.MASK_SCENE_OBSTRUCTION, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(new Vector3(x, HALF_FLOAT_MAX, z), Vector3.down, out RaycastHit hit, testDistance, MLayerMask.MASK_SCENE_OBSTRUCTION, QueryTriggerInteraction.Ignore))
         {
             resPos = hit.point;
             return true;
