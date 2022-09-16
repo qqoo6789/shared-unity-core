@@ -34,6 +34,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
         _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
+        StatusCtrl.RefEntity.SetForward(_inputData.InputMoveDirection.Value);
         if (StatusCtrl.TryGetComponent(out _directionMove))
         {
             _directionMove.SetMoveSpeed(StatusCtrl.RefEntity.MoveData.Speed);
