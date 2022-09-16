@@ -82,18 +82,6 @@ public class SkillEffectBase : IReference
     {
         EffectData = data;
     }
-    private EntityEvent _entityEvent;//缓存实体上的事件组件 节省性能
-    public EntityEvent EntityEvent
-    {
-        get
-        {
-            if (_entityEvent == null)
-            {
-                _entityEvent = RefEntity.GetComponent<EntityEvent>();
-            }
-            return _entityEvent;
-        }
-    }
 
     /// <summary>
     /// 检测能否应用效果
@@ -127,7 +115,6 @@ public class SkillEffectBase : IReference
         SkillID = 0;
         RefEntity = null;
         EffectData = null;
-        _entityEvent = null;
     }
     /// <summary>
     /// 添加后执行第一次
