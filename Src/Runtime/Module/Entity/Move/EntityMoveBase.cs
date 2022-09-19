@@ -6,10 +6,10 @@ using UnityGameFramework.Runtime;
 public class EntityMoveBase : EntityBaseComponent
 {
     /// <summary>
-    /// 移动速度 m/s 不为0 默认1的初始速度
+    /// 移动速度 m/s 不为0 默认1的初始速度 美术场景预览可以直接设置
     /// </summary>
     /// <value></value>
-    public float MoveSpeed { get; private set; } = 1;
+    public float MoveSpeed = 1;
 
     /// <summary>
     /// 正在移动中
