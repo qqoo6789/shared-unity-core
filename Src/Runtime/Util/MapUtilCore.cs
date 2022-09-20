@@ -7,6 +7,8 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public static class MapUtilCore
 {
+    private const float HALF_FLOAT_MAX = float.MaxValue / 2;
+
     /// <summary>
     /// 和地面交点
     /// </summary>
@@ -43,5 +45,42 @@ public static class MapUtilCore
 
         walkablePos = hit.position;
         return true;
+    }
+
+    /// <summary>
+    /// 获取某个位置下面的贴地表的位置
+    /// </summary>
+    /// <param name="pos">从这个点开始向下检查</param>
+    /// <param name="resPos">结果位置，失败返回当前位置</param>
+    /// <param name="testDistance">测试距离 默认无穷大</param>
+    /// <returns>成功找到返回true</returns>
+    public static bool SamplePosOnTerrain(Vector3 pos, out Vector3 resPos, float testDistance = float.MaxValue)
+    {
+        if (Physics.Raycast(pos, Vector3.down, out RaycastHit hit, testDistance, MLayerMask.MASK_SCENE_OBSTRUCTION, QueryTriggerInteraction.Ignore))
+        {
+            resPos = hit.point;
+            return true;
+        }
+
+        resPos = pos;
+        return false;
+    }
+
+    /// <summary>
+    /// x、z水平二维坐标下面的贴地表的位置
+    /// </summary>
+    /// <param name="resPos">结果位置 失败返回水平位置</param>
+    /// <param name="testDistance">测试距离 默认无穷大</param>
+    /// <returns>成功找到返回true</returns>
+    public static bool SamplePosOnTerrain(float x, float z, out Vector3 resPos, float testDistance = float.MaxValue)
+    {
+        if (Physics.Raycast(new Vector3(x, HALF_FLOAT_MAX, z), Vector3.down, out RaycastHit hit, testDistance, MLayerMask.MASK_SCENE_OBSTRUCTION, QueryTriggerInteraction.Ignore))
+        {
+            resPos = hit.point;
+            return true;
+        }
+
+        resPos = new Vector3(x, 0, z);
+        return false;
     }
 }

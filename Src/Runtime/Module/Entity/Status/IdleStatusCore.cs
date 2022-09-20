@@ -16,7 +16,6 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
     public override string StatusName => Name;
 
     private EntityInputData _inputData;
-    private EntityBattleDataCore _battleData;
 
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
@@ -27,13 +26,11 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
         base.OnEnter(fsm);
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
-        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
         _inputData = null;
-        _battleData = null;
 
         base.OnLeave(fsm, isShutdown);
     }
@@ -41,7 +38,7 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (_battleData && !_battleData.IsLive())
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;

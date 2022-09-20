@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/DirectionMoveStatusCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/DirectionMoveStatusCore.cs
  */
 /** 
  * @Author XQ
@@ -23,7 +23,6 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
 
     private EntityInputData _inputData;
     private DirectionMove _directionMove;
-    private EntityBattleDataCore _battleData;
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
         typeof(WaitToBattleStatusEventFunc)
@@ -33,7 +32,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         base.OnEnter(fsm);
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
-        _battleData = StatusCtrl.GetComponent<EntityBattleDataCore>();
+        StatusCtrl.RefEntity.SetForward(_inputData.InputMoveDirection.Value);
         if (StatusCtrl.TryGetComponent(out _directionMove))
         {
             _directionMove.SetMoveSpeed(StatusCtrl.RefEntity.MoveData.Speed);
@@ -49,7 +48,6 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
         _inputData = null;
-        _battleData = null;
 
         if (_directionMove)
         {
@@ -63,7 +61,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (_battleData && !_battleData.IsLive())
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;

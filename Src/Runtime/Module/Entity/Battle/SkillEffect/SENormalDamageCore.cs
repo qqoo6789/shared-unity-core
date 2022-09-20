@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 16:19:58
  * @Description: 普通伤害效果
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
  * 
  */
 
@@ -19,9 +19,9 @@ public class SENormalDamageCore : SkillEffectBase
     public override bool CheckApplyEffect(EntityBase fromEntity, EntityBase targetEntity)
     {
         //目标方已经死亡
-        if (targetEntity.TryGetComponent(out EntityBattleDataCore targetBattleData))
+        if (targetEntity.BattleDataCore != null)
         {
-            if (!targetBattleData.IsLive())
+            if (!targetEntity.BattleDataCore.IsLive())
             {
                 return false;
             }
@@ -35,12 +35,12 @@ public class SENormalDamageCore : SkillEffectBase
         {
             return;
         }
-        if (RefOwner.TryGetComponent(out EntityBattleDataCore battleData))
+        if (RefEntity.BattleDataCore != null)
         {
-            battleData.SetHP(EffectData.DamageValue.CurrentInt);
-            if (RefOwner.TryGetComponent(out EntityBattleRecordData battleRecordData))
+            RefEntity.BattleDataCore.SetHP(EffectData.DamageValue.CurrentInt);
+            if (RefEntity.TryGetComponent(out EntityBattleRecordData battleRecordData))
             {
-                battleRecordData.AddDamageRecord(FromID, EffectData.DamageValue.DeltaInt, battleData.IsLive());
+                battleRecordData.AddDamageRecord(FromID, EffectData.DamageValue.DeltaInt, RefEntity.BattleDataCore.IsLive());
             }
         }
     }

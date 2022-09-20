@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -55,7 +55,7 @@ public class SkillEffectBase : IReference
     /// <summary>
     /// 宿主对象
     /// </summary>
-    public GameObject RefOwner { get; private set; }
+    public EntityBase RefEntity { get; private set; }
     /// <summary>
     /// 设置效果数据
     /// </summary>
@@ -82,18 +82,6 @@ public class SkillEffectBase : IReference
     public virtual void SetEffectData(DamageEffect data)
     {
         EffectData = data;
-    }
-    private EntityEvent _entityEvent;//缓存实体上的事件组件 节省性能
-    public EntityEvent EntityEvent
-    {
-        get
-        {
-            if (_entityEvent == null)
-            {
-                _entityEvent = RefOwner.GetComponent<EntityEvent>();
-            }
-            return _entityEvent;
-        }
     }
 
     /// <summary>
@@ -126,9 +114,8 @@ public class SkillEffectBase : IReference
         EffectID = 0;
         EffectCfg = null;
         SkillID = 0;
-        RefOwner = null;
+        RefEntity = null;
         EffectData = null;
-        _entityEvent = null;
     }
     /// <summary>
     /// 添加后执行第一次
@@ -169,26 +156,26 @@ public class SkillEffectBase : IReference
     }
 
     //添加效果
-    public void AddEffect(GameObject owner)
+    public void AddEffect(EntityBase owner)
     {
-        if (RefOwner)
+        if (RefEntity != null)
         {
             return;
         }
-        RefOwner = owner;
+        RefEntity = owner;
         OnAdd();
     }
 
     //删除效果
     public void RemoveEffect()
     {
-        if (RefOwner == null)
+        if (RefEntity == null)
         {
             return;
         }
 
         OnRemove();
-        RefOwner = null;
+        RefEntity = null;
     }
 
     public static SkillEffectBase Create(Type skillEffectClass)
