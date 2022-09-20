@@ -23,7 +23,7 @@ public enum eErrorCode : int
 
     playerReviveAlive = 0004001, //玩家还存活
     playerReviveCD = 0004002, //玩家复活CD中
-    playerReviveRoleDataNull = 0004003, //玩家角色数据为空
+    entityCDDataCoreNull = 0004003, //玩家角色数据为空
     playerRevivePointNull = 0004004, //玩家附近复活点为空
     #endregion
 

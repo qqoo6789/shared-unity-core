@@ -36,11 +36,6 @@ public class PlayerRoleDataCore : EntityBaseComponent
     /// <value></value>
     public PlayerFeature RoleFeature { get; protected set; }
 
-    /// <summary>
-    /// 玩家复活CD
-    /// </summary>
-    /// <value></value>
-    public long ReviveCD { get; private set; } = 0;
 
     public void SetGender(string gender)
     {
@@ -60,21 +55,5 @@ public class PlayerRoleDataCore : EntityBaseComponent
     public void SetRoleFeature(PlayerFeature feature)
     {
         RoleFeature = feature;
-    }
-
-    /// <summary>
-    /// 设置复活CD
-    /// </summary>
-    public void SetReviveCD(long time)
-    {
-        ReviveCD = time;
-    }
-    /// <summary>
-    /// 是否复活CD中
-    /// </summary>
-    public bool IsReviveCD()
-    {
-        long curTimeStamp = TimeUtil.GetTimeStamp();
-        return ReviveCD > curTimeStamp;
     }
 }
