@@ -7,7 +7,7 @@
  */
 
 using System.Collections.Generic;
-using MelandGame3;
+using GameMessageCore;
 
 public static class BattleDefine
 {
@@ -37,19 +37,19 @@ public static class BattleDefine
 
     public static readonly Dictionary<EntityProfileField, string> ProfileFieldDict = new()
         {
-            {EntityProfileField.EntityProfileFieldLv, "Lv"},
-            {EntityProfileField.EntityProfileFieldExp, "Exp"},
-            {EntityProfileField.EntityProfileFieldAtt, "Att"},
-            {EntityProfileField.EntityProfileFieldAttSpeed, "AttSpeed"},
-            {EntityProfileField.EntityProfileFieldDef, "Def"},
-            {EntityProfileField.EntityProfileFieldHpLimit, "HpLimit"},
-            {EntityProfileField.EntityProfileFieldCritRate, "CritRate"},
-            {EntityProfileField.EntityProfileFieldCritDamage, "CritDmg"},
-            {EntityProfileField.EntityProfileFieldMissRate, "MissRate"},
-            {EntityProfileField.EntityProfileFieldMoveSpeed, "MoveSpeed"},
-            {EntityProfileField.EntityProfileFieldPushDmg, "PushDmg"},
-            {EntityProfileField.EntityProfileFieldPushDist, "PushDist"},
-            {EntityProfileField.EntityProfileFieldHpCurrent, "HpCurrent"},
-            {EntityProfileField.EntityProfileFieldHpRecovery, "HpRecovery"},
+            {EntityProfileField.Lv, "Lv"},
+            {EntityProfileField.Exp, "Exp"},
+            {EntityProfileField.Att, "Att"},
+            {EntityProfileField.AttSpeed, "AttSpeed"},
+            {EntityProfileField.Def, "Def"},
+            {EntityProfileField.HpLimit, "HpLimit"},
+            {EntityProfileField.CritRate, "CritRate"},
+            {EntityProfileField.CritDamage, "CritDmg"},
+            {EntityProfileField.MissRate, "MissRate"},
+            {EntityProfileField.MoveSpeed, "MoveSpeed"},
+            {EntityProfileField.PushDmg, "PushDmg"},
+            {EntityProfileField.PushDist, "PushDist"},
+            {EntityProfileField.HpCurrent, "HpCurrent"},
+            {EntityProfileField.HpRecovery, "HpRecovery"},
         };
 }
