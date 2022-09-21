@@ -55,6 +55,6 @@ public static class BattleDefine
 
     public enum eEntityExtCDType : int
     {
-        Revive,  //复活
+        Revive = 0,  //复活
     }
 }
