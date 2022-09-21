@@ -6,7 +6,6 @@
  * 
  */
 using System.Collections.Generic;
-using Google.Protobuf.Collections;
 public class EntityCDDataCore : EntityBaseComponent
 {
     /// <summary>
@@ -23,37 +22,64 @@ public class EntityCDDataCore : EntityBaseComponent
         ExtendCDMap = new();
     }
 
-    public void InitSkillCD(Dictionary<int, long> skillCDMap)
+    /// <summary>
+    /// 初始化实体CD
+    /// </summary>
+    public void InitSvrEntityCD(MelandGame3.EntityCD entityCD)
     {
-        if (skillCDMap == null || skillCDMap.Count <= 0)
-        {
-            return;
-        }
         long curTimeStamp = TimeUtil.GetTimeStamp();
-        foreach (KeyValuePair<int, long> item in skillCDMap)
+        SkillCDMap.Clear();
+        if (entityCD.SkillCdList != null && entityCD.SkillCdList.Count > 0)
         {
-            if (item.Value > curTimeStamp)
+            for (int i = 0; i < entityCD.SkillCdList.Count; i++)
             {
-                SkillCDMap[item.Key] = item.Value;
+                if (entityCD.SkillCdList[i].Time > curTimeStamp)
+                {
+                    SkillCDMap[entityCD.SkillCdList[i].SkillId] = entityCD.SkillCdList[i].Time;
+                }
             }
         }
+
+        ExtendCDMap.Clear();
+        if (entityCD.ExtendCdList != null && entityCD.ExtendCdList.Count > 0)
+        {
+            for (int i = 0; i < entityCD.ExtendCdList.Count; i++)
+            {
+                if (entityCD.ExtendCdList[i].Time > curTimeStamp)
+                {
+                    ExtendCDMap[(BattleDefine.eEntityExtCDType)entityCD.ExtendCdList[i].Type] = entityCD.ExtendCdList[i].Time;
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 转换成协议EntityCD格式
+    /// </summary>
+    public MelandGame3.EntityCD ToSvrEntityCD()
+    {
+        MelandGame3.EntityCD entityCD = new();
+        foreach (KeyValuePair<int, long> item in SkillCDMap)
+        {
+            MelandGame3.EntitySkillCD skillCD = new()
+            {
+                SkillId = item.Key,
+                Time = item.Value
+            };
+            entityCD.SkillCdList.Add(skillCD);
+        }
+
+        foreach (KeyValuePair<BattleDefine.eEntityExtCDType, long> item in ExtendCDMap)
+        {
+            MelandGame3.EntityExtendCD extendCD = new()
+            {
+                Type = (int)item.Key,
+                Time = item.Value
+            };
+            entityCD.ExtendCdList.Add(extendCD);
+        }
+        return entityCD;
     }
 
-    public void InitSkillCD(RepeatedField<MelandGame3.EntitySkillCD> skillCDList)
-    {
-        if (skillCDList == null || skillCDList.Count <= 0)
-        {
-            return;
-        }
-        long curTimeStamp = TimeUtil.GetTimeStamp();
-        for (int i = 0; i < skillCDList.Count; i++)
-        {
-            if (skillCDList[i].Time > curTimeStamp)
-            {
-                SkillCDMap[skillCDList[i].SkillId] = skillCDList[i].Time;
-            }
-        }
-    }
     /// <summary>
     /// 是否技能CD
     /// </summary>
@@ -86,36 +112,6 @@ public class EntityCDDataCore : EntityBaseComponent
         SkillCDMap[skillID] = cdTime;
     }
 
-    public void InitExtendCD(Dictionary<BattleDefine.eEntityExtCDType, long> cdMap)
-    {
-        if (cdMap == null || cdMap.Count <= 0)
-        {
-            return;
-        }
-        long curTimeStamp = TimeUtil.GetTimeStamp();
-        foreach (KeyValuePair<BattleDefine.eEntityExtCDType, long> item in cdMap)
-        {
-            if (item.Value > curTimeStamp)
-            {
-                ExtendCDMap[item.Key] = item.Value;
-            }
-        }
-    }
-    public void InitExtendCD(RepeatedField<MelandGame3.EntityExtendCD> extendCDList)
-    {
-        if (extendCDList == null || extendCDList.Count <= 0)
-        {
-            return;
-        }
-        long curTimeStamp = TimeUtil.GetTimeStamp();
-        for (int i = 0; i < extendCDList.Count; i++)
-        {
-            if (extendCDList[i].Time > curTimeStamp)
-            {
-                ExtendCDMap[(BattleDefine.eEntityExtCDType)extendCDList[i].Type] = extendCDList[i].Time;
-            }
-        }
-    }
     /// <summary>
     /// 设置扩展CD
     /// </summary>
