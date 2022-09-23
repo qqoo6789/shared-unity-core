@@ -56,9 +56,10 @@ public class EntityCDBase : IReference
     }
 
     /// <summary>
-    /// 返回CD ms
+    /// 返回CD 
     /// </summary>
     /// <param name="key">cdKey</param>
+    /// <returns>返回时间戳</returns>
     public virtual long GetCD(int key)
     {
         if (CDMap.TryGetValue(key, out long value))
