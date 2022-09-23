@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体CD数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntityCDDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntityCDDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ public class EntityCDDataCore : EntityBaseComponent
     /// </summary>
     public void InitSvrEntityCD(MelandGame3.EntityCD entityCD)
     {
-        foreach (var item in EntityCDMap)
+        foreach (KeyValuePair<eEntityCDType, EntityCDBase> item in EntityCDMap)
         {
             item.Value.InitSvrEntityCD(entityCD);
         }
@@ -35,9 +35,9 @@ public class EntityCDDataCore : EntityBaseComponent
     public MelandGame3.EntityCD ToSvrEntityCD()
     {
         MelandGame3.EntityCD entityCD = new();
-        foreach (var item in EntityCDMap)
+        foreach (KeyValuePair<eEntityCDType, EntityCDBase> item in EntityCDMap)
         {
-            item.Value.ToSvrEntityCD(entityCD);
+            _ = item.Value.ToSvrEntityCD(entityCD);
         }
         return entityCD;
     }
@@ -49,8 +49,7 @@ public class EntityCDDataCore : EntityBaseComponent
 
     public bool IsSkillCD(int skillID)
     {
-        _skillEntityCD.IsCD(skillID);
-        return false;
+        return _skillEntityCD.IsCD(skillID);
     }
 
     /// <summary>
@@ -88,7 +87,7 @@ public class EntityCDDataCore : EntityBaseComponent
     {
         if (EntityCDMap.TryGetValue(cdType, out EntityCDBase entityCD))
         {
-            entityCD.IsCD(key);
+            return entityCD.IsCD(key);
         }
         return false;
     }
@@ -97,11 +96,12 @@ public class EntityCDDataCore : EntityBaseComponent
     /// </summary>
     /// <param name="cdType">cd类型</param>
     /// <param name="key">cd key</param>
+    /// <returns>到期时间戳</returns>
     public long GetCD(eEntityCDType cdType, int key)
     {
         if (EntityCDMap.TryGetValue(cdType, out EntityCDBase entityCD))
         {
-            entityCD.GetCD(key);
+            return entityCD.GetCD(key);
         }
         return 0;
     }
@@ -123,10 +123,19 @@ public class EntityCDDataCore : EntityBaseComponent
     /// </summary>
     public void ResetAllCD()
     {
-        foreach (var item in EntityCDMap)
+        foreach (KeyValuePair<eEntityCDType, EntityCDBase> item in EntityCDMap)
         {
             item.Value.ResetAllCD();
         }
     }
 
+
+    private void OnDestroy()
+    {
+        foreach (KeyValuePair<eEntityCDType, EntityCDBase> item in EntityCDMap)
+        {
+            item.Value.Dispose();
+        }
+        EntityCDMap.Clear();
+    }
 }
