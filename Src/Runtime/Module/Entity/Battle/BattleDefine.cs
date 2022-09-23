@@ -53,3 +53,12 @@ public static class BattleDefine
             {EntityProfileField.EntityProfileFieldHpRecovery, "HpRecovery"},
         };
 }
+public enum eEntityCDType : int
+{
+    Skill,  //技能
+    Extend, //扩展
+}
+public enum eEntityExtendCDType : int
+{
+    Revive = 0,  //复活
+}
