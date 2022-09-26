@@ -181,7 +181,10 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     /// <summary>
     /// 在死亡了 需要切换到死亡状态前执行的额外操作
     /// </summary>
-    protected virtual void OnBeforeChangeToDeath() { }
+    protected virtual void OnBeforeChangeToDeath()
+    {
+        SeContinueNextSkill(false);
+    }
 
     /// <summary>
     /// 设置是否继续下一个技能 如果有下一个技能 基类就不会离开状态清理技能数据
