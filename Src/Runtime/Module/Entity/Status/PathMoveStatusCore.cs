@@ -22,6 +22,8 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     {
         base.OnEnter(fsm);
 
+        StatusCtrl.EntityEvent.MoveStart?.Invoke();
+
         InputData = StatusCtrl.GetComponent<EntityInputData>();
 
         if (InputData.InputMovePath.Count == 0)
@@ -54,6 +56,8 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
             _distanceMove.StopMove();
             _distanceMove = null;
         }
+
+        StatusCtrl.EntityEvent.MoveStop?.Invoke();
 
         base.OnLeave(fsm, isShutdown);
     }
