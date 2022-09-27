@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 using GameFramework;
-using MelandGame3;
+using GameMessageCore;
 
 public class EntityCDBase : IReference
 {
@@ -27,7 +27,7 @@ public class EntityCDBase : IReference
     /// 根据协议消息初始化CD
     /// </summary>
     /// <param name="entityCD">协议数据</param>
-    public virtual void InitSvrEntityCD(MelandGame3.EntityCD entityCD)
+    public virtual void InitSvrEntityCD(GameMessageCore.EntityCD entityCD)
     {
 
     }
@@ -36,7 +36,7 @@ public class EntityCDBase : IReference
     /// 返回协议数据
     /// </summary>
     /// <param name="entityCD">协议数据</param>
-    public virtual MelandGame3.EntityCD ToSvrEntityCD(MelandGame3.EntityCD entityCD)
+    public virtual GameMessageCore.EntityCD ToSvrEntityCD(GameMessageCore.EntityCD entityCD)
     {
         return entityCD;
     }

@@ -7,7 +7,7 @@
  */
 
 using System.Collections.Generic;
-using MelandGame3;
+using GameMessageCore;
 
 public static class BattleDefine
 {

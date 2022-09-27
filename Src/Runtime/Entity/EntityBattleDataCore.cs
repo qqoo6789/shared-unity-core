@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -58,7 +58,7 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// <summary>
     /// 经验
     /// </summary>
-    public int Exp;
+    public long Exp;
     /// <summary>
     /// 是否在战斗状态中
     /// </summary>
