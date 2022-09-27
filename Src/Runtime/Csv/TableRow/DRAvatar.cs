@@ -78,11 +78,6 @@ public class DRAvatar : DataRowBase
 6.眼睛 
 7.嘴巴 
 8.眉毛 
-9.机器人手臂
-10.机器人身体
-11.机器人头盔
-12.机器人腿部
-13.机器人背包
 14.鞋子。*/
     /// </summary>
     public int AvatarType
