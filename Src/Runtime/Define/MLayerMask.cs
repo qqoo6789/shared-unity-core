@@ -28,4 +28,9 @@ public static class MLayerMask
     /// </summary>
     /// <returns></returns>
     public const int MASK_SCENE_OBSTRUCTION = (1 << DEFAULT) | (1 << TERRAIN);
+    /// <summary>
+    /// 默认的相机自动避开的遮挡层
+    /// </summary>
+    /// <returns></returns>
+    public const int MASK_DEFAULT_CAMERA_OCCLUDE = (1 << DEFAULT) | (1 << TERRAIN) | (1 << DISTANCE_CULL_MIDDLE) | (1 << DISTANCE_CULL_BIG);
 }
