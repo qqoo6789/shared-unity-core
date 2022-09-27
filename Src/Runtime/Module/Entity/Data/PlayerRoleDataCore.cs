@@ -36,6 +36,7 @@ public class PlayerRoleDataCore : EntityBaseComponent
     /// <value></value>
     public PlayerFeature RoleFeature { get; protected set; }
 
+
     public void SetGender(string gender)
     {
         Gender = gender;

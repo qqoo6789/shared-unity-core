@@ -97,7 +97,16 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
-
+    protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
+        {
+            OnBeforeChangeToDeath();
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
+    }
     protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry)
     {
         bool valid = false;
@@ -143,13 +152,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             return;
         }
         _castTimeToken = null;
-        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
-        {
-            OnBeforeChangeToDeath();
-            ChangeState(OwnerFsm, DeathStatusCore.Name);
-            return;
-        }
-
         OnFinishChangeToNextStatus();
     }
 
@@ -179,7 +181,10 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     /// <summary>
     /// 在死亡了 需要切换到死亡状态前执行的额外操作
     /// </summary>
-    protected virtual void OnBeforeChangeToDeath() { }
+    protected virtual void OnBeforeChangeToDeath()
+    {
+        SeContinueNextSkill(false);
+    }
 
     /// <summary>
     /// 设置是否继续下一个技能 如果有下一个技能 基类就不会离开状态清理技能数据

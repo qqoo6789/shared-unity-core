@@ -78,7 +78,11 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-
+        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
         if (CheckCanMove())
         {
             if (_inputData.InputMoveDirection != null)

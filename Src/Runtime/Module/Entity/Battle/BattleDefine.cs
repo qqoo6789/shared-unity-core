@@ -2,12 +2,12 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: 战斗公共定义
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
  * 
  */
 
 using System.Collections.Generic;
-using GameMessageCore;
+using MelandGame3;
 
 public static class BattleDefine
 {
@@ -52,4 +52,13 @@ public static class BattleDefine
             {EntityProfileField.HpCurrent, "HpCurrent"},
             {EntityProfileField.HpRecovery, "HpRecovery"},
         };
+}
+public enum eEntityCDType : int
+{
+    Skill,  //技能
+    Extend, //扩展
+}
+public enum eEntityExtendCDType : int
+{
+    Revive = 0,  //复活
 }
