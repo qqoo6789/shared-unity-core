@@ -31,6 +31,8 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     {
         base.OnEnter(fsm);
 
+        StatusCtrl.EntityEvent.MoveStart?.Invoke();
+
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
         StatusCtrl.RefEntity.SetForward(_inputData.InputMoveDirection.Value);
         if (StatusCtrl.TryGetComponent(out _directionMove))
@@ -54,6 +56,8 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
             _directionMove.StopMove();
             _directionMove = null;
         }
+
+        StatusCtrl.EntityEvent.MoveStop?.Invoke();
 
         base.OnLeave(fsm, isShutdown);
     }

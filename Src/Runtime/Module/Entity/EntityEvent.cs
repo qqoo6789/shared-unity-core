@@ -27,6 +27,14 @@ public class EntityEvent : EntityBaseComponent
     #region  移动相关事件
 
     /// <summary>
+    /// 主动移动开始 不包括强制位移
+    /// </summary>
+    public Action MoveStart;
+    /// <summary>
+    /// 主动移动结束 不包括强制位移
+    /// </summary>
+    public Action MoveStop;
+    /// <summary>
     /// 输入的移动路径变化了 T0:path
     /// </summary>
     public Action InputMovePathChanged;
