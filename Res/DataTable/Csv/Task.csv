@@ -1,13 +1,14 @@
 任务ID,任务等级,任务名,任务描述,任务详情,任务链体系,任务类型,道具需求,使用道具,怪物需求,坐标需求,quiz需求,地块需求,任务道具奖励,任务Exp奖励,难度系数（预留）
 id,level,name,decs,details,subSystem,Type,item,useItem,monster,moveTo,quiz,requestLand,itemReward,expReward,difficulty
 int,int,string,string,string,int[],int,int[][],int[][],int[][],int[][],int[][],int,int,int,int
-10001,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",1,4,,,,"111,111,3000;222,222,3000;333,333,4000",,,1000001,100,1
-10002,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",1,4,,,,"111,111,3000;222,222,3000;333,333,4000",,,1000001,100,2
-10003,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",1,4,,,,"111,111,3000;222,222,3000;333,333,4000",,,1000001,100,3
-20001,0,Fighting,Beat %% Monster %%,"For the sake of love and peace, please defeat those monsters",1,3,,,"9900002,1,3000;9900003,1,3000;9900004,1,4000;",,,,1000002,100,1
-20002,0,Fighting,Beat %% Monster %%,"For the sake of love and peace, please defeat those monsters",1,3,,,"9900002,1,3000;9900003,1,3000;9900004,1,4000;",,,,1000002,100,2
-20003,0,Fighting,Beat %% Monster %%,"For the sake of love and peace, please defeat those monsters","1,2",3,,,"9900002,1,3000;9900003,1,3000;9900004,1,4000;",,,,1000002,100,3
-30001,0,Collecting,Collect %% %%,"For love and peace, please give me these",1,1,"71010001,1,3000;71010002,2,3000;71010003,2,4000;",,,,,,1000003,100,1
-30002,0,Collecting,Collect %% %%,"For love and peace, please give me these",1,1,"71010001,1,3000;71010002,1,3000;71010003,1,4001;",,,,,,1000003,100,2
-30003,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",1,"71010001,1,3000;71010002,1,3000;71010003,1,4002;",,,,,,1000003,100,3
-50001,0,Conquest,Conquest %% Lands,"For love and peace, get a piece of land",1,6,,,,,,3,1000005,100,1
+10001,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",1,4,,,,"111,111,3000;222,222,3000;333,333,4000",,,,100,1
+10002,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",1,4,,,,"111,111,3000;222,222,3000;333,333,4000",,,,100,2
+10003,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",1,4,,,,"111,111,3000;222,222,3000;333,333,4000",,,,100,3
+20001,0,Fighting,Beat %% Monster %%,"For the sake of love and peace, please defeat those monsters",1,3,,,"9900002,1,3000;9900003,1,3000;9900004,1,4000;",,,,,100,1
+20002,0,Fighting,Beat %% Monster %%,"For the sake of love and peace, please defeat those monsters",1,3,,,"9900002,1,3000;9900003,1,3000;9900004,1,4000;",,,,,100,2
+20003,0,Fighting,Beat %% Monster %%,"For the sake of love and peace, please defeat those monsters","1,2",3,,,"9900002,1,3000;9900003,1,3000;9900004,1,4000;",,,,,100,3
+30001,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",1,"1010001,1,100;1010002,1,100;1010003,1,100;1010004,1,100;1010005,1,100;1010006,1,100;3010101,1,5000;3010201,1,5000",,,,,,,100,1
+30002,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",1,"1010007,1,100;1010008,1,100;1010009,1,100;1010010,1,100;1010011,1,100;1010012,1,100;3010102,1,5000;3010202,1,5000",,,,,,,100,1
+30003,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",1,"1010001,1,1000;1010002,1,1000;1010003,1,1000;1010004,1,1000;1010005,1,1000;1010006,1,1000;3010101,1,10000;3010201,1,10000",,,,,,,100,2
+30004,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",1,"1010007,1,1000;1010008,1,1000;1010009,1,1000;1010010,1,1000;1010011,1,1000;1010012,1,1000;3010102,1,10000;3010202,1,10000",,,,,,,100,2
+50001,0,Conquest,Conquest %% Lands,"For love and peace, get a piece of land",1,6,,,,,,3,,100,1
