@@ -1,12 +1,12 @@
 /*
- * @Author: xiang huan
- * @Date: 2022-07-19 16:19:58
- * @Description: 普通伤害效果
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
- * 
- */
+* @Author: xiang huan
+* @Date: 2022-07-19 16:19:58
+* @Description: 普通伤害效果
+* @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
+* 
+*/
 
-
+using UnityEngine;
 public class SENormalDamageCore : SkillEffectBase
 {
     public override bool IsRepeat => true;
@@ -40,7 +40,10 @@ public class SENormalDamageCore : SkillEffectBase
             RefEntity.BattleDataCore.SetHP(EffectData.DamageValue.CurrentInt);
             if (RefEntity.TryGetComponent(out EntityBattleRecordData battleRecordData))
             {
-                battleRecordData.AddDamageRecord(FromID, EffectData.DamageValue.DeltaInt, RefEntity.BattleDataCore.IsLive());
+                if (EffectData.DamageValue.DeltaInt < 0)
+                {
+                    battleRecordData.AddDamageRecord(FromID, Mathf.Abs(EffectData.DamageValue.DeltaInt), RefEntity.BattleDataCore.IsLive());
+                }
             }
         }
     }
