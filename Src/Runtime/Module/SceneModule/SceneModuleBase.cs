@@ -6,10 +6,16 @@ using UnityEngine;
 public class SceneModuleBase : MonoBehaviour
 {
     /// <summary>
-    /// 模块销毁
-    /// 因为OnDestroy顺序无法控制，所以销毁模块请复写这里实现
+    /// 卸载场景之前
     /// </summary>
-    public virtual void Dispose()
+    public virtual void UnloadSceneBefore()
+    {
+        //
+    }
+    /// <summary>
+    /// 卸载场景之后
+    /// </summary>
+    public virtual void UnloadSceneAfter()
     {
         //
     }

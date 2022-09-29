@@ -147,7 +147,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         return Factory.CreateSceneEntity(entityID, entityType);
     }
 
-    public override void Dispose()
+    public override void UnloadSceneBefore()
     {
         RemoveAllEntity();
     }
