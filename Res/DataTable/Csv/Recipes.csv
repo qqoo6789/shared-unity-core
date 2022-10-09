@@ -31,15 +31,15 @@ int,int,string,string,string,int,int,int,int,int,int,int[][],int[][],int[][],int
 10200008,1003,MV01_ca_blueprint_05_recoveryMeatball,Recipe: Lv70 Potion Crafting,Can craft level 8 restorative potions and level 7 buff potions.,2,8,10008,1,3,70,"3010101,1,2000;3010201,1,3000;3010102,1,2000;3010202,1,3000",1,100,1,"4020001,3;4020002,1",0,8,
 10200009,1003,MV01_ca_blueprint_05_recoveryMeatball,Recipe: Lv80 Potion Crafting,Can craft level 9 restorative potions and level 8 buff potions.,2,9,10009,1,3,80,"3010101,1,2000;3010201,1,3000;3010102,1,2000;3010202,1,3000",1,100,1,"4020001,3;4020002,1",0,9,
 10200010,1003,MV01_ca_blueprint_05_recoveryMeatball,Recipe: Lv90 Potion Crafting,Can craft level 9 restorative potions and level 9 buff potions.,2,10,10010,1,3,90,"3010101,1,2000;3010201,1,3000;3010102,1,2000;3010202,1,3000",1,100,1,"4020001,3;4020002,1",0,10,
-10301001,,MV01_eq_hair_01_animalSkin_ic,Recipe: Tactical Headband,Level 0 male headgear,3,0,30001,2,1,1,"1010001,1,10000","1,2","80,20",1,"4010001,1;4010901,1;60000011,1",0,2,10
-10301002,,MV01_eq_coat_01_animalSkin_ic,Recipe: Sackcloth Shirt,Level 0 male chest gear,3,0,30002,2,1,1,"1010002,1,10000","1,2","80,20",1,"4010002,1;4010901,1;60000011,1",0,2,20
-10301003,,MV01_eq_pants_01_animalSkin_ic,Recipe: Jeans,Level 0 male leg gear,3,0,30003,2,1,1,"1010003,1,10000","1,2","80,20",1,"4010003,1;4010901,1;60000011,1",0,2,30
-10301004,,MV01_eq_shoes_01_animalSkin_ic,Recipe: Sneakers,Level 0 Footwear,3,0,30004,2,1,1,"1010004,1,10000","1,2","80,20",1,"4010004,1;4010901,1;60000011,1",0,2,40
-10301005,,MV01_eq_glove_01_animalSkin_ic,Recipe: Leather Gloves,Level 0 hand gear,3,0,30005,2,1,1,"1010005,1,10000","1,2","80,20",1,"4010005,1;4010901,1;60000011,1",0,2,50
-10301006,,ic_iron_sword,Recipe: Iron Sword,Level 0 sword weapons,3,0,30001,2,1,1,"1010006,1,10000","1,2","80,20",1,"4010006,1;4010901,1;60000001,1",0,2,60
-10301007,,ic_panda_hair,Recipe: Iron Helmet,Level 10 male headgear,3,1,30001,2,1,1,"1010007,1,10000","1,2","80,20",1,"4010007,1;4010902,1;60000012,1",0,5,70
-10301008,,ic_panda_coat,Recipe: Iron Chestplate,Level 10 male chest gear,3,1,30002,2,1,1,"1010008,1,10000","1,2","80,20",1,"4010008,1;4010902,1;60000012,1",0,5,80
-10302001,,ic_panda_pants,Recipe: Military Pants,Level 10 male leg gear,3,1,30003,2,1,1,"1010009,1,10000","1,2","80,20",1,"4010009,1;4010902,1;60000012,1",0,5,20
-10302002,,ic_panda_shoe,Recipe: Suede Boots,Level 10 Footwear,3,1,30004,2,1,1,"1010010,1,10000","1,2","80,20",1,"4010010,1;4010902,1;60000012,1",0,5,20
-10302003,,ic_panda_glove,Recipe: Iron Gloves,Level 10 hand gear,3,1,30005,2,1,1,"1010011,1,10000","1,2","80,20",1,"4010011,1;4010902,1;60000012,1",0,5,20
-10302004,,MV01_eq_sword_01_dinosaurBone_ic,Recipe: Steel Sword,Level 10 sword weapons,3,1,30002,2,1,1,"1010012,1,10000","1,2","80,20",1,"4010012,1;4010902,1;60000002,1",0,5,20
+10301001,1002,MV01_eq_hair_01_animalSkin_ic,Recipe: Tactical Headband,Level 0 male headgear,3,0,30001,2,1,1,"1010001,1,10000","1,2","80,20",1,"4010001,1;4010901,1;60000011,1",0,2,0
+10301002,1002,MV01_eq_coat_01_animalSkin_ic,Recipe: Sackcloth Shirt,Level 0 male chest gear,3,0,30002,2,1,1,"1010002,1,10000","1,2","80,20",1,"4010002,1;4010901,1;60000011,1",0,2,0
+10301003,1002,MV01_eq_pants_01_animalSkin_ic,Recipe: Jeans,Level 0 male leg gear,3,0,30003,2,1,1,"1010003,1,10000","1,2","80,20",1,"4010003,1;4010901,1;60000011,1",0,2,0
+10301004,1002,MV01_eq_shoes_01_animalSkin_ic,Recipe: Sneakers,Level 0 Footwear,3,0,30004,2,1,1,"1010004,1,10000","1,2","80,20",1,"4010004,1;4010901,1;60000011,1",0,2,0
+10301005,1002,MV01_eq_glove_01_animalSkin_ic,Recipe: Leather Gloves,Level 0 hand gear,3,0,30005,2,1,1,"1010005,1,10000","1,2","80,20",1,"4010005,1;4010901,1;60000011,1",0,2,0
+10301006,1001,ic_iron_sword,Recipe: Iron Sword,Level 0 sword weapons,3,0,30006,2,1,1,"1010006,1,10000","1,2","80,20",1,"4010006,1;4010901,1;60000001,1",0,2,0
+10301007,1002,ic_panda_hair,Recipe: Iron Helmet,Level 10 male headgear,3,10,30007,2,1,1,"1010007,1,10000","1,2","80,20",1,"4010007,1;4010902,1;60000012,1",0,5,10
+10301008,1002,ic_panda_coat,Recipe: Iron Chestplate,Level 10 male chest gear,3,10,30008,2,1,1,"1010008,1,10000","1,2","80,20",1,"4010008,1;4010902,1;60000012,1",0,5,10
+10302001,1002,ic_panda_pants,Recipe: Military Pants,Level 10 male leg gear,3,10,30009,2,1,1,"1010009,1,10000","1,2","80,20",1,"4010009,1;4010902,1;60000012,1",0,5,10
+10302002,1002,ic_panda_shoe,Recipe: Suede Boots,Level 10 Footwear,3,10,30010,2,1,1,"1010010,1,10000","1,2","80,20",1,"4010010,1;4010902,1;60000012,1",0,5,10
+10302003,1002,ic_panda_glove,Recipe: Iron Gloves,Level 10 hand gear,3,10,30011,2,1,1,"1010011,1,10000","1,2","80,20",1,"4010011,1;4010902,1;60000012,1",0,5,10
+10302004,1001,MV01_eq_sword_01_dinosaurBone_ic,Recipe: Steel Sword,Level 10 sword weapons,3,10,30012,2,1,1,"1010012,1,10000","1,2","80,20",1,"4010012,1;4010902,1;60000002,1",0,5,10
