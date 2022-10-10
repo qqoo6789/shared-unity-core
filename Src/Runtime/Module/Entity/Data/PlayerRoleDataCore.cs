@@ -37,10 +37,10 @@ public class PlayerRoleDataCore : EntityBaseComponent
     public PlayerFeature RoleFeature { get; protected set; }
 
     /// <summary>
-    /// 角色穿着数据字典
+    /// 角色穿着数据
     /// </summary>
     /// <value></value>
-    public Dictionary<AvatarPosition, int> AvatarDic { get; protected set; } = new();
+    public List<PlayerAvatar> WearList { get; protected set; } = new();
 
     public void SetGender(string gender)
     {
@@ -64,40 +64,10 @@ public class PlayerRoleDataCore : EntityBaseComponent
 
     public void SetRoleAvatars(IEnumerable<PlayerAvatar> avatars)
     {
-        AvatarDic.Clear();
+        WearList.Clear();
         foreach (PlayerAvatar avatar in avatars)
         {
-            AvatarDic[avatar.Position] = avatar.ObjectId;
+            WearList.Add(avatar);
         }
-    }
-
-    /// <summary>
-    /// 获取角色最终的外观数据
-    /// </summary>
-    /// <returns></returns>
-    public List<int> GetRoleFinalAvatars()
-    {
-        List<int> finalAvatars = new()
-        {
-            GetWearAvatarPart(AvatarPosition.Head) == 0?  RoleFeature.Hair : GetWearAvatarPart(AvatarPosition.Head),
-            GetWearAvatarPart(AvatarPosition.Hand) == 0?  RoleFeature.Glove : GetWearAvatarPart(AvatarPosition.Hand),
-            GetWearAvatarPart(AvatarPosition.Coat) == 0?  RoleFeature.Clothes : GetWearAvatarPart(AvatarPosition.Coat),
-            GetWearAvatarPart(AvatarPosition.Pant) == 0?  RoleFeature.Pants : GetWearAvatarPart(AvatarPosition.Pant),
-        };
-        if (GetWearAvatarPart(AvatarPosition.Weapon) != 0)
-        {
-            finalAvatars.Add(GetWearAvatarPart(AvatarPosition.Weapon));
-        }
-        return finalAvatars;
-    }
-
-    public int GetWearAvatarPart(AvatarPosition position)
-    {
-        if (AvatarDic.TryGetValue(position, out int avatarID))
-        {
-            return avatarID;
-        }
-
-        return 0;
     }
 }
