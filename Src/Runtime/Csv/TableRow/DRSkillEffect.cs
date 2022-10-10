@@ -60,6 +60,7 @@ public class DRSkillEffect : DataRowBase
         index++;
         Parameters = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Duration = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        index++;
 
         return true;
     }
