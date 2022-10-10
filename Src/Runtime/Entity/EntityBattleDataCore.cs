@@ -24,6 +24,11 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// <value></value>
     public int HPMAX { get; protected set; }
     /// <summary>
+    /// 血量回复
+    /// </summary>
+    /// <value></value>
+    public int HPRecovery { get; protected set; }
+    /// <summary>
     /// 攻击力
     /// </summary>
     public int Att;
@@ -51,6 +56,10 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// miss率
     /// </summary>
     public int MissRate;
+    /// <summary>
+    /// 移动速度
+    /// </summary>
+    public float MoveSpeed;
     /// <summary>
     /// 等级
     /// </summary>
