@@ -7,4 +7,9 @@ public static class MTag
     /// 移动的地面区域
     /// </summary>
     public const string MOVE_GROUND_AREA = "MoveGroundArea";
+
+    /// <summary>
+    /// 区域BGM
+    /// </summary>
+    public const string AREA_BGM = "AreaBGM";
 }
