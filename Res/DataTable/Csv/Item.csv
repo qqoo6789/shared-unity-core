@@ -53,5 +53,5 @@ int,string,null,string,int,int[],string,int,int,int,int
 4020002,Herb,药草,Materials for crafting better potions.,4,1,lv2_herb,7,,1,1
 3010101,Lv1 Life Potion,1级生命药水,Immediately restore xx points of health.,3,1,life_potion,7,,1,1
 3010102,Lv2 Life Potion,2级生命药水,Immediately restore xx points of health.,3,2,life_potion,7,,1,1
-3010201,Lv1 Restoration Potion,1级恢复药,Restores xx health every second for xx seconds.,3,1,MV01_ca_food_05_recoveryMeatball,7,,1,1
-3010202,Lv2 Restoration Potion,2级恢复药,Restores xx health every second for xx seconds.,3,2,MV01_ca_food_05_recoveryMeatball,7,,1,1
+3010201,Lv1 Restoration Potion,1级恢复药,Restores xx health every second for xx seconds.,3,1,restorantion_potion,7,,1,1
+3010202,Lv2 Restoration Potion,2级恢复药,Restores xx health every second for xx seconds.,3,2,restorantion_potion,7,,1,1
