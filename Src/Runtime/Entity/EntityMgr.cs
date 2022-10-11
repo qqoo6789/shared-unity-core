@@ -76,7 +76,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// <param name="entityID"></param>
     /// <param name="entityType"></param>
     /// <returns></returns>
-    public virtual TEntity AddEntity(long entityID, MelandGame3.EntityType entityType)
+    public virtual TEntity AddEntity(long entityID, GameMessageCore.EntityType entityType)
     {
         if (EntityDic.ContainsKey(entityID))
         {
@@ -142,7 +142,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         EntityRootDic.Clear();
     }
 
-    protected virtual TEntity CreateEntity(long entityID, MelandGame3.EntityType entityType)
+    protected virtual TEntity CreateEntity(long entityID, GameMessageCore.EntityType entityType)
     {
         return Factory.CreateSceneEntity(entityID, entityType);
     }
