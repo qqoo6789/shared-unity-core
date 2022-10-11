@@ -51,6 +51,15 @@ public class DRItem : DataRowBase
     }
 
     /// <summary>
+  /**获取物品品质。*/
+    /// </summary>
+    public int[] Quality
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取物品图标。*/
     /// </summary>
     public string Icon
@@ -105,6 +114,7 @@ public class DRItem : DataRowBase
         index++;
         Desc = columnStrings[index++];
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Quality = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Icon = columnStrings[index++];
         BagShowType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UseLv = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -125,6 +135,7 @@ public class DRItem : DataRowBase
                 Name = binaryReader.ReadString();
                 Desc = binaryReader.ReadString();
                 Type = binaryReader.Read7BitEncodedInt32();
+                Quality = binaryReader.ReadArray<Int32>();
                 Icon = binaryReader.ReadString();
                 BagShowType = binaryReader.Read7BitEncodedInt32();
                 UseLv = binaryReader.Read7BitEncodedInt32();

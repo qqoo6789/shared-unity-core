@@ -2,27 +2,6 @@ id,备注,"使用CD
 毫秒",调用方法,调用方法参数,cd组
 id,null,cd,callFunc,args,cdType
 int,null,int,string[],int[],int
-61000001,Grilled Chicken Thigh Blueprint,100,unlockRecipe,10200001,
-61000002,Grilled Chicken Wing Blueprint,100,unlockRecipe,10200002,
-61000003,Roast Chicken Blueprint,100,unlockRecipe,10200003,
-61000004,Barbecue Blueprint,100,unlockRecipe,10200004,
-61000005,Recovery Meatball Blueprint,100,unlockRecipe,10200005,
-61000006,Recipe: LV.2 Sheep Horn Dagger,100,unlockRecipe,10301005,
-61000007,Recipe: LV.2 Boar Tusk Dagger,100,unlockRecipe,10301006,
-61000008,Recipe: LV.2 Bull Horn Spear,100,unlockRecipe,10301007,
-61000009,Recipe: LV.2 Dinosaur Bone Sword,100,unlockRecipe,10301004,
-61000010,Recipe: LV.2 Hide Clothes,100,unlockRecipe,10302001,
-61000011,Recipe: LV.2 Hide Pants,100,unlockRecipe,10302002,
-61000012,Recipe: LV.2 Hide Hat,100,unlockRecipe,10302003,
-61000013,Recipe: LV.2 Hide Gloves,100,unlockRecipe,10302004,
-61000014,Recipe: LV.2 Hide Shoes,100,unlockRecipe,10302005,
-61000015,Grilled Chicken Thigh,500,addHp,40,61000015
-61000016,Grilled Chicken Wing,500,addHp,60,61000015
-61000017,Roast Chicken,500,addHp,120,61000015
-61000018,Barbecue,500,addHp,100,61000015
-61000019,Recovery Meatball,500,addHp,200,61000015
-61010001,testBuff,500,addBuff,1201,61010001
-80009999,Placeholder,100,addEntity,50009999,
 3010101,1级生命药水,5000,addHp,50,3010101
 3010102,2级生命药水,5000,addHp,100,3010101
 3010201,1级恢复药,5000,addHp,50,3010201

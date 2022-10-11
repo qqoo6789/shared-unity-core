@@ -123,24 +123,6 @@ public class DRRecipes : DataRowBase
     }
 
     /// <summary>
-  /**获取合成物品质。*/
-    /// </summary>
-    public int[][] ProductQuality
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取品质概率。*/
-    /// </summary>
-    public int[][] QualityPro
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取合成途径描述。*/
     /// </summary>
     public int SourceText
@@ -202,8 +184,6 @@ public class DRRecipes : DataRowBase
         UnlockType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockCondition = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ProductId = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        ProductQuality = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        QualityPro = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         SourceText = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MatItemId = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         UseDitamin = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -232,8 +212,6 @@ public class DRRecipes : DataRowBase
                 UnlockType = binaryReader.Read7BitEncodedInt32();
                 UnlockCondition = binaryReader.Read7BitEncodedInt32();
                 ProductId = binaryReader.ReadArrayList<Int32>();
-                ProductQuality = binaryReader.ReadArrayList<Int32>();
-                QualityPro = binaryReader.ReadArrayList<Int32>();
                 SourceText = binaryReader.Read7BitEncodedInt32();
                 MatItemId = binaryReader.ReadArrayList<Int32>();
                 UseDitamin = binaryReader.Read7BitEncodedInt32();
