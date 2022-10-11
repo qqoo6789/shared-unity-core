@@ -3,86 +3,34 @@ using UnityEngine;
 /// <summary>
 /// 使用角色控制器的距离移动
 /// </summary>
+[RequireComponent(typeof(CharacterMoveCtrl))]
 public sealed class CharacterDistanceMove : DistanceMove
 {
-    [Header("是否使用重力")]
-    public bool UseGravity = true;
-
-    private CharacterController _controller;
-    private bool _isAddColliderLoadEvent;
-    private AutoGravity _autoGravity;
-
-    private void Awake()
-    {
-        StopMove();
-    }
+    private CharacterMoveCtrl _controller;
 
     private void Start()
     {
-        if (!TryGetComponent(out _controller))
-        {
-            //直接拿不到就要等待加载完成事件
-            _isAddColliderLoadEvent = true;
-            RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
-        }
-
-        _ = TryGetComponent(out _autoGravity);
-    }
-
-    private void OnDestroy()
-    {
-        if (_isAddColliderLoadEvent)
-        {
-            _isAddColliderLoadEvent = false;
-            RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
-        }
-    }
-
-    private void OnColliderLoadFinish(GameObject go)
-    {
-        _controller = go.GetComponent<CharacterController>();
+        _controller = GetComponent<CharacterMoveCtrl>();
     }
 
     private void Update()
     {
-        TickMove(Time.deltaTime);
-    }
-
-    protected override void ApplyMotion(Vector3 motion)
-    {
-        //可能没加载好碰撞器
         if (_controller == null)
         {
             return;
         }
 
-        if (UseGravity)
-        {
-            //这里由于给的是速度 所以如果本来motion已经不足一帧位移 这里也会按照一帧来算 所以实际可能比预计多处小于一帧的距离 但问题不大
-            _ = _controller.SimpleMove(motion.normalized * MoveSpeed);
-        }
-        else
-        {
-            _ = _controller.Move(motion);
-        }
+        TickMove(Time.deltaTime);
     }
 
-    public override void StartMove()
+    protected override void ApplyMotion(Vector3 motion)
     {
-        base.StartMove();
-
-        if (_autoGravity != null)
-        {
-            _autoGravity.StopGravity();
-        }
+        _controller.SetMoveSpeed(motion / Time.deltaTime);
     }
 
     public override void StopMove()
     {
-        if (_autoGravity != null)
-        {
-            _autoGravity.StartGravity();
-        }
+        _controller.StopMove();
 
         base.StopMove();
     }
@@ -91,9 +39,6 @@ public sealed class CharacterDistanceMove : DistanceMove
     {
         base.FinishMove();
 
-        if (_autoGravity != null)
-        {
-            _autoGravity.StartGravity();
-        }
+        _controller.StopMove();
     }
 }

@@ -11,9 +11,4 @@ public static class MoveDefine
     /// 最大爬坡度数
     /// </summary>
     public const float MOVE_SLOPE_LIMIT = 45f;
-    /// <summary>
-    /// 移动碰撞间隙 直接体现在了浮在地表的高度
-    /// </summary>
-    public const float MOVE_SKIN_WIDTH = 0.08f;
-
 }
