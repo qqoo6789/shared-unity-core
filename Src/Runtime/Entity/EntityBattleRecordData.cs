@@ -2,13 +2,12 @@
  * @Author: xiang huan
  * @Date: 2022-08-22 15:50:05
  * @Description: 实体战斗记录数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleRecordData.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleRecordData.cs
  * 
  */
 
 using System.Collections.Generic;
-using UnityEngine;
-public class EntityBattleRecordData : MonoBehaviour
+public class EntityBattleRecordData : EntityBaseComponent
 {
     /// <summary>
     /// Dictionary<来源实体ID，造成总伤害>
@@ -19,7 +18,7 @@ public class EntityBattleRecordData : MonoBehaviour
     {
         DamageRecordMap = new();
     }
-    public void ResetDamageRecord()
+    public virtual void ResetDamageRecord()
     {
         DamageRecordMap.Clear();
         EndDamageEntityID = 0;
@@ -31,7 +30,7 @@ public class EntityBattleRecordData : MonoBehaviour
     /// <param name="formId">伤害来源ID</param>
     /// <param name="damageNum">伤害数值</param>
     /// <param name="isLive">当前实体是否存活</param>
-    public void AddDamageRecord(long formId, int damageNum, bool isLive)
+    public virtual void AddDamageRecord(long formId, int damageNum, bool isLive)
     {
         if (DamageRecordMap.TryGetValue(formId, out int value))
         {

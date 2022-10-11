@@ -1,57 +1,191 @@
-物品ID,物品名称,备注1,物品描述,物品类型,物品图标,背包显示分类,使用等级,使用者类型,是否NFT
-id,name,null,desc,type,icon,bagShowType,useLv,userType,canMint
-int,string,null,string,int,string,int,int,int,int
-60000001,Weapon Scroll Lv0,,Weapon Scroll Lv0,4,icon_hechengfu_wuqi_0,7,,0,1
-60000002,Weapon Scroll Lv10,,Weapon Scroll Lv10,4,icon_hechengfu_wuqi_1,7,,0,1
-60000003,Weapon Scroll Lv20,,Weapon Scroll Lv20,4,icon_hechengfu_wuqi_2,7,,0,1
-60000004,Weapon Scroll Lv30,,Weapon Scroll Lv30,4,icon_hechengfu_wuqi_3,7,,0,1
-60000005,Weapon Scroll Lv40,,Weapon Scroll Lv40,4,icon_hechengfu_wuqi_4,7,,0,1
-60000006,Weapon Scroll Lv50,,Weapon Scroll Lv50,4,icon_hechengfu_wuqi_5,7,,0,1
-60000007,Weapon Scroll Lv60,,Weapon Scroll Lv60,4,icon_hechengfu_wuqi_6,7,,0,1
-60000008,Weapon Scroll Lv70,,Weapon Scroll Lv70,4,icon_hechengfu_wuqi_7,7,,0,1
-60000009,Weapon Scroll Lv80,,Weapon Scroll Lv80,4,icon_hechengfu_wuqi_8,7,,0,1
-60000010,Weapon Scroll Lv90,,Weapon Scroll Lv90,4,icon_hechengfu_wuqi_9,7,,0,1
-60000011,Defence Scroll Lv0,,Defence Scroll Lv0,4,icon_hechengfu_fangju_0,7,,0,1
-60000012,Defence Scroll Lv10,,Defence Scroll Lv10,4,icon_hechengfu_fangju_1,7,,0,1
-60000013,Defence Scroll Lv20,,Defence Scroll Lv20,4,icon_hechengfu_fangju_2,7,,0,1
-60000014,Defence Scroll Lv30,,Defence Scroll Lv30,4,icon_hechengfu_fangju_3,7,,0,1
-60000015,Defence Scroll Lv40,,Defence Scroll Lv40,4,icon_hechengfu_fangju_4,7,,0,1
-60000016,Defence Scroll Lv50,,Defence Scroll Lv50,4,icon_hechengfu_fangju_5,7,,0,1
-60000017,Defence Scroll Lv60,,Defence Scroll Lv60,4,icon_hechengfu_fangju_6,7,,0,1
-60000018,Defence Scroll Lv70,,Defence Scroll Lv70,4,icon_hechengfu_fangju_7,7,,0,1
-60000019,Defence Scroll Lv80,,Defence Scroll Lv80,4,icon_hechengfu_fangju_8,7,,0,1
-60000020,Defence Scroll Lv90,,Defence Scroll Lv90,4,icon_hechengfu_fangju_9,7,,0,1
-79999901,MELD,用于配置MELDicon和描述,Currency of Meland,1,MELD_ic,-2,,0,0
-79999902,EXP,用于配置经验值icon和描述,For upgrading Role and Slot,1,EXP_ic,-2,,0,0
-1010001,Tactical Headband,0级男头,Tactical Headband,1,MV01_eq_hair_01_animalSkin_ic,5,0,1,1
-1010002,Sackcloth Shirt,0级男衣,Sackcloth Shirt,1,MV01_eq_coat_01_animalSkin_ic,5,0,1,1
-1010003,Jeans,0级男裤,Jeans,1,MV01_eq_pants_01_animalSkin_ic,5,0,1,1
-1010004,Sneakers,0级鞋子,Sneakers,1,MV01_eq_shoes_01_animalSkin_ic,5,0,1,1
-1010005,Leather Gloves,0级手套,Leather Gloves,1,MV01_eq_glove_01_animalSkin_ic,5,0,1,1
-1010006,Iron Sword,0级剑,Iron Sword,1,ic_iron_sword,5,0,1,1
-1010007,Iron Helmet,10级男头,Iron Helmet,1,ic_panda_hair,5,10,1,1
-1010008,Iron Chestplate,10级男衣,Iron Chestplate,1,ic_panda_coat,5,10,1,1
-1010009,Military Pants,10级男裤,Military Pants,1,ic_panda_pants,5,10,1,1
-1010010,Suede Boots,10级鞋子,Suede Boots,1,ic_panda_shoe,5,10,1,1
-1010011,Iron Gloves,10级手套,Iron Gloves,1,ic_panda_glove,5,10,1,1
-1010012,Steel Sword,10级剑,Steel Sword,1,MV01_eq_sword_01_dinosaurBone_ic,5,10,1,1
-4010001,Level 0 Male Head Gear Scroll,0级男性头部装备蓝图,A scroll that records the essentials of crafting level 0 male head gear.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010002,Level 0 Male Chest Equipment Scroll,0级男性胸部装备蓝图,A scroll that records the essentials of crafting level 0 male chest equipment.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010003,Level 0 Male Leg Equipment Scroll,0级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 0 male leg gear.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010004,Level 0 Foot Gear Scroll,0级脚部装备蓝图,A scroll that records the essentials of crafting level 0 foot equipment.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010005,Level 0 Hand Gear Scroll,0级手部装备蓝图,A scroll that records the essentials of crafting level 0 hand equipment.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010006,Level 0 Sword Weapon Scroll,0级剑类武器蓝图,A scroll that records the essentials of crafting a level 0 sword-type weapon.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010007,Level 10 Male Head Gear Scroll,10级男性头部装备蓝图,A scroll that records the essentials of crafting level 10 male head gear.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010008,Level 10 Male Chest Equipment Scroll,10级男性胸部装备蓝图,A scroll that records the essentials of crafting level 10 male chest equipment.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010009,Level 10 Male Leg Equipment Scroll,10级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 10 male leg gear.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010010,Level 10 Foot Gear Scroll,10级脚部装备蓝图,A scroll that records the essentials of crafting level 10 foot equipment.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010011,Level 10 Hand Gear Scroll,10级手部装备蓝图,A scroll that records the essentials of crafting level 10 hand equipment.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010012,Level 10 Sword Weapon Scroll,10级剑类武器蓝图,A scroll that records the essentials of crafting a level 10 sword-type weapon.,4,MV01_ca_blueprint_10_animalSkinClothes,7,,1,1
-4010901,Level 0 Mysterious Iron Ore,0级神秘矿石,The materials necessary to make level 0 equipment.,4,MV01_mt_biology_14_recoveryGem,7,,1,1
-4010902,Level 10 Mysterious Iron Ore,10级神秘矿石,The materials necessary to make level 10 equipment.,4,MV01_mt_biology_14_recoveryGem,7,,1,1
-4020001,Herb Shards,药草碎片,Materials for crafting potions.,4,MV01_mt_biology_02_chickenWing,7,,1,1
-4020002,Herb,药草,Materials for crafting better potions.,4,MV01_mt_biology_03_chicken,7,,1,1
-3010101,Lv1 Life Potion,1级生命药水,Immediately restore xx points of health.,3,MV01_ca_food_01_grilledChickenThigh,7,,1,1
-3010102,Lv2 Life Potion,2级生命药水,Immediately restore xx points of health.,3,MV01_ca_food_01_grilledChickenThigh,7,,1,1
-3010201,Lv1 Restoration Potion,1级恢复药,Restores xx health every second for xx seconds.,3,MV01_ca_food_05_recoveryMeatball,7,,1,1
-3010202,Lv2 Restoration Potion,2级恢复药,Restores xx health every second for xx seconds.,3,MV01_ca_food_05_recoveryMeatball,7,,1,1
+物品ID,物品名称,备注1,"建筑背包分类
+（素材库的分类）",物品描述,物品类型,初始物件数量,背包堆叠上限,物品图标,物品品质,是否可以交易,是否可以出售,是否可以丢弃,（废弃）是否是燃料,背包显示分类,使用后掉落,使用等级,不显示在代码块下拉中,使用者类型,属性控件,代码库,素材分组,绑定类型,素材库展示类型,正视角物品图标,是否NFT
+id,name,null,objectBagType,desc,type,initObjectQuantity,backpackItemLimit,icon,quality,canTrade,canSell,canDrop,isFuel,bagShowType,useDrop,useLv,NoShowCode,userType,attWidget,codeBlockId,subjectGroup,binding,objectBagShowType,rectIcon,canMint
+int,string,null,int,string,int,int,int,string,int[],bool,bool,bool,bool,int,int,int,bool,int,int,int,int,int,int[],string,int
+1210001,Panda headgear,,5,Panda headgear,1,1,1,ic_panda_hair,1,1,1,1,0,5,,,,1,10004,1002,,,0,ic_panda_hair,
+1210002,Panda clothes,,5,Panda clothes,1,1,1,ic_panda_coat,2,1,1,1,0,5,,,,1,10004,1002,,,0,ic_panda_coat,
+1210003,Panda pants,,5,Panda pants,1,1,1,ic_panda_pants,3,1,1,1,0,5,,,,1,10004,1002,,,0,ic_panda_pants,
+1210004,Panda shoes,,5,Panda shoes,1,1,1,ic_panda_shoe,4,1,1,1,0,5,,,,1,10004,1002,,,0,ic_panda_shoe,
+1210005,Panda gloves,,5,Panda gloves,1,1,1,ic_panda_glove,5,1,1,1,0,5,,,,1,10004,1002,,,0,ic_panda_glove,
+60000001,Weapon Scroll Lv0,,7,Weapon Scroll Lv0,4,,99,icon_hechengfu_wuqi_0,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_0,1
+60000002,Weapon Scroll Lv10,,7,Weapon Scroll Lv10,4,,99,icon_hechengfu_wuqi_1,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_1,1
+60000003,Weapon Scroll Lv20,,7,Weapon Scroll Lv20,4,,99,icon_hechengfu_wuqi_2,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_2,1
+60000004,Weapon Scroll Lv30,,7,Weapon Scroll Lv30,4,,99,icon_hechengfu_wuqi_3,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_3,1
+60000005,Weapon Scroll Lv40,,7,Weapon Scroll Lv40,4,,99,icon_hechengfu_wuqi_4,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_4,1
+60000006,Weapon Scroll Lv50,,7,Weapon Scroll Lv50,4,,99,icon_hechengfu_wuqi_5,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_5,1
+60000007,Weapon Scroll Lv60,,7,Weapon Scroll Lv60,4,,99,icon_hechengfu_wuqi_6,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_6,1
+60000008,Weapon Scroll Lv70,,7,Weapon Scroll Lv70,4,,99,icon_hechengfu_wuqi_7,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_7,1
+60000009,Weapon Scroll Lv80,,7,Weapon Scroll Lv80,4,,99,icon_hechengfu_wuqi_8,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_8,1
+60000010,Weapon Scroll Lv90,,7,Weapon Scroll Lv90,4,,99,icon_hechengfu_wuqi_9,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_wuqi_9,1
+60000011,Defence Scroll Lv0,,7,Defence Scroll Lv0,4,,99,icon_hechengfu_fangju_0,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_0,1
+60000012,Defence Scroll Lv10,,7,Defence Scroll Lv10,4,,99,icon_hechengfu_fangju_1,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_1,1
+60000013,Defence Scroll Lv20,,7,Defence Scroll Lv20,4,,99,icon_hechengfu_fangju_2,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_2,1
+60000014,Defence Scroll Lv30,,7,Defence Scroll Lv30,4,,99,icon_hechengfu_fangju_3,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_3,1
+60000015,Defence Scroll Lv40,,7,Defence Scroll Lv40,4,,99,icon_hechengfu_fangju_4,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_4,1
+60000016,Defence Scroll Lv50,,7,Defence Scroll Lv50,4,,99,icon_hechengfu_fangju_5,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_5,1
+60000017,Defence Scroll Lv60,,7,Defence Scroll Lv60,4,,99,icon_hechengfu_fangju_6,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_6,1
+60000018,Defence Scroll Lv70,,7,Defence Scroll Lv70,4,,99,icon_hechengfu_fangju_7,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_7,1
+60000019,Defence Scroll Lv80,,7,Defence Scroll Lv80,4,,99,icon_hechengfu_fangju_8,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_8,1
+60000020,Defence Scroll Lv90,,7,Defence Scroll Lv90,4,,99,icon_hechengfu_fangju_9,1,0,0,1,0,7,,,,0,10004,1002,,,0,icon_hechengfu_fangju_9,1
+61000001,Grilled Chicken Thigh Blueprint,烤鸡腿配方,6,"For unlocking ""Recipe: Grilled Chicken Thigh""",3,,99,MV01_ca_blueprint_01_grilledChickenThigh,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_01_grilledChickenThigh,
+61000002,Grilled Chicken Wing Blueprint,烤鸡翅配方,6,"For unlocking ""Recipe: Grilled Chicken Wing""",3,,99,MV01_ca_blueprint_02_grilledChickenWing,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_02_grilledChickenWing,
+61000003,Roast Chicken Blueprint,烤整鸡配方,6,"For unlocking ""Recipe: Roast Chicken""",3,,99,MV01_ca_blueprint_03_roastChicken,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_03_roastChicken,
+61000004,Barbecue Blueprint,烤肉配方,6,"For unlocking ""Recipe: Barbecue""",3,,99,MV01_ca_blueprint_04_barbecue,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_04_barbecue,
+61000005,Recovery Meatball Blueprint,复苏肉丸配方,6,"For unlocking ""Recipe: Recovery Meatball""",3,,99,MV01_ca_blueprint_05_recoveryMeatball,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_05_recoveryMeatball,
+61000006,Advanced Sheep Horn Dagger Blueprint,2级羊角匕首配方,6,"For unlocking ""Recipe: LV.2 Sheep Horn Dagger"", giving you the chance to synthesize the Enhanced, Advanced, Super and Ultimate Sheep Horn Dagger",3,,99,MV01_ca_blueprint_06_sheepHornDagger,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_06_sheepHornDagger,
+61000007,Advanced Boar Tusk Dagger Blueprint,2级猪牙匕首配方,6,"For unlocking ""Recipe: LV.2 Boar Tusk Dagger"", giving you the chance to synthesize the Enhanced, Advanced and Super Boar Tusk Dagger",3,,99,MV01_ca_blueprint_07_boarTuskDagger,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_07_boarTuskDagger,
+61000008,Advanced OX Horn Spear Blueprint,2级牛角矛配方,6,"For unlocking ""Recipe: LV.2 Bull Horn Spear"", giving you the chance to synthesise the Advanced, Super and Ultimate Bull Horn Spear",3,,99,MV01_ca_blueprint_08_oxHornSpear,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_08_oxHornSpear,
+61000009,Advanced Dinosaur Bone Sword Blueprint,2级龙骨剑配方,6,"For unlocking ""Recipe: LV.2 Dinosaur Bone Sword"", giving you the chance to synthesise the Advanced, Super and Ultimate Dinosaur Bone Sword",3,,99,MV01_ca_blueprint_09_dinosaurBoneSword,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_09_dinosaurBoneSword,
+61000010,Advanced Animal Skin Clothes Blueprint,2级兽皮衣服配方,6,"For unlocking ""Recipe: LV.2 Hide Clothes"", giving you the chance to synthesise Enhanced, Advanced Hide Clothes",3,,99,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_10_animalSkinClothes,
+61000011,Advanced Animal Skin Pants Blueprint,2级兽皮裤子配方,6,"For unlocking ""Recipe: LV.2 Hide Pants"", giving you the chance to synthesise Enhanced, Advanced Hide Pants",3,,99,MV01_ca_blueprint_11_animalSkinPants,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_11_animalSkinPants,
+61000012,Advanced Animal Skin Hat Blueprint,2级兽皮帽子配方,6,"For unlocking ""Recipe: LV.2 Hide Hat"", giving you the chance to synthesise Enhanced, Advanced Hide Hat",3,,99,MV01_ca_blueprint_12_animalSkinHat,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_12_animalSkinHat,
+61000013,Advanced Animal Skin Gloves Blueprint,2级兽皮手套配方,6,"For unlocking ""Recipe: LV.2 Hide Gloves"", giving you the chance to synthesise Enhanced, Advanced Hide Gloves",3,,99,MV01_ca_blueprint_13_animalSkinGloves,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_13_animalSkinGloves,
+61000014,Advanced Animal Skin Shoes Blueprint,2级兽皮鞋子配方,6,"For unlocking ""Recipe: LV.2 Hide Shoes"", giving you the chance to synthesise Enhanced, Advanced Hide Shoes",3,,99,MV01_ca_blueprint_14_animalSkinShoes,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_blueprint_14_animalSkinShoes,
+61000015,Grilled Chicken Thigh,烤鸡腿,6,"Delicious Grilled Chicken Thigh, restores 40 HP",3,,99,MV01_ca_food_01_grilledChickenThigh,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_food_01_grilledChickenThigh,
+61000016,Grilled Chicken Wing,烤鸡翅,6,"Delicious Grilled Chicken Wing, restores 60 HP",3,,99,MV01_ca_food_02_grilledChickenWing,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_food_02_grilledChickenWing,
+61000017,Roast Chicken,烤整鸡,6,"Delicious Roast Chicken, restores 120 HP",3,,99,MV01_ca_food_03_roastChicken,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_food_03_roastChicken,
+61000018,Barbecue,烤肉,6,"Delicious Barbecue, restores 100 HP",3,,99,MV01_ca_food_04_barbecue,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_food_04_barbecue,
+61000019,Recovery Meatball,复苏肉丸,6,"Powerful Recovery Meatball, restores 200 HP",3,,99,MV01_ca_food_05_recoveryMeatball,1,0,0,1,0,6,,,,0,10004,1002,,,0,MV01_ca_food_05_recoveryMeatball,
+61000020,Chicken Thigh,鸡腿,7,Can be obtained by defeating the Cucco,4,,99,MV01_mt_biology_01_chickenThigh,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_01_chickenThigh,
+61000021,Chicken Wing,鸡翅,7,Can be obtained by defeating the Cucco,4,,99,MV01_mt_biology_02_chickenWing,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_02_chickenWing,
+61000022,Chicken,整鸡,7,Can be obtained by defeating the Cucco. Some say the Barbarian have the recipe for making Roast Chicken,4,,99,MV01_mt_biology_03_chicken,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_03_chicken,
+61000023,Sheep Wool,羊毛,7,Can be obtained by defeating the Sheep,4,,99,MV01_mt_biology_04_sheepWool,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_04_sheepWool,
+61000024,Sheep Horn,羊角,7,Can be obtained by defeating the Sheep,4,,99,MV01_mt_biology_05_sheepHorn,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_05_sheepHorn,
+61000025,Raw Meat,生肉,7,"Can be obtained by defeating the Sheep,Bull,Boar,Wolf or Tyrannosaurus",4,,99,MV01_mt_biology_06_rawMeat,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_06_rawMeat,
+61000026,OX Skin,牛皮,7,Can be obtained by defeating the Bull,4,,99,MV01_mt_biology_07_oxSkin,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_07_oxSkin,
+61000027,OX Bone,牛骨,7,Can be obtained by defeating the Bull,4,,99,MV01_mt_biology_08_oxBone,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_08_oxBone,
+61000028,OX Horn,牛角,7,Can be obtained by defeating the Bull,4,,99,MV01_mt_biology_09_oxHorn,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_09_oxHorn,
+61000029,Boar Hide,野猪皮,7,Can be obtained by defeating the Boar,4,,99,MV01_mt_biology_10_boarHide,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_10_boarHide,
+61000030,Boar Tusk,猪牙,7,Can be obtained by defeating the Boar,4,,99,MV01_mt_biology_11_boarTusk,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_11_boarTusk,
+61000031,Wolf Skin,狼皮,7,Can be obtained by defeating the Wolf,4,,99,MV01_mt_biology_12_wolfSkin,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_12_wolfSkin,
+61000032,Dinosaur Bone,龙骨,7,Can be obtained by defeating the Tyrannosaurus,4,,99,MV01_mt_biology_13_dinosaurBone,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_13_dinosaurBone,
+61000033,Recovery Gem,复苏宝石,7,Can be obtained by defeating the Barbarian or Tyrannosaurus. It is said that the recipe for Recovery Meatball can be obtained from Wolf or Tyrannosaurus,4,,99,MV01_mt_biology_14_recoveryGem,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_14_recoveryGem,
+61010001,testBuff,测试buff,6,testBuff,4,,99,MV01_mt_biology_14_recoveryGem,1,0,0,1,0,7,,,,0,10004,1002,,,0,MV01_mt_biology_14_recoveryGem,
+71010001,Sheep Horn Dagger,羊角匕首,5,Sheep Horn Dagger,1,,1,MV01_eq_dagger_01_sheepHorn_ic,"1,2,3,4,5",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_dagger_01_sheepHorn_ic,
+71010002,Boar Tusk Dagger,猪牙匕首,5,Boar Tusk Dagger,1,,1,MV01_eq_dagger_02_boarTusk_ic,"1,2,3,4",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_dagger_02_boarTusk_ic,
+71010003,Bull Horn Spear,牛角矛,5,Bull Horn Spear,1,,1,MV01_eq_spear_01_oxHorn_ic,"1,2,3,4,5",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_spear_01_oxHorn_ic,
+71010004,Dinosaur Bone Sword,龙骨剑,5,Dinosaur Bone Sword,1,,1,MV01_eq_sword_01_dinosaurBone_ic,"1,2,3,4,5",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_sword_01_dinosaurBone_ic,
+71020001,Hide Hat,兽皮帽子,5,Hide Hat,1,,1,MV01_eq_hair_01_animalSkin_ic,"1,2,3",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_hair_01_animalSkin_ic,
+71020002,Hide Clothes,兽皮衣服,5,Hide Clothes,1,,1,MV01_eq_coat_01_animalSkin_ic,"1,2,3",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_coat_01_animalSkin_ic,
+71020003,Hide Pants,兽皮裤子,5,Hide Pants,1,,1,MV01_eq_pants_01_animalSkin_ic,"1,2,3",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_pants_01_animalSkin_ic,
+71020004,Hide Shoes,兽皮鞋子,5,Hide Shoes,1,,1,MV01_eq_shoes_01_animalSkin_ic,"1,2,3",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_shoes_01_animalSkin_ic,
+71020005,Hide Gloves,兽皮手套,5,Hide Gloves,1,,1,MV01_eq_glove_01_animalSkin_ic,"1,2,3",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_glove_01_animalSkin_ic,
+71029998,Test Sword,短前摇测试剑,5,Dinosaur Bone Sword,1,,1,MV01_eq_sword_01_dinosaurBone_ic,"1,2,3,4,5",0,0,1,0,5,,,,0,10004,1002,,,0,MV01_eq_sword_01_dinosaurBone_ic,
+71029999,Test Equipment,测试装备,5,Test Equipment,1,,1,ic_panda_hair,1,0,0,1,0,5,,,,0,10004,1002,,,0,ic_panda_hair,
+79999901,MELD,用于配置MELDicon和描述,-2,Currency of Meland,1,,999,MELD_ic,1,0,0,1,0,-2,,,,0,10004,1002,,,0,MELD_ic,0
+79999902,EXP,用于配置经验值icon和描述,-2,For upgrading Role and Slot,1,,999,EXP_ic,1,0,0,1,0,-2,,,,0,10004,1002,,,0,EXP_ic,0
+80000001,Sentry,,9,"A solid guardian of your land, can reduce the answering time when the surrounding land is invaded",3,,1,Z_mlNFTdj_1_1_04_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_04_ic,
+80000002,Sentry,,9,"A solid guardian of your land, can reduce the answering time when the surrounding land is invaded",3,,1,Z_mlNFTdj_1_1_05_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_05_ic,
+80000003,Sentry,,9,"A solid guardian of your land, can reduce the answering time when the surrounding land is invaded",3,,1,Z_mlNFTdj_1_1_06_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_06_ic,
+80000004,Looter,,9,"Greedy plunderer, can increase the Ditamin obtained when attacking surrounding land",3,,1,Z_mlNFTdj_1_1_01_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_01_ic,
+80000005,Looter,,9,"Greedy plunderer, can increase the Ditamin obtained when attacking surrounding land",3,,1,Z_mlNFTdj_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_02_ic,
+80000006,Looter,,9,"Greedy plunderer, can increase the Ditamin obtained when attacking surrounding land",3,,1,Z_mlNFTdj_1_1_03_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,Z_mlNFTdj_1_1_03_ic,
+80000012,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000013,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000014,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000015,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000016,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000017,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000018,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000019,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000020,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000021,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000022,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000023,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000024,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000025,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000026,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000027,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000028,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000029,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000030,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000031,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000032,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000033,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000034,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000035,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000036,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000037,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000038,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000039,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000040,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000041,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000042,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000043,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000044,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000045,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+80000046,VIP Land Portal,,9,VIP Land Portal,3,,1,nft_1_1_02_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,nft_1_1_02_ic,
+81000001,Gold Trophy for Creator,,9,Gold Trophy for Creator,3,,1,goldentrophy_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,goldentrophy_ic,
+81000002,Silver Trophy for Creator,,9,Silver Trophy for Creator,3,,1,silvertrophy_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,silvertrophy_ic,
+81000003,Bronze Trophy for Creator,,9,Bronze Trophy for Creator,3,,1,bronzetrophy_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,bronzetrophy_ic,
+81000004,Creator Crystal Trophy,,9,Creator Crystal Trophy,3,,1,crystaltrophy_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,crystaltrophy_ic,
+81000005,Simple Love Ornament,,9,Valentine's Day 2022 Gift,3,,1,SimpleLoveOrnament_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,SimpleLoveOrnament_ic,
+81000006,Ordinary Love Ornament,,9,Valentine's Day 2022 Gift,3,,1,OrdinaryLoveOrnament_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,OrdinaryLoveOrnament_ic,
+81000007,Delicate Love Ornament,,9,Valentine's Day 2022 Gift,3,,1,DelicateLoveOrnament_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,DelicateLoveOrnament_ic,
+81000008,Super Love Ornament,,9,Valentine's Day 2022 Gift,3,,1,SuperLoveOrnament_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,SuperLoveOrnament_ic,
+81000009,Best Weapon Trophy,,9,Reward for the first  Best Weapons Awards,3,,1,wqnft_1_1_01_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,wqnft_1_1_01_ic,
+80009999,Placeholder,,9,Placeholder,3,,1,3rdNFTPlaceholder_ic,1,0,0,1,0,9,,,,0,10004,1002,,,0,3rdNFTPlaceholder_ic,
+8900010,Stuff Hair,,5,Stuff Hair,1,,1,Stuff Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Stuff Hair_ic,
+8900011,Stuff Clothes,,5,Stuff Clothes,1,,1,Stuff Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Stuff Clothes_ic,
+8900012,Stuff Pants,,5,Stuff Pants,1,,1,Stuff Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Stuff Pants_ic,
+8900013,Stuff Shoes,,5,Stuff Shoes,1,,1,Stuff Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Stuff Shoes_ic,
+8900014,Punk Hair,,5,Punk Hair,1,,1,Punk Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Punk Hair_ic,
+8900015,Punk Clothes,,5,Punk Clothes,1,,1,Punk Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Punk Clothes_ic,
+8900016,Punk Pants,,5,Punk Pants,1,,1,Punk Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Punk Pants_ic,
+8900017,Punk Shoes,,5,Punk Shoes,1,,1,Punk Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Punk Shoes_ic,
+8900018,Tactical Hair,,5,Tactical Hair,1,,1,Tactical Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Tactical Hair_ic,
+8900019,Tactical Clothes,,5,Tactical Clothes,1,,1,Tactical Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Tactical Clothes_ic,
+8900020,Tactical Pants,,5,Tactical Pants,1,,1,Tactical Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Tactical Pants_ic,
+8900021,Tactical Shoes,,5,Tactical Shoes,1,,1,Tactical Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Tactical Shoes_ic,
+8900022,Mars Hair,,5,Mars Hair,1,,1,Mars Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Mars Hair_ic,
+8900023,Mars Clothes,,5,Mars Clothes,1,,1,Mars Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Mars Clothes_ic,
+8900024,Mars Pants,,5,Mars Pants,1,,1,Mars Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Mars Pants_ic,
+8900025,Mars Shoes,,5,Mars Shoes,1,,1,Mars Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Mars Shoes_ic,
+8900026,Pioneer Hair,,5,Pioneer Hair,1,,1,Pioneer Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Pioneer Hair_ic,
+8900027,Pioneer Clothes,,5,Pioneer Clothes,1,,1,Pioneer Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Pioneer Clothes_ic,
+8900028,Pioneer Pants,,5,Pioneer Pants,1,,1,Pioneer Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Pioneer Pants_ic,
+8900029,Pioneer Shoes,,5,Pioneer Shoes,1,,1,Pioneer Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Pioneer Shoes_ic,
+8900030,DJ Hair,,5,DJ Hair,1,,1,DJ Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,DJ Hair_ic,
+8900031,DJ Clothes,,5,DJ Clothes,1,,1,DJ Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,DJ Clothes_ic,
+8900032,DJ Pants,,5,DJ Pants,1,,1,DJ Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,DJ Pants_ic,
+8900033,DJ Shoes,,5,DJ Shoes,1,,1,DJ Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,DJ Shoes_ic,
+8900034,Function Hair,,5,Function Hair,1,,1,Function Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Function Hair_ic,
+8900035,Function Clothes,,5,Function Clothes,1,,1,Function Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Function Clothes_ic,
+8900036,Function Pants,,5,Function Pants,1,,1,Function Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Function Pants_ic,
+8900037,Function Shoes,,5,Function Shoes,1,,1,Function Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Function Shoes_ic,
+8900038,Meta Hair,,5,Meta Hair,1,,1,Meta Hair_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Meta Hair_ic,
+8900039,Meta Clothes,,5,Meta Clothes,1,,1,Meta Clothes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Meta Clothes_ic,
+8900040,Meta Pants,,5,Meta Pants,1,,1,Meta Pants_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Meta Pants_ic,
+8900041,Meta Shoes,,5,Meta Shoes,1,,1,Meta Shoes_ic,1,0,0,0,0,5,,,,1,10004,1002,,,0,Meta Shoes_ic,
+1010001,Tactical Headband,0级男头,5,Tactical Headband,1,,1,MV01_eq_hair_01_animalSkin_ic,1,0,0,0,0,5,,0,,1,10004,1002,,,0,,1
+1010002,Sackcloth Shirt,0级男衣,5,Sackcloth Shirt,1,,1,MV01_eq_coat_01_animalSkin_ic,1,0,0,0,0,5,,0,,1,10004,1002,,,0,,1
+1010003,Jeans,0级男裤,5,Jeans,1,,1,MV01_eq_pants_01_animalSkin_ic,1,0,0,0,0,5,,0,,1,10004,1002,,,0,,1
+1010004,Sneakers,0级鞋子,5,Sneakers,1,,1,MV01_eq_shoes_01_animalSkin_ic,1,0,0,0,0,5,,0,,1,10004,1002,,,0,,1
+1010005,Leather Gloves,0级手套,5,Leather Gloves,1,,1,MV01_eq_glove_01_animalSkin_ic,1,0,0,0,0,5,,0,,1,10004,1002,,,0,,1
+1010006,Iron Sword,0级剑,5,Iron Sword,1,,1,ic_iron_sword,1,0,0,0,0,5,,0,,1,10004,1002,,,0,,1
+1010007,Iron Helmet,10级男头,5,Iron Helmet,1,,1,ic_panda_hair,1,0,0,0,0,5,,10,,1,10004,1002,,,0,,1
+1010008,Iron Chestplate,10级男衣,5,Iron Chestplate,1,,1,ic_panda_coat,1,0,0,0,0,5,,10,,1,10004,1002,,,0,,1
+1010009,Military Pants,10级男裤,5,Military Pants,1,,1,ic_panda_pants,1,0,0,0,0,5,,10,,1,10004,1002,,,0,,1
+1010010,Suede Boots,10级鞋子,5,Suede Boots,1,,1,ic_panda_shoe,1,0,0,0,0,5,,10,,1,10004,1002,,,0,,1
+1010011,Iron Gloves,10级手套,5,Iron Gloves,1,,1,ic_panda_glove,1,0,0,0,0,5,,10,,1,10004,1002,,,0,,1
+1010012,Steel Sword,10级剑,5,Steel Sword,1,,1,MV01_eq_sword_01_dinosaurBone_ic,1,0,0,0,0,5,,10,,1,10004,1002,,,0,,1
+4010001,Level 0 Male Head Gear Scroll,0级男性头部装备蓝图,7,A scroll that records the essentials of crafting level 0 male head gear.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010002,Level 0 Male Chest Equipment Scroll,0级男性胸部装备蓝图,7,A scroll that records the essentials of crafting level 0 male chest equipment.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010003,Level 0 Male Leg Equipment Scroll,0级男性腿部装备蓝图,7,A scroll that records the essentials of the crafting of level 0 male leg gear.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010004,Level 0 Foot Gear Scroll,0级脚部装备蓝图,7,A scroll that records the essentials of crafting level 0 foot equipment.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010005,Level 0 Hand Gear Scroll,0级手部装备蓝图,7,A scroll that records the essentials of crafting level 0 hand equipment.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010006,Level 0 Sword Weapon Scroll,0级剑类武器蓝图,7,A scroll that records the essentials of crafting a level 0 sword-type weapon.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010007,Level 10 Male Head Gear Scroll,10级男性头部装备蓝图,7,A scroll that records the essentials of crafting level 10 male head gear.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010008,Level 10 Male Chest Equipment Scroll,10级男性胸部装备蓝图,7,A scroll that records the essentials of crafting level 10 male chest equipment.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010009,Level 10 Male Leg Equipment Scroll,10级男性腿部装备蓝图,7,A scroll that records the essentials of the crafting of level 10 male leg gear.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010010,Level 10 Foot Gear Scroll,10级脚部装备蓝图,7,A scroll that records the essentials of crafting level 10 foot equipment.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010011,Level 10 Hand Gear Scroll,10级手部装备蓝图,7,A scroll that records the essentials of crafting level 10 hand equipment.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010012,Level 10 Sword Weapon Scroll,10级剑类武器蓝图,7,A scroll that records the essentials of crafting a level 10 sword-type weapon.,4,,1,MV01_ca_blueprint_10_animalSkinClothes,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010901,Level 0 Mysterious Iron Ore,0级神秘矿石,7,The materials necessary to make level 0 equipment.,4,,1,MV01_mt_biology_14_recoveryGem,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4010902,Level 10 Mysterious Iron Ore,10级神秘矿石,7,The materials necessary to make level 10 equipment.,4,,1,MV01_mt_biology_14_recoveryGem,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4020001,Herb Shards,药草碎片,7,Materials for crafting potions.,4,,99,MV01_mt_biology_02_chickenWing,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+4020002,Herb,药草,7,Materials for crafting better potions.,4,,99,MV01_mt_biology_03_chicken,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+3010101,Lv1 Life Potion,1级生命药水,7,Immediately restore xx points of health.,4,,99,MV01_ca_food_01_grilledChickenThigh,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+3010102,Lv2 Life Potion,2级生命药水,7,Immediately restore xx points of health.,4,,99,MV01_ca_food_01_grilledChickenThigh,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+3010201,Lv1 Restoration Potion,1级恢复药,7,Restores xx health every second for xx seconds.,4,,99,MV01_ca_food_05_recoveryMeatball,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1
+3010202,Lv2 Restoration Potion,2级恢复药,7,Restores xx health every second for xx seconds.,4,,99,MV01_ca_food_05_recoveryMeatball,1,0,0,0,0,7,,,,1,10004,1002,,,0,,1

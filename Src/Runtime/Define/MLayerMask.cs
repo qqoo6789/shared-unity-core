@@ -21,7 +21,10 @@ public static class MLayerMask
     public const int DISTANCE_CULL_SMALL = 12;
     public const int DISTANCE_CULL_MIDDLE = 13;
     public const int DISTANCE_CULL_BIG = 14;
-
+    /// <summary>
+    /// 各种效果触发层 主要是客户端的 比如区域声音 移动区域效果等 直接忽略碰撞
+    /// </summary>
+    public const int EFFECT_TRIGGER = 15;
 
     /// <summary>
     /// 场景所有阻挡层mask

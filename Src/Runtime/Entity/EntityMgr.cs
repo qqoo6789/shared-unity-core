@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-public class EntityMgr<TEntity, TFactory> : MonoBehaviour, IEntityMgr where TEntity : EntityBase, new() where TFactory : EntityFactory<TEntity>, new()
+public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TEntity : EntityBase, new() where TFactory : EntityFactory<TEntity>, new()
 {
     /// <summary>
     /// 场景所有实体 包括了主角
@@ -76,7 +76,7 @@ public class EntityMgr<TEntity, TFactory> : MonoBehaviour, IEntityMgr where TEnt
     /// <param name="entityID"></param>
     /// <param name="entityType"></param>
     /// <returns></returns>
-    public virtual TEntity AddEntity(long entityID, GameMessageCore.EntityType entityType)
+    public virtual TEntity AddEntity(long entityID, MelandGame3.EntityType entityType)
     {
         if (EntityDic.ContainsKey(entityID))
         {
@@ -122,8 +122,33 @@ public class EntityMgr<TEntity, TFactory> : MonoBehaviour, IEntityMgr where TEnt
         }
     }
 
-    protected virtual TEntity CreateEntity(long entityID, GameMessageCore.EntityType entityType)
+    /// <summary>
+    /// 移除所有实体
+    /// </summary>
+    public virtual void RemoveAllEntity()
+    {
+        foreach (KeyValuePair<long, TEntity> item in EntityDic)
+        {
+            try
+            {
+                item.Value.Dispose();
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Entity {item.Value.BaseData.Id} RemoveAllEntity dispose failed,error={e}");
+            }
+        }
+        EntityDic.Clear();
+        EntityRootDic.Clear();
+    }
+
+    protected virtual TEntity CreateEntity(long entityID, MelandGame3.EntityType entityType)
     {
         return Factory.CreateSceneEntity(entityID, entityType);
+    }
+
+    public override void UnloadSceneBefore()
+    {
+        RemoveAllEntity();
     }
 }
