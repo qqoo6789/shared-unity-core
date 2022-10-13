@@ -58,7 +58,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
         }
 
         //前面设置好速度 这里开始移动
-        _characterMovement.Move();
+        _ = _characterMovement.Move();
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
         velocity += Physics.gravity * Time.deltaTime;
 
         //加上摩擦力
-        velocity -= velocity * AIR_FRICTION * Time.deltaTime;
+        velocity -= AIR_FRICTION * Time.deltaTime * velocity;
 
         _characterMovement.velocity = velocity;
     }
