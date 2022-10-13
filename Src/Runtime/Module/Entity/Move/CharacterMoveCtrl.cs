@@ -1,4 +1,4 @@
-using EasyCharacterMovement;
+using CMF;
 using UnityEngine;
 
 /// <summary>
@@ -8,9 +8,10 @@ public class CharacterMoveCtrl : EntityBaseComponent
 {
     private const float AIR_FRICTION = 0f;//空中下落摩擦力
 
-    private const float AIR_CONTROL = 0f;//空中下落时的水平移动控制系数
+    // private const float AIR_CONTROL = 0f;//空中下落时的水平移动控制系数
 
-    private CharacterMovement _characterMovement;
+    private Mover _mover;
+
     /// <summary>
     /// 当前带方向的移动速度
     /// </summary>
@@ -19,12 +20,14 @@ public class CharacterMoveCtrl : EntityBaseComponent
     /// <summary>
     /// 在地面上 不是浮空状态
     /// </summary>
-    public bool IsGrounded => _characterMovement != null && _characterMovement.isGrounded;
+    public bool IsGrounded => _mover != null && _mover.IsGrounded();
+    private Vector3 _lastVelocity = Vector3.zero;
+
     private bool _isAddColliderLoadEvent;
 
     private void Start()
     {
-        if (!TryGetComponent(out _characterMovement))
+        if (!TryGetComponent(out _mover))
         {
             //直接拿不到就要等待加载完成事件
             _isAddColliderLoadEvent = true;
@@ -43,12 +46,16 @@ public class CharacterMoveCtrl : EntityBaseComponent
 
     private void FixedUpdate()
     {
-        if (_characterMovement == null)
+        if (_mover == null)
         {
             return;
         }
 
-        if (_characterMovement.isGrounded)
+        _mover.CheckForGround();
+
+        // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
+
+        if (_mover.IsGrounded())
         {
             GroundedMovement();
         }
@@ -57,8 +64,9 @@ public class CharacterMoveCtrl : EntityBaseComponent
             SkyMovement();
         }
 
-        //前面设置好速度 这里开始移动
-        _ = _characterMovement.Move();
+        _mover.SetExtendSensorRange(_mover.IsGrounded());
+        // 给移动器正式应用速度
+        _mover.SetVelocity(_lastVelocity);
     }
 
     /// <summary>
@@ -66,7 +74,12 @@ public class CharacterMoveCtrl : EntityBaseComponent
     /// </summary>
     private void GroundedMovement()
     {
-        _characterMovement.velocity = MoveSpeed;
+        _lastVelocity = MoveSpeed;
+
+        if (_lastVelocity.y <= 0f)
+        {
+            _lastVelocity.y = 0f;
+        }
     }
 
     /// <summary>
@@ -74,14 +87,15 @@ public class CharacterMoveCtrl : EntityBaseComponent
     /// </summary>
     private void SkyMovement()
     {
-        Vector3 velocity = _characterMovement.velocity;
+        Vector3 velocity = _lastVelocity;
 
-        //有外部移动 水平上根据系数调整速度
-        if (MoveSpeed != Vector3.zero)
-        {
-            Vector3 horizontalVelocity = Vector3.MoveTowards(velocity.onlyXZ(), MoveSpeed.onlyXZ(), AIR_CONTROL * Time.deltaTime);
-            velocity = horizontalVelocity + velocity.onlyY();
-        }
+        //这里在ECM2插件下是好的  在现在的CMF插件下会导致角色浮空容易瞬移到无穷远的地方 原因未知  功能现在不需要 先不搞
+        // //有外部移动 水平上根据系数调整速度
+        // if (MoveSpeed != Vector3.zero)
+        // {
+        //     Vector3 horizontalVelocity = Vector3.MoveTowards(velocity.OnlyXZ(), MoveSpeed.OnlyXZ(), AIR_CONTROL * Time.deltaTime);
+        //     velocity = horizontalVelocity + velocity.OnlyY();
+        // }
 
         //加重力
         velocity += Physics.gravity * Time.deltaTime;
@@ -89,7 +103,13 @@ public class CharacterMoveCtrl : EntityBaseComponent
         //加上摩擦力
         velocity -= AIR_FRICTION * Time.deltaTime * velocity;
 
-        _characterMovement.velocity = velocity;
+        _lastVelocity = velocity;
+    }
+
+    //Returns true if angle between controller and ground normal is too big (> slope limit), i.e. ground is too steep;
+    private bool IsGroundTooSteep()
+    {
+        return !_mover.IsGrounded() || Vector3.Angle(_mover.GetGroundNormal(), Vector3.up) > MoveDefine.MOVE_SLOPE_LIMIT;
     }
 
     /// <summary>
@@ -111,6 +131,6 @@ public class CharacterMoveCtrl : EntityBaseComponent
 
     private void OnColliderLoadFinish(GameObject go)
     {
-        _characterMovement = go.GetComponent<CharacterMovement>();
+        _mover = go.GetComponent<Mover>();
     }
 }

@@ -5,7 +5,7 @@
  * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityCollisionCore.cs
  * 
  */
-using EasyCharacterMovement;
+using CMF;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -62,7 +62,7 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         }
 
         //因为现在移动主要都是依赖角色控制器 但是角色控制器控制的移动只能是控制器所在对象 所以只能将预制件中的碰撞器参数复制到实体根上来移动 这是暂时折中办法
-        if (!prefab.TryGetComponent(out CharacterMovement prefabCharacterMovement))
+        if (!prefab.TryGetComponent(out Mover prefabMover))
         {
             Log.Error($"not find CharacterMovement of collider prefab name:{RefEntity.BaseData.Id}");
             return;
@@ -72,13 +72,15 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         _ = RefEntity.AddComponent<Rigidbody>();
         CapsuleCollider collider = RefEntity.AddComponent<CapsuleCollider>();
 
-        CharacterMovement characterMovement = RefEntity.AddComponent<CharacterMovement>();
-        characterMovement.radius = prefabCharacterMovement.radius;
-        characterMovement.height = prefabCharacterMovement.height;
+        Mover mover = RefEntity.AddComponent<Mover>();
+        mover.SetColliderHeight(prefabMover.ColliderHeight);
+        mover.SetColliderThickness(prefabMover.ColliderThickness);
+        mover.SetColliderOffset(prefabMover.ColliderOffset);
+        mover.SetStepHeightRatio(MoveDefine.MOVE_STEP_HEIGHT_RATIO);
         // characterMovement.center = prefabCharacterMovement.center;
-        characterMovement.slopeLimit = MoveDefine.MOVE_SLOPE_LIMIT;
-        characterMovement.stepOffset = MoveDefine.MOVE_STEP_HEIGHT;
-        characterMovement.collisionLayers = MLayerMask.MASK_SCENE_OBSTRUCTION;
+        // characterMovement.slopeLimit = MoveDefine.MOVE_SLOPE_LIMIT;
+        // characterMovement.stepOffset = MoveDefine.MOVE_STEP_HEIGHT;
+        // characterMovement.collisionLayers = MLayerMask.MASK_SCENE_OBSTRUCTION;
         // characterMovement.skinWidth = MoveDefine.MOVE_SKIN_WIDTH;
         RefEntity.EntityRoot.layer = prefab.layer;//暂时直接直接赋值成碰撞盒的层
 

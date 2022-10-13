@@ -16,6 +16,10 @@ public static class MoveDefine
     /// </summary>
     public const float MOVE_STEP_HEIGHT = 0.3f;
     /// <summary>
+    /// 能移动的布高占身高比例
+    /// </summary>
+    public const float MOVE_STEP_HEIGHT_RATIO = 0.15f;
+    /// <summary>
     /// 最大爬坡度数
     /// </summary>
     public const float MOVE_SLOPE_LIMIT = 45f;

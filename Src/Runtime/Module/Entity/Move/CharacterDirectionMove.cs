@@ -3,7 +3,6 @@ using UnityEngine;
 /// <summary>
 /// 依靠CharacterController控制角色直线运动
 /// </summary>
-[RequireComponent(typeof(CharacterMoveCtrl))]
 public sealed class CharacterDirectionMove : DirectionMove
 {
     private CharacterMoveCtrl _controller;

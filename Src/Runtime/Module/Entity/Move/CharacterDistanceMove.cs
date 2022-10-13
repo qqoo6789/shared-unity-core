@@ -3,7 +3,6 @@ using UnityEngine;
 /// <summary>
 /// 使用角色控制器的距离移动
 /// </summary>
-[RequireComponent(typeof(CharacterMoveCtrl))]
 public sealed class CharacterDistanceMove : DistanceMove
 {
     private CharacterMoveCtrl _controller;
