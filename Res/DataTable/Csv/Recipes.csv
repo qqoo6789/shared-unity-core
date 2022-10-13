@@ -1,45 +1,45 @@
-图鉴ID,图鉴归属技能,图鉴ICON,图鉴名字,图鉴备注,图鉴分类(客户端用),图鉴等级,排序优先,图鉴展示类型,解锁类型,解锁条件1,合成物,合成途径描述,合成素材,使用Ditamin数量,使用MELD数量,客户端分类等级
-id,craftSkill,icon,name,desc,type,level,recipesSort,displayType,unlockType,unlockCondition,productId,sourceText,matItemId,useDitamin,useMELD,classifyLevel
-int,int,string,string,string,int,int,int,int,int,int,int[][],int,int[][],int,int,int
-10100001,1001,icon_hechengfu_wuqi_0,Lv0 Weapon crafting energy,Used to craft level 0 weapons,1,0,10001,1,3,0,"60000001,1,1,10000",1,,0,1,
-10100002,1001,icon_hechengfu_wuqi_1,Lv10 Weapon crafting energy,Used to craft level 10 weapons,1,10,10001,1,3,10,"60000002,1,1,10000",1,,0,2,
-10100003,1001,icon_hechengfu_wuqi_2,Lv20 Weapon crafting energy,Used to craft level 20 weapons,1,20,10001,1,3,20,"60000003,1,1,10000",1,,0,4,
-10100004,1001,icon_hechengfu_wuqi_3,Lv30 Weapon crafting energy,Used to craft level 30 weapons,1,30,10001,1,3,30,"60000004,1,1,10000",1,,0,8,
-10100005,1001,icon_hechengfu_wuqi_4,Lv40 Weapon crafting energy,Used to craft level 40 weapons,1,40,10001,1,3,40,"60000005,1,1,10000",1,,0,16,
-10100006,1001,icon_hechengfu_wuqi_5,Lv50 Weapon crafting energy,Used to craft level 50 weapons,1,50,10001,1,3,50,"60000006,1,1,10000",1,,0,32,
-10100007,1001,icon_hechengfu_wuqi_6,Lv60 Weapon crafting energy,Used to craft level 60 weapons,1,60,10001,1,3,60,"60000007,1,1,10000",1,,0,64,
-10100008,1001,icon_hechengfu_wuqi_7,Lv70 Weapon crafting energy,Used to craft level 70 weapons,1,70,10001,1,3,70,"60000008,1,1,10000",1,,0,128,
-10100009,1001,icon_hechengfu_wuqi_8,Lv80 Weapon crafting energy,Used to craft level 80 weapons,1,80,10001,1,3,80,"60000009,1,1,10000",1,,0,256,
-10100010,1001,icon_hechengfu_wuqi_9,Lv90 Weapon crafting energy,Used to craft level 90 weapons,1,90,10001,1,3,90,"60000010,1,1,10000",1,,0,512,
-10100011,1002,icon_hechengfu_fangju_0,Lv0 Equipment crafting energy,Used to craft level 0 equipment,1,0,10001,1,3,0,"60000011,1,1,10000",1,,0,1,
-10100012,1002,icon_hechengfu_fangju_1,Lv10 Equipment crafting energy,Used to craft level 10 equipment,1,10,10001,1,3,10,"60000012,1,1,10000",1,,0,2,
-10100013,1002,icon_hechengfu_fangju_2,Lv20 Equipment crafting energy,Used to craft level 20 equipment,1,20,10001,1,3,20,"60000013,1,1,10000",1,,0,4,
-10100014,1002,icon_hechengfu_fangju_3,Lv30 Equipment crafting energy,Used to craft level 30 equipment,1,30,10001,1,3,30,"60000014,1,1,10000",1,,0,8,
-10100015,1002,icon_hechengfu_fangju_4,Lv40 Equipment crafting energy,Used to craft level 40 equipment,1,40,10001,1,3,40,"60000015,1,1,10000",1,,0,16,
-10100016,1002,icon_hechengfu_fangju_5,Lv50 Equipment crafting energy,Used to craft level 50 equipment,1,50,10001,1,3,50,"60000016,1,1,10000",1,,0,32,
-10100017,1002,icon_hechengfu_fangju_6,Lv60 Equipment crafting energy,Used to craft level 60 equipment,1,60,10001,1,3,60,"60000017,1,1,10000",1,,0,64,
-10100018,1002,icon_hechengfu_fangju_7,Lv70 Equipment crafting energy,Used to craft level 70 equipment,1,70,10001,1,3,70,"60000018,1,1,10000",1,,0,128,
-10100019,1002,icon_hechengfu_fangju_8,Lv80 Equipment crafting energy,Used to craft level 80 equipment,1,80,10001,1,3,80,"60000019,1,1,10000",1,,0,256,
-10100020,1002,icon_hechengfu_fangju_9,Lv90 Equipment crafting energy,Used to craft level 90 equipment,1,90,10001,1,3,90,"60000020,1,1,10000",1,,0,512,
-10200001,1003,random_produce,Recipe: Lv0 Potion Crafting,Can craft level 1 restorative potions.,2,1,10001,2,3,0,"3010101,1,1,4000;3010201,1,1,6000",1,"4020001,4",0,1,
-10200002,1003,random_produce,Recipe: Lv10 Potion Crafting,Can craft level 2 restorative potions and level 1 buff potions.,2,2,10002,2,3,10,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,2,
-10200003,1003,random_produce,Recipe: Lv20 Potion Crafting,Can craft level 3 restorative potions and level 2 buff potions.,2,3,10003,2,3,20,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,3,
-10200004,1003,random_produce,Recipe: Lv30 Potion Crafting,Can craft level 4 restorative potions and level 3 buff potions.,2,4,10004,2,3,30,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,4,
-10200005,1003,random_produce,Recipe: Lv40 Potion Crafting,Can craft level 5 restorative potions and level 4 buff potions.,2,5,10005,2,3,40,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,5,
-10200006,1003,random_produce,Recipe: Lv50 Potion Crafting,Can craft level 6 restorative potions and level 5 buff potions.,2,6,10006,2,3,50,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,6,
-10200007,1003,random_produce,Recipe: Lv60 Potion Crafting,Can craft level 7 restorative potions and level 6 buff potions.,2,7,10007,2,3,60,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,7,
-10200008,1003,random_produce,Recipe: Lv70 Potion Crafting,Can craft level 8 restorative potions and level 7 buff potions.,2,8,10008,2,3,70,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,8,
-10200009,1003,random_produce,Recipe: Lv80 Potion Crafting,Can craft level 9 restorative potions and level 8 buff potions.,2,9,10009,2,3,80,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,9,
-10200010,1003,random_produce,Recipe: Lv90 Potion Crafting,Can craft level 9 restorative potions and level 9 buff potions.,2,10,10010,2,3,90,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,10,
-10301001,1002,lv0_boy_hair,Recipe: Tactical Headband,Level 0 male headgear,3,0,30001,2,1,1,"1010001,1,1,8000;1010001,2,1,2000",1,"4010001,1;4010901,1;60000011,1",0,2,0
-10301002,1002,lv0_boy_coat,Recipe: Sackcloth Shirt,Level 0 male chest gear,3,0,30002,2,1,1,"1010002,1,1,8000;1010002,2,1,2000",1,"4010002,1;4010901,1;60000011,1",0,2,0
-10301003,1002,lv0_boy_pants,Recipe: Jeans,Level 0 male leg gear,3,0,30003,2,1,1,"1010003,1,1,8000;1010003,2,1,2000",1,"4010003,1;4010901,1;60000011,1",0,2,0
-10301004,1002,lv0_shoes,Recipe: Sneakers,Level 0 Footwear,3,0,30004,2,1,1,"1010004,1,1,8000;1010004,2,1,2000",1,"4010004,1;4010901,1;60000011,1",0,2,0
-10301005,1002,lv0_gloves,Recipe: Leather Gloves,Level 0 hand gear,3,0,30005,2,1,1,"1010005,1,1,8000;1010005,2,1,2000",1,"4010005,1;4010901,1;60000011,1",0,2,0
-10301006,1001,lv0_sword,Recipe: Iron Sword,Level 0 sword weapons,3,0,30006,2,1,1,"1010006,1,1,8000;1010006,2,1,2000",1,"4010006,1;4010901,1;60000001,1",0,2,0
-10301007,1002,lv10_boy_hair,Recipe: Iron Helmet,Level 10 male headgear,3,10,30007,2,1,1,"1010007,1,1,8000;1010007,2,1,2000",1,"4010007,1;4010902,1;60000012,1",0,5,10
-10301008,1002,lv10_boy_coat,Recipe: Iron Chestplate,Level 10 male chest gear,3,10,30008,2,1,1,"1010008,1,1,8000;1010008,2,1,2000",1,"4010008,1;4010902,1;60000012,1",0,5,10
-10302001,1002,lv10_boy_pants,Recipe: Military Pants,Level 10 male leg gear,3,10,30009,2,1,1,"1010009,1,1,8000;1010009,2,1,2000",1,"4010009,1;4010902,1;60000012,1",0,5,10
-10302002,1002,lv10_shoes,Recipe: Suede Boots,Level 10 Footwear,3,10,30010,2,1,1,"1010010,1,1,8000;1010010,2,1,2000",1,"4010010,1;4010902,1;60000012,1",0,5,10
-10302003,1002,lv10_gloves,Recipe: Iron Gloves,Level 10 hand gear,3,10,30011,2,1,1,"1010011,1,1,8000;1010011,2,1,2000",1,"4010011,1;4010902,1;60000012,1",0,5,10
-10302004,1001,lv10_sword,Recipe: Steel Sword,Level 10 sword weapons,3,10,30012,2,1,1,"1010012,1,1,8000;1010012,2,1,2000",1,"4010012,1;4010902,1;60000002,1",0,5,10
+图鉴ID,图鉴归属技能,图鉴ICON,图鉴名字,图鉴备注,图鉴分类(客户端用),图鉴等级,排序优先,图鉴展示类型,解锁类型,解锁条件1,合成物,合成途径描述,合成素材,使用Ditamin数量,使用MELD数量,客户端分类等级,合成熟练度
+id,craftSkill,icon,name,desc,type,level,recipesSort,displayType,unlockType,unlockCondition,productId,sourceText,matItemId,useDitamin,useMELD,classifyLevel,proficiency
+int,int,string,string,string,int,int,int,int,int,int,int[][],int,int[][],int,int,int,int
+10100001,1001,icon_hechengfu_wuqi_0,Lv0 Weapon crafting energy,Used to craft level 0 weapons,1,0,10001,1,3,0,"60000001,1,1,10000",1,,0,1,,1
+10100002,1001,icon_hechengfu_wuqi_1,Lv10 Weapon crafting energy,Used to craft level 10 weapons,1,10,10001,1,3,10,"60000002,1,1,10000",1,,0,2,,2
+10100003,1001,icon_hechengfu_wuqi_2,Lv20 Weapon crafting energy,Used to craft level 20 weapons,1,20,10001,1,3,20,"60000003,1,1,10000",1,,0,4,,3
+10100004,1001,icon_hechengfu_wuqi_3,Lv30 Weapon crafting energy,Used to craft level 30 weapons,1,30,10001,1,3,30,"60000004,1,1,10000",1,,0,8,,4
+10100005,1001,icon_hechengfu_wuqi_4,Lv40 Weapon crafting energy,Used to craft level 40 weapons,1,40,10001,1,3,40,"60000005,1,1,10000",1,,0,16,,6
+10100006,1001,icon_hechengfu_wuqi_5,Lv50 Weapon crafting energy,Used to craft level 50 weapons,1,50,10001,1,3,50,"60000006,1,1,10000",1,,0,32,,8
+10100007,1001,icon_hechengfu_wuqi_6,Lv60 Weapon crafting energy,Used to craft level 60 weapons,1,60,10001,1,3,60,"60000007,1,1,10000",1,,0,64,,10
+10100008,1001,icon_hechengfu_wuqi_7,Lv70 Weapon crafting energy,Used to craft level 70 weapons,1,70,10001,1,3,70,"60000008,1,1,10000",1,,0,128,,15
+10100009,1001,icon_hechengfu_wuqi_8,Lv80 Weapon crafting energy,Used to craft level 80 weapons,1,80,10001,1,3,80,"60000009,1,1,10000",1,,0,256,,20
+10100010,1001,icon_hechengfu_wuqi_9,Lv90 Weapon crafting energy,Used to craft level 90 weapons,1,90,10001,1,3,90,"60000010,1,1,10000",1,,0,512,,25
+10100011,1002,icon_hechengfu_fangju_0,Lv0 Equipment crafting energy,Used to craft level 0 equipment,1,0,10001,1,3,0,"60000011,1,1,10000",1,,0,1,,1
+10100012,1002,icon_hechengfu_fangju_1,Lv10 Equipment crafting energy,Used to craft level 10 equipment,1,10,10001,1,3,10,"60000012,1,1,10000",1,,0,2,,2
+10100013,1002,icon_hechengfu_fangju_2,Lv20 Equipment crafting energy,Used to craft level 20 equipment,1,20,10001,1,3,20,"60000013,1,1,10000",1,,0,4,,3
+10100014,1002,icon_hechengfu_fangju_3,Lv30 Equipment crafting energy,Used to craft level 30 equipment,1,30,10001,1,3,30,"60000014,1,1,10000",1,,0,8,,4
+10100015,1002,icon_hechengfu_fangju_4,Lv40 Equipment crafting energy,Used to craft level 40 equipment,1,40,10001,1,3,40,"60000015,1,1,10000",1,,0,16,,6
+10100016,1002,icon_hechengfu_fangju_5,Lv50 Equipment crafting energy,Used to craft level 50 equipment,1,50,10001,1,3,50,"60000016,1,1,10000",1,,0,32,,8
+10100017,1002,icon_hechengfu_fangju_6,Lv60 Equipment crafting energy,Used to craft level 60 equipment,1,60,10001,1,3,60,"60000017,1,1,10000",1,,0,64,,10
+10100018,1002,icon_hechengfu_fangju_7,Lv70 Equipment crafting energy,Used to craft level 70 equipment,1,70,10001,1,3,70,"60000018,1,1,10000",1,,0,128,,15
+10100019,1002,icon_hechengfu_fangju_8,Lv80 Equipment crafting energy,Used to craft level 80 equipment,1,80,10001,1,3,80,"60000019,1,1,10000",1,,0,256,,20
+10100020,1002,icon_hechengfu_fangju_9,Lv90 Equipment crafting energy,Used to craft level 90 equipment,1,90,10001,1,3,90,"60000020,1,1,10000",1,,0,512,,25
+10200001,1003,random_produce,Recipe: Lv0 Potion Crafting,Can craft level 1 restorative potions.,2,1,10001,2,3,0,"3010101,1,1,4000;3010201,1,1,6000",1,"4020001,4",0,1,,1
+10200002,1003,random_produce,Recipe: Lv10 Potion Crafting,Can craft level 2 restorative potions and level 1 buff potions.,2,2,10002,2,3,10,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,2,,2
+10200003,1003,random_produce,Recipe: Lv20 Potion Crafting,Can craft level 3 restorative potions and level 2 buff potions.,2,3,10003,2,3,20,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,3,,3
+10200004,1003,random_produce,Recipe: Lv30 Potion Crafting,Can craft level 4 restorative potions and level 3 buff potions.,2,4,10004,2,3,30,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,4,,4
+10200005,1003,random_produce,Recipe: Lv40 Potion Crafting,Can craft level 5 restorative potions and level 4 buff potions.,2,5,10005,2,3,40,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,5,,6
+10200006,1003,random_produce,Recipe: Lv50 Potion Crafting,Can craft level 6 restorative potions and level 5 buff potions.,2,6,10006,2,3,50,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,6,,8
+10200007,1003,random_produce,Recipe: Lv60 Potion Crafting,Can craft level 7 restorative potions and level 6 buff potions.,2,7,10007,2,3,60,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,7,,10
+10200008,1003,random_produce,Recipe: Lv70 Potion Crafting,Can craft level 8 restorative potions and level 7 buff potions.,2,8,10008,2,3,70,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,8,,15
+10200009,1003,random_produce,Recipe: Lv80 Potion Crafting,Can craft level 9 restorative potions and level 8 buff potions.,2,9,10009,2,3,80,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,9,,20
+10200010,1003,random_produce,Recipe: Lv90 Potion Crafting,Can craft level 9 restorative potions and level 9 buff potions.,2,10,10010,2,3,90,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,10,,25
+10301001,1002,lv0_boy_hair,Recipe: Tactical Headband,Level 0 male headgear,3,0,30001,2,1,1,"1010001,1,1,8000;1010001,2,1,2000",1,"4010001,1;4010901,1;60000011,1",0,2,0,
+10301002,1002,lv0_boy_coat,Recipe: Sackcloth Shirt,Level 0 male chest gear,3,0,30002,2,1,1,"1010002,1,1,8000;1010002,2,1,2000",1,"4010002,1;4010901,1;60000011,1",0,2,0,
+10301003,1002,lv0_boy_pants,Recipe: Jeans,Level 0 male leg gear,3,0,30003,2,1,1,"1010003,1,1,8000;1010003,2,1,2000",1,"4010003,1;4010901,1;60000011,1",0,2,0,
+10301004,1002,lv0_shoes,Recipe: Sneakers,Level 0 Footwear,3,0,30004,2,1,1,"1010004,1,1,8000;1010004,2,1,2000",1,"4010004,1;4010901,1;60000011,1",0,2,0,
+10301005,1002,lv0_gloves,Recipe: Leather Gloves,Level 0 hand gear,3,0,30005,2,1,1,"1010005,1,1,8000;1010005,2,1,2000",1,"4010005,1;4010901,1;60000011,1",0,2,0,
+10301006,1001,lv0_sword,Recipe: Iron Sword,Level 0 sword weapons,3,0,30006,2,1,1,"1010006,1,1,8000;1010006,2,1,2000",1,"4010006,1;4010901,1;60000001,1",0,2,0,
+10301007,1002,lv10_boy_hair,Recipe: Iron Helmet,Level 10 male headgear,3,10,30007,2,1,1,"1010007,1,1,8000;1010007,2,1,2000",1,"4010007,1;4010902,1;60000012,1",0,5,10,
+10301008,1002,lv10_boy_coat,Recipe: Iron Chestplate,Level 10 male chest gear,3,10,30008,2,1,1,"1010008,1,1,8000;1010008,2,1,2000",1,"4010008,1;4010902,1;60000012,1",0,5,10,
+10302001,1002,lv10_boy_pants,Recipe: Military Pants,Level 10 male leg gear,3,10,30009,2,1,1,"1010009,1,1,8000;1010009,2,1,2000",1,"4010009,1;4010902,1;60000012,1",0,5,10,
+10302002,1002,lv10_shoes,Recipe: Suede Boots,Level 10 Footwear,3,10,30010,2,1,1,"1010010,1,1,8000;1010010,2,1,2000",1,"4010010,1;4010902,1;60000012,1",0,5,10,
+10302003,1002,lv10_gloves,Recipe: Iron Gloves,Level 10 hand gear,3,10,30011,2,1,1,"1010011,1,1,8000;1010011,2,1,2000",1,"4010011,1;4010902,1;60000012,1",0,5,10,
+10302004,1001,lv10_sword,Recipe: Steel Sword,Level 10 sword weapons,3,10,30012,2,1,1,"1010012,1,1,8000;1010012,2,1,2000",1,"4010012,1;4010902,1;60000002,1",0,5,10,

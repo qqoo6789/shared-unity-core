@@ -167,6 +167,15 @@ public class DRRecipes : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取合成熟练度。*/
+    /// </summary>
+    public int Proficiency
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -189,6 +198,7 @@ public class DRRecipes : DataRowBase
         UseDitamin = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UseMELD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ClassifyLevel = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Proficiency = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -217,6 +227,7 @@ public class DRRecipes : DataRowBase
                 UseDitamin = binaryReader.Read7BitEncodedInt32();
                 UseMELD = binaryReader.Read7BitEncodedInt32();
                 ClassifyLevel = binaryReader.Read7BitEncodedInt32();
+                Proficiency = binaryReader.Read7BitEncodedInt32();
             }
         }
 
