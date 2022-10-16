@@ -1,0 +1,4 @@
+id,名字,Npc的描述,Npc的Icon1,RoleAssetID,移动速度
+id,name,desc,icon,roleAssetID,moveSpeed
+int,string,string,string,int,Int
+9900001,Boar,Meland Boar,icon_monster_15,20001,200
