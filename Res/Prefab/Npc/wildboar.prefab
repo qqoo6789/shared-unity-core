@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3301464197680026626}
   - component: {fileID: 1888054661347211111}
-  m_Layer: 10
+  m_Layer: 16
   m_Name: wildboar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

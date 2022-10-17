@@ -26,7 +26,7 @@ public static class MLayerMask
     /// </summary>
     public const int EFFECT_TRIGGER = 15;
 
-    public const int NPC = 16;
+    public const int PUBLIC_TRIGGER = 16;
 
     /// <summary>
     /// 默认的相机自动避开的遮挡层
