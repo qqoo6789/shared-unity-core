@@ -36,7 +36,7 @@ public abstract class SkillShapeBase : IReference
         {
             foreach (Collider collider in allColliders)
             {
-                if (SkillUtil.CheckP2P(Anchor, collider.transform.position, blockLayer))
+                if (SkillUtil.CheckP2P(Anchor, collider.bounds.center, blockLayer))
                 {
                     hitColliderList.Add(collider);
                 }

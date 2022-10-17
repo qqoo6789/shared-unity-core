@@ -51,7 +51,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升级所需等级。*/
+  /**获取升到当前所需等级。*/
     /// </summary>
     public int RoleLevel
     {
@@ -60,7 +60,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升级所需熟练度。*/
+  /**获取升到当前所需熟练度。*/
     /// </summary>
     public int SkillExp
     {
@@ -69,7 +69,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升级花费MELD。*/
+  /**获取升到当前花费MELD。*/
     /// </summary>
     public int UseMELD
     {
@@ -78,7 +78,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升级花费EXP。*/
+  /**获取升到当前花费EXP。*/
     /// </summary>
     public int UseExp
     {

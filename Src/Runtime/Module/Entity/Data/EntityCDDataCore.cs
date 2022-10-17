@@ -22,7 +22,7 @@ public class EntityCDDataCore : EntityBaseComponent
     /// <summary>
     /// 初始化实体CD
     /// </summary>
-    public void InitSvrEntityCD(MelandGame3.EntityCD entityCD)
+    public void InitSvrEntityCD(GameMessageCore.EntityCD entityCD)
     {
         foreach (KeyValuePair<eEntityCDType, EntityCDBase> item in EntityCDMap)
         {
@@ -32,9 +32,9 @@ public class EntityCDDataCore : EntityBaseComponent
     /// <summary>
     /// 转换成协议EntityCD格式
     /// </summary>
-    public MelandGame3.EntityCD ToSvrEntityCD()
+    public GameMessageCore.EntityCD ToSvrEntityCD()
     {
-        MelandGame3.EntityCD entityCD = new();
+        GameMessageCore.EntityCD entityCD = new();
         foreach (KeyValuePair<eEntityCDType, EntityCDBase> item in EntityCDMap)
         {
             _ = item.Value.ToSvrEntityCD(entityCD);

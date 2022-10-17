@@ -3,7 +3,7 @@
 /// </summary>
 public class EntityFactory<TEntity> where TEntity : EntityBase, new()
 {
-    public TEntity CreateSceneEntity(long id, MelandGame3.EntityType type)
+    public TEntity CreateSceneEntity(long id, GameMessageCore.EntityType type)
     {
         TEntity entity = new();
         entity.InitBaseInfo(id, type);

@@ -19,7 +19,7 @@ public class DRDrop : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取配方 ID。*/
+    /// /**获取drop ID。*/
     /// </summary>
     public override int Id => _id;
 

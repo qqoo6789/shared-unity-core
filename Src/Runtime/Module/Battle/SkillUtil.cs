@@ -43,16 +43,16 @@ public static partial class SkillUtil
         return result;
     }
 
-    public static int GetEntityTargetLayer(MelandGame3.EntityType type)
+    public static int GetEntityTargetLayer(GameMessageCore.EntityType type)
     {
         int targetLayer;
         switch (type)
         {
-            case MelandGame3.EntityType.MainPlayer:
-            case MelandGame3.EntityType.EntityTypePlayer:
+            case GameMessageCore.EntityType.MainPlayer:
+            case GameMessageCore.EntityType.Player:
                 targetLayer = 1 << MLayerMask.MONSTER;
                 break;
-            case MelandGame3.EntityType.EntityTypeMonster:
+            case GameMessageCore.EntityType.Monster:
                 targetLayer = 1 << MLayerMask.PLAYER;
                 break;
             default:
@@ -142,9 +142,9 @@ public static partial class SkillUtil
     /// <param name="fromEntity">释放实体</param>
     /// <param name="targetEntity">目标实体</param>
     /// <returns></returns>
-    public static List<MelandGame3.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
     {
-        List<MelandGame3.DamageEffect> effects = new();
+        List<GameMessageCore.DamageEffect> effects = new();
         if (effectList == null || effectList.Length <= 0)
         {
             return effects;
@@ -158,12 +158,12 @@ public static partial class SkillUtil
                 SkillEffectBase skillEffect = skillEffects[i];
                 if (skillEffect.CheckApplyEffect(fromEntity, targetEntity))
                 {
-                    MelandGame3.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir);
+                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir);
                     if (effectData == null)
                     {
                         continue;
                     }
-                    effectData.EffectType = (MelandGame3.DamageEffectId)skillEffect.EffectCfg.Id;
+                    effectData.EffectType = (GameMessageCore.DamageEffectId)skillEffect.EffectCfg.Id;
                     skillEffect.SetEffectData(effectData);
                     effects.Add(effectData);
                     effectCpt.ApplyOneEffect(skillEffect);//注意顺序，Effects如果是瞬间的，应用后会立即被清除

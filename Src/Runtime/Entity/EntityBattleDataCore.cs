@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -23,6 +23,11 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     /// <value></value>
     public int HPMAX { get; protected set; }
+    /// <summary>
+    /// 血量回复
+    /// </summary>
+    /// <value></value>
+    public int HPRecovery { get; protected set; }
     /// <summary>
     /// 攻击力
     /// </summary>
@@ -52,13 +57,17 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     public int MissRate;
     /// <summary>
+    /// 移动速度
+    /// </summary>
+    public float MoveSpeed;
+    /// <summary>
     /// 等级
     /// </summary>
     public int Level;
     /// <summary>
     /// 经验
     /// </summary>
-    public int Exp;
+    public long Exp;
     /// <summary>
     /// 是否在战斗状态中
     /// </summary>
