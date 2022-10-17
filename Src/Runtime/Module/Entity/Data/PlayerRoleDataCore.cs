@@ -3,8 +3,8 @@
  * @Date 2022-08-09 09:51:55
  * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/PlayerRoleDataCore.cs
  */
-using MelandGame3;
-using UnityEngine;
+using System.Collections.Generic;
+using GameMessageCore;
 using UnityGameFramework.Runtime;
 
 /// <summary>
@@ -36,6 +36,11 @@ public class PlayerRoleDataCore : EntityBaseComponent
     /// <value></value>
     public PlayerFeature RoleFeature { get; protected set; }
 
+    /// <summary>
+    /// 角色穿着数据
+    /// </summary>
+    /// <value></value>
+    public List<PlayerAvatar> WearList { get; protected set; } = new();
 
     public void SetGender(string gender)
     {
@@ -55,5 +60,14 @@ public class PlayerRoleDataCore : EntityBaseComponent
     public void SetRoleFeature(PlayerFeature feature)
     {
         RoleFeature = feature;
+    }
+
+    public void SetRoleAvatars(IEnumerable<PlayerAvatar> avatars)
+    {
+        WearList.Clear();
+        foreach (PlayerAvatar avatar in avatars)
+        {
+            WearList.Add(avatar);
+        }
     }
 }

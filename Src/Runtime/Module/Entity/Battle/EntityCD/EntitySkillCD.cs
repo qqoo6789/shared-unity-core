@@ -10,7 +10,7 @@
 using System;
 using System.Collections.Generic;
 using GameFramework;
-using MelandGame3;
+using GameMessageCore;
 
 public class EntitySkillCD : EntityCDBase
 {
@@ -18,7 +18,7 @@ public class EntitySkillCD : EntityCDBase
     /// 根据协议消息初始化CD
     /// </summary>
     /// <param name="entityCD">协议数据</param>
-    public override void InitSvrEntityCD(MelandGame3.EntityCD entityCD)
+    public override void InitSvrEntityCD(GameMessageCore.EntityCD entityCD)
     {
         CDMap.Clear();
         long curTimeStamp = TimeUtil.GetTimeStamp();
@@ -38,11 +38,11 @@ public class EntitySkillCD : EntityCDBase
     /// 返回协议数据
     /// </summary>
     /// <param name="entityCD">协议数据</param>
-    public override MelandGame3.EntityCD ToSvrEntityCD(MelandGame3.EntityCD entityCD)
+    public override GameMessageCore.EntityCD ToSvrEntityCD(GameMessageCore.EntityCD entityCD)
     {
         foreach (KeyValuePair<int, long> item in CDMap)
         {
-            MelandGame3.EntitySkillCD skillCD = new()
+            GameMessageCore.EntitySkillCD skillCD = new()
             {
                 SkillId = item.Key,
                 Time = item.Value

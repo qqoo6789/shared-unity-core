@@ -43,7 +43,7 @@ public class SEPathMoveCore : SkillEffectBase
         }
     }
 
-    public override MelandGame3.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
+    public override GameMessageCore.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
     {
         if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
         {
@@ -55,7 +55,7 @@ public class SEPathMoveCore : SkillEffectBase
         Vector3 forward = targetEntity.Forward;
         forward.Set(forward.x, 0, forward.z);
         Vector3 targetPos = curPos + (forward.normalized * distance);
-        MelandGame3.DamageEffect effect = new();
+        GameMessageCore.DamageEffect effect = new();
         effect.BeatBackValue = new();
         effect.BeatBackValue.CurLoc = NetUtilCore.LocToNet(curPos);
         effect.BeatBackValue.BackToPos = NetUtilCore.LocToNet(targetPos);

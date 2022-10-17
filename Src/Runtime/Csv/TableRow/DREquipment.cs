@@ -61,18 +61,18 @@ public class DREquipment : DataRowBase
     }
 
     /// <summary>
-  /**获取挂载技能。*/
+  /**获取装备性别。*/
     /// </summary>
-    public int[] GivenSkillId
+    public string Gender
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取备注。*/
+  /**获取挂载技能。*/
     /// </summary>
-    public string Null
+    public int[] GivenSkillId
     {
         get;
         private set;
@@ -215,8 +215,8 @@ public class DREquipment : DataRowBase
         GearDurabilityMax = DataTableParseUtil.ParseInt(columnStrings[index++]);
         KeyIcon = columnStrings[index++];
         GearAvatar = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Gender = columnStrings[index++];
         GivenSkillId = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Null = columnStrings[index++];
         GearAddHp = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         GearAddHpRec = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         GearAddAtt = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
@@ -247,8 +247,8 @@ public class DREquipment : DataRowBase
                 GearDurabilityMax = binaryReader.Read7BitEncodedInt32();
                 KeyIcon = binaryReader.ReadString();
                 GearAvatar = binaryReader.Read7BitEncodedInt32();
+                Gender = binaryReader.ReadString();
                 GivenSkillId = binaryReader.ReadArray<Int32>();
-                Null = binaryReader.ReadString();
                 GearAddHp = binaryReader.ReadArrayList<Int32>();
                 GearAddHpRec = binaryReader.ReadArrayList<Int32>();
                 GearAddAtt = binaryReader.ReadArrayList<Int32>();

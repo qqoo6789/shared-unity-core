@@ -14,7 +14,7 @@ public static class TimeUtil
 
     public static long GetTimeStamp()
     {
-        long currentTicks = DateTime.Now.Ticks;
+        long currentTicks = DateTime.UtcNow.Ticks;
         long curMs = (currentTicks - DateForm.Ticks) / 10000;
         return curMs;
     }

@@ -2,3 +2,6 @@
 	path = Thirdparty/GameFramework
 	url = https://github.com/Meland-Inc/GameFramework
 	branch = meland-main
+[submodule "game-message-core"]
+	path = game-message-core
+	url = https://github.com/Meland-Inc/game-message-core.git
