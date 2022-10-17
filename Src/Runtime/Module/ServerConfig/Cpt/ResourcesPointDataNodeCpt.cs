@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-06-27 14:13:48
  * @Description: 资源点数据组件
- * @FilePath: /meland-unity/Assets/Src/Module/ServerScene/Cpt/ResourcesPointDataNodeCpt.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/ServerConfig/Cpt/ResourcesPointDataNodeCpt.cs
  * 
  */
 using UnityEngine;
@@ -39,6 +39,11 @@ public class ResourcesPointDataNodeCpt : MonoBehaviour, IServerDataNodeCpt
     [SerializeField]
     private float _patrolSpd;
     public float PatrolSpd => _patrolSpd;
+
+    [Tooltip("巡逻路径")]
+    [SerializeField]
+    private string _patrolPath;
+    public string PatrolPath => _patrolPath;
     public object GetServerData()
     {
         ResourcesPointData data = new();
@@ -52,6 +57,7 @@ public class ResourcesPointDataNodeCpt : MonoBehaviour, IServerDataNodeCpt
         data.Radius = _radius;
         data.PatrolRadius = _patrolRadius;
         data.PatrolSpd = _patrolSpd;
+        data.PatrolPath = _patrolPath;
         return data;
     }
 }

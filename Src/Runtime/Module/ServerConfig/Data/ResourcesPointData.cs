@@ -14,4 +14,5 @@ public class ResourcesPointData : DataNodeBase
     public float Radius;
     public float PatrolRadius;
     public float PatrolSpd;
+    public string PatrolPath;
 }
