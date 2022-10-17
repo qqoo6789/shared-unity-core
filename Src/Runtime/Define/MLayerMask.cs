@@ -27,13 +27,13 @@ public static class MLayerMask
     public const int EFFECT_TRIGGER = 15;
 
     /// <summary>
-    /// 场景所有阻挡层mask
-    /// </summary>
-    /// <returns></returns>
-    public const int MASK_SCENE_OBSTRUCTION = (1 << DEFAULT) | (1 << TERRAIN);
-    /// <summary>
     /// 默认的相机自动避开的遮挡层
     /// </summary>
     /// <returns></returns>
     public const int MASK_DEFAULT_CAMERA_OCCLUDE = (1 << DEFAULT) | (1 << TERRAIN) | (1 << DISTANCE_CULL_MIDDLE) | (1 << DISTANCE_CULL_BIG);
+    /// <summary>
+    /// 场景所有阻挡层mask
+    /// </summary>
+    /// <returns></returns>
+    public const int MASK_SCENE_OBSTRUCTION = MASK_DEFAULT_CAMERA_OCCLUDE;
 }

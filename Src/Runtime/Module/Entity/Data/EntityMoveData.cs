@@ -1,4 +1,3 @@
-using UnityEngine;
 
 /// <summary>
 /// 实体移动数据
@@ -14,37 +13,12 @@ public class EntityMoveData : EntityBaseComponent
     /// 着陆的 不是浮空的
     /// </summary>
     /// <value></value>
-    public bool IsGrounded => _characterController != null && _characterController.isGrounded;
+    public bool IsGrounded => _characterController != null && _characterController.IsGrounded;
 
-    private CharacterController _characterController;
-    private bool _addColliderLoadEvent;
+    private CharacterMoveCtrl _characterController;
 
     private void Start()
     {
-        if (!RefEntity.TryGetComponent(out _characterController))
-        {
-            _addColliderLoadEvent = true;
-            RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
-        }
-    }
-
-
-    private void OnDestroy()
-    {
-        if (_addColliderLoadEvent)
-        {
-            RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
-            _addColliderLoadEvent = false;
-        }
-    }
-
-    private void OnColliderLoadFinish(GameObject collisionObject)
-    {
-        if (collisionObject == null)
-        {
-            return;
-        }
-
-        _characterController = collisionObject.GetComponent<CharacterController>();
+        _characterController = RefEntity.GetComponent<CharacterMoveCtrl>();
     }
 }

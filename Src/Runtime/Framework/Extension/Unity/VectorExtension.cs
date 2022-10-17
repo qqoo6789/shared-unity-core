@@ -17,4 +17,28 @@ public static class VectorExtension
     {
         return a.x.ApproximatelyEquals(b.x) && a.y.ApproximatelyEquals(b.y);
     }
+
+    /// <summary>
+    /// 返回一个新的向量，但是只有当前向量的Y分量
+    /// </summary>
+    public static Vector3 OnlyY(this Vector3 vector3)
+    {
+        Vector3 res = vector3;
+        res.x = 0.0f;
+        res.z = 0.0f;
+
+        return vector3;
+    }
+
+
+    /// <summary>
+    /// 返回一个新的向量，但是只有当前向量的XZ分量
+    /// </summary>
+    public static Vector3 OnlyXZ(this Vector3 vector3)
+    {
+        Vector3 res = vector3;
+        res.y = 0.0f;
+
+        return res;
+    }
 }

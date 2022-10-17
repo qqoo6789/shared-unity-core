@@ -5,51 +5,18 @@ using UnityEngine;
 /// </summary>
 public sealed class CharacterDirectionMove : DirectionMove
 {
-    [Header("是否使用重力")]
-    public bool UseGravity = true;
-
-    private CharacterController _controller;
-    private bool _isAddColliderLoadEvent;
-    private AutoGravity _autoGravity;
+    private CharacterMoveCtrl _controller;
 
     protected override void Start()
     {
         base.Start();
 
-        if (!TryGetComponent(out _controller))
-        {
-            //直接拿不到就要等待加载完成事件
-            _isAddColliderLoadEvent = true;
-            RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
-        }
-
-        _ = TryGetComponent(out _autoGravity);
-    }
-
-    private void OnDestroy()
-    {
-        if (_isAddColliderLoadEvent)
-        {
-            _isAddColliderLoadEvent = false;
-            RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
-        }
-    }
-
-    private void OnColliderLoadFinish(GameObject go)
-    {
-        _controller = go.GetComponent<CharacterController>();
+        _controller = GetComponent<CharacterMoveCtrl>();
     }
 
     protected override void ApplyMotion(Vector3 motion)
     {
-        if (UseGravity)
-        {
-            _ = _controller.SimpleMove(motion / Time.deltaTime);
-        }
-        else
-        {
-            _ = _controller.Move(motion);
-        }
+        _controller.SetMoveSpeed(motion / Time.deltaTime);
     }
 
     private void Update()
@@ -59,34 +26,19 @@ public sealed class CharacterDirectionMove : DirectionMove
             return;
         }
 
-        if (!CheckIsMove())
+        //这里主要是预览时需要用这个停止移动 正式代码其实走不到这种情况
+        if (!CheckIsMove() && _controller.MoveSpeed != Vector3.zero)
         {
-            if (UseGravity)
-            {
-                _ = _controller.SimpleMove(Vector3.zero);//没有移动也需要设置为0 否则不会应用重力
-            }
+            _controller.StopMove();
             return;
         }
 
         TickMove(Time.deltaTime);
     }
 
-    public override void StartMove()
-    {
-        base.StartMove();
-
-        if (_autoGravity != null)
-        {
-            _autoGravity.StopGravity();
-        }
-    }
-
     public override void StopMove()
     {
-        if (_autoGravity != null)
-        {
-            _autoGravity.StartGravity();
-        }
+        _controller.StopMove();
 
         base.StopMove();
     }
@@ -95,9 +47,6 @@ public sealed class CharacterDirectionMove : DirectionMove
     {
         base.FinishMove();
 
-        if (_autoGravity != null)
-        {
-            _autoGravity.StartGravity();
-        }
+        _controller.StopMove();
     }
 }
