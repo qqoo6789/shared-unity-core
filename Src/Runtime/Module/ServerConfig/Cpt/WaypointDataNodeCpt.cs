@@ -49,12 +49,3 @@ public class WaypointDataNodeCpt : MonoBehaviour, IServerDataNodeCpt
         return config;
     }
 }
-/// <summary>
-/// 自定义数据
-/// </summary>
-public enum eWaypointEventKey
-{
-    idle,   //闲置
-}
-
-
