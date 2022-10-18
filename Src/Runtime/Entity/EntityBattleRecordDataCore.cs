@@ -7,7 +7,7 @@
  */
 
 using System.Collections.Generic;
-public class EntityBattleRecordData : EntityBaseComponent
+public class EntityBattleRecordDataCore : EntityBaseComponent
 {
     /// <summary>
     /// Dictionary<来源实体ID，造成总伤害>
