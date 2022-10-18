@@ -38,7 +38,7 @@ public class SENormalDamageCore : SkillEffectBase
         if (RefEntity.BattleDataCore != null)
         {
             RefEntity.BattleDataCore.SetHP(EffectData.DamageValue.CurrentInt);
-            if (RefEntity.TryGetComponent(out EntityBattleRecordData battleRecordData))
+            if (RefEntity.TryGetComponent(out EntityBattleRecordDataCore battleRecordData))
             {
                 if (EffectData.DamageValue.DeltaInt < 0)
                 {
