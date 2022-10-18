@@ -42,7 +42,7 @@ public class ResourcesPointDataNodeCpt : MonoBehaviour, IServerDataNodeCpt
 
     [Tooltip("巡逻路径")]
     [SerializeField]
-    private string _patrolPath;
+    private string _patrolPath = "";
     public string PatrolPath => _patrolPath;
     public object GetServerData()
     {
