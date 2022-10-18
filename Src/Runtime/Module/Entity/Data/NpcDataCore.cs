@@ -16,6 +16,8 @@ public class NpcDataCore : EntityBaseComponent
     public int ConfigId => DRNpc == null ? -1 : DRNpc.Id;
     public DRNpc DRNpc { get; protected set; }
 
+    public ResourcesPointData PointData { get; protected set; }
+
     public void SetConfigID(int cfgID)
     {
         DRNpc = GFEntryCore.DataTable.GetDataTable<DRNpc>().GetDataRow(cfgID);
@@ -24,5 +26,10 @@ public class NpcDataCore : EntityBaseComponent
         {
             Log.Error($"Can not find npc cfg id:{cfgID}");
         }
+    }
+
+    public void SetResourcesPointData(ResourcesPointData data)
+    {
+        PointData = data;
     }
 }
