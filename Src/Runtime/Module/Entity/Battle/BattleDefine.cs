@@ -45,6 +45,7 @@ public static class BattleDefine
             {EntityProfileField.HpLimit, "HpLimit"},
             {EntityProfileField.CritRate, "CritRate"},
             {EntityProfileField.CritDamage, "CritDmg"},
+            {EntityProfileField.HitRate, "HitRate"},
             {EntityProfileField.MissRate, "MissRate"},
             {EntityProfileField.MoveSpeed, "MoveSpeed"},
             {EntityProfileField.PushDmg, "PushDmg"},
