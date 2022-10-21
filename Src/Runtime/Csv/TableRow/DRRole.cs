@@ -107,6 +107,15 @@ public class DRRole : DataRowBase
     }
 
     /// <summary>
+  /**获取随机动画。*/
+    /// </summary>
+    public string[] RandomAnim
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取头像名称。*/
     /// </summary>
     public string[] RoleIcon
@@ -130,6 +139,7 @@ public class DRRole : DataRowBase
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GrasslandRunSound = columnStrings[index++];
         PickUpSound = columnStrings[index++];
+        RandomAnim = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         RoleIcon = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
 
         return true;
@@ -152,6 +162,7 @@ public class DRRole : DataRowBase
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
                 GrasslandRunSound = binaryReader.ReadString();
                 PickUpSound = binaryReader.ReadString();
+                RandomAnim = binaryReader.ReadArray<String>();
                 RoleIcon = binaryReader.ReadArray<String>();
             }
         }
