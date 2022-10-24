@@ -25,7 +25,9 @@ public static class MLayerMask
     /// 各种效果触发层 主要是客户端的 比如区域声音 移动区域效果等 直接忽略碰撞
     /// </summary>
     public const int EFFECT_TRIGGER = 15;
-
+    /// <summary>
+    /// 公共触发层 npc，对话触发等  
+    /// </summary>
     public const int PUBLIC_TRIGGER = 16;
 
     /// <summary>
