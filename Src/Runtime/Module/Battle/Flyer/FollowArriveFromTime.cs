@@ -8,6 +8,7 @@ using UnityGameFramework.Runtime;
 public class FollowArriveFromTime : ArriveAutoDestroy
 {
     public Transform Target { get; private set; }
+    private Vector3 _offset = Vector3.zero;
     private Tweener _tweener;
 
     /// <summary>
@@ -15,9 +16,11 @@ public class FollowArriveFromTime : ArriveAutoDestroy
     /// </summary>
     /// <param name="target"></param>
     /// <param name="costTime">多久后到达 秒</param>
-    public void StartMove(Transform target, float costTime)
+    /// <param name="offset">跟随的目标点相对于目标的偏移量 默认为null</param>
+    public void StartMove(Transform target, float costTime, Vector3? offset = null)
     {
         Target = target;
+        _offset = offset == null ? Vector3.zero : offset.Value;
 
         if (costTime <= 0)
         {
@@ -36,7 +39,7 @@ public class FollowArriveFromTime : ArriveAutoDestroy
             StopTween();
         }
 
-        _tweener = transform.DOMove(Target.position, costTime).SetEase(Ease.Linear).OnComplete(() =>
+        _tweener = transform.DOMove(Target.position + _offset, costTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             StopTween();
             OnArrived();
@@ -67,7 +70,7 @@ public class FollowArriveFromTime : ArriveAutoDestroy
         }
 
         float remainTime = _tweener.Duration() - _tweener.position;
-        _ = _tweener.ChangeEndValue(Target.position, remainTime, true);
-        transform.LookAt(Target);
+        _ = _tweener.ChangeEndValue(Target.position + _offset, remainTime, true);
+        transform.forward = (Target.position - transform.position).OnlyXZ();//水平旋转即可
     }
 }
