@@ -42,9 +42,12 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         try
         {
 #if UNITY_EDITOR
-            if (StatusCtrl.TryGetComponent(out SkillShapeGizmos skillShapeGizmos))
+            if (CurSkillCfg.SkillRange != null && CurSkillCfg.SkillRange.Length > 0)//锁定目标技能 不一定配置范围
             {
-                skillShapeGizmos.StartDraw(CurSkillCfg.SkillRange, StatusCtrl.gameObject, SkillDir);
+                if (StatusCtrl.TryGetComponent(out SkillShapeGizmos skillShapeGizmos))
+                {
+                    skillShapeGizmos.StartDraw(CurSkillCfg.SkillRange, StatusCtrl.gameObject, SkillDir);
+                }
             }
 #endif
             SkillCastExecute(CurSkillCfg);
