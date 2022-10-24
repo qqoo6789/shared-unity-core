@@ -17,6 +17,7 @@ public static class DataTableConfig
         "ItemEatable",
         "Language",
         "Monster",
+        "Npc",
         "PlaceableNFTskill",
         "Recipes",
         "Reward",

@@ -112,6 +112,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     private void OnMoveFinish()
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
+        StatusCtrl.EntityEvent.OnEntityPathMoveArrived?.Invoke();
     }
 
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
