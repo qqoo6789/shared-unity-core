@@ -41,6 +41,7 @@ public class PlayerRoleDataCore : EntityBaseComponent
     /// </summary>
     /// <value></value>
     public List<PlayerAvatar> WearList { get; protected set; } = new();
+    public Dictionary<AvatarPosition, PlayerAvatar> WearDic { get; protected set; } = new();
 
     public void SetGender(string gender)
     {
@@ -65,9 +66,11 @@ public class PlayerRoleDataCore : EntityBaseComponent
     public void SetRoleAvatars(IEnumerable<PlayerAvatar> avatars)
     {
         WearList.Clear();
+        WearDic.Clear();
         foreach (PlayerAvatar avatar in avatars)
         {
             WearList.Add(avatar);
+            WearDic.Add(avatar.Position, avatar);
         }
     }
 }
