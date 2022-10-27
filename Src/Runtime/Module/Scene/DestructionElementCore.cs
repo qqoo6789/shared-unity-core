@@ -12,6 +12,7 @@ public class DestructionElementCore : MonoBehaviour
     public static Action<DestructionElementCore> OnDestructionElementInitHook;
 
     [SerializeField]
+    [Header("全局ID 自动生成 不要乱改")]
     private long _id;
     public long Id => _id;
 
@@ -63,6 +64,11 @@ public class DestructionElementCore : MonoBehaviour
     private void OnDestroy()
     {
         ScriptDestroyEvent?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void Reset()
+    {
+        _id = GetInstanceID();//编辑器添加时下给定一个全局ID
     }
 
     /// <summary>
