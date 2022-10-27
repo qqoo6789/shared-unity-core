@@ -12,4 +12,8 @@ public static class MTag
     /// 区域BGM
     /// </summary>
     public const string AREA_BGM = "AreaBGM";
+    /// <summary>
+    /// 场景破坏元素
+    /// </summary>
+    public const string SCENE_DESTRUCTION = "SceneDestruction";
 }
