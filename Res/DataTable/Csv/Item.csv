@@ -65,6 +65,11 @@ int,string,null,string,int,int[],string,int,int,int,int
 =======
 3010204,Seed,占地种子,Covers an area of the seed,4,1,restorantion_potion,7,0,1,1
 5010001,Building1,建筑物1,Building 1 desc,5,1,icon_system,5,0,1,1
+<<<<<<< HEAD
 5010002,Building2,建筑物2,Building 2 desc,5,1,icon_system,5,0,1,1
 5010003,Building3,建筑物3,Building 3 desc,5,1,icon_system,5,0,1,1
 >>>>>>> add csv
+=======
+5010002,Building2,建筑物2,Building 2 desc,5,2,icon_system,5,0,1,1
+5010003,Building3,建筑物3,Building 3 desc,5,3,icon_system,5,0,1,1
+>>>>>>> csv
