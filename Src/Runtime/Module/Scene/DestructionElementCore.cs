@@ -61,7 +61,7 @@ public class DestructionElementCore : MonoBehaviour
         OnDestructionElementInitHook?.Invoke(this);
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         ScriptDestroyEvent?.Invoke(this, EventArgs.Empty);
     }
@@ -75,9 +75,11 @@ public class DestructionElementCore : MonoBehaviour
     /// 设置破坏状态
     /// </summary>
     /// <param name="restoreTime">恢复时间 秒 -1代表不会恢复</param>
-    public void SetDestroyedStatus(float restoreTime)
+    public virtual void SetDestroyedStatus(float restoreTime)
     {
         IsDestroyed = true;
+
+        gameObject.SetActive(false);
 
         CancelRestoreTimer();
 
@@ -88,6 +90,21 @@ public class DestructionElementCore : MonoBehaviour
         }
 
         StartRestoreTimer(restoreTime);
+    }
+
+    /// <summary>
+    /// 开始恢复
+    /// </summary>
+    protected virtual void OnRestore()
+    {
+        IsDestroyed = false;
+
+        _restoreTimerStartTime = 0;
+        _restoreTimerDuration = 0;
+
+        gameObject.SetActive(true);
+
+        RestoreEvent?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>
@@ -106,18 +123,5 @@ public class DestructionElementCore : MonoBehaviour
         _restoreTimerStartTime = 0;
         _restoreTimerDuration = 0;
         _ = TimerMgr.RemoveTimer(GetHashCode());
-    }
-
-    /// <summary>
-    /// 开始恢复
-    /// </summary>
-    protected virtual void OnRestore()
-    {
-        IsDestroyed = false;
-
-        _restoreTimerStartTime = 0;
-        _restoreTimerDuration = 0;
-
-        RestoreEvent?.Invoke(this, EventArgs.Empty);
     }
 }
