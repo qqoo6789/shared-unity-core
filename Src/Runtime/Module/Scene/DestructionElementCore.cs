@@ -4,6 +4,8 @@ using UnityEngine;
 /// <summary>
 /// 场景破坏元素配置
 /// </summary>
+/// 
+[ExecuteAlways]
 public class DestructionElementCore : MonoBehaviour
 {
     /// <summary>
@@ -58,6 +60,15 @@ public class DestructionElementCore : MonoBehaviour
 
     private void Awake()
     {
+        // if (!Application.isPlaying)
+        // {
+        //     if (_id != default)//防止客户端每次打开场景都会重新生成
+        //     {
+        //         UnityEngine.Debug.LogError($"log test reset {name} ,id={GetInstanceID()}");
+        //         _id = GetInstanceID();//编辑器添加时下给定一个全局ID
+        //     }
+        // }
+
         OnDestructionElementInitHook?.Invoke(this);
     }
 
@@ -68,6 +79,7 @@ public class DestructionElementCore : MonoBehaviour
 
     private void Reset()
     {
+        UnityEngine.Debug.LogError($"log test reset {name} ,id={GetInstanceID()}");
         _id = GetInstanceID();//编辑器添加时下给定一个全局ID
     }
 
