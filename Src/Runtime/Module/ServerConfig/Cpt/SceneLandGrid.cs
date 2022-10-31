@@ -6,12 +6,7 @@ using UnityEngine;
 /// </summary>
 public class SceneLandGrid : MonoBehaviour
 {
-    public GameObject Bg;
     public GameObject Frame;
-    public void ShowBg(bool active)
-    {
-        Bg.SetActive(active);
-    }
 
     public void ShowFrame(bool active)
     {
