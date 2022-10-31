@@ -24,9 +24,27 @@ public class DRBuildingCharge : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取电量。*/
+  /**获取充电时长(hour)。*/
     /// </summary>
-    public int Power
+    public int PowerTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取名称。*/
+    /// </summary>
+    public string Name
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取折扣。*/
+    /// </summary>
+    public int Discount
     {
         get;
         private set;
@@ -38,8 +56,9 @@ public class DRBuildingCharge : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        Power = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        index++;
+        PowerTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Name = columnStrings[index++];
+        Discount = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -52,7 +71,9 @@ public class DRBuildingCharge : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                Power = binaryReader.Read7BitEncodedInt32();
+                PowerTime = binaryReader.Read7BitEncodedInt32();
+                Name = binaryReader.ReadString();
+                Discount = binaryReader.Read7BitEncodedInt32();
             }
         }
 

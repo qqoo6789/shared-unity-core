@@ -1,6 +1,8 @@
-id,电量,消耗meld
-id,power,meldCost
-int,int,
-1,4,4
-2,8,8
-3,16,16
+id,充电时长(hour),名称,折扣
+id,powerTime,name,discount
+int,int,string,int
+1,24,1 DAYS,100
+2,72,3 DAYS,100
+3,168,1 WEEKS,95
+4,720,1 MONTHS,90
+5,4320,6 MONTHS,70
