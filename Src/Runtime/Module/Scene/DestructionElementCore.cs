@@ -60,14 +60,15 @@ public class DestructionElementCore : MonoBehaviour
 
     private void Awake()
     {
-        // if (!Application.isPlaying)
-        // {
-        //     if (_id != default)//防止客户端每次打开场景都会重新生成
-        //     {
-        //         UnityEngine.Debug.LogError($"log test reset {name} ,id={GetInstanceID()}");
-        //         _id = GetInstanceID();//编辑器添加时下给定一个全局ID
-        //     }
-        // }
+        //为了自动序列化ID和服务器场景同步使用
+        if (!Application.isPlaying)
+        {
+            if (_id == default//直接在场景中添加组件
+            || (gameObject.scene != null && gameObject.scene.isLoaded))//发生在预制件拖动到场景中，场景加载时的awake不会走这里
+            {
+                _id = GetInstanceID();//编辑器添加时下给定一个全局ID
+            }
+        }
 
         OnDestructionElementInitHook?.Invoke(this);
     }
@@ -75,12 +76,6 @@ public class DestructionElementCore : MonoBehaviour
     protected virtual void OnDestroy()
     {
         ScriptDestroyEvent?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void Reset()
-    {
-        UnityEngine.Debug.LogError($"log test reset {name} ,id={GetInstanceID()}");
-        _id = GetInstanceID();//编辑器添加时下给定一个全局ID
     }
 
     /// <summary>
