@@ -1,5 +1,7 @@
 
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
 
 /// <summary>
@@ -12,6 +14,8 @@ public class CollectStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityC
     public override string StatusName => Name;
 
     private EntityInputData _inputData;
+    protected CancellationTokenSource CancelToken;
+
 
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
@@ -22,13 +26,44 @@ public class CollectStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityC
         base.OnEnter(fsm);
 
         _inputData = StatusCtrl.GetComponent<EntityInputData>();
+        CollectStart();
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
         _inputData = null;
-
+        CancelTimeCollect();
         base.OnLeave(fsm, isShutdown);
+    }
+
+    // 取消蓄力
+    private void CancelTimeCollect()
+    {
+        if (CancelToken != null)
+        {
+            CancelToken.Cancel();
+            CancelToken = null;
+        }
+    }
+
+    protected virtual async void CollectStart()
+    {
+        CancelTimeCollect();
+        try
+        {
+            CancelToken = new();
+            await UniTask.Delay(1500, false, PlayerLoopTiming.Update, CancelToken.Token);
+            CancelToken = null;
+        }
+        catch (System.Exception)
+        {
+            return;
+        }
+        CollectEnd();
+    }
+    protected virtual void CollectEnd()
+    {
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
