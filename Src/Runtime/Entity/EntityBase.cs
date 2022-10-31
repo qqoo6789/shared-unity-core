@@ -72,6 +72,12 @@ public class EntityBase
     public EntityBattleDataCore BattleDataCore { get; set; }
 
     /// <summary>
+    /// 角色的基础数据 名字 宽高等
+    /// </summary>
+    /// <value></value>
+    public RoleBaseDataCore RoleBaseDataCore { get; set; }
+
+    /// <summary>
     /// 不要乱用 读写相关属性都有独立方法 只能在特定情境下只能通过获取Transform来获取时使用
     /// </summary>
     /// <returns></returns>

@@ -16,9 +16,9 @@ public class SkillShapeGizmos : MonoBehaviour
             StopDraw();
         }
         Vector3 startPos;
-        if (entity.TryGetComponent(out EntityCollisionCore entityCollision) && entityCollision.BodyCollision != null)
+        if (entity.TryGetComponent(out RoleBaseDataCore roleData))
         {
-            startPos = entityCollision.BodyCollision.bounds.center;
+            startPos = roleData.CenterPos;
         }
         else
         {

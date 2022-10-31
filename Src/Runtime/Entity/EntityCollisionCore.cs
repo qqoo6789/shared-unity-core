@@ -90,6 +90,12 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         EntityReferenceData refData = RefEntity.AddComponent<EntityReferenceData>();
         refData.SetEntity(RefEntity);
 
+        if (RefEntity.TryGetComponent(out RoleBaseDataCore roleData))
+        {
+            roleData.SetHeight(prefabMover.ColliderHeight);
+            roleData.SetRadius(prefabMover.ColliderThickness * 0.5f);
+        }
+
         RefEntity.EntityEvent.ColliderLoadFinish?.Invoke(CollisionObject);
     }
 

@@ -33,24 +33,6 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取影响目标类型
-0.未知类型
-1.玩家
-2.木头
-3.草
-4.石头
-5.建筑
-6.机器人
-7.怪物
-8.开宝箱。*/
-    /// </summary>
-    public int[] InfluenceTargetType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取技能CD
 单位:毫秒。*/
     /// </summary>
@@ -214,7 +196,7 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取技能释放距离。*/
+  /**获取技能释放距离cm。*/
     /// </summary>
     public int SkillDistance
     {
@@ -223,9 +205,9 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取目标指向类型。*/
+  /**获取目标锁定。*/
     /// </summary>
-    public bool TargetPointType
+    public bool TargetLock
     {
         get;
         private set;
@@ -250,7 +232,7 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取技能是否自动释放。*/
+  /**获取是否自动释放。*/
     /// </summary>
     public bool IsAutoUse
     {
@@ -259,54 +241,45 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取是否是子弹型技能。*/
+  /**获取是否远程技能。*/
     /// </summary>
-    public bool IfBullet
+    public bool IsRemote
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取子弹飞行距离。*/
+  /**获取飞行物资源。*/
     /// </summary>
-    public int BulletFlyDistance
+    public string FlyAvatar
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取子弹飞行速度。*/
+  /**获取固定飞行速度cm/s。*/
     /// </summary>
-    public int BulletFlySpeed
+    public int FlySpeed
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取子弹AVATAR资源。*/
+  /**获取固定飞行时间ms。*/
     /// </summary>
-    public string BulletAvatar
+    public int FlyTime
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取子弹是否跟踪。*/
+  /**获取飞行距离cm。*/
     /// </summary>
-    public bool IfBulletFollow
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取子弹是否穿透。*/
-    /// </summary>
-    public bool IfBulletPass
+    public int FlyDistance
     {
         get;
         private set;
@@ -320,7 +293,6 @@ public class DRSkill : DataRowBase
         _id = int.Parse(columnStrings[index++]);
         index++;
         SkillName = columnStrings[index++];
-        InfluenceTargetType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillIcon = columnStrings[index++];
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -340,16 +312,15 @@ public class DRSkill : DataRowBase
         RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
         SkillRange = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        TargetPointType = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AttackCanMove = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         IsAutoUse = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        IfBullet = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        BulletFlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        BulletFlySpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        BulletAvatar = columnStrings[index++];
-        IfBulletFollow = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        IfBulletPass = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        IsRemote = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        FlyAvatar = columnStrings[index++];
+        FlySpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        FlyTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -363,7 +334,6 @@ public class DRSkill : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 SkillName = binaryReader.ReadString();
-                InfluenceTargetType = binaryReader.ReadArray<Int32>();
                 SkillCD = binaryReader.Read7BitEncodedInt32();
                 SkillIcon = binaryReader.ReadString();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
@@ -383,16 +353,15 @@ public class DRSkill : DataRowBase
                 RangeTips = binaryReader.ReadBoolean();
                 SkillRange = binaryReader.ReadArray<Int32>();
                 SkillDistance = binaryReader.Read7BitEncodedInt32();
-                TargetPointType = binaryReader.ReadBoolean();
+                TargetLock = binaryReader.ReadBoolean();
                 AttackCanMove = binaryReader.ReadBoolean();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 IsAutoUse = binaryReader.ReadBoolean();
-                IfBullet = binaryReader.ReadBoolean();
-                BulletFlyDistance = binaryReader.Read7BitEncodedInt32();
-                BulletFlySpeed = binaryReader.Read7BitEncodedInt32();
-                BulletAvatar = binaryReader.ReadString();
-                IfBulletFollow = binaryReader.ReadBoolean();
-                IfBulletPass = binaryReader.ReadBoolean();
+                IsRemote = binaryReader.ReadBoolean();
+                FlyAvatar = binaryReader.ReadString();
+                FlySpeed = binaryReader.Read7BitEncodedInt32();
+                FlyTime = binaryReader.Read7BitEncodedInt32();
+                FlyDistance = binaryReader.Read7BitEncodedInt32();
             }
         }
 

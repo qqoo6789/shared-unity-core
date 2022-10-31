@@ -68,21 +68,12 @@ public static partial class SkillUtil
     /// <param name="entity">实体ID</param>
     /// <param name="skillRange">技能范围配置</param>
     /// <param name="skillDir">技能方向</param>
-    public static List<EntityBase> SearchTargetEntityList(EntityBase entity, int[] skillRange, Vector3 skillDir)
+    public static List<EntityBase> SearchTargetEntityList(Vector3 pos, EntityBase fromEntity, int[] skillRange, Vector3 skillDir)
     {
 
         List<EntityBase> targetEntityList = new();
-        Vector3 startPos;
-        if (entity.TryGetComponent(out EntityCollisionCore entityCollision) && entityCollision.BodyCollision != null)
-        {
-            startPos = entityCollision.BodyCollision.bounds.center;
-        }
-        else
-        {
-            startPos = entity.GetTransform().position;
-        }
-        SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, startPos, skillDir);
-        int targetLayer = GetEntityTargetLayer(entity.BaseData.Type);
+        SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, pos, skillDir);
+        int targetLayer = GetEntityTargetLayer(fromEntity.BaseData.Type);
         List<Collider> colliders = shape.CheckHited(targetLayer, MLayerMask.MASK_SCENE_OBSTRUCTION);
         SkillShapeBase.Release(shape);
 
@@ -95,7 +86,7 @@ public static partial class SkillUtil
         {
             if (colliders[i].gameObject.TryGetComponent(out EntityReferenceData refData))
             {
-                if (refData.Entity != null && refData.Entity.BaseData.Id != entity.BaseData.Id)
+                if (refData.Entity != null && refData.Entity.BaseData.Id != fromEntity.BaseData.Id)
                 {
                     targetEntityList.Add(refData.Entity);
                 }
