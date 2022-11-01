@@ -64,15 +64,18 @@ public class DestructionElementCore : MonoBehaviour
 
     private void Awake()
     {
+
+#if UNITY_EDITOR
         //为了自动序列化ID和服务器场景同步使用
         if (!Application.isPlaying)
         {
             if (_id == default//直接在场景中添加组件
-            || (gameObject.scene != null && gameObject.scene.isLoaded))//发生在预制件拖动到场景中，场景加载时的awake不会走这里
+            || (PrefabUtility.GetCorrespondingObjectFromSource(this) != null && gameObject.scene != null && gameObject.scene.isLoaded))//发生在预制件拖动到场景中，场景加载时的awake不会走这里
             {
                 AutoSetID();
             }
         }
+#endif
 
         OnDestructionElementInitHook?.Invoke(this);
     }
