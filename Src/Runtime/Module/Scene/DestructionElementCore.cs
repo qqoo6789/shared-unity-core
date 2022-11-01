@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 /// <summary>
 /// 场景破坏元素配置
 /// </summary>
@@ -66,7 +70,7 @@ public class DestructionElementCore : MonoBehaviour
             if (_id == default//直接在场景中添加组件
             || (gameObject.scene != null && gameObject.scene.isLoaded))//发生在预制件拖动到场景中，场景加载时的awake不会走这里
             {
-                _id = GetInstanceID();//编辑器添加时下给定一个全局ID
+                AutoSetID();
             }
         }
 
@@ -76,6 +80,40 @@ public class DestructionElementCore : MonoBehaviour
     protected virtual void OnDestroy()
     {
         ScriptDestroyEvent?.Invoke(this, EventArgs.Empty);
+    }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (Application.isPlaying)
+        {
+            return;
+        }
+
+        CheckIDRevertFromPrefab();
+    }
+
+    /// <summary>
+    // 检查是否从预制件中恢复ID成了预制件的ID  需要再改掉
+    /// </summary>
+    private void CheckIDRevertFromPrefab()
+    {
+        DestructionElementCore prefabComponent = PrefabUtility.GetCorrespondingObjectFromSource(this);
+        if (prefabComponent == null)
+        {
+            return;
+        }
+
+        if (_id == prefabComponent._id)
+        {
+            AutoSetID();
+        }
+    }
+#endif
+
+    private void AutoSetID()
+    {
+        _id = GetInstanceID();//给定一个全局ID
     }
 
     /// <summary>
