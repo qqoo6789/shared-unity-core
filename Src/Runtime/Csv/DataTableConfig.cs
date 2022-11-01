@@ -10,10 +10,15 @@ public static class DataTableConfig
         "Buff",
         "Building",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "BuildingBatteryReCharge",
         "BuildingTimeReCharge",
 =======
         "BuildingCharge",
+>>>>>>> csv
+=======
+        "BuildingBatteryReCharge",
+        "BuildingTimeReCharge",
 >>>>>>> csv
         "Chat",
         "CraftSkill",
