@@ -9,17 +9,8 @@ public static class DataTableConfig
         "Avatar",
         "Buff",
         "Building",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "BuildingBatteryReCharge",
         "BuildingTimeReCharge",
-=======
-        "BuildingCharge",
->>>>>>> csv
-=======
-        "BuildingBatteryReCharge",
-        "BuildingTimeReCharge",
->>>>>>> csv
         "Chat",
         "CraftSkill",
         "Drop",
