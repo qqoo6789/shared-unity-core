@@ -14,7 +14,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /** __DATA_TABLE_COMMENT__*/
 /// </summary>
-public class DRItemEatable : DataRowBase
+public class DRBuildingTimeReCharge : DataRowBase
 {
     private int _id = 0;
 
@@ -24,37 +24,18 @@ public class DRItemEatable : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取使用CD
-毫秒。*/
+  /**获取充电时长(hour)。*/
     /// </summary>
-    public int Cd
+    public int PowerTime
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取调用方法。*/
+  /**获取名称。*/
     /// </summary>
-    public string[] CallFunc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取调用方法参数。*/
-    /// </summary>
-    public string[] Args
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取cd组。*/
-    /// </summary>
-    public int CdType
+    public string Name
     {
         get;
         private set;
@@ -66,11 +47,8 @@ public class DRItemEatable : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        index++;
-        Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        PowerTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Name = columnStrings[index++];
 
         return true;
     }
@@ -83,10 +61,8 @@ public class DRItemEatable : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                Cd = binaryReader.Read7BitEncodedInt32();
-                CallFunc = binaryReader.ReadArray<String>();
-                Args = binaryReader.ReadArray<String>();
-                CdType = binaryReader.Read7BitEncodedInt32();
+                PowerTime = binaryReader.Read7BitEncodedInt32();
+                Name = binaryReader.ReadString();
             }
         }
 

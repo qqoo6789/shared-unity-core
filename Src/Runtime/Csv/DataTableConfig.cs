@@ -8,6 +8,9 @@ public static class DataTableConfig
     {
         "Avatar",
         "Buff",
+        "Building",
+        "BuildingBatteryReCharge",
+        "BuildingTimeReCharge",
         "Chat",
         "CraftSkill",
         "Drop",

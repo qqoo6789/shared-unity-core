@@ -667,6 +667,14 @@ int,string,string,string
 10057001,快速编码幕布不允许删除！,删除快速编码幕布时提示,
 10058001,不能建造在传送带上,在传送带上建造实体时提示,
 10058002,目标区域存在实体，不可操作,通用提示文案,
+10060001,"The ways to get EXP include killing monsters, completing tasks, etc.
+You can get a lot of EXP every time you complete a round of bounty missions.",UI tips EXP,
+10060002,"You can buy LNCO through curve or crypto exchanges.
+You can also get LNCO by selling game items in the marketplace.",UI tips token,
+10060003,"Crafting weapon power, equipment power, and potions all increase the proficiency of the corresponding crafting skill.
+The higher the level of crafting the item, the more the increased proficiency.",UI tips Proficiency,
+10070001,You must wear the equipment before you can wear the appearance.,通用提示文案-外观穿戴1,
+10070002,Only appearances of the same type as the current equipment can be worn.,通用提示文案-外观穿戴2,
 10080001,欢迎来到MeLand大世界，我们已为您生成一块初始领地，请利用你的智慧扩张更多的领土吧。,大世界领地生成提示1,
 10080002,欢迎回来，你已经失去你的最后一块领地。我们重新为你生成了一块初始领地，请利用你的智慧扩张更多的领地吧。,大世界领地生成提示2,
 10080003,该位置无法建造！,大世界无法建造提示（叠加、领地外、战斗中都用这个）,
