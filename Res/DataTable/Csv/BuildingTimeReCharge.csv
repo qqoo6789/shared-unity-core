@@ -1,0 +1,8 @@
+id,充电时长(hour),名称
+id,powerTime,name
+int,int,string
+1,24,1 DAYS
+2,72,3 DAYS
+3,168,1 WEEKS
+4,720,1 MONTHS
+5,4320,6 MONTHS

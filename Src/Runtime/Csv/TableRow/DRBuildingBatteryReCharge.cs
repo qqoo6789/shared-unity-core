@@ -14,7 +14,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /** __DATA_TABLE_COMMENT__*/
 /// </summary>
-public class DRItemEatable : DataRowBase
+public class DRBuildingBatteryReCharge : DataRowBase
 {
     private int _id = 0;
 
@@ -24,37 +24,27 @@ public class DRItemEatable : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取使用CD
-毫秒。*/
+  /**获取充值电量。*/
     /// </summary>
-    public int Cd
+    public int Battery
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取调用方法。*/
+  /**获取赠送电量。*/
     /// </summary>
-    public string[] CallFunc
+    public int PresentBattery
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取调用方法参数。*/
+  /**获取token消耗。*/
     /// </summary>
-    public string[] Args
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取cd组。*/
-    /// </summary>
-    public int CdType
+    public int TokenCost
     {
         get;
         private set;
@@ -66,11 +56,9 @@ public class DRItemEatable : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        index++;
-        Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Battery = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        PresentBattery = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TokenCost = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -83,10 +71,9 @@ public class DRItemEatable : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                Cd = binaryReader.Read7BitEncodedInt32();
-                CallFunc = binaryReader.ReadArray<String>();
-                Args = binaryReader.ReadArray<String>();
-                CdType = binaryReader.Read7BitEncodedInt32();
+                Battery = binaryReader.Read7BitEncodedInt32();
+                PresentBattery = binaryReader.Read7BitEncodedInt32();
+                TokenCost = binaryReader.Read7BitEncodedInt32();
             }
         }
 

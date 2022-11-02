@@ -14,7 +14,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /** __DATA_TABLE_COMMENT__*/
 /// </summary>
-public class DRItemEatable : DataRowBase
+public class DRBuilding : DataRowBase
 {
     private int _id = 0;
 
@@ -24,37 +24,27 @@ public class DRItemEatable : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取使用CD
-毫秒。*/
+  /**获取骨架资源。*/
     /// </summary>
-    public int Cd
+    public string ArmatureRes
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取调用方法。*/
+  /**获取每小时消耗电量。*/
     /// </summary>
-    public string[] CallFunc
+    public int PowerCostPerHour
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取调用方法参数。*/
+  /**获取随机奖励list。*/
     /// </summary>
-    public string[] Args
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取cd组。*/
-    /// </summary>
-    public int CdType
+    public int[][] RewardList
     {
         get;
         private set;
@@ -66,11 +56,9 @@ public class DRItemEatable : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        index++;
-        Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        ArmatureRes = columnStrings[index++];
+        PowerCostPerHour = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RewardList = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
 
         return true;
     }
@@ -83,10 +71,9 @@ public class DRItemEatable : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                Cd = binaryReader.Read7BitEncodedInt32();
-                CallFunc = binaryReader.ReadArray<String>();
-                Args = binaryReader.ReadArray<String>();
-                CdType = binaryReader.Read7BitEncodedInt32();
+                ArmatureRes = binaryReader.ReadString();
+                PowerCostPerHour = binaryReader.Read7BitEncodedInt32();
+                RewardList = binaryReader.ReadArrayList<Int32>();
             }
         }
 

@@ -21,8 +21,9 @@ int,string,null,string,int,int[],string,int,int,int,int
 60000018,Defence Scroll Lv70,,Defence Scroll Lv70,4,1,icon_hechengfu_fangju_7,7,0,0,1
 60000019,Defence Scroll Lv80,,Defence Scroll Lv80,4,1,icon_hechengfu_fangju_8,7,0,0,1
 60000020,Defence Scroll Lv90,,Defence Scroll Lv90,4,1,icon_hechengfu_fangju_9,7,0,0,1
-79999901,MELD,用于配置MELDicon和描述,Currency of Meland,1,,MELD_ic,-2,0,0,0
-79999902,EXP,用于配置经验值icon和描述,For upgrading Role and Slot,1,,EXP_ic,-2,0,0,0
+79999901,MELD,用于配置MELDicon和描述,Currency of Meland,4,1,MELD_ic,-2,0,0,0
+79999902,EXP,用于配置经验值icon和描述,For upgrading Role and Slot,4,1,EXP_ic,-2,0,0,0
+79999903,Lottery ticket,,Take part in the draw!,4,1,craft_scroll,7,0,1,1
 1010001,Tactical Headband,0级男头,Tactical Headband,1,"1,2",lv0_boy_hair,5,0,1,1
 1010002,Sackcloth Shirt,0级男衣,Sackcloth Shirt,1,"1,2",lv0_boy_coat,5,0,1,1
 1010003,Jeans,0级男裤,Jeans,1,"1,2",lv0_boy_pants,5,0,1,1
@@ -55,3 +56,8 @@ int,string,null,string,int,int[],string,int,int,int,int
 3010102,Lv2 Life Potion,2级生命药水,Immediately restore xx points of health.,3,2,life_potion,7,0,1,1
 3010201,Lv1 Restoration Potion,1级恢复药,Restores xx health every second for xx seconds.,3,1,restorantion_potion,7,0,1,1
 3010202,Lv2 Restoration Potion,2级恢复药,Restores xx health every second for xx seconds.,3,2,restorantion_potion,7,0,1,1
+3010203,battery,电池,battery,4,1,life_potion,7,0,1,1
+3010204,Seed,占地种子,Covers an area of the seed,3,1,restorantion_potion,7,0,1,1
+5010001,Building1,建筑物1,Building 1 desc,5,1,ic_building1,5,0,1,1
+5010002,Building2,建筑物2,Building 2 desc,5,2,ic_building2,5,0,1,1
+5010003,Building3,建筑物3,Building 3 desc,5,3,ic_building3,5,0,1,1
