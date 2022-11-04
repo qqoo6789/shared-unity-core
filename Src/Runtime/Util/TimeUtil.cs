@@ -86,7 +86,7 @@ public static class TimeUtil
             nSeconds = 0;
         }
         // int day = Convert.ToInt32(decimal.Floor(nSeconds / SecondsOfDay));
-        nSeconds %= SecondsOfDay;
+
         int hour = Convert.ToInt32(decimal.Floor(nSeconds / SecondsOfHour));
         nSeconds %= SecondsOfHour;
         int minute = Convert.ToInt32(decimal.Floor(nSeconds / SecondsOfMinute));
