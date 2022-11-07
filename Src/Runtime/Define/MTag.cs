@@ -16,4 +16,9 @@ public static class MTag
     /// 场景破坏元素
     /// </summary>
     public const string SCENE_DESTRUCTION = "SceneDestruction";
+
+    /// <summary>
+    /// 水域 会配置波纹和声音特效
+    /// </summary>
+    public const string WATER_AREA = "WaterArea";
 }
