@@ -10,7 +10,7 @@ using GameFramework.Fsm;
 public class CollectStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {
     public static new string Name = "Collect";
-
+    protected virtual int CollectTime => 1500;
     public override string StatusName => Name;
 
     private EntityInputData _inputData;
@@ -52,7 +52,7 @@ public class CollectStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityC
         try
         {
             CancelToken = new();
-            await UniTask.Delay(1500, false, PlayerLoopTiming.Update, CancelToken.Token);
+            await UniTask.Delay(CollectTime, false, PlayerLoopTiming.Update, CancelToken.Token);
             CancelToken = null;
         }
         catch (System.Exception)
