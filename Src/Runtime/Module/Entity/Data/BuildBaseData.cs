@@ -7,7 +7,7 @@ public class BuildBaseData : EntityBaseComponent
 {
     public NftBuild NftBuild;
 
-    public void SetData(NftBuild nftBuild)
+    public virtual void SetData(NftBuild nftBuild)
     {
         NftBuild = nftBuild;
     }
