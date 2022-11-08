@@ -19,6 +19,13 @@ public class EntityEvent : EntityBaseComponent
     /// 实体重生
     /// </summary>
     public Action EntityBeReborn;
+
+
+    /// <summary>
+    /// 实体开始采集
+    /// </summary>
+    public Action EntityCollect;
+
     /// <summary>
     /// 碰撞盒加载完成 T0：碰撞盒所在GameObject
     /// </summary>
