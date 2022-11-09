@@ -72,10 +72,8 @@ public static partial class SkillUtil
     {
 
         List<EntityBase> targetEntityList = new();
-        SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, pos, skillDir);
         int targetLayer = GetEntityTargetLayer(fromEntity.BaseData.Type);
-        List<Collider> colliders = shape.CheckHited(targetLayer, MLayerMask.MASK_SCENE_OBSTRUCTION);
-        SkillShapeBase.Release(shape);
+        List<Collider> colliders = SearchTargetColliders(pos, skillRange, skillDir, targetLayer, MLayerMask.MASK_SCENE_OBSTRUCTION);
 
         if (colliders == null || colliders.Count <= 0)
         {
@@ -93,6 +91,23 @@ public static partial class SkillUtil
             }
         }
         return targetEntityList;
+    }
+
+    /// <summary>
+    /// 搜索目标碰撞体列表
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="skillRange"></param>
+    /// <param name="skillDir"></param>
+    /// <param name="targetLayer">搜索目标层</param>
+    /// <param name="blockLayer">阻挡层</param>
+    /// <returns></returns>
+    public static List<Collider> SearchTargetColliders(Vector3 pos, int[] skillRange, Vector3 skillDir, int targetLayer, int blockLayer)
+    {
+        SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, pos, skillDir);
+        List<Collider> colliders = shape.CheckHited(targetLayer, blockLayer);
+        SkillShapeBase.Release(shape);
+        return colliders;
     }
 
     /// <summary>

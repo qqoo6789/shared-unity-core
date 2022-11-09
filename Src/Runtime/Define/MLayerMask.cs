@@ -40,4 +40,9 @@ public static class MLayerMask
     /// </summary>
     /// <returns></returns>
     public const int MASK_SCENE_OBSTRUCTION = MASK_DEFAULT_CAMERA_OCCLUDE;
+    /// <summary>
+    /// 场景能被破坏的元素所在层
+    /// </summary>
+    /// <returns></returns>
+    public const int MASK_SCENE_DESTRUCTION = (1 << DEFAULT) | (1 << DISTANCE_CULL_SMALL) | (1 << DISTANCE_CULL_MIDDLE) | (1 << DISTANCE_CULL_BIG);
 }
