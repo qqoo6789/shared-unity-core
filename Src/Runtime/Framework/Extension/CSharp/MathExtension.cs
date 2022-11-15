@@ -11,4 +11,23 @@ public static class MathExtension
     {
         return MathF.Abs(cur - target) < 0.0001;
     }
+
+    /// <summary>
+    /// 将一个double，向下取整保留多少位
+    /// </summary>
+    /// <param name="cur"></param>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    public static double FloorTo(this double value, int place, int @base)
+    {
+        if (place == 0)
+        {
+            return Math.Floor(value);
+        }
+        else
+        {
+            double p = Math.Pow(@base, place);
+            return Math.Floor(value * p) / p;
+        }
+    }
 }
