@@ -5,6 +5,7 @@
  */
 
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// 实体角色基础数据
@@ -48,6 +49,11 @@ public class RoleBaseDataCore : EntityBaseComponent
         }
 
         Height = height;
+
+        if (TryGetComponent(out NavMeshAgent agent))
+        {
+            agent.height = Height;
+        }
     }
 
     public void SetRadius(float radius)
@@ -58,5 +64,10 @@ public class RoleBaseDataCore : EntityBaseComponent
         }
 
         Radius = radius;
+
+        if (TryGetComponent(out NavMeshAgent agent))
+        {
+            agent.radius = radius;
+        }
     }
 }
