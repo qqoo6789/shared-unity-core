@@ -45,11 +45,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        if (InputData != null)
-        {
-            InputData.ClearInputMovePath(false);
-            InputData = null;
-        }
+        InputData = null;
 
         if (_distanceMove != null)
         {
@@ -121,6 +117,12 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
         {
             ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
+
+        if (StatusCtrl.RefEntity.MoveData != null && !StatusCtrl.RefEntity.MoveData.IsGrounded)
+        {
+            ChangeState(fsm, FloatInAirStatusCore.Name);
             return;
         }
     }

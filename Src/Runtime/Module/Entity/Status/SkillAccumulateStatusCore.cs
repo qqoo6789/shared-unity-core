@@ -51,9 +51,14 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
             Log.Error($"AccumulateStatusCore DRSkill is null skillID = {SkillID}");
             return;
         }
-        if (CurSkillCfg.AccuBreakable)
+
+        if (StatusCtrl.TryGetComponent(out EntityInputData inputData))
         {
-            _inputData = StatusCtrl.GetComponent<EntityInputData>();
+            inputData.ClearInputMovePath(true);
+            if (CurSkillCfg.AccuBreakable)
+            {
+                _inputData = inputData;
+            }
         }
 
         if (CurSkillCfg.AccuTime > 0)

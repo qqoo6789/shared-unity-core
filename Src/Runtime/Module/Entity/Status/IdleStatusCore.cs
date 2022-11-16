@@ -43,6 +43,13 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
             ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
+
+        if (StatusCtrl.RefEntity.MoveData != null && !StatusCtrl.RefEntity.MoveData.IsGrounded)
+        {
+            ChangeState(fsm, FloatInAirStatusCore.Name);
+            return;
+        }
+
         if (CheckCanMove())
         {
             if (_inputData.InputMoveDirection != null)
