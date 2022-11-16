@@ -45,7 +45,11 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        InputData = null;
+        if (InputData != null)
+        {
+            InputData.ClearInputMovePath(false);
+            InputData = null;
+        }
 
         if (_distanceMove != null)
         {
