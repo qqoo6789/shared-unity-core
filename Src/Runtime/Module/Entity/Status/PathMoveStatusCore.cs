@@ -123,6 +123,12 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
             ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
+
+        if (StatusCtrl.RefEntity.MoveData != null && !StatusCtrl.RefEntity.MoveData.IsGrounded)
+        {
+            ChangeState(fsm, FloatInAirStatusCore.Name);
+            return;
+        }
     }
     //路径改了
     private void OnPathChanged()

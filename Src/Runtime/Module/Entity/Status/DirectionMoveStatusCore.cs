@@ -70,6 +70,13 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
             ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
+
+        if (StatusCtrl.RefEntity.MoveData != null && !StatusCtrl.RefEntity.MoveData.IsGrounded)
+        {
+            ChangeState(fsm, FloatInAirStatusCore.Name);
+            return;
+        }
+
         if (_inputData.InputMoveDirection == null)
         {
             ChangeState(fsm, IdleStatusCore.Name);
