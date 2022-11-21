@@ -214,6 +214,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取技能震屏。*/
+    /// </summary>
+    public string[] SkillShake
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取攻击时是否可以移动。*/
     /// </summary>
     public bool AttackCanMove
@@ -313,6 +322,7 @@ public class DRSkill : DataRowBase
         SkillRange = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        SkillShake = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         AttackCanMove = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         IsAutoUse = DataTableParseUtil.ParseBool(columnStrings[index++]);
@@ -354,6 +364,7 @@ public class DRSkill : DataRowBase
                 SkillRange = binaryReader.ReadArray<Int32>();
                 SkillDistance = binaryReader.Read7BitEncodedInt32();
                 TargetLock = binaryReader.ReadBoolean();
+                SkillShake = binaryReader.ReadArray<String>();
                 AttackCanMove = binaryReader.ReadBoolean();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 IsAutoUse = binaryReader.ReadBoolean();
