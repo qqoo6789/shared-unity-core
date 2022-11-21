@@ -11,7 +11,6 @@ public static class TimeUtil
     public static readonly float MS2S = 1 / S2MS;
 
     public static readonly DateTime DateForm = new(1970, 1, 1, 0, 0, 0, 0);
-
     public static readonly int SecondsOfMinute = 60;
     public static readonly int SecondsOfHour = 3600;
     public static readonly int SecondsOfDay = 86400;
@@ -23,28 +22,42 @@ public static class TimeUtil
         return curMs;
     }
 
+    public static long GetTimeStampByInputString(string inputStr)
+    {
+        string[] strList = inputStr.Split("-");
+        int[] timeList = new int[6];
+        for (int i = 0; i < timeList.Length; i++)
+        {
+            if (i < strList.Length && int.TryParse(strList[i], out int time))
+            {
+                timeList[i] = time;
+            }
+            else
+            {
+                timeList[i] = 0;
+            }
+        }
+        DateTime curDateTime = new(timeList[0], timeList[1], timeList[2], timeList[3], timeList[4], timeList[5], 0, DateTimeKind.Utc);
+        return DataTime2TimeStamp(curDateTime);
+    }
+    public static long DataTime2TimeStamp(DateTime dateTime)
+    {
+        TimeSpan ts = dateTime - DateForm;
+        return Convert.ToInt64(ts.TotalMilliseconds);
+    }
+
+    public static DateTime TimeStamp2DataTime(long timestamp)
+    {
+        DateTime curDateTime = DateForm.AddMilliseconds(timestamp);
+        return curDateTime;
+    }
+
     public static long GetServerTimeStamp()
     {
         return GetTimeStamp();// todo 
         // TimeSpan ts = DateTime.UtcNow - DateForm;
         // return Convert.ToInt64(ts.TotalMilliseconds);
     }
-
-
-    public static long DataTime2TimeStamp(DateTime dateTime)
-    {
-        DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(DateForm);
-        TimeSpan ts = dateTime - startTime;
-        return Convert.ToInt64(ts.TotalMilliseconds);
-    }
-
-    public static DateTime TimeStamp2DataTime(long timestamp)
-    {
-        DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(DateForm);
-        DateTime curDateTime = startTime.AddMilliseconds(timestamp);
-        return curDateTime;
-    }
-
 
     // 获取当天结束的时间
     public static DateTime GetDayEndTime()
@@ -63,11 +76,12 @@ public static class TimeUtil
             nSeconds = 0;
         }
         // int day = Convert.ToInt32(decimal.Floor(nSeconds / SecondsOfDay));
-        nSeconds %= SecondsOfDay;
+
         int hour = Convert.ToInt32(decimal.Floor(nSeconds / SecondsOfHour));
         nSeconds %= SecondsOfHour;
         int minute = Convert.ToInt32(decimal.Floor(nSeconds / SecondsOfMinute));
         nSeconds %= SecondsOfMinute;
         return $"{hour.ToString().PadLeft(2, '0')}:{minute.ToString().PadLeft(2, '0')}:{nSeconds.ToString().PadLeft(2, '0')}";
     }
+
 }
