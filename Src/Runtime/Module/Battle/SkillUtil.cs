@@ -19,7 +19,7 @@ public static partial class SkillUtil
             return true;
         }
 
-        bool result = !Physics.Linecast(origin, target, blockLayer);
+        bool result = !Physics.Linecast(origin, target, blockLayer, QueryTriggerInteraction.Ignore);
         return result;
     }
 
@@ -39,7 +39,7 @@ public static partial class SkillUtil
             return true;
         }
 
-        bool result = !Physics.Linecast(origin, target, out hitInfo, blockLayer);
+        bool result = !Physics.Linecast(origin, target, out hitInfo, blockLayer, QueryTriggerInteraction.Ignore);
         return result;
     }
 
