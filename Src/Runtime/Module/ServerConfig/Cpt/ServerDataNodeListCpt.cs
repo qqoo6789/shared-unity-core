@@ -2,14 +2,14 @@
  * @Author: xiang huan
  * @Date: 2022-06-27 14:13:48
  * @Description: 数据节点list组件
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/ServerConfig/Cpt/ServerDataNodeListCpt.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/ServerConfig/Cpt/ServerDataNodeListCpt.cs
  * 
  */
 using System.Collections.Generic;
 using UnityEngine;
 public class ServerDataNodeListCpt : MonoBehaviour, IServerDataNodeCpt
 {
-    public object GetServerData()
+    public virtual object GetServerData()
     {
         List<object> dataList = new();
         SearchDataNode(transform, dataList);
