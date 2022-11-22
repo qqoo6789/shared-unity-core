@@ -1,4 +1,6 @@
 using System;
+using UnityGameFramework.Runtime;
+
 public static class TimeUtil
 {
     /// <summary>
@@ -15,11 +17,57 @@ public static class TimeUtil
     public static readonly int SecondsOfHour = 3600;
     public static readonly int SecondsOfDay = 86400;
 
+    private static SyncSvrTimeLogic s_syncSvrTimeLogic;
+
+    /// <summary>
+    /// 初始化时间同步逻辑
+    /// </summary>
+    /// <param name="reqQuerySvrTimeFunc">请求查询服务器时间的方法 可以为null 为null时需要自己情趣服务器时间</param>
+    public static void InitSyncSvrTimeLogic(Action reqQuerySvrTimeFunc)
+    {
+        s_syncSvrTimeLogic = new SyncSvrTimeLogic(reqQuerySvrTimeFunc);
+    }
+
+    /// <summary>
+    /// 同步一次服务器时间
+    /// </summary>
+    /// <param name="svrStamp">本次服务器时间戳</param>
+    /// <param name="reqClientStamp">本次当时请求的客户端时间戳</param>
+    public static void SyncSvrTime(long svrStamp, long reqClientStamp)
+    {
+        if (s_syncSvrTimeLogic == null)
+        {
+            Log.Error("TimeUtil syncSvrTimeLogic not init");
+            return;
+        }
+
+        s_syncSvrTimeLogic.SyncSvrTime(svrStamp, reqClientStamp);
+    }
+
+    /// <summary>
+    /// 获取当前本机时间戳
+    /// </summary>
+    /// <returns></returns>
     public static long GetTimeStamp()
     {
         long currentTicks = DateTime.UtcNow.Ticks;
         long curMs = (currentTicks - DateForm.Ticks) / 10000;
         return curMs;
+    }
+
+    /// <summary>
+    /// 获取当前服务器时间戳
+    /// </summary>
+    /// <returns></returns>
+    public static long GetServerTimeStamp()
+    {
+        if (s_syncSvrTimeLogic == null)
+        {
+            Log.Error("未初始化时间同步逻辑");
+            return GetTimeStamp();
+        }
+
+        return s_syncSvrTimeLogic.ServerLocalTimestamp;
     }
 
     public static long GetTimeStampByInputString(string inputStr)
@@ -50,13 +98,6 @@ public static class TimeUtil
     {
         DateTime curDateTime = DateForm.AddMilliseconds(timestamp);
         return curDateTime;
-    }
-
-    public static long GetServerTimeStamp()
-    {
-        return GetTimeStamp();// todo 
-        // TimeSpan ts = DateTime.UtcNow - DateForm;
-        // return Convert.ToInt64(ts.TotalMilliseconds);
     }
 
     // 获取当天结束的时间
