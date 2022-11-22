@@ -22,7 +22,7 @@ public class TimerMgr
         }
     }
 
-    private readonly Dictionary<int, TimerTask> _timerMap = new();
+    private readonly Dictionary<long, TimerTask> _timerMap = new();
     private readonly List<TimerTask> _timerList = new();
 
     /// <summary>
@@ -31,7 +31,8 @@ public class TimerMgr
     /// <param name="uid">用于全局唯一id 往往用对象hashcode即可</param>
     /// <param name="duration">持续时间 ms</param>
     /// <param name="finishCB">回调函数</param>
-    public static void AddTimer(int uid, float duration, Action finishCB)
+    /// <param name="times">次数 0代表一直循环 默认一次</param>
+    public static void AddTimer(long uid, float duration, Action finishCB, int times = 1)
     {
         if (Instance._timerMap.ContainsKey(uid))
         {
@@ -40,7 +41,7 @@ public class TimerMgr
         }
 
         TimerTask task = TimerTask.Create();
-        task.Init(uid, duration, finishCB);
+        task.Init(uid, duration, finishCB, times);
         Instance._timerMap.Add(uid, task);
         Instance._timerList.Add(task);
     }
@@ -50,7 +51,7 @@ public class TimerMgr
     /// </summary>
     /// <param name="uid">用于全局唯一id 往往用对象hashcode即可</param>
     /// <returns></returns>
-    public static bool RemoveTimer(int uid)
+    public static bool RemoveTimer(long uid)
     {
         if (!Instance._timerMap.ContainsKey(uid))
         {
@@ -69,7 +70,7 @@ public class TimerMgr
     /// </summary>
     /// <param name="uid"></param>
     /// <returns></returns>
-    public static bool HasTimer(int uid)
+    public static bool HasTimer(long uid)
     {
         return Instance._timerMap.ContainsKey(uid);
     }
@@ -85,9 +86,16 @@ public class TimerMgr
             if (curTime >= task.ExpireTime)
             {
                 Action cb = task.FinishCB;
-                _ = Instance._timerMap.Remove(task.UID);
-                Instance._timerList.RemoveAt(i);
-                TimerTask.Release(task);
+                if (task.IsCompleted())
+                {
+                    _ = Instance._timerMap.Remove(task.UID);
+                    Instance._timerList.RemoveAt(i);
+                    TimerTask.Release(task);
+                }
+                else
+                {
+                    task.StartTimer();
+                }
 
                 try
                 {
