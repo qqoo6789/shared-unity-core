@@ -107,17 +107,19 @@ public class DestructionElementCore : MonoBehaviour
             return;
         }
 
-        if (_id == prefabComponent._id)
+        if (_id == prefabComponent._id && _id != GetInstanceID())
         {
             AutoSetID();
         }
     }
-#endif
 
     private void AutoSetID()
     {
         _id = GetInstanceID();//给定一个全局ID
+        EditorUtility.SetDirty(this);
     }
+#endif
+
 
     /// <summary>
     /// 设置破坏状态
