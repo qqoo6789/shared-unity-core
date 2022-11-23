@@ -25,7 +25,20 @@ public static class TimeUtil
     /// <param name="reqQuerySvrTimeFunc">请求查询服务器时间的方法 可以为null 为null时需要自己情趣服务器时间</param>
     public static void InitSyncSvrTimeLogic(Action reqQuerySvrTimeFunc)
     {
+        UnInitSyncSvrTimeLogic();
+
         s_syncSvrTimeLogic = new SyncSvrTimeLogic(reqQuerySvrTimeFunc);
+    }
+
+    /// <summary>
+    /// 释放时间同步逻辑
+    /// </summary>
+    public static void UnInitSyncSvrTimeLogic()
+    {
+        if (s_syncSvrTimeLogic != null)
+        {
+            s_syncSvrTimeLogic.Dispose();
+        }
     }
 
     /// <summary>

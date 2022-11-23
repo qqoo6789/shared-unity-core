@@ -6,8 +6,8 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public class SyncSvrTimeLogic
 {
-    private const int SYNC_SVR_TIME_NORMAL_TIMER = 120 * 1000;//正常速度同步时间 间隔时间 ms
-    private const int SYNC_SVR_TIME_FAST_TIMER = 20 * 1000;//快速同步时间 间隔时间 ms
+    private const int SYNC_SVR_TIME_NORMAL_TIMER = 30 * 1000;//正常速度同步时间 间隔时间 ms
+    private const int SYNC_SVR_TIME_FAST_TIMER = 5 * 1000;//快速同步时间 间隔时间 ms
     private const string TIMER_KEY_SYNC_SVR_TIME_NORMAL = "TIMER_KEY_SYNC_SVR_TIME_NORMAL";//正常速度同步时间
     private const string TIMER_KEY_SYNC_SVR_TIME_FAST = "TIMER_KEY_SYNC_SVR_TIME_FAST";//快速同步时间
 
@@ -45,6 +45,16 @@ public class SyncSvrTimeLogic
     public SyncSvrTimeLogic(Action reqQuerySvrTimeFunc)
     {
         _reqQuerySvrTimeFunc = reqQuerySvrTimeFunc;
+
+        StartSyncSvrTime();
+    }
+
+    public void Dispose()
+    {
+        if (_enable)
+        {
+            StopSyncSvrTime();
+        }
     }
 
     /// <summary>
@@ -70,6 +80,8 @@ public class SyncSvrTimeLogic
 
         _isHaveFastTimer = true;
         TimerMgr.AddTimer(UIDUtil.ToLongUID(this, TIMER_KEY_SYNC_SVR_TIME_FAST), SYNC_SVR_TIME_FAST_TIMER, ReqQuerySvrTime, 0);
+
+        ReqQuerySvrTime();
     }
 
     /// <summary>
