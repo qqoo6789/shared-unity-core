@@ -42,9 +42,18 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取发放任务及概率（万分制）。*/
+  /**获取随机任务池及权重。*/
     /// </summary>
-    public int[][] IncludeTask
+    public int[][] TaskPool
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取任务序列。*/
+    /// </summary>
+    public int[] TaskSequence
     {
         get;
         private set;
@@ -94,7 +103,8 @@ public class DRTaskList : DataRowBase
         _id = int.Parse(columnStrings[index++]);
         Level = DataTableParseUtil.ParseInt(columnStrings[index++]);
         System = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        IncludeTask = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        TaskPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        TaskSequence = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         ItemReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ExpReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ProgressReset = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -113,7 +123,8 @@ public class DRTaskList : DataRowBase
                 _id = binaryReader.Read7BitEncodedInt32();
                 Level = binaryReader.Read7BitEncodedInt32();
                 System = binaryReader.Read7BitEncodedInt32();
-                IncludeTask = binaryReader.ReadArrayList<Int32>();
+                TaskPool = binaryReader.ReadArrayList<Int32>();
+                TaskSequence = binaryReader.ReadArray<Int32>();
                 ItemReward = binaryReader.Read7BitEncodedInt32();
                 ExpReward = binaryReader.Read7BitEncodedInt32();
                 ProgressReset = binaryReader.Read7BitEncodedInt32();

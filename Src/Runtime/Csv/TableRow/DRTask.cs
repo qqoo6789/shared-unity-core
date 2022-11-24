@@ -69,70 +69,25 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取任务类型。*/
+  /**获取指定任务选项。*/
     /// </summary>
-    public int Type
+    public string DesignateOptions
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取道具需求。*/
+  /**获取权重任务选项。*/
     /// </summary>
-    public int[][] Item
+    public string ChanceOptions
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取使用道具。*/
-    /// </summary>
-    public int[][] UseItem
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取怪物需求。*/
-    /// </summary>
-    public int[][] Monster
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取坐标需求。*/
-    /// </summary>
-    public int[][] MoveTo
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取quiz需求。*/
-    /// </summary>
-    public int[][] Quiz
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取地块需求。*/
-    /// </summary>
-    public int RequestLand
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取任务道具奖励。*/
+  /**获取任务道具奖励Id。*/
     /// </summary>
     public int ItemReward
     {
@@ -169,13 +124,8 @@ public class DRTask : DataRowBase
         Decs = columnStrings[index++];
         Details = columnStrings[index++];
         SubSystem = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Item = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        UseItem = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        Monster = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        MoveTo = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        Quiz = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        RequestLand = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        DesignateOptions = columnStrings[index++];
+        ChanceOptions = columnStrings[index++];
         ItemReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ExpReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Difficulty = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -196,13 +146,8 @@ public class DRTask : DataRowBase
                 Decs = binaryReader.ReadString();
                 Details = binaryReader.ReadString();
                 SubSystem = binaryReader.ReadArray<Int32>();
-                Type = binaryReader.Read7BitEncodedInt32();
-                Item = binaryReader.ReadArrayList<Int32>();
-                UseItem = binaryReader.ReadArrayList<Int32>();
-                Monster = binaryReader.ReadArrayList<Int32>();
-                MoveTo = binaryReader.ReadArrayList<Int32>();
-                Quiz = binaryReader.ReadArrayList<Int32>();
-                RequestLand = binaryReader.Read7BitEncodedInt32();
+                DesignateOptions = binaryReader.ReadString();
+                ChanceOptions = binaryReader.ReadString();
                 ItemReward = binaryReader.Read7BitEncodedInt32();
                 ExpReward = binaryReader.Read7BitEncodedInt32();
                 Difficulty = binaryReader.Read7BitEncodedInt32();
