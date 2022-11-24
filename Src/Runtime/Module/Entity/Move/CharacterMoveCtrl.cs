@@ -22,6 +22,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
     /// </summary>
     public bool IsGrounded => _mover != null && _mover.IsGrounded();
     private Vector3 _lastVelocity = Vector3.zero;
+    private bool _enableGravity = true;
 
     private bool _isAddColliderLoadEvent;
 
@@ -51,20 +52,29 @@ public class CharacterMoveCtrl : EntityBaseComponent
             return;
         }
 
-        _mover.CheckForGround();
+        if (_enableGravity)
+        {
 
-        // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
+            _mover.CheckForGround();
 
-        if (_mover.IsGrounded())
+            // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
+
+            if (_mover.IsGrounded())
+            {
+                GroundedMovement();
+            }
+            else
+            {
+                SkyMovement();
+            }
+            _mover.SetExtendSensorRange(_mover.IsGrounded());
+        }
+        else//没有重力
         {
             GroundedMovement();
-        }
-        else
-        {
-            SkyMovement();
+            _mover.SetExtendSensorRange(false);
         }
 
-        _mover.SetExtendSensorRange(_mover.IsGrounded());
         // 给移动器正式应用速度
         _mover.SetVelocity(_lastVelocity);
     }
@@ -127,6 +137,15 @@ public class CharacterMoveCtrl : EntityBaseComponent
     public void StopMove()
     {
         MoveSpeed = Vector3.zero;
+    }
+
+    /// <summary>
+    /// 设置是否启用重力 默认是启用的
+    /// </summary>
+    /// <param name="enable"></param>
+    public void SetEnableGravity(bool enable)
+    {
+        _enableGravity = enable;
     }
 
     private void OnColliderLoadFinish(GameObject go)
