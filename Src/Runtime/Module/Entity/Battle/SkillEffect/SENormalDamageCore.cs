@@ -6,6 +6,7 @@
 * 
 */
 
+using GameMessageCore;
 using UnityEngine;
 public class SENormalDamageCore : SkillEffectBase
 {
@@ -35,6 +36,12 @@ public class SENormalDamageCore : SkillEffectBase
         {
             return;
         }
+
+        if (CheckAndApplyFallDeath(EffectData.DamageValue))
+        {
+            return;
+        }
+
         if (RefEntity.BattleDataCore != null)
         {
             RefEntity.BattleDataCore.SetHP(EffectData.DamageValue.CurrentInt);
@@ -46,5 +53,22 @@ public class SENormalDamageCore : SkillEffectBase
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// 检查并应用掉落死亡
+    /// </summary>
+    /// <param name="damageData"></param>
+    /// <returns>如果是掉落死亡返回true</returns>
+    protected bool CheckAndApplyFallDeath(DamageData damageData)
+    {
+        if (damageData.DmgState != DamageState.Fall)
+        {
+            return false;
+        }
+
+        RefEntity.BattleDataCore.SetHP(0);
+        RefEntity.BattleDataCore.SetDeathReason(DamageState.Fall);
+        return true;
     }
 }
