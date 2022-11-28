@@ -93,117 +93,117 @@ public class CharacterMoveCtrl : EntityBaseComponent
             // 给移动器正式应用速度
             _mover.SetVelocity(curSpeed);
         }
+    }
+    /// <summary>
+    /// 地表移动
+    /// </summary>
+    private void GroundedMovement()
+    {
+        _lastVelocity = MoveSpeed;
 
-        /// <summary>
-        /// 地表移动
-        /// </summary>
-        private void GroundedMovement()
+        if (_lastVelocity.y <= 0f)
         {
-            _lastVelocity = MoveSpeed;
-
-            if (_lastVelocity.y <= 0f)
-            {
-                _lastVelocity.y = 0f;
-            }
-        }
-
-        /// <summary>
-        /// 空中移动 在空中 会应用重力和空中摩擦力系数
-        /// </summary>
-        private void SkyMovement()
-        {
-            Vector3 velocity = _lastVelocity;
-
-            //这里在ECM2插件下是好的  在现在的CMF插件下会导致角色浮空容易瞬移到无穷远的地方 原因未知  功能现在不需要 先不搞
-            // //有外部移动 水平上根据系数调整速度
-            // if (MoveSpeed != Vector3.zero)
-            // {
-            //     Vector3 horizontalVelocity = Vector3.MoveTowards(velocity.OnlyXZ(), MoveSpeed.OnlyXZ(), AIR_CONTROL * Time.deltaTime);
-            //     velocity = horizontalVelocity + velocity.OnlyY();
-            // }
-
-            //加重力
-            velocity += Physics.gravity * Time.deltaTime;
-
-            //加上摩擦力
-            velocity -= AIR_FRICTION * Time.deltaTime * velocity;
-
-            _lastVelocity = velocity;
-        }
-
-        /// <summary>
-        /// 物理移动
-        /// </summary>
-        private void PhysicsMovement()
-        {
-            Vector3 velocity = PhysicsMoveSpeed;
-            if (_mover.IsGrounded())
-            {
-                if (velocity.y <= 0)
-                {
-                    velocity = Vector3.zero;
-                }
-            }
-            else
-            {
-                velocity += Physics.gravity * Time.deltaTime;
-            }
-
-            PhysicsMoveSpeed = velocity;
-
-            //物理运动结束
-            if (PhysicsMoveSpeed.ApproximatelyEquals(Vector3.zero))
-            {
-                _isPhysics = false;
-            }
-        }
-
-        //Returns true if angle between controller and ground normal is too big (> slope limit), i.e. ground is too steep;
-        private bool IsGroundTooSteep()
-        {
-            return !_mover.IsGrounded() || Vector3.Angle(_mover.GetGroundNormal(), Vector3.up) > MoveDefine.MOVE_SLOPE_LIMIT;
-        }
-
-        /// <summary>
-        /// 设置移动速度 有速度时就会移动 现在不允许多个业务同时控制 将来需要时需要在stop里面减去业务速度
-        /// </summary>
-        /// <param name="moveSpeed"></param>
-        /// <param name="isPhysics">是否模拟物理运动</param>
-        public void SetMoveSpeed(Vector3 moveSpeed, bool isPhysics = false)
-        {
-            _isPhysics = false;
-            MoveSpeed = moveSpeed;
-        }
-
-        /// <summary>
-        /// 设置物理移动速度
-        /// </summary>
-        /// <param name="moveSpeed"></param>
-        public void SetPhysicsMoveSpeed(Vector3 moveSpeed)
-        {
-            _isPhysics = true;
-            PhysicsMoveSpeed = moveSpeed;
-        }
-
-        /// <summary>
-        /// 停止移动 重力不受这里影响
-        /// </summary>
-        public void StopMove()
-        {
-            MoveSpeed = Vector3.zero;
-        }
-
-        /// <summary>
-        /// 设置是否启用重力 默认是启用的
-        /// </summary>
-        /// <param name="enable"></param>
-        public void SetEnableGravity(bool enable)
-        {
-            _enableGravity = enable;
-        }
-
-        private void OnColliderLoadFinish(GameObject go)
-        {
-            _mover = go.GetComponent<Mover>();
+            _lastVelocity.y = 0f;
         }
     }
+
+    /// <summary>
+    /// 空中移动 在空中 会应用重力和空中摩擦力系数
+    /// </summary>
+    private void SkyMovement()
+    {
+        Vector3 velocity = _lastVelocity;
+
+        //这里在ECM2插件下是好的  在现在的CMF插件下会导致角色浮空容易瞬移到无穷远的地方 原因未知  功能现在不需要 先不搞
+        // //有外部移动 水平上根据系数调整速度
+        // if (MoveSpeed != Vector3.zero)
+        // {
+        //     Vector3 horizontalVelocity = Vector3.MoveTowards(velocity.OnlyXZ(), MoveSpeed.OnlyXZ(), AIR_CONTROL * Time.deltaTime);
+        //     velocity = horizontalVelocity + velocity.OnlyY();
+        // }
+
+        //加重力
+        velocity += Physics.gravity * Time.deltaTime;
+
+        //加上摩擦力
+        velocity -= AIR_FRICTION * Time.deltaTime * velocity;
+
+        _lastVelocity = velocity;
+    }
+
+    /// <summary>
+    /// 物理移动
+    /// </summary>
+    private void PhysicsMovement()
+    {
+        Vector3 velocity = PhysicsMoveSpeed;
+        if (_mover.IsGrounded())
+        {
+            if (velocity.y <= 0)
+            {
+                velocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            velocity += Physics.gravity * Time.deltaTime;
+        }
+
+        PhysicsMoveSpeed = velocity;
+
+        //物理运动结束
+        if (PhysicsMoveSpeed.ApproximatelyEquals(Vector3.zero))
+        {
+            _isPhysics = false;
+        }
+    }
+
+    //Returns true if angle between controller and ground normal is too big (> slope limit), i.e. ground is too steep;
+    private bool IsGroundTooSteep()
+    {
+        return !_mover.IsGrounded() || Vector3.Angle(_mover.GetGroundNormal(), Vector3.up) > MoveDefine.MOVE_SLOPE_LIMIT;
+    }
+
+    /// <summary>
+    /// 设置移动速度 有速度时就会移动 现在不允许多个业务同时控制 将来需要时需要在stop里面减去业务速度
+    /// </summary>
+    /// <param name="moveSpeed"></param>
+    public void SetMoveSpeed(Vector3 moveSpeed)
+    {
+        _isPhysics = false;
+        MoveSpeed = moveSpeed;
+    }
+
+    /// <summary>
+    /// 设置物理移动速度
+    /// </summary>
+    /// <param name="moveSpeed"></param>
+    public void SetPhysicsMoveSpeed(Vector3 moveSpeed)
+    {
+        _isPhysics = true;
+        PhysicsMoveSpeed = moveSpeed;
+    }
+
+    /// <summary>
+    /// 停止移动 重力不受这里影响
+    /// </summary>
+    public void StopMove()
+    {
+        MoveSpeed = Vector3.zero;
+    }
+
+    /// <summary>
+    /// 设置是否启用重力 默认是启用的
+    /// </summary>
+    /// <param name="enable"></param>
+    public void SetEnableGravity(bool enable)
+    {
+        _enableGravity = enable;
+    }
+
+    private void OnColliderLoadFinish(GameObject go)
+    {
+        _mover = go.GetComponent<Mover>();
+    }
+}
+}
