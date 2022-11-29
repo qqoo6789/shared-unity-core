@@ -6,6 +6,7 @@
  * 
  */
 using System.Collections.Generic;
+using GameMessageCore;
 using UnityGameFramework.Runtime;
 
 /// <summary>
@@ -78,6 +79,11 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     public float RollDistance;
     /// <summary>
+    /// 死亡原因 只在hp<=0时有效
+    /// </summary>
+    /// <value></value>
+    public DamageState DeathReason { get; private set; }
+    /// <summary>
     /// 战斗状态map  <状态key，添加计数>
     /// </summary>
     private readonly Dictionary<BattleDefine.eBattleState, int> _battleStateMap = new();
@@ -85,6 +91,20 @@ public class EntityBattleDataCore : EntityBaseComponent
     public virtual void SetHP(int hp)
     {
         HP = hp;
+
+        if (hp > 0)
+        {
+            DeathReason = DamageState.Normal;
+        }
+    }
+
+    /// <summary>
+    /// 设置死亡原因 在死亡时如果有特殊原因必须设置 否则默认为被攻击死亡
+    /// </summary>
+    /// <param name="reason"></param>
+    public void SetDeathReason(DamageState reason)
+    {
+        DeathReason = reason;
     }
 
     public virtual void SetHPMAX(int hpMax)

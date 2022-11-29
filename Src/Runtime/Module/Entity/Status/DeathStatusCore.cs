@@ -19,15 +19,38 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
     public override string StatusName => Name;
     protected CancellationTokenSource CancelToken;
     protected virtual int DeathTime => 3000;
+    protected bool IsFallDeath;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
+
         OnDeathStart();
+
+        //掉落死亡的
+        if (StatusCtrl.RefEntity.BattleDataCore.DeathReason == GameMessageCore.DamageState.Fall)
+        {
+            if (StatusCtrl.TryGetComponent(out CharacterMoveCtrl moveCtrl))
+            {
+                moveCtrl.StopMove();
+                moveCtrl.SetEnableGravity(false);
+            }
+            IsFallDeath = true;
+        }
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
         CancelTimeDeath();
+
+        if (IsFallDeath)
+        {
+            if (StatusCtrl.TryGetComponent(out CharacterMoveCtrl moveCtrl))
+            {
+                moveCtrl.SetEnableGravity(true);
+            }
+            IsFallDeath = false;
+        }
+
         base.OnLeave(fsm, isShutdown);
     }
 
