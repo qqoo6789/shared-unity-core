@@ -17,6 +17,12 @@ public class CharacterMoveCtrl : EntityBaseComponent
     /// </summary>
     /// <value></value>
     public Vector3 MoveSpeed { get; private set; }
+
+    /// <summary>
+    /// 当前带方向的物理移动速度
+    /// </summary>
+    /// <value></value>
+    public Vector3 PhysicsMoveSpeed { get; private set; }
     /// <summary>
     /// 在地面上 不是浮空状态
     /// </summary>
@@ -25,6 +31,8 @@ public class CharacterMoveCtrl : EntityBaseComponent
     private bool _enableGravity = true;
 
     private bool _isAddColliderLoadEvent;
+
+    private bool _isPhysics;
 
     private void Start()
     {
@@ -51,34 +59,44 @@ public class CharacterMoveCtrl : EntityBaseComponent
         {
             return;
         }
+        _mover.CheckForGround();
 
+        // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
+        bool isGrounded = _mover.IsGrounded();
+        Vector3 curSpeed;
         if (_enableGravity)
         {
-
-            _mover.CheckForGround();
-
-            // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
-
-            if (_mover.IsGrounded())
+            if (!_isPhysics)
             {
-                GroundedMovement();
+                if (_mover.IsGrounded())
+                {
+                    GroundedMovement();
+                }
+                else
+                {
+                    SkyMovement();
+                }
+                curSpeed = _lastVelocity;
             }
             else
             {
-                SkyMovement();
+
+                PhysicsMovement();
+                isGrounded = isGrounded && (PhysicsMoveSpeed.y <= 0);
+                curSpeed = PhysicsMoveSpeed;
             }
-            _mover.SetExtendSensorRange(_mover.IsGrounded());
         }
-        else//没有重力
+        else
         {
             GroundedMovement();
-            _mover.SetExtendSensorRange(false);
+            curSpeed = _lastVelocity;
         }
 
+        _mover.SetExtendSensorRange(isGrounded);
         // 给移动器正式应用速度
-        _mover.SetVelocity(_lastVelocity);
-    }
+        _mover.SetVelocity(curSpeed);
 
+    }
     /// <summary>
     /// 地表移动
     /// </summary>
@@ -116,6 +134,33 @@ public class CharacterMoveCtrl : EntityBaseComponent
         _lastVelocity = velocity;
     }
 
+    /// <summary>
+    /// 物理移动
+    /// </summary>
+    private void PhysicsMovement()
+    {
+        Vector3 velocity = PhysicsMoveSpeed;
+        if (_mover.IsGrounded())
+        {
+            if (velocity.y <= 0)
+            {
+                velocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            velocity += Physics.gravity * Time.deltaTime;
+        }
+
+        PhysicsMoveSpeed = velocity;
+
+        //物理运动结束
+        if (PhysicsMoveSpeed.ApproximatelyEquals(Vector3.zero))
+        {
+            _isPhysics = false;
+        }
+    }
+
     //Returns true if angle between controller and ground normal is too big (> slope limit), i.e. ground is too steep;
     private bool IsGroundTooSteep()
     {
@@ -128,7 +173,18 @@ public class CharacterMoveCtrl : EntityBaseComponent
     /// <param name="moveSpeed"></param>
     public void SetMoveSpeed(Vector3 moveSpeed)
     {
+        _isPhysics = false;
         MoveSpeed = moveSpeed;
+    }
+
+    /// <summary>
+    /// 设置物理移动速度
+    /// </summary>
+    /// <param name="moveSpeed"></param>
+    public void SetPhysicsMoveSpeed(Vector3 moveSpeed)
+    {
+        _isPhysics = true;
+        PhysicsMoveSpeed = moveSpeed;
     }
 
     /// <summary>
