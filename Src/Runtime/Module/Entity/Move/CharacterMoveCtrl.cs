@@ -59,15 +59,13 @@ public class CharacterMoveCtrl : EntityBaseComponent
         {
             return;
         }
+        _mover.CheckForGround();
 
+        // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
+        bool isGrounded = _mover.IsGrounded();
+        Vector3 curSpeed;
         if (_enableGravity)
         {
-
-            _mover.CheckForGround();
-
-            // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
-            bool isGrounded = _mover.IsGrounded();
-            Vector3 curSpeed;
             if (!_isPhysics)
             {
                 if (_mover.IsGrounded())
@@ -80,19 +78,24 @@ public class CharacterMoveCtrl : EntityBaseComponent
                 }
                 curSpeed = _lastVelocity;
             }
-            else//没有重力
+            else
             {
 
                 PhysicsMovement();
                 isGrounded = isGrounded && (PhysicsMoveSpeed.y <= 0);
                 curSpeed = PhysicsMoveSpeed;
             }
-
-
-            _mover.SetExtendSensorRange(isGrounded);
-            // 给移动器正式应用速度
-            _mover.SetVelocity(curSpeed);
         }
+        else
+        {
+            GroundedMovement();
+            curSpeed = _lastVelocity;
+        }
+
+        _mover.SetExtendSensorRange(isGrounded);
+        // 给移动器正式应用速度
+        _mover.SetVelocity(curSpeed);
+
     }
     /// <summary>
     /// 地表移动
@@ -205,5 +208,4 @@ public class CharacterMoveCtrl : EntityBaseComponent
     {
         _mover = go.GetComponent<Mover>();
     }
-}
 }
