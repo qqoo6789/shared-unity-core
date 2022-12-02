@@ -59,6 +59,6 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     /// </summary>
     private void ResetEnterStatusStamp()
     {
-        SoilData.SaveData.CurStatusStartStamp = s_getNowTimeStamp();
+        SoilData.SaveData.StatusStartStamp = s_getNowTimeStamp();
     }
 }

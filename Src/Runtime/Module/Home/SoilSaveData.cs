@@ -19,13 +19,17 @@ public class SoilSaveData
     /// <summary>
     /// 开始当前状态的时间
     /// </summary>
-    public long CurStatusStartStamp;
+    public long StatusStartStamp;
     /// <summary>
     /// 当前生成的阶段 从0开始 只对生长阶段有效
     /// </summary>
-    public int CurGrowingStage;
+    public int GrowingStage;
     /// <summary>
     /// 当前种子配置ID 只有放了种子的状态才有效
     /// </summary>
-    public int CurSeedCid;
+    public int SeedCid;
+    /// <summary>
+    /// 种植了多格种子时 种子归属的根土地ID 0代表不是多格种子 多格种子根在左下角格子里
+    /// </summary>
+    public ulong MultipleGridsRootSoilID;
 }
