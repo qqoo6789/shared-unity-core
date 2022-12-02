@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -11,10 +10,15 @@ public class HomeSaveData
     /// <summary>
     /// 所有非空白idle状态的土地列表 空白的不存储
     /// </summary>
-    public List<SoilSaveData> SoilDataList;
+    public string SoilDataList;
 
-    public string ToJson()
+    public static string ToJson(object data)
     {
-        return JsonUtility.ToJson(this);
+        return JsonUtility.ToJson(data);
+    }
+
+    public static T FromJson<T>(string json)
+    {
+        return JsonUtility.FromJson<T>(json);
     }
 }

@@ -38,8 +38,8 @@ public class InitHomeLogicCore : MonoBehaviour
     /// <param name="saveData"></param>
     public void RestoreSoilStatus(HomeSaveData saveData)
     {
-
-        foreach (SoilSaveData data in saveData.SoilDataList)
+        SoilSaveData[] soilSaveDataList = HomeSaveData.FromJson<SoilSaveData[]>(saveData.SoilDataList);
+        foreach (SoilSaveData data in soilSaveDataList)
         {
             ulong id = data.Id;
             HomeSoilCore soil = HomeModuleCore.SoilMgr.GetSoil(id);
