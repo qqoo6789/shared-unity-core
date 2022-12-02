@@ -8,10 +8,10 @@
 
 
 /// <summary>
-/// 场景区域定义
+/// 场景区域定义,用场景名做key
 /// </summary>
 public enum eSceneArea
 {
-    world,  //大世界
-    home,   //家园
+    WorldScene,  //大世界
+    HomeScene,   //家园
 }
