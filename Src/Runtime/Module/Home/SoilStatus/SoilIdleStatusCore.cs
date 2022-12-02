@@ -1,14 +1,13 @@
-using System;
 using GameFramework.Fsm;
+using UnityGameFramework.Runtime;
+using static HomeDefine;
 
 /// <summary>
 /// 土地的空白状态 也是初始状态 需要根据数据恢复跳转到最开始的状态
 /// </summary>
 public class SoilIdleStatusCore : SoilStatusCore
 {
-    public static new string Name = "soilIdle";
-
-    public override string StatusName => Name;
+    public override eSoilStatus StatusFlag => eSoilStatus.Idle;
 
     protected override void OnEnter(IFsm<SoilStatusCtrl> fsm)
     {
@@ -27,6 +26,14 @@ public class SoilIdleStatusCore : SoilStatusCore
     //收到数据恢复初始化状态的消息
     private void OnMsgInitStatus(SoilSaveData soilSaveData)
     {
-        throw new NotImplementedException();
+        SoilData.SetSaveData(soilSaveData);
+
+        if (soilSaveData.SoilStatus == eSoilStatus.Idle)//如果初始化也是idle状态就不用切换了
+        {
+            return;
+        }
+
+        OwnerFsm.SetData<VarBoolean>(SoilStatusDataName.IS_INIT_STATUS, true);//告知下一个状态进入是初始化进入
+        ChangeState(soilSaveData.SoilStatus);
     }
 }

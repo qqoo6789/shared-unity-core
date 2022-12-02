@@ -51,7 +51,7 @@ public class HomeSoilMgrCore<TSoil> : MonoBehaviour, IHomeSoilMgr where TSoil : 
         _soilMap.Add(id, soil);
         _soilList.Add(soil);
 
-        soil.GetComponent<SoilStatusCtrl>().StartStatus(SoilIdleStatusCore.Name);
+        soil.GetComponent<SoilStatusCtrl>().StartStatus(HomeDefine.eSoilStatus.Idle);
     }
 
     private TSoil CreateSoil(ulong id)
