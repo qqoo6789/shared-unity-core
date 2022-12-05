@@ -1,10 +1,22 @@
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 家园总模块core部分
 /// </summary>
 public abstract class HomeModuleCore : MonoBehaviour
 {
+    /// <summary>
+    /// 家园模块根 获取模块再这个上面获取
+    /// </summary>
+    /// <value></value>
+    public static GameObject Root { get; private set; }
+
+    /// <summary>
+    /// 家园模块是否初始化完成
+    /// </summary>
+    public static bool IsInited => Root != null;
+
     /// <summary>
     /// 土地管理
     /// </summary>
@@ -14,6 +26,15 @@ public abstract class HomeModuleCore : MonoBehaviour
 
     private void Start()
     {
+        if (Root != null)
+        {
+            Log.Error("HomeModuleCore已经初始化过了");
+            Destroy(Root);
+            return;
+        }
+
+        Root = gameObject;
+
         InitModule();
 
         StartInitLogic();
@@ -22,6 +43,11 @@ public abstract class HomeModuleCore : MonoBehaviour
     private void OnDestroy()
     {
         UnInitModule();
+
+        if (Root == gameObject)
+        {
+            Root = null;
+        }
     }
 
     protected virtual void InitModule()
