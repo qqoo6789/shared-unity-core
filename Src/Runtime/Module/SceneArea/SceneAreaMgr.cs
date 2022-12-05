@@ -11,14 +11,14 @@ using System.Collections.Generic;
 //区域名字
 public class SceneAreaMgr : SceneModuleBase
 {
-    public eSceneArea defaultArea;
+    private eSceneArea _defaultArea;
     private readonly List<eSceneArea> _areaQueue = new();
     /// <summary>
     /// 设置默认区域
     /// </summary>
     public void SetDefaultArea(eSceneArea area)
     {
-        defaultArea = area;
+        _defaultArea = area;
     }
 
     /// <summary>
@@ -46,6 +46,6 @@ public class SceneAreaMgr : SceneModuleBase
         {
             return _areaQueue[^1];
         }
-        return defaultArea;
+        return _defaultArea;
     }
 }

@@ -28,6 +28,7 @@ public static class DataTableConfig
         "RoleAsset",
         "RoleLv",
         "Scene",
+        "SceneArea",
         "Skill",
         "SkillEffect",
         "SlotLv",
