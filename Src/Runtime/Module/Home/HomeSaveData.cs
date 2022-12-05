@@ -1,5 +1,5 @@
 using System;
-using UnityEngine;
+using Newtonsoft.Json;
 
 /// <summary>
 /// 整个家园的存储数据 可能是数据库来的 也可能是给客户端协议里解来的
@@ -16,11 +16,11 @@ public class HomeSaveData
 
     public static string ToJson(object data)
     {
-        return JsonUtility.ToJson(data);
+        return JsonConvert.SerializeObject(data, Formatting.Indented);
     }
 
     public static T FromJson<T>(string json)
     {
-        return JsonUtility.FromJson<T>(json);
+        return JsonConvert.DeserializeObject<T>(json);
     }
 }
