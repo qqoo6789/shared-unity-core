@@ -83,4 +83,14 @@ public static class MapUtilCore
         resPos = new Vector3(x, 0, z);
         return false;
     }
+
+    /// <summary>
+    /// 客户端场景名转服务器场景名
+    /// </summary>
+    /// <param name="sceneName">客户端场景名</param>
+    /// <returns></returns>
+    public static string SceneNameC2S(string sceneName)
+    {
+        return $"{sceneName}Server";
+    }
 }
