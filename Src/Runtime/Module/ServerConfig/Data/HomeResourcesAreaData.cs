@@ -16,6 +16,7 @@ public enum eHomeResourcesAreaType : int
 
 public class HomeResourcesAreaData : DataNodeBase
 {
+    public int Id;
     public eHomeResourcesAreaType AreaType;
     public Vector3 Scale;
     public int UpdateInterval;

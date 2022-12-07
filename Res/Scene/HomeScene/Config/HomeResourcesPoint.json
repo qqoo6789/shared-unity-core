@@ -1,1 +1,23 @@
-﻿{"DataList":[{"AreaType":1,"Scale":{"X":10.0,"Y":0.1,"Z":10.0},"UpdateInterval":10000,"PointList":[{"Weight":1000,"ConfigId":9900001,"LimitNum":10}],"X":0.0,"Y":0.0,"Z":0.0}]}
+﻿{
+    "DataList": [
+        {
+            "AreaType": 1,
+            "Scale": {
+                "X": 10.0,
+                "Y": 0.1,
+                "Z": 10.0
+            },
+            "UpdateInterval": 10000,
+            "PointList": [
+                {
+                    "Weight": 1000,
+                    "ConfigId": 9900001,
+                    "LimitNum": 10
+                }
+            ],
+            "X": 250.3,
+            "Y": 5.0,
+            "Z": 40.6
+        }
+    ]
+}

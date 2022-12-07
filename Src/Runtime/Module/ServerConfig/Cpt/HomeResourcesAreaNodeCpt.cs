@@ -31,6 +31,7 @@ public class HomeResourcesAreaNodeCpt : MonoBehaviour, IServerDataNodeCpt
     public object GetServerData()
     {
         HomeResourcesAreaData data = new();
+        data.Id = GetHashCode();
         data.X = transform.position.x;
         data.Y = transform.position.y;
         data.Z = transform.position.z;
