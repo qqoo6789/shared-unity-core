@@ -3,7 +3,7 @@ using System.Numerics;
  * @Author: xiang huan
  * @Date: 2022-12-06 10:19:06
  * @Description: 家园资源区域刷新
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/ServerConfig/Data/HomeResourcesAreaData.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/ServerConfig/Data/HomeResourcesAreaData.cs
  * 
  */
 using System.Collections.Generic;

@@ -12,6 +12,8 @@ public class HomeSaveData
     /// </summary>
     public string SoilDataList;
 
+    public string HomeAreaDataList;
+
     public static string ToJson(object data)
     {
         return JsonUtility.ToJson(data);
