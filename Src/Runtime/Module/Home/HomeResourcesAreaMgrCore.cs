@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-12-08 15:29:03
  * @Description: 家园资源区域模块
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Home/HomeResourcesAreaMgrCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Home/HomeResourcesAreaMgrCore.cs
  * 
  */
 
@@ -29,7 +29,7 @@ public class HomeResourcesAreaMgrCore : MonoBehaviour
         {
             return;
         }
-        AreaMap.Remove(id);
+        _ = AreaMap.Remove(id);
     }
 
     public HomeResourcesArea GetArea(int id)
@@ -39,5 +39,37 @@ public class HomeResourcesAreaMgrCore : MonoBehaviour
             return null;
         }
         return AreaMap[id];
+    }
+
+    public virtual void InitHomeAreaSaveData(HomeResourcesAreaSaveData[] areaSaveDataList)
+    {
+
+        Dictionary<int, HomeResourcesAreaSaveData> saveDataMap = new();
+        for (int i = 0; i < areaSaveDataList.Length; i++)
+        {
+            saveDataMap.Add(areaSaveDataList[i].Id, areaSaveDataList[i]);
+        }
+        foreach (KeyValuePair<int, HomeResourcesArea> item in AreaMap)
+        {
+            HomeResourcesArea area = item.Value;
+            if (saveDataMap.ContainsKey(area.Id))
+            {
+                area.InitSaveData(saveDataMap[area.Id]);
+            }
+            else
+            {
+                area.InitSaveData(null);
+            }
+        }
+    }
+
+    public List<HomeResourcesAreaSaveData> GetHomeAreaSaveData()
+    {
+        List<HomeResourcesAreaSaveData> list = new();
+        foreach (KeyValuePair<int, HomeResourcesArea> item in AreaMap)
+        {
+            list.Add(item.Value.GetSaveData());
+        }
+        return list;
     }
 }

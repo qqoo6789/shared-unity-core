@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-12-06 10:27:50
  * @Description: 资源刷新区域
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Home/HomeResourcesArea.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Home/HomeResourcesArea.cs
  * 
  */
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ public class HomeResourcesArea : SharedCoreComponent
     public int Id;
 
     [Header("是否绘制形状")]
-    public bool isDraw;
+    public bool IsDraw;
 
     [Header("区域类型")]
     public HomeDefine.eHomeResourcesAreaType AreaType;
@@ -22,7 +22,7 @@ public class HomeResourcesArea : SharedCoreComponent
     [Header("刷新间隔(ms)")]
     public int UpdateInterval;
 
-    [System.Serializable]
+    [Serializable]
     public struct HomeResourcesAreaPoint
     {
         [Header("权重(百分位)")]
@@ -37,6 +37,7 @@ public class HomeResourcesArea : SharedCoreComponent
 
     public Bounds AreaBounds { get; private set; }
     private List<ulong> _soilIdList;
+    public HomeResourcesAreaSaveData SaveData { get; private set; }  //保存数据
     private void Awake()
     {
         HomeModuleCore.HomeResourcesAreaMgr.AddArea(this);
@@ -82,10 +83,36 @@ public class HomeResourcesArea : SharedCoreComponent
             }
         }
     }
+    protected HomeResourcesAreaSaveData CreateSaveData()
+    {
+        HomeResourcesAreaSaveData data = new()
+        {
+            Id = Id,
+            PointList = new(),
+            UpdateTime = TimeUtil.GetTimeStamp() + UpdateInterval
+        };
+        return data;
+    }
 
+    public void InitSaveData(HomeResourcesAreaSaveData saveData)
+    {
+        if (saveData != null)
+        {
+            SaveData = saveData;
+        }
+        else
+        {
+            SaveData = CreateSaveData();
+        }
+    }
+
+    public HomeResourcesAreaSaveData GetSaveData()
+    {
+        return SaveData;
+    }
     private void OnDrawGizmos()
     {
-        if (!isDraw)
+        if (!IsDraw)
         {
             return;
         }
