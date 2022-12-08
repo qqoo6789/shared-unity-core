@@ -48,4 +48,10 @@ public static class HomeDefine
         /// </summary>
         Harvest,
     }
+
+    public enum eHomeResourcesAreaType : int
+    {
+        empty,    //空地
+        farmland, //农田
+    }
 }

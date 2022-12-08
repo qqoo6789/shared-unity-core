@@ -11,6 +11,12 @@ public abstract class HomeModuleCore : MonoBehaviour
     /// <value></value>
     public static IHomeSoilMgr SoilMgr { get; private set; }
 
+    /// <summary>
+    /// 资源区域管理
+    /// </summary>
+    /// <value></value>
+    public static HomeResourcesAreaMgrCore HomeResourcesAreaMgr { get; private set; }
+
     private void Start()
     {
         InitModule();
@@ -31,6 +37,7 @@ public abstract class HomeModuleCore : MonoBehaviour
     protected virtual void UnInitModule()
     {
         SoilMgr = null;
+        HomeResourcesAreaMgr = null;
     }
 
     /// <summary>

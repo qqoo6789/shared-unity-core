@@ -60,4 +60,20 @@ public static class MathUtilCore
         }
         return weightList.Count - 1;
     }
+
+    /// <summary>
+    /// 区域ID转土地格子ID
+    /// </summary>
+    public static ulong AreaToSoil(int areaId, int x, int z)
+    {
+        return ((ulong)areaId << 32) | ((ulong)x << 16) | (uint)z;
+    }
+
+    /// <summary>
+    /// 土地格子ID转区域ID
+    /// </summary>
+    public static int SoilToArea(ulong pointId)
+    {
+        return (int)(pointId >> 32);
+    }
 }
