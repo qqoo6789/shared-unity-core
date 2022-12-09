@@ -36,53 +36,23 @@ public class HomeResourcesArea : SharedCoreComponent
     public List<HomeResourcesAreaPoint> PointList;
 
     public Bounds AreaBounds { get; private set; }
-    private List<ulong> _soilIdList;
     public HomeResourcesAreaSaveData SaveData { get; private set; }  //保存数据
     private void Awake()
     {
-        HomeModuleCore.HomeResourcesAreaMgr.AddArea(this);
+        GFEntryCore.HomeResourcesAreaMgr.AddArea(this);
         AreaBounds = new Bounds(transform.position, transform.localScale);
-
-        if (AreaType == HomeDefine.eHomeResourcesAreaType.farmland)
-        {
-            InitFarmland();
-        }
+        SaveData = CreateSaveData();
     }
 
-    /// <summary>
-    /// 初始化土地
-    /// </summary>
-    private void InitFarmland()
-    {
-        _soilIdList = new();
-        Vector3 minPos = AreaBounds.min;
-        Vector3 maxPos = AreaBounds.max;
-        int countX = (int)MathF.Floor((maxPos.x - minPos.x) / HomeDefine.SOIL_SIZE.x);
-        int countZ = (int)MathF.Floor((maxPos.z - minPos.z) / HomeDefine.SOIL_SIZE.z);
-
-        for (int i = 0; i < countX; i++)
-        {
-            for (int j = 0; j < countZ; j++)
-            {
-                Vector3 pos = new(minPos.x + i * HomeDefine.SOIL_SIZE.x, minPos.y, minPos.z + j * HomeDefine.SOIL_SIZE.z);
-                ulong id = MathUtilCore.AreaToSoil(Id, i, j);
-                HomeModuleCore.SoilMgr.AddSoil(id, pos);
-                _soilIdList.Add(id);
-            }
-        }
-    }
 
     private void OnDestroy()
     {
-        HomeModuleCore.HomeResourcesAreaMgr.RemoveArea(Id);
-        if (_soilIdList != null)
-        {
-            for (int i = 0; i < _soilIdList.Count; i++)
-            {
-                HomeModuleCore.SoilMgr.RemoveSoil(_soilIdList[i]);
-            }
-        }
+        GFEntryCore.HomeResourcesAreaMgr.RemoveArea(Id);
     }
+
+    /// <summary>
+    /// 创建存储数据
+    /// </summary>
     protected HomeResourcesAreaSaveData CreateSaveData()
     {
         HomeResourcesAreaSaveData data = new()
@@ -94,21 +64,67 @@ public class HomeResourcesArea : SharedCoreComponent
         return data;
     }
 
-    public void InitSaveData(HomeResourcesAreaSaveData saveData)
+    /// <summary>
+    /// 初始化存储数据
+    /// </summary>
+    public void SetSaveData(HomeResourcesAreaSaveData saveData)
     {
-        if (saveData != null)
+        if (saveData == null)
         {
-            SaveData = saveData;
+            return;
         }
-        else
-        {
-            SaveData = CreateSaveData();
-        }
+        SaveData = saveData;
     }
 
+    /// <summary>
+    /// 获得存储数据
+    /// </summary>
     public HomeResourcesAreaSaveData GetSaveData()
     {
         return SaveData;
+    }
+
+    /// <summary>
+    /// 设置存储数据刷新时间
+    /// </summary>
+    public void SetSaveDataUpdateTime(long time)
+    {
+        if (SaveData == null)
+        {
+            return;
+        }
+        SaveData.UpdateTime = time;
+    }
+
+    /// <summary>
+    /// 添加存储数据资源点
+    /// </summary>
+    public void AddSaveDataPoint(HomeResourcesPointSaveData pointData)
+    {
+        if (SaveData == null)
+        {
+            return;
+        }
+        SaveData.PointList.Add(pointData);
+    }
+
+    /// <summary>
+    /// 删除存储数据资源点
+    /// </summary>
+    public void RemoveSaveDataPoint(ulong id)
+    {
+        if (SaveData == null)
+        {
+            return;
+        }
+        for (int i = 0; i < SaveData.PointList.Count; i++)
+        {
+            if (SaveData.PointList[i].Id == id)
+            {
+                SaveData.PointList.RemoveAt(i);
+                break;
+            }
+        }
     }
     private void OnDrawGizmos()
     {

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -6,6 +7,47 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public class InitHomeLogicCore : MonoBehaviour
 {
+
+    private void Start()
+    {
+        InitSoil();
+    }
+
+    //初始化所有土地
+    private void InitSoil()
+    {
+        GenerateSoil();
+    }
+
+    //生成具体土地
+    private void GenerateSoil()
+    {
+        List<HomeResourcesArea> list = GFEntryCore.HomeResourcesAreaMgr.GetAreaListByType(HomeDefine.eHomeResourcesAreaType.farmland);
+        for (int i = 0; i < list.Count; i++)
+        {
+            CreateSoil(list[i]);
+        }
+    }
+
+    private void CreateSoil(HomeResourcesArea area)
+    {
+
+        Vector3 minPos = area.AreaBounds.min;
+        Vector3 maxPos = area.AreaBounds.max;
+        int countX = (int)System.MathF.Floor((maxPos.x - minPos.x) / HomeDefine.SOIL_SIZE.x);
+        int countZ = (int)System.MathF.Floor((maxPos.z - minPos.z) / HomeDefine.SOIL_SIZE.z);
+
+        for (int i = 0; i < countX; i++)
+        {
+            for (int j = 0; j < countZ; j++)
+            {
+                Vector3 pos = new(minPos.x + i * HomeDefine.SOIL_SIZE.x, minPos.y, minPos.z + j * HomeDefine.SOIL_SIZE.z);
+                ulong id = MathUtilCore.AreaToSoil(area.Id, i, j);
+                HomeModuleCore.SoilMgr.AddSoil(id, pos);
+            }
+        }
+
+    }
 
     /// <summary>
     /// 从家园保存数据中恢复土地状态

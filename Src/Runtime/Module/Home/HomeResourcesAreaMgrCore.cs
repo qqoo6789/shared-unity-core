@@ -1,16 +1,15 @@
 /*
  * @Author: xiang huan
  * @Date: 2022-12-08 15:29:03
- * @Description: 家园资源区域模块
+ * @Description: 家园资源区域管理
  * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Home/HomeResourcesAreaMgrCore.cs
  * 
  */
 
 using System.Collections.Generic;
-using UnityEngine;
 using UnityGameFramework.Runtime;
 
-public class HomeResourcesAreaMgrCore : MonoBehaviour
+public class HomeResourcesAreaMgrCore : SceneModuleBase
 {
     protected Dictionary<int, HomeResourcesArea> AreaMap = new();
 
@@ -40,25 +39,31 @@ public class HomeResourcesAreaMgrCore : MonoBehaviour
         }
         return AreaMap[id];
     }
+    public List<HomeResourcesArea> GetAreaListByType(HomeDefine.eHomeResourcesAreaType type)
+    {
+        List<HomeResourcesArea> list = new();
+        foreach (KeyValuePair<int, HomeResourcesArea> item in AreaMap)
+        {
+            if (item.Value.AreaType == type)
+            {
+                list.Add(item.Value);
+            }
+        }
+
+        return list;
+    }
 
     public virtual void InitHomeAreaSaveData(HomeResourcesAreaSaveData[] areaSaveDataList)
     {
-
-        Dictionary<int, HomeResourcesAreaSaveData> saveDataMap = new();
+        if (areaSaveDataList == null)
+        {
+            return;
+        }
         for (int i = 0; i < areaSaveDataList.Length; i++)
         {
-            saveDataMap.Add(areaSaveDataList[i].Id, areaSaveDataList[i]);
-        }
-        foreach (KeyValuePair<int, HomeResourcesArea> item in AreaMap)
-        {
-            HomeResourcesArea area = item.Value;
-            if (saveDataMap.ContainsKey(area.Id))
+            if (AreaMap.TryGetValue(areaSaveDataList[i].Id, out HomeResourcesArea area))
             {
-                area.InitSaveData(saveDataMap[area.Id]);
-            }
-            else
-            {
-                area.InitSaveData(null);
+                area.SetSaveData(areaSaveDataList[i]);
             }
         }
     }
@@ -66,9 +71,16 @@ public class HomeResourcesAreaMgrCore : MonoBehaviour
     public List<HomeResourcesAreaSaveData> GetHomeAreaSaveData()
     {
         List<HomeResourcesAreaSaveData> list = new();
-        foreach (KeyValuePair<int, HomeResourcesArea> item in AreaMap)
+        try
         {
-            list.Add(item.Value.GetSaveData());
+            foreach (KeyValuePair<int, HomeResourcesArea> item in AreaMap)
+            {
+                list.Add(item.Value.GetSaveData());
+            }
+        }
+        catch (System.Exception e)
+        {
+            Log.Error($"GetHomeAreaSaveData Error : {e}");
         }
         return list;
     }
