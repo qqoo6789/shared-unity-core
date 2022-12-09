@@ -35,4 +35,8 @@ public static class MTag
     /// 场景区域入口检测器
     /// </summary>
     public const string SCENE_AREA_CHECKER = "SceneAreaChecker";
+	
+    /// 家园土地
+    /// </summary>
+    public static string HOME_SOIL = "HomeSoil";
 }

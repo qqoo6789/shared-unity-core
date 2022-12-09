@@ -30,23 +30,41 @@ public static class HomeDefine
         /// <summary>
         /// 松土完
         /// </summary>
-        Loose,
+        Loose = 1 << 0,
         /// <summary>
         /// 生长中
         /// </summary>
-        Growing,
+        Growing = 1 << 1,
         /// <summary>
         /// 口渴
         /// </summary>
-        Thirsty,
+        Thirsty = 1 << 2,
         /// <summary>
         /// 干枯
         /// </summary>
-        Withered,
+        Withered = 1 << 3,
         /// <summary>
         /// 等待收获
         /// </summary>
-        Harvest,
+        Harvest = 1 << 4,
+    }
+
+    /// <summary>
+    /// 可采集资源类型 对应不同武器可操作不同类型
+    /// </summary>
+    public enum eResourceType
+    {
+        Unknown = 0,
+        /// <summary>
+        /// 土壤作物
+        /// </summary>
+        Soil = 1 << 0,
+        /// <summary>
+        /// 岩石 矿石
+        /// </summary>
+        Rock = 1 << 1,
+        Tree = 1 << 2,
+        Grass = 1 << 3,
     }
 
     public enum eHomeResourcesAreaType : int
