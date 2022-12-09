@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
 
 /// <summary>
-/// 采集状态通用状态基类
+/// 采集格子建筑状态通用状态基类
 /// </summary>
 public class CollectStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanSkill
 {

@@ -3,11 +3,25 @@ using UnityEngine;
 /// <summary>
 /// 家园单块土地实体
 /// </summary>
-public abstract class HomeSoilCore : MonoBehaviour
+public abstract class HomeSoilCore : MonoBehaviour, ICollectResource
 {
     public SoilEvent SoilEvent { get; set; }
     public SoilStatusCtrl StatusCtrl { get; private set; }
     public SoilData SoilData { get; private set; }
+
+    public HomeDefine.eResourceType ResourceType => HomeDefine.eResourceType.Soil;
+
+    public Vector3 Position => transform.position;
+
+    public bool CanCollect()
+    {
+        return SoilData.SaveData.SoilStatus == HomeDefine.eSoilStatus.Harvest;
+    }
+
+    public Vector3 GetDisplaySize()
+    {
+        return HomeDefine.SOIL_SIZE;
+    }
 
     protected virtual void Awake()
     {
