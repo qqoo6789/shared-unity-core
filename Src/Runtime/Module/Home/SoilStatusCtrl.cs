@@ -1,4 +1,3 @@
-using System;
 using GameFramework;
 using GameFramework.Fsm;
 using UnityEngine;
@@ -45,11 +44,6 @@ public class SoilStatusCtrl : MonoBehaviour
         _soilEvent = null;
     }
 
-    internal void StartStatus(object name)
-    {
-        throw new NotImplementedException();
-    }
-
     /// <summary>
     /// 初始化状态机 需要给定固定的状态实例
     /// </summary>
@@ -78,7 +72,7 @@ public class SoilStatusCtrl : MonoBehaviour
     /// 启动状态 需要给定启动状态
     /// </summary>
     /// <typeparam name="TStartStatus"></typeparam>
-    public void StartStatus(string name)
+    public void StartStatus(HomeDefine.eSoilStatus status)
     {
         if (Fsm == null)
         {
@@ -86,7 +80,7 @@ public class SoilStatusCtrl : MonoBehaviour
             return;
         }
 
-        Fsm.Start(name);
+        Fsm.Start(status.ToString());
     }
 
     private IFsmManager GetFsmManager()

@@ -4,6 +4,11 @@ using UnityGameFramework.Runtime;
 public static class TimeUtil
 {
     /// <summary>
+    /// 获取时间戳代理定义 用在需要选择获取时间戳方法的地方
+    /// </summary>
+    /// <returns></returns>
+    public delegate long DelegateGetTimeStamp();
+    /// <summary>
     /// 秒转毫秒
     /// </summary>
     public static readonly float S2MS = 1000;
