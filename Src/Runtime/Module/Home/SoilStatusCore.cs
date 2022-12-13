@@ -42,7 +42,8 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     /// </summary>
     /// <param name="action">当前执行的动作</param>
     /// <param name="effectValue">动作效果值 比如锄地和浇水效果 绝对值 非比例 非进度状态不需要关注</param>
-    protected virtual void OnExecuteHomeAction(eAction action, int effectValue) { }
+    /// <param name="actionData">动作数据 比如播种的种子cid</param>
+    protected virtual void OnExecuteHomeAction(eAction action, int effectValue, object actionData) { }
 
     /// <summary>
     /// 自动进入下一个状态的时间 等于0不会自动进入 秒
@@ -50,10 +51,9 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     /// <value></value>
     protected abstract float AutoEnterNextStatusTime { get; }
     /// <summary>
-    /// 设置自动进入时必选 自动进入下一个的具体状态
+    /// 设置自动进入时必选 自动进入下一个状态时的具体逻辑
     /// </summary>
-    /// <value></value>
-    protected virtual eSoilStatus AutoEnterNextStatusFlag { get; }
+    protected virtual void OnAutoEnterNextStatus() { }
 
     public sealed override string StatusName => StatusFlag.ToString();
 
@@ -142,7 +142,7 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
 
         if (_needInitJumpNextStatus)//为什么放到这里 不在enter里面直接跳转  是因为防止子类override enter的时候 先base.enter直接跳转释放了 后面的逻辑会出错
         {
-            ChangeState(AutoEnterNextStatusFlag);
+            OnAutoEnterNextStatus();
         }
     }
 
@@ -153,13 +153,7 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
         SoilData.SaveData.StatusStartStamp = 0;
     }
 
-    //自动进入下一个状态计时到了
-    private void OnAutoEnterNextStatus()
-    {
-        ChangeState(AutoEnterNextStatusFlag);
-    }
-
-    private void OnMsgExecuteAction(eAction action, int effectValue)
+    private void OnMsgExecuteAction(eAction action, int effectValue, object actionData)
     {
         if (!CheckSupportAction(action))
         {
@@ -167,7 +161,7 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
             return;
         }
 
-        OnExecuteHomeAction(action, effectValue);
+        OnExecuteHomeAction(action, effectValue, actionData);
     }
 
     /// <summary>

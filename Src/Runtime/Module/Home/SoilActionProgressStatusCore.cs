@@ -60,9 +60,9 @@ public abstract class SoilActionProgressStatusCore : SoilStatusCore
         _lostActionEffectValueSpeed = LostActionEffectValueSpeed;
     }
 
-    protected sealed override void OnExecuteHomeAction(HomeDefine.eAction action, int effectValue)
+    protected sealed override void OnExecuteHomeAction(HomeDefine.eAction action, int effectValue, object actionData)
     {
-        base.OnExecuteHomeAction(action, effectValue);
+        base.OnExecuteHomeAction(action, effectValue, actionData);
 
         if (NeedEffectValueActionType != action)
         {
@@ -70,7 +70,7 @@ public abstract class SoilActionProgressStatusCore : SoilStatusCore
             {
                 Log.Error("不需要进度的动作不应该发效果值");
             }
-            OnActionComplete(action);
+            OnActionComplete(action, actionData);
             return;
         }
 
@@ -90,13 +90,15 @@ public abstract class SoilActionProgressStatusCore : SoilStatusCore
 
         if (curRemain >= _needActionEffectValue)
         {
-            OnActionComplete(action);
+            OnActionComplete(action, actionData);
         }
     }
 
     /// <summary>
     /// 动作完成了  也许是进度动作 也许是其他一次性动作 不过都是自身支持的动作才会回调
     /// </summary>
-    /// <param name="action"></param>
-    protected abstract void OnActionComplete(HomeDefine.eAction action);
+    /// <param name="action">完成的动作</param>
+    /// <param name="actionData">动作附带参数 比如种子cid</param>
+    /// 
+    protected abstract void OnActionComplete(HomeDefine.eAction action, object actionData);
 }
