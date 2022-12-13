@@ -12,10 +12,8 @@
 /// </summary>
 public enum eSceneArea : int
 {
-    all = 10000,
     world = 10001,  //大世界
     home = 10002,   //家园
-    battleCopy = 10003, //战斗副本
 }
 
 /// <summary>
