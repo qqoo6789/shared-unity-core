@@ -142,6 +142,31 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         EntityRootDic.Clear();
     }
 
+    /// <summary>
+    /// 移除除了exceptIds之外的所有实体
+    /// </summary>
+    /// <param name="exceptIds"></param>
+    public virtual void RemoveAllEntityExcept(List<long> exceptIds)
+    {
+        foreach (KeyValuePair<long, TEntity> item in EntityDic)
+        {
+            if (exceptIds.Contains(item.Key))
+            {
+                continue;
+            }
+            try
+            {
+                item.Value.Dispose();
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Entity {item.Value.BaseData.Id} RemoveAllEntityExcept dispose failed,error={e}");
+            }
+        }
+        EntityDic.Clear();
+        EntityRootDic.Clear();
+    }
+
     protected virtual TEntity CreateEntity(long entityID, GameMessageCore.EntityType entityType)
     {
         return Factory.CreateSceneEntity(entityID, entityType);

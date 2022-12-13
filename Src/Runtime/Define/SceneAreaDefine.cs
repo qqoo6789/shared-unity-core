@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-12-02 13:54:41
  * @Description: 区域定义
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Define/SceneAreaDefine.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Define/SceneAreaDefine.cs
  * 
  */
 
@@ -12,6 +12,47 @@
 /// </summary>
 public enum eSceneArea : int
 {
+    all = 10000,
     world = 10001,  //大世界
     home = 10002,   //家园
+    battleCopy = 10003, //战斗副本
+}
+
+/// <summary>
+/// 区域优先级
+/// 用于区域重叠时的优先级判断
+/// 枚举值越大，优先级越高
+/// </summary>
+public enum eSceneAreaPriority
+{
+    none,
+    low,
+    middle,
+    high,
+}
+
+/// <summary>
+/// 区域改变类型
+/// </summary>
+public enum eAreaChangedType
+{
+    enter,
+    exit,
+}
+
+/// <summary>
+/// 区域改变事件
+/// </summary>
+public class PlayerAreaChangedEvent
+{
+    public eAreaChangedType Type { private set; get; }
+    public long PlayerID { private set; get; }
+    public SceneAreaInfo Data { private set; get; }
+
+    public PlayerAreaChangedEvent(eAreaChangedType type, long playerID, SceneAreaInfo data)
+    {
+        Type = type;
+        PlayerID = playerID;
+        Data = data;
+    }
 }
