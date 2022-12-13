@@ -51,6 +51,30 @@ public static class HomeDefine
     }
 
     /// <summary>
+    /// 家园系统的玩家动作
+    /// </summary>
+    public enum eAction
+    {
+        None = 0,
+        /// <summary>
+        /// 锄头锄地
+        /// </summary>
+        Hoeing = 1 << 1,
+        /// <summary>
+        /// 播种
+        /// </summary>
+        Sowing = 1 << 2,
+        /// <summary>
+        /// 浇水
+        /// </summary>
+        Watering = 1 << 3,
+        /// <summary>
+        /// 收获
+        /// </summary>
+        Harvest = 1 << 4,
+    }
+
+    /// <summary>
     /// 可采集资源类型 对应不同武器可操作不同类型
     /// </summary>
     public enum eResourceType
