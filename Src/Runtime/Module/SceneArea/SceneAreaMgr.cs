@@ -30,14 +30,20 @@ public class SceneAreaMgr : SceneModuleBase
     private readonly List<eSceneArea> _areaQueue = new();
 
     /// <summary>
-    /// 当前出发区域计数器
-    /// 进入重复区域计数器+1，离开重复区域计数器-1，当计数器为0时，表示离开重复区域
-    /// 进入新区域时，重置计数器
+    /// 记录玩家当前的区域信息
     /// </summary>
     /// <returns></returns>
-    private readonly Dictionary<long, PlayerAreaRecord> _playerEnterAreaCounterDic = new();
+    private readonly Dictionary<long, PlayerAreaRecord> _playerAreaRecordDic = new();
+    /// <summary>
+    /// 玩家所在区域改变事件队列
+    /// </summary>
+    /// <returns></returns>
     private readonly Queue<PlayerAreaChangedEvent> _areaChangedEventQueue = new();
-    private readonly List<PlayerAreaRecord> _diffList = new();
+    /// <summary>
+    /// 区域变更信息列表
+    /// </summary>
+    /// <returns></returns>
+    private readonly List<PlayerAreaRecord> _changedAreaList = new();
     /// <summary>
     /// 设置默认区域
     /// </summary>
@@ -90,17 +96,15 @@ public class SceneAreaMgr : SceneModuleBase
     /// <returns></returns>
     private PlayerAreaRecord GetAddPlayerEnterAreaInfo(long playerID)
     {
-        if (_playerEnterAreaCounterDic.TryGetValue(playerID, out PlayerAreaRecord info))
+        if (_playerAreaRecordDic.TryGetValue(playerID, out PlayerAreaRecord info))
         {
             return info;
         }
-        else
-        {
-            info = new PlayerAreaRecord(playerID);
-            info.SetPlayerID(playerID);
-            _playerEnterAreaCounterDic.Add(playerID, info);
-            return info;
-        }
+
+        info = new PlayerAreaRecord(playerID);
+        info.SetPlayerID(playerID);
+        _playerAreaRecordDic.Add(playerID, info);
+        return info;
     }
 
     /// <summary>
@@ -130,15 +134,15 @@ public class SceneAreaMgr : SceneModuleBase
             playerEnterAreaInfo.ReceiveAreaChangedEvent(info);
 
             //TODO:去重方式可以优化
-            if (!_diffList.Contains(playerEnterAreaInfo))
+            if (!_changedAreaList.Contains(playerEnterAreaInfo))
             {
-                _diffList.Add(playerEnterAreaInfo);
+                _changedAreaList.Add(playerEnterAreaInfo);
             }
         }
 
-        if (_diffList.Count > 0)
+        if (_changedAreaList.Count > 0)
         {
-            foreach (PlayerAreaRecord item in _diffList)
+            foreach (PlayerAreaRecord item in _changedAreaList)
             {
                 //上面只是进队列，这里要应用一下
                 item.ApplyAreaChangedEvent();
@@ -150,7 +154,7 @@ public class SceneAreaMgr : SceneModuleBase
                     OnPlayerEnterNewSceneCheckArea?.Invoke(item.PlayerID, item.CurArea);//进入新区域事件
                 }
             }
-            _diffList.Clear();
+            _changedAreaList.Clear();
         }
     }
 }
