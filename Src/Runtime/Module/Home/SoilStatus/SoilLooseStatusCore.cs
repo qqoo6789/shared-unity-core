@@ -6,4 +6,24 @@ using static HomeDefine;
 public class SoilLooseStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Loose;
+
+    protected override eAction SupportAction => eAction.Sowing;
+
+    protected override float AutoEnterNextStatusTime => 3 * 24 * 60 * 60;
+
+    protected override void OnAutoEnterNextStatus()
+    {
+        base.OnAutoEnterNextStatus();
+
+        ChangeState(eSoilStatus.Idle);
+    }
+    protected override void OnExecuteHomeAction(eAction action, int effectValue, object actionData)
+    {
+        base.OnExecuteHomeAction(action, effectValue, actionData);
+
+        int seedCid = (int)actionData;
+        SoilData.SetSeedCid(seedCid);
+        SoilData.SetGrowStage(0);
+        ChangeState(eSoilStatus.SeedThirsty);
+    }
 }

@@ -6,4 +6,16 @@ using static HomeDefine;
 public class SoilHarvestStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Harvest;
+
+    protected override eAction SupportAction => eAction.Harvest;
+
+    protected override float AutoEnterNextStatusTime => 0;
+
+    protected override void OnExecuteHomeAction(eAction action, int effectValue, object actionData)
+    {
+        base.OnExecuteHomeAction(action, effectValue, actionData);
+
+        SoilData.SetSeedCid(-1);
+        ChangeState(eSoilStatus.Loose);
+    }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 单块土地上的数据
@@ -12,6 +13,20 @@ public class SoilData : MonoBehaviour
     /// </summary>
     /// <value></value>
     public SoilSaveData SaveData => _saveData;
+    /// <summary>
+    /// 当前土地的种子配置 可能为空 只有真正有效才有值
+    /// </summary>
+    /// <value></value>
+    public DRSeed DRSeed { get; private set; }
+
+    /// <summary>
+    /// 种子生长阶段数量 无效时为0
+    /// </summary>
+    public int SeedGrowStageNum => DRSeed == null ? 0 : DRSeed.GrowRes.Length;
+    /// <summary>
+    /// 种子每个生长阶段的时间 无效时为0
+    /// </summary>
+    public float SeedEveryGrowStageTime => SeedGrowStageNum == 0 ? 0 : DRSeed.GrowTotalTime / SeedGrowStageNum;
 
     private void Awake()
     {
@@ -30,5 +45,43 @@ public class SoilData : MonoBehaviour
     internal void SetSaveData(SoilSaveData saveData)
     {
         _saveData = saveData;
+    }
+
+    /// <summary>
+    /// 设置当前种子配置id 如果是要清除种子 则传入-1
+    /// </summary>
+    /// <param name="seedCid">-1代表清除</param>
+    internal void SetSeedCid(int seedCid)
+    {
+        if (seedCid < 0)
+        {
+            SaveData.SeedCid = 0;
+            SaveData.GrowingStage = 0;
+            DRSeed = null;
+        }
+        else
+        {
+            SaveData.SeedCid = seedCid;
+            DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(seedCid);
+            if (DRSeed == null)
+            {
+                Log.Error($"种子配置表里没有找到cid为 {seedCid} 的种子");
+            }
+        }
+    }
+
+    /// <summary>
+    /// 设置当前种子的成长阶段 从0开始 最大不能超过配置的数量索引
+    /// </summary>
+    /// <param name="growStage"></param>
+    internal void SetGrowStage(int growStage)
+    {
+        if (growStage < 0 || growStage >= SeedGrowStageNum)
+        {
+            Log.Error($"土地的成长阶段设置错误 :{growStage} cfgNum:{SeedGrowStageNum}");
+            return;
+        }
+
+        SaveData.GrowingStage = growStage;
     }
 }
