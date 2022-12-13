@@ -117,6 +117,11 @@ public class SceneAreaMgr : SceneModuleBase
 
     private void Update()
     {
+        HandleAreaChangedEvent();
+    }
+
+    private void HandleAreaChangedEvent()
+    {
         int handleCount = GetHandleCount();
         for (int i = 0; i < handleCount; i++)
         {
@@ -141,16 +146,11 @@ public class SceneAreaMgr : SceneModuleBase
                 if (item.CurArea != curArea)
                 {
                     Debug.Log($"PlayerEnterAreaInfo, playerID:{item.PlayerID}, curArea:{item.CurArea}, lastArea:{curArea}");
-                    OnPlayerEnterNewSceneCheckArea(item.PlayerID, item.CurArea);
+                    OnPlayerExitCurSceneCheckArea?.Invoke(item.PlayerID, curArea);//离开当前区域事件
+                    OnPlayerEnterNewSceneCheckArea?.Invoke(item.PlayerID, item.CurArea);//进入新区域事件
                 }
             }
-
             _diffList.Clear();
         }
-    }
-
-    private void Awake()
-    {
-        GFEntryCore.AddModule(this);
     }
 }
