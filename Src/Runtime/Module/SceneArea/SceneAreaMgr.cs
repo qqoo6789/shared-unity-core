@@ -9,7 +9,7 @@
 
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityGameFramework.Runtime;
 //区域名字
 public class SceneAreaMgr : SceneModuleBase
 {
@@ -102,7 +102,6 @@ public class SceneAreaMgr : SceneModuleBase
         }
 
         info = new PlayerAreaRecord(playerID);
-        info.SetPlayerID(playerID);
         _playerAreaRecordDic.Add(playerID, info);
         return info;
     }
@@ -149,7 +148,7 @@ public class SceneAreaMgr : SceneModuleBase
                 eSceneArea curArea = GetCurArea();
                 if (item.CurArea != curArea)
                 {
-                    Debug.Log($"PlayerEnterAreaInfo, playerID:{item.PlayerID}, curArea:{item.CurArea}, lastArea:{curArea}");
+                    Log.Info($"PlayerEnterAreaInfo, playerID:{item.PlayerID}, curArea:{item.CurArea}, lastArea:{curArea}");
                     OnPlayerExitCurSceneCheckArea?.Invoke(item.PlayerID, curArea);//离开当前区域事件
                     OnPlayerEnterNewSceneCheckArea?.Invoke(item.PlayerID, item.CurArea);//进入新区域事件
                 }

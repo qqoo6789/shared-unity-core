@@ -23,7 +23,6 @@ public class PlayerAreaRecord
     /// </summary>
     /// <returns></returns>
     private readonly List<SceneAreaInfo> _readyToExitList = new();
-
     /// <summary>
     /// player当前所在区域，默认值为大世界
     /// </summary>
@@ -116,7 +115,7 @@ public class PlayerAreaRecord
             return;
         }
 
-        if (area.Area != CurArea)
+        if (area.AreaID != _areaList[^1].AreaID)
         {
             Log.Warning($"ExitArea error, area is not equal to curArea, area:{area}, curArea:{CurArea}");
             Log.Warning($"Please check the area priority, area:{area}, curArea:{CurArea}");
@@ -132,13 +131,8 @@ public class PlayerAreaRecord
             return;
         }
 
-        _ = _areaList.Remove(area);
-        if (_areaList.Count == 0)
-        {
-            CurArea = eSceneArea.world;
-        }
-
-        CurArea = _areaList[^1].Area;
+        _areaList.RemoveAt(_areaList.Count - 1);
+        CurArea = _areaList.Count == 0 ? eSceneArea.world : _areaList[^1].Area;
     }
 
     public void ApplyAreaChangedEvent()
