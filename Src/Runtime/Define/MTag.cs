@@ -21,4 +21,14 @@ public static class MTag
     /// 水域 会配置波纹和声音特效
     /// </summary>
     public const string WATER_AREA = "WaterArea";
+
+    /// <summary>
+    /// 资源区域
+    /// </summary>
+    public const string RESOURCES_AREA = "ResourcesArea";
+
+    /// <summary>
+    /// 资源点
+    /// </summary>
+    public const string RESOURCES_POINT = "ResourcesPoint";
 }

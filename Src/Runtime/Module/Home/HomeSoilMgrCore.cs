@@ -86,6 +86,25 @@ public class HomeSoilMgrCore<TSoil> : MonoBehaviour, IHomeSoilMgr where TSoil : 
         return _soilMap.TryGetValue(id, out TSoil soil) ? soil : null;
     }
 
+    /// <summary>
+    /// 根据区域获取空地列表
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public List<TSoil> GetIdleSoilListByArea(int id)
+    {
+        List<TSoil> list = new();
+        foreach (KeyValuePair<ulong, TSoil> item in _soilMap)
+        {
+            SoilData data = item.Value.SoilData;
+            int areaId = MathUtilCore.SoilToArea(data.SaveData.Id);
+            if (areaId == id && data.SaveData.SoilStatus == HomeDefine.eSoilStatus.Idle)
+            {
+                list.Add(item.Value);
+            }
+        }
+        return list;
+    }
     HomeSoilCore IHomeSoilMgr.GetSoil(ulong id)
     {
         return GetSoil(id);

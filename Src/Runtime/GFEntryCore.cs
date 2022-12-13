@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-26 15:38:17
  * @Description: 共享库GFEntry引用
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/GFEntryCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/GFEntryCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -42,7 +42,19 @@ public static class GFEntryCore
             return s_SkillEffectCoreFactory;
         }
     }
+    private static HomeResourcesAreaMgrCore s_homeResourcesAreaMgrCore = null;
+    public static HomeResourcesAreaMgrCore HomeResourcesAreaMgr
+    {
+        get
+        {
+            if (s_homeResourcesAreaMgrCore == null)
+            {
+                s_homeResourcesAreaMgrCore = GetModule<HomeResourcesAreaMgrCore>();
+            }
 
+            return s_homeResourcesAreaMgrCore;
+        }
+    }
     public static void AddModule(object module)
     {
         if (s_GFEntryList.IndexOf(module) != -1)
