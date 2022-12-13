@@ -12,7 +12,7 @@ public class SoilEvent : MonoBehaviour
     public Action<SoilSaveData> MsgInitStatus;
 
     /// <summary>
-    /// 执行某个动作 T0:动作类型
+    /// 执行某个动作 T0:动作类型 T1:效果值绝对值(比如锄地效果值)，非进度动作传0
     /// </summary>
-    public Action<HomeDefine.eAction> MsgExecuteAction;
+    public Action<HomeDefine.eAction, int> MsgExecuteAction;
 }

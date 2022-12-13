@@ -16,6 +16,15 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
         s_getNowTimeStamp = getNowTimeStampFunc;
     }
 
+    /// <summary>
+    /// 获取当前时间戳 家园状态全部需要使用这个 因为这个会使客户端和服务器时间保持一致 客户端会使用服务器的 服务器会使用自己的
+    /// </summary>
+    /// <returns></returns>
+    public static long GetNowTimestamp()
+    {
+        return s_getNowTimeStamp();
+    }
+
     protected SoilData SoilData { get; private set; }
     /// <summary>
     /// 当前状态枚举标记
@@ -32,7 +41,8 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     /// 设置支持动作时必选 子类实现具体的动作逻辑 如果不支持该动作则不会触发该事件
     /// </summary>
     /// <param name="action">当前执行的动作</param>
-    protected virtual void OnExecuteHomeAction(eAction action) { }
+    /// <param name="effectValue">动作效果值 比如锄地和浇水效果 绝对值 非比例 非进度状态不需要关注</param>
+    protected virtual void OnExecuteHomeAction(eAction action, int effectValue) { }
 
     /// <summary>
     /// 自动进入下一个状态的时间 等于0不会自动进入 秒
@@ -49,6 +59,8 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
 
     private bool _isTimerNextStatus;//有开始定时去下个状态
 
+    private bool _needInitJumpNextStatus;//需要初始化跳下个状态
+
     protected override void OnEnter(IFsm<SoilStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
@@ -61,18 +73,20 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
             StatusCtrl.SoilEvent.MsgExecuteAction += OnMsgExecuteAction;
         }
 
+        _needInitJumpNextStatus = false;
         float nextStatusRemainTime = 0;
         //如果是初始化状态就保留初始化数据中的进入时间戳 否则都要重新设置
         if (fsm.HasData(SoilStatusDataName.IS_INIT_STATUS))
         {
             if (AutoEnterNextStatusTime > 0)
             {
-                float initRemainTime = (s_getNowTimeStamp() - SoilData.SaveData.StatusStartStamp) * TimeUtil.MS2S;
+                float initRemainTime = (GetNowTimestamp() - SoilData.SaveData.StatusStartStamp) * TimeUtil.MS2S;
                 if (initRemainTime < 0)//已经到了下一个状态的时间  直接跳到下一个状态
                 {
                     SoilData.SaveData.StatusStartStamp += (long)(AutoEnterNextStatusTime * TimeUtil.S2MS);//下个状态的开始时间会延后本次自动切换的时间
-                    ChangeState(AutoEnterNextStatusFlag);
+                    _needInitJumpNextStatus = true;
                     //不去掉出初始化标记 让下个状态继续走初始化状态
+                    ClearLastActionData();//初始化切状态了需要清理上次动作效果数据 否则会带到下一次初始化状态中去 上下文会不对
                 }
                 else//还没到下一个状态的时间 继续等待 并删掉初始化标记
                 {
@@ -93,6 +107,8 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
             {
                 nextStatusRemainTime = AutoEnterNextStatusTime;
             }
+
+            ClearLastActionData();
         }
 
         if (nextStatusRemainTime > 0)
@@ -120,13 +136,30 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
         base.OnLeave(fsm, isShutdown);
     }
 
+    protected override void OnUpdate(IFsm<SoilStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+
+        if (_needInitJumpNextStatus)//为什么放到这里 不在enter里面直接跳转  是因为防止子类override enter的时候 先base.enter直接跳转释放了 后面的逻辑会出错
+        {
+            ChangeState(AutoEnterNextStatusFlag);
+        }
+    }
+
+    //清理上次动作效果数据 那种有进度的数据
+    private void ClearLastActionData()
+    {
+        SoilData.SaveData.LastActionEffectValue = 0;
+        SoilData.SaveData.StatusStartStamp = 0;
+    }
+
     //自动进入下一个状态计时到了
     private void OnAutoEnterNextStatus()
     {
         ChangeState(AutoEnterNextStatusFlag);
     }
 
-    private void OnMsgExecuteAction(eAction action)
+    private void OnMsgExecuteAction(eAction action, int effectValue)
     {
         if (!CheckSupportAction(action))
         {
@@ -134,7 +167,7 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
             return;
         }
 
-        OnExecuteHomeAction(action);
+        OnExecuteHomeAction(action, effectValue);
     }
 
     /// <summary>
@@ -161,6 +194,6 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     /// </summary>
     private void ResetEnterStatusStamp()
     {
-        SoilData.SaveData.StatusStartStamp = s_getNowTimeStamp();
+        SoilData.SaveData.StatusStartStamp = GetNowTimestamp();
     }
 }
