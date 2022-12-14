@@ -13,7 +13,7 @@ using UnityGameFramework.Runtime;
 //区域名字
 public class SceneAreaMgr : SceneModuleBase
 {
-    private const int COUNT_HANDLE_ENTER_AREA_PER_FRAME = 10;
+    private const int COUNT_HANDLE_AREA_CHANGED_PER_FRAME = 10;
     /// <summary>
     /// 家进入新的场景的检查区域事件
     /// <param long>玩家实体ID</param>
@@ -34,11 +34,6 @@ public class SceneAreaMgr : SceneModuleBase
     /// </summary>
     /// <returns></returns>
     private readonly Dictionary<long, PlayerAreaRecord> _playerAreaRecordDic = new();
-    /// <summary>
-    /// 玩家所在区域改变事件队列
-    /// </summary>
-    /// <returns></returns>
-    private readonly Queue<PlayerAreaChangedEvent> _areaChangedEventQueue = new();
     /// <summary>
     /// 区域变更信息列表
     /// </summary>
@@ -86,7 +81,20 @@ public class SceneAreaMgr : SceneModuleBase
     /// <param name="info"></param>
     public void ReceiveAreaChangedEvent(PlayerAreaChangedEvent info)
     {
-        _areaChangedEventQueue.Enqueue(info);
+        PlayerAreaRecord record = GetAddPlayerAreaRecord(info.PlayerID);
+        if (info.Type == eAreaChangedType.enter)
+        {
+            record.PushToEnterPendingList(info.Data);
+        }
+        else
+        {
+            record.PushToExitPendingList(info.Data);
+        }
+
+        if (!_changedAreaList.Contains(record))
+        {
+            _changedAreaList.Add(record);
+        }
     }
 
     /// <summary>
@@ -94,7 +102,7 @@ public class SceneAreaMgr : SceneModuleBase
     /// </summary>
     /// <param name="playerID"></param>
     /// <returns></returns>
-    private PlayerAreaRecord GetAddPlayerEnterAreaInfo(long playerID)
+    private PlayerAreaRecord GetAddPlayerAreaRecord(long playerID)
     {
         if (_playerAreaRecordDic.TryGetValue(playerID, out PlayerAreaRecord info))
         {
@@ -112,48 +120,35 @@ public class SceneAreaMgr : SceneModuleBase
     /// <returns></returns>
     private int GetHandleCount()
     {
-        // int count = COUNT_HANDLE_ENTER_AREA_PER_FRAME > _areaChangedEventQueue.Count ? _areaChangedEventQueue.Count : COUNT_HANDLE_ENTER_AREA_PER_FRAME;
+        // int count = COUNT_HANDLE_AREA_CHANGED_PER_FRAME > _changedAreaList.Count ? _changedAreaList.Count : COUNT_HANDLE_AREA_CHANGED_PER_FRAME;
         // return count;
 
-        return _areaChangedEventQueue.Count;
+        return _changedAreaList.Count;
     }
 
     private void Update()
     {
-        HandleAreaChangedEvent();
+        ApplyAreaChanged();
     }
 
-    private void HandleAreaChangedEvent()
+    private void ApplyAreaChanged()
     {
-        int handleCount = GetHandleCount();
-        for (int i = 0; i < handleCount; i++)
+        if (_changedAreaList.Count <= 0)
         {
-            PlayerAreaChangedEvent info = _areaChangedEventQueue.Dequeue();
-            PlayerAreaRecord playerEnterAreaInfo = GetAddPlayerEnterAreaInfo(info.PlayerID);
-            playerEnterAreaInfo.ReceiveAreaChangedEvent(info);
-
-            //TODO:去重方式可以优化
-            if (!_changedAreaList.Contains(playerEnterAreaInfo))
-            {
-                _changedAreaList.Add(playerEnterAreaInfo);
-            }
+            return;
         }
 
-        if (_changedAreaList.Count > 0)
+        foreach (PlayerAreaRecord playerRecord in _changedAreaList)
         {
-            foreach (PlayerAreaRecord item in _changedAreaList)
+            playerRecord.ApplyAreaChanged();
+            eSceneArea curArea = GetCurArea();
+            if (playerRecord.CurArea != curArea)
             {
-                //上面只是进队列，这里要应用一下
-                item.ApplyAreaChangedEvent();
-                eSceneArea curArea = GetCurArea();
-                if (item.CurArea != curArea)
-                {
-                    Log.Info($"PlayerEnterAreaInfo, playerID:{item.PlayerID}, curArea:{item.CurArea}, lastArea:{curArea}");
-                    OnPlayerExitCurSceneCheckArea?.Invoke(item.PlayerID, curArea);//离开当前区域事件
-                    OnPlayerEnterNewSceneCheckArea?.Invoke(item.PlayerID, item.CurArea);//进入新区域事件
-                }
+                Log.Info($"PlayerEnterAreaInfo, playerID:{playerRecord.PlayerID}, curArea:{playerRecord.CurArea}, lastArea:{curArea}");
+                OnPlayerExitCurSceneCheckArea?.Invoke(playerRecord.PlayerID, curArea);//离开当前区域事件
+                OnPlayerEnterNewSceneCheckArea?.Invoke(playerRecord.PlayerID, playerRecord.CurArea);//进入新区域事件
             }
-            _changedAreaList.Clear();
         }
+        _changedAreaList.Clear();
     }
 }

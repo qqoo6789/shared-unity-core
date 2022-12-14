@@ -10,6 +10,7 @@ public class PlayerAreaRecord
     /// <summary>
     /// 当前区域堆栈
     /// 为什么不用栈？因为存在移除中间区域的可能，所以不能用栈，只能用List
+    /// 为什么不用链表？因为数量级不会很大，List的长度撑死也就十几个，所以用List，用起来方便
     /// </summary>
     /// <returns></returns>
     private readonly List<SceneAreaInfo> _areaList = new();
@@ -115,27 +116,20 @@ public class PlayerAreaRecord
             return;
         }
 
-        if (area.AreaID != _areaList[^1].AreaID)
+        for (int i = _areaList.Count - 1; i >= 0; i--)
         {
-            Log.Warning($"ExitArea error, area is not equal to curArea, area:{area}, curArea:{CurArea}");
-            Log.Warning($"Please check the area priority, area:{area}, curArea:{CurArea}");
-            for (int i = _areaList.Count - 1; i >= 0; i--)
+            if (_areaList[i].AreaID == area.AreaID)
             {
-                if (_areaList[i].AreaID == area.AreaID)
-                {
-                    Log.Info($"Force remove area:{area}");
-                    _areaList.RemoveAt(i);
-                    break;
-                }
+                Log.Info($"remove area:{area}");
+                _areaList.RemoveAt(i);
+                break;
             }
-            return;
         }
 
-        _areaList.RemoveAt(_areaList.Count - 1);
         CurArea = _areaList.Count == 0 ? eSceneArea.world : _areaList[^1].Area;
     }
 
-    public void ApplyAreaChangedEvent()
+    public void ApplyAreaChanged()
     {
         foreach (SceneAreaInfo info in _readyToEnterList)
         {
