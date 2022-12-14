@@ -140,12 +140,12 @@ public class SceneAreaMgr : SceneModuleBase
 
         foreach (PlayerAreaRecord playerRecord in _changedAreaList)
         {
+            eSceneArea playerLastArea = playerRecord.CurArea;
             playerRecord.ApplyAreaChanged();
-            eSceneArea curArea = GetCurArea();
-            if (playerRecord.CurArea != curArea)
+            if (playerRecord.CurArea != playerLastArea)
             {
-                Log.Info($"PlayerEnterAreaInfo, playerID:{playerRecord.PlayerID}, curArea:{playerRecord.CurArea}, lastArea:{curArea}");
-                OnPlayerExitCurSceneCheckArea?.Invoke(playerRecord.PlayerID, curArea);//离开当前区域事件
+                Log.Info($"PlayerEnterAreaInfo, playerID:{playerRecord.PlayerID}, curArea:{playerRecord.CurArea}, lastArea:{playerLastArea}");
+                OnPlayerExitCurSceneCheckArea?.Invoke(playerRecord.PlayerID, playerLastArea);//离开当前区域事件
                 OnPlayerEnterNewSceneCheckArea?.Invoke(playerRecord.PlayerID, playerRecord.CurArea);//进入新区域事件
             }
         }
