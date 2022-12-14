@@ -28,7 +28,7 @@ public class SoilGrowingThirstyStatusCore : SoilActionProgressStatusCore
     {
         if (action == eAction.Hoeing)
         {
-            SoilData.SetSeedCid(-1);
+            SoilData.SetSeedCid(0);
             ChangeState(eSoilStatus.Idle);
         }
         else if (action == eAction.Watering)

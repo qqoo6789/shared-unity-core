@@ -23,7 +23,7 @@ public class SoilSaveData
     /// <summary>
     /// 当前生成的阶段 从0开始 只对生长阶段有效 不要在这里直接设置 需要走SoilData.SetGrowStage
     /// </summary>
-    public int GrowingStage;
+    public int GrowingStage = -1;
     /// <summary>
     /// 当前种子配置ID 只有放了种子的状态才有效 不要在这里直接设置 需要走SoilData.SetSeedCid
     /// </summary>

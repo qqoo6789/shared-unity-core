@@ -48,20 +48,26 @@ public class SoilData : MonoBehaviour
     }
 
     /// <summary>
-    /// 设置当前种子配置id 如果是要清除种子 则传入-1
+    /// 设置当前种子配置id 如果是要清除种子 则传入0
     /// </summary>
-    /// <param name="seedCid">-1代表清除</param>
+    /// <param name="seedCid">0代表清除</param>
     internal void SetSeedCid(int seedCid)
     {
-        if (seedCid < 0)
+        if (SaveData.SeedCid == seedCid)
         {
-            SaveData.SeedCid = 0;
-            SaveData.GrowingStage = 0;
+            return;
+        }
+
+        SaveData.SeedCid = seedCid;
+
+        if (seedCid <= 0)
+        {
+            SetGrowStage(-1);
             DRSeed = null;
         }
         else
         {
-            SaveData.SeedCid = seedCid;
+            SetGrowStage(0);
             DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(seedCid);
             if (DRSeed == null)
             {
@@ -76,7 +82,12 @@ public class SoilData : MonoBehaviour
     /// <param name="growStage"></param>
     internal void SetGrowStage(int growStage)
     {
-        if (growStage < 0 || growStage >= SeedGrowStageNum)
+        if (SaveData.GrowingStage == growStage)
+        {
+            return;
+        }
+
+        if (growStage >= SeedGrowStageNum)
         {
             Log.Error($"土地的成长阶段设置错误 :{growStage} cfgNum:{SeedGrowStageNum}");
             return;

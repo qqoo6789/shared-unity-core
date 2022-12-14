@@ -66,10 +66,6 @@ public abstract class SoilActionProgressStatusCore : SoilStatusCore
 
         if (NeedEffectValueActionType != action)
         {
-            if (effectValue != 0)
-            {
-                Log.Error("不需要进度的动作不应该发效果值");
-            }
             OnActionComplete(action, actionData);
             return;
         }
