@@ -23,7 +23,6 @@ public class SoilLooseStatusCore : SoilStatusCore
 
         int seedCid = (int)actionData;
         SoilData.SetSeedCid(seedCid);
-        SoilData.SetGrowStage(0);
         ChangeState(eSoilStatus.SeedThirsty);
     }
 }

@@ -15,7 +15,7 @@ public class SoilWitheredStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, effectValue, actionData);
 
-        SoilData.SetSeedCid(-1);
+        SoilData.SetSeedCid(0);
         ChangeState(eSoilStatus.Idle);
     }
 }
