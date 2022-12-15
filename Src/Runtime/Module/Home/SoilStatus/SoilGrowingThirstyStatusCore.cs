@@ -9,7 +9,7 @@ public class SoilGrowingThirstyStatusCore : SoilActionProgressStatusCore
 
     protected override eAction SupportAction => eAction.Hoeing | eAction.Watering;
 
-    protected override float AutoEnterNextStatusTime => SOIL_TO_WITHERED;
+    protected override float AutoEnterNextStatusTime => SoilData.DRSeed.WitherTime;
 
     protected override eAction NeedEffectValueActionType => eAction.Watering;
 

@@ -45,6 +45,15 @@ public class SoilData : MonoBehaviour
     internal void SetSaveData(SoilSaveData saveData)
     {
         _saveData = saveData;
+
+        if (saveData.SeedCid > 0)
+        {
+            DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(saveData.SeedCid);
+            if (DRSeed == null)
+            {
+                Log.Error($"初始化土地数据时种子配置表里没有找到cid为 {saveData.SeedCid} 的种子");
+            }
+        }
     }
 
     /// <summary>
