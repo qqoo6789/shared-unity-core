@@ -10,11 +10,11 @@ public static class HomeDefine
     public const int SOIL_Z_NUM = 10;
     public static readonly Vector3 SOIL_SIZE = Vector3.one;
 
+    //TODO:需要正式配置时间
     public const int SOIL_NEED_HOEING_EFFECT_VALUE = 100;//锄地需要的效果值
     public const int SOIL_HOEING_EFFECT_VALUE_LOST_SPEED = 20;//锄地效果值减少速度  每秒
     public const int SOIL_NEED_WATERING_EFFECT_VALUE = 100;//浇水需要的效果值
     public const int SOIL_WATERING_EFFECT_VALUE_LOST_SPEED = 10;//浇水效果值减少速度 每秒
-    public const float SOIL_TO_WITHERED = 20;//土地干涸后变为枯萎的时间 秒
 
     /// <summary>
     /// 土地状态间的数据定义key

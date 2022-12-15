@@ -80,7 +80,8 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
         {
             if (AutoEnterNextStatusTime > 0)
             {
-                float initRemainTime = (GetNowTimestamp() - SoilData.SaveData.StatusStartStamp) * TimeUtil.MS2S;
+                float costTime = (GetNowTimestamp() - SoilData.SaveData.StatusStartStamp) * TimeUtil.MS2S;
+                float initRemainTime = AutoEnterNextStatusTime - costTime;
                 if (initRemainTime < 0)//已经到了下一个状态的时间  直接跳到下一个状态
                 {
                     SoilData.SaveData.StatusStartStamp += (long)(AutoEnterNextStatusTime * TimeUtil.S2MS);//下个状态的开始时间会延后本次自动切换的时间
@@ -114,7 +115,7 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
         if (nextStatusRemainTime > 0)
         {
             _isTimerNextStatus = true;
-            TimerMgr.AddTimer(GetHashCode(), nextStatusRemainTime * TimeUtil.MS2S, OnAutoEnterNextStatus);
+            TimerMgr.AddTimer(GetHashCode(), nextStatusRemainTime * TimeUtil.S2MS, OnAutoEnterNextStatus);
         }
     }
 
