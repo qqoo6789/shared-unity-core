@@ -55,52 +55,35 @@ public class PlayerAreaRecord : EntityBaseComponent
     {
         if (type == eAreaChangedType.enter)
         {
-            PushToEnterPendingList(record);
+            PushToPendingList(record, _readyToEnterList);
         }
         else if (type == eAreaChangedType.exit)
         {
-            PushToExitPendingList(record);
+            PushToPendingList(record, _readyToExitList);
         }
     }
 
     /// <summary>
-    /// 放进进入区域待处理队列
-    /// 因为有多个区域同时进入的可能，所以需要按照优先级进行排序，等帧结束后再进行进入区域的处理
+    /// 区域变更待处理队列
+    /// 因为有多个区域同时进入的可能，所以需要按照优先级进行排序，等帧结束后再处理这些区域变化
     /// </summary>
     /// <param name="info"></param>
-    public void PushToEnterPendingList(SceneAreaInfo info)
+    private void PushToPendingList(SceneAreaInfo info, List<SceneAreaInfo> targetList)
     {
         int insertIndex = 0;
-        for (; insertIndex < _readyToEnterList.Count; insertIndex++)
+        for (; insertIndex < targetList.Count; insertIndex++)
         {
-            if (info.Priority < _readyToEnterList[insertIndex].Priority)
+            if (info.Priority < targetList[insertIndex].Priority)
             {
                 break;
             }
         }
-        _readyToEnterList.Insert(insertIndex, info);
-    }
-
-    /// <summary>
-    /// 放进退出区域待处理队列
-    /// 因为有多个区域同时退出的可能，所以需要按照优先级进行排序，等帧结束后再进行退出区域的处理
-    /// </summary>
-    /// <param name="info"></param>
-    public void PushToExitPendingList(SceneAreaInfo info)
-    {
-        int insertIndex = 0;
-        for (; insertIndex < _readyToExitList.Count; insertIndex++)
-        {
-            if (info.Priority < _readyToExitList[insertIndex].Priority)
-            {
-                break;
-            }
-        }
-        _readyToExitList.Insert(insertIndex, info);
+        targetList.Insert(insertIndex, info);
     }
 
     /// <summary>
     /// 进入区域处理，会立刻改变当前区域
+    /// 如果想要延迟处理，可以使用ReceiveAreaChangedEvent(info, eAreaChangedType.enter)
     /// </summary>
     /// <param name="info"></param>
     public void EnterAreaTrigger(SceneAreaInfo info)
@@ -122,6 +105,7 @@ public class PlayerAreaRecord : EntityBaseComponent
 
     /// <summary>
     /// 退出区域触发器，会立刻改变当前区域
+    /// 如果想要延迟处理，可以使用ReceiveAreaChangedEvent(area, eAreaChangedType.exit)
     /// </summary>
     /// <param name="area"></param>
     /// <returns></returns>
