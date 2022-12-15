@@ -46,15 +46,8 @@ public class SceneAreaEntryChecker : MonoBehaviour
         EntityBase entity = GFEntryCore.GetModule<IEntityMgr>().GetEntityWithRoot<EntityBase>(other.gameObject);
         if (entity != null && entity.Inited)
         {
-            OnPlayerEnterNewSceneArea(entity.BaseData.Id, Area);
+            OnPlayerEnterNewSceneArea(entity, Area);
         }
-    }
-
-    private void OnPlayerEnterNewSceneArea(long playerID, eSceneArea newArea)
-    {
-        Log.Info($"OnPlayerEnterNewScene,{gameObject.name} {playerID}, {newArea}");
-        SceneAreaInfo info = new(newArea, Priority, GetHashCode());
-        GFEntryCore.GetModule<SceneAreaMgr>().ReceiveAreaChangedEvent(new(eAreaChangedType.enter, playerID, info));
     }
 
     private void OnTriggerExit(Collider other)
@@ -67,15 +60,26 @@ public class SceneAreaEntryChecker : MonoBehaviour
         EntityBase entity = GFEntryCore.GetModule<IEntityMgr>().GetEntityWithRoot<EntityBase>(other.gameObject);
         if (entity != null && entity.Inited)
         {
-            OnPlayerExitCurSceneArea(entity.BaseData.Id, Area);
+            OnPlayerExitCurSceneArea(entity, Area);
         }
     }
 
-    private void OnPlayerExitCurSceneArea(long playerID, eSceneArea newArea)
+    private void OnPlayerEnterNewSceneArea(EntityBase entity, eSceneArea newArea)
     {
+        long playerID = entity.BaseData.Id;
+        Log.Info($"OnPlayerEnterNewScene,{gameObject.name} {playerID}, {newArea}");
+        SceneAreaInfo info = new(newArea, Priority, GetHashCode());
+        PlayerAreaRecord record = entity.GetOrAddComponent<PlayerAreaRecord>();
+        record.ReceiveAreaChangedEvent(info, eAreaChangedType.enter);
+    }
+
+    private void OnPlayerExitCurSceneArea(EntityBase entity, eSceneArea newArea)
+    {
+        long playerID = entity.BaseData.Id;
         Log.Info($"OnPlayerExitCurScene, {gameObject.name} {playerID}, {newArea}");
         SceneAreaInfo info = new(newArea, Priority, GetHashCode());
-        GFEntryCore.GetModule<SceneAreaMgr>().ReceiveAreaChangedEvent(new(eAreaChangedType.exit, playerID, info));
+        PlayerAreaRecord record = entity.GetOrAddComponent<PlayerAreaRecord>();
+        record.ReceiveAreaChangedEvent(info, eAreaChangedType.exit);
     }
 
 #if UNITY_EDITOR

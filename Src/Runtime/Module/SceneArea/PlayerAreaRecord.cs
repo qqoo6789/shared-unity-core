@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityGameFramework.Runtime;
+using UnityEngine;
 
 /// <summary>
 /// 玩家进出区域记录
 /// </summary>
-public class PlayerAreaRecord
+public class PlayerAreaRecord : EntityBaseComponent
 {
-    public long PlayerID;
+    public long PlayerID { get; private set; }
     /// <summary>
     /// 当前区域堆栈
     /// 为什么不用栈？因为存在移除中间区域的可能，所以不能用栈，只能用List
@@ -14,6 +15,14 @@ public class PlayerAreaRecord
     /// </summary>
     /// <returns></returns>
     private readonly List<SceneAreaInfo> _areaList = new();
+#if UNITY_EDITOR
+    /// <summary>
+    /// 用于编辑器显示当前区域堆栈
+    /// 为空标识在默认区域（大世界）
+    /// </summary>
+    /// <returns></returns>
+    public List<eSceneArea> AreaStack = new();
+#endif
     /// <summary>
     /// 进入区域处理队列
     /// </summary>
@@ -28,16 +37,13 @@ public class PlayerAreaRecord
     /// player当前所在区域，默认值为大世界
     /// </summary>
     /// <value></value>
-    public eSceneArea CurArea { get; private set; } = eSceneArea.world;
+    [SerializeField]
+    private eSceneArea _curArea = eSceneArea.world;
+    public eSceneArea CurArea { get => _curArea; private set => _curArea = value; }
 
-    public PlayerAreaRecord(long playerID)
+    private void Awake()
     {
-        PlayerID = playerID;
-    }
-
-    public void SetPlayerID(long playerID)
-    {
-        PlayerID = playerID;
+        PlayerID = RefEntity.BaseData.Id;
     }
 
     /// <summary>
@@ -45,15 +51,15 @@ public class PlayerAreaRecord
     /// 先存入队列，等帧结束后再进行通过ApplyAreaChangedEvent处理
     /// </summary>
     /// <param name="info"></param>
-    public void ReceiveAreaChangedEvent(PlayerAreaChangedEvent info)
+    public void ReceiveAreaChangedEvent(SceneAreaInfo record, eAreaChangedType type)
     {
-        if (info.Type == eAreaChangedType.enter)
+        if (type == eAreaChangedType.enter)
         {
-            PushToEnterPendingList(info.Data);
+            PushToEnterPendingList(record);
         }
-        else
+        else if (type == eAreaChangedType.exit)
         {
-            PushToExitPendingList(info.Data);
+            PushToExitPendingList(record);
         }
     }
 
@@ -99,8 +105,19 @@ public class PlayerAreaRecord
     /// <param name="info"></param>
     public void EnterAreaTrigger(SceneAreaInfo info)
     {
+        // 正常情况下不会触发，但测试的时候发现，如果把gameObject的active设置为false，然后再设置为true就会触发
+        // 原因是把gameObject的active设置为false，不会触发OnTriggerExit，区域数据不会清空，但是把gameObject的active设置为true，会触发OnTriggerEnter,又把区域数据放进去了，导致重复添加区域数据
+        if (CheckIsRepeatEnterArea(info))
+        {
+            Log.Error($"repeat enter area:{info}");
+            return;
+        }
+
         _areaList.Add(info);
         CurArea = info.Area;
+#if UNITY_EDITOR
+        AreaStack.Add(info.Area);
+#endif
     }
 
     /// <summary>
@@ -120,8 +137,10 @@ public class PlayerAreaRecord
         {
             if (_areaList[i].AreaID == area.AreaID)
             {
-                Log.Info($"remove area:{area}");
                 _areaList.RemoveAt(i);
+#if UNITY_EDITOR
+                AreaStack.RemoveAt(i);
+#endif
                 break;
             }
         }
@@ -129,7 +148,10 @@ public class PlayerAreaRecord
         CurArea = _areaList.Count == 0 ? eSceneArea.world : _areaList[^1].Area;
     }
 
-    public void ApplyAreaChanged()
+    /// <summary>
+    /// 应用区域改变
+    /// </summary>
+    private void ApplyAreaChanged()
     {
         foreach (SceneAreaInfo info in _readyToEnterList)
         {
@@ -143,5 +165,37 @@ public class PlayerAreaRecord
 
         _readyToEnterList.Clear();
         _readyToExitList.Clear();
+    }
+
+    /// <summary>
+    /// 检查是否重复进入同一个区域
+    /// </summary>
+    /// <param name="info"></param>
+    /// <returns></returns>
+    private bool CheckIsRepeatEnterArea(SceneAreaInfo info)
+    {
+        //_areaList数量级不会很大，撑死就十来个，也不是每帧都会进入，所以直接遍历检查，没必要再用一个专门查重的字典
+        for (int i = 0; i < _areaList.Count; i++)
+        {
+            SceneAreaInfo areaInfo = _areaList[i];
+            if (areaInfo.AreaID == info.AreaID)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void Update()
+    {
+        eSceneArea lastArea = CurArea;
+        ApplyAreaChanged();
+        if (lastArea != CurArea)
+        {
+            Log.Info($"PlayerEnterAreaInfo, playerID:{PlayerID}, curArea:{CurArea}, lastArea:{lastArea}");
+            GFEntryCore.GetModule<SceneAreaMgr>().OnPlayerExitCurSceneCheckArea?.Invoke(PlayerID, lastArea);//离开当前区域事件
+            GFEntryCore.GetModule<SceneAreaMgr>().OnPlayerEnterNewSceneCheckArea?.Invoke(PlayerID, CurArea);//进入新区域事件
+        }
     }
 }
