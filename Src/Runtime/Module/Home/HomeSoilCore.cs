@@ -13,6 +13,8 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResource
 
     public Vector3 Position => transform.position;
 
+    public GameObject LogicRoot => gameObject;
+
     public bool CanCollect()
     {
         return SoilData.SaveData.SoilStatus == HomeDefine.eSoilStatus.Harvest;

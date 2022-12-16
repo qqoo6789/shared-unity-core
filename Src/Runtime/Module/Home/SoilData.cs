@@ -76,12 +76,12 @@ public class SoilData : MonoBehaviour
         }
         else
         {
-            SetGrowStage(0);
             DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(seedCid);
             if (DRSeed == null)
             {
                 Log.Error($"种子配置表里没有找到cid为 {seedCid} 的种子");
             }
+            SetGrowStage(0);
         }
     }
 

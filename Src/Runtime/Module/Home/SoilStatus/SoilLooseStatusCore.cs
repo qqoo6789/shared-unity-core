@@ -9,7 +9,7 @@ public class SoilLooseStatusCore : SoilStatusCore
 
     protected override eAction SupportAction => eAction.Sowing;
 
-    protected override float AutoEnterNextStatusTime => 3 * 24 * 60 * 60;
+    protected override float AutoEnterNextStatusTime => HomeDefine.SOIL_FROM_LOOSE_TO_IDLE_TIME;
 
     protected override void OnAutoEnterNextStatus()
     {
