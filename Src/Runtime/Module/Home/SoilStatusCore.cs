@@ -151,7 +151,7 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     private void ClearLastActionData()
     {
         SoilData.SaveData.LastActionEffectValue = 0;
-        SoilData.SaveData.StatusStartStamp = 0;
+        SoilData.SaveData.LastActionStamp = 0;
     }
 
     private void OnMsgExecuteAction(eAction action, int effectValue, object actionData)
