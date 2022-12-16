@@ -37,20 +37,3 @@ public enum eAreaChangedType
     enter,
     exit,
 }
-
-/// <summary>
-/// 区域改变事件
-/// </summary>
-public class PlayerAreaChangedEvent
-{
-    public eAreaChangedType Type { private set; get; }
-    public long PlayerID { private set; get; }
-    public SceneAreaInfo Data { private set; get; }
-
-    public PlayerAreaChangedEvent(eAreaChangedType type, long playerID, SceneAreaInfo data)
-    {
-        Type = type;
-        PlayerID = playerID;
-        Data = data;
-    }
-}
