@@ -16,6 +16,7 @@ public static class HomeDefine
     public const int SOIL_HOEING_EFFECT_VALUE_LOST_SPEED = 20;//锄地效果值减少速度  每秒
     public const int SOIL_NEED_WATERING_EFFECT_VALUE = 100;//浇水需要的效果值
     public const int SOIL_WATERING_EFFECT_VALUE_LOST_SPEED = 10;//浇水效果值减少速度 每秒
+    public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 20;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
 
     /// <summary>
     /// 土地状态间的数据定义key

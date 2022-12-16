@@ -7,7 +7,7 @@ public class SoilSeedThirstyStatusCore : SoilActionProgressStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.SeedThirsty;
 
-    protected override eAction SupportAction => eAction.Watering;
+    protected override eAction SupportAction => eAction.Watering | eAction.Hoeing;
 
     protected override float AutoEnterNextStatusTime => 0;
 
@@ -19,6 +19,14 @@ public class SoilSeedThirstyStatusCore : SoilActionProgressStatusCore
 
     protected override void OnActionComplete(eAction action, object actionData)
     {
-        ChangeState(eSoilStatus.Growing);
+        if (action == eAction.Watering)
+        {
+            ChangeState(eSoilStatus.Growing);
+        }
+        else if (action == eAction.Hoeing)
+        {
+            SoilData.SetSeedCid(0);
+            ChangeState(eSoilStatus.Loose);
+        }
     }
 }
