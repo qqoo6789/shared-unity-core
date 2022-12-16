@@ -11,6 +11,13 @@ public class SceneAreaEntryChecker : MonoBehaviour
     /// 区域标识
     /// </summary>
     public eSceneArea Area = eSceneArea.world;
+    /// <summary>
+    /// 场景区域优先级
+    /// 用于区域重叠时的优先级判断
+    /// 枚举值越大，优先级越高，越先触发 
+    /// 注意:进入重叠区域的时候，最终触发的是优先级最高的区域，但是最终确定进入的区域是重叠中优先级最低的区域
+    /// </summary>
+    [Header("区域重叠的时候，优先级越大，越先进入")]
     public eSceneAreaPriority Priority = eSceneAreaPriority.none;
 
     private void Start()

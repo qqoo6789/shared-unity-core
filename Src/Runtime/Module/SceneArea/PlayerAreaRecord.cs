@@ -73,7 +73,7 @@ public class PlayerAreaRecord : EntityBaseComponent
         int insertIndex = 0;
         for (; insertIndex < targetList.Count; insertIndex++)
         {
-            if (info.Priority < targetList[insertIndex].Priority)
+            if (info.Priority > targetList[insertIndex].Priority)
             {
                 break;
             }
