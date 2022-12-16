@@ -127,19 +127,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// </summary>
     public virtual void RemoveAllEntity()
     {
-        foreach (KeyValuePair<long, TEntity> item in EntityDic)
-        {
-            try
-            {
-                item.Value.Dispose();
-            }
-            catch (Exception e)
-            {
-                Log.Error($"Entity {item.Value.BaseData.Id} RemoveAllEntity dispose failed,error={e}");
-            }
-        }
-        EntityDic.Clear();
-        EntityRootDic.Clear();
+        RemoveAllEntityExcept(null);
     }
 
     /// <summary>
@@ -150,7 +138,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     {
         foreach (KeyValuePair<long, TEntity> item in EntityDic)
         {
-            if (exceptIds.Contains(item.Key))
+            if (exceptIds != null && exceptIds.Contains(item.Key))
             {
                 continue;
             }
