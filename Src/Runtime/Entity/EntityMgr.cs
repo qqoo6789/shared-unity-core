@@ -114,7 +114,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         _ = EntityRootDic.Remove(entity.RootID);
         try
         {
-            entity.Dispose();
+            DisposeEntity(entity);
         }
         catch (Exception e)
         {
@@ -144,7 +144,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
             }
             try
             {
-                item.Value.Dispose();
+                DisposeEntity(item.Value);
             }
             catch (Exception e)
             {
@@ -153,6 +153,21 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         }
         EntityDic.Clear();
         EntityRootDic.Clear();
+    }
+
+    /// <summary>
+    /// 释放一个实体，内部使用
+    /// 这里只是销毁实体，不包含移除逻辑，外部想要移除实体请使用RemoveEntity
+    /// </summary>
+    /// <param name="entity"></param>
+    protected virtual void DisposeEntity(EntityBase entity)
+    {
+        if (entity == null)
+        {
+            return;
+        }
+
+        entity.Dispose();
     }
 
     protected virtual TEntity CreateEntity(long entityID, GameMessageCore.EntityType entityType)
