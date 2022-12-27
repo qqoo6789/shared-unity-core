@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+using UnityGameFramework.Runtime;
 using static HomeDefine;
 
 /// <summary>
@@ -21,8 +23,16 @@ public class SoilLooseStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, effectValue, actionData);
 
-        int seedCid = (int)actionData;
-        SoilData.SetSeedCid(seedCid);
-        ChangeState(eSoilStatus.SeedThirsty);
+        try
+        {
+            (int seedCid, bool sowingValid) = ((int, bool))actionData;
+            SoilData.SetSeedCid(seedCid);
+            SoilData.SaveData.SowingValid = sowingValid;
+            ChangeState(eSoilStatus.SeedThirsty);
+        }
+        catch (System.Exception e)
+        {
+            Log.Error($"播种失败 actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
+        }
     }
 }
