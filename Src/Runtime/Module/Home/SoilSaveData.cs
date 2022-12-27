@@ -29,6 +29,10 @@ public class SoilSaveData
     /// </summary>
     public int SeedCid;
     /// <summary>
+    /// 播种是否有效
+    /// </summary>
+    public bool SowingValid;
+    /// <summary>
     /// 种植了多格种子时 种子归属的根土地ID 0代表不是多格种子 多格种子根在左下角格子里
     /// </summary>
     public ulong MultipleGridsRootSoilID;

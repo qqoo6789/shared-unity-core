@@ -59,6 +59,10 @@ public static class HomeDefine
         /// 等待收获
         /// </summary>
         Harvest = 1 << 5,
+        /// <summary>
+        /// 腐烂收获（播种专精不够）
+        /// </summary>
+        RotHarvest = 1 << 6,
     }
 
     /// <summary>
@@ -83,6 +87,10 @@ public static class HomeDefine
         /// 收获
         /// </summary>
         Harvest = 1 << 4,
+        /// <summary>
+        /// 施肥
+        /// </summary>
+        Manure = 1 << 5,
     }
 
     /// <summary>
