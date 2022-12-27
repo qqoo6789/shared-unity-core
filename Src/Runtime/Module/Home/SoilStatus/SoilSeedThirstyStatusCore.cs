@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+using UnityGameFramework.Runtime;
 using static HomeDefine;
 
 /// <summary>
@@ -7,7 +9,18 @@ public class SoilSeedThirstyStatusCore : SoilActionProgressStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.SeedThirsty;
 
-    protected override eAction SupportAction => eAction.Watering | eAction.Hoeing;
+    protected override eAction SupportAction
+    {
+        get
+        {
+            eAction res = eAction.Watering | eAction.Hoeing;
+            if (SoilData.SaveData.ManureCid <= 0)//如果没有施过肥可以施肥
+            {
+                res |= eAction.Manure;
+            }
+            return res;
+        }
+    }
 
     protected override float AutoEnterNextStatusTime => 0;
 
@@ -21,12 +34,24 @@ public class SoilSeedThirstyStatusCore : SoilActionProgressStatusCore
     {
         if (action == eAction.Watering)
         {
-            ChangeState(eSoilStatus.Growing);
+            ChangeState(eSoilStatus.SeedWet);
         }
         else if (action == eAction.Hoeing)
         {
-            SoilData.SetSeedCid(0);
+            SoilData.ClearAllData();
             ChangeState(eSoilStatus.Loose);
+        }
+        else if (action == eAction.Manure)
+        {
+            try
+            {
+                (int manureCid, bool manureValid) = ((int, bool))actionData;
+                SoilData.SetManure(manureCid, manureValid);
+            }
+            catch (System.Exception e)
+            {
+                Log.Error($"播种干涸时施肥失败 actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
+            }
         }
     }
 }

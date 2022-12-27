@@ -26,8 +26,7 @@ public class SoilLooseStatusCore : SoilStatusCore
         try
         {
             (int seedCid, bool sowingValid) = ((int, bool))actionData;
-            SoilData.SetSeedCid(seedCid);
-            SoilData.SaveData.SowingValid = sowingValid;
+            SoilData.SetSeedCid(seedCid, sowingValid);
             ChangeState(eSoilStatus.SeedThirsty);
         }
         catch (System.Exception e)
