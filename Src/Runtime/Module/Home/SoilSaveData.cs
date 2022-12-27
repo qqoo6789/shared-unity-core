@@ -44,4 +44,12 @@ public class SoilSaveData
     /// 最后一次执行动作的时间 只对有动作效果进度的状态有效
     /// </summary>
     public long LastActionStamp;
+    /// <summary>
+    /// 施的肥料配置ID
+    /// </summary>
+    public int ManureCid;
+    /// <summary>
+    /// 施肥是否有效
+    /// </summary>
+    public bool ManureValid;
 }

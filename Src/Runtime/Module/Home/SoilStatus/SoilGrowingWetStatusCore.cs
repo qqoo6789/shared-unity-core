@@ -1,11 +1,11 @@
 using static HomeDefine;
 
 /// <summary>
-/// 土地正常生长状态
+/// 土地生长湿润状态
 /// </summary>
-public class SoilGrowingStatusCore : SoilStatusCore
+public class SoilGrowingWetStatusCore : SoilStatusCore
 {
-    public override eSoilStatus StatusFlag => eSoilStatus.Growing;
+    public override eSoilStatus StatusFlag => eSoilStatus.GrowingWet;
 
     protected override eAction SupportAction => eAction.Hoeing;
 
@@ -31,7 +31,10 @@ public class SoilGrowingStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, effectValue, actionData);
 
-        SoilData.SetSeedCid(0);
-        ChangeState(eSoilStatus.Loose);
+        if (action == eAction.Hoeing)
+        {
+            SoilData.ClearAllData();
+            ChangeState(eSoilStatus.Loose);
+        }
     }
 }

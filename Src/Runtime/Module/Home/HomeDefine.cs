@@ -43,25 +43,29 @@ public static class HomeDefine
         /// </summary>
         SeedThirsty = 1 << 1,
         /// <summary>
-        /// 生长中
+        /// 已播种已湿润
         /// </summary>
-        Growing = 1 << 2,
+        SeedWet = 1 << 2,
         /// <summary>
-        /// 生长干涸
+        /// 生长已干涸
         /// </summary>
         GrowingThirsty = 1 << 3,
         /// <summary>
+        /// 生长中已湿润
+        /// </summary>
+        GrowingWet = 1 << 4,
+        /// <summary>
         /// 干枯
         /// </summary>
-        Withered = 1 << 4,
+        Withered = 1 << 5,
         /// <summary>
         /// 等待收获
         /// </summary>
-        Harvest = 1 << 5,
+        Harvest = 1 << 6,
         /// <summary>
         /// 腐烂收获（播种专精不够）
         /// </summary>
-        RotHarvest = 1 << 6,
+        RotHarvest = 1 << 7,
     }
 
     /// <summary>

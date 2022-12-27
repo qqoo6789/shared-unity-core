@@ -121,8 +121,6 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
 
     protected override void OnLeave(IFsm<SoilStatusCtrl> fsm, bool isShutdown)
     {
-        SoilData = null;
-
         if (SupportAction != eAction.None)
         {
             StatusCtrl.SoilEvent.MsgExecuteAction -= OnMsgExecuteAction;
@@ -133,6 +131,8 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
             _ = TimerMgr.RemoveTimer(GetHashCode());
             _isTimerNextStatus = false;
         }
+
+        SoilData = null;
 
         base.OnLeave(fsm, isShutdown);
     }
