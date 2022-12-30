@@ -41,9 +41,8 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     /// 设置支持动作时必选 子类实现具体的动作逻辑 如果不支持该动作则不会触发该事件
     /// </summary>
     /// <param name="action">当前执行的动作</param>
-    /// <param name="effectValue">动作效果值 比如锄地和浇水效果 绝对值 非比例 非进度状态不需要关注</param>
     /// <param name="actionData">动作数据 比如播种的种子cid</param>
-    protected virtual void OnExecuteHomeAction(eAction action, int effectValue, object actionData) { }
+    protected virtual void OnExecuteHomeAction(eAction action, object actionData) { }
 
     /// <summary>
     /// 自动进入下一个状态的时间 等于0不会自动进入 秒
@@ -150,11 +149,12 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     //清理上次动作效果数据 那种有进度的数据
     private void ClearLastActionData()
     {
-        SoilData.SaveData.LastActionEffectValue = 0;
-        SoilData.SaveData.LastActionStamp = 0;
+        //TODO: home
+        // SoilData.SaveData.LastActionEffectValue = 0;
+        // SoilData.SaveData.LastActionStamp = 0;
     }
 
-    private void OnMsgExecuteAction(eAction action, int effectValue, object actionData)
+    private void OnMsgExecuteAction(eAction action, object actionData)
     {
         if (!CheckSupportAction(action))
         {
@@ -162,7 +162,7 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
             return;
         }
 
-        OnExecuteHomeAction(action, effectValue, actionData);
+        OnExecuteHomeAction(action, actionData);
     }
 
     /// <summary>

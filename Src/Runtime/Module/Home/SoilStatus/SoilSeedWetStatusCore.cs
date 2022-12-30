@@ -22,9 +22,9 @@ public class SoilSeedWetStatusCore : SoilGrowingWetStatusCore
         }
     }
 
-    protected override void OnExecuteHomeAction(eAction action, int effectValue, object actionData)
+    protected override void OnExecuteHomeAction(eAction action, object actionData)
     {
-        base.OnExecuteHomeAction(action, effectValue, actionData);
+        base.OnExecuteHomeAction(action, actionData);
 
         if (action == eAction.Manure)
         {
