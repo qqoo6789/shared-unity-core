@@ -2,15 +2,28 @@
  * @Author: xiang huan
  * @Date: 2022-12-02 10:52:02
  * @Description: 区域管理
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/SceneArea/SceneAreaMgr.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/SceneArea/SceneAreaMgr.cs
  * 
  */
 
 
+using System;
 using System.Collections.Generic;
 //区域名字
 public class SceneAreaMgr : SceneModuleBase
 {
+    /// <summary>
+    /// 家进入新的场景的检查区域事件
+    /// <param long>玩家实体ID</param>
+    /// <param eSceneArea>新区域标识</param>
+    /// </summary>
+    public Action<long, eSceneArea> OnPlayerEnterNewSceneCheckArea = delegate { };
+    /// <summary>
+    /// 玩家退出当前场景的检查区域事件
+    /// <param long>玩家实体ID</param>
+    /// <param eSceneArea>新区域标识</param>
+    /// </summary>
+    public Action<long, eSceneArea> OnPlayerExitCurSceneCheckArea = delegate { };
     private eSceneArea _defaultArea;
     private readonly List<eSceneArea> _areaQueue = new();
     /// <summary>

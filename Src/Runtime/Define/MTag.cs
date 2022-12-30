@@ -31,4 +31,8 @@ public static class MTag
     /// 资源点
     /// </summary>
     public const string RESOURCES_POINT = "ResourcesPoint";
+    /// <summary>
+    /// 场景区域入口检测器
+    /// </summary>
+    public const string SCENE_AREA_CHECKER = "SceneAreaChecker";
 }
