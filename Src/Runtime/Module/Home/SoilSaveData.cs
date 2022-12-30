@@ -37,14 +37,6 @@ public class SoilSaveData
     /// </summary>
     public ulong MultipleGridsRootSoilID;
     /// <summary>
-    /// 最后一次执行动作到达的效果值 只对有动作效果进度的状态有效
-    /// </summary>
-    public int LastActionEffectValue;
-    /// <summary>
-    /// 最后一次执行动作的时间 只对有动作效果进度的状态有效
-    /// </summary>
-    public long LastActionStamp;
-    /// <summary>
     /// 施的肥料配置ID
     /// </summary>
     public int ManureCid;

@@ -3,27 +3,11 @@ using UnityEngine;
 /// <summary>
 /// 家园单块土地实体
 /// </summary>
-public abstract class HomeSoilCore : MonoBehaviour, ICollectResource
+public abstract class HomeSoilCore : MonoBehaviour
 {
     public SoilEvent SoilEvent { get; set; }
     public SoilStatusCtrl StatusCtrl { get; private set; }
     public SoilData SoilData { get; private set; }
-
-    public HomeDefine.eResourceType ResourceType => HomeDefine.eResourceType.Soil;
-
-    public Vector3 Position => transform.position;
-
-    public GameObject LogicRoot => gameObject;
-
-    public bool CanCollect()
-    {
-        return SoilData.SaveData.SoilStatus == HomeDefine.eSoilStatus.Harvest;
-    }
-
-    public Vector3 GetDisplaySize()
-    {
-        return HomeDefine.SOIL_SIZE;
-    }
 
     protected virtual void Awake()
     {
@@ -39,4 +23,13 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResource
     /// </summary>
     /// <param name="statusCtrl"></param>
     protected abstract void InitStatus(SoilStatusCtrl statusCtrl);
+
+    /// <summary>
+    /// 获取当前状态
+    /// </summary>
+    /// <returns></returns>
+    protected SoilStatusCore GetCurStatus()
+    {
+        return StatusCtrl.Fsm.CurrentState as SoilStatusCore;
+    }
 }

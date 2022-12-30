@@ -11,9 +11,9 @@ public class SoilWitheredStatusCore : SoilStatusCore
 
     protected override float AutoEnterNextStatusTime => 0;
 
-    protected override void OnExecuteHomeAction(eAction action, int effectValue, object actionData)
+    protected override void OnExecuteHomeAction(eAction action, object actionData)
     {
-        base.OnExecuteHomeAction(action, effectValue, actionData);
+        base.OnExecuteHomeAction(action, actionData);
 
         SoilData.ClearAllData();
         ChangeState(eSoilStatus.Idle);
