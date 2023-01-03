@@ -179,9 +179,9 @@ public static partial class SkillUtil
                     skillEffect.Dispose();
                 }
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
-                Log.Error($"skill cast skill effect apply error skillID = {skillCfg.Id}, effectID = {skillEffects[i].EffectID}");
+                Log.Error($"skill cast skill effect apply error skillID = {skillCfg.Id}, effectID = {skillEffects[i].EffectID} error = {e}");
                 continue;
             }
         }
