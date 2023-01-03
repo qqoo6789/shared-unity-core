@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: 战斗公共定义
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
  * 
  */
 
@@ -19,6 +19,7 @@ public static class BattleDefine
         SEBeHitPathMove = 1003,
         SEInvincible = 1004,
         SEEndure = 1005,
+        SELockEnemyPathMoveCore = 1006,
     }
 
     public enum eSkillShapeId : int
