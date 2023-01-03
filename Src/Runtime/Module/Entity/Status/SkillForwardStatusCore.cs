@@ -139,7 +139,12 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     /// <param name="entity">实体</param>
     protected void SkillForwardEffectExecute(DRSkill drSkill, EntityBase entity)
     {
-        _ = SkillUtil.EntitySkillEffectExecute(drSkill, SkillDir, drSkill.EffectForward, entity, entity);
+        EntityBase enemy = entity;
+        if (Targets != null && Targets.Length > 0)
+        {
+            enemy = GFEntryCore.GetModule<IEntityMgr>().GetEntity<EntityBase>(Targets[0]);
+        }
+        _ = SkillUtil.EntitySkillEffectExecute(drSkill, SkillDir, drSkill.EffectForward, entity, enemy);
     }
 
     public bool CheckCanMove()

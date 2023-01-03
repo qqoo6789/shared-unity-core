@@ -42,6 +42,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         return null;
     }
 
+    public T GetEntity<T>(long id) where T : EntityBase
+    {
+        return GetEntity(id) as T;
+    }
+
     /// <summary>
     /// 通过实体显示节点反查逻辑实体
     /// </summary>
