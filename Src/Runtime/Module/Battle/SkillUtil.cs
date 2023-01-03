@@ -144,11 +144,12 @@ public static partial class SkillUtil
     /// </summary>
     /// <param name="skillCfg">技能配置</param>
     /// <param name="skillDir">技能方向</param>
+    /// <param name="targets">技能目标列表</param>
     /// <param name="effectList">效果列表</param>
     /// <param name="fromEntity">释放实体</param>
     /// <param name="targetEntity">目标实体</param>
     /// <returns></returns>
-    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, long[] targets, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
     {
         List<GameMessageCore.DamageEffect> effects = new();
         if (effectList == null || effectList.Length <= 0)
@@ -164,7 +165,7 @@ public static partial class SkillUtil
                 SkillEffectBase skillEffect = skillEffects[i];
                 if (skillEffect.CheckApplyEffect(fromEntity, targetEntity))
                 {
-                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir);
+                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir, targets);
                     if (effectData == null)
                     {
                         continue;

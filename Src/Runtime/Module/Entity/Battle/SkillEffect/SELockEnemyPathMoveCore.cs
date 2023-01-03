@@ -13,7 +13,7 @@ using UnityGameFramework.Runtime;
 
 public class SELockEnemyPathMoveCore : SEPathMoveCore
 {
-    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
+    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir, long[] targets)
     {
         if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
         {
@@ -23,9 +23,14 @@ public class SELockEnemyPathMoveCore : SEPathMoveCore
         float minDist = EffectCfg.Parameters[0] * MathUtilCore.CM2M;
         float maxDist = EffectCfg.Parameters[1] * MathUtilCore.CM2M;
         float moveDist = minDist;
-        if (targetEntity != null)
+        EntityBase enemy = null;
+        if (targets != null && targets.Length > 0)
         {
-            float dist = UnityEngine.Vector3.Distance(fromEntity.Position, targetEntity.Position);
+            enemy = GFEntryCore.GetModule<IEntityMgr>().GetEntity<EntityBase>(targets[0]);
+        }
+        if (enemy != null)
+        {
+            float dist = UnityEngine.Vector3.Distance(targetEntity.Position, enemy.Position);
             if (dist > minDist)
             {
                 moveDist = MathF.Min(dist - minDist, maxDist);
@@ -35,14 +40,18 @@ public class SELockEnemyPathMoveCore : SEPathMoveCore
                 moveDist = 0;
             }
         }
-        UnityEngine.Vector3 curPos = fromEntity.Position;
+        UnityEngine.Vector3 curPos = targetEntity.Position;
         UnityEngine.Vector3 moveDir = skillDir;
         moveDir.Set(moveDir.x, 0, moveDir.z);
         UnityEngine.Vector3 targetPos = curPos + (moveDir.normalized * moveDist);
-        DamageEffect effect = new();
-        effect.BeatBackValue = new();
-        effect.BeatBackValue.CurLoc = NetUtilCore.LocToNet(curPos);
-        effect.BeatBackValue.BackToPos = NetUtilCore.LocToNet(targetPos);
+        DamageEffect effect = new()
+        {
+            BeatBackValue = new()
+            {
+                CurLoc = NetUtilCore.LocToNet(curPos),
+                BackToPos = NetUtilCore.LocToNet(targetPos)
+            }
+        };
         return effect;
     }
 }
