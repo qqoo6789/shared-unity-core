@@ -35,4 +35,8 @@ public static class MTag
     /// 场景区域入口检测器
     /// </summary>
     public const string SCENE_AREA_CHECKER = "SceneAreaChecker";
+    /// <summary>
+    /// 收纳箱
+    /// </summary>
+    public const string STORAGE_BOX = "StorageBox";
 }
