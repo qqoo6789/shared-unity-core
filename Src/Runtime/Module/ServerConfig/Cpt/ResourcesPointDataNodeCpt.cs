@@ -9,55 +9,61 @@ using UnityEngine;
 public class ResourcesPointDataNodeCpt : MonoBehaviour, IServerDataNodeCpt
 {
     [Tooltip("资源类型1. monster  2.复活点 3.npc")]
+    [Header("资源类型")]
     [SerializeField]
     private int _resourceType;
     public int ResourceType => _resourceType;
-    [Tooltip("配置 ID")]
+    [Header("配置ID")]
     [SerializeField]
     private int _configId;
     public int ConfigId => _configId;
 
-    [Tooltip("刷新间隔时间(毫秒)")]
+    [Header("刷新间隔时间(ms)")]
     [SerializeField]
     private int _updateInterval;
     public int UpdateInterval => _updateInterval;
-    [Tooltip("刷新数量")]
+    [Header("刷新数量")]
     [SerializeField]
     private int _updateNum;
     public int UpdateNum => _updateNum;
-    [Tooltip("范围(半径)")]
+    [Header("刷新范围(m)")]
     [SerializeField]
     private float _radius;
     public float Radius => _radius;
 
-    [Tooltip("巡逻半径")]
+    [Header("巡逻半径(m)")]
     [SerializeField]
     private float _patrolRadius;
     public float PatrolRadius => _patrolRadius;
 
-    [Tooltip("巡逻速度")]
+    [Header("巡逻速度")]
     [SerializeField]
     private float _patrolSpd;
     public float PatrolSpd => _patrolSpd;
 
-    [Tooltip("巡逻路径")]
+    [Header("巡逻路径")]
     [SerializeField]
     private string _patrolPath = "";
     public string PatrolPath => _patrolPath;
+    [Header("AI资源名字")]
+    public string AIName;
     public object GetServerData()
     {
-        ResourcesPointData data = new();
-        data.X = transform.position.x;
-        data.Y = transform.position.y;
-        data.Z = transform.position.z;
-        data.ResourceType = _resourceType;
-        data.ConfigId = _configId;
-        data.UpdateInterval = _updateInterval;
-        data.UpdateNum = _updateNum;
-        data.Radius = _radius;
-        data.PatrolRadius = _patrolRadius;
-        data.PatrolSpd = _patrolSpd;
-        data.PatrolPath = _patrolPath;
+        ResourcesPointData data = new()
+        {
+            X = transform.position.x,
+            Y = transform.position.y,
+            Z = transform.position.z,
+            ResourceType = _resourceType,
+            ConfigId = _configId,
+            UpdateInterval = _updateInterval,
+            UpdateNum = _updateNum,
+            Radius = _radius,
+            PatrolRadius = _patrolRadius,
+            PatrolSpd = _patrolSpd,
+            PatrolPath = _patrolPath,
+            AIName = AIName
+        };
         return data;
     }
 }

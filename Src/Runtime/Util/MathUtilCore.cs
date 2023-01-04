@@ -30,4 +30,16 @@ public static class MathUtilCore
     {
         return ((int)(value >> 32), (int)value);
     }
+
+    /// <summary>
+    /// string转long
+    /// </summary>
+    public static long StringToLong(string valueStr)
+    {
+        if (long.TryParse(valueStr, out long value))
+        {
+            return value;
+        }
+        return 0;
+    }
 }

@@ -299,6 +299,7 @@ public class DRMonster : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         Name = columnStrings[index++];
+        index++;
         Desc = columnStrings[index++];
         Icon = columnStrings[index++];
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
