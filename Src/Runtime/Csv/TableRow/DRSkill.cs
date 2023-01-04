@@ -52,6 +52,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取家园动作。*/
+    /// </summary>
+    public int HomeAction
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取作用于敌方技能效果。*/
     /// </summary>
     public int[] EffectEnemy
@@ -304,6 +313,7 @@ public class DRSkill : DataRowBase
         SkillName = columnStrings[index++];
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillIcon = columnStrings[index++];
+        HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -346,6 +356,7 @@ public class DRSkill : DataRowBase
                 SkillName = binaryReader.ReadString();
                 SkillCD = binaryReader.Read7BitEncodedInt32();
                 SkillIcon = binaryReader.ReadString();
+                HomeAction = binaryReader.Read7BitEncodedInt32();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
                 EffectForward = binaryReader.ReadArray<Int32>();

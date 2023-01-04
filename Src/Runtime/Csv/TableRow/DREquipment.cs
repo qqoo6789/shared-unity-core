@@ -187,15 +187,6 @@ public class DREquipment : DataRowBase
     }
 
     /// <summary>
-  /**获取点亮半径增加(像素)。*/
-    /// </summary>
-    public int LightRadiusAdd
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取修理材料。*/
     /// </summary>
     public int[][] RepairNeed
@@ -229,7 +220,6 @@ public class DREquipment : DataRowBase
         GearAddSpeed = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         EquipMusic = columnStrings[index++];
         AttackSound = columnStrings[index++];
-        LightRadiusAdd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RepairNeed = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
 
         return true;
@@ -261,7 +251,6 @@ public class DREquipment : DataRowBase
                 GearAddSpeed = binaryReader.ReadArrayList<Int32>();
                 EquipMusic = binaryReader.ReadString();
                 AttackSound = binaryReader.ReadString();
-                LightRadiusAdd = binaryReader.Read7BitEncodedInt32();
                 RepairNeed = binaryReader.ReadArrayList<Int32>();
             }
         }
