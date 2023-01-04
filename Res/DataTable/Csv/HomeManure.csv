@@ -1,0 +1,4 @@
+id,备注,调用方法,调用方法参数
+id,null,callFunc,args
+int,null,string[],string[]
+7020001,测试肥料,addProduct,20

@@ -33,15 +33,6 @@ public class DRSeed : DataRowBase
     }
 
     /// <summary>
-  /**获取道具ID。*/
-    /// </summary>
-    public int ItemId
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取生长阶段形象。*/
     /// </summary>
     public string[] GrowRes
@@ -69,6 +60,15 @@ public class DRSeed : DataRowBase
     }
 
     /// <summary>
+  /**获取需要浇水量。*/
+    /// </summary>
+    public int NeedWaterValue
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取成熟形象。*/
     /// </summary>
     public string HarvestRes
@@ -80,7 +80,7 @@ public class DRSeed : DataRowBase
     /// <summary>
   /**获取收获产物。*/
     /// </summary>
-    public int[] Product
+    public int DropId
     {
         get;
         private set;
@@ -93,12 +93,12 @@ public class DRSeed : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         Desc = columnStrings[index++];
-        ItemId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GrowRes = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         GrowTotalTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         WitherTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        NeedWaterValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestRes = columnStrings[index++];
-        Product = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -112,12 +112,12 @@ public class DRSeed : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 Desc = binaryReader.ReadString();
-                ItemId = binaryReader.Read7BitEncodedInt32();
                 GrowRes = binaryReader.ReadArray<String>();
                 GrowTotalTime = binaryReader.Read7BitEncodedInt32();
                 WitherTime = binaryReader.Read7BitEncodedInt32();
+                NeedWaterValue = binaryReader.Read7BitEncodedInt32();
                 HarvestRes = binaryReader.ReadString();
-                Product = binaryReader.ReadArray<Int32>();
+                DropId = binaryReader.Read7BitEncodedInt32();
             }
         }
 
