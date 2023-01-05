@@ -1,4 +1,4 @@
 id,描述,生长阶段形象,总生长时间 秒,枯萎时间 秒,需要浇水量,成熟形象,收获产物
 id,desc,growRes,growTotalTime,witherTime,needWaterValue,harvestRes,dropId
 int,string,string[],int,int,int,string,int
-7010001,测试种子,"garlic_0,garlic_1,garlic_2",9,10,100,garlic_h,2000001
+7020001,测试种子,"garlic_0,garlic_1,garlic_2",9,10,100,garlic_h,2000001
