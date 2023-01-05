@@ -85,7 +85,7 @@ public class SoilData : MonoBehaviour
     internal void ClearAllData()
     {
         DRSeed = null;
-        _saveData = new SoilSaveData();//防止数据没清干净
+        _saveData = new SoilSaveData() { Id = _saveData.Id };//防止数据没清干净
     }
 
     /// <summary>
