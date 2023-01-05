@@ -1,10 +1,20 @@
 using UnityEngine;
+using static HomeDefine;
 
 /// <summary>
 /// 家园单块土地实体
 /// </summary>
-public abstract class HomeSoilCore : MonoBehaviour
+public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
 {
+    public ulong Id => SoilData.SaveData.Id;
+
+    public eResourceType ResourceType => eResourceType.Soil;
+
+    public Vector3 Position => transform.position;
+
+    public GameObject LogicRoot => gameObject;
+
+
     public SoilEvent SoilEvent { get; set; }
     public SoilStatusCtrl StatusCtrl { get; private set; }
     public SoilData SoilData { get; private set; }
@@ -31,5 +41,10 @@ public abstract class HomeSoilCore : MonoBehaviour
     protected SoilStatusCore GetCurStatus()
     {
         return StatusCtrl.Fsm.CurrentState as SoilStatusCore;
+    }
+
+    public bool CheckSupportAction(eAction action)
+    {
+        return GetCurStatus().CheckSupportAction(action);
     }
 }
