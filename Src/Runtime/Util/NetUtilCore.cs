@@ -114,4 +114,18 @@ public static class NetUtilCore
             }
             : Vector3ToNet(clientDir);
     }
+
+    /// <summary>
+    /// 客户端采集资源基础信息转协议
+    /// </summary>
+    /// <param name="resource"></param>
+    /// <returns></returns>
+    public static GameMessageCore.CollectResourceBaseInfo CollectResourceBaseToNet(ICollectResourceCore resource)
+    {
+        return new GameMessageCore.CollectResourceBaseInfo()
+        {
+            Id = resource.Id,
+            Type = (GameMessageCore.CollectResourceType)resource.ResourceType
+        };
+    }
 }
