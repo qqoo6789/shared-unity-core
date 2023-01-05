@@ -47,4 +47,20 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
     {
         return GetCurStatus().CheckSupportAction(action);
     }
+
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid)
+    {
+        if (action == eAction.Sowing)
+        {
+            SoilEvent.MsgExecuteAction?.Invoke(eAction.Sowing, (toolCid, itemValid));
+        }
+        else if (action == eAction.Manure)
+        {
+            SoilEvent.MsgExecuteAction?.Invoke(eAction.Manure, (toolCid, itemValid));
+        }
+        else
+        {
+            SoilEvent.MsgExecuteAction?.Invoke(action, null);
+        }
+    }
 }
