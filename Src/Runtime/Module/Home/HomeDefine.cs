@@ -24,7 +24,7 @@ public static class HomeDefine
     /// <summary>
     /// 支持进度的动作集合
     /// </summary>
-    public const eAction PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Watering | eAction.Harvest;
+    public const eAction PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Watering;
 
     /// <summary>
     /// 土地状态间的数据定义key
