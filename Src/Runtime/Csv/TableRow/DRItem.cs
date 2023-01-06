@@ -104,6 +104,15 @@ public class DRItem : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取触发动作技能。*/
+    /// </summary>
+    public int GivenSkillId
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -120,6 +129,7 @@ public class DRItem : DataRowBase
         UseLv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UserType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CanMint = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GivenSkillId = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -141,6 +151,7 @@ public class DRItem : DataRowBase
                 UseLv = binaryReader.Read7BitEncodedInt32();
                 UserType = binaryReader.Read7BitEncodedInt32();
                 CanMint = binaryReader.Read7BitEncodedInt32();
+                GivenSkillId = binaryReader.Read7BitEncodedInt32();
             }
         }
 
