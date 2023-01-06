@@ -61,6 +61,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取家园动作速度。*/
+    /// </summary>
+    public int HomeActionSpeed
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取作用于敌方技能效果。*/
     /// </summary>
     public int[] EffectEnemy
@@ -323,6 +332,7 @@ public class DRSkill : DataRowBase
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillIcon = columnStrings[index++];
         HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HomeActionSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -367,6 +377,7 @@ public class DRSkill : DataRowBase
                 SkillCD = binaryReader.Read7BitEncodedInt32();
                 SkillIcon = binaryReader.ReadString();
                 HomeAction = binaryReader.Read7BitEncodedInt32();
+                HomeActionSpeed = binaryReader.Read7BitEncodedInt32();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
                 EffectForward = binaryReader.ReadArray<Int32>();
