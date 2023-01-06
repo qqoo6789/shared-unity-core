@@ -142,6 +142,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取是否持续技能。*/
+    /// </summary>
+    public bool IsHoldSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取技能释放动作。*/
     /// </summary>
     public string ReleaseAct
@@ -323,6 +332,7 @@ public class DRSkill : DataRowBase
         AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuTab = columnStrings[index++];
         AccuSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        IsHoldSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
         ReleaseAct = columnStrings[index++];
         ReleaseEff = columnStrings[index++];
         ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
@@ -366,6 +376,7 @@ public class DRSkill : DataRowBase
                 AccuBreakable = binaryReader.ReadBoolean();
                 AccuTab = binaryReader.ReadString();
                 AccuSound = binaryReader.ReadArray<String>();
+                IsHoldSkill = binaryReader.ReadBoolean();
                 ReleaseAct = binaryReader.ReadString();
                 ReleaseEff = binaryReader.ReadString();
                 ReleaseSound = binaryReader.ReadArray<String>();
