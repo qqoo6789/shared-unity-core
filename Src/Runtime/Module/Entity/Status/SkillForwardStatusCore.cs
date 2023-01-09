@@ -139,7 +139,8 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     /// <param name="entity">实体</param>
     protected void SkillForwardEffectExecute(DRSkill drSkill, EntityBase entity)
     {
-        _ = SkillUtil.EntitySkillEffectExecute(drSkill, SkillDir, drSkill.EffectForward, entity, entity);
+
+        _ = SkillUtil.EntitySkillEffectExecute(drSkill, SkillDir, Targets, drSkill.EffectForward, entity, entity);
     }
 
     public bool CheckCanMove()

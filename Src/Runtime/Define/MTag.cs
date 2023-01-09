@@ -21,4 +21,9 @@ public static class MTag
     /// 水域 会配置波纹和声音特效
     /// </summary>
     public const string WATER_AREA = "WaterArea";
+
+    /// <summary>
+    /// 怪物boss
+    /// </summary>
+    public const string MONSTER_BOSS = "MonsterBoss";
 }
