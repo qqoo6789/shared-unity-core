@@ -34,8 +34,8 @@ public static class DataTableConfig
         "Seed",
         "Skill",
         "SkillEffect",
-        "SkillTree",
         "SlotLv",
+        "TalentTree",
         "Task",
         "TaskList",
     };

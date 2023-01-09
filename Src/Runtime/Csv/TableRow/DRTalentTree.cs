@@ -14,7 +14,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /** __DATA_TABLE_COMMENT__*/
 /// </summary>
-public class DRSkillTree : DataRowBase
+public class DRTalentTree : DataRowBase
 {
     private int _id = 0;
 
@@ -33,15 +33,6 @@ public class DRSkillTree : DataRowBase
     }
 
     /// <summary>
-  /**获取节点模式。*/
-    /// </summary>
-    public int Mode
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取isTrunk。*/
     /// </summary>
     public bool IsTrunk
@@ -51,10 +42,10 @@ public class DRSkillTree : DataRowBase
     }
 
     /// <summary>
-  /**获取解锁所需的技能树等级
+  /**获取解锁所需的天赋树等级
 非主干技能配置都为0。*/
     /// </summary>
-    public int RequireSkillTreeLv
+    public int UpgradeRequireTreeLv
     {
         get;
         private set;
@@ -79,9 +70,18 @@ public class DRSkillTree : DataRowBase
     }
 
     /// <summary>
-  /**获取技能id关联。*/
+  /**获取天赋收益。*/
     /// </summary>
-    public int[] SkillId
+    public int Gains
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取收益参数。*/
+    /// </summary>
+    public int[][] GainsArgs
     {
         get;
         private set;
@@ -124,15 +124,6 @@ public class DRSkillTree : DataRowBase
     }
 
     /// <summary>
-  /**获取turnPoint(pixel)。*/
-    /// </summary>
-    public int[] TurnPoint
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取name。*/
     /// </summary>
     public string Name
@@ -166,17 +157,16 @@ public class DRSkillTree : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Mode = DataTableParseUtil.ParseInt(columnStrings[index++]);
         IsTrunk = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        RequireSkillTreeLv = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        UpgradeRequireTreeLv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Layer = DataTableParseUtil.ParseInt(columnStrings[index++]);
         LvLimit = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        SkillId = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        Gains = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GainsArgs = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         UpgradeEXP = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         PreNode = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         PostNode = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Col = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        TurnPoint = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Name = columnStrings[index++];
         Desc = columnStrings[index++];
         Icon = columnStrings[index++];
@@ -193,17 +183,16 @@ public class DRSkillTree : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 Type = binaryReader.Read7BitEncodedInt32();
-                Mode = binaryReader.Read7BitEncodedInt32();
                 IsTrunk = binaryReader.ReadBoolean();
-                RequireSkillTreeLv = binaryReader.Read7BitEncodedInt32();
+                UpgradeRequireTreeLv = binaryReader.Read7BitEncodedInt32();
                 Layer = binaryReader.Read7BitEncodedInt32();
                 LvLimit = binaryReader.Read7BitEncodedInt32();
-                SkillId = binaryReader.ReadArray<Int32>();
+                Gains = binaryReader.Read7BitEncodedInt32();
+                GainsArgs = binaryReader.ReadArrayList<Int32>();
                 UpgradeEXP = binaryReader.ReadArray<Int32>();
                 PreNode = binaryReader.ReadArray<Int32>();
                 PostNode = binaryReader.ReadArray<Int32>();
                 Col = binaryReader.Read7BitEncodedInt32();
-                TurnPoint = binaryReader.ReadArray<Int32>();
                 Name = binaryReader.ReadString();
                 Desc = binaryReader.ReadString();
                 Icon = binaryReader.ReadString();
