@@ -16,6 +16,7 @@ public static class DataTableConfig
         "Drop",
         "Equipment",
         "GameValue",
+        "HomeManure",
         "HomeResources",
         "Item",
         "ItemEatable",

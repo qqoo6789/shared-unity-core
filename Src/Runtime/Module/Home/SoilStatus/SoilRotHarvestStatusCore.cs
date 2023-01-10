@@ -1,11 +1,11 @@
 using static HomeDefine;
 
 /// <summary>
-/// 土地成熟等待收获状态
+/// 土地腐败成熟收获状态
 /// </summary>
-public class SoilHarvestStatusCore : SoilStatusCore
+public class SoilRotHarvestStatusCore : SoilStatusCore
 {
-    public override eSoilStatus StatusFlag => eSoilStatus.Harvest;
+    public override eSoilStatus StatusFlag => eSoilStatus.RotHarvest;
 
     protected override eAction SupportAction => eAction.Harvest;
 

@@ -9,6 +9,10 @@ public class SoilIdleStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Idle;
 
+    protected override eAction SupportAction => eAction.Hoeing;
+
+    protected override float AutoEnterNextStatusTime => 0;
+
     protected override void OnEnter(IFsm<SoilStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
@@ -35,5 +39,12 @@ public class SoilIdleStatusCore : SoilStatusCore
 
         OwnerFsm.SetData<VarBoolean>(SoilStatusDataName.IS_INIT_STATUS, true);//告知下一个状态进入是初始化进入
         ChangeState(soilSaveData.SoilStatus);
+    }
+
+    protected override void OnExecuteHomeAction(eAction action, object actionData)
+    {
+        base.OnExecuteHomeAction(action, actionData);
+
+        ChangeState(eSoilStatus.Loose);
     }
 }

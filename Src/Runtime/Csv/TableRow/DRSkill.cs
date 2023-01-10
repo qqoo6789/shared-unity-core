@@ -52,6 +52,24 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取家园动作。*/
+    /// </summary>
+    public int HomeAction
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取家园动作速度。*/
+    /// </summary>
+    public int HomeActionSpeed
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取作用于敌方技能效果。*/
     /// </summary>
     public int[] EffectEnemy
@@ -127,6 +145,15 @@ public class DRSkill : DataRowBase
   /**获取蓄力音效。*/
     /// </summary>
     public string[] AccuSound
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取是否持续技能。*/
+    /// </summary>
+    public bool IsHoldSkill
     {
         get;
         private set;
@@ -304,6 +331,8 @@ public class DRSkill : DataRowBase
         SkillName = columnStrings[index++];
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillIcon = columnStrings[index++];
+        HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HomeActionSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -313,6 +342,7 @@ public class DRSkill : DataRowBase
         AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuTab = columnStrings[index++];
         AccuSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        IsHoldSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
         ReleaseAct = columnStrings[index++];
         ReleaseEff = columnStrings[index++];
         ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
@@ -346,6 +376,8 @@ public class DRSkill : DataRowBase
                 SkillName = binaryReader.ReadString();
                 SkillCD = binaryReader.Read7BitEncodedInt32();
                 SkillIcon = binaryReader.ReadString();
+                HomeAction = binaryReader.Read7BitEncodedInt32();
+                HomeActionSpeed = binaryReader.Read7BitEncodedInt32();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
                 EffectForward = binaryReader.ReadArray<Int32>();
@@ -355,6 +387,7 @@ public class DRSkill : DataRowBase
                 AccuBreakable = binaryReader.ReadBoolean();
                 AccuTab = binaryReader.ReadString();
                 AccuSound = binaryReader.ReadArray<String>();
+                IsHoldSkill = binaryReader.ReadBoolean();
                 ReleaseAct = binaryReader.ReadString();
                 ReleaseEff = binaryReader.ReadString();
                 ReleaseSound = binaryReader.ReadArray<String>();
