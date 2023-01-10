@@ -39,4 +39,8 @@ public static class MTag
     /// 家园土地
     /// </summary>
     public static string HOME_SOIL = "HomeSoil";
+    /// <summary>
+    /// 收纳箱
+    /// </summary>
+    public const string STORAGE_BOX = "StorageBox";
 }
