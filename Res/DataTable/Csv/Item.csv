@@ -64,5 +64,5 @@ int,string,null,string,int,int[],string,int,int,int,int,int
 5010001,The Ancient Birdy Ruins ,建筑物1,"The Ancient Birdy Ruins are the remains of a once great civilization. The Cyclops were a part of this civilization, and their legacy is engraved into the very stones of the ruins.",5,1,ic_building1,5,0,1,1,
 5010002,The legacy of the Cyclops,建筑物2,"The legacy of the Cyclops stands as a testament to the power of the mind. Though they were feared and hated by many, the Cyclops were some of the most intelligent and powerful beings to have ever lived. Their legacy is one of strength, determination, and above all else, intelligence.",5,2,ic_building2,5,0,1,1,
 5010003,The Adventurer lab,建筑物3,"The Adventurer lab where scientists do some researches is a place of knowledge and discovery. It is here that the legacy of the Cyclops is kept alive, as scientists continue to study their strange and powerful minds.",5,3,ic_building3,5,0,1,1,
-7020001,test seed,测试种子,test seed,6,1,ic_seed,7,0,1,1,205003
-7030001,test manure,测试肥料,test manure,7,1,ic_battery,7,0,1,1,205004
+7020001,test seed,测试种子,test seed,3,1,ic_seed,7,0,1,1,205003
+7030001,test manure,测试肥料,test manure,3,1,ic_battery,7,0,1,1,205004

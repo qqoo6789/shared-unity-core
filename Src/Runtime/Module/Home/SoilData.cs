@@ -121,6 +121,12 @@ public class SoilData : MonoBehaviour
             return;
         }
 
+        if (!GFEntryCore.DataTable.GetDataTable<DRHomeManure>().HasDataRow(manureCid))
+        {
+            Log.Error($"肥料配置表里没有找到cid为 {manureCid} 的肥料");
+            return;
+        }
+
         SaveData.ManureCid = manureCid;
         SaveData.ManureValid = isValid;
     }
