@@ -16,6 +16,8 @@ public class ResourceDataCore : EntityBaseComponent
     public int ConfigId => DRHomeResources == null ? -1 : DRHomeResources.Id;
     public DRHomeResources DRHomeResources { get; protected set; }
 
+    public HomeResourcesPointSaveData SaveData { get; protected set; }
+
     public void SetConfigID(int cfgID)
     {
         DRHomeResources = GFEntryCore.DataTable.GetDataTable<DRHomeResources>().GetDataRow(cfgID);
@@ -24,5 +26,10 @@ public class ResourceDataCore : EntityBaseComponent
         {
             Log.Error($"Can not find DRHomeResources cfg id:{cfgID}");
         }
+    }
+
+    public void SetSaveData(HomeResourcesPointSaveData saveData)
+    {
+        SaveData = saveData;
     }
 }
