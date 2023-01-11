@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3421604116046338028}
   - component: {fileID: 4766922658451956462}
-  m_Layer: 16
+  m_Layer: 18
   m_Name: 2D_Tree_Waibz_02
   m_TagString: ResourcesPoint
   m_Icon: {fileID: 0}

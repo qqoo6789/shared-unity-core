@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public static class HomeDefine
 {
+    public const int COLLECT_RESOURCE_DEATH_TIME = 1000;//采集资源死亡时间 ms
+
     //TODO: 需要正式配置
     public const int SOIL_X_NUM = 10;
     public const int SOIL_Z_NUM = 10;
@@ -114,12 +116,7 @@ public static class HomeDefine
         /// 土壤作物
         /// </summary>
         Soil = 1 << 0,
-        /// <summary>
-        /// 岩石 矿石
-        /// </summary>
-        Rock = 1 << 1,
-        Tree = 1 << 2,
-        Grass = 1 << 3,
+        HomeResource = 1 << 1,
     }
 
     public enum eHomeResourcesAreaType : int
