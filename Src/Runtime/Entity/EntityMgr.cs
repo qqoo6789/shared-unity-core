@@ -136,10 +136,12 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// <param name="exceptIds"></param>
     public virtual void RemoveAllEntityExcept(List<long> exceptIds)
     {
+        List<TEntity> retainEntities = new();
         foreach (KeyValuePair<long, TEntity> item in EntityDic)
         {
             if (exceptIds != null && exceptIds.Contains(item.Key))
             {
+                retainEntities.Add(item.Value);
                 continue;
             }
             try
@@ -151,8 +153,15 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
                 Log.Error($"Entity {item.Value.BaseData.Id} RemoveAllEntityExcept dispose failed,error={e}");
             }
         }
+
         EntityDic.Clear();
         EntityRootDic.Clear();
+
+        foreach (TEntity entity in retainEntities)
+        {
+            EntityDic.Add(entity.BaseData.Id, entity);
+            EntityRootDic.Add(entity.RootID, entity);
+        }
     }
 
     /// <summary>
