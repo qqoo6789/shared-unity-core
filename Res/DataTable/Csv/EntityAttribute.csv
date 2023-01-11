@@ -1,0 +1,16 @@
+属性ID,属性名字,属性类型 ,属性值类型,默认值,备注
+id,name,type,valueType,defaultValue,null
+int,string,int,int,int,null
+100,Lv,,1,0,等级
+200,Exp,,1,0,当前经验
+300,Att,,1,0,攻击力
+400,AttSpeed,,1,0,攻击速度
+500,Def,,1,0,防御力
+600,CritRate,,2,0,暴击率
+700,CritDamage,,2,0,暴击伤害
+800,HitRate,,2,0,命中率
+900,MissRate,,2,0,闪避率
+1000,MoveSpeed,,1,0,移动速度
+1100,Hp,,1,0,当前血量
+1200,HpMax,,1,0,最大血量
+1300,HpRecovery,,1,0,血量回复

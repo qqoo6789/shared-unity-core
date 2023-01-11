@@ -14,6 +14,7 @@ public static class DataTableConfig
         "Chat",
         "CraftSkill",
         "Drop",
+        "EntityAttribute",
         "Equipment",
         "GameValue",
         "Item",
