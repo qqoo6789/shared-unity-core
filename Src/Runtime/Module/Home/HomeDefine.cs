@@ -94,17 +94,27 @@ public static class HomeDefine
         /// </summary>
         Sowing = 1 << 2,
         /// <summary>
-        /// 浇水
+        /// 浇水（有线形进度）
         /// </summary>
         Watering = 1 << 3,
         /// <summary>
-        /// 收获
-        /// </summary>
-        Harvest = 1 << 4,
-        /// <summary>
         /// 施肥
         /// </summary>
-        Manure = 1 << 5,
+        Manure = 1 << 4,
+        /// <summary>
+        /// 收获收割（没有进度）
+        /// </summary>
+        Harvest = 1 << 5,
+        /// <summary>
+        /// 斧头砍树（有进度）
+        /// </summary>
+        Cut = 1 << 6,
+        /// <summary>
+        /// 镐子挖矿（有进度）
+        /// </summary>
+        Mining = 1 << 7,
+        //铲除植物
+        Eradicate = 1 << 8,
     }
 
     /// <summary>
