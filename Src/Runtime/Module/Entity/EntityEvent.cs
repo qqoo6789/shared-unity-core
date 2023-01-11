@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
 using UnityEngine;
@@ -76,6 +76,11 @@ public class EntityEvent : EntityBaseComponent
     /// 离开技能后摇释放
     /// </summary>
     public Action ExitSkillCast;
+
+    /// <summary>
+    /// 实体属性更新  T0:属性类型 T1:更新后到属性值
+    /// </summary>
+    public Action<eAttributeType, int> EntityAttributeUpdate;
 
     #endregion
 }

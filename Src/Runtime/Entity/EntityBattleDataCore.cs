@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -18,53 +18,53 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// 当前血量
     /// </summary>
     /// <value></value>
-    public int HP { get; protected set; }
+    public int HP { get => GetValue(eAttributeType.Hp); protected set => SetBaseValue(eAttributeType.Hp, value); }
     /// <summary>
     /// 最大血量
     /// </summary>
     /// <value></value>
-    public int HPMAX { get; protected set; }
+    public int HPMAX { get => GetValue(eAttributeType.HpMax); protected set => SetBaseValue(eAttributeType.HpMax, value); }
     /// <summary>
     /// 血量回复
     /// </summary>
     /// <value></value>
-    public int HPRecovery { get; protected set; }
+    public int HPRecovery { get => GetValue(eAttributeType.HpRecovery); protected set => SetBaseValue(eAttributeType.HpRecovery, value); }
     /// <summary>
     /// 攻击力
     /// </summary>
-    public int Att;
+    public int Att { get => GetValue(eAttributeType.Att); protected set => SetBaseValue(eAttributeType.Att, value); }
     /// <summary>
     /// 防御力
     /// </summary>
-    public int Def;
+    public int Def { get => GetValue(eAttributeType.Def); protected set => SetBaseValue(eAttributeType.Def, value); }
     /// <summary>
     /// 普通攻击速度
     /// </summary>
-    public int AttSpeed;
+    public int AttSpeed { get => GetValue(eAttributeType.AttSpeed); protected set => SetBaseValue(eAttributeType.AttSpeed, value); }
     /// <summary>
     /// 暴击率
     /// </summary>
-    public int CritRate;
+    public int CritRate { get => GetValue(eAttributeType.CritRate); protected set => SetBaseValue(eAttributeType.CritRate, value); }
     /// <summary>
     /// 暴击伤害
     /// </summary>
-    public int CritDmg;
+    public int CritDmg { get => GetValue(eAttributeType.CritDamage); protected set => SetBaseValue(eAttributeType.CritDamage, value); }
     /// <summary>
     /// 命中率
     /// </summary>
-    public int HitRate;
+    public int HitRate { get => GetValue(eAttributeType.HitRate); protected set => SetBaseValue(eAttributeType.HitRate, value); }
     /// <summary>
     /// miss率
     /// </summary>
-    public int MissRate;
+    public int MissRate { get => GetValue(eAttributeType.MissRate); protected set => SetBaseValue(eAttributeType.MissRate, value); }
     /// <summary>
-    /// 移动速度
+    /// 移动速度 属性是cm转成m
     /// </summary>
-    public float MoveSpeed;
+    public float MoveSpeed { get => GetValue(eAttributeType.MoveSpeed) * MathUtilCore.CM2M; protected set => SetBaseValue(eAttributeType.MoveSpeed, (int)(value * MathUtilCore.M2CM)); }
     /// <summary>
     /// 等级
     /// </summary>
-    public int Level;
+    public int Level { get => GetValue(eAttributeType.Lv); protected set => SetBaseValue(eAttributeType.Lv, value); }
     /// <summary>
     /// 经验
     /// </summary>
@@ -74,10 +74,6 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     /// <value></value>
     public bool IsInBattle { get; protected set; }
-    /// <summary>
-    /// 翻滚距离
-    /// </summary>
-    public float RollDistance;
     /// <summary>
     /// 死亡原因 只在hp<=0时有效
     /// </summary>
@@ -182,5 +178,15 @@ public class EntityBattleDataCore : EntityBaseComponent
     public bool IsLive()
     {
         return HP > 0;
+    }
+
+    private int GetValue(eAttributeType type)
+    {
+        return RefEntity.EntityAttributeData.GetValue(type);
+    }
+
+    private void SetBaseValue(eAttributeType type, int value)
+    {
+        RefEntity.EntityAttributeData.SetBaseValue(type, value);
     }
 }
