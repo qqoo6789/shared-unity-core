@@ -24,6 +24,11 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
     public bool CheckSupportAction(eAction action)
     {
+        if (IsDead)
+        {
+            return false;
+        }
+
         return (eAction.Harvest & action) != 0;
     }
 
