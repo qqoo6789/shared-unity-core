@@ -6,38 +6,73 @@
  * 
  */
 using System.Collections.Generic;
-using UnityEngine;
-
 public class SkillEffectCpt : EntityBaseComponent
 {
-    private List<SkillEffectBase> _skillEffects;
+
+    public enum eEffectType
+    {
+        Runtime,
+        Static, //静态效果，不会进行刷新。节省性能开销
+    }
+    private Dictionary<eEffectType, List<SkillEffectBase>> _skillEffectMap;
+
+    private int _immuneFlag; //免疫标识
     private void Awake()
     {
-        _skillEffects = new();
+        _skillEffectMap = new()
+        {
+            { eEffectType.Runtime, new() },
+            { eEffectType.Static, new() }
+        };
     }
 
     private void Update()
     {
-        if (_skillEffects.Count <= 0)
+        List<SkillEffectBase> runList = _skillEffectMap[eEffectType.Runtime];
+        if (runList.Count <= 0)
         {
             return;
         }
 
         long curTimeStamp = TimeUtil.GetTimeStamp();
-        for (int i = _skillEffects.Count - 1; i >= 0; i--)
+        bool isUpdateImmuneFlag = false;
+        for (int i = runList.Count - 1; i >= 0; i--)
         {
-            SkillEffectBase effect = _skillEffects[i];
+            SkillEffectBase effect = runList[i];
             if (effect.DestroyTimestamp > 0 && curTimeStamp >= effect.DestroyTimestamp)
             {
                 effect.RemoveEffect();
                 effect.Dispose();
-                _skillEffects.RemoveAt(i);
+                runList.RemoveAt(i);
+                isUpdateImmuneFlag = true;
             }
             else
             {
-                effect.Update();
+                if (effect.IsUpdate)
+                {
+                    effect.Update();
+                }
             }
         }
+        if (isUpdateImmuneFlag)
+        {
+            UpdateImmuneFlag();
+        }
+    }
+
+    /// <summary>
+    /// 检测能否应用效果
+    /// </summary>
+    /// <param name="fromEntity">发送方</param>
+    /// <param name="targetEntity">接受方</param>
+    /// <param name="effect">效果</param>
+    public bool CheckApplyEffect(EntityBase fromEntity, EntityBase targetEntity, SkillEffectBase effect)
+    {
+        if ((_immuneFlag & effect.EffectFlag) != 0)
+        {
+            return false;
+        }
+        return effect.CheckApplyEffect(fromEntity, targetEntity);
     }
 
     //应用某个效果
@@ -51,7 +86,15 @@ public class SkillEffectCpt : EntityBaseComponent
         if (effect.Duration != 0)
         {
             effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration) : -1;
-            AddEffectTimeList(effect);
+            if (effect.Duration > 0 || effect.IsUpdate)
+            {
+                AddEffectList(effect, _skillEffectMap[eEffectType.Runtime]);
+            }
+            else
+            {
+                AddEffectList(effect, _skillEffectMap[eEffectType.Static]);
+            }
+
         }
         else
         {
@@ -61,59 +104,103 @@ public class SkillEffectCpt : EntityBaseComponent
         }
     }
 
-    //添加到计时队列
-    private void AddEffectTimeList(SkillEffectBase effect)
+    //添加到效果列表
+    private void AddEffectList(SkillEffectBase effect, List<SkillEffectBase> effectList)
     {
         if (effect.IsRepeat)
         {
             effect.Start();
-            _skillEffects.Add(effect);
+            effectList.Add(effect);
         }
         else
         {
-            int oldIndex = _skillEffects.FindIndex(value =>
+            int oldIndex = effectList.FindIndex(value =>
             {
                 return value.EffectID == effect.EffectID;
             });
             if (oldIndex >= 0)
             {
-                SkillEffectBase oldEffect = _skillEffects[oldIndex];
+                SkillEffectBase oldEffect = effectList[oldIndex];
                 effect.OnRefreshRepeat(oldEffect);
                 oldEffect.RemoveEffect();
                 oldEffect.Dispose();
-                _skillEffects.RemoveAt(oldIndex);
+                effectList.RemoveAt(oldIndex);
             }
             effect.Start();
-            _skillEffects.Add(effect);
+            effectList.Add(effect);
         }
+        UpdateImmuneFlag();
     }
 
     //取消某种效果
     public void AbolishSkillEffect(int effectID)
     {
-        for (int i = _skillEffects.Count - 1; i >= 0; i--)
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
         {
-            SkillEffectBase effect = _skillEffects[i];
-            if (effect.EffectID == effectID)
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
             {
+                SkillEffectBase effect = effectList[i];
+                if (effect.EffectID == effectID)
+                {
+                    effect.RemoveEffect();
+                    effect.Dispose();
+                    effectList.RemoveAt(i);
+                }
+            }
+        }
+        UpdateImmuneFlag();
+    }
+
+    //取消某种效果
+    public void AbolishSkillEffect(int effectID, int skillID, long fromID)
+    {
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
+        {
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                SkillEffectBase effect = effectList[i];
+                if (effect.EffectID == effectID && effect.SkillID == skillID && effect.FromID == fromID)
+                {
+                    effect.RemoveEffect();
+                    effect.Dispose();
+                    effectList.RemoveAt(i);
+                }
+            }
+        }
+        UpdateImmuneFlag();
+    }
+    public void ClearAllSkillEffect()
+    {
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
+        {
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                SkillEffectBase effect = effectList[i];
                 effect.RemoveEffect();
                 effect.Dispose();
-                _skillEffects.RemoveAt(i);
+                effectList.RemoveAt(i);
+            }
+            item.Value.Clear();
+        }
+        UpdateImmuneFlag();
+    }
+
+    public void UpdateImmuneFlag()
+    {
+        _immuneFlag = 0;
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
+        {
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                SkillEffectBase effect = effectList[i];
+                _immuneFlag |= effect.EffectImmuneFlag;
             }
         }
     }
-
-    public void ClearAllSkillEffect()
-    {
-        for (int i = _skillEffects.Count - 1; i >= 0; i--)
-        {
-            SkillEffectBase effect = _skillEffects[i];
-            effect.RemoveEffect();
-            effect.Dispose();
-        }
-        _skillEffects.Clear();
-    }
-
     private void OnDestroy()
     {
         ClearAllSkillEffect();

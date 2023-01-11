@@ -8,7 +8,6 @@
 using System;
 using GameFramework;
 using GameMessageCore;
-using UnityEngine;
 
 public class SkillEffectBase : IReference
 {
@@ -44,9 +43,22 @@ public class SkillEffectBase : IReference
     /// </summary>
     public DRSkillEffect EffectCfg { get; private set; }
     /// <summary>
+    /// 效果标识
+    /// </summary>
+    public int EffectFlag { get; private set; }
+    /// <summary>
+    /// 效果免疫标识
+    /// </summary>
+    public int EffectImmuneFlag { get; private set; }
+    /// <summary>
     /// 效果是否重复叠加
     /// </summary>
     public virtual bool IsRepeat => false;
+
+    /// <summary>
+    /// 需要调用Update, 记得重写为true
+    /// </summary>
+    public virtual bool IsUpdate => false;
     /// <summary>
     /// 效果数据
     /// </summary>
@@ -72,7 +84,22 @@ public class SkillEffectBase : IReference
         FromID = fromID;
         TargetID = targetID;
         Duration = duration;
-
+        EffectFlag = 0;
+        if (effectCfg.EffectFlag.Length > 0)
+        {
+            for (int i = 0; i < effectCfg.EffectFlag.Length; i++)
+            {
+                EffectFlag |= effectCfg.EffectFlag[i];
+            }
+        }
+        EffectImmuneFlag = 0;
+        if (effectCfg.EffectImmuneFlag.Length > 0)
+        {
+            for (int i = 0; i < effectCfg.EffectImmuneFlag.Length; i++)
+            {
+                EffectImmuneFlag |= effectCfg.EffectImmuneFlag[i];
+            }
+        }
     }
 
     /// <summary>
@@ -117,6 +144,8 @@ public class SkillEffectBase : IReference
         SkillID = 0;
         RefEntity = null;
         EffectData = null;
+        EffectFlag = 0;
+        EffectImmuneFlag = 0;
     }
     /// <summary>
     /// 添加后执行第一次
