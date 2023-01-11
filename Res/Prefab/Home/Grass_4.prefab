@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5007240207291500498}
   - component: {fileID: -4162262960250825012}
-  m_Layer: 16
+  m_Layer: 18
   m_Name: Grass_4
   m_TagString: ResourcesPoint
   m_Icon: {fileID: 0}

@@ -114,12 +114,7 @@ public static class HomeDefine
         /// 土壤作物
         /// </summary>
         Soil = 1 << 0,
-        /// <summary>
-        /// 岩石 矿石
-        /// </summary>
-        Rock = 1 << 1,
-        Tree = 1 << 2,
-        Grass = 1 << 3,
+        HomeResource = 1 << 1,
     }
 
     public enum eHomeResourcesAreaType : int

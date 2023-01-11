@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7702508038235833567}
   - component: {fileID: 6442488917682934551}
-  m_Layer: 16
+  m_Layer: 18
   m_Name: 2d_shitou_01
   m_TagString: ResourcesPoint
   m_Icon: {fileID: 0}
