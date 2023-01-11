@@ -1,1 +1,18 @@
-﻿{"DataList":[]}
+﻿{
+    "DataList": [
+        {
+            "ResourceType": 2,
+            "ConfigId": 0,
+            "UpdateInterval": 0,
+            "UpdateNum": 0,
+            "Radius": 0.0,
+            "PatrolRadius": 0.0,
+            "PatrolSpd": 0.0,
+            "PatrolPath": "",
+            "AIName": "",
+            "X": 258.0772,
+            "Y": 14.99725,
+            "Z": 116.163
+        }
+    ]
+}
