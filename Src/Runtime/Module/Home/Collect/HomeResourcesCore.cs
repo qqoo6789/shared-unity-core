@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityGameFramework.Runtime;
 using static HomeDefine;
 
 /// <summary>
 /// 家园采集资源core
 /// </summary>
-public class HomeResourcesCore : EntityBaseComponent, ICollectResourceCore
+public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceCore
 {
     public ulong Id => (ulong)RefEntity.BaseData.Id;
 
@@ -14,6 +15,13 @@ public class HomeResourcesCore : EntityBaseComponent, ICollectResourceCore
 
     public Vector3 Position => RefEntity.Position;
 
+    public bool IsDead { get; private set; }
+
+    private void Awake()
+    {
+        IsDead = false;
+    }
+
     public bool CheckSupportAction(eAction action)
     {
         return (eAction.Harvest & action) != 0;
@@ -21,6 +29,18 @@ public class HomeResourcesCore : EntityBaseComponent, ICollectResourceCore
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid)
     {
-        GFEntryCore.GetModule<IEntityMgr>().RemoveEntity(RefEntity.BaseData.Id);
+        if (action != eAction.Harvest)
+        {
+            Log.Error($"家园采集资源 action {action} not support");
+            return;
+        }
+
+        IsDead = true;
+        OnDeath();
     }
+
+    /// <summary>
+    /// 当采集资源死亡时
+    /// </summary>
+    protected abstract void OnDeath();
 }
