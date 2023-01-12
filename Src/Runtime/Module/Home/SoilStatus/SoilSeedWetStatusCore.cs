@@ -9,7 +9,7 @@ public class SoilSeedWetStatusCore : SoilGrowingWetStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.SeedWet;
 
-    protected override eAction SupportAction
+    public override eAction SupportAction
     {
         get
         {

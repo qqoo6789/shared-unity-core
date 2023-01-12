@@ -9,7 +9,7 @@ public class SoilSeedThirstyStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.SeedThirsty;
 
-    protected override eAction SupportAction
+    public override eAction SupportAction
     {
         get
         {

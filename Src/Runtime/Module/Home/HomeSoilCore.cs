@@ -19,6 +19,8 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
     public SoilStatusCtrl StatusCtrl { get; private set; }
     public SoilData SoilData { get; private set; }
 
+    public eAction SupportAction => GetCurStatus().SupportAction;
+
     protected virtual void Awake()
     {
         SoilEvent = gameObject.AddComponent<SoilEvent>();

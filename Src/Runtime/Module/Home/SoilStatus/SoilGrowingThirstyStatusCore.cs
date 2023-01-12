@@ -7,7 +7,7 @@ public class SoilGrowingThirstyStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.GrowingThirsty;
 
-    protected override eAction SupportAction => eAction.Eradicate | eAction.Watering;
+    public override eAction SupportAction => eAction.Eradicate | eAction.Watering;
 
     protected override float AutoEnterNextStatusTime => SoilData.DRSeed.WitherTime;
 

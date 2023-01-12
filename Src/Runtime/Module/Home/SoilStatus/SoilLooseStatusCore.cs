@@ -9,7 +9,7 @@ public class SoilLooseStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Loose;
 
-    protected override eAction SupportAction => eAction.Sowing;
+    public override eAction SupportAction => eAction.Sowing;
 
     protected override float AutoEnterNextStatusTime => HomeDefine.SOIL_FROM_LOOSE_TO_IDLE_TIME;
 

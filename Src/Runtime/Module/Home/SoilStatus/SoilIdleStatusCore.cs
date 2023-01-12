@@ -9,7 +9,7 @@ public class SoilIdleStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Idle;
 
-    protected override eAction SupportAction => eAction.Hoeing;
+    public override eAction SupportAction => eAction.Hoeing;
 
     protected override float AutoEnterNextStatusTime => 0;
 
