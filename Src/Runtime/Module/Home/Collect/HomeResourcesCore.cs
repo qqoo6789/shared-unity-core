@@ -41,9 +41,9 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid)
     {
-        if (action != eAction.Harvest)
+        if (!CheckSupportAction(action))
         {
-            Log.Error($"家园采集资源 action {action} not support");
+            Log.Error($"家园采集资源 action {action} not support,isDead:{IsDead}");
             return;
         }
 
