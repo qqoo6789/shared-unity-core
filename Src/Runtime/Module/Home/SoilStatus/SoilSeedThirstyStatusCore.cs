@@ -13,7 +13,7 @@ public class SoilSeedThirstyStatusCore : SoilStatusCore
     {
         get
         {
-            eAction res = eAction.Watering | eAction.Hoeing;
+            eAction res = eAction.Watering | eAction.Eradicate;
             if (SoilData.SaveData.ManureCid <= 0)//如果没有施过肥可以施肥
             {
                 res |= eAction.Manure;
@@ -32,7 +32,7 @@ public class SoilSeedThirstyStatusCore : SoilStatusCore
         {
             ChangeState(eSoilStatus.SeedWet);
         }
-        else if (action == eAction.Hoeing)
+        else if (action == eAction.Eradicate)
         {
             SoilData.ClearAllData();
             ChangeState(eSoilStatus.Loose);

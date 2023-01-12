@@ -7,7 +7,7 @@ public class SoilWitheredStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Withered;
 
-    protected override eAction SupportAction => eAction.Hoeing;
+    protected override eAction SupportAction => eAction.Eradicate;
 
     protected override float AutoEnterNextStatusTime => 0;
 

@@ -7,7 +7,7 @@ public class SoilGrowingThirstyStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.GrowingThirsty;
 
-    protected override eAction SupportAction => eAction.Hoeing | eAction.Watering;
+    protected override eAction SupportAction => eAction.Eradicate | eAction.Watering;
 
     protected override float AutoEnterNextStatusTime => SoilData.DRSeed.WitherTime;
 
@@ -22,7 +22,7 @@ public class SoilGrowingThirstyStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, actionData);
 
-        if (action == eAction.Hoeing)
+        if (action == eAction.Eradicate)
         {
             SoilData.ClearAllData();
             ChangeState(eSoilStatus.Loose);
