@@ -6,6 +6,11 @@ using UnityEngine;
 public interface ICollectResource
 {
     /// <summary>
+    /// 资源逻辑上的root节点 别人有可能会从这里拿组件
+    /// </summary>
+    /// <value></value>
+    GameObject LogicRoot { get; }
+    /// <summary>
     /// 资源类型 分为土地作物 矿石等
     /// </summary>
     /// <value></value>
