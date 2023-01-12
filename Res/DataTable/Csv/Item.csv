@@ -24,6 +24,7 @@ int,string,null,string,int,int[],string,int,int,int,int
 79999901,MELD,用于配置MELDicon和描述,Currency of Meland,4,1,MELD_ic,-2,0,0,0
 79999902,EXP,用于配置经验值icon和描述,For upgrading Role and Slot,4,1,EXP_ic,-2,0,0,0
 79999903,Lottery ticket,,Take part in the draw!,4,1,craft_scroll,7,0,1,1
+79999904,USDC,,Digital currency issued by Circle,4,1,USDC_ic,7,0,0,0
 1010001,Tactical Headband,0级男头,Tactical Headband,1,"1,2",lv0_boy_hair,5,0,1,1
 1010002,Sackcloth Shirt,0级男衣,Sackcloth Shirt,1,"1,2",lv0_boy_coat,5,0,1,1
 1010003,Jeans,0级男裤,Jeans,1,"1,2",lv0_boy_pants,5,0,1,1
@@ -36,6 +37,8 @@ int,string,null,string,int,int[],string,int,int,int,int
 1010010,Suede Boots,10级鞋子,Suede Boots,1,"1,2",lv10_shoes,5,10,1,1
 1010011,Iron Gloves,10级手套,Iron Gloves,1,"1,2",lv10_gloves,5,10,1,1
 1010012,Steel Sword,10级剑,Steel Sword,1,"1,2",lv10_sword,5,10,1,1
+7010001,Test Hoeing,测试锄头,Test Hoeing,1,"1,2",lv10_sword,5,0,1,1
+7010002,Test Water,测试水壶,Test Water,1,"1,2",lv10_sword,5,0,1,1
 4010001,Level 0 Male Head Gear Scroll,0级男性头部装备蓝图,A scroll that records the essentials of crafting level 0 male head gear.,4,1,craft_scroll,7,0,1,1
 4010002,Level 0 Male Chest Equipment Scroll,0级男性胸部装备蓝图,A scroll that records the essentials of crafting level 0 male chest equipment.,4,1,craft_scroll,7,0,1,1
 4010003,Level 0 Male Leg Equipment Scroll,0级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 0 male leg gear.,4,1,craft_scroll,7,0,1,1
@@ -52,12 +55,14 @@ int,string,null,string,int,int[],string,int,int,int,int
 4010902,Level 10 Mysterious Iron Ore,10级神秘矿石,The materials necessary to make level 10 equipment.,4,1,mysterious_iron_ore,7,0,1,1
 4020001,Herb Shards,药草碎片,Materials for crafting potions.,4,1,lv1_herb,7,0,1,1
 4020002,Herb,药草,Materials for crafting better potions.,4,1,lv2_herb,7,0,1,1
-3010101,Lv1 Life Potion,1级生命药水,Immediately restore xx points of health.,3,1,life_potion,7,0,1,1
-3010102,Lv2 Life Potion,2级生命药水,Immediately restore xx points of health.,3,2,life_potion,7,0,1,1
-3010201,Lv1 Restoration Potion,1级恢复药,Restores xx health every second for xx seconds.,3,1,restorantion_potion,7,0,1,1
-3010202,Lv2 Restoration Potion,2级恢复药,Restores xx health every second for xx seconds.,3,2,restorantion_potion,7,0,1,1
+3010101,Lv1 Life Potion,1级生命药水,Immediately restore 50 points of health.,3,1,life_potion,7,0,1,1
+3010102,Lv2 Life Potion,2级生命药水,Immediately restore 100 points of health.,3,2,life_potion,7,0,1,1
+3010201,Lv1 Restoration Potion,1级恢复药,Restores 5 health every second for 10 seconds.,3,1,restorantion_potion,7,0,1,1
+3010202,Lv2 Restoration Potion,2级恢复药,Restores 10 health every second for 10 seconds.,3,2,restorantion_potion,7,0,1,1
 3010203,battery,电池,battery,4,1,ic_battery,7,0,1,1
 3010204,Seed,占地种子,Covers an area of the seed,3,1,ic_seed,7,0,1,1
 5010001,The Ancient Birdy Ruins ,建筑物1,"The Ancient Birdy Ruins are the remains of a once great civilization. The Cyclops were a part of this civilization, and their legacy is engraved into the very stones of the ruins.",5,1,ic_building1,5,0,1,1
 5010002,The legacy of the Cyclops,建筑物2,"The legacy of the Cyclops stands as a testament to the power of the mind. Though they were feared and hated by many, the Cyclops were some of the most intelligent and powerful beings to have ever lived. Their legacy is one of strength, determination, and above all else, intelligence.",5,2,ic_building2,5,0,1,1
 5010003,The Adventurer lab,建筑物3,"The Adventurer lab where scientists do some researches is a place of knowledge and discovery. It is here that the legacy of the Cyclops is kept alive, as scientists continue to study their strange and powerful minds.",5,3,ic_building3,5,0,1,1
+7020001,test seed,测试种子,test seed,6,1,ic_seed,7,0,1,1
+7030001,test manure,测试肥料,test manure,7,1,ic_battery,7,0,1,1

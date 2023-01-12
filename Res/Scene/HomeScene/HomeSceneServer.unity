@@ -159,13 +159,13 @@ MonoBehaviour:
   PointList:
   - Weight: 1000
     ConfigId: 9900001
-    LimitNum: 10
+    LimitNum: 2
   - Weight: 1000
     ConfigId: 9900002
-    LimitNum: 10
+    LimitNum: 2
   - Weight: 1000
     ConfigId: 9900003
-    LimitNum: 10
+    LimitNum: 2
 --- !u!4 &1112843499
 Transform:
   m_ObjectHideFlags: 0
@@ -217,13 +217,13 @@ MonoBehaviour:
   PointList:
   - Weight: 1000
     ConfigId: 9900001
-    LimitNum: 10
+    LimitNum: 2
   - Weight: 1000
     ConfigId: 9900002
-    LimitNum: 10
+    LimitNum: 2
   - Weight: 1000
     ConfigId: 9900003
-    LimitNum: 10
+    LimitNum: 2
 --- !u!4 &1283828087
 Transform:
   m_ObjectHideFlags: 0
@@ -275,13 +275,13 @@ MonoBehaviour:
   PointList:
   - Weight: 1000
     ConfigId: 9900001
-    LimitNum: 10
+    LimitNum: 2
   - Weight: 1000
     ConfigId: 9900002
-    LimitNum: 10
+    LimitNum: 2
   - Weight: 1000
     ConfigId: 9900003
-    LimitNum: 10
+    LimitNum: 2
 --- !u!4 &1302525325
 Transform:
   m_ObjectHideFlags: 0
