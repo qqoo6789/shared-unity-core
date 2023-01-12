@@ -39,9 +39,9 @@ public class HomeResourcesArea : SharedCoreComponent
     public HomeResourcesAreaSaveData SaveData { get; private set; }  //保存数据
     private void Awake()
     {
-        GFEntryCore.HomeResourcesAreaMgr.AddArea(this);
         AreaBounds = new Bounds(transform.position, transform.localScale);
         SaveData = CreateSaveData();
+        GFEntryCore.HomeResourcesAreaMgr.AddArea(this);
     }
 
 
