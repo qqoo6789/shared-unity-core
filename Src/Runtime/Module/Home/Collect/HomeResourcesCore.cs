@@ -16,10 +16,17 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     public Vector3 Position => RefEntity.Position;
 
     public bool IsDead { get; private set; }
+    private eAction _supportAction = eAction.None;
 
     private void Awake()
     {
         IsDead = false;
+    }
+
+    private void Start()
+    {
+        DRHomeResources dr = GetComponent<ResourceDataCore>().DRHomeResources;
+        _supportAction = TableUtil.ToHomeAction(dr.HomeAction);
     }
 
     public bool CheckSupportAction(eAction action)
@@ -29,7 +36,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
             return false;
         }
 
-        return (eAction.Harvest & action) != 0;
+        return (_supportAction & action) != 0;
     }
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid)
