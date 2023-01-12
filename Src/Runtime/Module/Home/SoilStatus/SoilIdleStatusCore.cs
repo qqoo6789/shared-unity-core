@@ -5,20 +5,13 @@ using static HomeDefine;
 /// <summary>
 /// 土地的空白状态 也是初始状态 需要根据数据恢复跳转到最开始的状态
 /// </summary>
-public class SoilIdleStatusCore : SoilActionProgressStatusCore
+public class SoilIdleStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Idle;
 
     protected override eAction SupportAction => eAction.Hoeing;
 
     protected override float AutoEnterNextStatusTime => 0;
-
-    protected override eAction NeedEffectValueActionType => eAction.Hoeing;
-
-    protected override int NeedActionEffectValue => SOIL_NEED_HOEING_EFFECT_VALUE;
-
-    protected override int LostActionEffectValueSpeed => SOIL_HOEING_EFFECT_VALUE_LOST_SPEED;
-
 
     protected override void OnEnter(IFsm<SoilStatusCtrl> fsm)
     {
@@ -48,8 +41,10 @@ public class SoilIdleStatusCore : SoilActionProgressStatusCore
         ChangeState(soilSaveData.SoilStatus);
     }
 
-    protected override void OnActionComplete(eAction action, object actionData)
+    protected override void OnExecuteHomeAction(eAction action, object actionData)
     {
+        base.OnExecuteHomeAction(action, actionData);
+
         ChangeState(eSoilStatus.Loose);
     }
 }

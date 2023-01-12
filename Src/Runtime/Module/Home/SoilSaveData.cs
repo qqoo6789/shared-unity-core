@@ -29,15 +29,19 @@ public class SoilSaveData
     /// </summary>
     public int SeedCid;
     /// <summary>
+    /// 播种是否有效
+    /// </summary>
+    public bool SowingValid;
+    /// <summary>
     /// 种植了多格种子时 种子归属的根土地ID 0代表不是多格种子 多格种子根在左下角格子里
     /// </summary>
     public ulong MultipleGridsRootSoilID;
     /// <summary>
-    /// 最后一次执行动作到达的效果值 只对有动作效果进度的状态有效
+    /// 施的肥料配置ID
     /// </summary>
-    public int LastActionEffectValue;
+    public int ManureCid;
     /// <summary>
-    /// 最后一次执行动作的时间 只对有动作效果进度的状态有效
+    /// 施肥是否有效
     /// </summary>
-    public long LastActionStamp;
+    public bool ManureValid;
 }

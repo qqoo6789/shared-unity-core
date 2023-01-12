@@ -60,7 +60,8 @@ public class SoilData : MonoBehaviour
     /// 设置当前种子配置id 如果是要清除种子 则传入0
     /// </summary>
     /// <param name="seedCid">0代表清除</param>
-    internal void SetSeedCid(int seedCid)
+    /// <param name="sowingValid">是否播种有效</param>
+    internal void SetSeedCid(int seedCid, bool sowingValid)
     {
         if (SaveData.SeedCid == seedCid)
         {
@@ -69,20 +70,22 @@ public class SoilData : MonoBehaviour
 
         SaveData.SeedCid = seedCid;
 
-        if (seedCid <= 0)
+        DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(seedCid);
+        if (DRSeed == null)
         {
-            SetGrowStage(-1);
-            DRSeed = null;
+            Log.Error($"种子配置表里没有找到cid为 {seedCid} 的种子");
         }
-        else
-        {
-            DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(seedCid);
-            if (DRSeed == null)
-            {
-                Log.Error($"种子配置表里没有找到cid为 {seedCid} 的种子");
-            }
-            SetGrowStage(0);
-        }
+        SetGrowStage(0);
+        SaveData.SowingValid = sowingValid;
+    }
+
+    /// <summary>
+    /// 清理所有数据到默认值
+    /// </summary>
+    internal void ClearAllData()
+    {
+        DRSeed = null;
+        _saveData = new SoilSaveData();//防止数据没清干净
     }
 
     /// <summary>
@@ -103,5 +106,22 @@ public class SoilData : MonoBehaviour
         }
 
         SaveData.GrowingStage = growStage;
+    }
+
+    /// <summary>
+    /// 设置施肥
+    /// </summary>
+    /// <param name="manureCid">肥料cid</param>
+    /// <param name="isValid">是否施肥有效</param>
+    internal void SetManure(int manureCid, bool isValid)
+    {
+        if (SaveData.ManureCid > 0)
+        {
+            Log.Error($"土地已经施肥了 不能再施肥了");
+            return;
+        }
+
+        SaveData.ManureCid = manureCid;
+        SaveData.ManureValid = isValid;
     }
 }

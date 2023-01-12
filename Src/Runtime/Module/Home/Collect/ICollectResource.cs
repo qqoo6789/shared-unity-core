@@ -1,4 +1,5 @@
 using UnityEngine;
+using static HomeDefine;
 
 /// <summary>
 /// 采集资源接口
@@ -14,7 +15,7 @@ public interface ICollectResource
     /// 资源类型 分为土地作物 矿石等
     /// </summary>
     /// <value></value>
-    HomeDefine.eResourceType ResourceType { get; }
+    eResourceType ResourceType { get; }
 
     /// <summary>
     /// 位置
@@ -23,14 +24,26 @@ public interface ICollectResource
     Vector3 Position { get; }
 
     /// <summary>
-    /// 当前是否可以采集收获
-    /// </summary>
-    /// <returns></returns>
-    bool CanCollect();
-
-    /// <summary>
     /// 获取显示大小 会涉及到预选中时的表现等
     /// </summary>
     /// <returns></returns>
     Vector3 GetDisplaySize();
+    /// <summary>
+    /// 检查是否支持当前操作
+    /// </summary>
+    /// <param name="action"></param>
+    /// <returns></returns>
+    bool CheckSupportAction(eAction action);
+    /// <summary>
+    /// 当前是否在进度型操作中 None表示不在
+    /// </summary>
+    /// <value></value>
+    eAction CurProgressAction { get; }
+    float CurProgressActionValue { get; set; }
+    float CurProgressActionMaxValue { get; }
+    /// <summary>
+    /// 临时用来标记是否有更新的资源 用来节约GC 具体可以看使用的地方
+    /// </summary>
+    /// <value></value>
+    bool BuffIsUpdate { get; set; }
 }
