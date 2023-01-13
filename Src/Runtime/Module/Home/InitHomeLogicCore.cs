@@ -55,7 +55,7 @@ public class InitHomeLogicCore : MonoBehaviour
     /// <param name="saveData"></param>
     public void RestoreSoilStatus(HomeSaveData saveData)
     {
-        if (saveData == null)
+        if (saveData == null || string.IsNullOrEmpty(saveData.SoilDataList))
         {
             Log.Info($"saveData is null, init soil default status");
             return;
