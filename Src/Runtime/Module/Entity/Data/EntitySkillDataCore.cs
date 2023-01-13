@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -18,13 +18,13 @@ public class EntitySkillDataCore : EntityBaseComponent
     protected PlayerRoleDataCore RoleDataCore;//角色数据
     private void Awake()
     {
-        SkillComponent = RefEntity.GetComponent<SkillCpt>();
-        RoleDataCore = RefEntity.GetComponent<PlayerRoleDataCore>();
-        RefEntity.EntityEvent.EntityAvatarUpdated += OnUpdateEquipmentSkillID;
+        SkillComponent = gameObject.GetComponent<SkillCpt>();
+        RoleDataCore = gameObject.GetComponent<PlayerRoleDataCore>();
     }
 
     private void Start()
     {
+        RefEntity.EntityEvent.EntityAvatarUpdated += OnUpdateEquipmentSkillID;
         OnUpdateEquipmentSkillID();
     }
     public void AddBaseSkillList(int[] skillIDs)

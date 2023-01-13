@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 实体属性数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/EntityAttributeData.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/EntityAttributeData.cs
  * 
  */
 using System.Collections.Generic;
@@ -68,7 +68,7 @@ public class EntityAttributeData : EntityBaseComponent
             return;
         }
         _ = attribute.SetBase(value);
-        RefEntity.EntityEvent.EntityAttributeUpdate.Invoke(type, attribute.Value);
+        RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(type, attribute.Value);
     }
 
     /// <summary>
@@ -94,7 +94,7 @@ public class EntityAttributeData : EntityBaseComponent
             _attributeMap.Add(type, attribute);
         }
         IntAttributeModifier modifier = attribute.AddModifier(type, modifierType, value);
-        RefEntity.EntityEvent.EntityAttributeUpdate.Invoke(type, attribute.Value);
+        RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(type, attribute.Value);
         return modifier;
     }
 
@@ -109,7 +109,7 @@ public class EntityAttributeData : EntityBaseComponent
             return;
         }
         attribute.RemoveModifier(modifier);
-        RefEntity.EntityEvent.EntityAttributeUpdate.Invoke(modifier.AttributeType, attribute.Value);
+        RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(modifier.AttributeType, attribute.Value);
     }
 
     private void OnDestroy()
