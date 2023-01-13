@@ -68,7 +68,7 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// <summary>
     /// 经验
     /// </summary>
-    public long Exp;
+    public long Exp { get; protected set; }
     /// <summary>
     /// 是否在战斗状态中
     /// </summary>
@@ -87,7 +87,6 @@ public class EntityBattleDataCore : EntityBaseComponent
     public virtual void SetHP(int hp)
     {
         HP = hp;
-
         if (hp > 0)
         {
             DeathReason = DamageState.Normal;

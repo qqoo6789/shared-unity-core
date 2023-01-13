@@ -13,9 +13,9 @@ public class IntAttributeModifierCollector
     public int TotalValue { get; private set; }
     private List<IntAttributeModifier> _modifiers { get; } = new();
 
-    public IntAttributeModifier AddModifier(eModifierType type, int value)
+    public IntAttributeModifier AddModifier(eAttributeType type, eModifierType modifierType, int value)
     {
-        IntAttributeModifier modifier = IntAttributeModifier.Create(type, value);
+        IntAttributeModifier modifier = IntAttributeModifier.Create(type, modifierType, value);
         _modifiers.Add(modifier);
         Update();
         return modifier;

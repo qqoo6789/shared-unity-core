@@ -1,19 +1,18 @@
 /*
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
- * @Description: 实体属性
+ * @Description: 实体属性数据
  * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/EntityAttributeData.cs
  * 
  */
 using System.Collections.Generic;
 using GameFramework.DataTable;
-using GameMessageCore;
 using UnityGameFramework.Runtime;
 
 public class EntityAttributeData : EntityBaseComponent
 {
     private readonly Dictionary<eAttributeType, IntAttribute> _attributeMap = new();
-    private Dictionary<eAttributeType, int> _defaultMap = new();
+    private readonly Dictionary<eAttributeType, int> _defaultMap = new();
     private void Awake()
     {
         IDataTable<DREntityAttribute> dtAircraft = GFEntryCore.DataTable.GetDataTable<DREntityAttribute>();
@@ -63,7 +62,12 @@ public class EntityAttributeData : EntityBaseComponent
             attribute = IntAttribute.Create();
             _attributeMap.Add(type, attribute);
         }
-        attribute.SetBase(value);
+        //基础属性没变化
+        if (attribute.BaseValue == value)
+        {
+            return;
+        }
+        _ = attribute.SetBase(value);
         RefEntity.EntityEvent.EntityAttributeUpdate.Invoke(type, attribute.Value);
     }
 
@@ -89,7 +93,7 @@ public class EntityAttributeData : EntityBaseComponent
             attribute = IntAttribute.Create();
             _attributeMap.Add(type, attribute);
         }
-        IntAttributeModifier modifier = attribute.AddModifier(modifierType, value);
+        IntAttributeModifier modifier = attribute.AddModifier(type, modifierType, value);
         RefEntity.EntityEvent.EntityAttributeUpdate.Invoke(type, attribute.Value);
         return modifier;
     }
@@ -97,15 +101,15 @@ public class EntityAttributeData : EntityBaseComponent
     /// <summary>
     /// 删除修改属性
     /// </summary>
-    public void RemoveModifier(eAttributeType type, IntAttributeModifier modifier)
+    public void RemoveModifier(IntAttributeModifier modifier)
     {
-        if (!_attributeMap.TryGetValue(type, out IntAttribute attribute))
+        if (!_attributeMap.TryGetValue(modifier.AttributeType, out IntAttribute attribute))
         {
-            Log.Error($"EntityAttributeData RemoveModifier Not Find Attribute Type = {type}");
+            Log.Error($"EntityAttributeData RemoveModifier Not Find Attribute Type = {modifier.AttributeType}");
             return;
         }
         attribute.RemoveModifier(modifier);
-        RefEntity.EntityEvent.EntityAttributeUpdate.Invoke(type, attribute.Value);
+        RefEntity.EntityEvent.EntityAttributeUpdate.Invoke(modifier.AttributeType, attribute.Value);
     }
 
     private void OnDestroy()

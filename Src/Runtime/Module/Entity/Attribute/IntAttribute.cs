@@ -56,25 +56,25 @@ public class IntAttribute : IReference
     /// <summary>
     /// 添加属性修改
     /// </summary>
-    public IntAttributeModifier AddModifier(eModifierType type, int value)
+    public IntAttributeModifier AddModifier(eAttributeType type, eModifierType modifierType, int value)
     {
         IntAttributeModifier attribute = null;
-        switch (type)
+        switch (modifierType)
         {
             case eModifierType.Add:
-                attribute = _addCollector.AddModifier(type, value);
+                attribute = _addCollector.AddModifier(type, modifierType, value);
                 Add = _addCollector.TotalValue;
                 break;
             case eModifierType.PctAdd:
-                attribute = _pctAddCollector.AddModifier(type, value);
+                attribute = _pctAddCollector.AddModifier(type, modifierType, value);
                 PctAdd = _pctAddCollector.TotalValue;
                 break;
             case eModifierType.FinalAdd:
-                attribute = _finalAddCollector.AddModifier(type, value);
+                attribute = _finalAddCollector.AddModifier(type, modifierType, value);
                 FinalAdd = _finalAddCollector.TotalValue;
                 break;
             case eModifierType.FinalPctAdd:
-                attribute = _finalPctAddCollector.AddModifier(type, value);
+                attribute = _finalPctAddCollector.AddModifier(type, modifierType, value);
                 FinalPctAdd = _finalPctAddCollector.TotalValue;
                 break;
             default:
@@ -116,8 +116,8 @@ public class IntAttribute : IReference
     public void Update()
     {
         int value1 = BaseValue;
-        float value2 = (value1 + Add) * (100 + PctAdd) / 100f;
-        float value3 = (value2 + FinalAdd) * (100 + FinalPctAdd) / 100f;
+        float value2 = (value1 + Add) * (1000 + PctAdd) / 1000f;
+        float value3 = (value2 + FinalAdd) * (1000 + FinalPctAdd) / 1000f;
         Value = (int)value3;
     }
     public virtual void Clear()

@@ -82,5 +82,11 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action<eAttributeType, int> EntityAttributeUpdate;
 
+    /// <summary>
+    /// 实体Avatar更新
+    /// </summary>
+    public Action EntityAvatarUpdated;
+
+
     #endregion
 }

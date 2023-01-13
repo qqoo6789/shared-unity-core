@@ -22,8 +22,8 @@ public enum eModifierType : int
 /// </summary>
 public enum eAttributeType : int
 {
+    Unknown = 0,
     Lv = 100,
-    Exp = 200,
     Att = 300,
     AttSpeed = 400,
     Def = 500,

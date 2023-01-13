@@ -82,7 +82,6 @@ public class SkillEffectCpt : EntityBaseComponent
         {
             return;
         }
-        effect.AddEffect(RefEntity);
         if (effect.Duration != 0)
         {
             effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration) : -1;
@@ -98,6 +97,7 @@ public class SkillEffectCpt : EntityBaseComponent
         }
         else
         {
+            effect.AddEffect(RefEntity);
             effect.Start();
             effect.RemoveEffect();
             effect.Dispose();
@@ -105,29 +105,51 @@ public class SkillEffectCpt : EntityBaseComponent
     }
 
     //添加到效果列表
-    private void AddEffectList(SkillEffectBase effect, List<SkillEffectBase> effectList)
+    private void AddEffectList(SkillEffectBase newEffect, List<SkillEffectBase> effectList)
     {
-        if (effect.IsRepeat)
+        //找到新效果的相同施法者的相同效果，当效果不允许重复时，覆盖其他施法者的效果
+        SkillEffectBase oldEffect = null;
+        for (int i = effectList.Count - 1; i >= 0; i--)
         {
-            effect.Start();
-            effectList.Add(effect);
+            //相同效果
+            if (effectList[i].EffectID == newEffect.EffectID)
+            {
+                //相同施法者
+                if (effectList[i].FromID == newEffect.FromID)
+                {
+                    oldEffect = effectList[i];
+                    break;
+                }
+                else
+                {
+                    //当效果不允许重复时，覆盖其他施法者的效果
+                    if (!effectList[i].EffectCfg.IsRepeat)
+                    {
+                        effectList[i].RemoveEffect();
+                        effectList[i].Dispose();
+                        effectList.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+        }
+
+        //相同施法者的相同buff，刷新层数
+        if (oldEffect != null)
+        {
+            //刷新层级
+            if (oldEffect.CurLayer < oldEffect.EffectCfg.MaxLayer)
+            {
+                oldEffect.UpdateLayer(oldEffect.CurLayer + 1);
+            }
+            oldEffect.DestroyTimestamp = newEffect.DestroyTimestamp;
+            newEffect.Dispose();
         }
         else
         {
-            int oldIndex = effectList.FindIndex(value =>
-            {
-                return value.EffectID == effect.EffectID;
-            });
-            if (oldIndex >= 0)
-            {
-                SkillEffectBase oldEffect = effectList[oldIndex];
-                effect.OnRefreshRepeat(oldEffect);
-                oldEffect.RemoveEffect();
-                oldEffect.Dispose();
-                effectList.RemoveAt(oldIndex);
-            }
-            effect.Start();
-            effectList.Add(effect);
+            newEffect.AddEffect(RefEntity);
+            newEffect.Start();
+            effectList.Add(newEffect);
         }
         UpdateImmuneFlag();
     }

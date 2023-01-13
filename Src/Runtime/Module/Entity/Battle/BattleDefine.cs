@@ -20,6 +20,7 @@ public static class BattleDefine
         SEInvincible = 1004,
         SEEndure = 1005,
         SELockEnemyPathMoveCore = 1006,
+        SEAttributeModifierCore = 1007,
     }
 
     public enum eSkillShapeId : int
@@ -54,6 +55,8 @@ public static class BattleDefine
             {EntityProfileField.HpCurrent, "HpCurrent"},
             {EntityProfileField.HpRecovery, "HpRecovery"},
         };
+
+    public const int SKILL_USE_TAG = (int)eSkillType.General | (int)eSkillType.Channel | (int)eSkillType.Toggle;
 }
 public enum eEntityCDType : int
 {
@@ -63,4 +66,18 @@ public enum eEntityCDType : int
 public enum eEntityExtendCDType : int
 {
     Revive = 0,  //复活
+}
+
+public enum eSkillType : int
+{
+    Passive = 1 << 1,  //被动
+    General = 1 << 2,  //主动
+    Channel = 1 << 3, //主动持续释放，预留
+    Toggle = 1 << 4,  //开关，预留
+}
+public enum eSkillTargetType : int
+{
+    NotTarget = 1 << 1,  //无需目标
+    Target = 1 << 2,  //需要目标
+    Pos = 1 << 3, //需要位置
 }

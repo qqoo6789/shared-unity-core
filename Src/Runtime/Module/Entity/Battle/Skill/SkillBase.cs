@@ -1,3 +1,4 @@
+using System.Linq;
 /*
  * @Author: xiang huan
  * @Date: 2023-01-06 10:52:11
@@ -13,6 +14,14 @@ public class SkillBase : IReference
 {
     public int SkillID { get; private set; }
     public DRSkill DRSkill { get; private set; }
+    /// <summary>
+    ///技能标识
+    /// </summary>
+    public int SkillFlag { get; private set; }
+    /// <summary>
+    ///技能释放目标标识
+    /// </summary>
+    public int TargetFlag { get; private set; }
 
     /// <summary>
     /// 宿主对象
@@ -22,6 +31,22 @@ public class SkillBase : IReference
     {
         SkillID = skillID;
         DRSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        SkillFlag = 0;
+        if (DRSkill.SkillFlag != null)
+        {
+            for (int i = 0; i < DRSkill.SkillFlag.Length; i++)
+            {
+                SkillFlag |= 1 << DRSkill.SkillFlag[i];
+            }
+        }
+        TargetFlag = 0;
+        if (DRSkill.TargetFlag != null)
+        {
+            for (int i = 0; i < DRSkill.TargetFlag.Length; i++)
+            {
+                TargetFlag |= 1 << DRSkill.TargetFlag[i];
+            }
+        }
     }
     /// <summary>
     /// 技能被添加
