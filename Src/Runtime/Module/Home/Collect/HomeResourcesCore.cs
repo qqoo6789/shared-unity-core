@@ -17,9 +17,17 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
     public bool IsDead { get; private set; }
 
-    private void Awake()
+    public eAction SupportAction { get; set; } = eAction.None;
+
+    protected virtual void Awake()
     {
         IsDead = false;
+    }
+
+    protected virtual void Start()
+    {
+        DRHomeResources dr = GetComponent<ResourceDataCore>().DRHomeResources;
+        SupportAction = TableUtil.ToHomeAction(dr.HomeAction);
     }
 
     public bool CheckSupportAction(eAction action)
@@ -29,14 +37,14 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
             return false;
         }
 
-        return (eAction.Harvest & action) != 0;
+        return (SupportAction & action) != 0;
     }
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid)
     {
-        if (action != eAction.Harvest)
+        if (!CheckSupportAction(action))
         {
-            Log.Error($"家园采集资源 action {action} not support");
+            Log.Error($"家园采集资源 action {action} not support,isDead:{IsDead}");
             return;
         }
 

@@ -753,3 +753,7 @@ The higher the level of crafting the item, the more the increased proficiency.",
 20010004,Cheating detected by the system,被T提示,
 20010005,The server is offline,被T提示,
 20010006,System error,,
+20020001,Lack of item,家园错误码,道具不足
+5001,Resource does not exist,家园错误码,资源不存在
+5002,Operation not supported,家园错误码,操作不支持
+5003,Home item deduction abnormal,家园错误码,家园道具扣除异常

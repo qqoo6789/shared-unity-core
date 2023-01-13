@@ -33,10 +33,10 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     public abstract eSoilStatus StatusFlag { get; }
 
     /// <summary>
-    /// 当前状态支持的家园动作 可以是多个动作二进制
+    /// 当前状态支持的家园动作 可以是多个动作二进制复合动作
     /// </summary>
     /// <value></value>
-    protected abstract eAction SupportAction { get; }
+    public abstract eAction SupportAction { get; }
     /// <summary>
     /// 设置支持动作时必选 子类实现具体的动作逻辑 如果不支持该动作则不会触发该事件
     /// </summary>

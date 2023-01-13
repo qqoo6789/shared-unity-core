@@ -54,7 +54,7 @@ public class DRSkill : DataRowBase
     /// <summary>
   /**获取家园动作。*/
     /// </summary>
-    public int HomeAction
+    public int[] HomeAction
     {
         get;
         private set;
@@ -331,7 +331,7 @@ public class DRSkill : DataRowBase
         SkillName = columnStrings[index++];
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillIcon = columnStrings[index++];
-        HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         HomeActionSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -376,7 +376,7 @@ public class DRSkill : DataRowBase
                 SkillName = binaryReader.ReadString();
                 SkillCD = binaryReader.Read7BitEncodedInt32();
                 SkillIcon = binaryReader.ReadString();
-                HomeAction = binaryReader.Read7BitEncodedInt32();
+                HomeAction = binaryReader.ReadArray<Int32>();
                 HomeActionSpeed = binaryReader.Read7BitEncodedInt32();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
