@@ -16,7 +16,7 @@ public class HomeSaveData
 
     public static string ToJson(object data)
     {
-        return JsonConvert.SerializeObject(data, Formatting.Indented);
+        return JsonConvert.SerializeObject(data, Formatting.None);
     }
 
     public static T FromJson<T>(string json)
