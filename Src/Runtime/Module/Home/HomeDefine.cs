@@ -10,7 +10,8 @@ public static class HomeDefine
     //TODO: 需要正式配置
     public const int SOIL_X_NUM = 10;
     public const int SOIL_Z_NUM = 10;
-    public static readonly Vector3 SOIL_SIZE = Vector3.one;
+    public static readonly Vector3 SOIL_SIZE = Vector3.one;  //土地格子大小
+    public static readonly Vector3 EMPTY_SIZE = Vector3.one; //空地格子大小
 
     //TODO:需要正式配置时间
     // public const int SOIL_NEED_HOEING_EFFECT_VALUE = 100;//锄地需要的效果值
