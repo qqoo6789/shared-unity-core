@@ -35,6 +35,7 @@ public static class DataTableConfig
         "Skill",
         "SkillEffect",
         "SlotLv",
+        "TalentTree",
         "Task",
         "TaskList",
     };
