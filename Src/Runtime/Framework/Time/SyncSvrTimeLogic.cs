@@ -118,7 +118,7 @@ public class SyncSvrTimeLogic
     public void SyncSvrTime(long svrStamp, long reqClientStamp)
     {
         long spaceTime = TimeUtil.GetTimeStamp() - reqClientStamp;//网络来回时间
-        Log.Info($"syncSvrTime svrStamp =${svrStamp} spaceTime ={spaceTime} reqClientStamp ={reqClientStamp}");
+        // Log.Info($"syncSvrTime svrStamp =${svrStamp} spaceTime ={spaceTime} reqClientStamp ={reqClientStamp}");
 
         //需要收敛 非收敛的直接跳过
         if (_buffLastSyncTimeSpaceTime > 0 && spaceTime >= _buffLastSyncTimeSpaceTime)
