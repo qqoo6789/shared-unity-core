@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adca5ef2728542849898c2239b6a844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 10002001
   IsDraw: 1
   AreaType: 1
   UpdateInterval: 10000
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adca5ef2728542849898c2239b6a844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 2
+  Id: 10002002
   IsDraw: 1
   AreaType: 1
   UpdateInterval: 10000
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adca5ef2728542849898c2239b6a844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 3
+  Id: 10002003
   IsDraw: 1
   AreaType: 1
   UpdateInterval: 10000
