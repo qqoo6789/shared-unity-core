@@ -33,6 +33,24 @@ public class DRSkillEffect : DataRowBase
     }
 
     /// <summary>
+  /**获取最大层数。*/
+    /// </summary>
+    public int MaxLayer
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取能否重复。*/
+    /// </summary>
+    public bool IsRepeat
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取效果标识。*/
     /// </summary>
     public int[] EffectFlag
@@ -60,6 +78,15 @@ public class DRSkillEffect : DataRowBase
     }
 
     /// <summary>
+  /**获取效果参数2。*/
+    /// </summary>
+    public int[][] Parameters2
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取持续时间 <0为永久 =0为瞬间 >0持续时间。*/
     /// </summary>
     public int Duration
@@ -75,10 +102,13 @@ public class DRSkillEffect : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         EffectType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        MaxLayer = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        IsRepeat = DataTableParseUtil.ParseBool(columnStrings[index++]);
         EffectFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectImmuneFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         index++;
         Parameters = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        Parameters2 = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         Duration = DataTableParseUtil.ParseInt(columnStrings[index++]);
         index++;
 
@@ -94,9 +124,12 @@ public class DRSkillEffect : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 EffectType = binaryReader.Read7BitEncodedInt32();
+                MaxLayer = binaryReader.Read7BitEncodedInt32();
+                IsRepeat = binaryReader.ReadBoolean();
                 EffectFlag = binaryReader.ReadArray<Int32>();
                 EffectImmuneFlag = binaryReader.ReadArray<Int32>();
                 Parameters = binaryReader.ReadArray<Int32>();
+                Parameters2 = binaryReader.ReadArrayList<Int32>();
                 Duration = binaryReader.Read7BitEncodedInt32();
             }
         }
