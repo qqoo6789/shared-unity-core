@@ -53,13 +53,13 @@ public class HomeResourcesAreaMgrCore : SceneModuleBase
         return list;
     }
 
-    public virtual void InitHomeAreaSaveData(HomeResourcesAreaSaveData[] areaSaveDataList)
+    public virtual void InitHomeAreaSaveData(List<HomeResourcesAreaSaveData> areaSaveDataList)
     {
         if (areaSaveDataList == null)
         {
             return;
         }
-        for (int i = 0; i < areaSaveDataList.Length; i++)
+        for (int i = 0; i < areaSaveDataList.Count; i++)
         {
             if (AreaMap.TryGetValue(areaSaveDataList[i].Id, out HomeResourcesArea area))
             {
