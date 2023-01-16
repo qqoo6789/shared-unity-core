@@ -14,12 +14,12 @@ public class SkillEffectCpt : EntityBaseComponent
         Runtime,
         Static, //静态效果，不会进行刷新。节省性能开销
     }
-    private Dictionary<eEffectType, List<SkillEffectBase>> _skillEffectMap;
+    public Dictionary<eEffectType, List<SkillEffectBase>> SkillEffectMap { get; private set; }
 
     private int _immuneFlag; //免疫标识
     private void Awake()
     {
-        _skillEffectMap = new()
+        SkillEffectMap = new()
         {
             { eEffectType.Runtime, new() },
             { eEffectType.Static, new() }
@@ -28,7 +28,7 @@ public class SkillEffectCpt : EntityBaseComponent
 
     private void Update()
     {
-        List<SkillEffectBase> runList = _skillEffectMap[eEffectType.Runtime];
+        List<SkillEffectBase> runList = SkillEffectMap[eEffectType.Runtime];
         if (runList.Count <= 0)
         {
             return;
@@ -87,11 +87,11 @@ public class SkillEffectCpt : EntityBaseComponent
             effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration) : -1;
             if (effect.Duration > 0 || effect.IsUpdate)
             {
-                AddEffectList(effect, _skillEffectMap[eEffectType.Runtime]);
+                AddEffectList(effect, SkillEffectMap[eEffectType.Runtime]);
             }
             else
             {
-                AddEffectList(effect, _skillEffectMap[eEffectType.Static]);
+                AddEffectList(effect, SkillEffectMap[eEffectType.Static]);
             }
 
         }
@@ -157,7 +157,7 @@ public class SkillEffectCpt : EntityBaseComponent
     //取消某种效果
     public void AbolishSkillEffect(int effectID)
     {
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)
@@ -177,7 +177,7 @@ public class SkillEffectCpt : EntityBaseComponent
     //取消某种效果
     public void AbolishSkillEffect(int effectID, int skillID, long fromID)
     {
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)
@@ -195,7 +195,7 @@ public class SkillEffectCpt : EntityBaseComponent
     }
     public void ClearAllSkillEffect()
     {
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)
@@ -213,7 +213,7 @@ public class SkillEffectCpt : EntityBaseComponent
     public void UpdateImmuneFlag()
     {
         _immuneFlag = 0;
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in _skillEffectMap)
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)

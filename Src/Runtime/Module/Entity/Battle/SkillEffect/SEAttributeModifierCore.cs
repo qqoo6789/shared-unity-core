@@ -29,7 +29,7 @@ public class SEAttributeModifierCore : SkillEffectBase
                     {
                         eAttributeType attributeType = (eAttributeType)EffectCfg.Parameters2[index][0];
                         eModifierType modifierType = (eModifierType)EffectCfg.Parameters2[index][1];
-                        int value = EffectCfg.Parameters2[index][3];
+                        int value = EffectCfg.Parameters2[index][2];
                         IntAttributeModifier modifier = RefEntity.EntityAttributeData.AddModifier(attributeType, modifierType, value);
                         list.Add(modifier);
                     }

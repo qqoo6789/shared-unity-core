@@ -2,24 +2,42 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
 using System.Collections.Generic;
 using GameMessageCore;
 using UnityGameFramework.Runtime;
-
 public class EntitySkillDataCore : EntityBaseComponent
 {
+    protected int JumpSkillID = BattleDefine.JUMP_SKILL_ID_NULL; //翻滚技能
     protected List<int> EquipmentSkillIDList = new(); //装备技能列表
     protected List<int> BaseSkillIDList = new(); //基础技能列表
 
-    protected SkillCpt SkillComponent; //技能组件
-    protected PlayerRoleDataCore RoleDataCore;//角色数据
-    private void Awake()
+    private SkillCpt _skillCpt;
+    protected SkillCpt SkillComponent
     {
-        SkillComponent = gameObject.GetComponent<SkillCpt>();
-        RoleDataCore = gameObject.GetComponent<PlayerRoleDataCore>();
+        get
+        {
+            if (_skillCpt == null)
+            {
+                _skillCpt = gameObject.GetComponent<SkillCpt>();
+            }
+            return _skillCpt;
+        }
+    }
+
+    private PlayerRoleDataCore _playerRoleDataCore;
+    protected PlayerRoleDataCore RoleDataCore
+    {
+        get
+        {
+            if (_playerRoleDataCore == null)
+            {
+                _playerRoleDataCore = gameObject.GetComponent<PlayerRoleDataCore>();
+            }
+            return _playerRoleDataCore;
+        }
     }
 
     private void Start()
@@ -33,9 +51,10 @@ public class EntitySkillDataCore : EntityBaseComponent
         BaseSkillIDList.AddRange(skillIDs);
         for (int i = 0; i < BaseSkillIDList.Count; i++)
         {
-            SkillComponent.AddSkill(BaseSkillIDList[i]);
+            _ = SkillComponent.AddSkill(BaseSkillIDList[i]);
         }
     }
+
     public void RemoveBaseSkillList()
     {
         for (int i = 0; i < BaseSkillIDList.Count; i++)
@@ -51,14 +70,14 @@ public class EntitySkillDataCore : EntityBaseComponent
             return;
         }
         HashSet<int> newSkillIDMap = new();
-        if (RoleDataCore.WearDic.TryGetValue(GameMessageCore.AvatarPosition.Weapon, out PlayerAvatar avatar))
+        if (RoleDataCore.WearDic.TryGetValue(AvatarPosition.Weapon, out PlayerAvatar avatar))
         {
             DREquipment drEquipment = GFEntryCore.DataTable.GetDataTable<DREquipment>().GetDataRow(avatar.ObjectId);
             if (drEquipment != null)
             {
                 for (int i = 0; i < drEquipment.GivenSkillId.Length; i++)
                 {
-                    newSkillIDMap.Add(drEquipment.GivenSkillId[i]);
+                    _ = newSkillIDMap.Add(drEquipment.GivenSkillId[i]);
                 }
             }
             else
@@ -72,7 +91,7 @@ public class EntitySkillDataCore : EntityBaseComponent
             //已经有的技能不需要添加
             if (newSkillIDMap.Contains(EquipmentSkillIDList[i]))
             {
-                newSkillIDMap.Remove(EquipmentSkillIDList[i]);
+                _ = newSkillIDMap.Remove(EquipmentSkillIDList[i]);
             }
             else
             {
@@ -85,12 +104,38 @@ public class EntitySkillDataCore : EntityBaseComponent
         foreach (int skillID in newSkillIDMap)
         {
             EquipmentSkillIDList.Add(skillID);
-            SkillComponent.AddSkill(skillID);
+            _ = SkillComponent.AddSkill(skillID);
         }
     }
+
+    public void RemoveEquipmentSkill()
+    {
+        for (int i = 0; i < EquipmentSkillIDList.Count; i++)
+        {
+            SkillComponent.RemoveSkill(EquipmentSkillIDList[i]);
+        }
+        EquipmentSkillIDList.Clear();
+    }
+
+    public void SetJumpSkillID(int skillID)
+    {
+        if (JumpSkillID == skillID)
+        {
+            return;
+        }
+        if (JumpSkillID != BattleDefine.JUMP_SKILL_ID_NULL)
+        {
+            SkillComponent.RemoveSkill(JumpSkillID);
+        }
+        JumpSkillID = skillID;
+        _ = SkillComponent.AddSkill(skillID);
+    }
+
     private void OnDestroy()
     {
+        SetJumpSkillID(BattleDefine.JUMP_SKILL_ID_NULL);
         RemoveBaseSkillList();
+        RemoveEquipmentSkill();
         RefEntity.EntityEvent.EntityAvatarUpdated -= OnUpdateEquipmentSkillID;
     }
 }

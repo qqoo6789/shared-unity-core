@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 实体属性数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/EntityAttributeData.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/EntityAttributeData.cs
  * 
  */
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using UnityGameFramework.Runtime;
 
 public class EntityAttributeData : EntityBaseComponent
 {
-    private readonly Dictionary<eAttributeType, IntAttribute> _attributeMap = new();
+    public Dictionary<eAttributeType, IntAttribute> AttributeMap { get; private set; } = new();
     private readonly Dictionary<eAttributeType, int> _defaultMap = new();
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public int GetValue(eAttributeType type)
     {
-        if (_attributeMap.TryGetValue(type, out IntAttribute attribute))
+        if (AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
             return attribute.Value;
         }
@@ -45,7 +45,7 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public IntAttribute GetAttribute(eAttributeType type)
     {
-        if (_attributeMap.TryGetValue(type, out IntAttribute attribute))
+        if (AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
             return attribute;
         }
@@ -57,10 +57,10 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public void SetBaseValue(eAttributeType type, int value)
     {
-        if (!_attributeMap.TryGetValue(type, out IntAttribute attribute))
+        if (!AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
             attribute = IntAttribute.Create();
-            _attributeMap.Add(type, attribute);
+            AttributeMap.Add(type, attribute);
         }
         //基础属性没变化
         if (attribute.BaseValue == value)
@@ -76,7 +76,7 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public int GetBaseValue(eAttributeType type)
     {
-        if (_attributeMap.TryGetValue(type, out IntAttribute attribute))
+        if (AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
             return attribute.BaseValue;
         }
@@ -88,10 +88,10 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public IntAttributeModifier AddModifier(eAttributeType type, eModifierType modifierType, int value)
     {
-        if (!_attributeMap.TryGetValue(type, out IntAttribute attribute))
+        if (!AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
             attribute = IntAttribute.Create();
-            _attributeMap.Add(type, attribute);
+            AttributeMap.Add(type, attribute);
         }
         IntAttributeModifier modifier = attribute.AddModifier(type, modifierType, value);
         RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(type, attribute.Value);
@@ -103,7 +103,7 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public void RemoveModifier(IntAttributeModifier modifier)
     {
-        if (!_attributeMap.TryGetValue(modifier.AttributeType, out IntAttribute attribute))
+        if (!AttributeMap.TryGetValue(modifier.AttributeType, out IntAttribute attribute))
         {
             Log.Error($"EntityAttributeData RemoveModifier Not Find Attribute Type = {modifier.AttributeType}");
             return;
@@ -114,10 +114,10 @@ public class EntityAttributeData : EntityBaseComponent
 
     private void OnDestroy()
     {
-        foreach (KeyValuePair<eAttributeType, IntAttribute> item in _attributeMap)
+        foreach (KeyValuePair<eAttributeType, IntAttribute> item in AttributeMap)
         {
             item.Value.Dispose();
         }
-        _attributeMap.Clear();
+        AttributeMap.Clear();
     }
 }
