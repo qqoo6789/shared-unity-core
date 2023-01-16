@@ -64,14 +64,14 @@ namespace SharedCore.Editor
             if (currentState)
             {
                 long curTimeStamp = TimeUtil.GetTimeStamp();
+                long destroyTime = skillEffectBase.DestroyTimestamp > 0 ? skillEffectBase.DestroyTimestamp - curTimeStamp : -1;
                 _ = EditorGUILayout.BeginVertical("box");
                 {
                     EditorGUILayout.LabelField("效果ID", skillEffectBase.EffectID.ToString());
                     EditorGUILayout.LabelField("当前层数", skillEffectBase.CurLayer.ToString());
                     EditorGUILayout.LabelField("来源技能ID", skillEffectBase.SkillID.ToString());
                     EditorGUILayout.LabelField("来源实体ID", skillEffectBase.FromID.ToString());
-                    EditorGUILayout.LabelField("剩余时间", ((skillEffectBase.DestroyTimestamp - curTimeStamp) / TimeUtil.MS2S).ToString());
-
+                    EditorGUILayout.LabelField("剩余时间", destroyTime.ToString());
                 }
                 EditorGUILayout.EndVertical();
                 EditorGUILayout.Separator();

@@ -27,7 +27,7 @@ namespace SharedCore.Editor
             }
 
             SkillCpt skillCpt = (SkillCpt)target;
-            EditorGUILayout.BeginHorizontal("box");
+            _ = EditorGUILayout.BeginHorizontal("box");
             {
                 _skillID = EditorGUILayout.TextField("技能ID", _skillID);
 
@@ -46,7 +46,20 @@ namespace SharedCore.Editor
                         skillCpt.RemoveSkill(value);
                     }
                 }
+                if (GUILayout.Button("释放"))
+                {
+                    if (int.TryParse(_skillID, out int value))
+                    {
+                        Vector3 dir = skillCpt.RefEntity.Forward;
+                        if (!skillCpt.CanUseSkill(value, dir, null))
+                        {
+                            return;
+                        }
+                        skillCpt.RefEntity.EntityEvent.InputSkillRelease?.Invoke(value, dir, null, true);
+                    }
+                }
             }
+
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.LabelField("当前技能数量", skillCpt.SkillMap.Count.ToString());
 
