@@ -23,6 +23,11 @@ public abstract class HomeModuleCore : MonoBehaviour
     /// <value></value>
     public static IHomeSoilMgr SoilMgr { get; private set; }
 
+    /// <summary>
+    /// 土地和上面的资源关系
+    /// </summary>
+    /// <value></value>
+    public static HomeSoilResourceRelation SoilResourceRelation { get; private set; }
 
     private void Start()
     {
@@ -52,12 +57,13 @@ public abstract class HomeModuleCore : MonoBehaviour
 
     protected virtual void InitModule()
     {
-        //
+        SoilResourceRelation = gameObject.AddComponent<HomeSoilResourceRelation>();
     }
 
     protected virtual void UnInitModule()
     {
         SoilMgr = null;
+        SoilResourceRelation = null;
     }
 
     /// <summary>

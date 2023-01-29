@@ -26,8 +26,14 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
     protected virtual void Start()
     {
-        DRHomeResources dr = GetComponent<ResourceDataCore>().DRHomeResources;
+        ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
+        DRHomeResources dr = resourceData.DRHomeResources;
         SupportAction = TableUtil.ToHomeAction(dr.HomeAction);
+
+        if (HomeModuleCore.IsInited)//在家园里
+        {
+            HomeModuleCore.SoilResourceRelation.AddResourceOnSoil(RefEntity.BaseData.Id, resourceData.SaveData.Id);
+        }
     }
 
     public bool CheckSupportAction(eAction action)
@@ -55,5 +61,11 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     /// <summary>
     /// 当采集资源死亡时
     /// </summary>
-    protected abstract void OnDeath();
+    protected virtual void OnDeath()
+    {
+        if (HomeModuleCore.IsInited)//在家园里
+        {
+            HomeModuleCore.SoilResourceRelation.RemoveResourceOnSoil(RefEntity.BaseData.Id);
+        }
+    }
 }

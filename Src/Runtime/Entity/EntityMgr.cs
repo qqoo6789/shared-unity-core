@@ -21,6 +21,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     protected TFactory Factory = new();
 
     /// <summary>
+    /// 所有实体数量
+    /// </summary>
+    public int EntityCount => EntityDic.Count;
+
+    /// <summary>
     /// 获取存在的场景实体
     /// </summary>
     /// <param name="id"></param>
@@ -68,6 +73,15 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
 
         Log.Warning($"Can not find entity with root, name: {go.name}, id: {goID}");
         return null;
+    }
+
+    /// <summary>
+    /// 获取所有实体 不走GC 不要改变里面值 而且不要频繁使用 慎用
+    /// </summary>
+    /// <returns></returns>
+    public Dictionary<long, TEntity> GetAllEntityNoGC()
+    {
+        return EntityDic;
     }
 
     /// <summary>
