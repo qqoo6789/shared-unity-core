@@ -147,13 +147,14 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// <summary>
     /// 移除除了exceptIds之外的所有实体
     /// </summary>
-    /// <param name="exceptIds"></param>
-    public virtual void RemoveAllEntityExcept(List<long> exceptIds)
+    /// <param name="retainIds"></param>
+    public virtual void RemoveAllEntityExcept(IEnumerable<long> retainIds)
     {
         List<TEntity> retainEntities = new();
+        HashSet<long> retainIdSet = new(retainIds);
         foreach (KeyValuePair<long, TEntity> item in EntityDic)
         {
-            if (exceptIds != null && exceptIds.Contains(item.Key))
+            if (retainIdSet.Contains(item.Key))
             {
                 retainEntities.Add(item.Value);
                 continue;
