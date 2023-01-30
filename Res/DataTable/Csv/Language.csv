@@ -757,3 +757,4 @@ The higher the level of crafting the item, the more the increased proficiency.",
 5001,Resource does not exist,家园错误码,资源不存在
 5002,Operation not supported,家园错误码,操作不支持
 5003,Home item deduction abnormal,家园错误码,家园道具扣除异常
+20030001,Save successfully,保存技能配置,
