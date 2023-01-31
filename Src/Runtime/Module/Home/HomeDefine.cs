@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public static class HomeDefine
 {
+    public const int COLLECT_RESOURCE_DEATH_TIME = 1000;//采集资源死亡时间 ms
+
     //TODO: 需要正式配置
     public const int SOIL_X_NUM = 10;
     public const int SOIL_Z_NUM = 10;
@@ -24,7 +26,7 @@ public static class HomeDefine
     /// <summary>
     /// 支持进度的动作集合
     /// </summary>
-    public const eAction PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Watering;
+    public const eAction PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Watering | eAction.Mining | eAction.Cut;
 
     /// <summary>
     /// 土地状态间的数据定义key
@@ -92,17 +94,27 @@ public static class HomeDefine
         /// </summary>
         Sowing = 1 << 2,
         /// <summary>
-        /// 浇水
+        /// 浇水（有线形进度）
         /// </summary>
         Watering = 1 << 3,
         /// <summary>
-        /// 收获
-        /// </summary>
-        Harvest = 1 << 4,
-        /// <summary>
         /// 施肥
         /// </summary>
-        Manure = 1 << 5,
+        Manure = 1 << 4,
+        /// <summary>
+        /// 收获收割（没有进度）
+        /// </summary>
+        Harvest = 1 << 5,
+        /// <summary>
+        /// 斧头砍树（有进度）
+        /// </summary>
+        Cut = 1 << 6,
+        /// <summary>
+        /// 镐子挖矿（有进度）
+        /// </summary>
+        Mining = 1 << 7,
+        //铲除植物
+        Eradicate = 1 << 8,
     }
 
     /// <summary>
@@ -115,12 +127,7 @@ public static class HomeDefine
         /// 土壤作物
         /// </summary>
         Soil = 1 << 0,
-        /// <summary>
-        /// 岩石 矿石
-        /// </summary>
-        Rock = 1 << 1,
-        Tree = 1 << 2,
-        Grass = 1 << 3,
+        HomeResource = 1 << 1,
     }
 
     public enum eHomeResourcesAreaType : int

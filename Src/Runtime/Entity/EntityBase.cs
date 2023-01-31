@@ -78,6 +78,12 @@ public class EntityBase
     public RoleBaseDataCore RoleBaseDataCore { get; set; }
 
     /// <summary>
+    /// 整个root gameObject的激活状态 一般不用乱用
+    /// </summary>
+    /// <value></value>
+    public bool IsActive { get; private set; } = true;
+
+    /// <summary>
     /// 不要乱用 读写相关属性都有独立方法 只能在特定情境下只能通过获取Transform来获取时使用
     /// </summary>
     /// <returns></returns>
@@ -169,6 +175,22 @@ public class EntityBase
     public void SetRootParent(Transform parent)
     {
         _transform.SetParent(parent, false);
+    }
+
+
+    /// <summary>
+    /// 设置整个root gameObject的激活状态 一般不用乱用
+    /// </summary>
+    /// <param name="active"></param>
+    public void SetActive(bool active)
+    {
+        if (IsActive == active)
+        {
+            return;
+        }
+
+        IsActive = active;
+        Root.SetActive(active);
     }
 
     public T GetComponent<T>()

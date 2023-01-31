@@ -21,6 +21,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     protected TFactory Factory = new();
 
     /// <summary>
+    /// 所有实体数量
+    /// </summary>
+    public int EntityCount => EntityDic.Count;
+
+    /// <summary>
     /// 获取存在的场景实体
     /// </summary>
     /// <param name="id"></param>
@@ -68,6 +73,15 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
 
         Log.Warning($"Can not find entity with root, name: {go.name}, id: {goID}");
         return null;
+    }
+
+    /// <summary>
+    /// 获取所有实体 不走GC 不要改变里面值 而且不要频繁使用 慎用
+    /// </summary>
+    /// <returns></returns>
+    public Dictionary<long, TEntity> GetAllEntityNoGC()
+    {
+        return EntityDic;
     }
 
     /// <summary>
@@ -133,13 +147,16 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// <summary>
     /// 移除除了exceptIds之外的所有实体
     /// </summary>
-    /// <param name="exceptIds"></param>
-    public virtual void RemoveAllEntityExcept(List<long> exceptIds)
+    /// <param name="retainIds"></param>
+    public virtual void RemoveAllEntityExcept(IEnumerable<long> retainIds)
     {
+        List<TEntity> retainEntities = new();
+        HashSet<long> retainIdSet = new(retainIds);
         foreach (KeyValuePair<long, TEntity> item in EntityDic)
         {
-            if (exceptIds != null && exceptIds.Contains(item.Key))
+            if (retainIdSet.Contains(item.Key))
             {
+                retainEntities.Add(item.Value);
                 continue;
             }
             try
@@ -151,8 +168,15 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
                 Log.Error($"Entity {item.Value.BaseData.Id} RemoveAllEntityExcept dispose failed,error={e}");
             }
         }
+
         EntityDic.Clear();
         EntityRootDic.Clear();
+
+        foreach (TEntity entity in retainEntities)
+        {
+            EntityDic.Add(entity.BaseData.Id, entity);
+            EntityRootDic.Add(entity.RootID, entity);
+        }
     }
 
     /// <summary>

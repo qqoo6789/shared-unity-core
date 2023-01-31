@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7702508038235833567}
   - component: {fileID: 6442488917682934551}
-  m_Layer: 16
+  m_Layer: 18
   m_Name: 2d_shitou_01
   m_TagString: ResourcesPoint
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7241494383949454981}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.5
   m_Height: 1

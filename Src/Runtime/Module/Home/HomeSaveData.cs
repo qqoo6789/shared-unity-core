@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 /// <summary>
@@ -10,13 +11,13 @@ public class HomeSaveData
     /// <summary>
     /// 所有非空白idle状态的土地列表 空白的不存储
     /// </summary>
-    public string SoilDataList;
+    public List<SoilSaveData> SoilSaveDataList;
 
-    public string HomeAreaDataList;
+    public List<HomeResourcesAreaSaveData> HomeAreaSaveDataList;
 
     public static string ToJson(object data)
     {
-        return JsonConvert.SerializeObject(data, Formatting.Indented);
+        return JsonConvert.SerializeObject(data, Formatting.None);
     }
 
     public static T FromJson<T>(string json)

@@ -7,7 +7,7 @@ public class SoilGrowingWetStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.GrowingWet;
 
-    protected override eAction SupportAction => eAction.Hoeing;
+    public override eAction SupportAction => eAction.Eradicate;
 
     protected override float AutoEnterNextStatusTime => SoilData.SeedEveryGrowStageTime;
 
@@ -31,7 +31,7 @@ public class SoilGrowingWetStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, actionData);
 
-        if (action == eAction.Hoeing)
+        if (action == eAction.Eradicate)
         {
             SoilData.ClearAllData();
             ChangeState(eSoilStatus.Loose);

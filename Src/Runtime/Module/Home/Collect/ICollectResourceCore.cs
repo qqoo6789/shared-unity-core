@@ -23,11 +23,16 @@ public interface ICollectResourceCore
     /// <value></value>
     Vector3 Position { get; }
 
-    /// 检查是否支持当前操作
+    /// 检查是否支持当前复合动作
     /// </summary>
-    /// <param name="action"></param>
+    /// <param name="action">复合动作</param>
     /// <returns></returns>
     bool CheckSupportAction(eAction action);
+    /// <summary>
+    /// 获取当前支持的复合动作
+    /// </summary>
+    /// <value></value>
+    eAction SupportAction { get; }
     /// <summary>
     /// 执行动作
     /// </summary>

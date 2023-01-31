@@ -59,6 +59,24 @@ public class DRHomeResources : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取掉落Id。*/
+    /// </summary>
+    public int DropId
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取采集家园动作。*/
+    /// </summary>
+    public int HomeAction
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -69,6 +87,8 @@ public class DRHomeResources : DataRowBase
         Desc = columnStrings[index++];
         Icon = columnStrings[index++];
         AssetRes = columnStrings[index++];
+        DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -85,6 +105,8 @@ public class DRHomeResources : DataRowBase
                 Desc = binaryReader.ReadString();
                 Icon = binaryReader.ReadString();
                 AssetRes = binaryReader.ReadString();
+                DropId = binaryReader.Read7BitEncodedInt32();
+                HomeAction = binaryReader.Read7BitEncodedInt32();
             }
         }
 

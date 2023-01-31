@@ -37,8 +37,10 @@ int,string,null,string,int,int[],string,int,int,int,int,int
 1010010,Suede Boots,10级鞋子,Suede Boots,1,"1,2",lv10_shoes,5,10,1,1,
 1010011,Iron Gloves,10级手套,Iron Gloves,1,"1,2",lv10_gloves,5,10,1,1,
 1010012,Steel Sword,10级剑,Steel Sword,1,"1,2",lv10_sword,5,10,1,1,
-7010001,Test Hoeing,测试锄头,Test Hoeing,1,"1,2",lv10_sword,5,0,1,1,
-7010002,Test Water,测试水壶,Test Water,1,"1,2",lv10_sword,5,0,1,1,
+7010001,测试锄头,测试锄头,测试锄头,1,"1,2",lv10_sword,5,0,1,1,
+7010002,测试水壶,测试水壶,测试水壶,1,"1,2",lv10_sword,5,0,1,1,
+7010003,测试镐子挖,测试镐子挖,测试镐子挖,1,"1,2",lv10_sword,5,0,1,1,
+7010004,测试斧头砍,测试斧头砍,测试斧头砍,1,"1,2",lv10_sword,5,0,1,1,
 4010001,Level 0 Male Head Gear Scroll,0级男性头部装备蓝图,A scroll that records the essentials of crafting level 0 male head gear.,4,1,craft_scroll,7,0,1,1,
 4010002,Level 0 Male Chest Equipment Scroll,0级男性胸部装备蓝图,A scroll that records the essentials of crafting level 0 male chest equipment.,4,1,craft_scroll,7,0,1,1,
 4010003,Level 0 Male Leg Equipment Scroll,0级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 0 male leg gear.,4,1,craft_scroll,7,0,1,1,
@@ -64,5 +66,5 @@ int,string,null,string,int,int[],string,int,int,int,int,int
 5010001,The Ancient Birdy Ruins ,建筑物1,"The Ancient Birdy Ruins are the remains of a once great civilization. The Cyclops were a part of this civilization, and their legacy is engraved into the very stones of the ruins.",5,1,ic_building1,5,0,1,1,
 5010002,The legacy of the Cyclops,建筑物2,"The legacy of the Cyclops stands as a testament to the power of the mind. Though they were feared and hated by many, the Cyclops were some of the most intelligent and powerful beings to have ever lived. Their legacy is one of strength, determination, and above all else, intelligence.",5,2,ic_building2,5,0,1,1,
 5010003,The Adventurer lab,建筑物3,"The Adventurer lab where scientists do some researches is a place of knowledge and discovery. It is here that the legacy of the Cyclops is kept alive, as scientists continue to study their strange and powerful minds.",5,3,ic_building3,5,0,1,1,
-7020001,test seed,测试种子,test seed,6,1,ic_seed,7,0,1,1,205003
-7030001,test manure,测试肥料,test manure,7,1,ic_battery,7,0,1,1,205004
+7020001,测试种子,测试种子,测试种子,3,1,ic_seed,7,0,1,1,205003
+7030001,测试施肥,测试肥料,测试施肥,3,1,ic_battery,7,0,1,1,205004

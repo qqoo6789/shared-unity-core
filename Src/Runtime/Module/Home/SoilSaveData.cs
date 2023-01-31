@@ -1,4 +1,5 @@
 using System;
+using GameMessageCore;
 using static HomeDefine;
 
 /// <summary>
@@ -33,10 +34,6 @@ public class SoilSaveData
     /// </summary>
     public bool SowingValid;
     /// <summary>
-    /// 种植了多格种子时 种子归属的根土地ID 0代表不是多格种子 多格种子根在左下角格子里
-    /// </summary>
-    public ulong MultipleGridsRootSoilID;
-    /// <summary>
     /// 施的肥料配置ID
     /// </summary>
     public int ManureCid;
@@ -44,4 +41,36 @@ public class SoilSaveData
     /// 施肥是否有效
     /// </summary>
     public bool ManureValid;
+
+    public SoilSaveData()
+    {
+
+    }
+
+    public SoilSaveData(ProxySoilData data)
+    {
+        Id = data.Id;
+        SoilStatus = (eSoilStatus)data.SoilStatus;
+        StatusStartStamp = data.StatusStartStamp;
+        GrowingStage = data.GrowingStage;
+        SeedCid = data.SeedCid;
+        SowingValid = data.SowingValid;
+        ManureCid = data.ManureCid;
+        ManureValid = data.ManureValid;
+    }
+
+    public ProxySoilData ToProxySoilData()
+    {
+        return new ProxySoilData()
+        {
+            Id = Id,
+            SoilStatus = (int)SoilStatus,
+            StatusStartStamp = StatusStartStamp,
+            GrowingStage = GrowingStage,
+            SeedCid = SeedCid,
+            SowingValid = SowingValid,
+            ManureCid = ManureCid,
+            ManureValid = ManureValid
+        };
+    }
 }

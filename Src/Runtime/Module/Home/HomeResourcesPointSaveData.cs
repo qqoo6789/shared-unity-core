@@ -9,7 +9,7 @@ using static HomeDefine;
 public class HomeResourcesPointSaveData
 {
     /// <summary>
-    /// 唯一ID
+    /// 唯一ID 在家园里时表示所在土地ID
     /// </summary>
     public ulong Id;
     /// <summary>
