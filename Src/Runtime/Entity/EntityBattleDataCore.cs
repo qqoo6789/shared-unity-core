@@ -188,4 +188,32 @@ public class EntityBattleDataCore : EntityBaseComponent
     {
         RefEntity.EntityAttributeData.SetBaseValue(type, value);
     }
+
+    /// <summary>
+    /// 检测移动
+    /// </summary>
+    public bool CheckCanMove()
+    {
+        //眩晕和缠绕
+        if (_battleStateMap.ContainsKey(BattleDefine.eBattleState.Stun) ||
+        _battleStateMap.ContainsKey(BattleDefine.eBattleState.Root))
+        {
+            return false;
+        }
+        return true;
+    }
+    /// <summary>
+    /// 检测释放技能
+    /// </summary>
+
+    public bool CheckCanSkill()
+    {
+        //眩晕和沉默
+        if (_battleStateMap.ContainsKey(BattleDefine.eBattleState.Stun) ||
+        _battleStateMap.ContainsKey(BattleDefine.eBattleState.Silence))
+        {
+            return false;
+        }
+        return true;
+    }
 }

@@ -35,6 +35,10 @@ public static class BattleDefine
     {
         Invincible,  //无敌效果（攻击全miss）
         Endure,     //霸体效果（释放技能不可打断）  
+        Stun,           //眩晕——不响应任何操作
+        Root,           //缠绕——又称定身——目标不响应移动请求，但是可以执行某些操作，如施放某些技能
+        Silence,        //沉默——目标禁止施放技能
+        Invisible,      //隐身——不可被其他人看见
     }
 
     public static readonly Dictionary<EntityProfileField, string> ProfileFieldDict = new()
