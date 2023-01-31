@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-01-16 09:44:22
  * @Description: 
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Editor/Battle/EntityAttributeDataInspector.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Editor/Battle/EntityAttributeDataInspector.cs
  * 
  */
 using System.Collections.Generic;
@@ -43,17 +43,17 @@ namespace SharedCore.Editor
             {
                 name = dREntityAttribute.Name;
             }
-            bool lastState = _openedItems.Contains(dREntityAttribute.Name);
-            bool currentState = EditorGUILayout.Foldout(lastState, dREntityAttribute.Name);
+            bool lastState = _openedItems.Contains(name);
+            bool currentState = EditorGUILayout.Foldout(lastState, name);
             if (currentState != lastState)
             {
                 if (currentState)
                 {
-                    _openedItems.Add(dREntityAttribute.Name);
+                    _openedItems.Add(name);
                 }
                 else
                 {
-                    _openedItems.Remove(dREntityAttribute.Name);
+                    _openedItems.Remove(name);
                 }
             }
 

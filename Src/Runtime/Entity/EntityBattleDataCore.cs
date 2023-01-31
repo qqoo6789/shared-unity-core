@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -194,11 +194,12 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     public bool CheckCanMove()
     {
-        //眩晕和缠绕
-        if (_battleStateMap.ContainsKey(BattleDefine.eBattleState.Stun) ||
-        _battleStateMap.ContainsKey(BattleDefine.eBattleState.Root))
+        foreach (BattleDefine.eBattleState state in BattleDefine.BATTLE_STATE_CANNOT_MOVE_LIST)
         {
-            return false;
+            if (_battleStateMap.ContainsKey(state))
+            {
+                return false;
+            }
         }
         return true;
     }
@@ -208,11 +209,12 @@ public class EntityBattleDataCore : EntityBaseComponent
 
     public bool CheckCanSkill()
     {
-        //眩晕和沉默
-        if (_battleStateMap.ContainsKey(BattleDefine.eBattleState.Stun) ||
-        _battleStateMap.ContainsKey(BattleDefine.eBattleState.Silence))
+        foreach (BattleDefine.eBattleState state in BattleDefine.BATTLE_STATE_CANNOT_SKILL_LIST)
         {
-            return false;
+            if (_battleStateMap.ContainsKey(state))
+            {
+                return false;
+            }
         }
         return true;
     }

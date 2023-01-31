@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-01-11 14:21:18
  * @Description: 实体整型属性
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/IntAttribute.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/IntAttribute.cs
  * 
  */
 
@@ -40,6 +40,9 @@ public class IntAttribute : IReference
     private IntAttributeModifierCollector _pctAddCollector { get; } = new IntAttributeModifierCollector();
     private IntAttributeModifierCollector _finalAddCollector { get; } = new IntAttributeModifierCollector();
     private IntAttributeModifierCollector _finalPctAddCollector { get; } = new IntAttributeModifierCollector();
+
+
+    public static readonly float PERCENTAGE_FLAG = 1000f;
 
 
     public void Initialize()
@@ -116,8 +119,8 @@ public class IntAttribute : IReference
     public void Update()
     {
         int value1 = BaseValue;
-        float value2 = (value1 + Add) * (1000 + PctAdd) / 1000f;
-        float value3 = (value2 + FinalAdd) * (1000 + FinalPctAdd) / 1000f;
+        float value2 = (value1 + Add) * (PERCENTAGE_FLAG + PctAdd) / PERCENTAGE_FLAG;
+        float value3 = (value2 + FinalAdd) * (PERCENTAGE_FLAG + FinalPctAdd) / PERCENTAGE_FLAG;
         Value = (int)value3;
     }
     public virtual void Clear()
