@@ -13,6 +13,7 @@ public class SkillEffectCpt : EntityBaseComponent
     {
         Runtime,
         Static, //静态效果，不会进行刷新。节省性能开销
+        StaticUpdate, //静态效果，但是需要刷新
     }
     public Dictionary<eEffectType, List<SkillEffectBase>> SkillEffectMap { get; private set; }
 
@@ -22,41 +23,46 @@ public class SkillEffectCpt : EntityBaseComponent
         SkillEffectMap = new()
         {
             { eEffectType.Runtime, new() },
-            { eEffectType.Static, new() }
+            { eEffectType.Static, new() },
+            { eEffectType.StaticUpdate, new() }
         };
     }
 
     private void Update()
     {
         List<SkillEffectBase> runList = SkillEffectMap[eEffectType.Runtime];
-        if (runList.Count <= 0)
+        if (runList.Count > 0)
         {
-            return;
-        }
-
-        long curTimeStamp = TimeUtil.GetTimeStamp();
-        bool isUpdateImmuneFlag = false;
-        for (int i = runList.Count - 1; i >= 0; i--)
-        {
-            SkillEffectBase effect = runList[i];
-            if (effect.DestroyTimestamp > 0 && curTimeStamp >= effect.DestroyTimestamp)
+            long curTimeStamp = TimeUtil.GetTimeStamp();
+            bool isUpdateImmuneFlag = false;
+            for (int i = runList.Count - 1; i >= 0; i--)
             {
-                effect.RemoveEffect();
-                effect.Dispose();
-                runList.RemoveAt(i);
-                isUpdateImmuneFlag = true;
-            }
-            else
-            {
-                if (effect.IsUpdate)
+                SkillEffectBase effect = runList[i];
+                if (effect.DestroyTimestamp > 0 && curTimeStamp >= effect.DestroyTimestamp)
+                {
+                    effect.RemoveEffect();
+                    effect.Dispose();
+                    runList.RemoveAt(i);
+                    isUpdateImmuneFlag = true;
+                }
+                else
                 {
                     effect.Update();
                 }
             }
+            if (isUpdateImmuneFlag)
+            {
+                UpdateImmuneFlag();
+            }
         }
-        if (isUpdateImmuneFlag)
+        //静态需要刷新的
+        List<SkillEffectBase> staticUpdateList = SkillEffectMap[eEffectType.StaticUpdate];
+        if (staticUpdateList.Count > 0)
         {
-            UpdateImmuneFlag();
+            for (int i = staticUpdateList.Count - 1; i >= 0; i--)
+            {
+                staticUpdateList[i].Update();
+            }
         }
     }
 
@@ -91,7 +97,14 @@ public class SkillEffectCpt : EntityBaseComponent
             }
             else
             {
-                AddEffectList(effect, SkillEffectMap[eEffectType.Static]);
+                if (!effect.IsUpdate)
+                {
+                    AddEffectList(effect, SkillEffectMap[eEffectType.Static]);
+                }
+                else
+                {
+                    AddEffectList(effect, SkillEffectMap[eEffectType.StaticUpdate]);
+                }
             }
 
         }
