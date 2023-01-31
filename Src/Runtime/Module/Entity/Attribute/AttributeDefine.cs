@@ -16,23 +16,3 @@ public enum eModifierType : int
     FinalAdd,  //最终增加
     FinalPctAdd,  //最终百分比增加
 }
-
-/// <summary>
-/// 属性类型
-/// </summary>
-public enum eAttributeType : int
-{
-    Unknown = 0,
-    Lv = 100,
-    Att = 300,
-    AttSpeed = 400,
-    Def = 500,
-    CritRate = 600,
-    CritDamage = 700,
-    HitRate = 800,
-    MissRate = 900,
-    MoveSpeed = 1000,
-    Hp = 1100,
-    HpMax = 1200,
-    HpRecovery = 1300,
-}

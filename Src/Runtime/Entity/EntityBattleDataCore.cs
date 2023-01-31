@@ -18,12 +18,12 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// 当前血量
     /// </summary>
     /// <value></value>
-    public int HP { get => GetValue(eAttributeType.Hp); protected set => SetBaseValue(eAttributeType.Hp, value); }
+    public int HP { get => GetValue(eAttributeType.HP); protected set => SetBaseValue(eAttributeType.HP, value); }
     /// <summary>
     /// 最大血量
     /// </summary>
     /// <value></value>
-    public int HPMAX { get => GetValue(eAttributeType.HpMax); protected set => SetBaseValue(eAttributeType.HpMax, value); }
+    public int HPMAX { get => GetValue(eAttributeType.MaxHP); protected set => SetBaseValue(eAttributeType.MaxHP, value); }
     /// <summary>
     /// 血量回复
     /// </summary>
@@ -32,39 +32,39 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// <summary>
     /// 攻击力
     /// </summary>
-    public int Att { get => GetValue(eAttributeType.Att); protected set => SetBaseValue(eAttributeType.Att, value); }
+    public int Att { get => GetValue(eAttributeType.CombatAtt); protected set => SetBaseValue(eAttributeType.CombatAtt, value); }
     /// <summary>
     /// 防御力
     /// </summary>
-    public int Def { get => GetValue(eAttributeType.Def); protected set => SetBaseValue(eAttributeType.Def, value); }
+    public int Def { get => GetValue(eAttributeType.CombatDef); protected set => SetBaseValue(eAttributeType.CombatDef, value); }
     /// <summary>
     /// 普通攻击速度
     /// </summary>
-    public int AttSpeed { get => GetValue(eAttributeType.AttSpeed); protected set => SetBaseValue(eAttributeType.AttSpeed, value); }
+    public int AttSpeed { get => GetValue(eAttributeType.CombatAttSpd); protected set => SetBaseValue(eAttributeType.CombatAttSpd, value); }
     /// <summary>
     /// 暴击率
     /// </summary>
-    public int CritRate { get => GetValue(eAttributeType.CritRate); protected set => SetBaseValue(eAttributeType.CritRate, value); }
+    public int CritRate { get => GetValue(eAttributeType.CombatCritRate); protected set => SetBaseValue(eAttributeType.CombatCritRate, value); }
     /// <summary>
     /// 暴击伤害
     /// </summary>
-    public int CritDmg { get => GetValue(eAttributeType.CritDamage); protected set => SetBaseValue(eAttributeType.CritDamage, value); }
+    public int CritDmg { get => GetValue(eAttributeType.CombatCritDmg); protected set => SetBaseValue(eAttributeType.CombatCritDmg, value); }
     /// <summary>
     /// 命中率
     /// </summary>
-    public int HitRate { get => GetValue(eAttributeType.HitRate); protected set => SetBaseValue(eAttributeType.HitRate, value); }
+    public int HitRate { get => GetValue(eAttributeType.CombatHit); protected set => SetBaseValue(eAttributeType.CombatHit, value); }
     /// <summary>
     /// miss率
     /// </summary>
-    public int MissRate { get => GetValue(eAttributeType.MissRate); protected set => SetBaseValue(eAttributeType.MissRate, value); }
+    public int MissRate { get => GetValue(eAttributeType.CombatDodge); protected set => SetBaseValue(eAttributeType.CombatDodge, value); }
     /// <summary>
     /// 移动速度 属性是cm转成m
     /// </summary>
-    public float MoveSpeed { get => GetValue(eAttributeType.MoveSpeed) * MathUtilCore.CM2M; protected set => SetBaseValue(eAttributeType.MoveSpeed, (int)(value * MathUtilCore.M2CM)); }
+    public float MoveSpeed { get => GetValue(eAttributeType.MoveSpd) * MathUtilCore.CM2M; protected set => SetBaseValue(eAttributeType.MoveSpd, (int)(value * MathUtilCore.M2CM)); }
     /// <summary>
     /// 等级
     /// </summary>
-    public int Level { get => GetValue(eAttributeType.Lv); protected set => SetBaseValue(eAttributeType.Lv, value); }
+    public int Level { get => GetValue(eAttributeType.CombatLv); protected set => SetBaseValue(eAttributeType.CombatLv, value); }
     /// <summary>
     /// 经验
     /// </summary>

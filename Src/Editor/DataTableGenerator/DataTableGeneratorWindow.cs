@@ -42,8 +42,10 @@ namespace Meland.Editor.DataTableTools
             GUILayout.EndHorizontal();
             if (GUILayout.Button("生成配置"))
             {
+
                 DataTableGeneratorUtil.UpdateCsv();
                 DataTableGeneratorUtil.GenerateDataTables();
+                DataTableGeneratorUtil.GenerateAttributeTypeFile();
                 SharedCoresVersionTool.UpdateCsvVersion();
                 AssetDatabase.Refresh();
             }
@@ -59,6 +61,7 @@ namespace Meland.Editor.DataTableTools
             {
                 DataTableGeneratorUtil.UpdateCsv();
                 DataTableGeneratorUtil.GenerateDataTables();
+                DataTableGeneratorUtil.GenerateAttributeTypeFile();
                 DataTableGeneratorUtil.GenerateDataTableCodes();
                 SharedCoresVersionTool.UpdateCsvVersion();
                 AssetDatabase.Refresh();

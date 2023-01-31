@@ -17,6 +17,9 @@ namespace Meland.Editor.DataTableTools
 {
     public sealed class DataTableGeneratorUtil
     {
+        public static string ATTRIBUTE_TYPE_CSV_FILE_NAME = "Assets/Plugins/SharedCore/Res/DataTable/Csv/EntityAttribute.csv";
+        public static string ATTRIBUTE_TYPE_FILE_TEMPLATE_NAME = "Assets/Plugins/SharedCore/Src/Editor/DataTableGenerator/Template/AttributeTypeTemplate.txt";
+        public static string ATTRIBUTE_TYPE_FILE_NAME = "Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/AttributeType.cs";
         public static string SVNCsvPath { get; private set; }
         public static string SVNConfigPath { get; private set; }
 
@@ -107,5 +110,55 @@ namespace Meland.Editor.DataTableTools
             }
             DataTableGenerator.GenerateConfigFile(tableNames.ToArray());
         }
+
+        public static void GenerateAttributeTypeFile()
+        {
+            if (!File.Exists(ATTRIBUTE_TYPE_CSV_FILE_NAME))
+            {
+                return;
+            }
+            try
+            {
+                string template = File.ReadAllText(ATTRIBUTE_TYPE_FILE_TEMPLATE_NAME, Encoding.UTF8);
+                StringBuilder stringBuilder = new(template);
+                _ = stringBuilder.Replace("__DATA_TABLE_NAMES__", GeneratorAttributeType());
+
+                using (FileStream fileStream = new(ATTRIBUTE_TYPE_FILE_NAME, FileMode.Create, FileAccess.Write))
+                {
+                    using (StreamWriter stream = new(fileStream, Encoding.UTF8))
+                    {
+                        stream.Write(stringBuilder.ToString());
+                    }
+                }
+
+                Debug.Log(Utility.Text.Format("Generate AttributeType file '{0}' success.", ATTRIBUTE_TYPE_FILE_NAME));
+                return;
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError(Utility.Text.Format("Generate AttributeType file '{0}' failure, exception is '{1}'.", ATTRIBUTE_TYPE_FILE_NAME, exception));
+                return;
+            }
+        }
+        public static string GeneratorAttributeType()
+        {
+            string tableText = File.ReadAllText(ATTRIBUTE_TYPE_CSV_FILE_NAME, Encoding.GetEncoding("GB2312"));
+            List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
+
+            StringBuilder stringBuilder = new();
+
+            for (int i = 3; i < rawValues.Count; i++)
+            {
+                string desc = rawValues[i][5];
+                _ = stringBuilder
+                    .AppendLine("   /// <summary>")
+                    .AppendLine($"   /** {desc}*/")
+                    .AppendLine("   /// <summary>")
+                    .AppendLine($"   {rawValues[i][1]} = {rawValues[i][0]},");
+            }
+
+            return stringBuilder.ToString();
+        }
+
     }
 }
