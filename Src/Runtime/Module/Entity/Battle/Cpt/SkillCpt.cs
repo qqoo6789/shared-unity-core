@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能组件
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ public class SkillCpt : EntityBaseComponent
             Log.Warning($"Add Skill Repeat! skillId ={skillID}");
             return SkillMap[skillID];
         }
-        SkillBase skill = SkillBase.Create(typeof(SkillBase), skillID);
+        SkillBase skill = SkillBase.Create<SkillBase>(skillID);
         SkillMap.Add(skillID, skill);
         skill.OnAdd(RefEntity);
         return skill;

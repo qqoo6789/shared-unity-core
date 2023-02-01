@@ -1,12 +1,10 @@
-using System.Linq;
 /*
  * @Author: xiang huan
  * @Date: 2023-01-06 10:52:11
  * @Description:  技能基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Skill/SkillBase.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Skill/SkillBase.cs
  * 
  */
-using System;
 using GameFramework;
 using UnityEngine;
 
@@ -88,9 +86,14 @@ public class SkillBase : IReference
         RefEntity = null;
     }
 
-    public static SkillBase Create(Type skillClass, int skillID)
+    /// <summary>
+    /// 创建技能
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static T Create<T>(int skillID) where T : SkillBase, new()
     {
-        SkillBase skill = ReferencePool.Acquire(skillClass) as SkillBase;
+        T skill = ReferencePool.Acquire<T>();
         skill.SetData(skillID);
         return skill;
     }
