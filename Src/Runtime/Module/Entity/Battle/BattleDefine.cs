@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: 战斗公共定义
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
  * 
  */
 
@@ -20,6 +20,7 @@ public static class BattleDefine
         SEInvincible = 1004,
         SEEndure = 1005,
         SELockEnemyPathMoveCore = 1006,
+        SEAttributeModifierCore = 1007,
     }
 
     public enum eSkillShapeId : int
@@ -34,6 +35,10 @@ public static class BattleDefine
     {
         Invincible,  //无敌效果（攻击全miss）
         Endure,     //霸体效果（释放技能不可打断）  
+        Stun,           //眩晕——不响应任何操作
+        Root,           //缠绕——又称定身——目标不响应移动请求，但是可以执行某些操作，如施放某些技能
+        Silence,        //沉默——目标禁止施放技能
+        Invisible,      //隐身——不可被其他人看见
     }
 
     public static readonly Dictionary<EntityProfileField, string> ProfileFieldDict = new()
@@ -54,6 +59,11 @@ public static class BattleDefine
             {EntityProfileField.HpCurrent, "HpCurrent"},
             {EntityProfileField.HpRecovery, "HpRecovery"},
         };
+
+    public const int SKILL_USE_TAG = (int)eSkillType.General | (int)eSkillType.Channel | (int)eSkillType.Toggle;
+    public const int JUMP_SKILL_ID_NULL = -1;
+    public static eBattleState[] BATTLE_STATE_CANNOT_MOVE_LIST = { eBattleState.Stun, eBattleState.Root };
+    public static eBattleState[] BATTLE_STATE_CANNOT_SKILL_LIST = { eBattleState.Stun, eBattleState.Silence };
 }
 public enum eEntityCDType : int
 {
@@ -63,4 +73,18 @@ public enum eEntityCDType : int
 public enum eEntityExtendCDType : int
 {
     Revive = 0,  //复活
+}
+
+public enum eSkillType : int
+{
+    Passive = 1 << 1,  //被动
+    General = 1 << 2,  //主动
+    Channel = 1 << 3, //主动持续释放，预留
+    Toggle = 1 << 4,  //开关，预留
+}
+public enum eSkillTargetType : int
+{
+    NotTarget = 1 << 1,  //无需目标
+    Target = 1 << 2,  //需要目标
+    Pos = 1 << 3, //需要位置
 }

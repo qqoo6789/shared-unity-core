@@ -8,7 +8,6 @@
 using System;
 using GameFramework;
 using GameMessageCore;
-using UnityEngine;
 
 public class SkillEffectBase : IReference
 {
@@ -44,9 +43,23 @@ public class SkillEffectBase : IReference
     /// </summary>
     public DRSkillEffect EffectCfg { get; private set; }
     /// <summary>
-    /// 效果是否重复叠加
+    /// 效果标识
     /// </summary>
-    public virtual bool IsRepeat => false;
+    public int EffectFlag { get; private set; }
+    /// <summary>
+    /// 效果免疫标识
+    /// </summary>
+    public int EffectImmuneFlag { get; private set; }
+
+    /// <summary>
+    /// 当前层级
+    /// </summary>
+    public int CurLayer { get; private set; }
+
+    /// <summary>
+    /// 需要调用Update, 记得重写为true
+    /// </summary>
+    public virtual bool IsUpdate => false;
     /// <summary>
     /// 效果数据
     /// </summary>
@@ -72,7 +85,22 @@ public class SkillEffectBase : IReference
         FromID = fromID;
         TargetID = targetID;
         Duration = duration;
-
+        EffectFlag = 0;
+        if (effectCfg.EffectFlag.Length > 0)
+        {
+            for (int i = 0; i < effectCfg.EffectFlag.Length; i++)
+            {
+                EffectFlag |= 1 << effectCfg.EffectFlag[i];
+            }
+        }
+        EffectImmuneFlag = 0;
+        if (effectCfg.EffectImmuneFlag.Length > 0)
+        {
+            for (int i = 0; i < effectCfg.EffectImmuneFlag.Length; i++)
+            {
+                EffectImmuneFlag |= 1 << effectCfg.EffectImmuneFlag[i];
+            }
+        }
     }
 
     /// <summary>
@@ -117,13 +145,17 @@ public class SkillEffectBase : IReference
         SkillID = 0;
         RefEntity = null;
         EffectData = null;
+        EffectFlag = 0;
+        EffectImmuneFlag = 0;
+        CurLayer = 1;
     }
     /// <summary>
     /// 添加后执行第一次
     /// </summary>
     public virtual void Start()
     {
-
+        //更新当前层级
+        UpdateLayer(1);
     }
     /// <summary>
     /// 刷新效果
@@ -149,11 +181,11 @@ public class SkillEffectBase : IReference
     }
 
     /// <summary>
-    /// 效果球不允许重复时，新的效果球会覆盖老的，会调用OnRefreshRepeat用老的效果去重新刷新新效果，具体如何刷新，根据你实现的效果而定
+    /// 刷新当前层级
     /// </summary>
-    public virtual void OnRefreshRepeat(SkillEffectBase oldEffect)
+    public virtual void UpdateLayer(int layer)
     {
-        //
+        CurLayer = layer;
     }
 
     //添加效果

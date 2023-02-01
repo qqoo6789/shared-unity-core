@@ -33,6 +33,24 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取技能类型。*/
+    /// </summary>
+    public int[] SkillFlag
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取技能目标类型。*/
+    /// </summary>
+    public int[] TargetFlag
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取技能CD
 单位:毫秒。*/
     /// </summary>
@@ -46,6 +64,24 @@ public class DRSkill : DataRowBase
   /**获取技能ICON。*/
     /// </summary>
     public string SkillIcon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取家园动作。*/
+    /// </summary>
+    public int HomeAction
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取技能初始化效果。*/
+    /// </summary>
+    public int[] EffectInit
     {
         get;
         private set;
@@ -302,8 +338,12 @@ public class DRSkill : DataRowBase
         _id = int.Parse(columnStrings[index++]);
         index++;
         SkillName = columnStrings[index++];
+        SkillFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        TargetFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillIcon = columnStrings[index++];
+        HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -344,8 +384,12 @@ public class DRSkill : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 SkillName = binaryReader.ReadString();
+                SkillFlag = binaryReader.ReadArray<Int32>();
+                TargetFlag = binaryReader.ReadArray<Int32>();
                 SkillCD = binaryReader.Read7BitEncodedInt32();
                 SkillIcon = binaryReader.ReadString();
+                HomeAction = binaryReader.Read7BitEncodedInt32();
+                EffectInit = binaryReader.ReadArray<Int32>();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
                 EffectForward = binaryReader.ReadArray<Int32>();

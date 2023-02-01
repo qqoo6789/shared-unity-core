@@ -163,7 +163,7 @@ public static partial class SkillUtil
             try
             {
                 SkillEffectBase skillEffect = skillEffects[i];
-                if (skillEffect.CheckApplyEffect(fromEntity, targetEntity))
+                if (effectCpt.CheckApplyEffect(fromEntity, targetEntity, skillEffect))
                 {
                     GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir, targets);
                     if (effectData == null)
@@ -189,4 +189,23 @@ public static partial class SkillUtil
         return effects;
     }
 
+    /// <summary>
+    /// 实体技能效果取消
+    /// </summary>
+    /// <param name="skillCfg">技能配置</param>
+    /// <param name="effectList">效果列表</param>
+    /// <param name="fromEntity">释放实体</param>
+    /// <param name="targetEntity">目标实体</param>
+    /// <returns></returns>
+    public static void EntityAbolishSkillEffect(DRSkill skillCfg, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    {
+        SkillEffectCpt effectCpt = targetEntity.GetComponent<SkillEffectCpt>();
+        if (effectList != null && effectList.Length > 0)
+        {
+            for (int i = 0; i < effectList.Length; i++)
+            {
+                effectCpt.AbolishSkillEffect(effectList[i], skillCfg.Id, fromEntity.BaseData.Id);
+            }
+        }
+    }
 }
