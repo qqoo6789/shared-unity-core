@@ -1,0 +1,6 @@
+id,名字,资源的描述,资源的Icon,资产名称,掉落Id,采集家园动作
+id,name,desc,icon,assetRes,dropId,homeAction
+int,string,string,string,string,int,int
+9900001,Grass,Weeds,icon_monster_15,Grass_4,2000001,5
+9900002,Stone,Stone,icon_monster_15,2d_shitou_01,2000001,7
+9900003,Tree,Tree,icon_monster_15,2D_Tree_Waibz_02,2000001,6

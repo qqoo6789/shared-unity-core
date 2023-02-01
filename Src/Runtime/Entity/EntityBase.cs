@@ -78,6 +78,12 @@ public class EntityBase
     public RoleBaseDataCore RoleBaseDataCore { get; set; }
 
     /// <summary>
+    /// 整个root gameObject的激活状态 一般不用乱用
+    /// </summary>
+    /// <value></value>
+    public bool IsActive { get; private set; } = true;
+
+    /// <summary>
     /// 实体属性数据
     /// </summary>
     /// <value></value>
@@ -175,6 +181,22 @@ public class EntityBase
     public void SetRootParent(Transform parent)
     {
         _transform.SetParent(parent, false);
+    }
+
+
+    /// <summary>
+    /// 设置整个root gameObject的激活状态 一般不用乱用
+    /// </summary>
+    /// <param name="active"></param>
+    public void SetActive(bool active)
+    {
+        if (IsActive == active)
+        {
+            return;
+        }
+
+        IsActive = active;
+        Root.SetActive(active);
     }
 
     public T GetComponent<T>()

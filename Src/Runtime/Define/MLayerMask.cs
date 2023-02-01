@@ -30,6 +30,14 @@ public static class MLayerMask
     /// 公共触发层 npc，对话触发等  
     /// </summary>
     public const int PUBLIC_TRIGGER = 16;
+    /// <summary>
+    /// 格子建筑层
+    /// </summary>
+    public const int BUILDING = 17;
+    /// <summary>
+    /// 家园资源类型
+    /// </summary>
+    public const int HOME_RESOURCE = 18;
 
     /// <summary>
     /// 默认的相机自动避开的遮挡层

@@ -26,4 +26,24 @@ public static class MTag
     /// 怪物boss
     /// </summary>
     public const string MONSTER_BOSS = "MonsterBoss";
+    /// 资源区域
+    /// </summary>
+    public const string RESOURCES_AREA = "ResourcesArea";
+
+    /// <summary>
+    /// 资源点
+    /// </summary>
+    public const string RESOURCES_POINT = "ResourcesPoint";
+    /// <summary>
+    /// 场景区域入口检测器
+    /// </summary>
+    public const string SCENE_AREA_CHECKER = "SceneAreaChecker";
+
+    /// 家园土地
+    /// </summary>
+    public static string HOME_SOIL = "HomeSoil";
+    /// <summary>
+    /// 收纳箱
+    /// </summary>
+    public const string STORAGE_BOX = "StorageBox";
 }

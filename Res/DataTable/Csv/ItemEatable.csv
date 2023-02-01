@@ -1,9 +1,11 @@
 id,备注,"使用CD
-毫秒",调用方法,调用方法参数,cd组
-id,null,cd,callFunc,args,cdType
-int,null,int,string[],string[],int
-3010101,1级生命药水,5000,addHp,50,3010101
-3010102,2级生命药水,5000,addHp,100,3010101
-3010201,1级恢复药,5000,addHp,50,3010201
-3010202,2级恢复药,5000,addHp,100,3010201
-3010204,占地种子,5000,occupyLand,1*1,3010204
+毫秒",调用方法,调用方法参数,cd组,客户端交互方法
+id,null,cd,callFunc,args,cdType,interactType
+int,null,int,string[],string[],int,string
+3010101,1级生命药水,5000,addHp,50,3010101,addHp
+3010102,2级生命药水,5000,addHp,100,3010101,addHp
+3010201,1级恢复药,5000,addHp,50,3010201,addHp
+3010202,2级恢复药,5000,addHp,100,3010201,addHp
+3010204,占地种子,5000,occupyLand,1*1,3010204,occupyLand
+7020001,test seed,0,Sow Seeds,-,,equipItem
+7030001,test manure,0,Fertilize,-,,equipItem

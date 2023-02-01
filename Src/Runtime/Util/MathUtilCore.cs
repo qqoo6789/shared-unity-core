@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -41,5 +42,50 @@ public static class MathUtilCore
             return value;
         }
         return 0;
+    }
+
+    /// <summary>
+    /// 不同权重的列表中随机一个索引
+    /// </summary>
+    public static int RandomWeightListIndex(List<int> weightList)
+    {
+
+        int total = 0;
+
+        foreach (int elem in weightList)
+        {
+            total += elem;
+        }
+
+        int randomNum = UnityEngine.Random.Range(0, total);
+
+        for (int i = 0; i < weightList.Count; i++)
+        {
+            if (randomNum < weightList[i])
+            {
+                return i;
+            }
+            else
+            {
+                randomNum -= weightList[i];
+            }
+        }
+        return weightList.Count - 1;
+    }
+
+    /// <summary>
+    /// 区域ID转土地格子ID
+    /// </summary>
+    public static ulong AreaToSoil(int areaId, int x, int z)
+    {
+        return ((ulong)areaId << 32) | ((ulong)x << 16) | (uint)z;
+    }
+
+    /// <summary>
+    /// 土地格子ID转区域ID
+    /// </summary>
+    public static int SoilToArea(ulong pointId)
+    {
+        return (int)(pointId >> 32);
     }
 }

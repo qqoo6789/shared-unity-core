@@ -40,11 +40,20 @@ public class EntitySkillDataCore : EntityBaseComponent
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         RefEntity.EntityEvent.EntityAvatarUpdated += OnUpdateEquipmentSkillID;
         OnUpdateEquipmentSkillID();
     }
+
+    protected virtual void OnDestroy()
+    {
+        SetJumpSkillID(BattleDefine.JUMP_SKILL_ID_NULL);
+        RemoveBaseSkillList();
+        RemoveEquipmentSkill();
+        RefEntity.EntityEvent.EntityAvatarUpdated -= OnUpdateEquipmentSkillID;
+    }
+
     public void AddBaseSkillList(int[] skillIDs)
     {
         RemoveBaseSkillList();
@@ -69,22 +78,28 @@ public class EntitySkillDataCore : EntityBaseComponent
         {
             return;
         }
-        HashSet<int> newSkillIDMap = new();
         if (RoleDataCore.WearDic.TryGetValue(AvatarPosition.Weapon, out PlayerAvatar avatar))
         {
             DREquipment drEquipment = GFEntryCore.DataTable.GetDataTable<DREquipment>().GetDataRow(avatar.ObjectId);
             if (drEquipment != null)
             {
-                for (int i = 0; i < drEquipment.GivenSkillId.Length; i++)
-                {
-                    _ = newSkillIDMap.Add(drEquipment.GivenSkillId[i]);
-                }
+                SetEquipmentSkill(drEquipment.GivenSkillId);
             }
             else
             {
                 Log.Error($"OnUpdateEquipmentSkillID not find equipment id:{avatar.ObjectId}");
             }
         }
+    }
+
+    public void SetEquipmentSkill(IEnumerable<int> skillIDs)
+    {
+        HashSet<int> newSkillIDMap = new();
+        if (skillIDs != null)
+        {
+            newSkillIDMap = new(skillIDs);
+        }
+
         //
         for (int i = EquipmentSkillIDList.Count - 1; i >= 0; i--)
         {
@@ -129,13 +144,5 @@ public class EntitySkillDataCore : EntityBaseComponent
         }
         JumpSkillID = skillID;
         _ = SkillComponent.AddSkill(skillID);
-    }
-
-    private void OnDestroy()
-    {
-        SetJumpSkillID(BattleDefine.JUMP_SKILL_ID_NULL);
-        RemoveBaseSkillList();
-        RemoveEquipmentSkill();
-        RefEntity.EntityEvent.EntityAvatarUpdated -= OnUpdateEquipmentSkillID;
     }
 }

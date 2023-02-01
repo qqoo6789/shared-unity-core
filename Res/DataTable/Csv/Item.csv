@@ -1,63 +1,70 @@
-物品ID,物品名称,备注1,物品描述,物品类型,物品品质,物品图标,背包显示分类,使用等级,使用者类型,是否NFT
-id,name,null,desc,type,quality,icon,bagShowType,useLv,userType,canMint
-int,string,null,string,int,int[],string,int,int,int,int
-60000001,Weapon Scroll Lv0,,Weapon Scroll Lv0,4,1,icon_hechengfu_wuqi_0,7,0,0,1
-60000002,Weapon Scroll Lv10,,Weapon Scroll Lv10,4,1,icon_hechengfu_wuqi_1,7,0,0,1
-60000003,Weapon Scroll Lv20,,Weapon Scroll Lv20,4,1,icon_hechengfu_wuqi_2,7,0,0,1
-60000004,Weapon Scroll Lv30,,Weapon Scroll Lv30,4,1,icon_hechengfu_wuqi_3,7,0,0,1
-60000005,Weapon Scroll Lv40,,Weapon Scroll Lv40,4,1,icon_hechengfu_wuqi_4,7,0,0,1
-60000006,Weapon Scroll Lv50,,Weapon Scroll Lv50,4,1,icon_hechengfu_wuqi_5,7,0,0,1
-60000007,Weapon Scroll Lv60,,Weapon Scroll Lv60,4,1,icon_hechengfu_wuqi_6,7,0,0,1
-60000008,Weapon Scroll Lv70,,Weapon Scroll Lv70,4,1,icon_hechengfu_wuqi_7,7,0,0,1
-60000009,Weapon Scroll Lv80,,Weapon Scroll Lv80,4,1,icon_hechengfu_wuqi_8,7,0,0,1
-60000010,Weapon Scroll Lv90,,Weapon Scroll Lv90,4,1,icon_hechengfu_wuqi_9,7,0,0,1
-60000011,Defence Scroll Lv0,,Defence Scroll Lv0,4,1,icon_hechengfu_fangju_0,7,0,0,1
-60000012,Defence Scroll Lv10,,Defence Scroll Lv10,4,1,icon_hechengfu_fangju_1,7,0,0,1
-60000013,Defence Scroll Lv20,,Defence Scroll Lv20,4,1,icon_hechengfu_fangju_2,7,0,0,1
-60000014,Defence Scroll Lv30,,Defence Scroll Lv30,4,1,icon_hechengfu_fangju_3,7,0,0,1
-60000015,Defence Scroll Lv40,,Defence Scroll Lv40,4,1,icon_hechengfu_fangju_4,7,0,0,1
-60000016,Defence Scroll Lv50,,Defence Scroll Lv50,4,1,icon_hechengfu_fangju_5,7,0,0,1
-60000017,Defence Scroll Lv60,,Defence Scroll Lv60,4,1,icon_hechengfu_fangju_6,7,0,0,1
-60000018,Defence Scroll Lv70,,Defence Scroll Lv70,4,1,icon_hechengfu_fangju_7,7,0,0,1
-60000019,Defence Scroll Lv80,,Defence Scroll Lv80,4,1,icon_hechengfu_fangju_8,7,0,0,1
-60000020,Defence Scroll Lv90,,Defence Scroll Lv90,4,1,icon_hechengfu_fangju_9,7,0,0,1
-79999901,MELD,用于配置MELDicon和描述,Currency of Meland,4,1,MELD_ic,-2,0,0,0
-79999902,EXP,用于配置经验值icon和描述,For upgrading Role and Slot,4,1,EXP_ic,-2,0,0,0
-79999903,Lottery ticket,,Take part in the draw!,4,1,craft_scroll,7,0,1,1
-1010001,Tactical Headband,0级男头,Tactical Headband,1,"1,2",lv0_boy_hair,5,0,1,1
-1010002,Sackcloth Shirt,0级男衣,Sackcloth Shirt,1,"1,2",lv0_boy_coat,5,0,1,1
-1010003,Jeans,0级男裤,Jeans,1,"1,2",lv0_boy_pants,5,0,1,1
-1010004,Sneakers,0级鞋子,Sneakers,1,"1,2",lv0_shoes,5,0,1,1
-1010005,Leather Gloves,0级手套,Leather Gloves,1,"1,2",lv0_gloves,5,0,1,1
-1010006,Iron Sword,0级剑,Iron Sword,1,"1,2",lv0_sword,5,0,1,1
-1010007,Iron Helmet,10级男头,Iron Helmet,1,"1,2",lv10_boy_hair,5,10,1,1
-1010008,Iron Chestplate,10级男衣,Iron Chestplate,1,"1,2",lv10_boy_coat,5,10,1,1
-1010009,Military Pants,10级男裤,Military Pants,1,"1,2",lv10_boy_pants,5,10,1,1
-1010010,Suede Boots,10级鞋子,Suede Boots,1,"1,2",lv10_shoes,5,10,1,1
-1010011,Iron Gloves,10级手套,Iron Gloves,1,"1,2",lv10_gloves,5,10,1,1
-1010012,Steel Sword,10级剑,Steel Sword,1,"1,2",lv10_sword,5,10,1,1
-4010001,Level 0 Male Head Gear Scroll,0级男性头部装备蓝图,A scroll that records the essentials of crafting level 0 male head gear.,4,1,craft_scroll,7,0,1,1
-4010002,Level 0 Male Chest Equipment Scroll,0级男性胸部装备蓝图,A scroll that records the essentials of crafting level 0 male chest equipment.,4,1,craft_scroll,7,0,1,1
-4010003,Level 0 Male Leg Equipment Scroll,0级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 0 male leg gear.,4,1,craft_scroll,7,0,1,1
-4010004,Level 0 Foot Gear Scroll,0级脚部装备蓝图,A scroll that records the essentials of crafting level 0 foot equipment.,4,1,craft_scroll,7,0,1,1
-4010005,Level 0 Hand Gear Scroll,0级手部装备蓝图,A scroll that records the essentials of crafting level 0 hand equipment.,4,1,craft_scroll,7,0,1,1
-4010006,Level 0 Sword Weapon Scroll,0级剑类武器蓝图,A scroll that records the essentials of crafting a level 0 sword-type weapon.,4,1,craft_scroll,7,0,1,1
-4010007,Level 10 Male Head Gear Scroll,10级男性头部装备蓝图,A scroll that records the essentials of crafting level 10 male head gear.,4,1,craft_scroll,7,0,1,1
-4010008,Level 10 Male Chest Equipment Scroll,10级男性胸部装备蓝图,A scroll that records the essentials of crafting level 10 male chest equipment.,4,1,craft_scroll,7,0,1,1
-4010009,Level 10 Male Leg Equipment Scroll,10级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 10 male leg gear.,4,1,craft_scroll,7,0,1,1
-4010010,Level 10 Foot Gear Scroll,10级脚部装备蓝图,A scroll that records the essentials of crafting level 10 foot equipment.,4,1,craft_scroll,7,0,1,1
-4010011,Level 10 Hand Gear Scroll,10级手部装备蓝图,A scroll that records the essentials of crafting level 10 hand equipment.,4,1,craft_scroll,7,0,1,1
-4010012,Level 10 Sword Weapon Scroll,10级剑类武器蓝图,A scroll that records the essentials of crafting a level 10 sword-type weapon.,4,1,craft_scroll,7,0,1,1
-4010901,Level 0 Mysterious Iron Ore,0级神秘矿石,The materials necessary to make level 0 equipment.,4,1,mysterious_iron_ore,7,0,1,1
-4010902,Level 10 Mysterious Iron Ore,10级神秘矿石,The materials necessary to make level 10 equipment.,4,1,mysterious_iron_ore,7,0,1,1
-4020001,Herb Shards,药草碎片,Materials for crafting potions.,4,1,lv1_herb,7,0,1,1
-4020002,Herb,药草,Materials for crafting better potions.,4,1,lv2_herb,7,0,1,1
-3010101,Lv1 Life Potion,1级生命药水,Immediately restore xx points of health.,3,1,life_potion,7,0,1,1
-3010102,Lv2 Life Potion,2级生命药水,Immediately restore xx points of health.,3,2,life_potion,7,0,1,1
-3010201,Lv1 Restoration Potion,1级恢复药,Restores xx health every second for xx seconds.,3,1,restorantion_potion,7,0,1,1
-3010202,Lv2 Restoration Potion,2级恢复药,Restores xx health every second for xx seconds.,3,2,restorantion_potion,7,0,1,1
-3010203,battery,电池,battery,4,1,ic_battery,7,0,1,1
-3010204,Seed,占地种子,Covers an area of the seed,3,1,ic_seed,7,0,1,1
-5010001,The Ancient Birdy Ruins ,建筑物1,"The Ancient Birdy Ruins are the remains of a once great civilization. The Cyclops were a part of this civilization, and their legacy is engraved into the very stones of the ruins.",5,1,ic_building1,5,0,1,1
-5010002,The legacy of the Cyclops,建筑物2,"The legacy of the Cyclops stands as a testament to the power of the mind. Though they were feared and hated by many, the Cyclops were some of the most intelligent and powerful beings to have ever lived. Their legacy is one of strength, determination, and above all else, intelligence.",5,2,ic_building2,5,0,1,1
-5010003,The Adventurer lab,建筑物3,"The Adventurer lab where scientists do some researches is a place of knowledge and discovery. It is here that the legacy of the Cyclops is kept alive, as scientists continue to study their strange and powerful minds.",5,3,ic_building3,5,0,1,1
+物品ID,物品名称,备注1,物品描述,物品类型,物品品质,物品图标,背包显示分类,使用等级,使用者类型,是否NFT,触发动作技能
+id,name,null,desc,type,quality,icon,bagShowType,useLv,userType,canMint,givenSkillId
+int,string,null,string,int,int[],string,int,int,int,int,int
+60000001,Weapon Scroll Lv0,,Weapon Scroll Lv0,4,1,icon_hechengfu_wuqi_0,7,0,0,1,
+60000002,Weapon Scroll Lv10,,Weapon Scroll Lv10,4,1,icon_hechengfu_wuqi_1,7,0,0,1,
+60000003,Weapon Scroll Lv20,,Weapon Scroll Lv20,4,1,icon_hechengfu_wuqi_2,7,0,0,1,
+60000004,Weapon Scroll Lv30,,Weapon Scroll Lv30,4,1,icon_hechengfu_wuqi_3,7,0,0,1,
+60000005,Weapon Scroll Lv40,,Weapon Scroll Lv40,4,1,icon_hechengfu_wuqi_4,7,0,0,1,
+60000006,Weapon Scroll Lv50,,Weapon Scroll Lv50,4,1,icon_hechengfu_wuqi_5,7,0,0,1,
+60000007,Weapon Scroll Lv60,,Weapon Scroll Lv60,4,1,icon_hechengfu_wuqi_6,7,0,0,1,
+60000008,Weapon Scroll Lv70,,Weapon Scroll Lv70,4,1,icon_hechengfu_wuqi_7,7,0,0,1,
+60000009,Weapon Scroll Lv80,,Weapon Scroll Lv80,4,1,icon_hechengfu_wuqi_8,7,0,0,1,
+60000010,Weapon Scroll Lv90,,Weapon Scroll Lv90,4,1,icon_hechengfu_wuqi_9,7,0,0,1,
+60000011,Defence Scroll Lv0,,Defence Scroll Lv0,4,1,icon_hechengfu_fangju_0,7,0,0,1,
+60000012,Defence Scroll Lv10,,Defence Scroll Lv10,4,1,icon_hechengfu_fangju_1,7,0,0,1,
+60000013,Defence Scroll Lv20,,Defence Scroll Lv20,4,1,icon_hechengfu_fangju_2,7,0,0,1,
+60000014,Defence Scroll Lv30,,Defence Scroll Lv30,4,1,icon_hechengfu_fangju_3,7,0,0,1,
+60000015,Defence Scroll Lv40,,Defence Scroll Lv40,4,1,icon_hechengfu_fangju_4,7,0,0,1,
+60000016,Defence Scroll Lv50,,Defence Scroll Lv50,4,1,icon_hechengfu_fangju_5,7,0,0,1,
+60000017,Defence Scroll Lv60,,Defence Scroll Lv60,4,1,icon_hechengfu_fangju_6,7,0,0,1,
+60000018,Defence Scroll Lv70,,Defence Scroll Lv70,4,1,icon_hechengfu_fangju_7,7,0,0,1,
+60000019,Defence Scroll Lv80,,Defence Scroll Lv80,4,1,icon_hechengfu_fangju_8,7,0,0,1,
+60000020,Defence Scroll Lv90,,Defence Scroll Lv90,4,1,icon_hechengfu_fangju_9,7,0,0,1,
+79999901,MELD,用于配置MELDicon和描述,Currency of Meland,4,1,MELD_ic,-2,0,0,0,
+79999902,EXP,用于配置经验值icon和描述,For upgrading Role and Slot,4,1,EXP_ic,-2,0,0,0,
+79999903,Lottery ticket,,Take part in the draw!,4,1,craft_scroll,7,0,1,1,
+79999904,USDC,,Digital currency issued by Circle,4,1,USDC_ic,7,0,0,0,
+1010001,Tactical Headband,0级男头,Tactical Headband,1,"1,2",lv0_boy_hair,5,0,1,1,
+1010002,Sackcloth Shirt,0级男衣,Sackcloth Shirt,1,"1,2",lv0_boy_coat,5,0,1,1,
+1010003,Jeans,0级男裤,Jeans,1,"1,2",lv0_boy_pants,5,0,1,1,
+1010004,Sneakers,0级鞋子,Sneakers,1,"1,2",lv0_shoes,5,0,1,1,
+1010005,Leather Gloves,0级手套,Leather Gloves,1,"1,2",lv0_gloves,5,0,1,1,
+1010006,Iron Sword,0级剑,Iron Sword,1,"1,2",lv0_sword,5,0,1,1,
+1010007,Iron Helmet,10级男头,Iron Helmet,1,"1,2",lv10_boy_hair,5,10,1,1,
+1010008,Iron Chestplate,10级男衣,Iron Chestplate,1,"1,2",lv10_boy_coat,5,10,1,1,
+1010009,Military Pants,10级男裤,Military Pants,1,"1,2",lv10_boy_pants,5,10,1,1,
+1010010,Suede Boots,10级鞋子,Suede Boots,1,"1,2",lv10_shoes,5,10,1,1,
+1010011,Iron Gloves,10级手套,Iron Gloves,1,"1,2",lv10_gloves,5,10,1,1,
+1010012,Steel Sword,10级剑,Steel Sword,1,"1,2",lv10_sword,5,10,1,1,
+7010001,测试锄头,测试锄头,测试锄头,1,"1,2",lv10_sword,5,0,1,1,
+7010002,测试水壶,测试水壶,测试水壶,1,"1,2",lv10_sword,5,0,1,1,
+7010003,测试镐子挖,测试镐子挖,测试镐子挖,1,"1,2",lv10_sword,5,0,1,1,
+7010004,测试斧头砍,测试斧头砍,测试斧头砍,1,"1,2",lv10_sword,5,0,1,1,
+4010001,Level 0 Male Head Gear Scroll,0级男性头部装备蓝图,A scroll that records the essentials of crafting level 0 male head gear.,4,1,craft_scroll,7,0,1,1,
+4010002,Level 0 Male Chest Equipment Scroll,0级男性胸部装备蓝图,A scroll that records the essentials of crafting level 0 male chest equipment.,4,1,craft_scroll,7,0,1,1,
+4010003,Level 0 Male Leg Equipment Scroll,0级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 0 male leg gear.,4,1,craft_scroll,7,0,1,1,
+4010004,Level 0 Foot Gear Scroll,0级脚部装备蓝图,A scroll that records the essentials of crafting level 0 foot equipment.,4,1,craft_scroll,7,0,1,1,
+4010005,Level 0 Hand Gear Scroll,0级手部装备蓝图,A scroll that records the essentials of crafting level 0 hand equipment.,4,1,craft_scroll,7,0,1,1,
+4010006,Level 0 Sword Weapon Scroll,0级剑类武器蓝图,A scroll that records the essentials of crafting a level 0 sword-type weapon.,4,1,craft_scroll,7,0,1,1,
+4010007,Level 10 Male Head Gear Scroll,10级男性头部装备蓝图,A scroll that records the essentials of crafting level 10 male head gear.,4,1,craft_scroll,7,0,1,1,
+4010008,Level 10 Male Chest Equipment Scroll,10级男性胸部装备蓝图,A scroll that records the essentials of crafting level 10 male chest equipment.,4,1,craft_scroll,7,0,1,1,
+4010009,Level 10 Male Leg Equipment Scroll,10级男性腿部装备蓝图,A scroll that records the essentials of the crafting of level 10 male leg gear.,4,1,craft_scroll,7,0,1,1,
+4010010,Level 10 Foot Gear Scroll,10级脚部装备蓝图,A scroll that records the essentials of crafting level 10 foot equipment.,4,1,craft_scroll,7,0,1,1,
+4010011,Level 10 Hand Gear Scroll,10级手部装备蓝图,A scroll that records the essentials of crafting level 10 hand equipment.,4,1,craft_scroll,7,0,1,1,
+4010012,Level 10 Sword Weapon Scroll,10级剑类武器蓝图,A scroll that records the essentials of crafting a level 10 sword-type weapon.,4,1,craft_scroll,7,0,1,1,
+4010901,Level 0 Mysterious Iron Ore,0级神秘矿石,The materials necessary to make level 0 equipment.,4,1,mysterious_iron_ore,7,0,1,1,
+4010902,Level 10 Mysterious Iron Ore,10级神秘矿石,The materials necessary to make level 10 equipment.,4,1,mysterious_iron_ore,7,0,1,1,
+4020001,Herb Shards,药草碎片,Materials for crafting potions.,4,1,lv1_herb,7,0,1,1,
+4020002,Herb,药草,Materials for crafting better potions.,4,1,lv2_herb,7,0,1,1,
+3010101,Lv1 Life Potion,1级生命药水,Immediately restore 50 points of health.,3,1,life_potion,7,0,1,1,
+3010102,Lv2 Life Potion,2级生命药水,Immediately restore 100 points of health.,3,2,life_potion,7,0,1,1,
+3010201,Lv1 Restoration Potion,1级恢复药,Restores 5 health every second for 10 seconds.,3,1,restorantion_potion,7,0,1,1,
+3010202,Lv2 Restoration Potion,2级恢复药,Restores 10 health every second for 10 seconds.,3,2,restorantion_potion,7,0,1,1,
+3010203,battery,电池,battery,4,1,ic_battery,7,0,1,1,
+3010204,Seed,占地种子,Covers an area of the seed,3,1,ic_seed,7,0,1,1,
+5010001,The Ancient Birdy Ruins ,建筑物1,"The Ancient Birdy Ruins are the remains of a once great civilization. The Cyclops were a part of this civilization, and their legacy is engraved into the very stones of the ruins.",5,1,ic_building1,5,0,1,1,
+5010002,The legacy of the Cyclops,建筑物2,"The legacy of the Cyclops stands as a testament to the power of the mind. Though they were feared and hated by many, the Cyclops were some of the most intelligent and powerful beings to have ever lived. Their legacy is one of strength, determination, and above all else, intelligence.",5,2,ic_building2,5,0,1,1,
+5010003,The Adventurer lab,建筑物3,"The Adventurer lab where scientists do some researches is a place of knowledge and discovery. It is here that the legacy of the Cyclops is kept alive, as scientists continue to study their strange and powerful minds.",5,3,ic_building3,5,0,1,1,
+7020001,测试种子,测试种子,测试种子,3,1,ic_seed,7,0,1,1,205003
+7030001,测试施肥,测试肥料,测试施肥,3,1,ic_battery,7,0,1,1,205004

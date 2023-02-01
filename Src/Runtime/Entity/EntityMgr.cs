@@ -21,6 +21,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     protected TFactory Factory = new();
 
     /// <summary>
+    /// 所有实体数量
+    /// </summary>
+    public int EntityCount => EntityDic.Count;
+
+    /// <summary>
     /// 获取存在的场景实体
     /// </summary>
     /// <param name="id"></param>
@@ -76,6 +81,15 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     }
 
     /// <summary>
+    /// 获取所有实体 不走GC 不要改变里面值 而且不要频繁使用 慎用
+    /// </summary>
+    /// <returns></returns>
+    public Dictionary<long, TEntity> GetAllEntityNoGC()
+    {
+        return EntityDic;
+    }
+
+    /// <summary>
     /// 添加一个场景实体 主角使用另外一个方法
     /// </summary>
     /// <param name="entityID"></param>
@@ -119,7 +133,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         _ = EntityRootDic.Remove(entity.RootID);
         try
         {
-            entity.Dispose();
+            DisposeEntity(entity);
         }
         catch (Exception e)
         {
@@ -132,19 +146,57 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// </summary>
     public virtual void RemoveAllEntity()
     {
+        RemoveAllEntityExcept(null);
+    }
+
+    /// <summary>
+    /// 移除除了exceptIds之外的所有实体
+    /// </summary>
+    /// <param name="retainIds"></param>
+    public virtual void RemoveAllEntityExcept(IEnumerable<long> retainIds)
+    {
+        List<TEntity> retainEntities = new();
+        HashSet<long> retainIdSet = new(retainIds);
         foreach (KeyValuePair<long, TEntity> item in EntityDic)
         {
+            if (retainIdSet.Contains(item.Key))
+            {
+                retainEntities.Add(item.Value);
+                continue;
+            }
             try
             {
-                item.Value.Dispose();
+                DisposeEntity(item.Value);
             }
             catch (Exception e)
             {
-                Log.Error($"Entity {item.Value.BaseData.Id} RemoveAllEntity dispose failed,error={e}");
+                Log.Error($"Entity {item.Value.BaseData.Id} RemoveAllEntityExcept dispose failed,error={e}");
             }
         }
+
         EntityDic.Clear();
         EntityRootDic.Clear();
+
+        foreach (TEntity entity in retainEntities)
+        {
+            EntityDic.Add(entity.BaseData.Id, entity);
+            EntityRootDic.Add(entity.RootID, entity);
+        }
+    }
+
+    /// <summary>
+    /// 释放一个实体，内部使用
+    /// 这里只是销毁实体，不包含移除逻辑，外部想要移除实体请使用RemoveEntity
+    /// </summary>
+    /// <param name="entity"></param>
+    protected virtual void DisposeEntity(EntityBase entity)
+    {
+        if (entity == null)
+        {
+            return;
+        }
+
+        entity.Dispose();
     }
 
     protected virtual TEntity CreateEntity(long entityID, GameMessageCore.EntityType entityType)

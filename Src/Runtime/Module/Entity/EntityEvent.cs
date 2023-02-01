@@ -61,6 +61,10 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action<int, Vector3, long[], bool> InputSkillRelease;
     /// <summary>
+    /// 尝试停止持续技能的持续状态
+    /// </summary>
+    public Action TryStopHoldSkill;
+    /// <summary>
     /// 进入技能前摇 T0:技能配置
     /// </summary>
     public Action<DRSkill> EnterSkillForward;

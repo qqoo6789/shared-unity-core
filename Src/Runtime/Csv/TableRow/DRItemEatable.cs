@@ -60,6 +60,15 @@ public class DRItemEatable : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取客户端交互方法。*/
+    /// </summary>
+    public string InteractType
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -71,6 +80,7 @@ public class DRItemEatable : DataRowBase
         CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        InteractType = columnStrings[index++];
 
         return true;
     }
@@ -87,6 +97,7 @@ public class DRItemEatable : DataRowBase
                 CallFunc = binaryReader.ReadArray<String>();
                 Args = binaryReader.ReadArray<String>();
                 CdType = binaryReader.Read7BitEncodedInt32();
+                InteractType = binaryReader.ReadString();
             }
         }
 
