@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -18,66 +18,62 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// 当前血量
     /// </summary>
     /// <value></value>
-    public int HP { get; protected set; }
+    public int HP { get => GetValue(eAttributeType.HP); protected set => SetBaseValue(eAttributeType.HP, value); }
     /// <summary>
     /// 最大血量
     /// </summary>
     /// <value></value>
-    public int HPMAX { get; protected set; }
+    public int HPMAX { get => GetValue(eAttributeType.MaxHP); protected set => SetBaseValue(eAttributeType.MaxHP, value); }
     /// <summary>
     /// 血量回复
     /// </summary>
     /// <value></value>
-    public int HPRecovery { get; protected set; }
+    public int HPRecovery { get => GetValue(eAttributeType.HpRecovery); protected set => SetBaseValue(eAttributeType.HpRecovery, value); }
     /// <summary>
     /// 攻击力
     /// </summary>
-    public int Att;
+    public int Att { get => GetValue(eAttributeType.CombatAtt); protected set => SetBaseValue(eAttributeType.CombatAtt, value); }
     /// <summary>
     /// 防御力
     /// </summary>
-    public int Def;
+    public int Def { get => GetValue(eAttributeType.CombatDef); protected set => SetBaseValue(eAttributeType.CombatDef, value); }
     /// <summary>
     /// 普通攻击速度
     /// </summary>
-    public int AttSpeed;
+    public int AttSpeed { get => GetValue(eAttributeType.CombatAttSpd); protected set => SetBaseValue(eAttributeType.CombatAttSpd, value); }
     /// <summary>
     /// 暴击率
     /// </summary>
-    public int CritRate;
+    public int CritRate { get => GetValue(eAttributeType.CombatCritRate); protected set => SetBaseValue(eAttributeType.CombatCritRate, value); }
     /// <summary>
     /// 暴击伤害
     /// </summary>
-    public int CritDmg;
+    public int CritDmg { get => GetValue(eAttributeType.CombatCritDmg); protected set => SetBaseValue(eAttributeType.CombatCritDmg, value); }
     /// <summary>
     /// 命中率
     /// </summary>
-    public int HitRate;
+    public int HitRate { get => GetValue(eAttributeType.CombatHit); protected set => SetBaseValue(eAttributeType.CombatHit, value); }
     /// <summary>
     /// miss率
     /// </summary>
-    public int MissRate;
+    public int MissRate { get => GetValue(eAttributeType.CombatDodge); protected set => SetBaseValue(eAttributeType.CombatDodge, value); }
     /// <summary>
-    /// 移动速度
+    /// 移动速度 属性是cm转成m
     /// </summary>
-    public float MoveSpeed;
+    public float MoveSpeed { get => GetValue(eAttributeType.MoveSpd) * MathUtilCore.CM2M; protected set => SetBaseValue(eAttributeType.MoveSpd, (int)(value * MathUtilCore.M2CM)); }
     /// <summary>
     /// 等级
     /// </summary>
-    public int Level;
+    public int Level { get => GetValue(eAttributeType.CombatLv); protected set => SetBaseValue(eAttributeType.CombatLv, value); }
     /// <summary>
     /// 经验
     /// </summary>
-    public long Exp;
+    public long Exp { get; protected set; }
     /// <summary>
     /// 是否在战斗状态中
     /// </summary>
     /// <value></value>
     public bool IsInBattle { get; protected set; }
-    /// <summary>
-    /// 翻滚距离
-    /// </summary>
-    public float RollDistance;
     /// <summary>
     /// 死亡原因 只在hp<=0时有效
     /// </summary>
@@ -91,7 +87,6 @@ public class EntityBattleDataCore : EntityBaseComponent
     public virtual void SetHP(int hp)
     {
         HP = hp;
-
         if (hp > 0)
         {
             DeathReason = DamageState.Normal;
@@ -182,5 +177,45 @@ public class EntityBattleDataCore : EntityBaseComponent
     public bool IsLive()
     {
         return HP > 0;
+    }
+
+    private int GetValue(eAttributeType type)
+    {
+        return RefEntity.EntityAttributeData.GetValue(type);
+    }
+
+    private void SetBaseValue(eAttributeType type, int value)
+    {
+        RefEntity.EntityAttributeData.SetBaseValue(type, value);
+    }
+
+    /// <summary>
+    /// 检测移动
+    /// </summary>
+    public bool CheckCanMove()
+    {
+        foreach (BattleDefine.eBattleState state in BattleDefine.BATTLE_STATE_CANNOT_MOVE_LIST)
+        {
+            if (_battleStateMap.ContainsKey(state))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    /// <summary>
+    /// 检测释放技能
+    /// </summary>
+
+    public bool CheckCanSkill()
+    {
+        foreach (BattleDefine.eBattleState state in BattleDefine.BATTLE_STATE_CANNOT_SKILL_LIST)
+        {
+            if (_battleStateMap.ContainsKey(state))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

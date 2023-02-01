@@ -144,11 +144,12 @@ public static partial class SkillUtil
     /// </summary>
     /// <param name="skillCfg">技能配置</param>
     /// <param name="skillDir">技能方向</param>
+    /// <param name="targets">技能目标列表</param>
     /// <param name="effectList">效果列表</param>
     /// <param name="fromEntity">释放实体</param>
     /// <param name="targetEntity">目标实体</param>
     /// <returns></returns>
-    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, long[] targets, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
     {
         List<GameMessageCore.DamageEffect> effects = new();
         if (effectList == null || effectList.Length <= 0)
@@ -162,9 +163,9 @@ public static partial class SkillUtil
             try
             {
                 SkillEffectBase skillEffect = skillEffects[i];
-                if (skillEffect.CheckApplyEffect(fromEntity, targetEntity))
+                if (effectCpt.CheckApplyEffect(fromEntity, targetEntity, skillEffect))
                 {
-                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir);
+                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir, targets);
                     if (effectData == null)
                     {
                         continue;
@@ -179,13 +180,32 @@ public static partial class SkillUtil
                     skillEffect.Dispose();
                 }
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
-                Log.Error($"skill cast skill effect apply error skillID = {skillCfg.Id}, effectID = {skillEffects[i].EffectID}");
+                Log.Error($"skill cast skill effect apply error skillID = {skillCfg.Id}, effectID = {skillEffects[i].EffectID} error = {e}");
                 continue;
             }
         }
         return effects;
     }
 
+    /// <summary>
+    /// 实体技能效果取消
+    /// </summary>
+    /// <param name="skillCfg">技能配置</param>
+    /// <param name="effectList">效果列表</param>
+    /// <param name="fromEntity">释放实体</param>
+    /// <param name="targetEntity">目标实体</param>
+    /// <returns></returns>
+    public static void EntityAbolishSkillEffect(DRSkill skillCfg, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    {
+        SkillEffectCpt effectCpt = targetEntity.GetComponent<SkillEffectCpt>();
+        if (effectList != null && effectList.Length > 0)
+        {
+            for (int i = 0; i < effectList.Length; i++)
+            {
+                effectCpt.AbolishSkillEffect(effectList[i], skillCfg.Id, fromEntity.BaseData.Id);
+            }
+        }
+    }
 }

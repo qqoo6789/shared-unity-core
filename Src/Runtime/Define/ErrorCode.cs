@@ -20,6 +20,7 @@ public enum eErrorCode : int
     inputSkillFail = 0003001,
     inputSkillStatusFail = 0003002,
     inputSkillCDFail = 0003003,
+    inputSkillUseFail = 0003004, //技能使用失败
 
     playerReviveAlive = 0004001, //玩家还存活
     playerReviveCD = 0004002, //玩家复活CD中

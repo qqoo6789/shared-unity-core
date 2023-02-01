@@ -43,7 +43,7 @@ public class SEPathMoveCore : SkillEffectBase
         }
     }
 
-    public override GameMessageCore.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir)
+    public override GameMessageCore.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir, long[] targets)
     {
         if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
         {

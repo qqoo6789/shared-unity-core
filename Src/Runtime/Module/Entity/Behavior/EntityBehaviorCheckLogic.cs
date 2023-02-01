@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-05 12:54:15
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Behavior/EntityBehaviorCheckLogic.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Behavior/EntityBehaviorCheckLogic.cs
  */
 
 using GameFramework.Fsm;
@@ -91,6 +91,11 @@ public static class EntityBehaviorCheckLogic
             return false;
         }
 
+        if (!entity.BattleDataCore.CheckCanMove())
+        {
+            return false;
+        }
+
         FsmState<EntityStatusCtrl> curStatus = GetCurrentStatus(entity);
         if (curStatus == null)
         {
@@ -118,6 +123,12 @@ public static class EntityBehaviorCheckLogic
         // {
         //     return false;
         // }
+
+
+        if (!entity.BattleDataCore.CheckCanSkill())
+        {
+            return false;
+        }
 
         FsmState<EntityStatusCtrl> curStatus = GetCurrentStatus(entity);
         if (curStatus == null)

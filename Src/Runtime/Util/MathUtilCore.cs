@@ -33,6 +33,18 @@ public static class MathUtilCore
     }
 
     /// <summary>
+    /// string转long
+    /// </summary>
+    public static long StringToLong(string valueStr)
+    {
+        if (long.TryParse(valueStr, out long value))
+        {
+            return value;
+        }
+        return 0;
+    }
+
+    /// <summary>
     /// 不同权重的列表中随机一个索引
     /// </summary>
     public static int RandomWeightListIndex(List<int> weightList)

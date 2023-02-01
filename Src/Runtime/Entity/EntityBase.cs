@@ -84,6 +84,12 @@ public class EntityBase
     public bool IsActive { get; private set; } = true;
 
     /// <summary>
+    /// 实体属性数据
+    /// </summary>
+    /// <value></value>
+    public EntityAttributeData EntityAttributeData { get; set; }
+
+    /// <summary>
     /// 不要乱用 读写相关属性都有独立方法 只能在特定情境下只能通过获取Transform来获取时使用
     /// </summary>
     /// <returns></returns>

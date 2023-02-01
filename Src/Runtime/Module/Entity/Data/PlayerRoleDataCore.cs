@@ -70,5 +70,6 @@ public class PlayerRoleDataCore : EntityBaseComponent
         {
             WearDic.Add(avatar.Position, avatar);
         }
+        RefEntity.EntityEvent.EntityAvatarUpdated?.Invoke();
     }
 }

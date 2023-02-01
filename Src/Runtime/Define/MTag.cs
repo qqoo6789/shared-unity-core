@@ -23,6 +23,9 @@ public static class MTag
     public const string WATER_AREA = "WaterArea";
 
     /// <summary>
+    /// 怪物boss
+    /// </summary>
+    public const string MONSTER_BOSS = "MonsterBoss";
     /// 资源区域
     /// </summary>
     public const string RESOURCES_AREA = "ResourcesArea";

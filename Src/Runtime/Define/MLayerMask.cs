@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: layer层级
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Define/MLayerMask.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Define/MLayerMask.cs
  * 
  */
 
@@ -12,6 +12,7 @@ public static class MLayerMask
     /// 默认层级
     /// </summary>
     public const int DEFAULT = 0;
+    public const int UI = 5;
     /// <summary>
     /// 地表层 能够行走的物体
     /// </summary>
