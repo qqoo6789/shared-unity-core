@@ -97,5 +97,5 @@ public enum eFoodItemInteractType
 {
     addHp,//增加血量
     occupyLand,//占地
-    equipmentItem,//装备道具
+    equipItem,//装备道具
 }
