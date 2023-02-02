@@ -36,6 +36,14 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         }
     }
 
+    protected virtual void OnDestroy()
+    {
+        if (HomeModuleCore.IsInited)//在家园里
+        {
+            HomeModuleCore.SoilResourceRelation.RemoveResourceOnSoil(RefEntity.BaseData.Id);
+        }
+    }
+
     public bool CheckSupportAction(eAction action)
     {
         if (IsDead)
@@ -63,9 +71,5 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     /// </summary>
     protected virtual void OnDeath()
     {
-        if (HomeModuleCore.IsInited)//在家园里
-        {
-            HomeModuleCore.SoilResourceRelation.RemoveResourceOnSoil(RefEntity.BaseData.Id);
-        }
     }
 }
