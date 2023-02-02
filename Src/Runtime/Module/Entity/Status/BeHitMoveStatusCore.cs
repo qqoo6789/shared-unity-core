@@ -2,9 +2,10 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 受击移动
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitMoveStatusCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitMoveStatusCore.cs
  * 
  */
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
@@ -13,13 +14,17 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 受击移动状态基类 
 /// </summary>
-public class BeHitMoveStatusCore : EntityStatusCore
+public class BeHitMoveStatusCore : ListenEventStatusCore
 {
 
     protected CancellationTokenSource CancelToken;
 
     public static new string Name => "beHitMove";
     public override string StatusName => Name;
+    protected override Type[] EventFunctionTypes => new Type[]
+    {
+        typeof(BeStunEventFunc),
+    };
     private int _moveTime;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)

@@ -30,7 +30,8 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
     private bool _continueNextSkill;//是否继续下一个技能
     protected override Type[] EventFunctionTypes => new Type[] {
-        typeof(BeHitMoveEventFunc)
+        typeof(BeHitMoveEventFunc),
+        typeof(BeStunEventFunc),
     };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)

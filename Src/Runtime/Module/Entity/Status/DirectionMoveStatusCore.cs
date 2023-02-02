@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/DirectionMoveStatusCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/DirectionMoveStatusCore.cs
  */
 /** 
  * @Author XQ
@@ -25,7 +25,8 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     private DirectionMove _directionMove;
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
-        typeof(WaitToBattleStatusEventFunc)
+        typeof(WaitToBattleStatusEventFunc),
+        typeof(BeStunEventFunc),
     };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {

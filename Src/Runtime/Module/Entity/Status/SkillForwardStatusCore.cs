@@ -15,7 +15,8 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     protected override Type[] EventFunctionTypes => new Type[]
     {
         typeof(OnInputSkillInBattleStatusEventFunc),
-        typeof(BeHitMoveEventFunc)
+        typeof(BeHitMoveEventFunc),
+        typeof(BeStunEventFunc),
     };
 
     private CancellationTokenSource _forwardTimeToken;

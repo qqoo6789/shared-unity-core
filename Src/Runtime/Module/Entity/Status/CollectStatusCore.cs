@@ -19,7 +19,8 @@ public class CollectStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityC
 
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
-        typeof(WaitToBattleStatusEventFunc)
+        typeof(WaitToBattleStatusEventFunc),
+        typeof(BeStunEventFunc),
     };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {

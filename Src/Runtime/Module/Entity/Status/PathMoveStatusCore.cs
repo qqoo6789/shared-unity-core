@@ -16,7 +16,8 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     private DistanceMove _distanceMove;
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
-        typeof(WaitToBattleStatusEventFunc)
+        typeof(WaitToBattleStatusEventFunc),
+        typeof(BeStunEventFunc),
     };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {

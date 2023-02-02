@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 受击状态 理论上受击状态只有表现,服务器用不到
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/BeHitStatusCore.cs
  * 
  */
 using System;
@@ -16,7 +16,8 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
     public static new string Name => "beHit";
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
-        typeof(WaitToBattleStatusEventFunc)
+        typeof(WaitToBattleStatusEventFunc),
+        typeof(BeStunEventFunc),
      };
 
     public override string StatusName => Name;

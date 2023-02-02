@@ -48,6 +48,14 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action<int> EntityBeHitMove;
     /// <summary>
+    /// 实体接受到眩晕效果
+    /// </summary>
+    public Action EntityReceiveStunEffect;
+    /// <summary>
+    /// 实体移除眩晕效果
+    /// </summary>
+    public Action EntityRemoveStunEffect;
+    /// <summary>
     /// 非移动状态的特殊移动开始 往往是技能效果的强制移动等触发
     /// </summary>
     public Action SpecialMoveStartNotMoveStatus;
