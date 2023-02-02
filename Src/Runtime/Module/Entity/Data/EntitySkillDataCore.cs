@@ -83,7 +83,7 @@ public class EntitySkillDataCore : EntityBaseComponent
             DREquipment drEquipment = GFEntryCore.DataTable.GetDataTable<DREquipment>().GetDataRow(avatar.ObjectId);
             if (drEquipment != null)
             {
-                SetEquipmentSkill(drEquipment.GivenSkillId);
+                SetExtraGroupSkill(drEquipment.GivenSkillId, EquipmentSkillIDList);
             }
             else
             {
@@ -92,33 +92,44 @@ public class EntitySkillDataCore : EntityBaseComponent
         }
     }
 
-    public void SetEquipmentSkill(IEnumerable<int> skillIDs)
+    /// <summary>
+    /// 设置装备和道具上这种额外的一组技能
+    /// </summary>
+    /// <param name="newSkillIds"></param>
+    /// <param name="oldSkillIds">老技能id组 会直接改掉这里的源数据 不能空</param>
+    public void SetExtraGroupSkill(IEnumerable<int> newSkillIds, List<int> oldSkillIds)
     {
-        HashSet<int> newSkillIDMap = new();
-        if (skillIDs != null)
+        if (oldSkillIds == null)
         {
-            newSkillIDMap = new(skillIDs);
+            Log.Error("SetExtraGroupSkill oldSkillIds is null");
+            return;
+        }
+
+        HashSet<int> newSkillIDMap = new();
+        if (newSkillIds != null)
+        {
+            newSkillIDMap = new(newSkillIds);
         }
 
         //
-        for (int i = EquipmentSkillIDList.Count - 1; i >= 0; i--)
+        for (int i = oldSkillIds.Count - 1; i >= 0; i--)
         {
             //已经有的技能不需要添加
-            if (newSkillIDMap.Contains(EquipmentSkillIDList[i]))
+            if (newSkillIDMap.Contains(oldSkillIds[i]))
             {
-                _ = newSkillIDMap.Remove(EquipmentSkillIDList[i]);
+                _ = newSkillIDMap.Remove(oldSkillIds[i]);
             }
             else
             {
                 //删除多余的技能
-                SkillComponent.RemoveSkill(EquipmentSkillIDList[i]);
-                EquipmentSkillIDList.RemoveAt(i);
+                SkillComponent.RemoveSkill(oldSkillIds[i]);
+                oldSkillIds.RemoveAt(i);
             }
         }
 
         foreach (int skillID in newSkillIDMap)
         {
-            EquipmentSkillIDList.Add(skillID);
+            oldSkillIds.Add(skillID);
             _ = SkillComponent.AddSkill(skillID);
         }
     }
