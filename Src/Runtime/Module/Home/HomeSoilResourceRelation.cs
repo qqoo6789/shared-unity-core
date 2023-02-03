@@ -7,8 +7,8 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public class HomeSoilResourceRelation : MonoBehaviour
 {
-    private Dictionary<ulong, long> _soilMap = new Dictionary<ulong, long>();//土地和上面资源的关系 id是土地
-    private Dictionary<long, ulong> _resourceMap = new Dictionary<long, ulong>();//上面资源和土地的关系 id是资源实体
+    private readonly Dictionary<ulong, long> _soilMap = new();//土地和上面资源的关系 id是土地
+    private readonly Dictionary<long, ulong> _resourceMap = new();//上面资源和土地的关系 id是资源实体
 
     /// <summary>
     /// 在土地上添加一个资源
@@ -45,8 +45,8 @@ public class HomeSoilResourceRelation : MonoBehaviour
             return;
         }
 
-        _soilMap.Remove(_resourceMap[resourceEntityId]);
-        _resourceMap.Remove(resourceEntityId);
+        _ = _soilMap.Remove(_resourceMap[resourceEntityId]);
+        _ = _resourceMap.Remove(resourceEntityId);
     }
 
     /// <summary>
