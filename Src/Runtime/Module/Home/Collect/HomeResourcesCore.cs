@@ -7,7 +7,7 @@ using static HomeDefine;
 /// </summary>
 public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceCore
 {
-    public ulong Id => (ulong)RefEntity.BaseData.Id;
+    public ulong Id { get; private set; }
 
     public eResourceType ResourceType => eResourceType.HomeResource;
 
@@ -26,13 +26,22 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
     protected virtual void Start()
     {
+        Id = (ulong)RefEntity.BaseData.Id;
         ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
         DRHomeResources dr = resourceData.DRHomeResources;
         SupportAction = TableUtil.ToHomeAction(dr.HomeAction);
 
         if (HomeModuleCore.IsInited)//在家园里
         {
-            HomeModuleCore.SoilResourceRelation.AddResourceOnSoil(RefEntity.BaseData.Id, resourceData.SaveData.Id);
+            HomeModuleCore.SoilResourceRelation.AddResourceOnSoil((long)Id, resourceData.SaveData.Id);
+        }
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (HomeModuleCore.IsInited)//在家园里
+        {
+            HomeModuleCore.SoilResourceRelation.RemoveResourceOnSoil((long)Id);
         }
     }
 
@@ -63,9 +72,5 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     /// </summary>
     protected virtual void OnDeath()
     {
-        if (HomeModuleCore.IsInited)//在家园里
-        {
-            HomeModuleCore.SoilResourceRelation.RemoveResourceOnSoil(RefEntity.BaseData.Id);
-        }
     }
 }
