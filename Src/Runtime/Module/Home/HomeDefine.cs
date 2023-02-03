@@ -113,8 +113,14 @@ public static class HomeDefine
         /// 镐子挖矿（有进度）
         /// </summary>
         Mining = 1 << 7,
-        //铲除植物
+        /// <summary>
+        /// 铲除植物
+        /// </summary>
         Eradicate = 1 << 8,
+        /// <summary>
+        /// 攻击怪物（这个给伤害计算分类用的 家园并不使用）
+        /// </summary>
+        AttackMonster = 1 << 31,
     }
 
     /// <summary>
