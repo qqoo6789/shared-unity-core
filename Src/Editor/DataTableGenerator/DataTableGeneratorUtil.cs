@@ -151,10 +151,10 @@ namespace Meland.Editor.DataTableTools
             {
                 string desc = rawValues[i][5];
                 _ = stringBuilder
-                    .AppendLine("   /// <summary>")
-                    .AppendLine($"   /** {desc}*/")
-                    .AppendLine("   /// <summary>")
-                    .AppendLine($"   {rawValues[i][1]} = {rawValues[i][0]},");
+                    .AppendLine("    /// <summary>")
+                    .AppendLine($"    /** {desc}*/")
+                    .AppendLine("    /// <summary>")
+                    .AppendLine($"    {rawValues[i][1]} = {rawValues[i][0]},");
             }
 
             return stringBuilder.ToString();

@@ -40,6 +40,26 @@ public class EntityAttributeData : EntityBaseComponent
         Log.Error($"EntityAttributeData GetValue Not Find Attribute Type = {type}");
         return 0;
     }
+
+    /// <summary>
+    /// 获取实际属性值, 根据值类型计算后的值
+    /// </summary>
+    public float GetRealValue(eAttributeType type)
+    {
+        if (AttributeMap.TryGetValue(type, out IntAttribute attribute))
+        {
+            return attribute.RealValue;
+        }
+        //默认值
+        if (_defaultMap.TryGetValue(type, out int value))
+        {
+            float coefficient = GetAttributeCoefficient(type);
+            return value * coefficient;
+        }
+        Log.Error($"EntityAttributeData GetRealValue Not Find Attribute Type = {type}");
+        return 0;
+    }
+
     /// <summary>
     /// 获取属性
     /// </summary>
@@ -59,7 +79,7 @@ public class EntityAttributeData : EntityBaseComponent
     {
         if (!AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
-            attribute = IntAttribute.Create();
+            attribute = CreateAttribute(type);
             AttributeMap.Add(type, attribute);
         }
         //基础属性没变化
@@ -90,7 +110,7 @@ public class EntityAttributeData : EntityBaseComponent
     {
         if (!AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
-            attribute = IntAttribute.Create();
+            attribute = CreateAttribute(type);
             AttributeMap.Add(type, attribute);
         }
         IntAttributeModifier modifier = attribute.AddModifier(type, modifierType, value);
@@ -112,6 +132,26 @@ public class EntityAttributeData : EntityBaseComponent
         RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(modifier.AttributeType, attribute.Value);
     }
 
+    private IntAttribute CreateAttribute(eAttributeType type)
+    {
+        float coefficient = GetAttributeCoefficient(type);
+        IntAttribute attribute = IntAttribute.Create(coefficient);
+        return attribute;
+    }
+
+    public float GetAttributeCoefficient(eAttributeType type)
+    {
+        float coefficient = 1f;
+        DREntityAttribute dREntityAttribute = GFEntryCore.DataTable.GetDataTable<DREntityAttribute>().GetDataRow((int)type);
+        if (dREntityAttribute != null)
+        {
+            if (dREntityAttribute.ValueType is ((int)eAttributeValueType.Thousandth) or ((int)eAttributeValueType.ThousandthPct))
+            {
+                coefficient = 1 / 1000f;
+            }
+        }
+        return coefficient;
+    }
     private void OnDestroy()
     {
         foreach (KeyValuePair<eAttributeType, IntAttribute> item in AttributeMap)
