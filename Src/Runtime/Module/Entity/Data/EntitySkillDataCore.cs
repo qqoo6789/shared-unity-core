@@ -90,6 +90,10 @@ public class EntitySkillDataCore : EntityBaseComponent
                 Log.Error($"OnUpdateEquipmentSkillID not find equipment id:{avatar.ObjectId}");
             }
         }
+        else
+        {
+            RemoveEquipmentSkill();
+        }
     }
 
     /// <summary>
