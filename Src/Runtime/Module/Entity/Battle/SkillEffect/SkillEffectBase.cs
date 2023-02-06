@@ -69,6 +69,11 @@ public class SkillEffectBase : IReference
     /// 宿主对象
     /// </summary>
     public EntityBase RefEntity { get; private set; }
+
+    /// <summary>
+    /// 下次间隔触发时间
+    /// </summary>
+    protected long NextIntervalTime { get; private set; }
     /// <summary>
     /// 设置效果数据
     /// </summary>
@@ -148,6 +153,7 @@ public class SkillEffectBase : IReference
         EffectFlag = 0;
         EffectImmuneFlag = 0;
         CurLayer = 1;
+        NextIntervalTime = 0;
     }
     /// <summary>
     /// 添加后执行第一次
@@ -156,15 +162,31 @@ public class SkillEffectBase : IReference
     {
         //更新当前层级
         UpdateLayer(1);
+        NextIntervalTime = TimeUtil.GetTimeStamp() + EffectCfg.EffectInterval;
     }
     /// <summary>
     /// 刷新效果
     /// </summary>
     public virtual void Update()
     {
+        //更新触发间隔
+        if (EffectCfg.EffectInterval > 0)
+        {
+            long curTimeStamp = TimeUtil.GetTimeStamp();
+            if (curTimeStamp >= NextIntervalTime)
+            {
+                NextIntervalTime = TimeUtil.GetTimeStamp() + EffectCfg.EffectInterval;
+                OnInterval();
+            }
+        }
+    }
+    /// <summary>
+    /// 间隔触发
+    /// </summary>
+    public virtual void OnInterval()
+    {
 
     }
-
     /// <summary>
     /// 效果被添加
     /// </summary>

@@ -69,6 +69,15 @@ public class DRSkillEffect : DataRowBase
     }
 
     /// <summary>
+  /**获取效果触发间隔（ms）。*/
+    /// </summary>
+    public int EffectInterval
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取效果参数。*/
     /// </summary>
     public int[] Parameters
@@ -87,7 +96,7 @@ public class DRSkillEffect : DataRowBase
     }
 
     /// <summary>
-  /**获取持续时间 <0为永久 =0为瞬间 >0持续时间。*/
+  /**获取持续时间 <0为永久 =0为瞬间 >0持续时间。*/
     /// </summary>
     public int Duration
     {
@@ -106,6 +115,7 @@ public class DRSkillEffect : DataRowBase
         IsRepeat = DataTableParseUtil.ParseBool(columnStrings[index++]);
         EffectFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectImmuneFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        EffectInterval = DataTableParseUtil.ParseInt(columnStrings[index++]);
         index++;
         Parameters = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Parameters2 = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
@@ -128,6 +138,7 @@ public class DRSkillEffect : DataRowBase
                 IsRepeat = binaryReader.ReadBoolean();
                 EffectFlag = binaryReader.ReadArray<Int32>();
                 EffectImmuneFlag = binaryReader.ReadArray<Int32>();
+                EffectInterval = binaryReader.Read7BitEncodedInt32();
                 Parameters = binaryReader.ReadArray<Int32>();
                 Parameters2 = binaryReader.ReadArrayList<Int32>();
                 Duration = binaryReader.Read7BitEncodedInt32();
