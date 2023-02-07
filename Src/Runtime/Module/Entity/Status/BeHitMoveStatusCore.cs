@@ -61,10 +61,16 @@ public class BeHitMoveStatusCore : ListenEventStatusCore
             await UniTask.Delay(_moveTime, false, PlayerLoopTiming.Update, CancelToken.Token);
             CancelToken = null;
         }
-        catch (System.Exception)
+        catch (OperationCanceledException)
         {
-            Log.Error("BeHitMove MoveStart Error");
+            return;
         }
+        catch (Exception e)
+        {
+            Log.Error($"BeHitMove MoveStart Error,{e.Message},{e.StackTrace}{e}");
+            return;
+        }
+
         MoveEnd();
     }
     protected virtual void MoveEnd()
