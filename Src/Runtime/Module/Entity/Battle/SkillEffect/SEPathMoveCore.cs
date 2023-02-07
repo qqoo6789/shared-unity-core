@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 技能路径移动效果
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
  * 
  */
 
@@ -15,6 +15,7 @@ public class SEPathMoveCore : SkillEffectBase
     protected DistanceMove DistanceMove;
     public override void Start()
     {
+        base.Start();
         if (EffectData == null)
         {
             return;
