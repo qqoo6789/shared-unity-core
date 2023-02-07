@@ -97,6 +97,15 @@ public class DRTalentTree : DataRowBase
     }
 
     /// <summary>
+  /**获取节点升级token。*/
+    /// </summary>
+    public int[] UpgradeToken
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取前置节点。*/
     /// </summary>
     public int[] PreNode
@@ -164,6 +173,7 @@ public class DRTalentTree : DataRowBase
         GainsType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GainsArgs = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         UpgradeEXP = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        UpgradeToken = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         PreNode = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         PostNode = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Col = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -190,6 +200,7 @@ public class DRTalentTree : DataRowBase
                 GainsType = binaryReader.Read7BitEncodedInt32();
                 GainsArgs = binaryReader.ReadArrayList<Int32>();
                 UpgradeEXP = binaryReader.ReadArray<Int32>();
+                UpgradeToken = binaryReader.ReadArray<Int32>();
                 PreNode = binaryReader.ReadArray<Int32>();
                 PostNode = binaryReader.ReadArray<Int32>();
                 Col = binaryReader.Read7BitEncodedInt32();
