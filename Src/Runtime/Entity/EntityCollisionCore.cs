@@ -69,6 +69,7 @@ public abstract class EntityCollisionCore : EntityBaseComponent
             //先手动创建移动碰撞的依赖组件
             _ = RefEntity.AddComponent<Rigidbody>();
             CapsuleCollider collider = RefEntity.AddComponent<CapsuleCollider>();
+            collider.isTrigger = true;
 
             Mover mover = RefEntity.AddComponent<Mover>();
             mover.SetColliderHeight(prefabMover.ColliderHeight);
@@ -112,7 +113,7 @@ public abstract class EntityCollisionCore : EntityBaseComponent
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.layer & MLayerMask.ENTITY_TRIGGER) <= 0)
+        if (((1 << other.gameObject.layer) & MLayerMask.ENTITY_TRIGGER) == 0)
         {
             return;
         }
@@ -131,7 +132,7 @@ public abstract class EntityCollisionCore : EntityBaseComponent
 
     private void OnTriggerExit(Collider other)
     {
-        if ((other.gameObject.layer & MLayerMask.ENTITY_TRIGGER) <= 0)
+        if (((1 << other.gameObject.layer) & MLayerMask.ENTITY_TRIGGER) <= 0)
         {
             return;
         }
