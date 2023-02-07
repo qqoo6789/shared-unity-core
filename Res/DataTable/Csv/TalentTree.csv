@@ -1,6 +1,6 @@
-½Úµãid,×¨¾«ÀàÐÍ,isTrunk,"½âËøËùÐèµÄÌì¸³Ê÷µÈ¼¶
-·ÇÖ÷¸É¼¼ÄÜÅäÖÃ¶¼Îª0",½Úµã²ã¼¶,½ÚµãµÈ¼¶ÉÏÏÞ,Ìì¸³ÊÕÒæ,ÊÕÒæ²ÎÊý,½ÚµãÉý¼¶¾­Ñé,Ç°ÖÃ½Úµã,ºóÖÃ¼¼ÄÜ,½ÚµãÁÐºÅ,name,desc,icon
-id,type,isTrunk,upgradeRequireTreeLv,layer,lvLimit,gains,gainsArgs,upgradeEXP,preNode,postNode,col,name,desc,icon
+ï¿½Úµï¿½id,×¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,isTrunk,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¸³ï¿½ï¿½ï¿½È¼ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½Îª0",ï¿½Úµï¿½ã¼¶,ï¿½Úµï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ì¸³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ì¸³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ç°ï¿½Ã½Úµï¿½,ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½,ï¿½Úµï¿½ï¿½Ðºï¿½,name,desc,icon
+id,type,isTrunk,upgradeRequireTreeLv,layer,lvLimit,gainsType,gainsArgs,upgradeEXP,preNode,postNode,col,name,desc,icon
 int,int,bool,int,int,int,int,int[][],int[],int[],int[],int,string,string,string
 100000,2,1,0,0,1,0,201001,101,,"100001,100021,100022,100023,100024",0,Skill0,Desc0,craft_scroll
 100001,2,1,2,1,1,0,201002,102,100000,"100002,100025,100026",0,Skill1,Desc1,ic_building1
