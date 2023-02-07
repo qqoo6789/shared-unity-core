@@ -16,6 +16,15 @@ public static class MathUtilCore
     /// 厘米转米
     /// </summary>
     public static readonly float CM2M = 1 / M2CM;
+
+    /// <summary>
+    /// 千分位转整形
+    /// </summary>
+    public static readonly int T2I = 1000;
+    /// <summary>
+    /// 整形转千分位
+    /// </summary>
+    public static readonly float I2T = 1f / T2I;
     /// <summary>
     /// 两个int转成一个ulong 方便将二维坐标转成一个key 类似对之前egret中的r_c的字符串优化
     /// </summary>
