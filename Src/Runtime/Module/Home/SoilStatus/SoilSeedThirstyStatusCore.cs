@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using UnityGameFramework.Runtime;
 using static HomeDefine;
+using GameFramework.Fsm;
 
 /// <summary>
 /// 土地已播种干涸状态
@@ -23,6 +24,20 @@ public class SoilSeedThirstyStatusCore : SoilStatusCore
     }
 
     protected override float AutoEnterNextStatusTime => 0;
+
+    protected override void OnEnter(IFsm<SoilStatusCtrl> fsm)
+    {
+        base.OnEnter(fsm);
+
+        StatusCtrl.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Watering, SOIL_PROGRESS_ACTION_MAX_VALUE);
+    }
+
+    protected override void OnLeave(IFsm<SoilStatusCtrl> fsm, bool isShutdown)
+    {
+        StatusCtrl.GetComponent<HomeActionProgressData>().EndProgressAction();
+
+        base.OnLeave(fsm, isShutdown);
+    }
 
     protected override void OnExecuteHomeAction(eAction action, object actionData)
     {

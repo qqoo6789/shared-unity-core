@@ -22,6 +22,8 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     protected virtual void Awake()
     {
         IsDead = false;
+
+        _ = gameObject.AddComponent<HomeActionProgressData>();
     }
 
     protected virtual void Start()
@@ -35,6 +37,11 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         {
             HomeModuleCore.SoilResourceRelation.AddResourceOnSoil((long)Id, resourceData.SaveData.Id);
         }
+
+        if ((PROGRESS_ACTION_MASK & SupportAction) != 0)
+        {
+            GetComponent<HomeActionProgressData>().StartProgressAction(SupportAction, SOIL_PROGRESS_ACTION_MAX_VALUE);
+        }
     }
 
     protected virtual void OnDestroy()
@@ -43,6 +50,8 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         {
             HomeModuleCore.SoilResourceRelation.RemoveResourceOnSoil((long)Id);
         }
+
+        GetComponent<HomeActionProgressData>().EndProgressAction();
     }
 
     public bool CheckSupportAction(eAction action)

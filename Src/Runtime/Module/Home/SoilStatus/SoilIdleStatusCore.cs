@@ -18,11 +18,15 @@ public class SoilIdleStatusCore : SoilStatusCore
         base.OnEnter(fsm);
 
         StatusCtrl.SoilEvent.MsgInitStatus += OnMsgInitStatus;
+
+        StatusCtrl.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Hoeing, SOIL_PROGRESS_ACTION_MAX_VALUE);
     }
 
     protected override void OnLeave(IFsm<SoilStatusCtrl> fsm, bool isShutdown)
     {
         StatusCtrl.SoilEvent.MsgInitStatus -= OnMsgInitStatus;
+
+        StatusCtrl.GetComponent<HomeActionProgressData>().EndProgressAction();
 
         base.OnLeave(fsm, isShutdown);
     }

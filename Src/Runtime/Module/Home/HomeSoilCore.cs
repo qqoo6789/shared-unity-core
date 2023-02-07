@@ -26,6 +26,7 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         SoilEvent = gameObject.AddComponent<SoilEvent>();
         StatusCtrl = gameObject.AddComponent<SoilStatusCtrl>();
         SoilData = gameObject.AddComponent<SoilData>();
+        _ = gameObject.AddComponent<HomeActionProgressData>();
 
         InitStatus(StatusCtrl);
     }
