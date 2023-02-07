@@ -23,7 +23,7 @@ public class FloatInAirStatusCore : ListenEventStatusCore
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
 
-        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
+        if (RefEntityIsDead())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;

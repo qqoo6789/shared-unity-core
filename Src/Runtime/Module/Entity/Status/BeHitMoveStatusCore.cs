@@ -75,7 +75,7 @@ public class BeHitMoveStatusCore : ListenEventStatusCore
     }
     protected virtual void MoveEnd()
     {
-        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
+        if (RefEntityIsDead())
         {
             ChangeState(OwnerFsm, DeathStatusCore.Name);
             return;

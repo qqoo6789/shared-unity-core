@@ -43,6 +43,12 @@ public class StunStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+        if (RefEntityIsDead())
+        {
+            ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
+
         if (_stunStatusCounter <= 0)
         {
             ChangeState(fsm, IdleStatusCore.Name);

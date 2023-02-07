@@ -66,7 +66,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
+        if (RefEntityIsDead())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;
