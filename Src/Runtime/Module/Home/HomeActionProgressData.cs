@@ -1,4 +1,7 @@
+using System;
+using DG.Tweening;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 using static HomeDefine;
 
 /// <summary>
@@ -6,10 +9,25 @@ using static HomeDefine;
 /// </summary>
 public class HomeActionProgressData : MonoBehaviour
 {
+    private Action<HomeActionProgressData> _onProgressHoldFull;//进度满了后回调
+    private Tweener _tween;
+
+    /// <summary>
+    /// 当前是否在进度型操作中 单一动作 不会是复合动作 None表示不在
+    /// </summary>
+    /// <value></value>
     public eAction CurProgressAction { get; private set; }
 
-    public float CurProgressActionValue { get; set; }
+    /// <summary>
+    /// 当前进度动作的进度值
+    /// </summary>
+    /// <value></value>
+    public float CurProgressActionValue { get; private set; }
 
+    /// <summary>
+    /// 当前进度动作的最大值
+    /// </summary>
+    /// <value></value>
     public float CurProgressActionMaxValue { get; private set; }
 
     private void Update()
@@ -34,29 +52,94 @@ public class HomeActionProgressData : MonoBehaviour
         CurProgressActionValue = Mathf.Max(0, CurProgressActionValue);
     }
 
+    /// <summary>
+    /// 开始一个有进度的动作 之后就会有了进度值逻辑
+    /// </summary>
+    /// <param name="action"></param>
+    /// <param name="maxValue"></param>
     public void StartProgressAction(eAction action, float maxValue)
     {
-        if ((HomeDefine.PROGRESS_ACTION_MASK & action) == 0)
+        if ((PROGRESS_ACTION_MASK & action) == 0)
         {
-            MLog.Error(eLogTag.home, $"不支持的进度操作:{action}");
+            Log.Error($"不支持的进度操作:{action}");
             return;
         }
 
         if (CurProgressAction == action)
         {
-            MLog.Error(eLogTag.home, "当前正在进行的进度操作和要开始的操作一样");
+            Log.Error("当前正在进行的进度操作和要开始的操作一样");
             return;
         }
+
+        StopHoldToFull();
 
         CurProgressAction = action;
         CurProgressActionMaxValue = maxValue;
         CurProgressActionValue = 0;
     }
 
+    /// <summary>
+    /// 结束进度值逻辑
+    /// </summary>
     public void EndProgressAction()
     {
         CurProgressAction = eAction.None;
         CurProgressActionMaxValue = 0;
         CurProgressActionValue = 0;
+
+        StopHoldToFull();
+    }
+
+    /// <summary>
+    /// 设置hold到满的时间
+    /// </summary>
+    /// <param name="fullTime">多久后充满 秒</param>
+    /// <param name="onProgressHoldFull"></param>
+    public void SetHoldToFull(float fullTime, Action<HomeActionProgressData> onProgressHoldFull)
+    {
+        StopHoldToFull();
+
+        if (fullTime <= 0)
+        {
+            Log.Error("fullTime必须大于0");
+            onProgressHoldFull?.Invoke(this);
+            return;
+        }
+
+        _onProgressHoldFull = onProgressHoldFull;
+        _tween = DOTween.To(() => CurProgressActionValue, x => CurProgressActionValue = x, CurProgressActionMaxValue, fullTime);
+        _tween.onComplete += () =>
+        {
+            CurProgressActionValue = CurProgressActionMaxValue;//防止精度问题
+            _onProgressHoldFull?.Invoke(this);
+            _onProgressHoldFull = null;
+            _tween = null;
+        };
+    }
+
+    /// <summary>
+    /// 停止hold到满的缓动
+    /// </summary>
+    public void StopHoldToFull()
+    {
+        if (_tween == null)
+        {
+            return;
+        }
+
+        _tween.Kill();
+        _tween = null;
+        _onProgressHoldFull = null;
+    }
+
+    /// <summary>
+    /// 直接设置进度值 会停掉hold到满的缓动
+    /// </summary>
+    /// <param name="progressValue">进度值</param>
+    public void SetProgressValue(int progressValue)
+    {
+        StopHoldToFull();
+
+        CurProgressActionValue = progressValue;
     }
 }

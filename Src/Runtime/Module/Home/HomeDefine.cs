@@ -22,11 +22,20 @@ public static class HomeDefine
     public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
 
     public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 20;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
+    public const int WATER_ACTION_PROGRESS_SPEED = 50;//浇水动作的进度速度 每秒
 
     /// <summary>
     /// 支持进度的动作集合
     /// </summary>
     public const eAction PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Watering | eAction.Mining | eAction.Cut;
+    /// <summary>
+    /// 需要消耗道具的动作集合
+    /// </summary>
+    public const eAction NEED_COST_ITEM_ACTION_MASK = eAction.Sowing | eAction.Manure;
+    /// <summary>
+    /// 持续性动作集合 比如浇水
+    /// </summary>
+    public const eAction HOLD_PROGRESS_ACTION_MASK = eAction.Watering;
 
     /// <summary>
     /// 土地状态间的数据定义key
