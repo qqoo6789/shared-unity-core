@@ -25,19 +25,4 @@ public class SEStunCore : SkillEffectBase
         RefEntity.EntityEvent.EntityRemoveStunEffect?.Invoke();
         base.OnRemove();
     }
-
-    public override bool CheckApplyEffect(EntityBase fromEntity, EntityBase targetEntity)
-    {
-
-        if (RefEntity.BattleDataCore != null)
-        {
-            //霸体状态不应该进入击退状态
-            if (RefEntity.BattleDataCore.HasBattleState(BattleDefine.eBattleState.Endure))
-            {
-                return false;
-            }
-        }
-
-        return base.CheckApplyEffect(fromEntity, targetEntity);
-    }
 }
