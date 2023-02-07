@@ -2,17 +2,19 @@
  * @Author: xiang huan
  * @Date: 2022-08-26 14:25:46
  * @Description: 实体碰撞盒
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityCollisionCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityCollisionCore.cs
  * 
  */
 using CMF;
 using UnityEngine;
-using UnityGameFramework.Runtime;
+using System.Collections.Generic;
 
 public abstract class EntityCollisionCore : EntityBaseComponent
 {
     public GameObject CollisionObject { get; private set; }
     public Collider BodyCollision { get; private set; }  //躯干碰撞盒
+
+    public HashSet<long> EntityTriggerSet = new(); //触碰实体Map
     /// <summary>
     /// 加载碰撞预制体
     /// </summary>
@@ -108,6 +110,38 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         RefEntity.EntityEvent.ColliderLoadFinish?.Invoke(CollisionObject);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.gameObject.layer & MLayerMask.ENTITY_TRIGGER) <= 0)
+        {
+            return;
+        }
+
+        EntityBase entity = GFEntryCore.GetModule<IEntityMgr>().GetEntityWithRoot<EntityBase>(other.gameObject);
+        if (entity != null && entity.Inited)
+        {
+            if (!EntityTriggerSet.Contains(entity.BaseData.Id))
+            {
+                _ = EntityTriggerSet.Add(entity.BaseData.Id);
+            }
+            RefEntity.EntityEvent.EntityTriggerEnter?.Invoke(entity);
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.gameObject.layer & MLayerMask.ENTITY_TRIGGER) <= 0)
+        {
+            return;
+        }
+        EntityBase entity = GFEntryCore.GetModule<IEntityMgr>().GetEntityWithRoot<EntityBase>(other.gameObject);
+        if (entity != null && entity.Inited)
+        {
+            _ = EntityTriggerSet.Remove(entity.BaseData.Id);
+            RefEntity.EntityEvent.EntityTriggerExit?.Invoke(entity);
+        }
+    }
     private void OnDestroy()
     {
         UnloadCollision();

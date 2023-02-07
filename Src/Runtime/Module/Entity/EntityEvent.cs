@@ -92,6 +92,14 @@ public class EntityEvent : EntityBaseComponent
     public Action EntityAvatarUpdated;
 
     /// <summary>
+    /// 主动移动开始 不包括强制位移
+    /// </summary>
+    public Action<EntityBase> EntityTriggerEnter;
+    /// <summary>
+    /// 主动移动结束 不包括强制位移
+    /// </summary>
+    public Action<EntityBase> EntityTriggerExit;
+    /// <summary>
     /// 给目标实体应用效果之前 T0:目标实体 T1:效果数据
     /// </summary>
     public Action<EntityBase, GameMessageCore.DamageEffect> BeforeGiveSkillEffect;
