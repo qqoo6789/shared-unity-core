@@ -9,7 +9,7 @@ using static HomeDefine;
 /// </summary>
 public class HomeActionProgressData : MonoBehaviour
 {
-    public float FullTimeStamp { get; private set; }//进度充满的时间戳 只在设置HoldToFull才有效
+    private int _fullTimeStamp;//进度充满的时间戳 只在设置HoldToFull才有效
     private Action<HomeActionProgressData> _onProgressHoldFull;//进度满了后回调
     private Tweener _tween;
     /// <summary>
@@ -111,7 +111,7 @@ public class HomeActionProgressData : MonoBehaviour
             return;
         }
 
-        FullTimeStamp = TimeUtil.GetTimeStamp() + (fullTime * TimeUtil.S2MS);
+        _fullTimeStamp = (int)(TimeUtil.GetTimeStamp() + (fullTime * TimeUtil.S2MS));
         _onProgressHoldFull = onProgressHoldFull;
         _tween = DOTween.To(() => CurProgressActionValue, x => CurProgressActionValue = x, CurProgressActionMaxValue, fullTime);
         _tween.onComplete += () =>
@@ -119,7 +119,7 @@ public class HomeActionProgressData : MonoBehaviour
             CurProgressActionValue = CurProgressActionMaxValue;//防止精度问题
             _onProgressHoldFull?.Invoke(this);
             _onProgressHoldFull = null;
-            FullTimeStamp = 0;
+            _fullTimeStamp = 0;
             _tween = null;
         };
     }
@@ -137,7 +137,7 @@ public class HomeActionProgressData : MonoBehaviour
         _tween.Kill();
         _tween = null;
         _onProgressHoldFull = null;
-        FullTimeStamp = 0;
+        _fullTimeStamp = 0;
     }
 
     /// <summary>
@@ -149,5 +149,36 @@ public class HomeActionProgressData : MonoBehaviour
         StopHoldToFull();
 
         CurProgressActionValue = progressValue;
+    }
+
+    /// <summary>
+    /// 获取初始化网络传递的进度信息 如果没有任何进度返回null
+    /// </summary>
+    /// <returns></returns>
+    public GameMessageCore.CollectResourceProgressResult GetInitProxyProgressInfo()
+    {
+        if (CurProgressAction == eAction.None)
+        {
+            return null;
+        }
+
+        if (HoldToFullHappening)
+        {
+            return new()
+            {
+                TotalProgress = Mathf.CeilToInt(CurProgressActionValue),
+                ProgressFullStamp = _fullTimeStamp,
+            };
+        }
+
+        if (CurProgressActionValue <= 0)
+        {
+            return null;
+        }
+
+        return new()
+        {
+            TotalProgress = Mathf.CeilToInt(CurProgressActionValue),
+        };
     }
 }
