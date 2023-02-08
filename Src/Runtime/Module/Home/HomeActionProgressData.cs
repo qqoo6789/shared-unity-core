@@ -9,8 +9,13 @@ using static HomeDefine;
 /// </summary>
 public class HomeActionProgressData : MonoBehaviour
 {
+    public float FullTimeStamp { get; private set; }//进度充满的时间戳 只在设置HoldToFull才有效
     private Action<HomeActionProgressData> _onProgressHoldFull;//进度满了后回调
     private Tweener _tween;
+    /// <summary>
+    /// 正在holdToFull中
+    /// </summary>
+    public bool HoldToFullHappening => _tween != null;
 
     /// <summary>
     /// 当前是否在进度型操作中 单一动作 不会是复合动作 None表示不在
@@ -95,7 +100,7 @@ public class HomeActionProgressData : MonoBehaviour
     /// </summary>
     /// <param name="fullTime">多久后充满 秒</param>
     /// <param name="onProgressHoldFull"></param>
-    public void SetHoldToFull(float fullTime, Action<HomeActionProgressData> onProgressHoldFull)
+    public void SetHoldToFull(float fullTime, Action<HomeActionProgressData> onProgressHoldFull = null)
     {
         StopHoldToFull();
 
@@ -106,6 +111,7 @@ public class HomeActionProgressData : MonoBehaviour
             return;
         }
 
+        FullTimeStamp = TimeUtil.GetTimeStamp() + (fullTime * TimeUtil.S2MS);
         _onProgressHoldFull = onProgressHoldFull;
         _tween = DOTween.To(() => CurProgressActionValue, x => CurProgressActionValue = x, CurProgressActionMaxValue, fullTime);
         _tween.onComplete += () =>
@@ -113,6 +119,7 @@ public class HomeActionProgressData : MonoBehaviour
             CurProgressActionValue = CurProgressActionMaxValue;//防止精度问题
             _onProgressHoldFull?.Invoke(this);
             _onProgressHoldFull = null;
+            FullTimeStamp = 0;
             _tween = null;
         };
     }
@@ -130,6 +137,7 @@ public class HomeActionProgressData : MonoBehaviour
         _tween.Kill();
         _tween = null;
         _onProgressHoldFull = null;
+        FullTimeStamp = 0;
     }
 
     /// <summary>

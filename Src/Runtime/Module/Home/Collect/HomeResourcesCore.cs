@@ -26,21 +26,28 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         _ = gameObject.AddComponent<HomeActionProgressData>();
     }
 
-    protected virtual void Start()
+    /// <summary>
+    /// 初始化基础的ResourceData之后调用  用来第一次初始化基础的内容
+    /// </summary>
+    public void OnInitedResourceData()
     {
         Id = (ulong)RefEntity.BaseData.Id;
         ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
         DRHomeResources dr = resourceData.DRHomeResources;
         SupportAction = TableUtil.ToHomeAction(dr.HomeAction);
 
-        if (HomeModuleCore.IsInited)//在家园里
-        {
-            HomeModuleCore.SoilResourceRelation.AddResourceOnSoil((long)Id, resourceData.SaveData.Id);
-        }
-
         if ((PROGRESS_ACTION_MASK & SupportAction) != 0)
         {
             GetComponent<HomeActionProgressData>().StartProgressAction(SupportAction, SOIL_PROGRESS_ACTION_MAX_VALUE);
+        }
+    }
+
+    protected virtual void Start()
+    {
+        if (HomeModuleCore.IsInited)//在家园里
+        {
+            ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
+            HomeModuleCore.SoilResourceRelation.AddResourceOnSoil((long)Id, resourceData.SaveData.Id);
         }
     }
 

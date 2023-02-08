@@ -6,18 +6,11 @@ using UnityEngine;
 public static class HomeDefine
 {
     public const int COLLECT_RESOURCE_DEATH_TIME = 1000;//采集资源死亡时间 ms
+    public const float PROGRESS_FULL_ANIM_TIME = 0.7f;//进度满了后的动画时间 需要等待
 
-    //TODO: 需要正式配置
-    public const int SOIL_X_NUM = 10;
-    public const int SOIL_Z_NUM = 10;
     public static readonly Vector3 SOIL_SIZE = new Vector3(1.2f,1.0f,1.2f);  //土地格子大小
     public static readonly Vector3 EMPTY_SIZE = Vector3.one; //空地格子大小
 
-    //TODO:需要正式配置时间
-    // public const int SOIL_NEED_HOEING_EFFECT_VALUE = 100;//锄地需要的效果值
-    // public const int SOIL_HOEING_EFFECT_VALUE_LOST_SPEED = 20;//锄地效果值减少速度  每秒
-    // public const int SOIL_NEED_WATERING_EFFECT_VALUE = 100;//浇水需要的效果值
-    // public const int SOIL_WATERING_EFFECT_VALUE_LOST_SPEED = 10;//浇水效果值减少速度 每秒
     public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 10;//进度动作统一流逝速度 每秒
     public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
 
@@ -25,17 +18,21 @@ public static class HomeDefine
     public const int WATER_ACTION_PROGRESS_SPEED = 50;//浇水动作的进度速度 每秒
 
     /// <summary>
-    /// 支持进度的动作集合
-    /// </summary>
-    public const eAction PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Watering | eAction.Mining | eAction.Cut;
-    /// <summary>
     /// 需要消耗道具的动作集合
     /// </summary>
     public const eAction NEED_COST_ITEM_ACTION_MASK = eAction.Sowing | eAction.Manure;
     /// <summary>
-    /// 持续性动作集合 比如浇水
+    /// 持续性进度动作集合 比如浇水
     /// </summary>
     public const eAction HOLD_PROGRESS_ACTION_MASK = eAction.Watering;
+    /// <summary>
+    /// 分段进度动作集合 比如锄地
+    /// </summary>
+    public const eAction SEGMENT_PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Mining | eAction.Cut;
+    /// <summary>
+    /// 支持进度的动作集合
+    /// </summary>
+    public const eAction PROGRESS_ACTION_MASK = HOLD_PROGRESS_ACTION_MASK | SEGMENT_PROGRESS_ACTION_MASK;
 
     /// <summary>
     /// 土地状态间的数据定义key
