@@ -99,7 +99,7 @@ public class SEBloodRageCore : SkillEffectBase
         float curHP = RefEntity.BattleDataCore.HP;
 
         float lostHpPercent = (maxHP - curHP) / maxHP * 100f;
-        return lostHpPercent;
+        return Math.Clamp(lostHpPercent, 0f, 100f);//血量可能是负数，这里做一下限制
     }
 
     private eAttributeType GetAttributeType(int cfgData)
