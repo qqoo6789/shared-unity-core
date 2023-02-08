@@ -24,8 +24,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     private EntityInputData _inputData;
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
-
-    protected float ReleaseTimeScale;
+    protected double SkillTimeScale;
 
     /// <summary>
     /// 是否正常继续战斗状态离开的 false以为着是打断离开的
@@ -41,6 +40,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
         Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
+        SkillTimeScale = fsm.GetData<VarDouble>(StatusDataDefine.SKILL_TIME_SCALE).Value;
         CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
         float releaseSpd = StatusCtrl.RefEntity.EntityAttributeData.GetRealValue((eAttributeType)CurSkillCfg.ReleaseSpd);
         ReleaseTimeScale = Math.Max(1 + releaseSpd, 0.1f);
@@ -131,7 +131,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         try
         {
             _forwardTimeToken = new();
-            await UniTask.Delay((int)(CurSkillCfg.ForwardReleaseTime / ReleaseTimeScale), false, PlayerLoopTiming.Update, _forwardTimeToken.Token);
+            await UniTask.Delay((int)(CurSkillCfg.ForwardReleaseTime / SkillTimeScale), false, PlayerLoopTiming.Update, _forwardTimeToken.Token);
         }
         catch (Exception)
         {

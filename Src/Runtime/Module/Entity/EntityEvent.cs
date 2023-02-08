@@ -57,9 +57,10 @@ public class EntityEvent : EntityBaseComponent
     #region 战斗相关事件
 
     /// <summary>
-    /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID T1:dir技能朝向 T2:targets技能目标列表 T3:isTry 是否尝试释放技能不是尝试代表一定要放
+    /// 输入技能释放 发送消息前需要自行检查配置 后面不会再重复检查 T0:skillID T1:dir技能朝向 T2:targets技能目标列表 T3:isTry 是否尝试释放技能不是尝试代表一定要放 
+    /// T4: 施法速率
     /// </summary>
-    public Action<int, Vector3, long[], bool> InputSkillRelease;
+    public Action<int, Vector3, long[], bool, double> InputSkillRelease;
     /// <summary>
     /// 尝试停止持续技能的持续状态
     /// </summary>
@@ -80,6 +81,11 @@ public class EntityEvent : EntityBaseComponent
     /// 离开技能后摇释放
     /// </summary>
     public Action ExitSkillCast;
+
+    /// <summary>
+    /// 技能释放命中 T0:skillID T1:dir技能朝向 T2:targets技能目标列表
+    /// </summary>
+    public Action<int, Vector3, long[]> SkillCastHit;
 
     /// <summary>
     /// 实体属性更新  T0:属性类型 T1:更新后到属性值

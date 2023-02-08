@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/OnInputSkillInBattleStatusEventFunc.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/OnInputSkillInBattleStatusEventFunc.cs
  */
 
 using UnityEngine;
@@ -22,7 +22,7 @@ public class OnInputSkillInBattleStatusEventFunc : EntityStatusEventFunctionBase
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    private void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry)
+    private void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry, double timeScale)
     {
         bool valid = false;
 
@@ -46,6 +46,7 @@ public class OnInputSkillInBattleStatusEventFunc : EntityStatusEventFunctionBase
             OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
             OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
             OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+            OwnerFsm.SetData<VarDouble>(StatusDataDefine.SKILL_TIME_SCALE, timeScale);
             EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
         }
     }

@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 19:31:15
- * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/WaitToBattleStatusEventFunc.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/WaitToBattleStatusEventFunc.cs
  */
 
 using UnityGameFramework.Runtime;
@@ -20,7 +20,7 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
         entityEvent.InputSkillRelease -= OnInputSkillRelease;
     }
 
-    protected virtual void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets, bool isTry)
+    protected virtual void OnInputSkillRelease(int skillID, UnityEngine.Vector3 dir, long[] targets, bool isTry, double timeScale)
     {
         if (EntityStatus is not IEntityCanSkill entityCanSkill)
         {
@@ -37,6 +37,7 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
         OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
         OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
         OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+        OwnerFsm.SetData<VarDouble>(StatusDataDefine.SKILL_TIME_SCALE, timeScale);
         EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 }

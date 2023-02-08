@@ -20,6 +20,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     public override string StatusName => Name;
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
+    protected double SkillTimeScale;
 
     protected DRSkill CurSkillCfg;
     private CancellationTokenSource _castTimeToken;
@@ -37,6 +38,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         int skillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
         SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
         Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
+        SkillTimeScale = fsm.GetData<VarDouble>(StatusDataDefine.SKILL_TIME_SCALE).Value;
 
         CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
         float releaseSpd = StatusCtrl.RefEntity.EntityAttributeData.GetRealValue((eAttributeType)CurSkillCfg.ReleaseSpd);
@@ -84,6 +86,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             _ = fsm.RemoveData(StatusDataDefine.SKILL_ID);
             _ = fsm.RemoveData(StatusDataDefine.SKILL_DIR);
             _ = fsm.RemoveData(StatusDataDefine.SKILL_TARGETS);
+            _ = fsm.RemoveData(StatusDataDefine.SKILL_TIME_SCALE);
             _continueNextSkill = false;
         }
         base.OnLeave(fsm, isShutdown);
@@ -112,7 +115,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             return;
         }
     }
-    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry)
+    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry, double timeScale)
     {
         bool valid = false;
 
@@ -138,6 +141,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
             OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
             OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+            OwnerFsm.SetData<VarDouble>(StatusDataDefine.SKILL_TIME_SCALE, timeScale);
             ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
         }
     }
@@ -150,7 +154,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         try
         {
             _castTimeToken = new();
-            int delayTime = (int)((CurSkillCfg.ReleaseTime - CurSkillCfg.ForwardReleaseTime) / ReleaseTimeScale);
+            int delayTime = (int)((CurSkillCfg.ReleaseTime - CurSkillCfg.ForwardReleaseTime) / SkillTimeScale);
             await UniTask.Delay(delayTime, false, PlayerLoopTiming.Update, _castTimeToken.Token);
         }
         catch (System.Exception)
