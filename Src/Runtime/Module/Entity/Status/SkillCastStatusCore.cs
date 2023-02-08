@@ -67,7 +67,17 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             Log.Error($"skill cast execute error ={e}");
         }
 
-        TimeCastFinish();
+        CancelTimeCastFinish();
+
+        //如果是持续技能 不用定时去下个阶段 而是需要等待取消动作
+        if (CurSkillCfg.IsHoldSkill)
+        {
+            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill += StopHoldSkill;
+        }
+        else
+        {
+            TimeCastFinish();
+        }
 
         StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(CurSkillCfg);
     }
@@ -76,7 +86,15 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     {
         StatusCtrl.RefEntity.EntityEvent.ExitSkillCast?.Invoke();
 
-        CancelTimeCastFinish();
+        if (CurSkillCfg.IsHoldSkill)
+        {
+            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill -= StopHoldSkill;
+        }
+        else
+        {
+            CancelTimeCastFinish();
+        }
+
         CurSkillCfg = null;
         Targets = null;
         SkillDir = Vector3.zero;
@@ -179,6 +197,14 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             _castTimeToken.Cancel();
             _castTimeToken = null;
         }
+    }
+
+    /// <summary>
+    /// 停止持续技能的持续行为
+    /// </summary>
+    protected virtual void StopHoldSkill()
+    {
+        OnFinishChangeToNextStatus();
     }
 
     /// <summary>
