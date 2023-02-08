@@ -23,6 +23,8 @@ public static class BattleDefine
         SEAttributeModifierCore = 1007,
         SEDotDamage = 1009,
         SECollisionTrigger = 1010,
+        SETriggerQuickCastSkill = 1011,
+
     }
 
     public enum eSkillShapeId : int
