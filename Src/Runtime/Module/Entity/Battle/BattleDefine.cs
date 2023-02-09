@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: 战斗公共定义
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
  * 
  */
 
@@ -67,6 +67,7 @@ public static class BattleDefine
     public const int SKILL_USE_TAG = (int)eSkillType.General | (int)eSkillType.Channel | (int)eSkillType.Toggle;
     public const int JUMP_SKILL_ID_NULL = -1;
     public const int QUICK_USE_SKILL_TIME_SCALE = 2;
+    public const int USE_SKILL_TIME_SCALE = 1;
     public static eBattleState[] BATTLE_STATE_CANNOT_MOVE_LIST = { eBattleState.Stun, eBattleState.Root };
     public static eBattleState[] BATTLE_STATE_CANNOT_SKILL_LIST = { eBattleState.Stun, eBattleState.Silence };
 }
