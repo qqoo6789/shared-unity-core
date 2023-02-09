@@ -19,6 +19,15 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
     public eAction SupportAction { get; set; } = eAction.None;
 
+    public int Lv
+    {
+        get
+        {
+            ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
+            return resourceData.DRHomeResources.Lv;
+        }
+    }
+
     protected virtual void Awake()
     {
         IsDead = false;

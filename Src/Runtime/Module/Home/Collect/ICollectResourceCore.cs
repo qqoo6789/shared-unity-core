@@ -22,6 +22,11 @@ public interface ICollectResourceCore
     /// </summary>
     /// <value></value>
     Vector3 Position { get; }
+    /// <summary>
+    /// 等级
+    /// </summary>
+    /// <value></value>
+    int Lv { get; }
 
     /// 检查是否支持当前复合动作
     /// </summary>

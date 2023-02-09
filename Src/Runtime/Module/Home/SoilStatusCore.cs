@@ -149,7 +149,6 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
     //清理上次动作效果数据 那种有进度的数据
     private void ClearLastActionData()
     {
-        //TODO: home
         // SoilData.SaveData.LastActionEffectValue = 0;
         // SoilData.SaveData.LastActionStamp = 0;
     }

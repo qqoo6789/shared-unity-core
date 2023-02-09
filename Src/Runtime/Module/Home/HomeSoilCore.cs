@@ -21,6 +21,8 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
 
     public eAction SupportAction => GetCurStatus().SupportAction;
 
+    public int Lv => throw new System.NotImplementedException();//目前业务没有需要读的 否则报错
+
     protected virtual void Awake()
     {
         SoilEvent = gameObject.AddComponent<SoilEvent>();
