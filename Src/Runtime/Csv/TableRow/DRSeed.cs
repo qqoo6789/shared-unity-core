@@ -86,6 +86,24 @@ public class DRSeed : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取收获经验。*/
+    /// </summary>
+    public int Exp
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取等级。*/
+    /// </summary>
+    public int Lv
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -99,6 +117,8 @@ public class DRSeed : DataRowBase
         NeedWaterValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestRes = columnStrings[index++];
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -118,6 +138,8 @@ public class DRSeed : DataRowBase
                 NeedWaterValue = binaryReader.Read7BitEncodedInt32();
                 HarvestRes = binaryReader.ReadString();
                 DropId = binaryReader.Read7BitEncodedInt32();
+                Exp = binaryReader.Read7BitEncodedInt32();
+                Lv = binaryReader.Read7BitEncodedInt32();
             }
         }
 
