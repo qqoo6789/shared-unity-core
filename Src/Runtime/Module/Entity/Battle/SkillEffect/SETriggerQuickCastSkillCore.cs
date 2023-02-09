@@ -23,12 +23,15 @@ public class SETriggerQuickCastSkillCore : SkillEffectBase
         {
             return;
         }
-        if (EffectCfg.Parameters2 == null || EffectCfg.Parameters.Length != 2)
+        if (EffectCfg.Parameters2 == null || EffectCfg.Parameters2.Length != 2)
         {
             Log.Error($"SETriggerQuickCastSkillCore Parameters2 Error EffectID = {EffectID}");
             return;
         }
-        TriggerIDMap.CopyTo(EffectCfg.Parameters2[0]);
+        for (int i = 0; i < EffectCfg.Parameters2[0].Length; i++)
+        {
+            _ = TriggerIDMap.Add(EffectCfg.Parameters2[0][i]);
+        }
 
         TriggerType = EffectCfg.Parameters2[1][0];
         TriggerRate = EffectCfg.Parameters2[1][1];
