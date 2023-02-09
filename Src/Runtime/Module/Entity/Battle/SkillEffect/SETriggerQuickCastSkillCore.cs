@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 /*
 * @Author: xiang huan
 * @Date: 2022-07-19 16:19:58
@@ -10,8 +11,7 @@ using UnityGameFramework.Runtime;
 
 public class SETriggerQuickCastSkillCore : SkillEffectBase
 {
-
-    protected int TriggerSkillID;
+    protected HashSet<int> TriggerIDMap = new();
     protected int TriggerType;
     protected int TriggerRate;
     protected int CastSkillID;
@@ -23,15 +23,16 @@ public class SETriggerQuickCastSkillCore : SkillEffectBase
         {
             return;
         }
-        if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length < 4)
+        if (EffectCfg.Parameters2 == null || EffectCfg.Parameters.Length != 2)
         {
-            Log.Error($"SETriggerQuickCastSkillCore Parameters Error EffectID = {EffectID}");
+            Log.Error($"SETriggerQuickCastSkillCore Parameters2 Error EffectID = {EffectID}");
             return;
         }
-        TriggerSkillID = EffectCfg.Parameters[0];
-        TriggerType = EffectCfg.Parameters[1];
-        TriggerRate = EffectCfg.Parameters[2];
-        CastSkillID = EffectCfg.Parameters[3];
+        TriggerIDMap.CopyTo(EffectCfg.Parameters2[0]);
+
+        TriggerType = EffectCfg.Parameters2[1][0];
+        TriggerRate = EffectCfg.Parameters2[1][1];
+        CastSkillID = EffectCfg.Parameters2[1][2];
 
     }
 }
