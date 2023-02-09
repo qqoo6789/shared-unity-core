@@ -11,7 +11,7 @@ public static class HomeDefine
     public static readonly Vector3 SOIL_SIZE = new Vector3(1.2f,1.0f,1.2f);  //土地格子大小
     public static readonly Vector3 EMPTY_SIZE = Vector3.one; //空地格子大小
 
-    public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 10;//进度动作统一流逝速度 每秒
+    public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 3;//进度动作统一流逝速度 每秒
     public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
 
     public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 20;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒

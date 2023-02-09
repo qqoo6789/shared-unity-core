@@ -15,7 +15,7 @@ public class HomeActionProgressData : MonoBehaviour
     /// <summary>
     /// 正在holdToFull中
     /// </summary>
-    public bool HoldToFullHappening => _tween != null;
+    public bool IsHoldToFulling => _tween != null;
 
     /// <summary>
     /// 当前是否在进度型操作中 单一动作 不会是复合动作 None表示不在
@@ -113,7 +113,7 @@ public class HomeActionProgressData : MonoBehaviour
 
         _fullTimeStamp = (int)(TimeUtil.GetTimeStamp() + (fullTime * TimeUtil.S2MS));
         _onProgressHoldFull = onProgressHoldFull;
-        _tween = DOTween.To(() => CurProgressActionValue, x => CurProgressActionValue = x, CurProgressActionMaxValue, fullTime);
+        _tween = DOTween.To(() => CurProgressActionValue, x => CurProgressActionValue = x, CurProgressActionMaxValue, fullTime).SetEase(Ease.Linear);
         _tween.onComplete += () =>
         {
             CurProgressActionValue = CurProgressActionMaxValue;//防止精度问题
@@ -152,17 +152,41 @@ public class HomeActionProgressData : MonoBehaviour
     }
 
     /// <summary>
+    /// 检查是否进度是空信息
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckProcessIsEmptyInfo()
+    {
+        if (CurProgressAction == eAction.None)
+        {
+            return true;
+        }
+
+        if (IsHoldToFulling)
+        {
+            return false;
+        }
+
+        if (CurProgressActionValue > 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
     /// 获取初始化网络传递的进度信息 如果没有任何进度返回null
     /// </summary>
     /// <returns></returns>
     public GameMessageCore.CollectResourceProgressResult GetInitProxyProgressInfo()
     {
-        if (CurProgressAction == eAction.None)
+        if (CheckProcessIsEmptyInfo())
         {
             return null;
         }
 
-        if (HoldToFullHappening)
+        if (IsHoldToFulling)
         {
             return new()
             {
@@ -179,6 +203,7 @@ public class HomeActionProgressData : MonoBehaviour
         return new()
         {
             TotalProgress = Mathf.CeilToInt(CurProgressActionValue),
+            ProgressFullStamp = 0,
         };
     }
 }
