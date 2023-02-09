@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-01-16 09:44:22
  * @Description: 
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Editor/Battle/SkillCptInspector.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Editor/Battle/SkillCptInspector.cs
  * 
  */
 using System.Collections.Generic;
@@ -55,7 +55,8 @@ namespace SharedCore.Editor
                         {
                             return;
                         }
-                        skillCpt.RefEntity.EntityEvent.InputSkillRelease?.Invoke(value, dir, null, true, BattleDefine.USE_SKILL_TIME_SCALE);
+                        InputSkillReleaseData inputData = new(value, dir, null, Vector3.zero);
+                        skillCpt.RefEntity.EntityEvent.InputSkillRelease?.Invoke(inputData);
                     }
                 }
             }

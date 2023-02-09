@@ -25,6 +25,8 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     private EntityInputData _inputData;
     protected CancellationTokenSource CancelToken;
 
+    protected InputSkillReleaseData InputSkillData;
+
     public static new string Name => "skillAccumulate";
     public override string StatusName => Name;
     /// <summary>
@@ -41,11 +43,11 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     {
         base.OnEnter(fsm);
         IsContinueBattleLeave = false;
-
-        SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
-        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
-        SkillTimeScale = fsm.GetData<VarDouble>(StatusDataDefine.SKILL_TIME_SCALE).Value;
+        InputSkillData = fsm.GetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT).Value;
+        SkillID = InputSkillData.SkillID;
+        SkillDir = InputSkillData.Dir;
+        Targets = InputSkillData.Targets;
+        SkillTimeScale = InputSkillData.SkillTimeScale;
         CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
 
         if (CurSkillCfg == null)
