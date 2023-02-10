@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-01-11 14:21:18
  * @Description: 实体整型属性
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/IntAttribute.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/IntAttribute.cs
  * 
  */
 
@@ -16,6 +16,16 @@ public class IntAttribute : IReference
     /// 当前值
     /// </summary>
     public int Value { get; private set; }
+
+    /// <summary>
+    /// 乘以系数计算后的值
+    /// </summary>
+    public float RealValue { get; private set; }
+
+    /// <summary>
+    /// 乘法系数
+    /// </summary>
+    public float Coefficient { get; private set; }
     /// <summary>
     /// 基础值
     /// </summary>
@@ -45,9 +55,11 @@ public class IntAttribute : IReference
     public static readonly float PERCENTAGE_FLAG = 1000f;
 
 
-    public void Initialize()
+    public void Initialize(float coefficient)
     {
         BaseValue = Add = PctAdd = FinalAdd = FinalPctAdd = 0;
+        RealValue = 0f;
+        Coefficient = coefficient;
     }
     public int SetBase(int value)
     {
@@ -122,20 +134,21 @@ public class IntAttribute : IReference
         float value2 = (value1 + Add) * (PERCENTAGE_FLAG + PctAdd) / PERCENTAGE_FLAG;
         float value3 = (value2 + FinalAdd) * (PERCENTAGE_FLAG + FinalPctAdd) / PERCENTAGE_FLAG;
         Value = (int)value3;
+        RealValue = Value * Coefficient;
     }
     public virtual void Clear()
     {
-        Initialize();
+        Initialize(1f);
         _addCollector.Clear();
         _pctAddCollector.Clear();
         _finalAddCollector.Clear();
         _finalPctAddCollector.Clear();
     }
 
-    public static IntAttribute Create()
+    public static IntAttribute Create(float coefficient)
     {
         IntAttribute attribute = ReferencePool.Acquire<IntAttribute>();
-        attribute.Initialize();
+        attribute.Initialize(coefficient);
         return attribute;
     }
 

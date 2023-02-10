@@ -214,6 +214,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取释放加速度。*/
+    /// </summary>
+    public int ReleaseSpd
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取技能释放时间。*/
     /// </summary>
     public int ReleaseTime
@@ -376,6 +385,7 @@ public class DRSkill : DataRowBase
         ReleaseAct = columnStrings[index++];
         ReleaseEff = columnStrings[index++];
         ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        ReleaseSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ForwardReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
@@ -424,6 +434,7 @@ public class DRSkill : DataRowBase
                 ReleaseAct = binaryReader.ReadString();
                 ReleaseEff = binaryReader.ReadString();
                 ReleaseSound = binaryReader.ReadArray<String>();
+                ReleaseSpd = binaryReader.Read7BitEncodedInt32();
                 ReleaseTime = binaryReader.Read7BitEncodedInt32();
                 ForwardReleaseTime = binaryReader.Read7BitEncodedInt32();
                 RangeTips = binaryReader.ReadBoolean();

@@ -51,7 +51,10 @@ public class EntitySkillDataCore : EntityBaseComponent
         SetJumpSkillID(BattleDefine.JUMP_SKILL_ID_NULL);
         RemoveBaseSkillList();
         RemoveEquipmentSkill();
-        RefEntity.EntityEvent.EntityAvatarUpdated -= OnUpdateEquipmentSkillID;
+        if (RefEntity != null)
+        {
+            RefEntity.EntityEvent.EntityAvatarUpdated -= OnUpdateEquipmentSkillID;
+        }
     }
 
     public void AddBaseSkillList(int[] skillIDs)
@@ -89,6 +92,10 @@ public class EntitySkillDataCore : EntityBaseComponent
             {
                 Log.Error($"OnUpdateEquipmentSkillID not find equipment id:{avatar.ObjectId}");
             }
+        }
+        else
+        {
+            RemoveEquipmentSkill();
         }
     }
 

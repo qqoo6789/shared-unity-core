@@ -70,16 +70,16 @@ public class DRTalentTree : DataRowBase
     }
 
     /// <summary>
-  /**获取天赋收益。*/
+  /**获取天赋收益类型。*/
     /// </summary>
-    public int Gains
+    public int GainsType
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取收益参数。*/
+  /**获取天赋收益参数。*/
     /// </summary>
     public int[][] GainsArgs
     {
@@ -91,6 +91,15 @@ public class DRTalentTree : DataRowBase
   /**获取节点升级经验。*/
     /// </summary>
     public int[] UpgradeEXP
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取节点升级token。*/
+    /// </summary>
+    public int[] UpgradeToken
     {
         get;
         private set;
@@ -161,9 +170,10 @@ public class DRTalentTree : DataRowBase
         UpgradeRequireTreeLv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Layer = DataTableParseUtil.ParseInt(columnStrings[index++]);
         LvLimit = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Gains = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GainsType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GainsArgs = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         UpgradeEXP = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        UpgradeToken = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         PreNode = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         PostNode = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Col = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -187,9 +197,10 @@ public class DRTalentTree : DataRowBase
                 UpgradeRequireTreeLv = binaryReader.Read7BitEncodedInt32();
                 Layer = binaryReader.Read7BitEncodedInt32();
                 LvLimit = binaryReader.Read7BitEncodedInt32();
-                Gains = binaryReader.Read7BitEncodedInt32();
+                GainsType = binaryReader.Read7BitEncodedInt32();
                 GainsArgs = binaryReader.ReadArrayList<Int32>();
                 UpgradeEXP = binaryReader.ReadArray<Int32>();
+                UpgradeToken = binaryReader.ReadArray<Int32>();
                 PreNode = binaryReader.ReadArray<Int32>();
                 PostNode = binaryReader.ReadArray<Int32>();
                 Col = binaryReader.Read7BitEncodedInt32();
