@@ -97,4 +97,15 @@ public static class MathUtilCore
     {
         return (int)(pointId >> 32);
     }
+
+    public static List<T> RandomSortList<T>(List<T> listT)
+    {
+        System.Random random = new();
+        List<T> newList = new();
+        foreach (T item in listT)
+        {
+            newList.Insert(random.Next(newList.Count + 1), item);
+        }
+        return newList;
+    }
 }
