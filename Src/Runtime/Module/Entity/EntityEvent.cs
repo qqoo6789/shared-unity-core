@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
 using UnityEngine;
@@ -91,6 +91,23 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action EntityAvatarUpdated;
 
+    /// <summary>
+    /// 给目标实体应用效果之前 T0:目标实体 T1:效果数据
+    /// </summary>
+    public Action<EntityBase, GameMessageCore.DamageEffect> BeforeGiveSkillEffect;
+    /// <summary>
+    /// 给目标实体应用效果之后 T0:目标实体 T1:效果数据
+    /// </summary>
+    public Action<EntityBase, GameMessageCore.DamageEffect> AfterGiveSkillEffect;
+
+    /// <summary>
+    /// 实体应用效果之前 T0:效果数据
+    /// </summary>
+    public Action<GameMessageCore.DamageEffect> BeforeApplySkillEffect;
+    /// <summary>
+    /// 实体应用效果之后 T0:效果数据
+    /// </summary>
+    public Action<GameMessageCore.DamageEffect> AfterApplySkillEffect;
 
     #endregion
 }
