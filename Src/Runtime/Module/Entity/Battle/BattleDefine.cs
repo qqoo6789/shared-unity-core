@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: 战斗公共定义
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
  * 
  */
 
@@ -24,6 +24,7 @@ public static class BattleDefine
         SEDotDamage = 1009,
         SECollisionTrigger = 1010,
         SETriggerQuickCastSkill = 1011,
+        SESkillRangeTrigger = 1012,
 
     }
 
