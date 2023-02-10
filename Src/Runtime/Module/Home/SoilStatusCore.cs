@@ -73,48 +73,50 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
         }
 
         _needInitJumpNextStatus = false;
-        float nextStatusRemainTime = 0;
         //如果是初始化状态就保留初始化数据中的进入时间戳 否则都要重新设置
         if (fsm.HasData(SoilStatusDataName.IS_INIT_STATUS))
         {
-            if (AutoEnterNextStatusTime > 0)
-            {
-                float costTime = (GetNowTimestamp() - SoilData.SaveData.StatusStartStamp) * TimeUtil.MS2S;
-                float initRemainTime = AutoEnterNextStatusTime - costTime;
-                if (initRemainTime < 0)//已经到了下一个状态的时间  直接跳到下一个状态
-                {
-                    SoilData.SaveData.StatusStartStamp += (long)(AutoEnterNextStatusTime * TimeUtil.S2MS);//下个状态的开始时间会延后本次自动切换的时间
-                    _needInitJumpNextStatus = true;
-                    //不去掉出初始化标记 让下个状态继续走初始化状态
-                    ClearLastActionData();//初始化切状态了需要清理上次动作效果数据 否则会带到下一次初始化状态中去 上下文会不对
-                }
-                else//还没到下一个状态的时间 继续等待 并删掉初始化标记
-                {
-                    nextStatusRemainTime = initRemainTime;
-                    _ = fsm.RemoveData(SoilStatusDataName.IS_INIT_STATUS);
-                }
-            }
-            else
-            {
-                _ = fsm.RemoveData(SoilStatusDataName.IS_INIT_STATUS);
-            }
+            OnEnterInitStatus(fsm);
         }
-        else
+        else//正常进入
         {
             ResetEnterStatusStamp();
 
             if (AutoEnterNextStatusTime > 0)
             {
-                nextStatusRemainTime = AutoEnterNextStatusTime;
+                _isTimerNextStatus = true;
+                TimerMgr.AddTimer(GetHashCode(), AutoEnterNextStatusTime * TimeUtil.S2MS, OnAutoEnterNextStatus);
             }
-
-            ClearLastActionData();
         }
+    }
 
-        if (nextStatusRemainTime > 0)
+    /// <summary>
+    /// 在进入状态时为初始化状态时的处理 主要是在服务器启动时会根据DB回复之前的状态 需要重新计算下一个状态
+    /// </summary>
+    /// <param name="fsm"></param>
+    protected virtual void OnEnterInitStatus(IFsm<SoilStatusCtrl> fsm)
+    {
+        if (AutoEnterNextStatusTime > 0)
         {
-            _isTimerNextStatus = true;
-            TimerMgr.AddTimer(GetHashCode(), nextStatusRemainTime * TimeUtil.S2MS, OnAutoEnterNextStatus);
+            float costTime = (GetNowTimestamp() - SoilData.SaveData.StatusStartStamp) * TimeUtil.MS2S;
+            float initRemainTime = AutoEnterNextStatusTime - costTime;
+            if (initRemainTime < 0)//已经到了下一个状态的时间  直接跳到下一个状态
+            {
+                SoilData.SaveData.StatusStartStamp += (long)(AutoEnterNextStatusTime * TimeUtil.S2MS);//下个状态的开始时间会延后本次自动切换的时间
+                _needInitJumpNextStatus = true;
+                //不去掉出初始化标记 让下个状态继续走初始化状态
+            }
+            else//还没到下一个状态的时间 继续等待 并删掉初始化标记
+            {
+                _ = fsm.RemoveData(SoilStatusDataName.IS_INIT_STATUS);
+
+                _isTimerNextStatus = true;
+                TimerMgr.AddTimer(GetHashCode(), initRemainTime * TimeUtil.S2MS, OnAutoEnterNextStatus);
+            }
+        }
+        else
+        {
+            _ = fsm.RemoveData(SoilStatusDataName.IS_INIT_STATUS);
         }
     }
 
@@ -144,13 +146,6 @@ public abstract class SoilStatusCore : ComponentStatusCore<SoilStatusCtrl>
         {
             OnAutoEnterNextStatus();
         }
-    }
-
-    //清理上次动作效果数据 那种有进度的数据
-    private void ClearLastActionData()
-    {
-        // SoilData.SaveData.LastActionEffectValue = 0;
-        // SoilData.SaveData.LastActionStamp = 0;
     }
 
     private void OnMsgExecuteAction(eAction action, object actionData)

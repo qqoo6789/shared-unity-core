@@ -53,7 +53,7 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         return GetCurStatus().CheckSupportAction(action);
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
     {
         if (action == eAction.Sowing)
         {
@@ -66,6 +66,11 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         else
         {
             SoilEvent.MsgExecuteAction?.Invoke(action, null);
+        }
+
+        if (action == eAction.Watering && extraWateringNum > 0)
+        {
+            SoilData.SaveData.ExtraWateringNum = extraWateringNum;
         }
     }
 }

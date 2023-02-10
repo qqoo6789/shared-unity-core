@@ -106,6 +106,25 @@ public static class MathUtilCore
         return (int)(pointId >> 32);
     }
 
+    /// <summary>
+    /// 随机一个概率 参数为0~1 返回这次随机是否命中
+    /// </summary>
+    /// <param name="probability"></param>
+    /// <returns></returns>
+    public static bool RandomFromProbability1(float probability)
+    {
+        return UnityEngine.Random.Range(0f, 1f) < probability;
+    }
+
+    /// <summary>
+    /// 随机一个概率 参数为0~100 返回这次随机是否命中
+    /// </summary>
+    /// <param name="probability"></param>
+    /// <returns></returns>
+    public static bool RandomFromProbability100(float probability)
+    {
+        return UnityEngine.Random.Range(0f, 100f) < probability;
+    }
     public static List<T> RandomSortList<T>(List<T> listT)
     {
         for (int i = 0; i < listT.Count; i++)

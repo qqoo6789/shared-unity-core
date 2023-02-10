@@ -44,5 +44,6 @@ public interface ICollectResourceCore
     /// <param name="action"></param>
     /// <param name="toolCid">工具id 可能是种子 肥料 装备</param>
     /// <param name="itemValid">道具是否有效 种子肥料专精不够使也许会无效</param>
-    void ExecuteAction(eAction action, int toolCid, bool itemValid);
+    /// <param name="extraWateringNum">额外浇水次数</param>
+    void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum);
 }
