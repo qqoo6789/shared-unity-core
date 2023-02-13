@@ -7,11 +7,11 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public class SEBloodRageCore : SkillEffectBase
 {
-    private List<IntAttributeModifier> _modifiers = new();
+    private List<IntAttributeModifier> _modifiers;
     public override void OnAdd()
     {
         base.OnAdd();
-
+        _modifiers = new();
         RefEntity.EntityEvent.EntityAttributeUpdate += OnEntityAttributeUpdate;
         float hpLostPercent = GetLostHpPercent();
         if (!hpLostPercent.ApproximatelyEquals(0))
@@ -30,6 +30,7 @@ public class SEBloodRageCore : SkillEffectBase
     public override void Clear()
     {
         _modifiers.Clear();
+        _modifiers = null;
         base.Clear();
     }
 
