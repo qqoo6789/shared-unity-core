@@ -100,12 +100,11 @@ public static class MathUtilCore
 
     public static List<T> RandomSortList<T>(List<T> listT)
     {
-        System.Random random = new();
-        List<T> newList = new();
-        foreach (T item in listT)
+        for (int i = 0; i < listT.Count; i++)
         {
-            newList.Insert(random.Next(newList.Count + 1), item);
+            int randomIndex = UnityEngine.Random.Range(0, listT.Count);
+            (listT[randomIndex], listT[i]) = (listT[i], listT[randomIndex]);
         }
-        return newList;
+        return listT;
     }
 }
