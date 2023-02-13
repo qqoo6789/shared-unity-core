@@ -46,7 +46,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         SkillTimeScale = InputSkillData.SkillTimeScale;
         CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
         float releaseSpd = StatusCtrl.RefEntity.EntityAttributeData.GetRealValue((eAttributeType)CurSkillCfg.ReleaseSpd);
-        ReleaseTimeScale = Math.Max(1 + releaseSpd, 0.1f);
+        SkillTimeScale = Math.Max(1 + releaseSpd, 0.1f) * SkillTimeScale;
 
         try
         {

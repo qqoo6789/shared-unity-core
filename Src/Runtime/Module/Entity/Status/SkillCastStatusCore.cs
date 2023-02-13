@@ -27,7 +27,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
     protected DRSkill CurSkillCfg;
     private CancellationTokenSource _castTimeToken;
-    protected float ReleaseTimeScale;
 
     private bool _continueNextSkill;//是否继续下一个技能
     protected override Type[] EventFunctionTypes => new Type[] {
@@ -44,9 +43,9 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         Targets = InputSkillData.Targets;
         SkillTimeScale = InputSkillData.SkillTimeScale;
 
-        CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
         float releaseSpd = StatusCtrl.RefEntity.EntityAttributeData.GetRealValue((eAttributeType)CurSkillCfg.ReleaseSpd);
-        ReleaseTimeScale = Math.Max(1 + releaseSpd, 0.1f);
+        SkillTimeScale *= Math.Max(1 + releaseSpd, 0.1f);
         try
         {
 #if UNITY_EDITOR
