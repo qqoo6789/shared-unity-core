@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能组件
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -12,6 +12,31 @@ using UnityGameFramework.Runtime;
 public class SkillCpt : EntityBaseComponent
 {
     public Dictionary<int, SkillBase> SkillMap { get; private set; } = new();
+
+    private void Start()
+    {
+        if (RefEntity.TryGetComponent(out PlayerTalentTreeDataCore talentData))
+        {
+            List<int> activeSkill = talentData.GetTalentGains(GameMessageCore.TalentGainsType.ActiveSkill);
+            List<int> passiveSkill = talentData.GetTalentGains(GameMessageCore.TalentGainsType.PassiveSkill);
+            for (int i = 0; i < activeSkill.Count; i++)
+            {
+                _ = AddSkill(activeSkill[i]);
+            }
+            for (int i = 0; i < passiveSkill.Count; i++)
+            {
+                _ = AddSkill(passiveSkill[i]);
+            }
+        }
+
+        RefEntity.EntityEvent.TalentSkillUpdated += OnTalentSkillUpdated;
+    }
+
+    private void OnDestroy()
+    {
+        RemoveAllSkill();
+        RefEntity.EntityEvent.TalentSkillUpdated -= OnTalentSkillUpdated;
+    }
 
     /// <summary>
     /// 添加技能
@@ -83,8 +108,28 @@ public class SkillCpt : EntityBaseComponent
         }
         return false;
     }
-    private void OnDestroy()
+
+    /// <summary>
+    /// 处理天赋技能树更新事件
+    /// </summary>
+    /// <param name="addList"></param>
+    /// <param name="removeList"></param>
+    private void OnTalentSkillUpdated(IEnumerable<int> addList, IEnumerable<int> removeList)
     {
-        RemoveAllSkill();
+        if (addList != null)
+        {
+            foreach (int item in addList)
+            {
+                _ = AddSkill(item);
+            }
+        }
+
+        if (removeList != null)
+        {
+            foreach (int item in removeList)
+            {
+                RemoveSkill(item);
+            }
+        }
     }
 }
