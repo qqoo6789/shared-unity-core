@@ -6,6 +6,7 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public class SEUnharmedAddAttrCore : SkillEffectBase
 {
+    public override bool IsUpdate => true;
     /// <summary>
     /// 当前效果是否生效
     /// </summary>
@@ -52,7 +53,8 @@ public class SEUnharmedAddAttrCore : SkillEffectBase
     {
         base.Update();
 
-        if (!_enable && Time.realtimeSinceStartup - _getHurtTimeRecord > _triggerTime)
+        float deltaTime = (Time.realtimeSinceStartup - _getHurtTimeRecord) * TimeUtil.S2MS;
+        if (!_enable && deltaTime >= _triggerTime)
         {
             EnableEffect();
         }
