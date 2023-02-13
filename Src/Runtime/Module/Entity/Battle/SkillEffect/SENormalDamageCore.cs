@@ -2,7 +2,7 @@
 * @Author: xiang huan
 * @Date: 2022-07-19 16:19:58
 * @Description: 普通伤害效果
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
 * 
 */
 
@@ -31,6 +31,7 @@ public class SENormalDamageCore : SkillEffectBase
 
     public override void Start()
     {
+        base.Start();
         if (EffectData == null)
         {
             return;

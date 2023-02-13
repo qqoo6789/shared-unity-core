@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 蓄力状态
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
  * 
  */
 using System.Threading;
@@ -20,9 +20,12 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     protected int SkillID;
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
+    protected double SkillTimeScale;
     protected DRSkill CurSkillCfg;
     private EntityInputData _inputData;
     protected CancellationTokenSource CancelToken;
+
+    protected InputSkillReleaseData InputSkillData;
 
     public static new string Name => "skillAccumulate";
     public override string StatusName => Name;
@@ -40,10 +43,11 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     {
         base.OnEnter(fsm);
         IsContinueBattleLeave = false;
-
-        SkillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
-        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
+        InputSkillData = fsm.GetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT).Value;
+        SkillID = InputSkillData.SkillID;
+        SkillDir = InputSkillData.Dir;
+        Targets = InputSkillData.Targets;
+        SkillTimeScale = InputSkillData.SkillTimeScale;
         CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
 
         if (CurSkillCfg == null)
@@ -115,7 +119,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         try
         {
             CancelToken = new();
-            await UniTask.Delay(CurSkillCfg.AccuTime, false, PlayerLoopTiming.Update, CancelToken.Token);
+            await UniTask.Delay((int)(CurSkillCfg.AccuTime / SkillTimeScale), false, PlayerLoopTiming.Update, CancelToken.Token);
             CancelToken = null;
         }
         catch (System.Exception)

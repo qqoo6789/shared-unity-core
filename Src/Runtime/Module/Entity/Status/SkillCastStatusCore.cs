@@ -18,12 +18,15 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     public static new string Name => "skillCast";
 
     public override string StatusName => Name;
+    protected int SkillID;
     protected long[] Targets;
-    protected UnityEngine.Vector3 SkillDir;
+    protected Vector3 SkillDir;
+
+    protected InputSkillReleaseData InputSkillData;
+    protected double SkillTimeScale;
 
     protected DRSkill CurSkillCfg;
     private CancellationTokenSource _castTimeToken;
-    protected float ReleaseTimeScale;
 
     private bool _continueNextSkill;//是否继续下一个技能
     protected override Type[] EventFunctionTypes => new Type[] {
@@ -34,13 +37,15 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     {
         base.OnEnter(fsm);
 
-        int skillID = fsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
-        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
+        InputSkillData = fsm.GetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT).Value;
+        SkillID = InputSkillData.SkillID;
+        SkillDir = InputSkillData.Dir;
+        Targets = InputSkillData.Targets;
+        SkillTimeScale = InputSkillData.SkillTimeScale;
 
-        CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
         float releaseSpd = StatusCtrl.RefEntity.EntityAttributeData.GetRealValue((eAttributeType)CurSkillCfg.ReleaseSpd);
-        ReleaseTimeScale = Math.Max(1 + releaseSpd, 0.1f);
+        SkillTimeScale *= Math.Max(1 + releaseSpd, 0.1f);
         try
         {
 #if UNITY_EDITOR
@@ -81,9 +86,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
         if (!_continueNextSkill)
         {
-            _ = fsm.RemoveData(StatusDataDefine.SKILL_ID);
-            _ = fsm.RemoveData(StatusDataDefine.SKILL_DIR);
-            _ = fsm.RemoveData(StatusDataDefine.SKILL_TARGETS);
+            _ = fsm.RemoveData(StatusDataDefine.SKILL_INPUT);
             _continueNextSkill = false;
         }
         base.OnLeave(fsm, isShutdown);
@@ -112,18 +115,18 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             return;
         }
     }
-    protected virtual void OnInputSkillRelease(int skillID, Vector3 dir, long[] targets, bool isTry)
+    protected virtual void OnInputSkillRelease(InputSkillReleaseData inputData)
     {
         bool valid = false;
 
-        if (!isTry)
+        if (!inputData.IsTry)
         {
             valid = true;
         }
         else//尝试释放
         {
             //是翻滚动作
-            if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == skillID)
+            if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == inputData.SkillID)
             {
                 valid = true;
             }
@@ -133,11 +136,8 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         {
             SeContinueNextSkill(true);
 
-            StatusCtrl.transform.forward = dir;
-
-            OwnerFsm.SetData<VarInt32>(StatusDataDefine.SKILL_ID, skillID);
-            OwnerFsm.SetData<VarVector3>(StatusDataDefine.SKILL_DIR, dir);
-            OwnerFsm.SetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS, targets);
+            StatusCtrl.transform.forward = inputData.Dir;
+            OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
             ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
         }
     }
@@ -150,7 +150,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         try
         {
             _castTimeToken = new();
-            int delayTime = (int)((CurSkillCfg.ReleaseTime - CurSkillCfg.ForwardReleaseTime) / ReleaseTimeScale);
+            int delayTime = (int)((CurSkillCfg.ReleaseTime - CurSkillCfg.ForwardReleaseTime) / SkillTimeScale);
             await UniTask.Delay(delayTime, false, PlayerLoopTiming.Update, _castTimeToken.Token);
         }
         catch (System.Exception)

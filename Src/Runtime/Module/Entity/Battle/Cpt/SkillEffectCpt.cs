@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能效果组件
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -38,7 +38,7 @@ public class SkillEffectCpt : EntityBaseComponent
             for (int i = runList.Count - 1; i >= 0; i--)
             {
                 SkillEffectBase effect = runList[i];
-                if (effect.DestroyTimestamp > 0 && curTimeStamp >= effect.DestroyTimestamp)
+                if ((effect.DestroyTimestamp > 0 && curTimeStamp >= effect.DestroyTimestamp) || !RefEntity.BattleDataCore.IsLive())
                 {
                     effect.RemoveEffect();
                     effect.Dispose();

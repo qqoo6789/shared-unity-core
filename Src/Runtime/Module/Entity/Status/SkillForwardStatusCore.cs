@@ -22,10 +22,11 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
     protected DRSkill CurSkillCfg;
     private EntityInputData _inputData;
+    protected int SkillID;
     protected long[] Targets;
     protected UnityEngine.Vector3 SkillDir;
-
-    protected float ReleaseTimeScale;
+    protected double SkillTimeScale;
+    protected InputSkillReleaseData InputSkillData;
 
     /// <summary>
     /// 是否正常继续战斗状态离开的 false以为着是打断离开的
@@ -38,12 +39,14 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
         IsContinueBattleLeave = false;
 
-        int skillID = OwnerFsm.GetData<VarInt32>(StatusDataDefine.SKILL_ID).Value;
-        SkillDir = fsm.GetData<VarVector3>(StatusDataDefine.SKILL_DIR).Value;
-        Targets = fsm.GetData<VarInt64Array>(StatusDataDefine.SKILL_TARGETS).Value;
-        CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        InputSkillData = fsm.GetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT).Value;
+        SkillID = InputSkillData.SkillID;
+        SkillDir = InputSkillData.Dir;
+        Targets = InputSkillData.Targets;
+        SkillTimeScale = InputSkillData.SkillTimeScale;
+        CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
         float releaseSpd = StatusCtrl.RefEntity.EntityAttributeData.GetRealValue((eAttributeType)CurSkillCfg.ReleaseSpd);
-        ReleaseTimeScale = Math.Max(1 + releaseSpd, 0.1f);
+        SkillTimeScale = Math.Max(1 + releaseSpd, 0.1f) * SkillTimeScale;
 
         try
         {
@@ -131,7 +134,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         try
         {
             _forwardTimeToken = new();
-            await UniTask.Delay((int)(CurSkillCfg.ForwardReleaseTime / ReleaseTimeScale), false, PlayerLoopTiming.Update, _forwardTimeToken.Token);
+            await UniTask.Delay((int)(CurSkillCfg.ForwardReleaseTime / SkillTimeScale), false, PlayerLoopTiming.Update, _forwardTimeToken.Token);
         }
         catch (Exception)
         {

@@ -21,6 +21,11 @@ public static class BattleDefine
         SEEndure = 1005,
         SELockEnemyPathMoveCore = 1006,
         SEAttributeModifierCore = 1007,
+        SEDotDamage = 1009,
+        SECollisionTrigger = 1010,
+        SETriggerQuickCastSkill = 1011,
+        SESkillRangeTrigger = 1012,
+
     }
 
     public enum eSkillShapeId : int
@@ -62,6 +67,8 @@ public static class BattleDefine
 
     public const int SKILL_USE_TAG = (int)eSkillType.General | (int)eSkillType.Channel | (int)eSkillType.Toggle;
     public const int JUMP_SKILL_ID_NULL = -1;
+    public const int QUICK_USE_SKILL_TIME_SCALE = 2;
+    public const int USE_SKILL_TIME_SCALE = 1;
     public static eBattleState[] BATTLE_STATE_CANNOT_MOVE_LIST = { eBattleState.Stun, eBattleState.Root };
     public static eBattleState[] BATTLE_STATE_CANNOT_SKILL_LIST = { eBattleState.Stun, eBattleState.Silence };
 }
