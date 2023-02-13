@@ -104,14 +104,6 @@ public class EntityAttributeData : EntityBaseComponent
     }
 
     /// <summary>
-    /// 获取实际属性值, 根据值类型计算后的值 TODO: home 需要等待欢哥的合入
-    /// </summary>
-    public float GetRealValue(eAttributeType type)
-    {
-        return 0;
-    }
-
-    /// <summary>
     /// 新增修改属性
     /// </summary>
     public IntAttributeModifier AddModifier(eAttributeType type, eModifierType modifierType, int value)
