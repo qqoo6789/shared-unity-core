@@ -4,6 +4,7 @@
  * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -139,5 +140,13 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action SeListUpdated;
 
+    #endregion
+    #region 天赋树
+    /// <summary>
+    /// 参数1：新增技能列表 参数2：移除技能列表
+    /// 增删改都可以通过这个事件来处理
+    /// 参数有可能为空，为空时表示没有新增或者移除的技能
+    /// </summary>
+    public Action<IEnumerable<int>, IEnumerable<int>> TalentSkillUpdated;
     #endregion
 }
