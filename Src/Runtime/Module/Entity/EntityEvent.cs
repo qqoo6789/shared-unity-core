@@ -59,6 +59,11 @@ public class EntityEvent : EntityBaseComponent
     /// 非移动状态的特殊移动开始 往往是技能效果的强制移动等触发
     /// </summary>
     public Action SpecialMoveStartNotMoveStatus;
+    /// <summary>
+    /// 实体受到伤害
+    /// T：伤害值
+    /// </summary>
+    public Action<float> GetHurt;
 
     #endregion
 

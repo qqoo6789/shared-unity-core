@@ -27,6 +27,7 @@ public static class BattleDefine
         SETriggerQuickCastSkill = 1011,
         SESkillRangeTrigger = 1012,
         SEBloodRage = 1013,
+        SEUnharmedAddAttr = 1014,
     }
 
     public enum eSkillShapeId : int
