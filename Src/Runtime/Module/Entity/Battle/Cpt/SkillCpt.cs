@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
@@ -17,15 +18,10 @@ public class SkillCpt : EntityBaseComponent
     {
         if (RefEntity.TryGetComponent(out PlayerTalentTreeDataCore talentData))
         {
-            List<int> activeSkill = talentData.GetTalentGains(GameMessageCore.TalentGainsType.ActiveSkill);
-            List<int> passiveSkill = talentData.GetTalentGains(GameMessageCore.TalentGainsType.PassiveSkill);
-            for (int i = 0; i < activeSkill.Count; i++)
+            List<int> skills = talentData.GetTalentSkills();
+            for (int i = 0; i < skills.Count; i++)
             {
-                _ = AddSkill(activeSkill[i]);
-            }
-            for (int i = 0; i < passiveSkill.Count; i++)
-            {
-                _ = AddSkill(passiveSkill[i]);
+                _ = AddSkill(skills[i]);
             }
         }
 

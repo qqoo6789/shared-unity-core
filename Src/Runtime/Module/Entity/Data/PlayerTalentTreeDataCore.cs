@@ -121,6 +121,14 @@ public class PlayerTalentTreeDataCore : EntityBaseComponent
         return result;
     }
 
+    public List<int> GetTalentSkills()
+    {
+        List<int> skills = new();
+        skills.AddRange(GetTalentGains(TalentGainsType.ActiveSkill));
+        skills.AddRange(GetTalentGains(TalentGainsType.PassiveSkill));
+        return skills;
+    }
+
     /// <summary>
     /// 更新天赋节点
     /// </summary>
