@@ -14,6 +14,11 @@ public class HomeSaveData
     public List<SoilSaveData> SoilSaveDataList;
 
     public List<HomeResourcesAreaSaveData> HomeAreaSaveDataList;
+    public List<AnimalSaveData> AnimSaveDataList;
+    /// <summary>
+    /// 索引代表标号 没有食物的为null
+    /// </summary>
+    public AnimalBowlSaveData[] BowlSaveDataList;
 
     public static string ToJson(object data)
     {

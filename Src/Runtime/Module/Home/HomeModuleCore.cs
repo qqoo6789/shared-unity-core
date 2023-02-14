@@ -74,6 +74,7 @@ public abstract class HomeModuleCore : MonoBehaviour
         SoilMgr = AddHomeSoilMgr();
 
         _ = gameObject.AddComponent<InitHomeLogicCore>();
+        _ = gameObject.AddComponent<AnimalInitLogicCore>();
     }
 
     /// <summary>
