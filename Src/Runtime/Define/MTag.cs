@@ -50,4 +50,8 @@ public static class MTag
     /// 家园畜牧场景配置
     /// </summary>
     public const string HOME_ANIMAL_SCENE_CONFIG = "HomeAnimalSceneConfig";
+    /// <summary>
+    /// 畜牧食盆
+    /// </summary>
+    public const string HOME_ANIMAL_BOWL = "HomeAnimalBowl";
 }

@@ -6,11 +6,6 @@ using UnityEngine;
 public class AnimalBowlData : MonoBehaviour
 {
     /// <summary>
-    /// 食盆的id  就是index
-    /// </summary>
-    /// <value></value>
-    public ulong BowlId { get; private set; }
-    /// <summary>
     /// 当前存放的食物配置 可能为null
     /// </summary>
     /// <value></value>
