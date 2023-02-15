@@ -1,3 +1,4 @@
+using GameMessageCore;
 /// <summary>
 /// 动物基础数据 用于数据管理面板的数据
 /// </summary>
@@ -19,4 +20,28 @@ public class AnimBaseData
     /// 好感度数值
     /// </summary>
     public int Favorability;
+
+    public AnimBaseData()
+    {
+
+    }
+
+    public AnimBaseData(ProxyAnimalBaseData data)
+    {
+        AnimId = data.AnimId;
+        Name = data.Name;
+        Cid = data.Cid;
+        Favorability = data.Favorability;
+    }
+
+    public ProxyAnimalBaseData ToProxyAnimalBaseData()
+    {
+        return new ProxyAnimalBaseData()
+        {
+            AnimId = AnimId,
+            Name = Name,
+            Cid = Cid,
+            Favorability = Favorability,
+        };
+    }
 }
