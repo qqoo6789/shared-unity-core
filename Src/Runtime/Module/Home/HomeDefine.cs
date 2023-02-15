@@ -37,6 +37,8 @@ public static class HomeDefine
     /// </summary>
     public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ eAction.Hoeing;
 
+    public const string ANIMAL_AI_NAME = "HomeAnimalAI";
+
     /// <summary>
     /// 土地状态间的数据定义key
     /// </summary>

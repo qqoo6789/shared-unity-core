@@ -4,6 +4,10 @@
 public class AnimBaseData
 {
     /// <summary>
+    /// 动物全局Id 和存档数据id一致
+    /// </summary>
+    public ulong AnimId;
+    /// <summary>
     /// 玩家取得名字
     /// </summary>
     public string Name;
@@ -11,10 +15,6 @@ public class AnimBaseData
     /// 动物配置id
     /// </summary>
     public int Cid;
-    /// <summary>
-    /// 等级
-    /// </summary>
-    public int Lv;
     /// <summary>
     /// 好感度数值
     /// </summary>

@@ -46,4 +46,8 @@ public static class MTag
     /// 收纳箱
     /// </summary>
     public const string STORAGE_BOX = "StorageBox";
+    /// <summary>
+    /// 家园畜牧场景配置
+    /// </summary>
+    public const string HOME_ANIMAL_SCENE_CONFIG = "HomeAnimalSceneConfig";
 }
