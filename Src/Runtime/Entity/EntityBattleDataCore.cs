@@ -179,12 +179,12 @@ public class EntityBattleDataCore : EntityBaseComponent
         return HP > 0;
     }
 
-    private int GetValue(eAttributeType type)
+    protected int GetValue(eAttributeType type)
     {
         return RefEntity.EntityAttributeData.GetValue(type);
     }
 
-    private void SetBaseValue(eAttributeType type, int value)
+    protected void SetBaseValue(eAttributeType type, int value)
     {
         RefEntity.EntityAttributeData.SetBaseValue(type, value);
     }
