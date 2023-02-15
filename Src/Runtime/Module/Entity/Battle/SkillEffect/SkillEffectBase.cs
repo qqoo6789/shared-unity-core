@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -82,7 +82,8 @@ public class SkillEffectBase : IReference
     /// <param name="fromID">技能释放者ID</param>
     /// <param name="targetID">技能接受者ID</param>
     /// <param name="duration">持续时间</param>
-    public virtual void SetData(int skillID, DRSkillEffect effectCfg, long fromID, long targetID, int duration)
+    /// <param name="curLayer">当前层级</param>
+    public virtual void SetData(int skillID, DRSkillEffect effectCfg, long fromID, long targetID, int duration, int curLayer = 1)
     {
         SkillID = skillID;
         EffectID = effectCfg.Id;
@@ -90,6 +91,7 @@ public class SkillEffectBase : IReference
         FromID = fromID;
         TargetID = targetID;
         Duration = duration;
+        CurLayer = curLayer;
         EffectFlag = 0;
         if (effectCfg.EffectFlag.Length > 0)
         {
@@ -161,7 +163,7 @@ public class SkillEffectBase : IReference
     public virtual void Start()
     {
         //更新当前层级
-        UpdateLayer(1);
+        UpdateLayer(CurLayer);
         NextIntervalTime = TimeUtil.GetTimeStamp() + EffectCfg.EffectInterval;
     }
     /// <summary>
@@ -246,5 +248,21 @@ public class SkillEffectBase : IReference
     {
         RemoveEffect();
         ReferencePool.Release(this);
+    }
+
+    /// <summary>
+    /// 获取存储数据
+    /// </summary>
+    public SkillEffectSaveData GetSaveData()
+    {
+        SkillEffectSaveData data = new()
+        {
+            FromID = FromID,
+            DestroyTimestamp = DestroyTimestamp,
+            SkillID = SkillID,
+            EffectID = EffectID,
+            CurLayer = CurLayer,
+        };
+        return data;
     }
 }
