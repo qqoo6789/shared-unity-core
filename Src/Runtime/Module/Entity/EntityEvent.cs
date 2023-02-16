@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
 using UnityEngine;
@@ -121,6 +121,10 @@ public class EntityEvent : EntityBaseComponent
     /// 实体应用效果之后 T0:效果数据
     /// </summary>
     public Action<GameMessageCore.DamageEffect> AfterApplySkillEffect;
+    /// <summary>
+    /// 效果球列表更新
+    /// </summary>
+    public Action SeListUpdated;
 
     #endregion
 }

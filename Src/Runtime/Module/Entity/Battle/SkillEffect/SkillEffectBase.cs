@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -74,6 +74,13 @@ public class SkillEffectBase : IReference
     /// 下次间隔触发时间
     /// </summary>
     protected long NextIntervalTime { get; private set; }
+    public bool ShowBuffIcon => EffectCfg != null && EffectCfg.ShowBuffIcon;
+    public string BuffIcon => EffectCfg != null ? EffectCfg.BuffIcon : string.Empty;
+    /// <summary>
+    /// 技能效果是否在生效，有些技能效果虽然挂载了，但需要特定条件才会生效
+    /// 默认为true
+    /// </summary>
+    public virtual bool Active => true;
     /// <summary>
     /// 设置效果数据
     /// </summary>
