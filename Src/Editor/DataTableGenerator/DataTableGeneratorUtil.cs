@@ -147,9 +147,9 @@ namespace Meland.Editor.DataTableTools
 
             StringBuilder stringBuilder = new();
 
-            for (int i = 3; i < rawValues.Count; i++)
+            for (int i = TableDefine.DATA_TABLE_START_ROW; i < rawValues.Count; i++)
             {
-                string desc = rawValues[i][5];
+                string desc = rawValues[i][^1];
                 _ = stringBuilder
                     .AppendLine("    /// <summary>")
                     .AppendLine($"    /** {desc}*/")

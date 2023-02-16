@@ -53,6 +53,17 @@ namespace Meland.Editor.DataTableTools
 
             string tableText = File.ReadAllText(dataTableFileName, encoding);
             List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
+            string[] nameRawRow = new string[rawValues[0].Length];
+            string[] typeRawRow = new string[rawValues[0].Length];
+            for (int i = 0; i < rawValues[0].Length; i++)
+            {
+                string nameTypeStr = rawValues[0][i];
+                string[] valueList = nameTypeStr.Split('-');
+                nameRawRow[i] = valueList[0];
+                typeRawRow[i] = valueList[1];
+            }
+            rawValues.Insert(1, nameRawRow);
+            rawValues.Insert(2, typeRawRow);
             _rawValues = rawValues.ToArray();
 
             int rawRowCount = _rawValues.Length;
