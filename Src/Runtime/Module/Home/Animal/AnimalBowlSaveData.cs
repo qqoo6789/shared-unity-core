@@ -3,10 +3,11 @@
 /// </summary>
 public class AnimalBowlSaveData
 {
+    public ulong BowlId;
     /// <summary>
-    /// 食物cid
+    /// 食物cid 如果没有食物则为0
     /// </summary>
-    public int FoodCid;
+    public int FoodCid = 0;
     /// <summary>
     /// 剩余食物容量
     /// </summary>

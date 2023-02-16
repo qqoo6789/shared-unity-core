@@ -50,7 +50,10 @@ public class AnimalDataCore : MonoBehaviour
         }
         else
         {
-            SaveData = new AnimalSaveData(BaseData.AnimId);
+            SaveData = new AnimalSaveData(BaseData.AnimId)
+            {
+                HungerProgress = DRMonster.MaxHunger
+            };
         }
     }
 }

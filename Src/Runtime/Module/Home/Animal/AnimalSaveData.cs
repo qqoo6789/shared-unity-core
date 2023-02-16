@@ -15,6 +15,10 @@ public class AnimalSaveData
     /// </summary>
     public float HungerProgress = 0;
     /// <summary>
+    /// 上次完全饥饿的时间戳
+    /// </summary>
+    public long LastCompleteHungerStamp;
+    /// <summary>
     /// 收获进度 0~100 代表进度百分比值 成长进度 进度满了后就可以收获了
     /// </summary>
     public float HarvestProgress = 0;

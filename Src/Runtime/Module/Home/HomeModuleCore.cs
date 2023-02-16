@@ -22,17 +22,18 @@ public abstract class HomeModuleCore : MonoBehaviour
     /// </summary>
     /// <value></value>
     public static IHomeSoilMgr SoilMgr { get; private set; }
-    /// <summary>
-    /// 畜牧场景配置
-    /// </summary>
-    /// <value></value>
-    public static AnimalSceneConfig AnimalSceneConfig { get; private set; }
 
     /// <summary>
     /// 土地和上面的资源关系
     /// </summary>
     /// <value></value>
     public static HomeSoilResourceRelation SoilResourceRelation { get; private set; }
+
+    /// <summary>
+    /// 畜牧场景管理
+    /// </summary>
+    /// <value></value>
+    public static HomeAnimalScene AnimalScene { get; private set; }
 
     private void Start()
     {
@@ -63,12 +64,7 @@ public abstract class HomeModuleCore : MonoBehaviour
     protected virtual void InitModule()
     {
         SoilResourceRelation = gameObject.AddComponent<HomeSoilResourceRelation>();
-        GameObject homeSceneConfigGo = GameObject.FindWithTag(MTag.HOME_ANIMAL_SCENE_CONFIG);
-        AnimalSceneConfig = homeSceneConfigGo == null ? null : homeSceneConfigGo.GetComponent<AnimalSceneConfig>();
-        if (AnimalSceneConfig != null)
-        {
-            Log.Error("场景中没有AnimalSceneConfig");
-        }
+        AnimalScene = gameObject.AddComponent<HomeAnimalScene>();
     }
 
     protected virtual void UnInitModule()

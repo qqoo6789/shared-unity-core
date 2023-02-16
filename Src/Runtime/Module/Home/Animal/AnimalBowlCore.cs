@@ -3,13 +3,11 @@ using UnityEngine;
 /// <summary>
 /// 畜牧食盆
 /// </summary>
-public class AnimalBowlCore : SharedCoreComponent
+public class AnimalBowlCore : MonoBehaviour
 {
-    [Header("食盆的id 需要唯一 也是吃的顺序")]
-    public ulong BowlId;
-
+    public AnimalBowlData Data { get; private set; }
     private void Awake()
     {
-        _ = gameObject.AddComponent<AnimalBowlData>();
+        Data = gameObject.AddComponent<AnimalBowlData>();
     }
 }

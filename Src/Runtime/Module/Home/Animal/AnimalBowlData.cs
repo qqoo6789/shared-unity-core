@@ -15,4 +15,13 @@ public class AnimalBowlData : MonoBehaviour
     /// </summary>
     /// <value></value>
     public AnimalBowlSaveData SaveData { get; private set; }
+
+    /// <summary>
+    /// 设置食物的存档数据
+    /// </summary>
+    /// <param name="saveData"></param>
+    internal void SetSaveData(AnimalBowlSaveData saveData)
+    {
+        SaveData = saveData ??= new AnimalBowlSaveData();
+    }
 }
