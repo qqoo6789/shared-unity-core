@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityGameFramework.Runtime;
 /// <summary>
 /// 实体技能采集器，负责采集各个模块提供的技能并添加到实体上
@@ -7,6 +8,7 @@ using UnityGameFramework.Runtime;
 public class EntitySkillCollector : EntityBaseComponent
 {
     private SkillCpt _skillCpt;
+    private bool _isInitTalentSkill = false;
     private void Start()
     {
         _skillCpt = RefEntity.GetComponent<SkillCpt>();
@@ -17,6 +19,8 @@ public class EntitySkillCollector : EntityBaseComponent
 
         RefEntity.EntityEvent.TalentSkillUpdated += OnTalentSkillUpdated;
         RefEntity.EntityEvent.TalentSkillInited += OnTalentSkillInited;
+
+        CheckInitTalentSkill();
     }
 
     private void OnDestroy()
@@ -48,11 +52,7 @@ public class EntitySkillCollector : EntityBaseComponent
 
     private void OnTalentSkillInited(IEnumerable<int> skills)
     {
-        List<int> addSkills = new List<int>(skills);
-        for (int i = 0; i < addSkills.Count; i++)
-        {
-            AddSkill(addSkills[i]);
-        }
+        InitTalentSkill(skills);
     }
 
     public void AddSkill(int skillID)
@@ -62,7 +62,7 @@ public class EntitySkillCollector : EntityBaseComponent
             return;
         }
 
-        _skillCpt.AddSkill(skillID);
+        _ = _skillCpt.AddSkill(skillID);
     }
 
     public void RemoveSkill(int skillID)
@@ -73,5 +73,28 @@ public class EntitySkillCollector : EntityBaseComponent
         }
 
         _skillCpt.RemoveSkill(skillID);
+    }
+
+    private void CheckInitTalentSkill()
+    {
+        PlayerTalentTreeDataCore talentData = RefEntity.GetComponent<PlayerTalentTreeDataCore>();
+        if (talentData != null)
+        {
+            InitTalentSkill(talentData.GetTalentSkills());
+        }
+    }
+
+    private void InitTalentSkill(IEnumerable<int> skills)
+    {
+        if (_isInitTalentSkill || skills.Count() == 0)
+        {
+            return;
+        }
+        _isInitTalentSkill = true;
+
+        foreach (int skillID in skills)
+        {
+            AddSkill(skillID);
+        }
     }
 }
