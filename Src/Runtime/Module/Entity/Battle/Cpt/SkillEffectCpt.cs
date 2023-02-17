@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能效果组件
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -57,7 +57,7 @@ public class SkillEffectCpt : EntityBaseComponent
             }
             if (isUpdateImmuneFlag)
             {
-                UpdateImmuneFlag();
+                OnSeListUpdated();
             }
         }
         //静态需要刷新的
@@ -190,7 +190,7 @@ public class SkillEffectCpt : EntityBaseComponent
             newEffect.Start();
             effectList.Add(newEffect);
         }
-        UpdateImmuneFlag();
+        OnSeListUpdated();
     }
 
     //取消某种效果
@@ -210,7 +210,7 @@ public class SkillEffectCpt : EntityBaseComponent
                 }
             }
         }
-        UpdateImmuneFlag();
+        OnSeListUpdated();
     }
 
     //取消某种效果
@@ -230,7 +230,7 @@ public class SkillEffectCpt : EntityBaseComponent
                 }
             }
         }
-        UpdateImmuneFlag();
+        OnSeListUpdated();
     }
     public void ClearAllSkillEffect()
     {
@@ -246,10 +246,19 @@ public class SkillEffectCpt : EntityBaseComponent
             }
             item.Value.Clear();
         }
-        UpdateImmuneFlag();
+        OnSeListUpdated();
     }
 
-    public void UpdateImmuneFlag()
+    public void OnSeListUpdated()
+    {
+        UpdateImmuneFlag();
+        if (RefEntity != null)
+        {
+            RefEntity.EntityEvent.SeListUpdated?.Invoke();
+        }
+    }
+
+    private void UpdateImmuneFlag()
     {
         _immuneFlag = 0;
         foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)

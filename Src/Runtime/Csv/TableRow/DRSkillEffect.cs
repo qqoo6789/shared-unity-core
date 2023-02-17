@@ -104,6 +104,24 @@ public class DRSkillEffect : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取是否显示buff icon。*/
+    /// </summary>
+    public bool ShowBuffIcon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取buff icon。*/
+    /// </summary>
+    public string BuffIcon
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -121,6 +139,8 @@ public class DRSkillEffect : DataRowBase
         Parameters2 = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         Duration = DataTableParseUtil.ParseInt(columnStrings[index++]);
         index++;
+        ShowBuffIcon = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        BuffIcon = columnStrings[index++];
 
         return true;
     }
@@ -142,6 +162,8 @@ public class DRSkillEffect : DataRowBase
                 Parameters = binaryReader.ReadArray<Int32>();
                 Parameters2 = binaryReader.ReadArrayList<Int32>();
                 Duration = binaryReader.Read7BitEncodedInt32();
+                ShowBuffIcon = binaryReader.ReadBoolean();
+                BuffIcon = binaryReader.ReadString();
             }
         }
 
