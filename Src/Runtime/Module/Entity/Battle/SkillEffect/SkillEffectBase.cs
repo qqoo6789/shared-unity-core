@@ -74,13 +74,6 @@ public class SkillEffectBase : IReference
     /// 下次间隔触发时间
     /// </summary>
     protected long NextIntervalTime { get; private set; }
-    public bool ShowBuffIcon => EffectCfg != null && EffectCfg.ShowBuffIcon;
-    public string BuffIcon => EffectCfg != null ? EffectCfg.BuffIcon : string.Empty;
-    /// <summary>
-    /// 技能效果是否在生效，有些技能效果虽然挂载了，但需要特定条件才会生效
-    /// 默认为true
-    /// </summary>
-    public virtual bool Active => true;
     /// <summary>
     /// 设置效果数据
     /// </summary>
@@ -271,5 +264,15 @@ public class SkillEffectBase : IReference
             CurLayer = CurLayer,
         };
         return data;
+    }
+
+    public bool IsShowBuffIcon()
+    {
+        if (EffectCfg == null)
+        {
+            return false;
+        }
+
+        return EffectCfg.ShowBuffIcon && !string.IsNullOrEmpty(EffectCfg.BuffIcon);
     }
 }
