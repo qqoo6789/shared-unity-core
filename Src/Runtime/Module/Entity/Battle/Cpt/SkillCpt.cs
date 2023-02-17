@@ -89,28 +89,4 @@ public class SkillCpt : EntityBaseComponent
         }
         return false;
     }
-
-    /// <summary>
-    /// 处理天赋技能树更新事件
-    /// </summary>
-    /// <param name="addList"></param>
-    /// <param name="removeList"></param>
-    private void OnTalentSkillUpdated(IEnumerable<int> addList, IEnumerable<int> removeList)
-    {
-        if (addList != null)
-        {
-            foreach (int item in addList)
-            {
-                _ = AddSkill(item);
-            }
-        }
-
-        if (removeList != null)
-        {
-            foreach (int item in removeList)
-            {
-                RemoveSkill(item);
-            }
-        }
-    }
 }
