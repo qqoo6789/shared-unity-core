@@ -48,24 +48,24 @@ public static class BattleDefine
         Invisible,      //隐身——不可被其他人看见
     }
 
-    public static readonly Dictionary<EntityProfileField, string> ProfileFieldDict = new()
-        {
-            {EntityProfileField.Lv, "Lv"},
-            {EntityProfileField.Exp, "Exp"},
-            {EntityProfileField.Att, "Att"},
-            {EntityProfileField.AttSpeed, "AttSpeed"},
-            {EntityProfileField.Def, "Def"},
-            {EntityProfileField.HpLimit, "HpLimit"},
-            {EntityProfileField.CritRate, "CritRate"},
-            {EntityProfileField.CritDamage, "CritDmg"},
-            {EntityProfileField.HitRate, "HitRate"},
-            {EntityProfileField.MissRate, "MissRate"},
-            {EntityProfileField.MoveSpeed, "MoveSpeed"},
-            {EntityProfileField.PushDmg, "PushDmg"},
-            {EntityProfileField.PushDist, "PushDist"},
-            {EntityProfileField.HpCurrent, "HpCurrent"},
-            {EntityProfileField.HpRecovery, "HpRecovery"},
-        };
+    // public static readonly Dictionary<EntityProfileField, string> ProfileFieldDict = new()
+    //     {
+    //         {EntityProfileField.Lv, "Lv"},
+    //         {EntityProfileField.Exp, "Exp"},
+    //         {EntityProfileField.Att, "Att"},
+    //         {EntityProfileField.AttSpeed, "AttSpeed"},
+    //         {EntityProfileField.Def, "Def"},
+    //         {EntityProfileField.HpLimit, "HpLimit"},
+    //         {EntityProfileField.CritRate, "CritRate"},
+    //         {EntityProfileField.CritDamage, "CritDmg"},
+    //         {EntityProfileField.HitRate, "HitRate"},
+    //         {EntityProfileField.MissRate, "MissRate"},
+    //         {EntityProfileField.MoveSpeed, "MoveSpeed"},
+    //         {EntityProfileField.PushDmg, "PushDmg"},
+    //         {EntityProfileField.PushDist, "PushDist"},
+    //         {EntityProfileField.HpCurrent, "HpCurrent"},
+    //         {EntityProfileField.HpRecovery, "HpRecovery"},
+    //     };
 
     public const int SKILL_USE_TAG = (int)eSkillType.General | (int)eSkillType.Channel | (int)eSkillType.Toggle;
     public const int JUMP_SKILL_ID_NULL = -1;

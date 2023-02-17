@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -81,7 +81,7 @@ public class EntitySkillDataCore : EntityBaseComponent
         {
             return;
         }
-        if (RoleDataCore.WearDic.TryGetValue(AvatarPosition.Weapon, out PlayerAvatar avatar))
+        if (RoleDataCore.WearDic.TryGetValue(AvatarPosition.Weapon, out AvatarAttribute avatar))
         {
             DREquipment drEquipment = GFEntryCore.DataTable.GetDataTable<DREquipment>().GetDataRow(avatar.ObjectId);
             if (drEquipment != null)

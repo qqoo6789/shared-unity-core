@@ -41,7 +41,7 @@ public class PlayerRoleDataCore : EntityBaseComponent
     /// 用字典方便业务层使用
     /// </summary>
     /// <value></value>
-    public Dictionary<AvatarPosition, PlayerAvatar> WearDic { get; protected set; } = new();
+    public Dictionary<AvatarPosition, AvatarAttribute> WearDic { get; protected set; } = new();
 
     public void SetGender(string gender)
     {
@@ -63,10 +63,10 @@ public class PlayerRoleDataCore : EntityBaseComponent
         RoleFeature = feature;
     }
 
-    public void SetRoleAvatars(IEnumerable<PlayerAvatar> avatars)
+    public void SetRoleAvatars(IEnumerable<AvatarAttribute> avatars)
     {
         WearDic.Clear();
-        foreach (PlayerAvatar avatar in avatars)
+        foreach (AvatarAttribute avatar in avatars)
         {
             WearDic.Add(avatar.Position, avatar);
         }
