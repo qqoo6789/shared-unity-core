@@ -1,6 +1,7 @@
 /// <summary>
 /// 畜牧食盆存档数据
 /// </summary>
+[System.Serializable]
 public class AnimalBowlSaveData
 {
     public ulong BowlId;

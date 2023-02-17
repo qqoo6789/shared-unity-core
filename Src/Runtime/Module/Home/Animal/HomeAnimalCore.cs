@@ -11,12 +11,12 @@ public abstract class HomeAnimalCore : MonoBehaviour
     /// <value></value>
     public AnimalDataCore Data { get; private set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Data = gameObject.AddComponent<AnimalDataCore>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         TickHunger();
     }
@@ -59,5 +59,14 @@ public abstract class HomeAnimalCore : MonoBehaviour
     /// </summary>
     protected virtual void OnAnimDead()
     {
+    }
+
+    /// <summary>
+    /// 吃下食物
+    /// </summary>
+    /// <param name="costFood"></param>
+    protected virtual void EatenFood(int costFood)
+    {
+        Data.SaveData.HungerProgress = Mathf.Min(Data.DRMonster.MaxHunger, Data.SaveData.HungerProgress + costFood);
     }
 }

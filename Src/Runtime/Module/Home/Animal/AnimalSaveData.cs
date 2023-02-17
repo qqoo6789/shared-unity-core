@@ -4,6 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 动物存档的细节数据 不包含main服的动物管理数据
 /// </summary>
+[System.Serializable]
 public class AnimalSaveData
 {
     /// <summary>
@@ -15,7 +16,7 @@ public class AnimalSaveData
     /// </summary>
     public float HungerProgress = 0;
     /// <summary>
-    /// 上次完全饥饿的时间戳
+    /// 上次完全饥饿的时间戳 >0说明正在饥饿中
     /// </summary>
     public long LastCompleteHungerStamp;
     /// <summary>

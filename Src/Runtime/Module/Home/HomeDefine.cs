@@ -43,6 +43,10 @@ public static class HomeDefine
     /// 动物完全饥饿后死亡时间 秒
     /// </summary>
     public const float ANIM_HUNGER_DEAD_TIME = 20.0f;
+    /// <summary>
+    /// 动物找吃的距离食盆的距离
+    /// </summary>
+    public const float ANIMAL_EAT_FOOD_DISTANCE = 2f;
 
     /// <summary>
     /// 土地状态间的数据定义key

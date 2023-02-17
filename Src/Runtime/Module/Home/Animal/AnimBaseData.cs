@@ -2,6 +2,7 @@ using GameMessageCore;
 /// <summary>
 /// 动物基础数据 用于数据管理面板的数据
 /// </summary>
+[System.Serializable]
 public class AnimBaseData
 {
     /// <summary>

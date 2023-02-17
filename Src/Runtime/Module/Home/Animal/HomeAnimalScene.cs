@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -13,20 +12,20 @@ public class HomeAnimalScene : MonoBehaviour
     /// <value></value>
     public Rect PlaygroundRect { get; private set; }
     /// <summary>
-    /// 动物活动区域y水平面
-    /// </summary>
-    /// <value></value>
-    public float PlaygroundY { get; private set; }
-    /// <summary>
     /// 动物活动区域尺寸
     /// </summary>
     /// <value></value>
     public Vector3 PlaygroundSize { get; private set; }
+    /// <summary>
+    /// 动物活动区域中心点
+    /// </summary>
+    /// <value></value>
+    public Vector3 PlaygroundCenter { get; private set; }
 
     /// <summary>
     /// 所有食盆 顺序为吃的顺序
     /// </summary>
-    private readonly List<AnimalBowlCore> _bowlList = new();
+    private readonly ListMap<ulong, AnimalBowlCore> _bowlListMap = new();
 
     private void Awake()
     {
@@ -39,11 +38,10 @@ public class HomeAnimalScene : MonoBehaviour
         }
 
         PlaygroundSize = sceneConfig.PlaygroundSize;
-        Vector3 configPos = sceneConfig.transform.position;
-        float x = configPos.x - (PlaygroundSize.x * 0.5f);
-        float z = configPos.z - (PlaygroundSize.z * 0.5f);
+        PlaygroundCenter = sceneConfig.transform.position;
+        float x = PlaygroundCenter.x - (PlaygroundSize.x * 0.5f);
+        float z = PlaygroundCenter.z - (PlaygroundSize.z * 0.5f);
         PlaygroundRect = new Rect(x, z, PlaygroundSize.x, PlaygroundSize.z);
-        PlaygroundY = configPos.y;
     }
 
     /// <summary>
@@ -52,6 +50,33 @@ public class HomeAnimalScene : MonoBehaviour
     /// <param name="bowlCore"></param>
     internal void AddBowls(AnimalBowlCore bowlCore)
     {
-        _bowlList.Add(bowlCore);
+        _ = _bowlListMap.Add(bowlCore.Data.SaveData.BowlId, bowlCore);
+    }
+
+    /// <summary>
+    /// 找到下一个有食物的食盆 找不到返回null
+    /// </summary>
+    /// <returns></returns>
+    public AnimalBowlCore SearchNextHaveFoodBowl()
+    {
+        for (int i = 0; i < _bowlListMap.Count; i++)
+        {
+            if (_bowlListMap[i].Data.IsHaveFood)
+            {
+                return _bowlListMap[i];
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// 通过ID获取食盆
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public AnimalBowlCore GetBowl(ulong id)
+    {
+        return _bowlListMap.GetFromKey(id);
     }
 }
