@@ -266,7 +266,7 @@ public class SkillEffectBase : IReference
         return data;
     }
 
-    public bool IsShowBuffIcon()
+    public virtual bool IsShowBuffIcon()
     {
         if (EffectCfg == null)
         {
