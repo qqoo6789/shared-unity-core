@@ -245,8 +245,8 @@ public class PlayerTalentTreeDataCore : EntityBaseComponent
 
         if (IsSkillTypeGains(nodeCfg.GainsType))
         {
-            int[] addedSkillIDArr = new int[0];
-            int[] removedSkillIDArr = new int[0];
+            int[] addedSkillIDArr = null;
+            int[] removedSkillIDArr = null;
             if (newNode.Level > 0)
             {
                 addedSkillIDArr = nodeCfg.GainsArgs[newNode.Level - 1];
@@ -281,7 +281,7 @@ public class PlayerTalentTreeDataCore : EntityBaseComponent
         {
             //处理天赋技能数据变更
             int[] addedSkillIDArr = nodeCfg.GainsArgs[node.Level - 1];
-            RefEntity.EntityEvent.TalentSkillUpdated?.Invoke(addedSkillIDArr, new int[0]);
+            RefEntity.EntityEvent.TalentSkillUpdated?.Invoke(addedSkillIDArr, null);
         }
     }
 
@@ -302,7 +302,7 @@ public class PlayerTalentTreeDataCore : EntityBaseComponent
         {
             //处理天赋技能数据变更
             int[] removedSkillIDArr = nodeCfg.GainsArgs[node.Level - 1];
-            RefEntity.EntityEvent.TalentSkillUpdated?.Invoke(new int[0], removedSkillIDArr);
+            RefEntity.EntityEvent.TalentSkillUpdated?.Invoke(null, removedSkillIDArr);
         }
     }
 

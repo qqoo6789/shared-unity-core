@@ -28,14 +28,21 @@ public class EntitySkillCollector : EntityBaseComponent
 
     private void OnTalentSkillUpdated(IEnumerable<int> addList, IEnumerable<int> removeList)
     {
-        foreach (int skillID in addList)
+        if (addList != null)
         {
-            AddSkill(skillID);
+            foreach (int skillID in addList)
+            {
+                AddSkill(skillID);
+            }
         }
 
-        foreach (int skillID in removeList)
+        if (removeList != null)
         {
-            RemoveSkill(skillID);
+
+            foreach (int skillID in removeList)
+            {
+                RemoveSkill(skillID);
+            }
         }
     }
 
