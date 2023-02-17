@@ -64,8 +64,17 @@ public class SkillCpt : EntityBaseComponent
         if (!SkillMap.TryGetValue(skillID, out SkillBase skill))
         {
             Log.Warning($"CanUseSkill Skill Is Null! skillId ={skillID}");
+
+            //TODO:因为现在服务器没有装备道具和技能的逻辑 这里只能先这样
+            DRSkill dRSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+            if (dRSkill != null && dRSkill.HomeAction != null && dRSkill.HomeAction.Length > 0)
+            {
+                return true;
+            }
+
             return false;
         }
+
         //检测技能能否使用
         if ((skill.SkillFlag & BattleDefine.SKILL_USE_TAG) == 0)
         {

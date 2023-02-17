@@ -66,15 +66,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             _inputData = StatusCtrl.GetComponent<EntityInputData>();
         }
 
-        //如果是持续技能 不用定时去下个阶段 而是需要等待取消动作
-        if (CurSkillCfg.IsHoldSkill)
-        {
-            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill += StopHoldSkill;
-        }
-        else
-        {
-            TimeForwardFinish();
-        }
+        TimeForwardFinish();
 
         StatusCtrl.RefEntity.EntityEvent.EnterSkillForward?.Invoke(CurSkillCfg);
     }
@@ -83,14 +75,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     {
         StatusCtrl.RefEntity.EntityEvent.ExitSkillForward?.Invoke(!IsContinueBattleLeave);
 
-        if (CurSkillCfg.IsHoldSkill)
-        {
-            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill -= StopHoldSkill;
-        }
-        else
-        {
-            CancelTimeForwardFinish();
-        }
+        CancelTimeForwardFinish();
 
         _inputData = null;
         CurSkillCfg = null;
@@ -99,14 +84,6 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         IsContinueBattleLeave = false;
 
         base.OnLeave(fsm, isShutdown);
-    }
-
-    /// <summary>
-    /// 停止持续技能的持续行为
-    /// </summary>
-    protected virtual void StopHoldSkill()
-    {
-        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
