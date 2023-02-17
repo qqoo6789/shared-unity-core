@@ -4,6 +4,7 @@
  * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -48,9 +49,22 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action<int> EntityBeHitMove;
     /// <summary>
+    /// 实体接受到眩晕效果
+    /// </summary>
+    public Action EntityReceiveStunEffect;
+    /// <summary>
+    /// 实体移除眩晕效果
+    /// </summary>
+    public Action EntityRemoveStunEffect;
+    /// <summary>
     /// 非移动状态的特殊移动开始 往往是技能效果的强制移动等触发
     /// </summary>
     public Action SpecialMoveStartNotMoveStatus;
+    /// <summary>
+    /// 实体受到伤害
+    /// T：伤害值
+    /// </summary>
+    public Action<float> GetHurt;
 
     #endregion
 
@@ -126,5 +140,14 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action SeListUpdated;
 
+    #endregion
+    #region 天赋树
+    /// <summary>
+    /// 参数1：新增技能列表 参数2：移除技能列表
+    /// 增删改都可以通过这个事件来处理
+    /// 参数有可能为空，为空时表示没有新增或者移除的技能
+    /// </summary>
+    public Action<IEnumerable<int>, IEnumerable<int>> TalentSkillUpdated;
+    public Action<IEnumerable<int>> TalentSkillInited;
     #endregion
 }

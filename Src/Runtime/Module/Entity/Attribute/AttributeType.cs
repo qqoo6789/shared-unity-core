@@ -94,77 +94,85 @@ public enum eAttributeType : int
     /// <summary>
     TreeAtt = 3001,
     /// <summary>
-    /** 对矿石攻击力*/
-    /// <summary>
-    OreAtt = 3002,
-    /// <summary>
-    /** 锄头加速系数*/
-    /// <summary>
-    HoeSpd = 3003,
-    /// <summary>
     /** 斧子加速系数*/
     /// <summary>
-    AxeSpd = 3004,
-    /// <summary>
-    /** 镐子加速系数*/
-    /// <summary>
-    PickaxeSpd = 3005,
+    AxeSpd = 3002,
     /// <summary>
     /** 对树木暴击率*/
     /// <summary>
-    TreeCritRate = 3006,
-    /// <summary>
-    /** 对矿石暴击率*/
-    /// <summary>
-    OreCritRate = 3007,
+    TreeCritRate = 3003,
     /// <summary>
     /** 对树木暴击伤害*/
     /// <summary>
-    TreeCritDmg = 3008,
-    /// <summary>
-    /** 对矿石暴击伤害*/
-    /// <summary>
-    OreCritDmg = 3009,
+    TreeCritDmg = 3004,
     /// <summary>
     /** 对树木伤害加成*/
     /// <summary>
-    TreeDmgBonus = 3010,
-    /// <summary>
-    /** 对矿石伤害加成*/
-    /// <summary>
-    OreDmgBonus = 3011,
-    /// <summary>
-    /** 收获作物翻倍概率*/
-    /// <summary>
-    ExtraHarvestRate = 3012,
+    TreeDmgBonus = 3005,
     /// <summary>
     /** 砍树掉落翻倍概率*/
     /// <summary>
-    ExtraWoodRate = 3013,
-    /// <summary>
-    /** 采矿掉落翻倍概率*/
-    /// <summary>
-    ExtraOreRate = 3014,
-    /// <summary>
-    /** 收获作物种子获得概率*/
-    /// <summary>
-    HarvestSeedRate = 3015,
-    /// <summary>
-    /** 可用作物等级*/
-    /// <summary>
-    CropAvailableLv = 3016,
+    ExtraWoodRate = 3006,
     /// <summary>
     /** 可采集树木等级*/
     /// <summary>
-    TreeAvailableLv = 3017,
+    TreeAvailableLv = 3007,
+    /// <summary>
+    /** 对矿石攻击力*/
+    /// <summary>
+    OreAtt = 4001,
+    /// <summary>
+    /** 镐子加速系数*/
+    /// <summary>
+    PickaxeSpd = 4002,
+    /// <summary>
+    /** 对矿石暴击率*/
+    /// <summary>
+    OreCritRate = 4003,
+    /// <summary>
+    /** 对矿石暴击伤害*/
+    /// <summary>
+    OreCritDmg = 4004,
+    /// <summary>
+    /** 对矿石伤害加成*/
+    /// <summary>
+    OreDmgBonus = 4005,
+    /// <summary>
+    /** 采矿掉落翻倍概率*/
+    /// <summary>
+    ExtraOreRate = 4006,
     /// <summary>
     /** 可采集矿石等级*/
     /// <summary>
-    OreAvailableLv = 3018,
+    OreAvailableLv = 4007,
+    /// <summary>
+    /** 单次锄地进度*/
+    /// <summary>
+    HoeingEffect = 5001,
+    /// <summary>
+    /** 锄头加速系数*/
+    /// <summary>
+    HoeSpd = 5002,
+    /// <summary>
+    /** 每秒浇水进度*/
+    /// <summary>
+    WateringEffect = 6001,
     /// <summary>
     /** 浇水效果翻倍概率*/
     /// <summary>
-    ExtraWateringRate = 3019,
+    ExtraWateringRate = 6002,
+    /// <summary>
+    /** 收获作物翻倍概率*/
+    /// <summary>
+    ExtraHarvestRate = 7001,
+    /// <summary>
+    /** 收获作物种子获得概率*/
+    /// <summary>
+    HarvestSeedRate = 7002,
+    /// <summary>
+    /** 可用作物等级*/
+    /// <summary>
+    CropAvailableLv = 7003,
 
 }
 

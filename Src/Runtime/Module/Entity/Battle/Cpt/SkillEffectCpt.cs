@@ -117,7 +117,7 @@ public class SkillEffectCpt : EntityBaseComponent
         if (effect.Duration != 0)
         {
             effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration) : -1;
-            if (effect.Duration > 0 || effect.IsUpdate)
+            if (effect.Duration > 0)
             {
                 AddEffectList(effect, SkillEffectMap[eEffectType.Runtime]);
             }

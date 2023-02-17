@@ -1,8 +1,9 @@
+using System.Diagnostics.Tracing;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能组件
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ using UnityGameFramework.Runtime;
 public class SkillCpt : EntityBaseComponent
 {
     public Dictionary<int, SkillBase> SkillMap { get; private set; } = new();
+
+    private void OnDestroy()
+    {
+        RemoveAllSkill();
+    }
 
     /// <summary>
     /// 添加技能
@@ -82,9 +88,5 @@ public class SkillCpt : EntityBaseComponent
 
         }
         return false;
-    }
-    private void OnDestroy()
-    {
-        RemoveAllSkill();
     }
 }

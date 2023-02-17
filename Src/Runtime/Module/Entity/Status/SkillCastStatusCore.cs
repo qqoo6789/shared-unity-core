@@ -30,7 +30,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
 
     private bool _continueNextSkill;//是否继续下一个技能
     protected override Type[] EventFunctionTypes => new Type[] {
-        typeof(BeHitMoveEventFunc)
+        typeof(BeHitMoveEventFunc),
     };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
@@ -108,10 +108,17 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
+        if (RefEntityIsDead())
         {
             OnBeforeChangeToDeath();
             ChangeState(fsm, DeathStatusCore.Name);
+            return;
+        }
+
+        //不走事件切换，事件切换有可能会在释放技能过程中，触发其他技能，打断释放流程
+        if (StatusCtrl.RefEntity.BattleDataCore.HasBattleState(BattleDefine.eBattleState.Stun))
+        {
+            ChangeState(fsm, StunStatusCore.Name);
             return;
         }
     }

@@ -3,4 +3,8 @@
 /// </summary>
 public class EntityStatusCore : ComponentStatusCore<EntityStatusCtrl>
 {
+    protected virtual bool RefEntityIsDead()
+    {
+        return StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive();
+    }
 }

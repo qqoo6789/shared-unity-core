@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-25 15:56:56
  * @Description: 蓄力状态
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
+ * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/SkillAccumulateStatusCore.cs
  * 
  */
 using System.Threading;
@@ -36,7 +36,8 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
 
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(OnInputSkillInBattleStatusEventFunc),
-        typeof(BeHitMoveEventFunc)
+        typeof(BeHitMoveEventFunc),
+        typeof(BeStunEventFunc),
     };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
@@ -85,7 +86,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
-        if (StatusCtrl.RefEntity.BattleDataCore != null && !StatusCtrl.RefEntity.BattleDataCore.IsLive())
+        if (RefEntityIsDead())
         {
             ChangeState(fsm, DeathStatusCore.Name);
             return;
