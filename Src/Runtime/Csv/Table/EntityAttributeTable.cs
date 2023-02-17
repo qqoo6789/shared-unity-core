@@ -7,10 +7,10 @@ using UnityGameFramework.Runtime;
 public class EntityAttributeTable
 {
     //伤害分类
-    private Dictionary<HomeDefine.eAction, TableBaseDamageAttribute> _damageAttributeClassifyMap;
+    private Dictionary<HomeDefine.eAction, TableDamageAttributeCollections> _damageAttributeClassifyMap;
 
-    //家园动作属性分类
-    private Dictionary<HomeDefine.eAction, TableHomeActionAttribute> _homeAttributeClassifyMap;
+    //收获属性分类
+    private Dictionary<HomeDefine.eAction, TableHarvestAttributeCollections> _harvestAttributeClassifyMap;
 
     private static EntityAttributeTable s_instance;
 
@@ -31,7 +31,7 @@ public class EntityAttributeTable
     {
         InitDamageAttributeClassify();
 
-        InitHomeAttributeClassify();
+        InitHarvestAttributeClassify();
     }
 
     /// <summary>
@@ -39,94 +39,99 @@ public class EntityAttributeTable
     /// </summary>
     /// <param name="action"></param>
     /// <returns></returns>
-    public TableBaseDamageAttribute GetDamageAttributeClassify(HomeDefine.eAction action)
+    public T GetDamageAttributeClassify<T>(HomeDefine.eAction action) where T : TableDamageAttributeCollections
     {
-        if (!_damageAttributeClassifyMap.TryGetValue(action, out TableBaseDamageAttribute attribute))
+        if (!_damageAttributeClassifyMap.TryGetValue(action, out TableDamageAttributeCollections attribute))
         {
             Log.Error($"EntityAttributeTable GetDamageAttributeClassify Not Find Action = {action}");
             return null;
         }
 
-        return attribute;
+        T t = attribute as T;
+        if (t == null)
+        {
+            Log.Error($"EntityAttributeTable GetDamageAttributeClassify type error Action = {action} Type = {typeof(T)}");
+        }
+
+        return t;
     }
 
     /// <summary>
-    /// 获取家园属性分类
+    /// 获取收获属性分类
     /// </summary>
     /// <param name="action"></param>
     /// <returns></returns>
-    public TableHomeActionAttribute GetHomeAttributeClassify(HomeDefine.eAction action)
+    public TableHarvestAttributeCollections GetHarvestAttributeClassify(HomeDefine.eAction action)
     {
-        if (!_homeAttributeClassifyMap.TryGetValue(action, out TableHomeActionAttribute attribute))
+        if (!_harvestAttributeClassifyMap.TryGetValue(action, out TableHarvestAttributeCollections attribute))
         {
-            Log.Error($"EntityAttributeTable GetHomeActionAttributeClassify Not Find Action = {action}");
+            Log.Error($"EntityAttributeTable GetHarvestAttributeClassify Not Find Action = {action}");
             return null;
         }
 
         return attribute;
     }
 
-    private void InitHomeAttributeClassify()
+    private void InitHarvestAttributeClassify()
     {
-        _homeAttributeClassifyMap = new();
+        _harvestAttributeClassifyMap = new();
 
         //砍树
-        TableHomeActionAttribute cutTree = new TableHomeActionAttribute()
+        TableHarvestAttributeCollections cutTree = new()
         {
             ExtraHarvestRate = eAttributeType.ExtraWoodRate,
-            AvailableLv = eAttributeType.TreeAvailableLv,
         };
-        _homeAttributeClassifyMap.Add(HomeDefine.eAction.Cut, cutTree);
+        _harvestAttributeClassifyMap.Add(HomeDefine.eAction.Cut, cutTree);
 
         //采矿
-        TableHomeActionAttribute mining = new TableHomeActionAttribute()
+        TableHarvestAttributeCollections mining = new()
         {
             ExtraHarvestRate = eAttributeType.ExtraOreRate,
-            AvailableLv = eAttributeType.OreAvailableLv,
         };
-        _homeAttributeClassifyMap.Add(HomeDefine.eAction.Mining, mining);
+        _harvestAttributeClassifyMap.Add(HomeDefine.eAction.Mining, mining);
 
         //农作物
-        TableHomeActionAttribute harvest = new TableHomeActionAttribute()
+        TableHarvestAttributeCollections harvest = new()
         {
             ExtraHarvestRate = eAttributeType.ExtraHarvestRate,
-            AvailableLv = eAttributeType.CropAvailableLv,
         };
-        _homeAttributeClassifyMap.Add(HomeDefine.eAction.Harvest, harvest);
+        _harvestAttributeClassifyMap.Add(HomeDefine.eAction.Harvest, harvest);
     }
 
     private void InitDamageAttributeClassify()
     {
         _damageAttributeClassifyMap = new();
 
-        //怪物
-        TableBaseDamageAttribute attack = new TableBaseDamageAttribute()
+        //怪物 敌人
+        TableEnemyDamageAttribute attack = new()
         {
             Att = eAttributeType.CombatAtt,
-            Def = eAttributeType.CombatDef,
             DmgBonus = eAttributeType.CombatDmgBonus,
             CritRate = eAttributeType.CombatCritRate,
             CritDmg = eAttributeType.CombatCritDmg,
+            Def = eAttributeType.CombatDef,
         };
-        _damageAttributeClassifyMap.Add(HomeDefine.eAction.AttackMonster, attack);
+        _damageAttributeClassifyMap.Add(HomeDefine.eAction.AttackEnemy, attack);
 
         //砍树
-        TableBaseDamageAttribute cutTree = new TableBaseDamageAttribute()
+        TableHomeDamageAttribute cutTree = new()
         {
             Att = eAttributeType.TreeAtt,
             DmgBonus = eAttributeType.TreeDmgBonus,
             CritRate = eAttributeType.TreeCritRate,
             CritDmg = eAttributeType.TreeCritDmg,
+            AvailableLv = eAttributeType.TreeAvailableLv,
         };
         _damageAttributeClassifyMap.Add(HomeDefine.eAction.Cut, cutTree);
 
         //采矿
-        TableBaseDamageAttribute mining = new TableBaseDamageAttribute()
+        TableHomeDamageAttribute mining = new()
         {
             Att = eAttributeType.OreAtt,
             DmgBonus = eAttributeType.OreDmgBonus,
             CritRate = eAttributeType.OreCritRate,
             CritDmg = eAttributeType.OreCritDmg,
+            AvailableLv = eAttributeType.OreAvailableLv,
         };
         _damageAttributeClassifyMap.Add(HomeDefine.eAction.Mining, mining);
     }

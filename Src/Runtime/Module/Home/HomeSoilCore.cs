@@ -21,6 +21,8 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
 
     public eAction SupportAction => GetCurStatus().SupportAction;
 
+    public int Lv => throw new System.NotImplementedException();//目前业务没有需要读的 否则报错
+
     protected virtual void Awake()
     {
         SoilEvent = gameObject.AddComponent<SoilEvent>();
@@ -51,7 +53,7 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         return GetCurStatus().CheckSupportAction(action);
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
     {
         if (action == eAction.Sowing)
         {
@@ -64,6 +66,11 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         else
         {
             SoilEvent.MsgExecuteAction?.Invoke(action, null);
+        }
+
+        if (action == eAction.Watering && extraWateringNum > 0)
+        {
+            SoilData.SaveData.ExtraWateringNum = extraWateringNum;
         }
     }
 }

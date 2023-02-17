@@ -26,6 +26,27 @@ public class SoilGrowingThirstyStatusCore : SoilStatusCore
         base.OnLeave(fsm, isShutdown);
     }
 
+    protected override void OnEnterInitStatus(IFsm<SoilStatusCtrl> fsm)
+    {
+        //如果有额外次数就不用进初始状态去找下一个状态 直接等update时进入下一个生长状态 并且保留初始时进入的初始标记和时间
+        if (SoilData.SaveData.ExtraWateringNum <= 0)
+        {
+            base.OnEnterInitStatus(fsm);
+        }
+    }
+
+    protected override void OnUpdate(IFsm<SoilStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
+    {
+        base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
+
+        //自动进入湿润状态
+        if (SoilData.SaveData.ExtraWateringNum > 0)
+        {
+            SoilData.SaveData.ExtraWateringNum--;
+            ChangeState(eSoilStatus.GrowingWet);
+        }
+    }
+
     protected override void OnAutoEnterNextStatus()
     {
         base.OnAutoEnterNextStatus();

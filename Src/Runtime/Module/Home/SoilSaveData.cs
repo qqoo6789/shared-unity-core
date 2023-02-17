@@ -41,6 +41,10 @@ public class SoilSaveData
     /// 施肥是否有效
     /// </summary>
     public bool ManureValid;
+    /// <summary>
+    /// 当前剩余额外浇水次数
+    /// </summary>
+    public int ExtraWateringNum;
 
     public SoilSaveData()
     {
@@ -57,6 +61,7 @@ public class SoilSaveData
         SowingValid = data.SowingValid;
         ManureCid = data.ManureCid;
         ManureValid = data.ManureValid;
+        ExtraWateringNum = data.ExtraWateringNum;
     }
 
     public ProxySoilData ToProxySoilData()
@@ -70,7 +75,8 @@ public class SoilSaveData
             SeedCid = SeedCid,
             SowingValid = SowingValid,
             ManureCid = ManureCid,
-            ManureValid = ManureValid
+            ManureValid = ManureValid,
+            ExtraWateringNum = ExtraWateringNum,
         };
     }
 }

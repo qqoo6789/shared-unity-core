@@ -15,7 +15,6 @@ public static class HomeDefine
     public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
 
     public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 20;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
-    public const int WATER_ACTION_PROGRESS_SPEED = 50;//浇水动作的进度速度 每秒
 
     /// <summary>
     /// 需要消耗道具的动作集合
@@ -33,6 +32,10 @@ public static class HomeDefine
     /// 支持进度的动作集合
     /// </summary>
     public const eAction PROGRESS_ACTION_MASK = HOLD_PROGRESS_ACTION_MASK | SEGMENT_PROGRESS_ACTION_MASK;
+    /// <summary>
+    /// 需要计算伤害的动作集合
+    /// </summary>
+    public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ eAction.Hoeing;
 
     /// <summary>
     /// 土地状态间的数据定义key
@@ -124,9 +127,9 @@ public static class HomeDefine
         /// </summary>
         Eradicate = 1 << 8,
         /// <summary>
-        /// 攻击怪物（这个给伤害计算分类用的 家园并不使用）
+        /// 攻击敌人 怪物 boss（这个给伤害计算分类用的 家园并不使用）
         /// </summary>
-        AttackMonster = 1 << 31,
+        AttackEnemy = 1 << 31,
     }
 
     /// <summary>

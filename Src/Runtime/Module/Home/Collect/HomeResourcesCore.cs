@@ -19,6 +19,15 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
     public eAction SupportAction { get; set; } = eAction.None;
 
+    public int Lv
+    {
+        get
+        {
+            ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
+            return resourceData.DRHomeResources.Lv;
+        }
+    }
+
     protected virtual void Awake()
     {
         IsDead = false;
@@ -71,7 +80,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         return (SupportAction & action) != 0;
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
     {
         if (!CheckSupportAction(action))
         {

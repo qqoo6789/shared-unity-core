@@ -65,7 +65,7 @@ public class SkillCpt : EntityBaseComponent
         {
             Log.Warning($"CanUseSkill Skill Is Null! skillId ={skillID}");
 
-            //TODO:因为现在服务器没有装备道具和技能的逻辑 这里只能先这样
+            //TODO: home 因为现在服务器没有装备道具和技能的逻辑 这里只能先这样
             DRSkill dRSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
             if (dRSkill != null && dRSkill.HomeAction != null && dRSkill.HomeAction.Length > 0)
             {
