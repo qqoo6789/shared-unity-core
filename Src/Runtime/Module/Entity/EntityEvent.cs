@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
 using System.Collections.Generic;
@@ -144,8 +144,6 @@ public class EntityEvent : EntityBaseComponent
     #region 天赋树
     /// <summary>
     /// 参数1：新增技能列表 参数2：移除技能列表
-    /// 增删改都可以通过这个事件来处理
-    /// 参数有可能为空，为空时表示没有新增或者移除的技能
     /// </summary>
     public Action<IEnumerable<int>, IEnumerable<int>> TalentSkillUpdated;
     public Action<IEnumerable<int>> TalentSkillInited;

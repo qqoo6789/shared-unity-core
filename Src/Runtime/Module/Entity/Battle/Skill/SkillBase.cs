@@ -7,6 +7,7 @@
  */
 using GameFramework;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 public class SkillBase : IReference
 {
@@ -29,6 +30,12 @@ public class SkillBase : IReference
     {
         SkillID = skillID;
         DRSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        if (DRSkill == null)
+        {
+            Log.Error("The skill ID was not found in the skill table:{0}", skillID);
+            return;
+
+        }
         SkillFlag = 0;
         if (DRSkill.SkillFlag != null)
         {
