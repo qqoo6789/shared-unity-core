@@ -78,7 +78,7 @@ public class SEBloodRageCore : SkillEffectBase
             ClearModifier();
 
             eAttributeType attributeType = GetAttributeType(dataRow[0]);
-            eModifierType modifyType = GetAttrsModifyType(dataRow[1]);
+            eModifierType modifyType = (eModifierType)dataRow[1];
             float factor = GetModifyFactor(dataRow[2], modifyType);
             int value = (int)(GetLostHpPercent() * factor);
             if (value != 0)
@@ -106,11 +106,6 @@ public class SEBloodRageCore : SkillEffectBase
     private eAttributeType GetAttributeType(int cfgData)
     {
         return (eAttributeType)cfgData;
-    }
-
-    private eModifierType GetAttrsModifyType(int cfgData)
-    {
-        return (eModifierType)cfgData;
     }
 
     private float GetModifyFactor(int cfgData, eModifierType modifyType)
