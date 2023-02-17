@@ -29,8 +29,9 @@ public class SkillEffectCoreFactory
     /// <param name="fromID">技能释放者ID</param>
     /// <param name="targetID">技能接收ID</param>
     /// <param name="duration">技能持续时间 小于0代表一致持续  0代表立即执行销毁  大于0即到时自动销毁</param>
+    /// <param name="curLayer">当前层级</param>
     /// <returns></returns>
-    public SkillEffectBase CreateOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0)
+    public SkillEffectBase CreateOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0, int curLayer = 1)
     {
         if (SkillEffectMap == null)
         {
@@ -52,7 +53,7 @@ public class SkillEffectCoreFactory
         }
         Type skillEffectClass = SkillEffectMap[(BattleDefine.eSkillEffectType)skillEffectCfg.EffectType];
         SkillEffectBase effect = SkillEffectBase.Create(skillEffectClass);
-        effect.SetData(skillID, skillEffectCfg, fromID, targetID, duration);
+        effect.SetData(skillID, skillEffectCfg, fromID, targetID, duration, curLayer);
         return effect;
     }
 }

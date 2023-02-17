@@ -6,6 +6,10 @@
  * 
  */
 using System.Collections.Generic;
+using Unity.Plastic.Newtonsoft.Json;
+using UnityEngine;
+using UnityGameFramework.Runtime;
+
 public class SkillEffectCpt : EntityBaseComponent
 {
 
@@ -18,6 +22,7 @@ public class SkillEffectCpt : EntityBaseComponent
     public Dictionary<eEffectType, List<SkillEffectBase>> SkillEffectMap { get; private set; }
 
     private int _immuneFlag; //免疫标识
+
     private void Awake()
     {
         SkillEffectMap = new()
@@ -65,7 +70,28 @@ public class SkillEffectCpt : EntityBaseComponent
             }
         }
     }
+    public void InitRuntimeEffectData(string effectData)
+    {
+        if (string.IsNullOrEmpty(effectData))
+        {
+            return;
+        }
+        SkillEffectSaveDataConfig config = JsonConvert.DeserializeObject<SkillEffectSaveDataConfig>(effectData);
+        for (int i = 0; i < config.EffectSaveList.Count; i++)
+        {
+            SkillEffectSaveData saveData = config.EffectSaveList[i];
+            DRSkillEffect skillEffectCfg = GFEntryCore.DataTable.GetDataTable<DRSkillEffect>().GetDataRow(saveData.EffectID);
+            if (skillEffectCfg == null)
+            {
+                Log.Error($"InitSkillEffectConfig not find skill effect skillID = {saveData.SkillID} effectID = {saveData.EffectID}");
+                continue;
+            }
+            SkillEffectBase skillBase = GFEntryCore.SkillEffectFactory.CreateOneSkillEffect(saveData.SkillID, saveData.EffectID, saveData.FromID, RefEntity.BaseData.Id, skillEffectCfg.Duration, saveData.CurLayer);
+            skillBase.DestroyTimestamp = saveData.DestroyTimestamp;
+            AddEffectList(skillBase, SkillEffectMap[eEffectType.Runtime]);
+        }
 
+    }
     /// <summary>
     /// 检测能否应用效果
     /// </summary>
@@ -235,6 +261,25 @@ public class SkillEffectCpt : EntityBaseComponent
                 _immuneFlag |= effect.EffectImmuneFlag;
             }
         }
+    }
+
+    /// <summary>
+    /// 获取运行效果的保存数据
+    /// </summary>
+    /// <returns></returns>
+    public string GetRuntimeEffectSaveData()
+    {
+        SkillEffectSaveDataConfig config = new();
+        List<SkillEffectSaveData> saveDataList = new();
+
+        List<SkillEffectBase> effectList = SkillEffectMap[eEffectType.Runtime];
+        for (int i = 0; i < effectList.Count; i++)
+        {
+            saveDataList.Add(effectList[i].GetSaveData());
+        }
+
+        config.EffectSaveList = saveDataList;
+        return config.ToJson();
     }
     private void OnDestroy()
     {

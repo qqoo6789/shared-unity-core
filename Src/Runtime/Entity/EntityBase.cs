@@ -172,6 +172,14 @@ public class EntityBase
         BaseData.Init(id, type);
         Root.name = $"{type}_{id}";
     }
+    public string GetSkillEffectData()
+    {
+        if (TryGetComponent(out SkillEffectCpt skillEffectCpt))
+        {
+            return skillEffectCpt.GetRuntimeEffectSaveData();
+        }
+        return "";
+    }
 
     public void SetRootName(string name)
     {
