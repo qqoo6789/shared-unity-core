@@ -1,26 +1,58 @@
 using UnityEngine;
+using UnityGameFramework.Runtime;
+using static HomeDefine;
 
 /// <summary>
 /// 畜牧食盆
 /// </summary>
-public class AnimalBowlCore : MonoBehaviour
+public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
 {
     public AnimalBowlData Data { get; private set; }
+
+    public ulong Id => Data.SaveData.BowlId;
+
+    public eResourceType ResourceType => eResourceType.AnimalBowl;
+
+    public GameObject LogicRoot => gameObject;
+
+    public Vector3 Position => transform.position;
+
+    public int Lv => -1;
+
+    public eAction SupportAction => eAction.PutAnimalFood;
+
     private void Awake()
     {
         Data = gameObject.AddComponent<AnimalBowlData>();
     }
 
     /// <summary>
-    /// 食盆被消耗掉食物
+    /// 食盆被消耗掉食物 设置剩余容量
     /// </summary>
-    /// <param name="costFood"></param>
-    public virtual void CostFood(int costFood)
+    public virtual void CostSetCapacity(int remainCapacity)
     {
-        Data.SaveData.RemainFoodCapacity = Mathf.Max(0, Data.SaveData.RemainFoodCapacity - costFood);
+        Data.SaveData.RemainFoodCapacity = remainCapacity;
         if (Data.SaveData.RemainFoodCapacity <= 0)
         {
             Data.SaveData.FoodCid = 0;
         }
+    }
+
+    public bool CheckSupportAction(eAction action)
+    {
+        return (SupportAction & action) != 0;
+    }
+
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
+    {
+        DRAnimalFood drAnimalFood = GFEntryCore.DataTable.GetDataTable<DRAnimalFood>().GetDataRow(toolCid);
+        if (drAnimalFood == null)
+        {
+            Log.Error($"食盆执行动作时食物配置表里没有找到cid为 {toolCid} 的食物");
+            return;
+        }
+
+        Data.SaveData.FoodCid = toolCid;
+        Data.SaveData.RemainFoodCapacity = drAnimalFood.Capacity;
     }
 }

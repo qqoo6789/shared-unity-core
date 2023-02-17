@@ -138,6 +138,18 @@ public static class HomeDefine
         /// </summary>
         Eradicate = 1 << 8,
         /// <summary>
+        /// 放置动物食物
+        /// </summary>
+        PutAnimalFood = 1 << 9,
+        /// <summary>
+        /// 安抚动物
+        /// </summary>
+        Appease = 1 << 10,
+        /// <summary>
+        /// 动物收获
+        /// </summary>
+        AnimalHarvest = 1 << 11,
+        /// <summary>
         /// 攻击敌人 怪物 boss（这个给伤害计算分类用的 家园并不使用）
         /// </summary>
         AttackEnemy = 1 << 31,
@@ -153,7 +165,18 @@ public static class HomeDefine
         /// 土壤作物
         /// </summary>
         Soil = 1 << 0,
+        /// <summary>
+        /// 采集物
+        /// </summary>
         HomeResource = 1 << 1,
+        /// <summary>
+        /// 动物食盆
+        /// </summary>
+        AnimalBowl = 1 << 2,
+        /// <summary>
+        /// 动物
+        /// </summary>
+        Animal = 1 << 3,
     }
 
     public enum eHomeResourcesAreaType : int

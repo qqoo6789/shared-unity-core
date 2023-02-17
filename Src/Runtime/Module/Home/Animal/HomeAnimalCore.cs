@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 家园动物core
 /// </summary>
-public abstract class HomeAnimalCore : MonoBehaviour
+public abstract class HomeAnimalCore : EntityBaseComponent
 {
     /// <summary>
     /// 动物数据
@@ -62,11 +62,10 @@ public abstract class HomeAnimalCore : MonoBehaviour
     }
 
     /// <summary>
-    /// 吃下食物
+    /// 吃下食物后设置饥饿值
     /// </summary>
-    /// <param name="costFood"></param>
-    protected virtual void EatenFood(int costFood)
+    protected virtual void EatenSetHunger(float progress)
     {
-        Data.SaveData.HungerProgress = Mathf.Min(Data.DRMonster.MaxHunger, Data.SaveData.HungerProgress + costFood);
+        Data.SaveData.HungerProgress = progress;
     }
 }
