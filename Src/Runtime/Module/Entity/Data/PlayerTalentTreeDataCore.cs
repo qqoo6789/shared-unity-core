@@ -60,6 +60,8 @@ public class PlayerTalentTreeDataCore : EntityBaseComponent
                 AllTalentTreeDic[tree.TalentType].Add(node.NodeId, node);
             }
         }
+
+        RefEntity.EntityEvent.TalentSkillInited?.Invoke(GetTalentSkills());
     }
 
     /// <summary>

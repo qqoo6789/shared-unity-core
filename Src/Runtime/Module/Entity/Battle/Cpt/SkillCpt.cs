@@ -14,24 +14,9 @@ public class SkillCpt : EntityBaseComponent
 {
     public Dictionary<int, SkillBase> SkillMap { get; private set; } = new();
 
-    private void Start()
-    {
-        if (RefEntity.TryGetComponent(out PlayerTalentTreeDataCore talentData))
-        {
-            List<int> skills = talentData.GetTalentSkills();
-            for (int i = 0; i < skills.Count; i++)
-            {
-                _ = AddSkill(skills[i]);
-            }
-        }
-
-        RefEntity.EntityEvent.TalentSkillUpdated += OnTalentSkillUpdated;
-    }
-
     private void OnDestroy()
     {
         RemoveAllSkill();
-        RefEntity.EntityEvent.TalentSkillUpdated -= OnTalentSkillUpdated;
     }
 
     /// <summary>

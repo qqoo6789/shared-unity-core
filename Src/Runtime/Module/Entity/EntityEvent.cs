@@ -148,5 +148,6 @@ public class EntityEvent : EntityBaseComponent
     /// 参数有可能为空，为空时表示没有新增或者移除的技能
     /// </summary>
     public Action<IEnumerable<int>, IEnumerable<int>> TalentSkillUpdated;
+    public Action<IEnumerable<int>> TalentSkillInited;
     #endregion
 }
