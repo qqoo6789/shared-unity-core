@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -156,11 +156,16 @@ public class EntitySkillDataCore : EntityBaseComponent
         {
             return;
         }
-        if (JumpSkillID != BattleDefine.JUMP_SKILL_ID_NULL)
+        int oldJumpSkillID = JumpSkillID;
+        if (oldJumpSkillID != BattleDefine.JUMP_SKILL_ID_NULL)
         {
-            SkillComponent.RemoveSkill(JumpSkillID);
+            SkillComponent.RemoveSkill(oldJumpSkillID);
         }
         JumpSkillID = skillID;
-        _ = SkillComponent.AddSkill(skillID);
+        if (JumpSkillID != BattleDefine.JUMP_SKILL_ID_NULL)
+        {
+            _ = SkillComponent.AddSkill(JumpSkillID);
+        }
+
     }
 }
