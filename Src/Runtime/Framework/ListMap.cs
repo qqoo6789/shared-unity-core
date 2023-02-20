@@ -116,5 +116,10 @@ public class ListMap<TKey, TValue> : IEnumerator, IEnumerable
         return this;
     }
 
+    public TValue[] ToArray()
+    {
+        return _list.ToArray();
+    }
+
     #endregion
 }

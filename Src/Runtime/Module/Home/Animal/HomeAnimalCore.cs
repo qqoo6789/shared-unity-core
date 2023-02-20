@@ -64,7 +64,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent
     /// <summary>
     /// 吃下食物后设置饥饿值
     /// </summary>
-    protected virtual void EatenSetHunger(float progress)
+    public virtual void EatenSetHunger(float progress)
     {
         Data.SaveData.HungerProgress = progress;
     }

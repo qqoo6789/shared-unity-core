@@ -79,4 +79,13 @@ public class HomeAnimalScene : MonoBehaviour
     {
         return _bowlListMap.GetFromKey(id);
     }
+
+    /// <summary>
+    /// 按照顺序 获取所有食盆
+    /// </summary>
+    /// <returns></returns>
+    public AnimalBowlCore[] GetBowls()
+    {
+        return _bowlListMap.ToArray();
+    }
 }
