@@ -11,6 +11,7 @@ public static class TableDefine
     public static readonly int ITEMID_BATTERY = 3010203;
     public static readonly int ITEMID_SEED = 3010204;
     public static readonly int DATA_TABLE_START_ROW = 1;
+    public static readonly string DATA_TABLE_ENCODING = "UTF-8";
     public enum eRoleAttrName//表属性属性字段名
     {
         Hp,

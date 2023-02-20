@@ -142,7 +142,7 @@ namespace Meland.Editor.DataTableTools
         }
         public static string GeneratorAttributeType()
         {
-            string tableText = File.ReadAllText(ATTRIBUTE_TYPE_CSV_FILE_NAME, Encoding.GetEncoding("GB2312"));
+            string tableText = File.ReadAllText(ATTRIBUTE_TYPE_CSV_FILE_NAME, Encoding.GetEncoding(TableDefine.DATA_TABLE_ENCODING));
             List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
 
             StringBuilder stringBuilder = new();
