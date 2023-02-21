@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
 using System.Collections.Generic;
@@ -139,6 +139,11 @@ public class EntityEvent : EntityBaseComponent
     /// 效果球列表更新
     /// </summary>
     public Action SeListUpdated;
+
+    /// <summary>
+    /// 战斗所属ID更新
+    /// </summary>
+    public Action<long> BattleOwnerIDUpdate;
 
     #endregion
     #region 天赋树

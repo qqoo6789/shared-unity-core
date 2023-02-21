@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -74,6 +74,12 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     /// <value></value>
     public bool IsInBattle { get; protected set; }
+
+    /// <summary>
+    /// 战斗归属ID
+    /// </summary>
+    /// <value></value>
+    public long BattleOwnerId { get; protected set; } = BattleDefine.ENTITY_ID_UNKNOWN;
     /// <summary>
     /// 死亡原因 只在hp<=0时有效
     /// </summary>
@@ -121,6 +127,16 @@ public class EntityBattleDataCore : EntityBaseComponent
 
         IsInBattle = isInBattle;
         return true;
+    }
+
+    /// <summary>
+    /// 战斗归属ID
+    /// </summary>
+    /// <param name="entityId"></param>
+    public void SetBattleOwnerId(long entityId)
+    {
+        BattleOwnerId = entityId;
+        RefEntity.EntityEvent.BattleOwnerIDUpdate?.Invoke(entityId);
     }
 
     /// <summary>
