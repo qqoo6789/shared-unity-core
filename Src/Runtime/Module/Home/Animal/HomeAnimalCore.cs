@@ -1,10 +1,23 @@
 using UnityEngine;
+using static HomeDefine;
 
 /// <summary>
 /// 家园动物core
 /// </summary>
-public abstract class HomeAnimalCore : EntityBaseComponent
+public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 {
+    public ulong Id => Data.AnimId;
+
+    public eResourceType ResourceType => eResourceType.Animal;
+
+    public GameObject LogicRoot => RefEntity.EntityRoot;
+
+    public Vector3 Position => RefEntity.Position;
+
+    public int Lv => Data.DRMonster.Lv;
+
+    public eAction SupportAction => throw new System.NotImplementedException();
+
     /// <summary>
     /// 动物数据
     /// </summary>
@@ -67,5 +80,15 @@ public abstract class HomeAnimalCore : EntityBaseComponent
     public virtual void EatenSetHunger(float progress)
     {
         Data.SaveData.HungerProgress = progress;
+    }
+
+    public bool CheckSupportAction(HomeDefine.eAction action)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ExecuteAction(HomeDefine.eAction action, int toolCid, bool itemValid, int extraWateringNum)
+    {
+        throw new System.NotImplementedException();
     }
 }

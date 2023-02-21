@@ -7,7 +7,7 @@ public class AnimalInitLogicCore : MonoBehaviour
     /// <summary>
     /// 恢复畜牧食盆数据
     /// </summary>
-    /// <param name="bowlDataArr"></param>
+    /// <param name="bowlDataArr">可给null 代表没有存档数据</param>
     public void RestoreBowlData<T>(AnimalBowlSaveData[] bowlDataArr) where T : AnimalBowlCore
     {
         List<T> bowlList = RestoreBowlEntityList<T>(bowlDataArr);
@@ -25,7 +25,7 @@ public class AnimalInitLogicCore : MonoBehaviour
     /// <summary>
     /// 获取恢复出来的食盆实体列表 不返回null
     /// </summary>
-    /// <param name="bowlDataArr"></param>
+    /// <param name="bowlDataArr">null代表没有存档数据</param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     private static List<T> RestoreBowlEntityList<T>(AnimalBowlSaveData[] bowlDataArr) where T : AnimalBowlCore
