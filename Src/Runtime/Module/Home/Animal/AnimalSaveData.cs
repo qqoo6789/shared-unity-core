@@ -36,6 +36,11 @@ public class AnimalSaveData
     /// </summary>
     public AnimalProductSaveData ProductSaveData;
 
+    public AnimalSaveData()
+    {
+
+    }
+
     public AnimalSaveData(ulong animId)
     {
         AnimId = animId;

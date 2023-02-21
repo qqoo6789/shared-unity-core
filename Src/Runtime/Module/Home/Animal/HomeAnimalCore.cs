@@ -82,12 +82,12 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         Data.SaveData.HungerProgress = progress;
     }
 
-    public bool CheckSupportAction(HomeDefine.eAction action)
+    public bool CheckSupportAction(eAction action)
     {
         throw new System.NotImplementedException();
     }
 
-    public void ExecuteAction(HomeDefine.eAction action, int toolCid, bool itemValid, int extraWateringNum)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
     {
         throw new System.NotImplementedException();
     }
