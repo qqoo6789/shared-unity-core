@@ -44,6 +44,15 @@ public class HomeAnimalScene : MonoBehaviour
         PlaygroundRect = new Rect(x, z, PlaygroundSize.x, PlaygroundSize.z);
     }
 
+    private void OnDestroy()
+    {
+        foreach (AnimalBowlCore bowlCore in _bowlListMap)
+        {
+            Destroy(bowlCore);//只删除自己脚本 是自己添加的脚步
+        }
+        _bowlListMap.Clear();
+    }
+
     /// <summary>
     /// 添加食盆 需要排好序 顺序为吃的顺序
     /// </summary>

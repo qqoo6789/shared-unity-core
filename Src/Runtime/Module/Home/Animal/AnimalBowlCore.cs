@@ -26,6 +26,11 @@ public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
         Data = gameObject.AddComponent<AnimalBowlData>();
     }
 
+    protected virtual void OnDestroy()
+    {
+        Destroy(Data);
+    }
+
     /// <summary>
     /// 食盆被消耗掉食物 设置剩余容量
     /// </summary>
@@ -34,13 +39,13 @@ public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
         Data.SaveData.RemainFoodCapacity = remainCapacity;
         if (Data.SaveData.RemainFoodCapacity <= 0)
         {
-            Data.SaveData.FoodCid = 0;
+            Data.UpdateFood(0, 0);
         }
     }
 
     public bool CheckSupportAction(eAction action)
     {
-        return (SupportAction & action) != 0;
+        return (SupportAction & action) != 0 && !Data.IsHaveFood;
     }
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
@@ -52,7 +57,6 @@ public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
             return;
         }
 
-        Data.SaveData.FoodCid = toolCid;
-        Data.SaveData.RemainFoodCapacity = drAnimalFood.Capacity;
+        Data.UpdateFood(toolCid, drAnimalFood.Capacity);
     }
 }

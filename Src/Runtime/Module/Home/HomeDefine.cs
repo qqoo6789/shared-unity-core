@@ -19,15 +19,15 @@ public static class HomeDefine
     /// <summary>
     /// 需要消耗道具的动作集合
     /// </summary>
-    public const eAction NEED_COST_ITEM_ACTION_MASK = eAction.Sowing | eAction.Manure;
+    public const eAction NEED_COST_ITEM_ACTION_MASK = eAction.Sowing | eAction.Manure | eAction.PutAnimalFood;
     /// <summary>
     /// 持续性进度动作集合 比如浇水
     /// </summary>
-    public const eAction HOLD_PROGRESS_ACTION_MASK = eAction.Watering;
+    public const eAction HOLD_PROGRESS_ACTION_MASK = eAction.Watering | eAction.Appease;
     /// <summary>
     /// 分段进度动作集合 比如锄地
     /// </summary>
-    public const eAction SEGMENT_PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Mining | eAction.Cut;
+    public const eAction SEGMENT_PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Mining | eAction.Cut | eAction.Shearing | eAction.Milking;
     /// <summary>
     /// 支持进度的动作集合
     /// </summary>
@@ -146,9 +146,13 @@ public static class HomeDefine
         /// </summary>
         Appease = 1 << 10,
         /// <summary>
-        /// 动物收获
+        /// 剪毛
         /// </summary>
-        AnimalHarvest = 1 << 11,
+        Shearing = 1 << 11,
+        /// <summary>
+        /// 挤奶
+        /// </summary>
+        Milking = 1 << 12,
         /// <summary>
         /// 攻击敌人 怪物 boss（这个给伤害计算分类用的 家园并不使用）
         /// </summary>

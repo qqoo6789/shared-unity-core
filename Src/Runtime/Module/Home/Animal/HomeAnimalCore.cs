@@ -29,6 +29,11 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         Data = gameObject.AddComponent<AnimalDataCore>();
     }
 
+    protected virtual void OnDestroy()
+    {
+        Destroy(Data);
+    }
+
     protected virtual void Update()
     {
         TickHunger();

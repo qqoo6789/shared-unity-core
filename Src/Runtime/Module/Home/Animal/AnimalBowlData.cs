@@ -29,5 +29,19 @@ public class AnimalBowlData : MonoBehaviour
     internal void SetSaveData(AnimalBowlSaveData saveData)
     {
         _saveData = saveData ?? new AnimalBowlSaveData();
+
+        CurDRFood = _saveData.FoodCid > 0 ? GFEntryCore.DataTable.GetDataTable<DRAnimalFood>().GetDataRow(_saveData.FoodCid) : null;
+    }
+
+    /// <summary>
+    /// 更新食物
+    /// </summary>
+    /// <param name="foodCid"></param>
+    /// <param name="remainCapacity"></param>
+    public void UpdateFood(int foodCid, int remainCapacity)
+    {
+        _saveData.FoodCid = foodCid;
+        _saveData.RemainFoodCapacity = remainCapacity;
+        CurDRFood = _saveData.FoodCid > 0 ? GFEntryCore.DataTable.GetDataTable<DRAnimalFood>().GetDataRow(_saveData.FoodCid) : null;
     }
 }
