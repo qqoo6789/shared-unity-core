@@ -31,6 +31,11 @@ public class AnimalDataCore : MonoBehaviour
     /// <value></value>
     public AnimalSaveData SaveData => _saveData;
 
+    /// <summary>
+    /// 是否能收获
+    /// </summary>
+    public bool IsCanHarvest => _saveData.HarvestProgress >= 100;
+
     public void SetBaseData(AnimBaseData animalBaseData)
     {
         _baseData = animalBaseData;

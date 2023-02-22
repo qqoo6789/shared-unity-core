@@ -26,11 +26,11 @@ public class AnimalSaveData
     /// <summary>
     /// 本收获阶段是否已经安抚过
     /// </summary>
-    public bool isComforted;
+    public bool IsComforted;
     /// <summary>
     /// 动物已经死亡
     /// </summary>
-    public bool isDead;
+    public bool IsDead;
     /// <summary>
     /// 如果有自动生产的产品在场景中 这里就有数据
     /// </summary>
@@ -51,48 +51,24 @@ public class AnimalSaveData
         AnimId = data.AnimId;
         HungerProgress = data.HungerProgress;
         HarvestProgress = data.HarvestProgress;
-        isComforted = data.IsComforted;
-        isDead = data.IsDead;
+        IsComforted = data.IsComforted;
+        IsDead = data.IsDead;
 
-        if (data.ProductData == null)
-        {
-            ProductSaveData = null;
-        }
-        else
-        {
-            ProductSaveData = new AnimalProductSaveData()
-            {
-                ProductId = data.ProductData.ProductId,
-                ItemCid = data.ProductData.ItemCid,
-                Pos = NetUtilCore.Vector3FromNet(data.ProductData.Position),
-            };
-        }
+        ProductSaveData = data.ProductData == null ? null : new AnimalProductSaveData(data.ProductData);
     }
 
     public ProxyAnimalData ToProxyAnimalData()
     {
-        ProxyAnimalData data = new ProxyAnimalData()
+        ProxyAnimalData data = new()
         {
             AnimId = AnimId,
             HungerProgress = Mathf.CeilToInt(HungerProgress),
             HarvestProgress = Mathf.CeilToInt(HarvestProgress),
-            IsComforted = isComforted,
-            IsDead = isDead,
-        };
+            IsComforted = IsComforted,
+            IsDead = IsDead,
 
-        if (ProductSaveData == null)
-        {
-            data.ProductData = null;
-        }
-        else
-        {
-            data.ProductData = new()
-            {
-                ProductId = ProductSaveData.ProductId,
-                ItemCid = ProductSaveData.ItemCid,
-                Position = NetUtilCore.Vector3ToNet(ProductSaveData.Pos),
-            };
-        }
+            ProductData = ProductSaveData?.ToProxyAnimalData()
+        };
 
         return data;
     }

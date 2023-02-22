@@ -70,12 +70,6 @@ public class HomeActionProgressData : MonoBehaviour
             return;
         }
 
-        if (CurProgressAction == action)
-        {
-            Log.Error("当前正在进行的进度操作和要开始的操作一样");
-            return;
-        }
-
         StopHoldToFull();
 
         CurProgressAction = action;

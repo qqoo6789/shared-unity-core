@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityGameFramework.Runtime;
 using static HomeDefine;
 
 /// <summary>
@@ -16,7 +17,9 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     public int Lv => Data.DRMonster.Lv;
 
-    public eAction SupportAction => throw new System.NotImplementedException();
+    public eAction SupportAction { get; set; } = eAction.None;// eAction.Appease | eAction.LastWords;
+
+    private eAction _harvestAction = eAction.None;//收获动作
 
     /// <summary>
     /// 动物数据
@@ -27,16 +30,65 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     protected virtual void Awake()
     {
         Data = gameObject.AddComponent<AnimalDataCore>();
+        _ = gameObject.AddComponent<HomeActionProgressData>();
     }
 
-    protected virtual void OnDestroy()
+    protected virtual void Start()
     {
-        Destroy(Data);
+        if (Data.DRMonster != null)
+        {
+            _harvestAction = TableUtil.ToHomeAction(Data.DRMonster.HarvestAction);
+            SupportAction |= _harvestAction;//收获动作添加到支持列表
+        }
+        else
+        {
+            Log.Error($"动物配置表为空 cid:{Data.BaseData.Cid}");
+        }
+
+        InitStatus();
+    }
+
+    private void InitStatus()
+    {
+        if (Data.SaveData.IsDead)
+        {
+            EnterAnimDeadStatus(true);
+        }
+        else
+        {
+            if (Data.IsCanHarvest && !Data.DRMonster.AutoHarvest)
+            {
+                OnEnterHarvestStatus(true);
+            }
+            else
+            {
+                gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
+            }
+        }
     }
 
     protected virtual void Update()
     {
         TickHunger();
+
+        TickHarvest();
+    }
+
+    private void TickHarvest()
+    {
+        if (Data.SaveData.HungerProgress > 0)
+        {
+            bool oldCanHarvest = Data.IsCanHarvest;
+            Data.SaveData.HarvestProgress += Time.deltaTime / Data.DRMonster.HarvestTime * 100;//配置的是多少秒收获能收获 这个收获进度时百分比0~100
+            Data.SaveData.HarvestProgress = Mathf.Clamp(Data.SaveData.HarvestProgress, 0, 100);
+            if (Data.IsCanHarvest != oldCanHarvest && Data.IsCanHarvest)
+            {
+                if (!Data.DRMonster.AutoHarvest)
+                {
+                    OnEnterHarvestStatus(false);
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -63,19 +115,19 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         {
             if (saveData.LastCompleteHungerStamp > 0)
             {
-                if ((TimeUtil.GetTimeStamp() - saveData.LastCompleteHungerStamp) * TimeUtil.MS2S >= HomeDefine.ANIM_HUNGER_DEAD_TIME)
+                if ((TimeUtil.GetTimeStamp() - saveData.LastCompleteHungerStamp) * TimeUtil.MS2S >= ANIM_HUNGER_DEAD_TIME)
                 {
                     saveData.LastCompleteHungerStamp = 0;
-                    OnAnimDead();
+                    OnTimerHungerDead();
                 }
             }
         }
     }
 
     /// <summary>
-    /// 动物死亡
+    /// 检测到饥饿到了饿死的时候 客户端不处理饿死状态 由服务器主动告知
     /// </summary>
-    protected virtual void OnAnimDead()
+    protected virtual void OnTimerHungerDead()
     {
     }
 
@@ -89,11 +141,104 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     public bool CheckSupportAction(eAction action)
     {
-        throw new System.NotImplementedException();
+
+        if ((SupportAction & action) == 0)
+        {
+            return false;
+        }
+
+        if (Data.SaveData.IsDead)//死了
+        {
+            if (action == eAction.LastWords)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        //活着
+        if (action == eAction.LastWords)
+        {
+            return false;
+        }
+
+        if (action == eAction.Appease && !Data.IsCanHarvest)//不在收获状态下可以随时安抚 不一定有效果而已
+        {
+            return true;
+        }
+
+        //收获动作
+        return Data.IsCanHarvest;
     }
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
     {
-        throw new System.NotImplementedException();
+        if (action == eAction.LastWords)//触碰遗言
+        {
+            OnExecuteLastWords();
+        }
+        else if (action == eAction.Appease)//安抚
+        {
+            OnExecuteAppease(Data.SaveData.IsComforted == false);
+        }
+        else if (action == _harvestAction)//收获 能执行的都是手动收货的
+        {
+            OnExecuteHarvest();
+        }
+    }
+
+    /// <summary>
+    /// 进入收获状态 只有手动收获才会触发
+    /// </summary>
+    protected virtual void OnEnterHarvestStatus(bool isInit)
+    {
+        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(_harvestAction, ANIMAL_HARVEST_ACTION_MAX_PROGRESS);
+    }
+
+    /// <summary>
+    /// 进入动物死亡状态
+    /// </summary>
+    public virtual void EnterAnimDeadStatus(bool isInit)
+    {
+        if (!isInit)
+        {
+            gameObject.GetComponent<HomeActionProgressData>().EndProgressAction();
+            Data.SaveData.IsDead = true;
+        }
+    }
+
+    /// <summary>
+    /// 死亡后触发遗言
+    /// </summary>
+    protected virtual void OnExecuteLastWords() { }
+
+    /// <summary>
+    /// 抚摸操作
+    /// </summary>
+    /// <param name="appeaseValid">是否有效抚摸 无效代表一个成熟阶段重复抚摸</param>
+    protected virtual void OnExecuteAppease(bool appeaseValid)
+    {
+        if (appeaseValid)
+        {
+            Data.SaveData.IsComforted = true;
+        }
+        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
+    }
+
+    /// <summary>
+    /// 主动操作的收获
+    /// </summary>
+    protected virtual void OnExecuteHarvest()
+    {
+        if (Data.DRMonster.AutoHarvest)
+        {
+            Log.Error($"动物配置表错误 自动收获的动物不能手动收获 cid:{Data.BaseData.Cid}");
+            return;
+        }
+
+        Data.SaveData.HarvestProgress = 0;
+        Data.SaveData.IsComforted = false;
+        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
     }
 }

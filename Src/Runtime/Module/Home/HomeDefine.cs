@@ -35,7 +35,7 @@ public static class HomeDefine
     /// <summary>
     /// 需要计算伤害的动作集合
     /// </summary>
-    public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ eAction.Hoeing;
+    public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ (eAction.Hoeing | eAction.Shearing | eAction.Milking);
 
     public const string ANIMAL_AI_NAME = "HomeAnimalAI";
 
@@ -47,6 +47,23 @@ public static class HomeDefine
     /// 动物找吃的距离食盆的距离
     /// </summary>
     public const float ANIMAL_EAT_FOOD_DISTANCE = 2f;
+
+    /// <summary>
+    /// 动物收获动作进度的伤害值
+    /// </summary>
+    public const float ANIMAL_HARVEST_ACTION_DAMAGE_PROGRESS = 40;
+    /// <summary>
+    /// 动物收获动作进度的最大值
+    /// </summary>
+    public const float ANIMAL_HARVEST_ACTION_MAX_PROGRESS = 100;
+    /// <summary>
+    /// 动物安抚动作进度的每秒伤害值
+    /// </summary>
+    public const float ANIMAL_APPEASE_ACTION_DAMAGE_PROGRESS = 60;
+    /// <summary>
+    /// 动物安抚动作进度的最大值
+    /// </summary>
+    public const float ANIMAL_APPEASE_ACTION_MAX_PROGRESS = 100;
 
     /// <summary>
     /// 土地状态间的数据定义key
@@ -153,6 +170,10 @@ public static class HomeDefine
         /// 挤奶
         /// </summary>
         Milking = 1 << 12,
+        /// <summary>
+        /// 操作遗言
+        /// </summary>
+        LastWords = 1 << 13,
         /// <summary>
         /// 攻击敌人 怪物 boss（这个给伤害计算分类用的 家园并不使用）
         /// </summary>
