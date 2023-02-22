@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: 战斗公共定义
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/BattleDefine.cs
  * 
  */
 
@@ -73,6 +73,8 @@ public static class BattleDefine
     public const int USE_SKILL_TIME_SCALE = 1;
     public static eBattleState[] BATTLE_STATE_CANNOT_MOVE_LIST = { eBattleState.Stun, eBattleState.Root };
     public static eBattleState[] BATTLE_STATE_CANNOT_SKILL_LIST = { eBattleState.Stun, eBattleState.Silence };
+    public const long ENTITY_ID_UNKNOWN = -1;  // 未知实体ID
+    public const int ENTITY_HATRED_MAX_RANGE = 25;  // 仇恨最大范围
 }
 public enum eEntityCDType : int
 {

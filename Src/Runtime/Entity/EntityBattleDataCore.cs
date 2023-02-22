@@ -117,15 +117,17 @@ public class EntityBattleDataCore : EntityBaseComponent
     ///  改变战斗状态
     /// </summary>
     /// <param name="isInBattle"></param>
+    /// <param name="isForce">是否强制改变</param>
     /// <returns>改变成功或者失败 状态没变为失败 主要给子类覆写使用</returns>
-    public virtual bool ChangeBattleStatus(bool isInBattle)
+    public virtual bool ChangeIsBattle(bool isInBattle, bool isForce = false)
     {
-        if (IsInBattle == isInBattle)
+        if (IsInBattle == isInBattle && !isForce)
         {
             return false;
         }
 
         IsInBattle = isInBattle;
+        RefEntity.EntityEvent.ChangeIsBattle?.Invoke(IsInBattle);
         return true;
     }
 

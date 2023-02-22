@@ -33,17 +33,17 @@ public class SEUnharmedAddAttrCore : SkillEffectBase
         {
             _triggerTime = EffectCfg.Parameters[0];
         }
-        RefEntity.EntityEvent.GetHurt += OnGetHurt;
+        RefEntity.EntityEvent.EntityBattleAddDamage += OnGetHurt;
     }
 
     public override void OnRemove()
     {
-        RefEntity.EntityEvent.GetHurt -= OnGetHurt;
+        RefEntity.EntityEvent.EntityBattleAddDamage -= OnGetHurt;
         DisableEffect();
         base.OnRemove();
     }
 
-    private void OnGetHurt(float value)
+    private void OnGetHurt(long fromId, int value)
     {
         _getHurtTimeRecord = Time.realtimeSinceStartup;
         DisableEffect();
