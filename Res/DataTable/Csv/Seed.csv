@@ -1,12 +1,11 @@
 desc-string,dropId-int,exp-int,growRes-string[],growTotalTime-int,harvestRes-string,id-int,lv-int,needWaterValue-int,witherTime-int
 测试种子描述,2000001,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,7020001,1,100,10
 测试种子描述,2000001,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,3010204,1,100,10
-测试种子描述,2000001,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,7020001,1,100,10
 ,19,100,"Slice 1,2D_crops_zhuzi_2,2D_crops_zhuzi_3,2D_crops_zhuzi_4",60,2D_crops_zhuzi_5,155,1,100,86400
-,20,100,"Slice 1,画板 1 拷贝 15,画板 1 拷贝 14,画板 1 拷贝 12",180,,156,1,150,86400
-,21,100,"Slice 1,画板 1 拷贝 8,画板 1 拷贝 7,画板 1 拷贝 9",540,,157,1,200,86400
-,22,100,"Slice 1,,画板 1 拷贝 17,画板 1 拷贝 16",80,画板 1 拷贝 11,158,2,100,86400
-,23,100,"Slice 1,画板 1 拷贝 5,画板 1 拷贝 2,画板 1",240,画板 1 拷贝 3,159,2,150,86400
+,20,100,"Slice 1,2D_crops_sanyecao_2,2D_crops_sanyecao_3,2D_crops_sanyecao_4",180,,156,1,150,86400
+,21,100,"Slice 1,2D_crops_huluobo_2,2D_crops_huluobo_3,2D_crops_huluobo_4",540,,157,1,200,86400
+,22,100,"Slice 1,2D_crops_zhulongcao_2,2D_crops_zhulongcao_3,2D_crops_zhulongcao_4",80,,158,2,100,86400
+,23,100,"Slice 1,2D_crops_mianhua_2,2D_crops_mianhua_3,2D_crops_mianhua_4",240,2D_crops_mianhua_5,159,2,150,86400
 ,24,100,"Slice 1,Slice 13,Slice 14,Slice 14",720,,160,2,200,86400
 ,25,100,"Slice 1,Slice 13,Slice 14",100,Slice 15,161,3,100,86400
 ,26,100,"Slice 1,Slice 13,Slice 14,Slice 14",300,,162,3,150,86400
