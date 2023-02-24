@@ -83,7 +83,7 @@ public class EntitySkillDataCore : EntityBaseComponent
         }
         if (RoleDataCore.WearDic.TryGetValue(AvatarPosition.Weapon, out AvatarAttribute avatar))
         {
-            DREquipment drEquipment = GFEntryCore.DataTable.GetDataTable<DREquipment>().GetDataRow(avatar.ObjectId);
+            DREquipment drEquipment = EquipmentTable.Inst.GetRowByItemID(avatar.ObjectId);
             if (drEquipment != null)
             {
                 SetExtraGroupSkill(drEquipment.GivenSkillId, EquipmentSkillIDList);
