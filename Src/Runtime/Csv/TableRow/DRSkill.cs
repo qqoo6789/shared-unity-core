@@ -213,15 +213,6 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取releaseEff-string。*/
-    /// </summary>
-    public string ReleaseEff
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取animRotate-int。*/
     /// </summary>
     public int AnimRotate
@@ -330,6 +321,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取releaseEff-string。*/
+    /// </summary>
+    public string ReleaseEff
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取effectInit-int[]。*/
     /// </summary>
     public int[] EffectInit
@@ -374,7 +374,6 @@ public class DRSkill : DataRowBase
         TargetFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         ReleaseAct = columnStrings[index++];
-        ReleaseEff = columnStrings[index++];
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyAvatar = columnStrings[index++];
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -387,6 +386,7 @@ public class DRSkill : DataRowBase
         ReleaseSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillShake = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        ReleaseEff = columnStrings[index++];
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
 
@@ -422,7 +422,6 @@ public class DRSkill : DataRowBase
                 TargetFlag = binaryReader.ReadArray<Int32>();
                 TargetLock = binaryReader.ReadBoolean();
                 ReleaseAct = binaryReader.ReadString();
-                ReleaseEff = binaryReader.ReadString();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 FlyAvatar = binaryReader.ReadString();
                 FlyDistance = binaryReader.Read7BitEncodedInt32();
@@ -435,6 +434,7 @@ public class DRSkill : DataRowBase
                 ReleaseSpd = binaryReader.Read7BitEncodedInt32();
                 SkillShake = binaryReader.ReadArray<String>();
                 HomeAction = binaryReader.ReadArray<Int32>();
+                ReleaseEff = binaryReader.ReadString();
                 EffectInit = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
             }
