@@ -1,5 +1,4 @@
 assetRes-string,desc-string,dropId-int,exp-int,homeAction-int,icon-string,id-int,lv-int,name-string
-Grass_4,Weeds,8,100.0,5,2D_Tree__Eguo_03,3,1.0,Grass
-2d_shitou_01,Stone,8,100.0,7,2D_Tree__Eguo_03,4,2.0,Stone
-2D_Tree_Waibz_02,Tree,8,100.0,6,2D_Tree__Eguo_03,5,3.0,Tree
-,,,,,,6,,
+Grass_4,Weeds,2000001,100,5,2D_Tree__Eguo_03,9900001,1,Grass
+2d_shitou_01,Stone,2000001,100,7,2D_Tree__Eguo_03,9900002,2,Stone
+2D_Tree_Waibz_02,Tree,2000001,100,6,2D_Tree__Eguo_03,9900003,3,Tree

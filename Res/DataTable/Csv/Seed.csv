@@ -1,8 +1,8 @@
 desc-string,dropId-int,exp-int,growRes-string[],growTotalTime-int,harvestRes-string,id-int,lv-int,needWaterValue-int,witherTime-int
-测试种子描述,8,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,66,1,100,10
-测试种子描述,8,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,62,1,100,10
-测试种子描述,8,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,66,1,100,10
-,19,100,"Slice 1,Slice 13,Slice 14",60,Slice 15,155,1,100,86400
+测试种子描述,2000001,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,7020001,1,100,10
+测试种子描述,2000001,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,3010204,1,100,10
+测试种子描述,2000001,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,7020001,1,100,10
+,19,100,"Slice 1,2D_crops_zhuzi_2,2D_crops_zhuzi_3,2D_crops_zhuzi_4",60,2D_crops_zhuzi_5,155,1,100,86400
 ,20,100,"Slice 1,画板 1 拷贝 15,画板 1 拷贝 14,画板 1 拷贝 12",180,,156,1,150,86400
 ,21,100,"Slice 1,画板 1 拷贝 8,画板 1 拷贝 7,画板 1 拷贝 9",540,,157,1,200,86400
 ,22,100,"Slice 1,,画板 1 拷贝 17,画板 1 拷贝 16",80,画板 1 拷贝 11,158,2,100,86400

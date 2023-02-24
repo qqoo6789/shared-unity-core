@@ -1,11 +1,11 @@
 args-string[],callFunc-string[],cd-int,cdType-int,id-int,interactType-string
-50,addHp,5000,3010101,57,addHp
-100,addHp,5000,3010101,58,addHp
-50,addHp,5000,3010201,59,addHp
-100,addHp,5000,3010201,60,addHp
-1*1,occupyLand,5000,3010204,62,occupyLand
--,Sow Seeds,0,,66,equipItem
--,Fertilize,0,,67,equipItem
+50,addHp,5000,3010101,3010101,addHp
+100,addHp,5000,3010101,3010102,addHp
+50,addHp,5000,3010201,3010201,addHp
+100,addHp,5000,3010201,3010202,addHp
+1*1,occupyLand,5000,3010204,3010204,occupyLand
+-,Sow Seeds,0,,7020001,equipItem
+-,Fertilize,0,,7030001,equipItem
 100,addHp,5000,3010101,184,addHp
 100,addHp,5000,3010101,185,addHp
 100,addHp,5000,3010101,186,addHp
