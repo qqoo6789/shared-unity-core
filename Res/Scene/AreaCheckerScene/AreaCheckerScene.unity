@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &411335580
+--- !u!1 &635851060
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,9 +131,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 411335581}
-  - component: {fileID: 411335583}
-  - component: {fileID: 411335582}
+  - component: {fileID: 635851061}
+  - component: {fileID: 635851063}
+  - component: {fileID: 635851062}
   m_Layer: 0
   m_Name: AreaCollider (3)
   m_TagString: SceneAreaChecker
@@ -141,28 +141,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &411335581
+--- !u!4 &635851061
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411335580}
+  m_GameObject: {fileID: 635851060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 831.2, y: 97.8, z: 469.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1837261388}
+  m_Father: {fileID: 2119288747}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &411335582
+--- !u!114 &635851062
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411335580}
+  m_GameObject: {fileID: 635851060}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1f97c6b68aef4ef683f01273f44fb2d, type: 3}
@@ -171,21 +171,21 @@ MonoBehaviour:
   Area: 10002
   Priority: 0
   DrawArea: 1
-  AreaColor: {r: 0, g: 1, b: 0, a: 1}
---- !u!135 &411335583
+  AreaColor: {r: 0.3301887, g: 0, b: 0.009064022, a: 1}
+--- !u!135 &635851063
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411335580}
+  m_GameObject: {fileID: 635851060}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 41.5
   m_Center: {x: -48.3, y: -30.5, z: -42}
---- !u!1 &904669048
+--- !u!1 &709992889
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,71 +193,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 904669049}
-  - component: {fileID: 904669051}
-  - component: {fileID: 904669050}
-  m_Layer: 0
-  m_Name: AreaCollider (1)
-  m_TagString: SceneAreaChecker
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &904669049
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904669048}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 831.2, y: 97.8, z: 469.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1837261388}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &904669050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904669048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f97c6b68aef4ef683f01273f44fb2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Area: 10002
-  Priority: 0
-  DrawArea: 1
-  AreaColor: {r: 0, g: 1, b: 0, a: 1}
---- !u!135 &904669051
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904669048}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 35
-  m_Center: {x: -19.2, y: -24.2, z: 65.8}
---- !u!1 &1266846644
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1266846645}
-  - component: {fileID: 1266846647}
-  - component: {fileID: 1266846646}
+  - component: {fileID: 709992890}
+  - component: {fileID: 709992892}
+  - component: {fileID: 709992891}
   m_Layer: 0
   m_Name: AreaCollider
   m_TagString: SceneAreaChecker
@@ -265,28 +203,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1266846645
+--- !u!4 &709992890
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266846644}
+  m_GameObject: {fileID: 709992889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 831.2, y: 97.8, z: 469.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1837261388}
+  m_Father: {fileID: 2119288747}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1266846646
+--- !u!114 &709992891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266846644}
+  m_GameObject: {fileID: 709992889}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1f97c6b68aef4ef683f01273f44fb2d, type: 3}
@@ -296,20 +234,20 @@ MonoBehaviour:
   Priority: 0
   DrawArea: 1
   AreaColor: {r: 0, g: 1, b: 0, a: 1}
---- !u!135 &1266846647
+--- !u!135 &709992892
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266846644}
+  m_GameObject: {fileID: 709992889}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 71.6
   m_Center: {x: -6.2, y: -8.9, z: -7.09}
---- !u!1 &1304440195
+--- !u!1 &758790558
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,9 +255,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1304440196}
-  - component: {fileID: 1304440198}
-  - component: {fileID: 1304440197}
+  - component: {fileID: 758790559}
+  - component: {fileID: 758790561}
+  - component: {fileID: 758790560}
   m_Layer: 0
   m_Name: AreaCollider (4)
   m_TagString: SceneAreaChecker
@@ -327,28 +265,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1304440196
+--- !u!4 &758790559
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304440195}
+  m_GameObject: {fileID: 758790558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 831.2, y: 97.8, z: 469.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1837261388}
+  m_Father: {fileID: 2119288747}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1304440197
+--- !u!114 &758790560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304440195}
+  m_GameObject: {fileID: 758790558}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1f97c6b68aef4ef683f01273f44fb2d, type: 3}
@@ -357,21 +295,21 @@ MonoBehaviour:
   Area: 10002
   Priority: 0
   DrawArea: 1
-  AreaColor: {r: 0, g: 1, b: 0, a: 1}
---- !u!135 &1304440198
+  AreaColor: {r: 1, g: 0, b: 0.41521263, a: 1}
+--- !u!135 &758790561
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304440195}
+  m_GameObject: {fileID: 758790558}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 71.6
   m_Center: {x: 7.49, y: -34.3, z: 0}
---- !u!1 &1837261387
+--- !u!1 &1523405277
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -379,7 +317,69 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1837261388}
+  - component: {fileID: 1523405278}
+  - component: {fileID: 1523405280}
+  - component: {fileID: 1523405279}
+  m_Layer: 0
+  m_Name: AreaCollider (1)
+  m_TagString: SceneAreaChecker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1523405278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523405277}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 831.2, y: 97.8, z: 469.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2119288747}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1523405279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523405277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f97c6b68aef4ef683f01273f44fb2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Area: 10002
+  Priority: 0
+  DrawArea: 1
+  AreaColor: {r: 0.96815324, g: 1, b: 0, a: 1}
+--- !u!135 &1523405280
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523405277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 35
+  m_Center: {x: -9.61, y: -24.2, z: 48.8}
+--- !u!1 &2119288746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119288747}
   m_Layer: 0
   m_Name: SceneAreaCheckerRoot
   m_TagString: Untagged
@@ -387,22 +387,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1837261388
+--- !u!4 &2119288747
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837261387}
+  m_GameObject: {fileID: 2119288746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1266846645}
-  - {fileID: 904669049}
-  - {fileID: 411335581}
-  - {fileID: 1304440196}
+  - {fileID: 709992890}
+  - {fileID: 1523405278}
+  - {fileID: 635851061}
+  - {fileID: 758790559}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
