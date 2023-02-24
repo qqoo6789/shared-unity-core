@@ -19,12 +19,12 @@ public class DRDrop : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取drop ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取掉落。*/
+  /**获取dropList-int[][]。*/
     /// </summary>
     public int[][] DropList
     {
@@ -37,9 +37,8 @@ public class DRDrop : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        index++;
         DropList = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
 
         return true;
     }
@@ -51,8 +50,8 @@ public class DRDrop : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
                 DropList = binaryReader.ReadArrayList<Int32>();
+                _id = binaryReader.Read7BitEncodedInt32();
             }
         }
 

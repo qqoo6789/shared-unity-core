@@ -19,23 +19,23 @@ public class DRHomeManure : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取调用方法。*/
+  /**获取args-string[]。*/
     /// </summary>
-    public string[] CallFunc
+    public string[] Args
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取调用方法参数。*/
+  /**获取callFunc-string[]。*/
     /// </summary>
-    public string[] Args
+    public string[] CallFunc
     {
         get;
         private set;
@@ -46,10 +46,9 @@ public class DRHomeManure : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        index++;
-        CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
 
         return true;
     }
@@ -61,9 +60,9 @@ public class DRHomeManure : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
-                CallFunc = binaryReader.ReadArray<String>();
                 Args = binaryReader.ReadArray<String>();
+                CallFunc = binaryReader.ReadArray<String>();
+                _id = binaryReader.Read7BitEncodedInt32();
             }
         }
 

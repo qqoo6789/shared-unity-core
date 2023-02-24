@@ -19,30 +19,21 @@ public class DRChat : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取频道ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取颜色值。*/
+  /**获取ifBubble-bool。*/
     /// </summary>
-    public string ChannelRGB
+    public bool IfBubble
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取发言CD（毫秒）。*/
-    /// </summary>
-    public int TalkCD
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取最大展示条数。*/
+  /**获取maxTips-int。*/
     /// </summary>
     public int MaxTips
     {
@@ -51,18 +42,18 @@ public class DRChat : DataRowBase
     }
 
     /// <summary>
-  /**获取需要金币。*/
+  /**获取talkCD-int。*/
     /// </summary>
-    public int TalkNeedGold
+    public int TalkCD
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取是否冒泡。*/
+  /**获取talkNeedGold-int。*/
     /// </summary>
-    public bool IfBubble
+    public int TalkNeedGold
     {
         get;
         private set;
@@ -74,12 +65,10 @@ public class DRChat : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        index++;
-        ChannelRGB = columnStrings[index++];
-        TalkCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        MaxTips = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        TalkNeedGold = DataTableParseUtil.ParseInt(columnStrings[index++]);
         IfBubble = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        MaxTips = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TalkCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TalkNeedGold = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -92,11 +81,10 @@ public class DRChat : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                ChannelRGB = binaryReader.ReadString();
-                TalkCD = binaryReader.Read7BitEncodedInt32();
-                MaxTips = binaryReader.Read7BitEncodedInt32();
-                TalkNeedGold = binaryReader.Read7BitEncodedInt32();
                 IfBubble = binaryReader.ReadBoolean();
+                MaxTips = binaryReader.Read7BitEncodedInt32();
+                TalkCD = binaryReader.Read7BitEncodedInt32();
+                TalkNeedGold = binaryReader.Read7BitEncodedInt32();
             }
         }
 

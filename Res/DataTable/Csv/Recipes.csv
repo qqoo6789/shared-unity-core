@@ -1,45 +1,41 @@
-ͼ��ID,ͼ����������,ͼ��ICON,ͼ������,ͼ����ע,ͼ������(�ͻ�����),ͼ���ȼ�,��������,ͼ��չʾ����,��������,��������1,�ϳ���,�ϳ�;������,�ϳ��ز�,ʹ��Ditamin����,ʹ��MELD����,�ͻ��˷���ȼ�,�ϳ�������
-id,craftSkill,icon,name,desc,type,level,recipesSort,displayType,unlockType,unlockCondition,productId,sourceText,matItemId,useDitamin,useMELD,classifyLevel,proficiency
-int,int,string,string,string,int,int,int,int,int,int,int[][],int,int[][],int,int,int,int
-10100001,1001,icon_hechengfu_wuqi_0,Lv0 Weapon crafting energy,Used to craft level 0 weapons,1,0,10001,1,3,0,"60000001,1,1,10000",1,,0,1,,1
-10100002,1001,icon_hechengfu_wuqi_1,Lv10 Weapon crafting energy,Used to craft level 10 weapons,1,10,10001,1,3,10,"60000002,1,1,10000",1,,0,2,,2
-10100003,1001,icon_hechengfu_wuqi_2,Lv20 Weapon crafting energy,Used to craft level 20 weapons,1,20,10001,1,3,20,"60000003,1,1,10000",1,,0,4,,3
-10100004,1001,icon_hechengfu_wuqi_3,Lv30 Weapon crafting energy,Used to craft level 30 weapons,1,30,10001,1,3,30,"60000004,1,1,10000",1,,0,8,,4
-10100005,1001,icon_hechengfu_wuqi_4,Lv40 Weapon crafting energy,Used to craft level 40 weapons,1,40,10001,1,3,40,"60000005,1,1,10000",1,,0,16,,6
-10100006,1001,icon_hechengfu_wuqi_5,Lv50 Weapon crafting energy,Used to craft level 50 weapons,1,50,10001,1,3,50,"60000006,1,1,10000",1,,0,32,,8
-10100007,1001,icon_hechengfu_wuqi_6,Lv60 Weapon crafting energy,Used to craft level 60 weapons,1,60,10001,1,3,60,"60000007,1,1,10000",1,,0,64,,10
-10100008,1001,icon_hechengfu_wuqi_7,Lv70 Weapon crafting energy,Used to craft level 70 weapons,1,70,10001,1,3,70,"60000008,1,1,10000",1,,0,128,,15
-10100009,1001,icon_hechengfu_wuqi_8,Lv80 Weapon crafting energy,Used to craft level 80 weapons,1,80,10001,1,3,80,"60000009,1,1,10000",1,,0,256,,20
-10100010,1001,icon_hechengfu_wuqi_9,Lv90 Weapon crafting energy,Used to craft level 90 weapons,1,90,10001,1,3,90,"60000010,1,1,10000",1,,0,512,,25
-10100011,1002,icon_hechengfu_fangju_0,Lv0 Equipment crafting energy,Used to craft level 0 equipment,1,0,10001,1,3,0,"60000011,1,1,10000",1,,0,1,,1
-10100012,1002,icon_hechengfu_fangju_1,Lv10 Equipment crafting energy,Used to craft level 10 equipment,1,10,10001,1,3,10,"60000012,1,1,10000",1,,0,2,,2
-10100013,1002,icon_hechengfu_fangju_2,Lv20 Equipment crafting energy,Used to craft level 20 equipment,1,20,10001,1,3,20,"60000013,1,1,10000",1,,0,4,,3
-10100014,1002,icon_hechengfu_fangju_3,Lv30 Equipment crafting energy,Used to craft level 30 equipment,1,30,10001,1,3,30,"60000014,1,1,10000",1,,0,8,,4
-10100015,1002,icon_hechengfu_fangju_4,Lv40 Equipment crafting energy,Used to craft level 40 equipment,1,40,10001,1,3,40,"60000015,1,1,10000",1,,0,16,,6
-10100016,1002,icon_hechengfu_fangju_5,Lv50 Equipment crafting energy,Used to craft level 50 equipment,1,50,10001,1,3,50,"60000016,1,1,10000",1,,0,32,,8
-10100017,1002,icon_hechengfu_fangju_6,Lv60 Equipment crafting energy,Used to craft level 60 equipment,1,60,10001,1,3,60,"60000017,1,1,10000",1,,0,64,,10
-10100018,1002,icon_hechengfu_fangju_7,Lv70 Equipment crafting energy,Used to craft level 70 equipment,1,70,10001,1,3,70,"60000018,1,1,10000",1,,0,128,,15
-10100019,1002,icon_hechengfu_fangju_8,Lv80 Equipment crafting energy,Used to craft level 80 equipment,1,80,10001,1,3,80,"60000019,1,1,10000",1,,0,256,,20
-10100020,1002,icon_hechengfu_fangju_9,Lv90 Equipment crafting energy,Used to craft level 90 equipment,1,90,10001,1,3,90,"60000020,1,1,10000",1,,0,512,,25
-10200001,1003,random_produce,Recipe: Lv0 Potion Crafting,Can craft level 1 restorative potions.,2,1,10001,2,3,0,"3010101,1,1,4000;3010201,1,1,6000",1,"4020001,4",0,1,,1
-10200002,1003,random_produce,Recipe: Lv10 Potion Crafting,Can craft level 2 restorative potions and level 1 buff potions.,2,2,10002,2,3,10,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,2,,2
-10200003,1003,random_produce,Recipe: Lv20 Potion Crafting,Can craft level 3 restorative potions and level 2 buff potions.,2,3,10003,2,3,20,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,3,,3
-10200004,1003,random_produce,Recipe: Lv30 Potion Crafting,Can craft level 4 restorative potions and level 3 buff potions.,2,4,10004,2,3,30,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,4,,4
-10200005,1003,random_produce,Recipe: Lv40 Potion Crafting,Can craft level 5 restorative potions and level 4 buff potions.,2,5,10005,2,3,40,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,5,,6
-10200006,1003,random_produce,Recipe: Lv50 Potion Crafting,Can craft level 6 restorative potions and level 5 buff potions.,2,6,10006,2,3,50,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,6,,8
-10200007,1003,random_produce,Recipe: Lv60 Potion Crafting,Can craft level 7 restorative potions and level 6 buff potions.,2,7,10007,2,3,60,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,7,,10
-10200008,1003,random_produce,Recipe: Lv70 Potion Crafting,Can craft level 8 restorative potions and level 7 buff potions.,2,8,10008,2,3,70,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,8,,15
-10200009,1003,random_produce,Recipe: Lv80 Potion Crafting,Can craft level 9 restorative potions and level 8 buff potions.,2,9,10009,2,3,80,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,9,,20
-10200010,1003,random_produce,Recipe: Lv90 Potion Crafting,Can craft level 9 restorative potions and level 9 buff potions.,2,10,10010,2,3,90,"3010101,1,1,2000;3010201,1,1,3000;3010102,2,1,2000;3010202,2,1,3000",1,"4020001,3;4020002,1",0,10,,25
-10301001,1002,lv0_boy_hair,Recipe: Tactical Headband,Level 0 male headgear,3,0,30001,2,1,1,"1010001,1,1,8000;1010001,2,1,2000",1,"4010001,1;4010901,1;60000011,1",0,2,0,
-10301002,1002,lv0_boy_coat,Recipe: Sackcloth Shirt,Level 0 male chest gear,3,0,30002,2,1,1,"1010002,1,1,8000;1010002,2,1,2000",1,"4010002,1;4010901,1;60000011,1",0,2,0,
-10301003,1002,lv0_boy_pants,Recipe: Jeans,Level 0 male leg gear,3,0,30003,2,1,1,"1010003,1,1,8000;1010003,2,1,2000",1,"4010003,1;4010901,1;60000011,1",0,2,0,
-10301004,1002,lv0_shoes,Recipe: Sneakers,Level 0 Footwear,3,0,30004,2,1,1,"1010004,1,1,8000;1010004,2,1,2000",1,"4010004,1;4010901,1;60000011,1",0,2,0,
-10301005,1002,lv0_gloves,Recipe: Leather Gloves,Level 0 hand gear,3,0,30005,2,1,1,"1010005,1,1,8000;1010005,2,1,2000",1,"4010005,1;4010901,1;60000011,1",0,2,0,
-10301006,1001,lv0_sword,Recipe: Iron Sword,Level 0 sword weapons,3,0,30006,2,1,1,"1010006,1,1,8000;1010006,2,1,2000",1,"4010006,1;4010901,1;60000001,1",0,2,0,
-10301007,1002,lv10_boy_hair,Recipe: Iron Helmet,Level 10 male headgear,3,10,30007,2,1,1,"1010007,1,1,8000;1010007,2,1,2000",1,"4010007,1;4010902,1;60000012,1",0,5,10,
-10301008,1002,lv10_boy_coat,Recipe: Iron Chestplate,Level 10 male chest gear,3,10,30008,2,1,1,"1010008,1,1,8000;1010008,2,1,2000",1,"4010008,1;4010902,1;60000012,1",0,5,10,
-10302001,1002,lv10_boy_pants,Recipe: Military Pants,Level 10 male leg gear,3,10,30009,2,1,1,"1010009,1,1,8000;1010009,2,1,2000",1,"4010009,1;4010902,1;60000012,1",0,5,10,
-10302002,1002,lv10_shoes,Recipe: Suede Boots,Level 10 Footwear,3,10,30010,2,1,1,"1010010,1,1,8000;1010010,2,1,2000",1,"4010010,1;4010902,1;60000012,1",0,5,10,
-10302003,1002,lv10_gloves,Recipe: Iron Gloves,Level 10 hand gear,3,10,30011,2,1,1,"1010011,1,1,8000;1010011,2,1,2000",1,"4010011,1;4010902,1;60000012,1",0,5,10,
-10302004,1001,lv10_sword,Recipe: Steel Sword,Level 10 sword weapons,3,10,30012,2,1,1,"1010012,1,1,8000;1010012,2,1,2000",1,"4010012,1;4010902,1;60000002,1",0,5,10,
+classifyLevel-int,craftSkill-int,desc-string,displayType-int,icon-string,id-int,level-int,matItemId-int[][],name-string,productId-int[][],proficiency-int,recipesSort-int,sourceText-int,type-int,unlockCondition-int,unlockType-int,useDitamin-int,useMELD-int
+1,1001,剑1配方,2,craft_scroll,44,1,"1,1;68,5;100,20",剑1配方,"80,1,1,8000",0,1,1,3,1,1,0,
+,1001,剑2配方,2,craft_scroll,45,2,"101,20;71,5;2,1;107,5",剑2配方,"81,1,1,8000;81,2,1,2000",,,1,3,1,1,,
+,1001,剑3配方,2,craft_scroll,46,3,"102,20;74,5;3,1;110,5",剑3配方,"82,1,1,7600;82,2,1,1900;82,3,1,500",,,1,3,1,1,,10
+,1001,锄头1,2,craft_scroll,62,1,"164,1;106,5;103,20;100,5",锄头1,"116,1,1,10000",,,1,3,1,1,,
+,1001,锄头2,2,craft_scroll,63,2,"165,1;109,5;104,20;101,5;70,5",锄头2,"117,1,1,8000;117,2,1,2000",,,1,3,1,1,,
+,1001,锄头3,2,craft_scroll,64,3,,锄头3,,,,1,3,1,1,,
+,1001,水壶1,2,craft_scroll,66,1,"164,1;106,5;100,5",水壶1,"120,1,1,8000",,,1,3,1,1,,
+,1001,水壶2,2,craft_scroll,67,2,"165,1;109,5;101,5;70,5",水壶2,"121,2,1,2000;120,1,1,8000",,,1,3,1,1,,
+,1001,水壶3,2,craft_scroll,68,3,,水壶3,,,,1,3,1,1,,
+,1001,镐子1,2,craft_scroll,70,1,"106,5;103,20;100,5;171,1",镐子1,"124,1,1,10000",,,1,3,1,1,,
+,1001,镐子2,2,craft_scroll,71,2,"109,5;104,20;101,5;70,5;172,1",镐子2,"125,1,1,8000;125,2,1,2000",,,1,3,1,1,,
+,1001,镐子3,2,craft_scroll,72,3,,镐子3,,,,1,3,1,1,,
+,1001,斧头1,2,craft_scroll,74,1,"106,5;103,20;100,5;171,1",斧头1,"128,1,1,10000",,,1,3,1,1,,
+,1001,斧头2,2,craft_scroll,75,2,"109,5;104,20;101,5;70,5;172,1",斧头2,"129,1,1,8000;129,2,1,2000",,,1,3,1,1,,
+,1001,斧头3,2,craft_scroll,76,3,,斧头3,,,,1,3,1,1,,
+,1003,加速肥料1,2,craft_scroll,92,1,"191,1",加速肥料1,"146,1,1,10000",,,1,2,1,1,,
+,1003,增产肥料1,2,craft_scroll,93,1,"190,1",增产肥料1,"147,1,1,1",,,1,2,1,1,,
+,1003,湿润肥料1,2,craft_scroll,94,1,"195,1",湿润肥料1,"148,1,1,1",,,1,2,1,1,,
+,1003,治疗药水1,2,craft_scroll,95,1,"193,2;73,5",治疗药水1,"149,1,1,8000;150,1,1,500;151,1,1,500;152,1,1,500;154,1,1,500",,,1,2,1,1,,
+,1003,治疗药水2,2,craft_scroll,96,1,"194,2;111,2;73,5",治疗药水2,"184,1,1,8000;186,1,1,500;185,1,1,500;187,1,1,500;189,1,1,500",,,1,2,1,1,,
+,1003,湿润肥料2,2,craft_scroll,101,2,"195,2;73,5",湿润肥料2,"182,1,1,1",,,1,2,1,1,,
+,1003,增产肥料2,2,craft_scroll,102,2,"190,2;73,5",增产肥料2,"181,1,1,1",,,1,2,1,1,,
+,1003,加速肥料2,2,craft_scroll,103,2,"191,2;73,5",加速肥料2,"180,1,1,1",,,1,2,1,1,,
+,1002,护身符基础合成配方,2,craft_scroll,104,1,"70,20;107,40;100,40;103,40;193,40",护身符基础合成配方,"177,1,1,6000;177,2,1,3000;177,3,1,1000",,,1,3,1,1,,100
+,1002,护身符高级合成配方,2,craft_scroll,106,1,"76,20;113,40;102,40;105,40;192,40",护身符高级合成配方,"177,2,1,5400;177,3,1,3200;177,4,1,1200;177,5,1,200",,,1,3,1,1,,200
+,1002,,2,craft_scroll,108,1,"193,10;107,5",农牧帽子1,"131,1,1,1",,,1,3,1,1,,
+,1002,,2,craft_scroll,109,2,"103,20;110,5",农牧帽子2,"132,1,1,1",,,1,3,1,1,,
+,1002,,2,craft_scroll,110,3,"101,20;72,5;113,5",农牧帽子3,"133,1,1,1",,,1,3,1,1,,
+,1002,,2,craft_scroll,111,1,"193,10;103,20",采集帽子1,"224,1,1,1",,,1,3,1,1,,
+,1002,,2,craft_scroll,112,2,"110,5;194,10;100,20",采集帽子2,"235,1,1,1",,,1,3,1,1,,
+,1002,,2,craft_scroll,113,3,"101,20",采集帽子3,"234,1,1,1",,,1,3,1,1,,
+,1002,Scroll of Combat Gear 1,2,craft_scroll,114,1,,Scroll of Combat Gear 1,"1,1,1,1",,,1,1,['12'],4,,0
+,1002,Scroll of Combat Gear 2,2,craft_scroll,115,2,,Scroll of Combat Gear 2,"2,1,1,1",,,1,1,1,1,,0
+,1002,Scroll of Combat Gear 3,2,craft_scroll,116,3,,Scroll of Combat Gear 3,"3,1,1,1",,,1,1,1,1,,0
+,1002,农业装备制造符1,2,craft_scroll,117,1,,农业装备制造符1,"164,1,1,1",,,1,1,1,1,,0
+,1002,农业装备制造符2,2,craft_scroll,118,2,,农业装备制造符2,"165,1,1,1",,,1,1,1,1,,0
+,1002,农业装备制造符3,2,craft_scroll,119,3,,农业装备制造符3,"166,1,1,1",,,1,1,1,1,,0
+,1002,采集装备制造符1,2,craft_scroll,120,1,,采集装备制造符1,"171,1,1,1",,,1,1,1,1,,0
+,1002,采集装备制造符2,2,craft_scroll,121,2,,采集装备制造符2,"172,1,1,1",,,1,1,1,1,,0
+,1002,采集装备制造符3,2,craft_scroll,122,3,,采集装备制造符3,"173,1,1,1",,,1,1,1,1,,0

@@ -19,14 +19,23 @@ public class DRSceneArea : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取区域ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取场景名字 。*/
+  /**获取sceneName-string。*/
     /// </summary>
     public string SceneName
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取sceneType-string。*/
+    /// </summary>
+    public string SceneType
     {
         get;
         private set;
@@ -39,7 +48,7 @@ public class DRSceneArea : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         SceneName = columnStrings[index++];
-        index++;
+        SceneType = columnStrings[index++];
 
         return true;
     }
@@ -53,6 +62,7 @@ public class DRSceneArea : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 SceneName = binaryReader.ReadString();
+                SceneType = binaryReader.ReadString();
             }
         }
 

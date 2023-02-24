@@ -19,21 +19,12 @@ public class DRNpc : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取名字。*/
-    /// </summary>
-    public string Name
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取Npc的描述。*/
+  /**获取desc-string。*/
     /// </summary>
     public string Desc
     {
@@ -42,7 +33,7 @@ public class DRNpc : DataRowBase
     }
 
     /// <summary>
-  /**获取Npc的Icon1。*/
+  /**获取icon-string。*/
     /// </summary>
     public string Icon
     {
@@ -51,7 +42,25 @@ public class DRNpc : DataRowBase
     }
 
     /// <summary>
-  /**获取RoleAssetID。*/
+  /**获取moveSpeed-int。*/
+    /// </summary>
+    public int MoveSpeed
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取name-string。*/
+    /// </summary>
+    public string Name
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取roleAssetID-int。*/
     /// </summary>
     public int RoleAssetID
     {
@@ -60,9 +69,18 @@ public class DRNpc : DataRowBase
     }
 
     /// <summary>
-  /**获取移动速度。*/
+  /**获取taskBegin-int[]。*/
     /// </summary>
-    public int MoveSpeed
+    public int[] TaskBegin
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取taskEnd-int[]。*/
+    /// </summary>
+    public int[] TaskEnd
     {
         get;
         private set;
@@ -73,12 +91,14 @@ public class DRNpc : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        Name = columnStrings[index++];
         Desc = columnStrings[index++];
         Icon = columnStrings[index++];
-        RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
         MoveSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Name = columnStrings[index++];
+        RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TaskBegin = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        TaskEnd = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
 
         return true;
     }
@@ -90,12 +110,14 @@ public class DRNpc : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
-                Name = binaryReader.ReadString();
                 Desc = binaryReader.ReadString();
                 Icon = binaryReader.ReadString();
-                RoleAssetID = binaryReader.Read7BitEncodedInt32();
+                _id = binaryReader.Read7BitEncodedInt32();
                 MoveSpeed = binaryReader.Read7BitEncodedInt32();
+                Name = binaryReader.ReadString();
+                RoleAssetID = binaryReader.Read7BitEncodedInt32();
+                TaskBegin = binaryReader.ReadArray<Int32>();
+                TaskEnd = binaryReader.ReadArray<Int32>();
             }
         }
 

@@ -14,7 +14,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /** __DATA_TABLE_COMMENT__*/
 /// </summary>
-public class DRHomeResources : DataRowBase
+public class DRAnimalFood : DataRowBase
 {
     private int _id = 0;
 
@@ -24,9 +24,9 @@ public class DRHomeResources : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取assetRes-string。*/
+  /**获取capacity-int。*/
     /// </summary>
-    public string AssetRes
+    public int Capacity
     {
         get;
         private set;
@@ -42,36 +42,9 @@ public class DRHomeResources : DataRowBase
     }
 
     /// <summary>
-  /**获取dropId-int。*/
-    /// </summary>
-    public int DropId
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取exp-int。*/
     /// </summary>
     public int Exp
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取homeAction-int。*/
-    /// </summary>
-    public int HomeAction
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取icon-string。*/
-    /// </summary>
-    public string Icon
     {
         get;
         private set;
@@ -86,29 +59,16 @@ public class DRHomeResources : DataRowBase
         private set;
     }
 
-    /// <summary>
-  /**获取name-string。*/
-    /// </summary>
-    public string Name
-    {
-        get;
-        private set;
-    }
-
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        AssetRes = columnStrings[index++];
+        Capacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Desc = columnStrings[index++];
-        DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Icon = columnStrings[index++];
         _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Name = columnStrings[index++];
 
         return true;
     }
@@ -120,15 +80,11 @@ public class DRHomeResources : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                AssetRes = binaryReader.ReadString();
+                Capacity = binaryReader.Read7BitEncodedInt32();
                 Desc = binaryReader.ReadString();
-                DropId = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
-                HomeAction = binaryReader.Read7BitEncodedInt32();
-                Icon = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
-                Name = binaryReader.ReadString();
             }
         }
 

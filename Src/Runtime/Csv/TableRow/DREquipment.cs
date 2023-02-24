@@ -19,40 +19,21 @@ public class DREquipment : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取装备ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取装备类型
-。*/
+  /**获取gearAttribute-int[][]。*/
     /// </summary>
-    public int GearType
+    public int[][] GearAttribute
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取耐久度上限。*/
-    /// </summary>
-    public int GearDurabilityMax
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取键ICON展示。*/
-    /// </summary>
-    public string KeyIcon
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取avatar资源。*/
+  /**获取gearAvatar-int。*/
     /// </summary>
     public int GearAvatar
     {
@@ -61,7 +42,34 @@ public class DREquipment : DataRowBase
     }
 
     /// <summary>
-  /**获取装备性别。*/
+  /**获取gearDurabilityMax-int。*/
+    /// </summary>
+    public int GearDurabilityMax
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取gearQuality-int。*/
+    /// </summary>
+    public int GearQuality
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取gearType-int。*/
+    /// </summary>
+    public int GearType
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取gender-string。*/
     /// </summary>
     public string Gender
     {
@@ -70,7 +78,7 @@ public class DREquipment : DataRowBase
     }
 
     /// <summary>
-  /**获取挂载技能。*/
+  /**获取givenSkillId-int[]。*/
     /// </summary>
     public int[] GivenSkillId
     {
@@ -79,117 +87,9 @@ public class DREquipment : DataRowBase
     }
 
     /// <summary>
-  /**获取增加血量。*/
+  /**获取itemId-int。*/
     /// </summary>
-    public int[][] GearAddHp
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加生命恢复。*/
-    /// </summary>
-    public int[][] GearAddHpRec
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加普通攻击。*/
-    /// </summary>
-    public int[][] GearAddAtt
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加攻击速度。*/
-    /// </summary>
-    public int[][] GearAddAttSpd
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加普通防御。*/
-    /// </summary>
-    public int[][] GearAddDef
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加暴击点数。*/
-    /// </summary>
-    public int[][] GearAddCritRate
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加暴击伤害点数。*/
-    /// </summary>
-    public int[][] GearAddCritDmg
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加命中点数。*/
-    /// </summary>
-    public int[][] GearAddHitPoint
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取增加闪避点数。*/
-    /// </summary>
-    public int[][] GearAddMissPoint
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取移动速度。*/
-    /// </summary>
-    public int[][] GearAddSpeed
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取装备音效。*/
-    /// </summary>
-    public string EquipMusic
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取攻击音效。*/
-    /// </summary>
-    public string AttackSound
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取修理材料。*/
-    /// </summary>
-    public int[][] RepairNeed
+    public int ItemId
     {
         get;
         private set;
@@ -200,27 +100,15 @@ public class DREquipment : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        GearType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        index++;
-        GearDurabilityMax = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        KeyIcon = columnStrings[index++];
+        GearAttribute = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         GearAvatar = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GearDurabilityMax = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GearQuality = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GearType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Gender = columnStrings[index++];
         GivenSkillId = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        GearAddHp = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddHpRec = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddAtt = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddAttSpd = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddDef = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddCritRate = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddCritDmg = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddHitPoint = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddMissPoint = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        GearAddSpeed = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        EquipMusic = columnStrings[index++];
-        AttackSound = columnStrings[index++];
-        RepairNeed = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
+        ItemId = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -232,26 +120,15 @@ public class DREquipment : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
-                GearType = binaryReader.Read7BitEncodedInt32();
-                GearDurabilityMax = binaryReader.Read7BitEncodedInt32();
-                KeyIcon = binaryReader.ReadString();
+                GearAttribute = binaryReader.ReadArrayList<Int32>();
                 GearAvatar = binaryReader.Read7BitEncodedInt32();
+                GearDurabilityMax = binaryReader.Read7BitEncodedInt32();
+                GearQuality = binaryReader.Read7BitEncodedInt32();
+                GearType = binaryReader.Read7BitEncodedInt32();
                 Gender = binaryReader.ReadString();
                 GivenSkillId = binaryReader.ReadArray<Int32>();
-                GearAddHp = binaryReader.ReadArrayList<Int32>();
-                GearAddHpRec = binaryReader.ReadArrayList<Int32>();
-                GearAddAtt = binaryReader.ReadArrayList<Int32>();
-                GearAddAttSpd = binaryReader.ReadArrayList<Int32>();
-                GearAddDef = binaryReader.ReadArrayList<Int32>();
-                GearAddCritRate = binaryReader.ReadArrayList<Int32>();
-                GearAddCritDmg = binaryReader.ReadArrayList<Int32>();
-                GearAddHitPoint = binaryReader.ReadArrayList<Int32>();
-                GearAddMissPoint = binaryReader.ReadArrayList<Int32>();
-                GearAddSpeed = binaryReader.ReadArrayList<Int32>();
-                EquipMusic = binaryReader.ReadString();
-                AttackSound = binaryReader.ReadString();
-                RepairNeed = binaryReader.ReadArrayList<Int32>();
+                _id = binaryReader.Read7BitEncodedInt32();
+                ItemId = binaryReader.Read7BitEncodedInt32();
             }
         }
 

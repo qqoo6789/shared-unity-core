@@ -19,68 +19,12 @@ public class DRRole : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取角色名字。*/
-    /// </summary>
-    public string RoleName
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取角色性别
-1.男
-2.女。*/
-    /// </summary>
-    public int RoleSex
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取RoleAssetID。*/
-    /// </summary>
-    public int RoleAssetID
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取创建角色可选avatar(1002011)。*/
-    /// </summary>
-    public int[] RoleDefaultAvatar
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取无装备时技能ID(1002002)。*/
-    /// </summary>
-    public int[] RoleDefaultSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取翻滚技能ID。*/
-    /// </summary>
-    public int JumpRollSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取身体大小(半径像素)。*/
+  /**获取bodyCapacity-int。*/
     /// </summary>
     public int BodyCapacity
     {
@@ -89,7 +33,7 @@ public class DRRole : DataRowBase
     }
 
     /// <summary>
-  /**获取草地跑声音。*/
+  /**获取grasslandRunSound-string。*/
     /// </summary>
     public string GrasslandRunSound
     {
@@ -98,7 +42,25 @@ public class DRRole : DataRowBase
     }
 
     /// <summary>
-  /**获取拾取音效。*/
+  /**获取initialAttribute-int[][]。*/
+    /// </summary>
+    public int[][] InitialAttribute
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取jumpRollSkill-int。*/
+    /// </summary>
+    public int JumpRollSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取pickUpSound-string。*/
     /// </summary>
     public string PickUpSound
     {
@@ -107,7 +69,7 @@ public class DRRole : DataRowBase
     }
 
     /// <summary>
-  /**获取随机动画。*/
+  /**获取randomAnim-string[]。*/
     /// </summary>
     public string[] RandomAnim
     {
@@ -116,9 +78,54 @@ public class DRRole : DataRowBase
     }
 
     /// <summary>
-  /**获取头像名称。*/
+  /**获取roleAssetID-int。*/
+    /// </summary>
+    public int RoleAssetID
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取roleDefaultAvatar-int[]。*/
+    /// </summary>
+    public int[] RoleDefaultAvatar
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取roleDefaultSkill-int[]。*/
+    /// </summary>
+    public int[] RoleDefaultSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取roleIcon-string[]。*/
     /// </summary>
     public string[] RoleIcon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取roleName-string。*/
+    /// </summary>
+    public string RoleName
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取roleSex-int。*/
+    /// </summary>
+    public int RoleSex
     {
         get;
         private set;
@@ -129,18 +136,19 @@ public class DRRole : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GrasslandRunSound = columnStrings[index++];
         _id = int.Parse(columnStrings[index++]);
-        RoleName = columnStrings[index++];
-        RoleSex = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        InitialAttribute = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        JumpRollSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        PickUpSound = columnStrings[index++];
+        RandomAnim = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleDefaultAvatar = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         RoleDefaultSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        JumpRollSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        GrasslandRunSound = columnStrings[index++];
-        PickUpSound = columnStrings[index++];
-        RandomAnim = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         RoleIcon = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        RoleName = columnStrings[index++];
+        RoleSex = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -152,18 +160,19 @@ public class DRRole : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                BodyCapacity = binaryReader.Read7BitEncodedInt32();
+                GrasslandRunSound = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
-                RoleName = binaryReader.ReadString();
-                RoleSex = binaryReader.Read7BitEncodedInt32();
+                InitialAttribute = binaryReader.ReadArrayList<Int32>();
+                JumpRollSkill = binaryReader.Read7BitEncodedInt32();
+                PickUpSound = binaryReader.ReadString();
+                RandomAnim = binaryReader.ReadArray<String>();
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 RoleDefaultAvatar = binaryReader.ReadArray<Int32>();
                 RoleDefaultSkill = binaryReader.ReadArray<Int32>();
-                JumpRollSkill = binaryReader.Read7BitEncodedInt32();
-                BodyCapacity = binaryReader.Read7BitEncodedInt32();
-                GrasslandRunSound = binaryReader.ReadString();
-                PickUpSound = binaryReader.ReadString();
-                RandomAnim = binaryReader.ReadArray<String>();
                 RoleIcon = binaryReader.ReadArray<String>();
+                RoleName = binaryReader.ReadString();
+                RoleSex = binaryReader.Read7BitEncodedInt32();
             }
         }
 

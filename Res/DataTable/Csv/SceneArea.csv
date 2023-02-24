@@ -1,5 +1,3 @@
-区域ID,场景名字 ,备注
-id,sceneName,null
-int,string,null
-10001,WorldScene,
-10002,HomeScene,
+id-int,sceneName-string,sceneType-string
+1,WorldScene,world
+2,HomeScene,home

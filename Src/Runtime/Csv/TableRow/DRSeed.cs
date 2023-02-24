@@ -19,12 +19,12 @@ public class DRSeed : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取描述。*/
+  /**获取desc-string。*/
     /// </summary>
     public string Desc
     {
@@ -33,52 +33,7 @@ public class DRSeed : DataRowBase
     }
 
     /// <summary>
-  /**获取生长阶段形象。*/
-    /// </summary>
-    public string[] GrowRes
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取总生长时间 秒。*/
-    /// </summary>
-    public int GrowTotalTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取枯萎时间 秒。*/
-    /// </summary>
-    public int WitherTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取需要浇水量。*/
-    /// </summary>
-    public int NeedWaterValue
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取成熟形象。*/
-    /// </summary>
-    public string HarvestRes
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取收获产物。*/
+  /**获取dropId-int。*/
     /// </summary>
     public int DropId
     {
@@ -87,7 +42,7 @@ public class DRSeed : DataRowBase
     }
 
     /// <summary>
-  /**获取收获经验。*/
+  /**获取exp-int。*/
     /// </summary>
     public int Exp
     {
@@ -96,9 +51,54 @@ public class DRSeed : DataRowBase
     }
 
     /// <summary>
-  /**获取等级。*/
+  /**获取growRes-string[]。*/
+    /// </summary>
+    public string[] GrowRes
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取growTotalTime-int。*/
+    /// </summary>
+    public int GrowTotalTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取harvestRes-string。*/
+    /// </summary>
+    public string HarvestRes
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取lv-int。*/
     /// </summary>
     public int Lv
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取needWaterValue-int。*/
+    /// </summary>
+    public int NeedWaterValue
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取witherTime-int。*/
+    /// </summary>
+    public int WitherTime
     {
         get;
         private set;
@@ -109,16 +109,16 @@ public class DRSeed : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
         Desc = columnStrings[index++];
-        GrowRes = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        GrowTotalTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        WitherTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        NeedWaterValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        HarvestRes = columnStrings[index++];
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GrowRes = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        GrowTotalTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HarvestRes = columnStrings[index++];
+        _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        NeedWaterValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        WitherTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -130,16 +130,16 @@ public class DRSeed : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
                 Desc = binaryReader.ReadString();
-                GrowRes = binaryReader.ReadArray<String>();
-                GrowTotalTime = binaryReader.Read7BitEncodedInt32();
-                WitherTime = binaryReader.Read7BitEncodedInt32();
-                NeedWaterValue = binaryReader.Read7BitEncodedInt32();
-                HarvestRes = binaryReader.ReadString();
                 DropId = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
+                GrowRes = binaryReader.ReadArray<String>();
+                GrowTotalTime = binaryReader.Read7BitEncodedInt32();
+                HarvestRes = binaryReader.ReadString();
+                _id = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
+                NeedWaterValue = binaryReader.Read7BitEncodedInt32();
+                WitherTime = binaryReader.Read7BitEncodedInt32();
             }
         }
 

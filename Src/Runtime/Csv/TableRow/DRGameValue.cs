@@ -19,59 +19,14 @@ public class DRGameValue : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取索引1。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取值。*/
+  /**获取value-int。*/
     /// </summary>
     public int Value
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取字符串值。*/
-    /// </summary>
-    public string StrValue
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取数组值1。*/
-    /// </summary>
-    public int[] ValueArray
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取数组字符串。*/
-    /// </summary>
-    public string[] StrValueArray
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取备注1(模块)。*/
-    /// </summary>
-    public string Note1
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取备注2。*/
-    /// </summary>
-    public string Note2
     {
         get;
         private set;
@@ -84,11 +39,6 @@ public class DRGameValue : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         Value = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        StrValue = columnStrings[index++];
-        ValueArray = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        StrValueArray = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        Note1 = columnStrings[index++];
-        Note2 = columnStrings[index++];
 
         return true;
     }
@@ -102,11 +52,6 @@ public class DRGameValue : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 Value = binaryReader.Read7BitEncodedInt32();
-                StrValue = binaryReader.ReadString();
-                ValueArray = binaryReader.ReadArray<Int32>();
-                StrValueArray = binaryReader.ReadArray<String>();
-                Note1 = binaryReader.ReadString();
-                Note2 = binaryReader.ReadString();
             }
         }
 

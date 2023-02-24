@@ -1,6 +1,14 @@
-id,名字,Npc的描述,Npc的Icon1,RoleAssetID,移动速度
-id,name,desc,icon,roleAssetID,moveSpeed
-int,string,string,string,int,Int
-9900001,Boar,Meland Boar,icon_monster_15,20001,200
-1000001,Pang,,,40001,200
-1000002,Hun,,,40002,200
+desc-string,icon-string,id-int,moveSpeed-int,name-string,roleAssetID-int,taskBegin-int[],taskEnd-int[]
+Meland Boar,icon_monster_15,1,200,Boar,3,,
+,icon_monster_15,2,200,Pang,15,"1,3,5","1,2,4"
+,icon_monster_15,3,200,Hun,16,"2,4,6","3,5,6"
+,icon_monster_15,4,200,Pang,15,,
+,icon_monster_15,5,200,Pang,16,,
+,icon_monster_15,6,200,Pang,15,,
+,icon_monster_15,7,200,Pang,16,,
+,icon_monster_15,8,200,Pang,15,,
+,icon_monster_15,9,200,Hun,16,,
+,icon_monster_15,10,200,Hun,15,,
+,icon_monster_15,11,200,Hun,16,,
+,icon_monster_15,12,200,Hun,15,,
+,icon_monster_15,13,200,Hun,16,,

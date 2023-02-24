@@ -19,12 +19,21 @@ public class DREntityAttribute : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取属性ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取属性名字。*/
+  /**获取defaultValue-int。*/
+    /// </summary>
+    public int DefaultValue
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取name-string。*/
     /// </summary>
     public string Name
     {
@@ -33,7 +42,7 @@ public class DREntityAttribute : DataRowBase
     }
 
     /// <summary>
-  /**获取属性类型 。*/
+  /**获取type-int。*/
     /// </summary>
     public int Type
     {
@@ -42,18 +51,9 @@ public class DREntityAttribute : DataRowBase
     }
 
     /// <summary>
-  /**获取属性值类型。*/
+  /**获取valueType-int。*/
     /// </summary>
     public int ValueType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取默认值。*/
-    /// </summary>
-    public int DefaultValue
     {
         get;
         private set;
@@ -64,12 +64,11 @@ public class DREntityAttribute : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        DefaultValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Name = columnStrings[index++];
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ValueType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        DefaultValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        index++;
 
         return true;
     }
@@ -81,11 +80,11 @@ public class DREntityAttribute : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                DefaultValue = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
                 Name = binaryReader.ReadString();
                 Type = binaryReader.Read7BitEncodedInt32();
                 ValueType = binaryReader.Read7BitEncodedInt32();
-                DefaultValue = binaryReader.Read7BitEncodedInt32();
             }
         }
 

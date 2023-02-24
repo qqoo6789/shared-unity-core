@@ -19,12 +19,12 @@ public class DRBuff : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取BUFF ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取BUFF效果1。*/
+  /**获取buffEffect-int。*/
     /// </summary>
     public int BuffEffect
     {
@@ -33,7 +33,7 @@ public class DRBuff : DataRowBase
     }
 
     /// <summary>
-  /**获取BUFF组ID。*/
+  /**获取buffGroupId-int。*/
     /// </summary>
     public int BuffGroupId
     {
@@ -42,63 +42,7 @@ public class DRBuff : DataRowBase
     }
 
     /// <summary>
-  /**获取替换优先级
-越大越高。*/
-    /// </summary>
-    public int BuffPriority
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取BUFF参数。*/
-    /// </summary>
-    public int[] BuffPara
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取总时间。*/
-    /// </summary>
-    public int TotleTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取触发间隔
-毫秒。*/
-    /// </summary>
-    public int TriggerInterval
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取Buff名。*/
-    /// </summary>
-    public string BuffName
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取描述。*/
-    /// </summary>
-    public string BuffDesc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取展示icon。*/
+  /**获取buffIcon-string。*/
     /// </summary>
     public string BuffIcon
     {
@@ -107,9 +51,63 @@ public class DRBuff : DataRowBase
     }
 
     /// <summary>
-  /**获取特效。*/
+  /**获取buffPara-int[]。*/
+    /// </summary>
+    public int[] BuffPara
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取buffPriority-int。*/
+    /// </summary>
+    public int BuffPriority
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取totleTime-int。*/
+    /// </summary>
+    public int TotleTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取triggerInterval-int。*/
+    /// </summary>
+    public int TriggerInterval
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取buffAnimation-string。*/
     /// </summary>
     public string BuffAnimation
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取buffDesc-string。*/
+    /// </summary>
+    public string BuffDesc
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取buffName-string。*/
+    /// </summary>
+    public string BuffName
     {
         get;
         private set;
@@ -120,17 +118,17 @@ public class DRBuff : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
         BuffEffect = DataTableParseUtil.ParseInt(columnStrings[index++]);
         BuffGroupId = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        BuffPriority = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        BuffIcon = columnStrings[index++];
         BuffPara = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        BuffPriority = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
         TotleTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         TriggerInterval = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        BuffName = columnStrings[index++];
-        BuffDesc = columnStrings[index++];
-        BuffIcon = columnStrings[index++];
         BuffAnimation = columnStrings[index++];
+        BuffDesc = columnStrings[index++];
+        BuffName = columnStrings[index++];
 
         return true;
     }
@@ -142,17 +140,17 @@ public class DRBuff : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
                 BuffEffect = binaryReader.Read7BitEncodedInt32();
                 BuffGroupId = binaryReader.Read7BitEncodedInt32();
-                BuffPriority = binaryReader.Read7BitEncodedInt32();
+                BuffIcon = binaryReader.ReadString();
                 BuffPara = binaryReader.ReadArray<Int32>();
+                BuffPriority = binaryReader.Read7BitEncodedInt32();
+                _id = binaryReader.Read7BitEncodedInt32();
                 TotleTime = binaryReader.Read7BitEncodedInt32();
                 TriggerInterval = binaryReader.Read7BitEncodedInt32();
-                BuffName = binaryReader.ReadString();
-                BuffDesc = binaryReader.ReadString();
-                BuffIcon = binaryReader.ReadString();
                 BuffAnimation = binaryReader.ReadString();
+                BuffDesc = binaryReader.ReadString();
+                BuffName = binaryReader.ReadString();
             }
         }
 

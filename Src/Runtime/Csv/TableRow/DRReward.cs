@@ -19,23 +19,23 @@ public class DRReward : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取奖励ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取奖励次数。*/
+  /**获取rewardList-int[][]。*/
     /// </summary>
-    public int[][] RewardTimes
+    public int[][] RewardList
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取奖励list。*/
+  /**获取rewardTimes-int[][]。*/
     /// </summary>
-    public int[][] RewardList
+    public int[][] RewardTimes
     {
         get;
         private set;
@@ -47,9 +47,8 @@ public class DRReward : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        index++;
-        RewardTimes = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         RewardList = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        RewardTimes = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
 
         return true;
     }
@@ -62,8 +61,8 @@ public class DRReward : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                RewardTimes = binaryReader.ReadArrayList<Int32>();
                 RewardList = binaryReader.ReadArrayList<Int32>();
+                RewardTimes = binaryReader.ReadArrayList<Int32>();
             }
         }
 

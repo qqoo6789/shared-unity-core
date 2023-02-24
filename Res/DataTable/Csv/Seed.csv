@@ -1,4 +1,13 @@
-id,描述,生长阶段形象,总生长时间 秒,枯萎时间 秒,需要浇水量,成熟形象,收获产物,收获经验,等级
-id,desc,growRes,growTotalTime,witherTime,needWaterValue,harvestRes,dropId,exp,lv
-int,string,string[],int,int,int,string,int,int,int
-7020001,测试种子,"garlic_0,garlic_1,garlic_2",9,10,100,garlic_h,2000001,100,1
+desc-string,dropId-int,exp-int,growRes-string[],growTotalTime-int,harvestRes-string,id-int,lv-int,needWaterValue-int,witherTime-int
+娴嬭瘯绉嶅瓙鎻忚堪,8,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,66,1,100,10
+娴嬭瘯绉嶅瓙鎻忚堪,8,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,62,1,100,10
+娴嬭瘯绉嶅瓙鎻忚堪,8,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,66,1,100,10
+,19,100,"Slice 1,Slice 13,Slice 14",60,Slice 15,155,1,100,86400
+,20,100,"Slice 1,鐢绘澘 1 鎷疯礉 15,鐢绘澘 1 鎷疯礉 14,鐢绘澘 1 鎷疯礉 12",180,,156,1,150,86400
+,21,100,"Slice 1,鐢绘澘 1 鎷疯礉 8,鐢绘澘 1 鎷疯礉 7,鐢绘澘 1 鎷疯礉 9",540,,157,1,200,86400
+,22,100,"Slice 1,,鐢绘澘 1 鎷疯礉 17,鐢绘澘 1 鎷疯礉 16",80,鐢绘澘 1 鎷疯礉 11,158,2,100,86400
+,23,100,"Slice 1,鐢绘澘 1 鎷疯礉 5,鐢绘澘 1 鎷疯礉 2,鐢绘澘 1",240,鐢绘澘 1 鎷疯礉 3,159,2,150,86400
+,24,100,"Slice 1,Slice 13,Slice 14,Slice 14",720,,160,2,200,86400
+,25,100,"Slice 1,Slice 13,Slice 14",100,Slice 15,161,3,100,86400
+,26,100,"Slice 1,Slice 13,Slice 14,Slice 14",300,,162,3,150,86400
+,27,100,"Slice 1,Slice 13,Slice 14,Slice 14",900,Slice 15,163,3,200,86400

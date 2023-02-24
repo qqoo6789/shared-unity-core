@@ -6,6 +6,7 @@ public static class DataTableConfig
 {
     public static readonly string[] DataTableNames =
     {
+        "AnimalFood",
         "Avatar",
         "Buff",
         "Building",

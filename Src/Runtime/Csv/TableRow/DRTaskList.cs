@@ -19,12 +19,12 @@ public class DRTaskList : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取任务链ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取任务链解锁等级。*/
+  /**获取level-int。*/
     /// </summary>
     public int Level
     {
@@ -33,7 +33,7 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取任务链体系。*/
+  /**获取system-int。*/
     /// </summary>
     public int System
     {
@@ -42,7 +42,7 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取随机任务池及权重。*/
+  /**获取taskPool-int[][]。*/
     /// </summary>
     public int[][] TaskPool
     {
@@ -51,7 +51,7 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取任务序列。*/
+  /**获取taskSequence-int[]。*/
     /// </summary>
     public int[] TaskSequence
     {
@@ -60,7 +60,7 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取任务链道具奖励。*/
+  /**获取itemReward-int。*/
     /// </summary>
     public int ItemReward
     {
@@ -69,7 +69,7 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取任务链Exp奖励。*/
+  /**获取expReward-int。*/
     /// </summary>
     public int ExpReward
     {
@@ -78,7 +78,7 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取刷新是否重置进度。*/
+  /**获取progressReset-int。*/
     /// </summary>
     public int ProgressReset
     {
@@ -87,7 +87,7 @@ public class DRTaskList : DataRowBase
     }
 
     /// <summary>
-  /**获取领取花费（MELD）。*/
+  /**获取costMELD-int。*/
     /// </summary>
     public int CostMELD
     {

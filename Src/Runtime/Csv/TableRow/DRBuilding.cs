@@ -19,12 +19,12 @@ public class DRBuilding : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取骨架资源。*/
+  /**获取armatureRes-string。*/
     /// </summary>
     public string ArmatureRes
     {
@@ -33,7 +33,7 @@ public class DRBuilding : DataRowBase
     }
 
     /// <summary>
-  /**获取每小时消耗电量。*/
+  /**获取powerCostPerHour-int。*/
     /// </summary>
     public int PowerCostPerHour
     {
@@ -42,7 +42,7 @@ public class DRBuilding : DataRowBase
     }
 
     /// <summary>
-  /**获取随机奖励list。*/
+  /**获取rewardList-int[][]。*/
     /// </summary>
     public int[][] RewardList
     {
@@ -51,7 +51,7 @@ public class DRBuilding : DataRowBase
     }
 
     /// <summary>
-  /**获取最大产出。*/
+  /**获取maxCanHarvest-int。*/
     /// </summary>
     public int MaxCanHarvest
     {
@@ -60,7 +60,7 @@ public class DRBuilding : DataRowBase
     }
 
     /// <summary>
-  /**获取最大可偷取。*/
+  /**获取maxCanCollect-int。*/
     /// </summary>
     public int MaxCanCollect
     {
@@ -69,7 +69,7 @@ public class DRBuilding : DataRowBase
     }
 
     /// <summary>
-  /**获取每次偷取比例。*/
+  /**获取stolenpercentage-string。*/
     /// </summary>
     public string Stolenpercentage
     {

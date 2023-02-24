@@ -1,6 +1,4 @@
-任务链ID,任务链解锁等级,任务链体系,随机任务池及权重,任务序列,任务链道具奖励,任务链Exp奖励,刷新是否重置进度,领取花费（MELD）
-id,level,system,taskPool,taskSequence,itemReward,expReward,progressReset,costMELD
-int,int,int,int[][],int[],int,int,int,int
+id-int,level-int,system-int,taskPool-int[][],taskSequence-int[],itemReward-int,expReward-int,progressReset-int,costMELD-int
 101,0,3,,"10001,10002,10003,10004,10005,10006,10007,10008,10009,10010,10011,10012,10013,10014,10015,10016",0,0,0,0
 1010,10,1,"30001,8000;30002,2000",,1001001,1165,1,0
 1011,11,1,"30001,8000;30002,2000",,1001001,1300,1,0
