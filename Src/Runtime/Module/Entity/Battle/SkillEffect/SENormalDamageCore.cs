@@ -2,7 +2,7 @@
 * @Author: xiang huan
 * @Date: 2022-07-19 16:19:58
 * @Description: 普通伤害效果
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
 * 
 */
 
@@ -44,15 +44,11 @@ public class SENormalDamageCore : SkillEffectBase
 
         if (RefEntity.BattleDataCore != null)
         {
+            bool isLive = RefEntity.BattleDataCore.IsLive();
             RefEntity.BattleDataCore.SetHP(EffectData.DamageValue.CurrentInt);
-            if (EffectData.DamageValue.DeltaInt < 0)
+            if (EffectData.DamageValue.DeltaInt < 0 && isLive)
             {
-                if (RefEntity.TryGetComponent(out EntityBattleRecordDataCore battleRecordData))
-                {
-                    battleRecordData.AddDamageRecord(FromID, Mathf.Abs(EffectData.DamageValue.DeltaInt), RefEntity.BattleDataCore.IsLive());
-                }
-
-                RefEntity.EntityEvent.GetHurt?.Invoke(-EffectData.DamageValue.DeltaInt);
+                RefEntity.EntityEvent.EntityBattleAddDamage?.Invoke(FromID, -EffectData.DamageValue.DeltaInt);
             }
         }
     }
