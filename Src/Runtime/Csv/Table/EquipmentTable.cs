@@ -25,7 +25,14 @@ public class EquipmentTable
         _rows = dt.GetAllDataRows();
         foreach (DREquipment row in _rows)
         {
-            _dic.Add(row.ItemId, row);
+            try
+            {
+                _dic[row.ItemId] = row;
+            }
+            catch
+            {
+
+            }
         }
     }
 
