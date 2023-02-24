@@ -146,15 +146,23 @@ namespace Meland.Editor.DataTableTools
             List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
 
             StringBuilder stringBuilder = new();
-
+            int keyIndex = 0;
+            int idIndex = 0;
+            for (int i = 0; i < rawValues[0].Length; i++)
+            {
+                if (rawValues[0][i] == "name-string")
+                {
+                    keyIndex = i;
+                }
+                if (rawValues[0][i] == "id-int")
+                {
+                    idIndex = i;
+                }
+            }
             for (int i = TableDefine.DATA_TABLE_START_ROW; i < rawValues.Count; i++)
             {
-                string desc = rawValues[i][^1];
                 _ = stringBuilder
-                    .AppendLine("    /// <summary>")
-                    .AppendLine($"    /** {desc}*/")
-                    .AppendLine("    /// <summary>")
-                    .AppendLine($"    {rawValues[i][1]} = {rawValues[i][0]},");
+                    .AppendLine($"    {rawValues[i][keyIndex]} = {rawValues[i][idIndex]},");
             }
 
             return stringBuilder.ToString();
