@@ -62,9 +62,9 @@ public class EntityEvent : EntityBaseComponent
     public Action SpecialMoveStartNotMoveStatus;
     /// <summary>
     /// 实体受到伤害
-    /// T：伤害值
+    /// T0：伤害来源 T1：伤害值
     /// </summary>
-    public Action<float> GetHurt;
+    public Action<long, int> EntityBattleAddDamage;
 
     #endregion
 
@@ -139,6 +139,16 @@ public class EntityEvent : EntityBaseComponent
     /// 效果球列表更新
     /// </summary>
     public Action SeListUpdated;
+
+    /// <summary>
+    /// 战斗所属ID更新
+    /// </summary>
+    public Action<long> BattleOwnerIDUpdate;
+
+    /// <summary>
+    /// 实体改变战斗状态  T0:是否战斗
+    /// </summary>
+    public Action<bool> ChangeIsBattle;
 
     #endregion
     #region 天赋树
