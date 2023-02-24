@@ -26,6 +26,11 @@ public class HomeAnimalScene : MonoBehaviour
     /// 所有食盆 顺序为吃的顺序
     /// </summary>
     private readonly ListMap<ulong, AnimalBowlCore> _bowlListMap = new();
+    /// <summary>
+    /// 动物掉落根节点
+    /// </summary>
+    /// <value></value>
+    public GameObject AnimalDropRoot { get; private set; }
 
     private void Awake()
     {
@@ -42,6 +47,8 @@ public class HomeAnimalScene : MonoBehaviour
         float x = PlaygroundCenter.x - (PlaygroundSize.x * 0.5f);
         float z = PlaygroundCenter.z - (PlaygroundSize.z * 0.5f);
         PlaygroundRect = new Rect(x, z, PlaygroundSize.x, PlaygroundSize.z);
+
+        AnimalDropRoot = GameObjectUtil.CreateGameObject("AnimalDropRoot", transform);
     }
 
     private void OnDestroy()

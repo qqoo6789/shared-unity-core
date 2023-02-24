@@ -27,6 +27,11 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// <value></value>
     public AnimalDataCore Data { get; private set; }
 
+    /// <summary>
+    /// 自动收获的掉落实体
+    /// </summary>
+    private GameObject _dropEntity;
+
     protected virtual void Awake()
     {
         Data = gameObject.AddComponent<AnimalDataCore>();
@@ -46,6 +51,15 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
 
         InitStatus();
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if (_dropEntity != null)
+        {
+            Destroy(_dropEntity);
+            _dropEntity = null;
+        }
     }
 
     private void InitStatus()
@@ -206,6 +220,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             gameObject.GetComponent<HomeActionProgressData>().EndProgressAction();
             Data.SaveData.IsDead = true;
         }
+        ClearDropProduct();//TODO: home 暂时这样
     }
 
     /// <summary>
@@ -240,5 +255,49 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         Data.SaveData.HarvestProgress = 0;
         Data.SaveData.IsComforted = false;
         gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
+    }
+
+    /// <summary>
+    /// 创建一个掉落的产品
+    /// </summary>
+    /// <param name="productSaveData"></param>
+    /// <typeparam name="TDrop"></typeparam>
+    public void CreateDropProduct<TDrop>(AnimalProductSaveData productSaveData, bool isInit) where TDrop : AnimalDropCore
+    {
+        if (productSaveData == null)
+        {
+            Log.Error($"动物收获的产品数据为空 cid:{Data.BaseData.Cid}");
+            return;
+        }
+
+        if (Data.SaveData.ProductSaveData != null && !isInit)
+        {
+            Log.Error($"动物收获的产品数据不为空 cid:{Data.BaseData.Cid}");
+            return;
+        }
+
+        if (_dropEntity != null)
+        {
+            Log.Error($"动物掉落实体不为空 cid:{Data.BaseData.Cid}");
+        }
+
+        Data.SaveData.ProductSaveData = productSaveData;
+        _dropEntity = GameObjectUtil.CreateGameObject($"{Data.BaseData.AnimId}_{productSaveData.ProductId}", HomeModuleCore.AnimalScene.AnimalDropRoot.transform);
+        _dropEntity.transform.position = productSaveData.Pos;
+        AnimalDropCore drop = _dropEntity.AddComponent<TDrop>();
+        drop.InitAnimalDrop(productSaveData, Data.AnimId);
+    }
+
+    /// <summary>
+    /// 清除掉落的产品
+    /// </summary>
+    public void ClearDropProduct()
+    {
+        if (_dropEntity != null)
+        {
+            Destroy(_dropEntity);
+            _dropEntity = null;
+        }
+        Data.SaveData.ProductSaveData = null;
     }
 }

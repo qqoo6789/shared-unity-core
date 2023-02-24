@@ -58,4 +58,9 @@ public static class MTag
     /// 畜牧动物
     /// </summary>
     public const string HOME_ANIMAL = "HomeAnimal";
+
+    /// <summary>
+    /// 畜牧动物掉落
+    /// </summary>
+    public const string HOME_ANIMAL_DROP = "HomeAnimalDrop";
 }
