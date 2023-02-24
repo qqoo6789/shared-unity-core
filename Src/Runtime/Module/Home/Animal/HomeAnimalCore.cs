@@ -30,7 +30,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// <summary>
     /// 自动收获的掉落实体
     /// </summary>
-    private GameObject _dropEntity;
+    protected GameObject DropEntity { get; private set; }
 
     protected virtual void Awake()
     {
@@ -55,10 +55,10 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     protected virtual void OnDestroy()
     {
-        if (_dropEntity != null)
+        if (DropEntity != null)
         {
-            Destroy(_dropEntity);
-            _dropEntity = null;
+            Destroy(DropEntity);
+            DropEntity = null;
         }
     }
 
@@ -262,7 +262,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// </summary>
     /// <param name="productSaveData"></param>
     /// <typeparam name="TDrop"></typeparam>
-    public void CreateDropProduct<TDrop>(AnimalProductSaveData productSaveData, bool isInit) where TDrop : AnimalDropCore
+    protected void CreateDropProduct<TDrop>(AnimalProductSaveData productSaveData, Transform parent, bool isInit) where TDrop : AnimalDropCore
     {
         if (productSaveData == null)
         {
@@ -276,15 +276,15 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             return;
         }
 
-        if (_dropEntity != null)
+        if (DropEntity != null)
         {
             Log.Error($"动物掉落实体不为空 cid:{Data.BaseData.Cid}");
         }
 
         Data.SaveData.ProductSaveData = productSaveData;
-        _dropEntity = GameObjectUtil.CreateGameObject($"{Data.BaseData.AnimId}_{productSaveData.ProductId}", HomeModuleCore.AnimalScene.AnimalDropRoot.transform);
-        _dropEntity.transform.position = productSaveData.Pos;
-        AnimalDropCore drop = _dropEntity.AddComponent<TDrop>();
+        DropEntity = GameObjectUtil.CreateGameObject($"{Data.BaseData.AnimId}_{productSaveData.ProductId}", parent);
+        DropEntity.transform.position = productSaveData.Pos;
+        AnimalDropCore drop = DropEntity.AddComponent<TDrop>();
         drop.InitAnimalDrop(productSaveData, Data.AnimId);
     }
 
@@ -293,10 +293,10 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// </summary>
     public void ClearDropProduct()
     {
-        if (_dropEntity != null)
+        if (DropEntity != null)
         {
-            Destroy(_dropEntity);
-            _dropEntity = null;
+            Destroy(DropEntity);
+            DropEntity = null;
         }
         Data.SaveData.ProductSaveData = null;
     }
