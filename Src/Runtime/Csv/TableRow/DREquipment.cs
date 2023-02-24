@@ -95,24 +95,6 @@ public class DREquipment : DataRowBase
         private set;
     }
 
-    /// <summary>
-  /**获取装备品质。*/
-    /// </summary>
-    public int GearQuality
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取装备附带属性。*/
-    /// </summary>
-    public int[][] GearAttribute
-    {
-        get;
-        private set;
-    }
-
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
