@@ -19,12 +19,12 @@ public class DRTask : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取任务ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取任务等级。*/
+  /**获取level-int。*/
     /// </summary>
     public int Level
     {
@@ -33,7 +33,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取任务名。*/
+  /**获取name-string。*/
     /// </summary>
     public string Name
     {
@@ -42,7 +42,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取任务描述。*/
+  /**获取decs-string。*/
     /// </summary>
     public string Decs
     {
@@ -51,7 +51,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取任务详情。*/
+  /**获取details-string。*/
     /// </summary>
     public string Details
     {
@@ -60,7 +60,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取任务链体系。*/
+  /**获取subSystem-int[]。*/
     /// </summary>
     public int[] SubSystem
     {
@@ -69,7 +69,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取指定任务选项。*/
+  /**获取designateOptions-string。*/
     /// </summary>
     public string DesignateOptions
     {
@@ -78,7 +78,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取权重任务选项。*/
+  /**获取chanceOptions-string。*/
     /// </summary>
     public string ChanceOptions
     {
@@ -87,7 +87,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取任务道具奖励Id。*/
+  /**获取itemReward-int。*/
     /// </summary>
     public int ItemReward
     {
@@ -96,7 +96,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取任务Exp奖励。*/
+  /**获取expReward-int。*/
     /// </summary>
     public int ExpReward
     {
@@ -105,7 +105,7 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取难度系数（预留）。*/
+  /**获取difficulty-int。*/
     /// </summary>
     public int Difficulty
     {

@@ -19,30 +19,12 @@ public class DRAvatar : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取资源女1。*/
-    /// </summary>
-    public string ResouceGirl
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取显示女资源icon。*/
-    /// </summary>
-    public string ResouceGirlIcon
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取资源男。*/
+  /**获取resouceBoy-string。*/
     /// </summary>
     public string ResouceBoy
     {
@@ -51,7 +33,16 @@ public class DRAvatar : DataRowBase
     }
 
     /// <summary>
-  /**获取显示男资源icon。*/
+  /**获取avatarType-int。*/
+    /// </summary>
+    public int AvatarType
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取resouceBoyIcon-string。*/
     /// </summary>
     public string ResouceBoyIcon
     {
@@ -60,27 +51,18 @@ public class DRAvatar : DataRowBase
     }
 
     /// <summary>
-  /**获取资源机器人。*/
+  /**获取resouceGirl-string。*/
     /// </summary>
-    public string ResouceRobot
+    public string ResouceGirl
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取avatar资源类别
-1.头发 
-2.上衣 
-3.手套 
-4.裤子 
-5.脸型 
-6.眼睛 
-7.嘴巴 
-8.眉毛 
-14.鞋子。*/
+  /**获取resouceGirlIcon-string。*/
     /// </summary>
-    public int AvatarType
+    public string ResouceGirlIcon
     {
         get;
         private set;
@@ -92,13 +74,11 @@ public class DRAvatar : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
+        ResouceBoy = columnStrings[index++];
+        AvatarType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        ResouceBoyIcon = columnStrings[index++];
         ResouceGirl = columnStrings[index++];
         ResouceGirlIcon = columnStrings[index++];
-        ResouceBoy = columnStrings[index++];
-        ResouceBoyIcon = columnStrings[index++];
-        ResouceRobot = columnStrings[index++];
-        AvatarType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        index++;
 
         return true;
     }
@@ -111,12 +91,11 @@ public class DRAvatar : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
+                ResouceBoy = binaryReader.ReadString();
+                AvatarType = binaryReader.Read7BitEncodedInt32();
+                ResouceBoyIcon = binaryReader.ReadString();
                 ResouceGirl = binaryReader.ReadString();
                 ResouceGirlIcon = binaryReader.ReadString();
-                ResouceBoy = binaryReader.ReadString();
-                ResouceBoyIcon = binaryReader.ReadString();
-                ResouceRobot = binaryReader.ReadString();
-                AvatarType = binaryReader.Read7BitEncodedInt32();
             }
         }
 

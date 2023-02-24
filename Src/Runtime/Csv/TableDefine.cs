@@ -1,15 +1,17 @@
 /*
  * @Author: mangit
- * @LastEditors: mangit
+ * @LastEditors: Please set LastEditors
  * @Description: 表定义
  * @Date: 2022-06-23 20:28:37
- * @FilePath: /Assets/Src/Csv/Table/TableDefine.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Csv/TableDefine.cs
  */
 public static class TableDefine
 {
     public static readonly int ITEMID_EXP = 79999902;
     public static readonly int ITEMID_BATTERY = 3010203;
     public static readonly int ITEMID_SEED = 3010204;
+    public static readonly int DATA_TABLE_START_ROW = 1;
+    public static readonly string DATA_TABLE_ENCODING = "UTF-8";
     public enum eRoleAttrName//表属性属性字段名
     {
         Hp,

@@ -1,4 +1,2 @@
-id,备注,调用方法,调用方法参数
-id,null,callFunc,args
-int,null,string[],string[]
-7030001,测试肥料,addProduct,20
+args-string[],callFunc-string[],id-int
+20,addProduct,7030001

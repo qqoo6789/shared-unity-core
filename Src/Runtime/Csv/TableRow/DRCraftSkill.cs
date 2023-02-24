@@ -19,12 +19,12 @@ public class DRCraftSkill : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取技能ID。*/
+  /**获取skillId-int。*/
     /// </summary>
     public int SkillId
     {
@@ -33,7 +33,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取等级。*/
+  /**获取level-int。*/
     /// </summary>
     public int Level
     {
@@ -42,7 +42,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取制造技能icon。*/
+  /**获取icon-string。*/
     /// </summary>
     public string Icon
     {
@@ -51,7 +51,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升到当前所需等级。*/
+  /**获取roleLevel-int。*/
     /// </summary>
     public int RoleLevel
     {
@@ -60,7 +60,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升到当前所需熟练度。*/
+  /**获取skillExp-int。*/
     /// </summary>
     public int SkillExp
     {
@@ -69,7 +69,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升到当前花费MELD。*/
+  /**获取useMELD-int。*/
     /// </summary>
     public int UseMELD
     {
@@ -78,7 +78,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取升到当前花费EXP。*/
+  /**获取useExp-int。*/
     /// </summary>
     public int UseExp
     {
@@ -87,7 +87,7 @@ public class DRCraftSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取解锁图鉴。*/
+  /**获取recipeIds-int[]。*/
     /// </summary>
     public int[] RecipeIds
     {

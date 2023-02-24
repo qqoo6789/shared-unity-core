@@ -19,31 +19,12 @@ public class DRItemEatable : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取使用CD
-毫秒。*/
-    /// </summary>
-    public int Cd
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取调用方法。*/
-    /// </summary>
-    public string[] CallFunc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取调用方法参数。*/
+  /**获取args-string[]。*/
     /// </summary>
     public string[] Args
     {
@@ -52,7 +33,25 @@ public class DRItemEatable : DataRowBase
     }
 
     /// <summary>
-  /**获取cd组。*/
+  /**获取callFunc-string[]。*/
+    /// </summary>
+    public string[] CallFunc
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取cd-int。*/
+    /// </summary>
+    public int Cd
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取cdType-int。*/
     /// </summary>
     public int CdType
     {
@@ -61,7 +60,7 @@ public class DRItemEatable : DataRowBase
     }
 
     /// <summary>
-  /**获取客户端交互方法。*/
+  /**获取interactType-string。*/
     /// </summary>
     public string InteractType
     {
@@ -74,12 +73,11 @@ public class DRItemEatable : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        index++;
-        Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
         InteractType = columnStrings[index++];
 
         return true;
@@ -92,11 +90,11 @@ public class DRItemEatable : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
-                Cd = binaryReader.Read7BitEncodedInt32();
-                CallFunc = binaryReader.ReadArray<String>();
                 Args = binaryReader.ReadArray<String>();
+                CallFunc = binaryReader.ReadArray<String>();
+                Cd = binaryReader.Read7BitEncodedInt32();
                 CdType = binaryReader.Read7BitEncodedInt32();
+                _id = binaryReader.Read7BitEncodedInt32();
                 InteractType = binaryReader.ReadString();
             }
         }

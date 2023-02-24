@@ -19,84 +19,12 @@ public class DRMonster : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取名字。*/
-    /// </summary>
-    public string Name
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取Moster的描述。*/
-    /// </summary>
-    public string Desc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取Moster的Icon1。*/
-    /// </summary>
-    public string Icon
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取RoleAssetID。*/
-    /// </summary>
-    public int RoleAssetID
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取身体大小(半径像素)。*/
-    /// </summary>
-    public int BodyCapacity
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取等级。*/
-    /// </summary>
-    public int Lv
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取击杀经验。*/
-    /// </summary>
-    public int Exp
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取血量。*/
-    /// </summary>
-    public int Hp
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取普通攻击。*/
+  /**获取att-int。*/
     /// </summary>
     public int Att
     {
@@ -105,7 +33,7 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取冷却缩减。*/
+  /**获取attSpd-int。*/
     /// </summary>
     public int AttSpd
     {
@@ -114,64 +42,7 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取防御。*/
-    /// </summary>
-    public int Def
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取暴击。*/
-    /// </summary>
-    public int CritRate
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取暴击伤害。*/
-    /// </summary>
-    public int CritDmg
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取命中。*/
-    /// </summary>
-    public int HitPoint
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取闪避。*/
-    /// </summary>
-    public int MissPoint
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取移动速度。*/
-    /// </summary>
-    public int MoveSpeed
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取怪物AI
-1主动攻击型
-2被动攻击型
-3不攻击型。*/
+  /**获取attType-int。*/
     /// </summary>
     public int AttType
     {
@@ -180,16 +51,16 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取锁敌范围。*/
+  /**获取bodyCapacity-int。*/
     /// </summary>
-    public int LockEnemyRange
+    public int BodyCapacity
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取脱战距离。*/
+  /**获取combatDist-int。*/
     /// </summary>
     public int CombatDist
     {
@@ -198,25 +69,43 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取击退伤害。*/
+  /**获取critDmg-int。*/
     /// </summary>
-    public int PushDmg
+    public int CritDmg
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取击退距离。*/
+  /**获取critRate-int。*/
     /// </summary>
-    public int PushDist
+    public int CritRate
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取掉落配置。*/
+  /**获取def-int。*/
+    /// </summary>
+    public int Def
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取desc-string。*/
+    /// </summary>
+    public string Desc
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取dropId-int。*/
     /// </summary>
     public int DropId
     {
@@ -225,68 +114,153 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取技能释放随机池。*/
+  /**获取exp-int。*/
+    /// </summary>
+    public int Exp
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取harvestDropId-int。*/
+    /// </summary>
+    public int HarvestDropId
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取harvestTime-int。*/
+    /// </summary>
+    public int HarvestTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取hitPoint-int。*/
+    /// </summary>
+    public int HitPoint
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取hp-int。*/
+    /// </summary>
+    public int Hp
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取hungerSpeed-int。*/
+    /// </summary>
+    public int HungerSpeed
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取icon-string。*/
+    /// </summary>
+    public string Icon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取lockEnemyRange-int。*/
+    /// </summary>
+    public int LockEnemyRange
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取lv-int。*/
+    /// </summary>
+    public int Lv
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取maxHunger-int。*/
+    /// </summary>
+    public int MaxHunger
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取missPoint-int。*/
+    /// </summary>
+    public int MissPoint
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取moveSpeed-int。*/
+    /// </summary>
+    public int MoveSpeed
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取name-string。*/
+    /// </summary>
+    public string Name
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取pushDist-int。*/
+    /// </summary>
+    public int PushDist
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取pushDmg-int。*/
+    /// </summary>
+    public int PushDmg
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取roleAssetID-int。*/
+    /// </summary>
+    public int RoleAssetID
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取skillCastPool-int[][]。*/
     /// </summary>
     public int[][] SkillCastPool
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取不显示在代码块下拉中。*/
-    /// </summary>
-    public bool NoShowCode
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取建筑背包分类。*/
-    /// </summary>
-    public int ObjectBagType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取代码库ID。*/
-    /// </summary>
-    public int CodeBlockId
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取类型
-1生物
-2用锄头采集的资源
-3用斧头采集的资源
-4不用工具采集的资源
-。*/
-    /// </summary>
-    public int Type
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取怪物阵营。*/
-    /// </summary>
-    public int Camp
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取属性控件。*/
-    /// </summary>
-    public int AttWidget
     {
         get;
         private set;
@@ -297,37 +271,34 @@ public class DRMonster : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        Name = columnStrings[index++];
-        index++;
-        Desc = columnStrings[index++];
-        Icon = columnStrings[index++];
-        RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Att = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AttSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Def = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CritRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        AttType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        CombatDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CritDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        CritRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Def = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Desc = columnStrings[index++];
+        DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HarvestDropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HarvestTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HungerSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Icon = columnStrings[index++];
+        _id = int.Parse(columnStrings[index++]);
+        LockEnemyRange = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        MaxHunger = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MissPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MoveSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        AttType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        LockEnemyRange = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CombatDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        PushDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Name = columnStrings[index++];
         PushDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        PushDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillCastPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        NoShowCode = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        ObjectBagType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CodeBlockId = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Camp = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        AttWidget = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -339,36 +310,34 @@ public class DRMonster : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
-                Name = binaryReader.ReadString();
-                Desc = binaryReader.ReadString();
-                Icon = binaryReader.ReadString();
-                RoleAssetID = binaryReader.Read7BitEncodedInt32();
-                BodyCapacity = binaryReader.Read7BitEncodedInt32();
-                Lv = binaryReader.Read7BitEncodedInt32();
-                Exp = binaryReader.Read7BitEncodedInt32();
-                Hp = binaryReader.Read7BitEncodedInt32();
                 Att = binaryReader.Read7BitEncodedInt32();
                 AttSpd = binaryReader.Read7BitEncodedInt32();
-                Def = binaryReader.Read7BitEncodedInt32();
-                CritRate = binaryReader.Read7BitEncodedInt32();
+                AttType = binaryReader.Read7BitEncodedInt32();
+                BodyCapacity = binaryReader.Read7BitEncodedInt32();
+                CombatDist = binaryReader.Read7BitEncodedInt32();
                 CritDmg = binaryReader.Read7BitEncodedInt32();
+                CritRate = binaryReader.Read7BitEncodedInt32();
+                Def = binaryReader.Read7BitEncodedInt32();
+                Desc = binaryReader.ReadString();
+                DropId = binaryReader.Read7BitEncodedInt32();
+                Exp = binaryReader.Read7BitEncodedInt32();
+                HarvestDropId = binaryReader.Read7BitEncodedInt32();
+                HarvestTime = binaryReader.Read7BitEncodedInt32();
                 HitPoint = binaryReader.Read7BitEncodedInt32();
+                Hp = binaryReader.Read7BitEncodedInt32();
+                HungerSpeed = binaryReader.Read7BitEncodedInt32();
+                Icon = binaryReader.ReadString();
+                _id = binaryReader.Read7BitEncodedInt32();
+                LockEnemyRange = binaryReader.Read7BitEncodedInt32();
+                Lv = binaryReader.Read7BitEncodedInt32();
+                MaxHunger = binaryReader.Read7BitEncodedInt32();
                 MissPoint = binaryReader.Read7BitEncodedInt32();
                 MoveSpeed = binaryReader.Read7BitEncodedInt32();
-                AttType = binaryReader.Read7BitEncodedInt32();
-                LockEnemyRange = binaryReader.Read7BitEncodedInt32();
-                CombatDist = binaryReader.Read7BitEncodedInt32();
-                PushDmg = binaryReader.Read7BitEncodedInt32();
+                Name = binaryReader.ReadString();
                 PushDist = binaryReader.Read7BitEncodedInt32();
-                DropId = binaryReader.Read7BitEncodedInt32();
+                PushDmg = binaryReader.Read7BitEncodedInt32();
+                RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 SkillCastPool = binaryReader.ReadArrayList<Int32>();
-                NoShowCode = binaryReader.ReadBoolean();
-                ObjectBagType = binaryReader.Read7BitEncodedInt32();
-                CodeBlockId = binaryReader.Read7BitEncodedInt32();
-                Type = binaryReader.Read7BitEncodedInt32();
-                Camp = binaryReader.Read7BitEncodedInt32();
-                AttWidget = binaryReader.Read7BitEncodedInt32();
             }
         }
 

@@ -19,21 +19,12 @@ public class DRLanguage : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取值。*/
-    /// </summary>
-    public string Value
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取模块。*/
+  /**获取module-string。*/
     /// </summary>
     public string Module
     {
@@ -42,7 +33,16 @@ public class DRLanguage : DataRowBase
     }
 
     /// <summary>
-  /**获取特殊描述。*/
+  /**获取value-string。*/
+    /// </summary>
+    public string Value
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取describe-string。*/
     /// </summary>
     public string Describe
     {
@@ -56,8 +56,8 @@ public class DRLanguage : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        Value = columnStrings[index++];
         Module = columnStrings[index++];
+        Value = columnStrings[index++];
         Describe = columnStrings[index++];
 
         return true;
@@ -71,8 +71,8 @@ public class DRLanguage : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                Value = binaryReader.ReadString();
                 Module = binaryReader.ReadString();
+                Value = binaryReader.ReadString();
                 Describe = binaryReader.ReadString();
             }
         }

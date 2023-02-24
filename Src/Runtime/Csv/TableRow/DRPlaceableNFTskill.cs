@@ -19,12 +19,12 @@ public class DRPlaceableNFTskill : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取PlaceableNFTskill_ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取技能名称。*/
+  /**获取skill_name-string。*/
     /// </summary>
     public string Skill_name
     {
@@ -33,7 +33,7 @@ public class DRPlaceableNFTskill : DataRowBase
     }
 
     /// <summary>
-  /**获取技能icon。*/
+  /**获取skill_icon-string。*/
     /// </summary>
     public string Skill_icon
     {
@@ -42,7 +42,7 @@ public class DRPlaceableNFTskill : DataRowBase
     }
 
     /// <summary>
-  /**获取影响半径。*/
+  /**获取radius-int[]。*/
     /// </summary>
     public int[] Radius
     {
@@ -51,7 +51,7 @@ public class DRPlaceableNFTskill : DataRowBase
     }
 
     /// <summary>
-  /**获取影响数值。*/
+  /**获取value-string[]。*/
     /// </summary>
     public string[] Value
     {
@@ -60,7 +60,7 @@ public class DRPlaceableNFTskill : DataRowBase
     }
 
     /// <summary>
-  /**获取描述。*/
+  /**获取desc-string。*/
     /// </summary>
     public string Desc
     {
@@ -69,7 +69,7 @@ public class DRPlaceableNFTskill : DataRowBase
     }
 
     /// <summary>
-  /**获取作用对象。*/
+  /**获取skill_target-string。*/
     /// </summary>
     public string Skill_target
     {
@@ -78,7 +78,7 @@ public class DRPlaceableNFTskill : DataRowBase
     }
 
     /// <summary>
-  /**获取技能效果。*/
+  /**获取skill_effect-string。*/
     /// </summary>
     public string Skill_effect
     {

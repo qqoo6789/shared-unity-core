@@ -142,19 +142,27 @@ namespace Meland.Editor.DataTableTools
         }
         public static string GeneratorAttributeType()
         {
-            string tableText = File.ReadAllText(ATTRIBUTE_TYPE_CSV_FILE_NAME, Encoding.GetEncoding("GB2312"));
+            string tableText = File.ReadAllText(ATTRIBUTE_TYPE_CSV_FILE_NAME, Encoding.GetEncoding(TableDefine.DATA_TABLE_ENCODING));
             List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
 
             StringBuilder stringBuilder = new();
-
-            for (int i = 3; i < rawValues.Count; i++)
+            int keyIndex = 0;
+            int idIndex = 0;
+            for (int i = 0; i < rawValues[0].Length; i++)
             {
-                string desc = rawValues[i][5];
+                if (rawValues[0][i] == "name-string")
+                {
+                    keyIndex = i;
+                }
+                if (rawValues[0][i] == "id-int")
+                {
+                    idIndex = i;
+                }
+            }
+            for (int i = TableDefine.DATA_TABLE_START_ROW; i < rawValues.Count; i++)
+            {
                 _ = stringBuilder
-                    .AppendLine("    /// <summary>")
-                    .AppendLine($"    /** {desc}*/")
-                    .AppendLine("    /// <summary>")
-                    .AppendLine($"    {rawValues[i][1]} = {rawValues[i][0]},");
+                    .AppendLine($"    {rawValues[i][keyIndex]} = {rawValues[i][idIndex]},");
             }
 
             return stringBuilder.ToString();

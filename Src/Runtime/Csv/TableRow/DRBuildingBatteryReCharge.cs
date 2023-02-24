@@ -19,12 +19,12 @@ public class DRBuildingBatteryReCharge : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取充值电量。*/
+  /**获取battery-int。*/
     /// </summary>
     public int Battery
     {
@@ -33,7 +33,7 @@ public class DRBuildingBatteryReCharge : DataRowBase
     }
 
     /// <summary>
-  /**获取赠送电量。*/
+  /**获取presentBattery-int。*/
     /// </summary>
     public int PresentBattery
     {
@@ -42,7 +42,7 @@ public class DRBuildingBatteryReCharge : DataRowBase
     }
 
     /// <summary>
-  /**获取token消耗。*/
+  /**获取tokenCost-int。*/
     /// </summary>
     public int TokenCost
     {

@@ -34,7 +34,7 @@ namespace Meland.Editor.DataTableTools
         private string _codeTemplate; //代码模板
         private DataTableCodeGenerator _codeGenerator; //代码处理器
 
-        public DataTableProcessor(string dataTableFileName, Encoding encoding, int nameRow, int typeRow, int? defaultValueRow, int? commentRow, int contentStartRow, int idColumn)
+        public DataTableProcessor(string dataTableFileName, Encoding encoding, int nameRow, int typeRow, int? defaultValueRow, int? commentRow, int contentStartRow)
         {
             if (string.IsNullOrEmpty(dataTableFileName))
             {
@@ -53,6 +53,17 @@ namespace Meland.Editor.DataTableTools
 
             string tableText = File.ReadAllText(dataTableFileName, encoding);
             List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
+            string[] nameRawRow = new string[rawValues[0].Length];
+            string[] typeRawRow = new string[rawValues[0].Length];
+            for (int i = 0; i < rawValues[0].Length; i++)
+            {
+                string nameTypeStr = rawValues[0][i];
+                string[] valueList = nameTypeStr.Split('-');
+                nameRawRow[i] = valueList[0];
+                typeRawRow[i] = valueList[1];
+            }
+            rawValues.Insert(1, nameRawRow);
+            rawValues.Insert(2, typeRawRow);
             _rawValues = rawValues.ToArray();
 
             int rawRowCount = _rawValues.Length;
@@ -74,10 +85,6 @@ namespace Meland.Editor.DataTableTools
                 throw new GameFrameworkException(Utility.Text.Format("Content start row '{0}' is invalid.", contentStartRow));
             }
 
-            if (idColumn < 0)
-            {
-                throw new GameFrameworkException(Utility.Text.Format("Id column '{0}' is invalid.", idColumn));
-            }
 
             if (nameRow >= rawRowCount)
             {
@@ -104,24 +111,20 @@ namespace Meland.Editor.DataTableTools
                 throw new GameFrameworkException(Utility.Text.Format("Content start row '{0}' > raw row count '{1}' is not allow.", contentStartRow, rawRowCount));
             }
 
-            if (idColumn >= rawColumnCount)
-            {
-                throw new GameFrameworkException(Utility.Text.Format("Id column '{0}' >= raw column count '{1}' is not allow.", idColumn, rawColumnCount));
-            }
 
             _nameRow = _rawValues[nameRow];
             _typeRow = _rawValues[typeRow];
             _defaultValueRow = defaultValueRow.HasValue ? _rawValues[defaultValueRow.Value] : null;
             _commentRow = commentRow.HasValue ? _rawValues[commentRow.Value] : null;
             ContentStartRow = contentStartRow;
-            IdColumn = idColumn;
 
             //初始化每列数据处理器
             _dataProcessor = new DataProcessor[rawColumnCount];
             for (int i = 0; i < rawColumnCount; i++)
             {
-                if (i == IdColumn)
+                if (_nameRow[i] == "id")
                 {
+                    IdColumn = i;
                     _dataProcessor[i] = DataProcessorUtility.GetDataProcessor("id");
                 }
                 else

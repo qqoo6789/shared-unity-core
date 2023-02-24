@@ -19,12 +19,12 @@ public class DRSlotLv : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取插槽。*/
+  /**获取slot-int。*/
     /// </summary>
     public int Slot
     {
@@ -33,7 +33,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取等级。*/
+  /**获取lv-int。*/
     /// </summary>
     public int Lv
     {
@@ -42,7 +42,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取升级经验。*/
+  /**获取exp-int。*/
     /// </summary>
     public int Exp
     {
@@ -51,7 +51,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取升级meld。*/
+  /**获取useMELD-int。*/
     /// </summary>
     public int UseMELD
     {
@@ -60,7 +60,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取血量。*/
+  /**获取hp-int。*/
     /// </summary>
     public int Hp
     {
@@ -69,7 +69,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取生命恢复。*/
+  /**获取hpRecovery-int。*/
     /// </summary>
     public int HpRecovery
     {
@@ -78,7 +78,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取普通攻击。*/
+  /**获取att-int。*/
     /// </summary>
     public int Att
     {
@@ -87,7 +87,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取攻击速度。*/
+  /**获取attSpd-int。*/
     /// </summary>
     public int AttSpd
     {
@@ -96,7 +96,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取防御。*/
+  /**获取def-int。*/
     /// </summary>
     public int Def
     {
@@ -105,7 +105,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取暴击。*/
+  /**获取critRate-int。*/
     /// </summary>
     public int CritRate
     {
@@ -114,7 +114,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取暴击伤害。*/
+  /**获取critDmg-int。*/
     /// </summary>
     public int CritDmg
     {
@@ -123,7 +123,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取命中。*/
+  /**获取hitPoint-int。*/
     /// </summary>
     public int HitPoint
     {
@@ -132,7 +132,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取闪避。*/
+  /**获取missPoint-int。*/
     /// </summary>
     public int MissPoint
     {
@@ -141,7 +141,7 @@ public class DRSlotLv : DataRowBase
     }
 
     /// <summary>
-  /**获取移动速度。*/
+  /**获取moveSpeed-int。*/
     /// </summary>
     public int MoveSpeed
     {

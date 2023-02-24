@@ -19,84 +19,12 @@ public class DRItem : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取物品ID。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取物品名称。*/
-    /// </summary>
-    public string Name
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取物品描述。*/
-    /// </summary>
-    public string Desc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取物品类型。*/
-    /// </summary>
-    public int Type
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取物品品质。*/
-    /// </summary>
-    public int[] Quality
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取物品图标。*/
-    /// </summary>
-    public string Icon
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取背包显示分类。*/
-    /// </summary>
-    public int BagShowType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取使用等级。*/
-    /// </summary>
-    public int UseLv
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取使用者类型。*/
-    /// </summary>
-    public int UserType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取是否NFT。*/
+  /**获取canMint-int。*/
     /// </summary>
     public int CanMint
     {
@@ -105,7 +33,70 @@ public class DRItem : DataRowBase
     }
 
     /// <summary>
-  /**获取触发动作技能。*/
+  /**获取desc-string。*/
+    /// </summary>
+    public string Desc
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取icon-string。*/
+    /// </summary>
+    public string Icon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取name-string。*/
+    /// </summary>
+    public string Name
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取quality-int[]。*/
+    /// </summary>
+    public int[] Quality
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取type-int。*/
+    /// </summary>
+    public int Type
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取useLv-int。*/
+    /// </summary>
+    public int UseLv
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取userType-int。*/
+    /// </summary>
+    public int UserType
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取givenSkillId-int。*/
     /// </summary>
     public int GivenSkillId
     {
@@ -118,17 +109,15 @@ public class DRItem : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        CanMint = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Desc = columnStrings[index++];
+        Icon = columnStrings[index++];
         _id = int.Parse(columnStrings[index++]);
         Name = columnStrings[index++];
-        index++;
-        Desc = columnStrings[index++];
-        Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Quality = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Icon = columnStrings[index++];
-        BagShowType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UseLv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UserType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CanMint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GivenSkillId = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
@@ -141,16 +130,15 @@ public class DRItem : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                CanMint = binaryReader.Read7BitEncodedInt32();
+                Desc = binaryReader.ReadString();
+                Icon = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
                 Name = binaryReader.ReadString();
-                Desc = binaryReader.ReadString();
-                Type = binaryReader.Read7BitEncodedInt32();
                 Quality = binaryReader.ReadArray<Int32>();
-                Icon = binaryReader.ReadString();
-                BagShowType = binaryReader.Read7BitEncodedInt32();
+                Type = binaryReader.Read7BitEncodedInt32();
                 UseLv = binaryReader.Read7BitEncodedInt32();
                 UserType = binaryReader.Read7BitEncodedInt32();
-                CanMint = binaryReader.Read7BitEncodedInt32();
                 GivenSkillId = binaryReader.Read7BitEncodedInt32();
             }
         }

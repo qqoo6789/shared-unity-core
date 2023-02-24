@@ -19,21 +19,12 @@ public class DRRoleAsset : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取描述。*/
-    /// </summary>
-    public string Desc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取骨架资源。*/
+  /**获取armatureRes-string。*/
     /// </summary>
     public string ArmatureRes
     {
@@ -42,16 +33,7 @@ public class DRRoleAsset : DataRowBase
     }
 
     /// <summary>
-  /**获取闲置叫声。*/
-    /// </summary>
-    public string IdleSound
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取普通攻击声音。*/
+  /**获取attackSound-string。*/
     /// </summary>
     public string AttackSound
     {
@@ -60,7 +42,25 @@ public class DRRoleAsset : DataRowBase
     }
 
     /// <summary>
-  /**获取受伤暴击声音。*/
+  /**获取deathSound-string。*/
+    /// </summary>
+    public string DeathSound
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取desc-string。*/
+    /// </summary>
+    public string Desc
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取hurtedCritSound-string。*/
     /// </summary>
     public string HurtedCritSound
     {
@@ -69,7 +69,7 @@ public class DRRoleAsset : DataRowBase
     }
 
     /// <summary>
-  /**获取受伤声音。*/
+  /**获取hurtedSound-string。*/
     /// </summary>
     public string HurtedSound
     {
@@ -78,9 +78,9 @@ public class DRRoleAsset : DataRowBase
     }
 
     /// <summary>
-  /**获取死亡声音。*/
+  /**获取idleSound-string。*/
     /// </summary>
-    public string DeathSound
+    public string IdleSound
     {
         get;
         private set;
@@ -91,14 +91,14 @@ public class DRRoleAsset : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        Desc = columnStrings[index++];
         ArmatureRes = columnStrings[index++];
-        IdleSound = columnStrings[index++];
         AttackSound = columnStrings[index++];
+        DeathSound = columnStrings[index++];
+        Desc = columnStrings[index++];
         HurtedCritSound = columnStrings[index++];
         HurtedSound = columnStrings[index++];
-        DeathSound = columnStrings[index++];
+        _id = int.Parse(columnStrings[index++]);
+        IdleSound = columnStrings[index++];
 
         return true;
     }
@@ -110,14 +110,14 @@ public class DRRoleAsset : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
-                Desc = binaryReader.ReadString();
                 ArmatureRes = binaryReader.ReadString();
-                IdleSound = binaryReader.ReadString();
                 AttackSound = binaryReader.ReadString();
+                DeathSound = binaryReader.ReadString();
+                Desc = binaryReader.ReadString();
                 HurtedCritSound = binaryReader.ReadString();
                 HurtedSound = binaryReader.ReadString();
-                DeathSound = binaryReader.ReadString();
+                _id = binaryReader.Read7BitEncodedInt32();
+                IdleSound = binaryReader.ReadString();
             }
         }
 

@@ -1,6 +1,4 @@
-id,等级,升级经验,死亡惩罚经验,血量,生命恢复,普通攻击,攻击速度,防御,暴击,暴击伤害,命中,闪避,移动速度
-id,lv,exp,deathExpLoss,hp,hpRecovery,att,attSpd,def,critRate,critDmg,hitPoint,missPoint,moveSpeed
-int,int,int,int,int,int,int,int,int,int,int,int,int,int
+id-int,lv-int,exp-int,deathExpLoss-int,hp-int,hpRecovery-int,att-int,attSpd-int,def-int,critRate-int,critDmg-int,hitPoint-int,missPoint-int,moveSpeed-int
 1,1,45,0,200,0,50,0,30,50,500,100,100,550
 2,2,80,0,210,0,52,0,33,50,500,103,103,550
 3,3,135,0,220,0,54,0,36,50,500,106,106,550

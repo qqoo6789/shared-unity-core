@@ -19,12 +19,12 @@ public class DRBuildingTimeReCharge : DataRowBase
     private int _id = 0;
 
     /// <summary>
-    /// /**获取id。*/
+    /// /**获取id-int。*/
     /// </summary>
     public override int Id => _id;
 
     /// <summary>
-  /**获取充电时长(hour)。*/
+  /**获取powerTime-int。*/
     /// </summary>
     public int PowerTime
     {
@@ -33,7 +33,7 @@ public class DRBuildingTimeReCharge : DataRowBase
     }
 
     /// <summary>
-  /**获取名称。*/
+  /**获取name-string。*/
     /// </summary>
     public string Name
     {
