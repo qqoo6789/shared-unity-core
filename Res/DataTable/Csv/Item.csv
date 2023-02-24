@@ -53,8 +53,8 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,"The Ancient Birdy Ruins are the remains of a once great civilization. The Cyclops were a part of this civilization, and their legacy is engraved into the very stones of the ruins.",ic_building1,5010001,The Ancient Birdy Ruins ,1,5,0,1,
 1,"The legacy of the Cyclops stands as a testament to the power of the mind. Though they were feared and hated by many, the Cyclops were some of the most intelligent and powerful beings to have ever lived. Their legacy is one of strength, determination, and above all else, intelligence.",ic_building2,5010002,The legacy of the Cyclops,2,5,0,1,
 1,"The Adventurer lab where scientists do some researches is a place of knowledge and discovery. It is here that the legacy of the Cyclops is kept alive, as scientists continue to study their strange and powerful minds.",ic_building3,5010003,The Adventurer lab,3,5,0,1,
-1,测试种子,ic_seed,7020001,测试种子,1,3,0,1,['205003']
-1,测试施肥,ic_battery,7030001,测试肥料,1,3,0,1,['205004']
+1,测试种子,ic_seed,7020001,测试种子,1,3,0,1,205003
+1,测试施肥,ic_battery,7030001,测试肥料,1,3,0,1,205004
 1,,random_produce,68,晶体尖刺 进攻类掉落1,1,4,1,1,
 1,,random_produce,69,晶体碎片 防御类掉落1,1,4,1,1,
 1,,random_produce,70,晶化残渣 通用类掉落1,1,4,1,1,
