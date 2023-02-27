@@ -33,15 +33,6 @@ public class DRRecipes : DataRowBase
     }
 
     /// <summary>
-  /**获取craftSkill-int。*/
-    /// </summary>
-    public int CraftSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取desc-string。*/
     /// </summary>
     public string Desc
@@ -182,7 +173,6 @@ public class DRRecipes : DataRowBase
 
         int index = 0;
         ClassifyLevel = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CraftSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Desc = columnStrings[index++];
         DisplayType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Icon = columnStrings[index++];
@@ -211,7 +201,6 @@ public class DRRecipes : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 ClassifyLevel = binaryReader.Read7BitEncodedInt32();
-                CraftSkill = binaryReader.Read7BitEncodedInt32();
                 Desc = binaryReader.ReadString();
                 DisplayType = binaryReader.Read7BitEncodedInt32();
                 Icon = binaryReader.ReadString();

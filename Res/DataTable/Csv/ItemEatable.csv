@@ -1,31 +1,31 @@
 args-string[],callFunc-string[],cd-int,cdType-int,id-int,interactType-string
-1*1,occupyLand,5000,3010204,3010204,occupyLand
--,Sow Seeds,0,,7020001,equipItem
--,Fertilize,0,,7030001,equipItem
-100,addHp,5000,3010101,184,addHp
-100,addHp,5000,3010101,185,addHp
-100,addHp,5000,3010101,186,addHp
-100,addHp,5000,3010101,187,addHp
-100,addHp,5000,3010101,188,addHp
-100,addHp,5000,3010101,189,addHp
-50,addHp,5000,3010101,149,addHp
-50,addHp,5000,3010101,150,addHp
-50,addHp,5000,3010101,151,addHp
-50,addHp,5000,3010101,152,addHp
-50,addHp,5000,3010101,153,addHp
-50,addHp,5000,3010101,154,addHp
--,Fertilize,0,,146,equipItem
--,Fertilize,0,,147,equipItem
--,Fertilize,0,,148,equipItem
--,Fertilize,0,,180,equipItem
--,Fertilize,0,,181,equipItem
--,Fertilize,0,,182,equipItem
--,Sow Seeds,0,,155,equipItem
--,Sow Seeds,0,,156,equipItem
--,Sow Seeds,0,,157,equipItem
--,Sow Seeds,0,,158,equipItem
--,Sow Seeds,0,,159,equipItem
--,Sow Seeds,0,,160,equipItem
--,Sow Seeds,0,,161,equipItem
--,Sow Seeds,0,,162,equipItem
--,Sow Seeds,0,,163,equipItem
+1*1,occupyLand,5000,3010204,22,occupyLand
+-,Sow Seeds,0,,26,equipItem
+-,Fertilize,0,,27,equipItem
+100,addHp,5000,3010101,140,addHp
+100,addHp,5000,3010101,141,addHp
+100,addHp,5000,3010101,142,addHp
+100,addHp,5000,3010101,143,addHp
+100,addHp,5000,3010101,144,addHp
+100,addHp,5000,3010101,145,addHp
+50,addHp,5000,3010101,134,addHp
+50,addHp,5000,3010101,135,addHp
+50,addHp,5000,3010101,136,addHp
+50,addHp,5000,3010101,137,addHp
+50,addHp,5000,3010101,138,addHp
+50,addHp,5000,3010101,139,addHp
+-,Fertilize,0,,128,equipItem
+-,Fertilize,0,,129,equipItem
+-,Fertilize,0,,130,equipItem
+-,Fertilize,0,,131,equipItem
+-,Fertilize,0,,132,equipItem
+-,Fertilize,0,,133,equipItem
+-,Sow Seeds,0,,146,equipItem
+-,Sow Seeds,0,,147,equipItem
+-,Sow Seeds,0,,148,equipItem
+-,Sow Seeds,0,,149,equipItem
+-,Sow Seeds,0,,150,equipItem
+-,Sow Seeds,0,,151,equipItem
+-,Sow Seeds,0,,152,equipItem
+-,Sow Seeds,0,,153,equipItem
+-,Sow Seeds,0,,154,equipItem
