@@ -64,6 +64,14 @@ public static class HomeDefine
     /// 动物安抚动作进度的最大值
     /// </summary>
     public const float ANIMAL_APPEASE_ACTION_MAX_PROGRESS = 100;
+    /// <summary>
+    /// 动物好感度一颗心的好感度数量
+    /// </summary>
+    public const int ANIMAL_FAVORABILITY_ONE_HEART_NUM = 2;
+    /// <summary>
+    /// 动物好感跟随的好感度数量
+    /// </summary>
+    public const int ANIMAL_FAVORABILITY_FOLLOW_HEART_NUM = 4;
 
     /// <summary>
     /// 土地状态间的数据定义key

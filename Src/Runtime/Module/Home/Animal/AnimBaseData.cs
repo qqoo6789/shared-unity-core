@@ -32,7 +32,6 @@ public class AnimBaseData
         AnimId = data.AnimId;
         Name = data.Name;
         Cid = data.Cid;
-        Favorability = data.Favorability;
     }
 
     public ProxyAnimalBaseData ToProxyAnimalBaseData()
@@ -42,7 +41,6 @@ public class AnimBaseData
             AnimId = AnimId,
             Name = Name,
             Cid = Cid,
-            Favorability = Favorability,
         };
     }
 }

@@ -17,7 +17,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     public int Lv => Data.DRMonster.Lv;
 
-    public eAction SupportAction { get; set; } = eAction.None;// eAction.Appease | eAction.LastWords;
+    public eAction SupportAction { get; set; } = eAction.Appease | eAction.LastWords;
 
     private eAction _harvestAction = eAction.None;//收获动作
 
