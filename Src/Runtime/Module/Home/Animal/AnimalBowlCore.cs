@@ -59,4 +59,9 @@ public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
 
         Data.UpdateFood(toolCid, drAnimalFood.Capacity);
     }
+
+    public void ExecuteProgress(eAction targetCurAction)
+    {
+
+    }
 }

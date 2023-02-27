@@ -202,6 +202,11 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
     }
 
+    public virtual void ExecuteProgress(eAction targetCurAction)
+    {
+
+    }
+
     /// <summary>
     /// 进入收获状态 只有手动收获才会触发
     /// </summary>
