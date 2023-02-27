@@ -1,5 +1,7 @@
-id-int,ifBubble-bool,maxTips-int,talkCD-int,talkNeedGold-int
-1,0,100,3000,0
-2,0,,3000,
-3,0,,1000,
-4,0,,1000,
+频道ID,频道名称1,颜色值,发言CD（毫秒）,最大展示条数,需要金币,是否冒泡
+id,null,channelRGB,talkCD,maxTips,talkNeedGold,ifBubble
+int,null,string,int,int,int,bool
+1,系统,,3000,100,0,0
+2,世界,,3000,,,
+3,附近,,1000,,,
+4,私聊,,1000,,,

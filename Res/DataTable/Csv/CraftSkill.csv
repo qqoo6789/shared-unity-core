@@ -1,4 +1,6 @@
-id-int,skillId-int,level-int,icon-string,roleLevel-int,skillExp-int,useMELD-int,useExp-int,recipeIds-int[]
+id,技能ID,等级,制造技能icon,升到当前所需等级,升到当前所需熟练度,升到当前花费MELD,升到当前花费EXP,解锁图鉴
+id,skillId,level,icon,roleLevel,skillExp,useMELD,useExp,recipeIds
+int,int,int,string,int,int,int,int,int[]
 1,1001,0,WeaponCraftSkill,0,0,0,0,10100001
 2,1001,1,WeaponCraftSkill,0,0,0,8,0
 3,1001,2,WeaponCraftSkill,0,0,0,14,0

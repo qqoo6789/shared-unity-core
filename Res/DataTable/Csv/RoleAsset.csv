@@ -1,27 +1,29 @@
-armatureRes-string,attackSound-string,deathSound-string,desc-string,hurtedCritSound-string,hurtedSound-string,id-int,idleSound-string
-boy_armature_SkeletonData,GGGrasslands - Box Destroy (Split) - Hit_mp3,GGGrasslands - Death_mp3,Áî∑Áé©ÂÆ∂,GGGrasslands - Jump (Land)_mp3,GGGrasslands - Hit 2_mp3,1,
-boy_armature_SkeletonData,GGGrasslands - Box Destroy (Split) - Hit_mp3,GGGrasslands - Death_mp3,Â•≥Áé©ÂÆ∂,GGGrasslands - Jump (Land)_mp3,GGGrasslands - Hit 2_mp3,2,
-wildboar,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Boar,GGGrasslands - Hit 2_mp3,meethited_mp3,3,wildboarout_mp3
-CuckooChicken,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Cucco,GGGrasslands - Hit 2_mp3,meethited_mp3,4,
-MountainSheep,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Goat,GGGrasslands - Hit 2_mp3,meethited_mp3,5,
-MudOx,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Bull,GGGrasslands - Hit 2_mp3,meethited_mp3,6,
-bin_MV01_bg_animal_01_FerociousSavage,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Barbarian,GGGrasslands - Hit 2_mp3,meethited_mp3,7,
-wolf,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Wolf,GGGrasslands - Hit 2_mp3,meethited_mp3,8,
-bin_MV01_bg_animal_02_AncientTyrannosaurus,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Tyrannosaurus,GGGrasslands - Hit 2_mp3,meethited_mp3,9,
-grape_dog,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Tin dog,GGGrasslands - Hit 2_mp3,meethited_mp3,10,
-pumpkin,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Pumpkin,GGGrasslands - Hit 2_mp3,meethited_mp3,11,
-cactus,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Cactus,GGGrasslands - Hit 2_mp3,meethited_mp3,12,
-big_Dryad,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,Big Dryad,GGGrasslands - Hit 2_mp3,meethited_mp3,13,
-bigwolfking,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Carrot Death_mp3,WolfKing,GGGrasslands - Hit 2_mp3,meethited_mp3,14,
-Spine GameObject (pang),,,Pang,,,15,
-Spine GameObject (hunhun),,,Hun,,,16,
-Spine GameObject (pang) 1,,,Pang,,,17,
-Spine GameObject (pang) 2,,,Pang,,,18,
-Spine GameObject (pang) 3,,,Pang,,,19,
-Spine GameObject (pang) 4,,,Pang,,,20,
-Spine GameObject (pang) 5,,,Pang,,,21,
-Spine GameObject (hunhun) 1,,,Hun,,,22,
-Spine GameObject (hunhun) 2,,,Hun,,,23,
-Spine GameObject (hunhun) 3,,,Hun,,,24,
-Spine GameObject (hunhun) 4,,,Hun,,,25,
-Spine GameObject (hunhun) 5,,,Hun,,,26,
+id,√Ë ˆ,π«º‹◊ ‘¥,œ–÷√Ω–…˘,∆’Õ®π•ª˜…˘“Ù, ‹…À±©ª˜…˘“Ù, ‹…À…˘“Ù,À¿Õˆ…˘“Ù
+id,desc,armatureRes,idleSound,attackSound,hurtedCritSound,hurtedSound,deathSound
+int,string,string,string,string,string,string,string
+10001,ƒ–ÕÊº“,boy_armature_SkeletonData,,GGGrasslands - Box Destroy (Split) - Hit_mp3,GGGrasslands - Jump (Land)_mp3,GGGrasslands - Hit 2_mp3,GGGrasslands - Death_mp3
+10002,≈ÆÕÊº“,boy_armature_SkeletonData,,GGGrasslands - Box Destroy (Split) - Hit_mp3,GGGrasslands - Jump (Land)_mp3,GGGrasslands - Hit 2_mp3,GGGrasslands - Death_mp3
+20001,Boar,wildboar,wildboarout_mp3,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+20002,Cucco,CuckooChicken,chikenOut_mp3,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+20003,Goat,MountainSheep,,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+20004,Bull,MudOx,buffaloout_mp3,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+20005,Barbarian,bin_MV01_bg_animal_01_FerociousSavage,,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+20006,Wolf,wolf,wolfOut_mp3,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+20007,Tyrannosaurus,bin_MV01_bg_animal_02_AncientTyrannosaurus,,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+30001,Tin dog,grape_dog,,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+30002,Pumpkin,pumpkin,,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+30003,Cactus,cactus,,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+30004,Big Dryad,big_Dryad,,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+30005,WolfKing,bigwolfking,wolfOut_mp3,GGGrasslands - Spikes (Split) - 2_mp3,GGGrasslands - Hit 2_mp3,meethited_mp3,GGGrasslands - Carrot Death_mp3
+40001,Pang,Spine GameObject (pang),,,,,
+40002,Hun,Spine GameObject (hunhun),,,,,
+40003,Pang,Spine GameObject (pang) 1,,,,,
+40004,Pang,Spine GameObject (pang) 2,,,,,
+40005,Pang,Spine GameObject (pang) 3,,,,,
+40006,Pang,Spine GameObject (pang) 4,,,,,
+40007,Pang,Spine GameObject (pang) 5,,,,,
+40008,Hun,Spine GameObject (hunhun) 1,,,,,
+40009,Hun,Spine GameObject (hunhun) 2,,,,,
+40010,Hun,Spine GameObject (hunhun) 3,,,,,
+40011,Hun,Spine GameObject (hunhun) 4,,,,,
+40012,Hun,Spine GameObject (hunhun) 5,,,,,

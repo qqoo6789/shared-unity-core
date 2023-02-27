@@ -1,4 +1,6 @@
-id-int,slot-int,lv-int,exp-int,useMELD-int,hp-int,hpRecovery-int,att-int,attSpd-int,def-int,critRate-int,critDmg-int,hitPoint-int,missPoint-int,moveSpeed-int
+id,插槽,等级,升级经验,升级meld,血量,生命恢复,普通攻击,攻击速度,防御,暴击,暴击伤害,命中,闪避,移动速度
+id,slot,lv,exp,useMELD,hp,hpRecovery,att,attSpd,def,critRate,critDmg,hitPoint,missPoint,moveSpeed
+int,int,int,int,int,int,int,int,int,int,int,int,int,int,int
 1000,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 1001,1,1,8,0,0,0,0,0,0,0,0,1,0,0
 1002,1,2,14,0,0,0,0,0,0,0,0,2,0,0

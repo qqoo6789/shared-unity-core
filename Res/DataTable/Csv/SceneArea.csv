@@ -1,3 +1,5 @@
-id-int,sceneName-string,sceneType-string
-10001,WorldScene,world
-10002,HomeScene,home
+区域ID,场景名字 ,区域类型,备注
+id,sceneName,sceneType,null
+int,string,string,null
+10001,WorldScene,world,
+10002,HomeScene,home,

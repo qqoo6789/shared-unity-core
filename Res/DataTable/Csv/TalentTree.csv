@@ -1,35 +1,19 @@
-col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-bool,layer-int,lvLimit-int,name-string,type-int,upgradeEXP-int[],upgradeRequireTreeLv-int,upgradeToken-int[],preNode-int[]
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 1 equipment.",20101,1,lv0_sword,20101,1,0,1,Combat Mastery 1,2,10,0,0,
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 2 equipment.",20102,1,lv0_sword,20102,1,1,1,Combat Mastery 2,2,20,1,0,20101
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 3 equipment.",20103,1,lv0_sword,20103,1,2,1,Combat Mastery 3,2,30,2,0,20102
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 4 equipment.",20104,1,lv0_sword,20104,1,3,1,Combat Mastery 4,2,40,3,0,20103
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 5 equipment.",20105,1,lv0_sword,20105,1,4,1,Combat Mastery 5,2,50,4,0,20104
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 6 equipment.",20106,1,lv0_sword,20106,1,5,1,Combat Mastery 6,2,60,5,0,20105
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 7 equipment.",20107,1,lv0_sword,20107,1,6,1,Combat Mastery 7,2,70,6,0,20106
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 8 equipment.",20108,1,lv0_sword,20108,1,7,1,Combat Mastery 8,2,80,7,0,20107
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 9 equipment.",20109,1,lv0_sword,20109,1,8,1,Combat Mastery 9,2,90,8,0,20108
-1,澧炲姞浣犵殑鏆村嚮姒傜巼,20201;20202;20203,1,ic_battery,20201,0,0,3,鎴樻枟鏆村嚮,2,"10,100,1000",0,"0,0,10",
-1,鐚涘嚮鍦伴潰锛岀湬鏅曡鑹插懆鍥存墍鏈夌殑鏁屼汉2绉掞紝閫犳垚50%鏅敾浼ゅ,20211;20212;20213,0,ic_battery,20211,0,1,3,鎴樹簤璺佃笍,2,"10,100,1000",0,"0,0,10",20201
--1,瑙ｉ攣閰嶆柟,114,2,craft_scroll,20299,0,0,1,娴嬭瘯瑙ｉ攣閰嶆柟,2,10,0,0,
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%.,10101,1,ic_battery,10101,1,0,1,Agriculture Mastery 1,1,10,0,0,
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%.,10102,1,ic_battery,10102,1,1,1,Agriculture Mastery 2,1,20,1,0,10101
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%. Grade 2 crops can be planted.,10103,1,ic_battery,10103,1,2,1,Agriculture Mastery 3,1,30,2,0,10102
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%.,10104,1,ic_battery,10104,1,3,1,Agriculture Mastery 4,1,40,3,0,10103
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%.,10105,1,ic_battery,10105,1,4,1,Agriculture Mastery 5,1,50,4,0,10104
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%. Grade 3 crops can be planted.,10106,1,ic_battery,10106,1,5,1,Agriculture Mastery 6,1,60,5,0,10105
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%.,10107,1,ic_battery,10107,1,6,1,Agriculture Mastery 7,1,70,6,0,10106
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%.,10108,1,ic_battery,10108,1,7,1,Agriculture Mastery 8,1,80,7,0,10107
-0,The probability of doubling the quantity of agricultural products harvested will increase by 1%. Grade 4 crops can be planted.,10109,1,ic_battery,10109,1,8,1,Agriculture Mastery 9,1,90,8,0,10108
-1,Increase the swing speed of the hoe.,10201;10202;10203,1,craft_scroll,10201,0,0,3,Hoe Mastery,1,"10,100,1000",0,"0,0,10",
-1,Increase the watering speed.,10204;10205;10206,1,craft_scroll,10204,0,1,3,Watering Can Mastery,1,"10,100,1000",0,"0,0,10",10201
-0,Increase the probability of acquiring additional resources by 1%.,30101,1,craft_scroll,30101,1,0,1,Collection Mastery 1,3,10,0,0,
-0,Increase the probability of acquiring additional resources by 1%.,30102,1,craft_scroll,30102,1,1,1,Collection Mastery 2,3,20,1,0,30101
-0,Increase the probability of acquiring additional resources by 1%. Cause higher damage to level 2 resources.,30103,1,craft_scroll,30103,1,2,1,Collection Mastery 3,3,30,2,0,30102
-0,Increase the probability of acquiring additional resources by 1%.,30104,1,craft_scroll,30104,1,3,1,Collection Mastery 4,3,40,3,0,30103
-0,Increase the probability of acquiring additional resources by 1%.,30105,1,craft_scroll,30105,1,4,1,Collection Mastery 5,3,50,4,0,30104
-0,Increase the probability of acquiring additional resources by 1%. Cause higher damage to level 3 resources.,30106,1,craft_scroll,30106,1,5,1,Collection Mastery 6,3,60,5,0,30105
-0,Increase the probability of acquiring additional resources by 1%.,30107,1,craft_scroll,30107,1,6,1,Collection Mastery 7,3,70,6,0,30106
-0,Increase the probability of acquiring additional resources by 1%.,30108,1,craft_scroll,30108,1,7,1,Collection Mastery 8,3,80,7,0,30107
-0,Increase the probability of acquiring additional resources by 1%. Cause higher damage to level 4 resources.,30109,1,craft_scroll,30109,1,8,1,Collection Mastery 9,3,90,8,0,30108
-1,Increase the speed of the axe.,30201;30202;30203,1,ic_battery,30201,0,0,3,Axe Mastery,3,"10,100,1000",0,"0,0,10",
-1,Increases the critical hit rate when dealing damage to trees.,30204;30205;30206,1,ic_battery,30204,0,1,3,Logging Skill,3,"10,100,1000",0,"0,0,10",30201
+节点id,专精类型,isTrunk,"解锁所需的天赋树等级
+非主干技能配置都为0",节点层级,节点等级上限,天赋收益类型,天赋收益参数,节点升级经验,节点升级token,前置节点,后置技能,节点列号,name,desc,icon
+id,type,isTrunk,upgradeRequireTreeLv,layer,lvLimit,gainsType,gainsArgs,upgradeEXP,upgradeToken,preNode,postNode,col,name,desc,icon
+int,int,bool,int,int,int,int,int[][],int[],int[],int[],int[],int,string,string,string
+100000,2,1,0,0,1,0,201001,101,0,,"100001,100021,100022,100023,100024",0,Skill0,Desc0,craft_scroll
+100001,2,1,2,1,1,0,201002,102,0,100000,"100002,100025,100026",0,Skill1,Desc1,ic_building1
+100002,2,1,4,2,1,0,201003,103,0,100001,100003,0,Skill2,Desc2,ic_building2
+100003,2,1,6,3,1,0,100006,104,0,100002,100004,0,Skill3,Desc3,ic_building3
+100004,2,1,8,4,1,0,100008,105,0,100003,100005,0,Skill4,Desc4,ic_seed
+100005,2,0,0,0,3,0,201004;201005;201006,"100,200,300","0,0,0",,100006,-1,Skill5,Desc5,random_produce
+100006,2,0,0,1,2,0,201004;201005,"100,200","0,0",,100007,1,Skill6,Desc6,craft_scroll
+100007,2,0,0,2,2,0,201004;201005,"100,200","0,0",100006,100008,1,Skill7,Desc7,life_potion
+100008,2,0,0,3,2,0,201004;201005,"100,200","0,0",100007,100009,1,Skill8,Desc8,icon_avatar
+100009,2,0,0,4,2,0,201004;201005,"100,200","0,0",100008,100010,1,Skill9,Desc9,icon_hechengfu_fangju_0
+100010,2,0,0,4,2,0,201004;201005,"100,200","0,0",100005,100011,-1,Skill10,Desc10,lv0_gloves
+100011,1,1,0,0,1,0,201007,201,0,,100012,0,Skill11,Desc11,mysterious_iron_ore
+100012,1,1,2,1,1,0,201008,202,0,100011,100013,0,Skill12,Desc12,restorantion_potion
+100013,1,0,0,0,2,0,"300005,300006","100,200","0,0",,100014,1,Skill13,Desc13,lv0_sword
+100014,1,0,0,1,2,0,"300005,300006","100,200","0,0",100013,100015,1,Skill14,Desc14,ic_battery

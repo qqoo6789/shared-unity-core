@@ -1,4 +1,6 @@
-id-int,level-int,name-string,decs-string,details-string,subSystem-int[],designateOptions-string,chanceOptions-string,itemReward-int,expReward-int,difficulty-int
+任务ID,任务等级,任务名,任务描述,任务详情,任务链体系,指定任务选项,权重任务选项,任务道具奖励Id,任务Exp奖励,难度系数（预留）
+id,level,name,decs,details,subSystem,designateOptions,chanceOptions,itemReward,expReward,difficulty
+int,int,string,string,string,int[],string,string,int,int,int
 10001,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":4,""value"":""1000001,3""}]}",,0,100,0
 10002,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":2,""value"":""3010101,1""}]}",,0,100,0
 10003,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":5,""value"":""2""}]}",,0,100,0
