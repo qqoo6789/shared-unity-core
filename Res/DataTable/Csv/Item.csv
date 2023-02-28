@@ -121,7 +121,7 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,icon_hechengfu_fangju_0,158,采集装备制造符1,1,4,0,1,
 1,description placeholder,icon_hechengfu_fangju_1,159,采集装备制造符2,1,4,0,1,
 1,description placeholder,icon_hechengfu_fangju_2,160,采集装备制造符3,1,4,0,1,
-1,description placeholder,random_produce,161,护身符,"1,2,3",1,0,1,
+1,description placeholder,random_produce,161,护身符,"1,2,3,4,5",1,0,1,
 1,description placeholder,2D_nongzuowu_jiasufeiliao_icon,131,高级加速肥料,1,3,0,1,
 1,description placeholder,2D_nongzuowu_zengliangfeiliao_icon,132,高级增产肥料,1,3,0,1,
 1,description placeholder,2D_nongzuowu_shirunfeiliao_icon,133,高级湿润肥料,1,3,0,1,
