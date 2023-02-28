@@ -3,7 +3,7 @@
  * @LastEditors: Please set LastEditors
  * @Description: 表定义
  * @Date: 2022-06-23 20:28:37
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Csv/TableDefine.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/TableDefine.cs
  */
 public static class TableDefine
 {
@@ -12,6 +12,7 @@ public static class TableDefine
     public static readonly int ITEMID_SEED = 3010204;
     public static readonly int DATA_TABLE_START_ROW = 1;
     public static readonly string DATA_TABLE_ENCODING = "UTF-8";
+    public const int DAMAGE_EFFECT_ID = 15;  // 基础伤害效果ID
     public enum eRoleAttrName//表属性属性字段名
     {
         Hp,
