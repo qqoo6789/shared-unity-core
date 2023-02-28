@@ -8,5 +8,5 @@ desc-string,dropId-int,exp-int,growRes-string[],growTotalTime-int,harvestRes-str
 ,20,100,"Slice 1,2D_crops_mianhua_2,2D_crops_mianhua_3,2D_crops_mianhua_4",240,2D_crops_mianhua_5,150,2,150,86400
 ,21,100,"Slice 1,Slice 13,Slice 14",720,Slice 14,151,2,200,86400
 ,22,100,"Slice 1,2D_crops_lajiao_2,2D_crops_lajiao_3,2D_crops_lajiao_4",100,2D_crops_lajiao_5,152,3,100,86400
-,23,100,"Slice 1,Slice 13,Slice 14",300,Slice 14,153,3,150,86400
+,23,100,"Slice 1,2D_crops_ciguo_2,2D_crops_ciguo_3,2D_crops_ciguo_4",300,,153,3,150,86400
 ,24,100,"Slice 1,2D_crops_mogu_2,2D_crops_mogu_3,2D_crops_mogu_4",900,2D_crops_mogu_5,154,3,200,86400

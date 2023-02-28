@@ -258,9 +258,27 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取flyDistance-int。*/
+    /// </summary>
+    public int FlyDistance
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取flySpeed-int。*/
     /// </summary>
     public int FlySpeed
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取flyTime-int。*/
+    /// </summary>
+    public int FlyTime
     {
         get;
         private set;
@@ -334,7 +352,9 @@ public class DRSkill : DataRowBase
         ReleaseEff = columnStrings[index++];
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyAvatar = columnStrings[index++];
+        FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlySpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        FlyTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -377,7 +397,9 @@ public class DRSkill : DataRowBase
                 ReleaseEff = binaryReader.ReadString();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 FlyAvatar = binaryReader.ReadString();
+                FlyDistance = binaryReader.Read7BitEncodedInt32();
                 FlySpeed = binaryReader.Read7BitEncodedInt32();
+                FlyTime = binaryReader.Read7BitEncodedInt32();
                 AccuEff = binaryReader.Read7BitEncodedInt32();
                 EffectInit = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
