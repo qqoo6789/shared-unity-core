@@ -32,6 +32,15 @@ public class DRGameValue : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取strValue-string。*/
+    /// </summary>
+    public string StrValue
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -39,6 +48,7 @@ public class DRGameValue : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         Value = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        StrValue = columnStrings[index++];
 
         return true;
     }
@@ -52,6 +62,7 @@ public class DRGameValue : DataRowBase
             {
                 _id = binaryReader.Read7BitEncodedInt32();
                 Value = binaryReader.Read7BitEncodedInt32();
+                StrValue = binaryReader.ReadString();
             }
         }
 

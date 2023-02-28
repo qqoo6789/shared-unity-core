@@ -123,6 +123,15 @@ public class DRRecipes : DataRowBase
     }
 
     /// <summary>
+  /**获取timeCost-int。*/
+    /// </summary>
+    public int TimeCost
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取type-int。*/
     /// </summary>
     public int Type
@@ -184,6 +193,7 @@ public class DRRecipes : DataRowBase
         Proficiency = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RecipesSort = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SourceText = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TimeCost = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockCondition = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockType = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -212,6 +222,7 @@ public class DRRecipes : DataRowBase
                 Proficiency = binaryReader.Read7BitEncodedInt32();
                 RecipesSort = binaryReader.Read7BitEncodedInt32();
                 SourceText = binaryReader.Read7BitEncodedInt32();
+                TimeCost = binaryReader.Read7BitEncodedInt32();
                 Type = binaryReader.Read7BitEncodedInt32();
                 UnlockCondition = binaryReader.Read7BitEncodedInt32();
                 UnlockType = binaryReader.Read7BitEncodedInt32();
