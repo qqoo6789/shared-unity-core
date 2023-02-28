@@ -27,6 +27,11 @@ public static class TableDefine
     }
 }
 
+public enum eRoleID
+{
+    man = 1,
+}
+
 public static class GameValueID
 {
     /// <summary>
