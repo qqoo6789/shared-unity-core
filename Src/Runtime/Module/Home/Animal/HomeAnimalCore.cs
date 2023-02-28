@@ -177,9 +177,9 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             return false;
         }
 
-        if (action == eAction.Appease && !Data.IsCanHarvest)//不在收获状态下可以随时安抚 不一定有效果而已
+        if (action == eAction.Appease)
         {
-            return true;
+            return !Data.IsCanHarvest;//不在收获状态下可以随时安抚 不一定有效果而已
         }
 
         //收获动作

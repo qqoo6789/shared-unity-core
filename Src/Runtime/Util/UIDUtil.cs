@@ -11,7 +11,7 @@ public static class UIDUtil
     /// <returns></returns>
     public static long ToLongUID(object classObject, object extraObject)
     {
-        long longUID = classObject.GetHashCode() << 32 | extraObject.GetHashCode();
+        long longUID = ((long)classObject.GetHashCode() << 32) | (uint)extraObject.GetHashCode();
         return longUID;
     }
 }
