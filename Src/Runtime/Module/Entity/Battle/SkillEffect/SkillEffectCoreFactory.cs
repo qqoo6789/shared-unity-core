@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:49:14
  * @Description: 技能效果球工厂
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectCoreFactory.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectCoreFactory.cs
  * 
  */
 using System;
@@ -12,7 +12,7 @@ using UnityGameFramework.Runtime;
 
 public class SkillEffectCoreFactory
 {
-    protected Dictionary<BattleDefine.eSkillEffectType, Type> SkillEffectMap;
+    protected Dictionary<eSkillEffectType, Type> SkillEffectMap;
 
     /// <summary>
     /// 初始化效果工厂Map
@@ -46,12 +46,12 @@ public class SkillEffectCoreFactory
             return null;
         }
 
-        if (!SkillEffectMap.ContainsKey((BattleDefine.eSkillEffectType)skillEffectCfg.EffectType))
+        if (!SkillEffectMap.ContainsKey((eSkillEffectType)skillEffectCfg.EffectType))
         {
             Log.Error($"createOneSkillEffect Error EffectType is Unknown  skillID = {skillID} effectID = {effectID}");
             return null;
         }
-        Type skillEffectClass = SkillEffectMap[(BattleDefine.eSkillEffectType)skillEffectCfg.EffectType];
+        Type skillEffectClass = SkillEffectMap[(eSkillEffectType)skillEffectCfg.EffectType];
         SkillEffectBase effect = SkillEffectBase.Create(skillEffectClass);
         effect.SetData(skillID, skillEffectCfg, fromID, targetID, duration, curLayer);
         return effect;

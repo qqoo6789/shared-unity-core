@@ -32,23 +32,23 @@ public static class GameValueID
     /// <summary>
     /// 角色最大等级配置
     /// </summary>
-    public const int ROLE_MAX_LV = 1000001;
+    public const int ROLE_MAX_LV = 1;
     /// <summary>
     /// 角色插槽最大等级配置
     /// </summary>
-    public const int SLOT_MAX_LV = 1000002;
+    public const int SLOT_MAX_LV = 2;
     /// <summary>
     /// 技能最大等级配置
     /// </summary>
-    public const int CRAFT_SKILL_MAX_LV = 1000003;
+    public const int CRAFT_SKILL_MAX_LV = 3;
     /// <summary>
     /// 角色等级与插槽等级正负差距
     /// </summary>
-    public const int MAX_LV_GAP_BETWEEN_SLOT_AND_ROLE = 1000004;
+    public const int MAX_LV_GAP_BETWEEN_SLOT_AND_ROLE = 4;
     /// <summary>
     /// 升级时不小于角色等级5级的插槽数量限制
     /// </summary>
-    public const int COUNT_OF_VALID_SLOT_LV_TO_UPGRADE_ROLE = 1000005;
+    public const int COUNT_OF_VALID_SLOT_LV_TO_UPGRADE_ROLE = 5;
 }
 
 /// <summary>
@@ -100,4 +100,22 @@ public enum eFoodItemInteractType
     addHp,//增加血量
     occupyLand,//占地
     equipItem,//装备道具
+}
+public enum eSkillEffectType : int
+{
+    EffectIdUnknown = 0,
+    SENormalDamage = 1,
+    SEPathMove = 2,
+    SEBeHitPathMove = 3,
+    SEInvincible = 4,
+    SEEndure = 5,
+    SELockEnemyPathMoveCore = 6,
+    SEAttributeModifierCore = 7,
+    SEStun = 8,
+    SEDotDamage = 9,
+    SECollisionTrigger = 10,
+    SETriggerQuickCastSkill = 11,
+    SESkillRangeTrigger = 12,
+    SEBloodRage = 13,
+    SEUnharmedAddAttr = 14,
 }
