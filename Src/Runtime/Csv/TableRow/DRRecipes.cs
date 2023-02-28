@@ -33,15 +33,6 @@ public class DRRecipes : DataRowBase
     }
 
     /// <summary>
-  /**获取craftSkill-int。*/
-    /// </summary>
-    public int CraftSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取desc-string。*/
     /// </summary>
     public string Desc
@@ -132,6 +123,15 @@ public class DRRecipes : DataRowBase
     }
 
     /// <summary>
+  /**获取timeCost-int。*/
+    /// </summary>
+    public int TimeCost
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取type-int。*/
     /// </summary>
     public int Type
@@ -182,7 +182,6 @@ public class DRRecipes : DataRowBase
 
         int index = 0;
         ClassifyLevel = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        CraftSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Desc = columnStrings[index++];
         DisplayType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Icon = columnStrings[index++];
@@ -194,6 +193,7 @@ public class DRRecipes : DataRowBase
         Proficiency = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RecipesSort = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SourceText = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TimeCost = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockCondition = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockType = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -211,7 +211,6 @@ public class DRRecipes : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 ClassifyLevel = binaryReader.Read7BitEncodedInt32();
-                CraftSkill = binaryReader.Read7BitEncodedInt32();
                 Desc = binaryReader.ReadString();
                 DisplayType = binaryReader.Read7BitEncodedInt32();
                 Icon = binaryReader.ReadString();
@@ -223,6 +222,7 @@ public class DRRecipes : DataRowBase
                 Proficiency = binaryReader.Read7BitEncodedInt32();
                 RecipesSort = binaryReader.Read7BitEncodedInt32();
                 SourceText = binaryReader.Read7BitEncodedInt32();
+                TimeCost = binaryReader.Read7BitEncodedInt32();
                 Type = binaryReader.Read7BitEncodedInt32();
                 UnlockCondition = binaryReader.Read7BitEncodedInt32();
                 UnlockType = binaryReader.Read7BitEncodedInt32();

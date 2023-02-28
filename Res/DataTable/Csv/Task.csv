@@ -1,23 +1,21 @@
-任务ID,任务等级,任务名,任务描述,任务详情,任务链体系,指定任务选项,权重任务选项,任务道具奖励Id,任务Exp奖励,难度系数（预留）
-id,level,name,decs,details,subSystem,designateOptions,chanceOptions,itemReward,expReward,difficulty
-int,int,string,string,string,int[],string,string,int,int,int
-10001,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":4,""value"":""1000001,3""}]}",,0,100,0
-10002,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":2,""value"":""3010101,1""}]}",,0,100,0
-10003,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":5,""value"":""2""}]}",,0,100,0
-10004,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":4,""value"":""1000001,10""}]}",,0,100,0
-10005,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":1,""value"":""4020001,3""}]}",,0,100,0
-10006,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":9,""value"":""10301006,1""}]}",,0,100,0
-10007,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":4,""value"":""1000002,10""}]}",,0,100,0
-10008,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":7,""value"":""2,4""}]}",,0,100,0
-10009,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":9,""value"":""10301002,1""}]}",,0,100,0
-10010,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":4,""value"":""1000003,10""}]}",,0,100,0
-10011,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":5,""value"":""5""}]}",,0,100,0
-10012,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":4,""value"":""1000004,10""}]}",,0,100,0
-10013,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":7,""value"":""3,4""}]}",,0,100,0
-10014,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":5,""value"":""8""}]}",,0,100,0
-10015,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":9,""value"":""10200001,10""}]}",,0,100,0
-10016,0,Traveling,Go to the %% position,"For the sake of love and peace, please go to the designated place",3,"{""options"":[{""optionType"":4,""value"":""1000005,1""}]}",,0,100,0
-30001,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",,"{""options"":[{""optionType"":1,""value"":""1010001,1,100;1010002,1,100;1010003,1,100;1010004,1,100;1010005,1,100;1010006,1,100;3010101,1,5000;3010201,1,5000""}]}",0,100,0
-30002,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",,"{""options"":[{""optionType"":1,""value"":""1010007,1,100;1010008,1,100;1010009,1,100;1010010,1,100;1010011,1,100;1010012,1,100;3010102,1,5000;3010202,1,5000""}]}",0,100,0
-30003,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",,"{""options"":[{""optionType"":1,""value"":""1010001,1,1000;1010002,1,1000;1010003,1,1000;1010004,1,1000;1010005,1,1000;1010006,1,1000;3010101,1,10000;3010201,1,10000""}]}",0,100,0
-30004,0,Collecting,Collect %% %%,"For love and peace, please give me these","1,2",,"{""options"":[{""optionType"":1,""value"":""1010007,1,1000;1010008,1,1000;1010009,1,1000;1010010,1,1000;1010011,1,1000;1010012,1,1000;3010102,1,10000;3010202,1,10000""}]}",0,100,0
+designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,isSelfEnd-bool,itemReward-int,name-string,level-int[][],preTaskReq-int[],chanceOptions-string
+"{""options"":[{""optionType"":2,""value"":"",1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,1,10001,,,
+"{""options"":[{""optionType"":1,""value"":"",2""},{""optionType"":2,""value"":"",1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,1,10002,"1,1;2,1",1,
+"{""options"":[{""optionType"":3,""value"":""1,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,1,10003,"2,2",2,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,1,10004,"2,3",3,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,1,10005,"2,4",4,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,1,10006,,5,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,1,10007,,5,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,1,10008,,"6,7",
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,1,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,1,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,1,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,1,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,1,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,1,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,1,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,1,Traveling,,,
+,"For love and peace, please give me these",0,"1,100",17,1,,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100""},{""optionType"":1,""value"":""2,10,100;2,2,300;1,1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",18,1,,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",19,1,,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",20,1,,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}"

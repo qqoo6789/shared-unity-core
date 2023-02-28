@@ -1,6 +1,4 @@
-id,名字,资源的描述,资源的Icon,资产名称,掉落Id,采集家园动作,采集经验值
-id,name,desc,icon,assetRes,dropId,homeAction,exp
-int,string,string,string,string,int,int,int
-9900001,Grass,Weeds,icon_monster_15,Grass_4,2000001,5,100
-9900002,Stone,Stone,icon_monster_15,2d_shitou_01,2000001,7,100
-9900003,Tree,Tree,icon_monster_15,2D_Tree_Waibz_02,2000001,6,100
+assetRes-string,desc-string,dropId-int,exp-int,homeAction-int,icon-string,id-int,lv-int,name-string
+Grass_4,Weeds,6,100,5,2D_Tree__Eguo_03,1,1,Grass
+2d_shitou_01,Stone,6,100,7,2D_Tree__Eguo_03,2,2,Stone
+2D_Tree_Waibz_02,Tree,6,100,6,2D_Tree__Eguo_03,3,3,Tree
