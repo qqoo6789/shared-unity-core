@@ -59,10 +59,10 @@ gearAttribute-int[][],gearAvatar-int,gearDurabilityMax-int,gearQuality-int,gearT
 -,8,999,1,5,unisex,,66,54
 -,12,999,1,4,unisex,,68,56
 -,12,999,1,4,unisex,,69,57
--,2,999,1,8,unisex,21,70,79
--,2,999,1,8,unisex,21,71,80
--,2,999,1,8,unisex,21,72,81
--,2,999,1,8,unisex,21,73,82
+-,20,999,1,8,unisex,21,70,79
+-,20,999,1,8,unisex,21,71,80
+-,20,999,1,8,unisex,21,72,81
+-,20,999,1,8,unisex,21,73,82
 -,2,999,1,8,unisex,22,74,83
 -,2,999,1,8,unisex,22,75,84
 -,2,999,1,8,unisex,22,76,85
@@ -126,9 +126,9 @@ gearAttribute-int[][],gearAvatar-int,gearDurabilityMax-int,gearQuality-int,gearT
 -,12,999,2,4,unisex,,144,56
 -,12,999,2,4,unisex,,145,57
 -,12,999,3,4,unisex,,146,57
--,2,999,2,8,unisex,21,147,81
--,2,999,2,8,unisex,21,148,82
--,2,999,3,8,unisex,21,149,82
+-,20,999,2,8,unisex,21,147,81
+-,20,999,2,8,unisex,21,148,82
+-,20,999,3,8,unisex,21,149,82
 -,2,999,2,8,unisex,22,150,85
 -,2,999,2,8,unisex,22,151,86
 -,2,999,3,8,unisex,22,152,86
