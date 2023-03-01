@@ -64,7 +64,7 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,2D_nongzuowu_mianhua_icon,74,棉花 农业产出2-2,1,4,0,1,
 1,description placeholder,random_produce,75,愤怒果实/忍耐果实/丰盛果实 农业产出2-3,1,4,0,1,
 1,description placeholder,2D_nongzuowu_lajiao_icon,76,火爆辣椒 农业产出3-1,1,4,0,1,
-1,description placeholder,random_produce,77,坚硬果实 农业产出3-2,1,4,0,1,
+1,description placeholder,2D_nongzuowu_ciguo_icon,77,坚硬果实 农业产出3-2,1,4,0,1,
 1,description placeholder,2D_nongzuowu_mugu_icon,78,蓝幻菇 农业产出3-3,1,4,0,1,
 1,description placeholder,random_produce,79,木质锄头,1,1,0,1,
 1,description placeholder,2D_nongju_chutou2_wuqi,80,铁质锄头,1,1,1,1,

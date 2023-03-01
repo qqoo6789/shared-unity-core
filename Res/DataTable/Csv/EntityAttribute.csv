@@ -5,7 +5,7 @@ defaultValue-int,id-int,name-string,type-int,valueType-int
 0,4,CollectionExp,1,1
 0,5,CombatExp,1,1
 0,6,FarmingExp,1,1
-350,7,MoveSpd,1,1
+500,7,MoveSpd,1,1
 0,8,HomeExtraMoveSpd,1,1
 0,9,GearAvailableLv,1,1
 200,10,HP,2,1

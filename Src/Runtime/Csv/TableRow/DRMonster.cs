@@ -42,15 +42,6 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取attType-int。*/
-    /// </summary>
-    public int AttType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取bodyCapacity-int。*/
     /// </summary>
     public int BodyCapacity
@@ -273,7 +264,6 @@ public class DRMonster : DataRowBase
         int index = 0;
         Att = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AttSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        AttType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CombatDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CritDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -312,7 +302,6 @@ public class DRMonster : DataRowBase
             {
                 Att = binaryReader.Read7BitEncodedInt32();
                 AttSpd = binaryReader.Read7BitEncodedInt32();
-                AttType = binaryReader.Read7BitEncodedInt32();
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
                 CombatDist = binaryReader.Read7BitEncodedInt32();
                 CritDmg = binaryReader.Read7BitEncodedInt32();
