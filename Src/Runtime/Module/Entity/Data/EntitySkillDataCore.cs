@@ -102,10 +102,10 @@ public class EntitySkillDataCore : EntityBaseComponent
     /// <summary>
     /// 外部debug测试强制设置装备技能
     /// </summary>
-    /// <param name="equipmentID"></param>
-    public void DebugTestForceSetEquipmentSkill(int equipmentID)
+    /// <param name="equipmentItemID"></param>
+    public void DebugTestForceSetEquipmentSkill(int equipmentItemID)
     {
-        DREquipment drEquipment = GFEntryCore.DataTable.GetDataTable<DREquipment>().GetDataRow(equipmentID);
+        DREquipment drEquipment = EquipmentTable.Inst.GetRowByItemID(equipmentItemID);
         if (drEquipment != null)
         {
             SetExtraGroupSkill(drEquipment.GivenSkillId, EquipmentSkillIDList);
