@@ -10,4 +10,3 @@ desc-string,dropId-int,exp-int,growRes-string[],growTotalTime-int,harvestRes-str
 ,22,100.0,"Slice 1,2D_crops_lajiao_2,2D_crops_lajiao_3,2D_crops_lajiao_4",100,2D_crops_lajiao_5,152,3,100,86400
 ,23,100.0,"Slice 1,2D_crops_ciguo_2,2D_crops_ciguo_3",300,2D_crops_ciguo_4,153,3,150,86400
 ,24,100.0,"Slice 1,2D_crops_mogu_2,2D_crops_mogu_3,2D_crops_mogu_4",900,2D_crops_mogu_5,154,3,200,86400
-,32,,",",,,,0,,
