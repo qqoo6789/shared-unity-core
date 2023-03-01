@@ -36,6 +36,11 @@ public class AnimalDataCore : MonoBehaviour
     /// </summary>
     public bool IsCanHarvest => _saveData.HarvestProgress >= 100;
 
+    /// <summary>
+    /// 好感度改变事件 T0:更改后好感度
+    /// </summary>
+    public Action<int> MsgFavorabilityChanged;
+
     public void SetBaseData(AnimBaseData animalBaseData)
     {
         _baseData = animalBaseData;

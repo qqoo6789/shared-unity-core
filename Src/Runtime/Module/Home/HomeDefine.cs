@@ -68,10 +68,6 @@ public static class HomeDefine
     /// 动物好感度一颗心的好感度数量
     /// </summary>
     public const int ANIMAL_FAVORABILITY_ONE_HEART_NUM = 2;
-    /// <summary>
-    /// 动物好感跟随的好感度数量
-    /// </summary>
-    public const int ANIMAL_FAVORABILITY_FOLLOW_HEART_NUM = 4;
 
     /// <summary>
     /// 土地状态间的数据定义key

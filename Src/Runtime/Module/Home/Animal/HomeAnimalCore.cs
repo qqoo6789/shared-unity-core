@@ -242,6 +242,8 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         if (appeaseValid)
         {
             Data.SaveData.IsComforted = true;
+            Data.BaseData.Favorability++;
+            Data.MsgFavorabilityChanged?.Invoke(Data.BaseData.Favorability);
         }
         gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
     }

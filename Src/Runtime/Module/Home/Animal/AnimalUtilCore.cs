@@ -6,10 +6,10 @@ public class AnimalUtilCore
     /// <summary>
     /// 计算动物的好感度对应的心的数量
     /// </summary>
-    /// <param name="FavorabilityValue"></param>
+    /// <param name="favorabilityValue"></param>
     /// <returns></returns>
-    public int CalculateAnimalFavorabilityHeartNum(int FavorabilityValue)
+    public static int CalculateAnimalFavorabilityHeartNum(int favorabilityValue)
     {
-        return FavorabilityValue / HomeDefine.ANIMAL_FAVORABILITY_ONE_HEART_NUM;
+        return favorabilityValue / HomeDefine.ANIMAL_FAVORABILITY_ONE_HEART_NUM;
     }
 }
