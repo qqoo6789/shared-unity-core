@@ -94,24 +94,24 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,lv0_shoes,113,采集鞋子,1,1,1,1,
 1,description placeholder,lv0_shoes,114,采集鞋子,"1,2",1,2,1,
 1,description placeholder,lv0_shoes,115,采集鞋子,"1,2,3",1,3,1,
-1,description placeholder,2D_nongzuowu_jiasufeiliao1_icon,128,加速肥料,1,3,0,1,
-1,description placeholder,2D_nongzuowu_zengliangfeiliao1_icon,129,增产肥料,1,3,0,1,
-1,description placeholder,2D_nongzuowu_shirunfeiliao1_icon,130,湿润肥料,1,3,0,1,
+1,description placeholder,2D_nongzuowu_jiasufeiliao1_icon,128,加速肥料,1,3,0,1,98
+1,description placeholder,2D_nongzuowu_zengliangfeiliao1_icon,129,增产肥料,1,3,0,1,98
+1,description placeholder,2D_nongzuowu_shirunfeiliao1_icon,130,湿润肥料,1,3,0,1,98
 1,description placeholder,life_potion,134,次级治疗药水,1,3,0,1,
 1,description placeholder,2D_xiaohaopin_gongjiyaoshui,135,次级攻击药水,1,3,0,1,
 1,description placeholder,2D_xiaohaopin_yisu,136,次级移速药水,1,3,0,1,
 1,description placeholder,2D_xiaohaopin_baojiyaoshui,137,次级暴击药水,1,3,0,1,
 1,description placeholder,random_produce,138,次级生命药水,1,3,0,1,
 1,description placeholder,random_produce,139,次级防御药水,1,3,0,1,
-1,description placeholder,2D_nongzuowu_zhuzizhongzi_icon,146,竹子种子,1,3,1,1,
-1,description placeholder,random_produce,147,三叶草种子,1,3,1,1,
-1,description placeholder,2D_caijiziyuan_huluobozhongzi,148,胡萝卜种子,1,3,1,1,
-1,description placeholder,random_produce,149,猪笼草种子,1,3,2,1,
-1,description placeholder,2D_caijiziyuan_mianhuazhongzi,150,棉花种子,1,3,2,1,
-1,description placeholder,random_produce,151,忍耐果实种子,1,3,2,1,
-1,description placeholder,random_produce,152,火爆辣椒种子,1,3,3,1,
-1,description placeholder,random_produce,153,坚硬果实种子,1,3,3,1,
-1,description placeholder,random_produce,154,蓝幻菇种子,1,3,3,1,
+1,description placeholder,2D_nongzuowu_zhuzizhongzi_icon,146,竹子种子,1,3,1,1,97
+1,description placeholder,random_produce,147,三叶草种子,1,3,1,1,97
+1,description placeholder,2D_caijiziyuan_huluobozhongzi,148,胡萝卜种子,1,3,1,1,97
+1,description placeholder,random_produce,149,猪笼草种子,1,3,2,1,97
+1,description placeholder,2D_caijiziyuan_mianhuazhongzi,150,棉花种子,1,3,2,1,97
+1,description placeholder,random_produce,151,忍耐果实种子,1,3,2,1,97
+1,description placeholder,random_produce,152,火爆辣椒种子,1,3,3,1,97
+1,description placeholder,random_produce,153,坚硬果实种子,1,3,3,1,97
+1,description placeholder,random_produce,154,蓝幻菇种子,1,3,3,1,97
 1,description placeholder,icon_hechengfu_fangju_0,155,农业装备制造符1,1,4,1,1,
 1,description placeholder,icon_hechengfu_fangju_1,156,农业装备制造符2,1,4,2,1,
 1,description placeholder,icon_hechengfu_fangju_2,157,农业装备制造符3,1,4,3,1,
@@ -119,9 +119,9 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,icon_hechengfu_fangju_1,159,采集装备制造符2,1,4,2,1,
 1,description placeholder,icon_hechengfu_fangju_2,160,采集装备制造符3,1,4,3,1,
 1,description placeholder,random_produce,161,护身符,"1,2,3,4,5",1,0,1,
-1,description placeholder,2D_nongzuowu_jiasufeiliao_icon,131,高级加速肥料,1,3,0,1,
-1,description placeholder,2D_nongzuowu_zengliangfeiliao_icon,132,高级增产肥料,1,3,0,1,
-1,description placeholder,2D_nongzuowu_shirunfeiliao_icon,133,高级湿润肥料,1,3,0,1,
+1,description placeholder,2D_nongzuowu_jiasufeiliao_icon,131,高级加速肥料,1,3,0,1,98
+1,description placeholder,2D_nongzuowu_zengliangfeiliao_icon,132,高级增产肥料,1,3,0,1,98
+1,description placeholder,2D_nongzuowu_shirunfeiliao_icon,133,高级湿润肥料,1,3,0,1,98
 1,description placeholder,life_potion,140,治疗药水,1,3,1,1,
 1,description placeholder,2D_xiaohaopin_gongjiyaoshui2,141,攻击药水,1,3,1,1,
 1,description placeholder,2D_xiaohaopin_yisuyaoshui2,142,移速药水,1,3,1,1,
@@ -176,9 +176,10 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,lv0_shoes,112,农业鞋子,"1,2,3",1,3,1,
 1,description placeholder,lv0_shoes,111,农业鞋子,"1,2",1,2,1,
 1,description placeholder,lv0_shoes,110,农业鞋子,1,1,1,1,
-1,测试饲料小,random_produce,28,测试饲料小,1,3,0,1,
-1,测试饲料大,random_produce,29,测试饲料大,1,3,0,1,
+1,测试饲料小,random_produce,28,测试饲料小,1,3,0,1,27
+1,测试饲料大,random_produce,29,测试饲料大,1,3,0,1,27
 1,测试安抚手套,lv10_gloves,20,测试安抚手套,1,1,0,1,
-1,测试挤奶器,lv10_gloves,19,测试挤奶器,1,1,0,1,
-1,测试剪毛器,lv10_gloves,18,测试剪毛器,1,1,0,1,
+1,测试挤奶器,life_potion,19,测试挤奶器,1,1,0,1,
+1,测试剪毛器,2D_caijiziyuan_tiekuangshi_icon,18,测试剪毛器,1,1,0,1,
 0,,,186,,,unknow,,,
+0,,,187,,,unknow,,,

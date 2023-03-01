@@ -14,9 +14,9 @@ gearAttribute-int[][],gearAvatar-int,gearDurabilityMax-int,gearQuality-int,gearT
 "29,1,46,51",1,999,2,8,unisex,25,20,16
 "22,1,35,45",1,999,1,8,unisex,26,21,17
 "22,1,46,51",1,999,2,8,unisex,26,22,17
--,1,999,1,8,unisex,,23,18
--,1,999,1,8,unisex,,24,19
--,1,999,1,8,unisex,,25,20
+-,1,999,1,8,unisex,28,23,18
+-,1,999,1,8,unisex,29,24,19
+-,1,999,1,8,unisex,30,25,20
 -,4,999,1,1,unisex,,26,98
 -,4,999,1,1,unisex,,27,99
 -,4,999,1,1,unisex,,28,100
