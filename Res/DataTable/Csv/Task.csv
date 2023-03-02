@@ -1,6 +1,6 @@
 designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,isSelfEnd-bool,itemReward-int,name-string,level-int[][],preTaskReq-int[],chanceOptions-string
-"{""options"":[{""optionType"":2,""value"":"",1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,1,10001,,,
-"{""options"":[{""optionType"":1,""value"":"",2""},{""optionType"":2,""value"":"",1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,1,10002,"1,1;2,1",1,
+"{""options"":[{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,1,10001,,,
+"{""options"":[{""optionType"":1,""value"":""134,2""},{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,1,10002,"1,1;2,1",1,
 "{""options"":[{""optionType"":3,""value"":""1,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,1,10003,"2,2",2,
 "{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,1,10004,"2,3",3,
 "{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,1,10005,"2,4",4,

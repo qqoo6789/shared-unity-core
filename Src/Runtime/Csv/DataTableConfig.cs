@@ -12,6 +12,7 @@ public static class DataTableConfig
         "BuildingBatteryReCharge",
         "BuildingTimeReCharge",
         "Chat",
+        "CraftBuilding",
         "Drop",
         "EntityAttribute",
         "Equipment",
