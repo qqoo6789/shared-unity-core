@@ -8,13 +8,13 @@ public static class HomeDefine
     public const int COLLECT_RESOURCE_DEATH_TIME = 1000;//采集资源死亡时间 ms
     public const float PROGRESS_FULL_ANIM_TIME = 0.7f;//进度满了后的动画时间 需要等待
 
-    public static readonly Vector3 SOIL_SIZE = new Vector3(2.0f,1.0f,2.0f);  //土地格子大小
+    public static readonly Vector3 SOIL_SIZE = new Vector3(1.5f,1.5f,1.5f);  //土地格子大小
     public static readonly Vector3 EMPTY_SIZE = Vector3.one; //空地格子大小
 
     public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 3;//进度动作统一流逝速度 每秒
     public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
 
-    public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 20;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
+    public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 1800;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
 
     /// <summary>
     /// 需要消耗道具的动作集合
