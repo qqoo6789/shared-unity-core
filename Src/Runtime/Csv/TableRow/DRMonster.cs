@@ -42,9 +42,9 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取attType-int。*/
+  /**获取autoHarvest-bool。*/
     /// </summary>
-    public int AttType
+    public bool AutoHarvest
     {
         get;
         private set;
@@ -117,6 +117,15 @@ public class DRMonster : DataRowBase
   /**获取exp-int。*/
     /// </summary>
     public int Exp
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取harvestAction-int。*/
+    /// </summary>
+    public int HarvestAction
     {
         get;
         private set;
@@ -273,7 +282,7 @@ public class DRMonster : DataRowBase
         int index = 0;
         Att = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AttSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        AttType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        AutoHarvest = DataTableParseUtil.ParseBool(columnStrings[index++]);
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CombatDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CritDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -282,6 +291,7 @@ public class DRMonster : DataRowBase
         Desc = columnStrings[index++];
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HarvestAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestDropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -312,7 +322,7 @@ public class DRMonster : DataRowBase
             {
                 Att = binaryReader.Read7BitEncodedInt32();
                 AttSpd = binaryReader.Read7BitEncodedInt32();
-                AttType = binaryReader.Read7BitEncodedInt32();
+                AutoHarvest = binaryReader.ReadBoolean();
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
                 CombatDist = binaryReader.Read7BitEncodedInt32();
                 CritDmg = binaryReader.Read7BitEncodedInt32();
@@ -321,6 +331,7 @@ public class DRMonster : DataRowBase
                 Desc = binaryReader.ReadString();
                 DropId = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
+                HarvestAction = binaryReader.Read7BitEncodedInt32();
                 HarvestDropId = binaryReader.Read7BitEncodedInt32();
                 HarvestTime = binaryReader.Read7BitEncodedInt32();
                 HitPoint = binaryReader.Read7BitEncodedInt32();

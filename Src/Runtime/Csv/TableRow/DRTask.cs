@@ -24,27 +24,9 @@ public class DRTask : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取level-int。*/
+  /**获取designateOptions-string。*/
     /// </summary>
-    public int Level
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取name-string。*/
-    /// </summary>
-    public string Name
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取decs-string。*/
-    /// </summary>
-    public string Decs
+    public string DesignateOptions
     {
         get;
         private set;
@@ -60,27 +42,27 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取subSystem-int[]。*/
+  /**获取difficulty-int。*/
     /// </summary>
-    public int[] SubSystem
+    public int Difficulty
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取designateOptions-string。*/
+  /**获取expReward-int[][]。*/
     /// </summary>
-    public string DesignateOptions
+    public int[][] ExpReward
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取chanceOptions-string。*/
+  /**获取isSelfEnd-bool。*/
     /// </summary>
-    public string ChanceOptions
+    public bool IsSelfEnd
     {
         get;
         private set;
@@ -96,18 +78,36 @@ public class DRTask : DataRowBase
     }
 
     /// <summary>
-  /**获取expReward-int。*/
+  /**获取name-string。*/
     /// </summary>
-    public int ExpReward
+    public string Name
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取difficulty-int。*/
+  /**获取level-int[][]。*/
     /// </summary>
-    public int Difficulty
+    public int[][] Level
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取preTaskReq-int[]。*/
+    /// </summary>
+    public int[] PreTaskReq
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取chanceOptions-string。*/
+    /// </summary>
+    public string ChanceOptions
     {
         get;
         private set;
@@ -118,17 +118,17 @@ public class DRTask : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
-        Level = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Name = columnStrings[index++];
-        Decs = columnStrings[index++];
-        Details = columnStrings[index++];
-        SubSystem = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         DesignateOptions = columnStrings[index++];
-        ChanceOptions = columnStrings[index++];
-        ItemReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        ExpReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Details = columnStrings[index++];
         Difficulty = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        ExpReward = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
+        IsSelfEnd = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        ItemReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Name = columnStrings[index++];
+        Level = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        PreTaskReq = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        ChanceOptions = columnStrings[index++];
 
         return true;
     }
@@ -140,17 +140,17 @@ public class DRTask : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
-                Level = binaryReader.Read7BitEncodedInt32();
-                Name = binaryReader.ReadString();
-                Decs = binaryReader.ReadString();
-                Details = binaryReader.ReadString();
-                SubSystem = binaryReader.ReadArray<Int32>();
                 DesignateOptions = binaryReader.ReadString();
-                ChanceOptions = binaryReader.ReadString();
-                ItemReward = binaryReader.Read7BitEncodedInt32();
-                ExpReward = binaryReader.Read7BitEncodedInt32();
+                Details = binaryReader.ReadString();
                 Difficulty = binaryReader.Read7BitEncodedInt32();
+                ExpReward = binaryReader.ReadArrayList<Int32>();
+                _id = binaryReader.Read7BitEncodedInt32();
+                IsSelfEnd = binaryReader.ReadBoolean();
+                ItemReward = binaryReader.Read7BitEncodedInt32();
+                Name = binaryReader.ReadString();
+                Level = binaryReader.ReadArrayList<Int32>();
+                PreTaskReq = binaryReader.ReadArray<Int32>();
+                ChanceOptions = binaryReader.ReadString();
             }
         }
 

@@ -1,33 +1,33 @@
-args-string[],callFunc-string[],cd-int,cdType-int,id-int,interactType-string
-1*1,occupyLand,5000,3010204,22,occupyLand
--,Sow Seeds,0,,26,equipItem
--,Fertilize,0,,27,equipItem
-100,addHp,5000,3010101,140,addHp
-100,addHp,5000,3010101,141,addHp
-100,addHp,5000,3010101,142,addHp
-100,addHp,5000,3010101,143,addHp
-100,addHp,5000,3010101,144,addHp
-100,addHp,5000,3010101,145,addHp
-50,addHp,5000,3010101,134,addHp
-50,addHp,5000,3010101,135,addHp
-50,addHp,5000,3010101,136,addHp
-50,addHp,5000,3010101,137,addHp
-50,addHp,5000,3010101,138,addHp
-50,addHp,5000,3010101,139,addHp
--,Fertilize,0,,128,equipItem
--,Fertilize,0,,129,equipItem
--,Fertilize,0,,130,equipItem
--,Fertilize,0,,131,equipItem
--,Fertilize,0,,132,equipItem
--,Fertilize,0,,133,equipItem
--,Sow Seeds,0,,146,equipItem
--,Sow Seeds,0,,147,equipItem
--,Sow Seeds,0,,148,equipItem
--,Sow Seeds,0,,149,equipItem
--,Sow Seeds,0,,150,equipItem
--,Sow Seeds,0,,151,equipItem
--,Sow Seeds,0,,152,equipItem
--,Sow Seeds,0,,153,equipItem
--,Sow Seeds,0,,154,equipItem
--,Sow Seeds,0,,28,equipItem
--,Sow Seeds,0,,29,equipItem
+args-string[],callFunc-string[],cd-int,id-int,interactType-string,cdType-int
+1*1,occupyLand,5000,22,occupyLand,
+-,Sow Seeds,0,26,equipItem,
+-,Fertilize,0,27,equipItem,
+100,addHp,5000,140,addHp,1
+100,addHp,5000,141,addHp,1
+100,addHp,5000,142,addHp,1
+100,addHp,5000,143,addHp,1
+100,addHp,5000,144,addHp,1
+100,addHp,5000,145,addHp,1
+50,addHp,5000,134,addHp,1
+50,addHp,5000,135,addHp,1
+50,addHp,5000,136,addHp,1
+50,addHp,5000,137,addHp,1
+50,addHp,5000,138,addHp,1
+50,addHp,5000,139,addHp,1
+-,Fertilize,0,128,equipItem,
+-,Fertilize,0,129,equipItem,
+-,Fertilize,0,130,equipItem,
+-,Fertilize,0,131,equipItem,
+-,Fertilize,0,132,equipItem,
+-,Fertilize,0,133,equipItem,
+-,Sow Seeds,0,146,equipItem,
+-,Sow Seeds,0,147,equipItem,
+-,Sow Seeds,0,148,equipItem,
+-,Sow Seeds,0,149,equipItem,
+-,Sow Seeds,0,150,equipItem,
+-,Sow Seeds,0,151,equipItem,
+-,Sow Seeds,0,152,equipItem,
+-,Sow Seeds,0,153,equipItem,
+-,Sow Seeds,0,154,equipItem,
+-,Feed,0,28,equipItem,
+-,Feed,0,29,equipItem,
