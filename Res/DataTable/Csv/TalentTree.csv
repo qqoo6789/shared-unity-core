@@ -41,3 +41,4 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 -1,Unlocks the crafting recipe for the Scroll of Gather Gear 1,120,2,craft_scroll,40,0,0,1,Gather Gear lore level 1,3,10,0,0,
 -1,Unlocks the crafting recipe for the Scroll of Gather Gear 2,121,2,craft_scroll,43,0,1,1,Gather Gear lore level 2,3,100,0,0,
 -1,Unlocks the crafting recipe for the Scroll of Gather Gear 3,122,2,craft_scroll,44,0,2,1,Gather Gear lore level 3,3,1000,0,10,
+1,Simultaneously water the surrounding 2*2/3*3/4*4 farmland,99;100;101,0,ic_battery,45,0,2,3,Group Watering,1,"10,100,1000",0,"0,0,10",23

@@ -7,9 +7,9 @@
  */
 public static class TableDefine
 {
-    public static readonly int ITEMID_EXP = 79999902;
-    public static readonly int ITEMID_BATTERY = 3010203;
-    public static readonly int ITEMID_SEED = 3010204;
+    public static readonly int ITEMID_EXP = 11;
+    public static readonly int ITEMID_BATTERY = 21;
+    public static readonly int ITEMID_SEED = 22;
     public static readonly int DATA_TABLE_START_ROW = 1;
     public static readonly string DATA_TABLE_ENCODING = "UTF-8";
     public const int DAMAGE_EFFECT_ID = 15;  // 基础伤害效果ID

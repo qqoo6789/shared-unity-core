@@ -84,4 +84,6 @@ accuBreakable-bool,accuTime-int,attackCanMove-bool,effectEnemy-int[],effectForwa
 0,,0,15,,416,96,1,0,0,0,attack,,,783,0,50,2,Crystal lion attack,"1,150,50,20",CameraShakeGrade_1,1,0,,,,,,,,,,,
 0,0,0,,,866,97,0,0,0,0,ranged_onehand_reload,knife03,,1000,-1,,2,播种技能,,,1,0,2,,,,,,,,,,
 0,0,0,,,530,98,0,0,0,0,ranged_RPG_reload,knife03,,1200,-1,,2,施肥技能,,,1,0,4,,,,,,,,,,
-0,0,0,,,0,99,0,1,0,0,ranged_onehand_knock,knife03,,0,15,,2,群体浇灌,,,1,0,3,,,,,,,,,,
+0,0,0,,,0,99,0,1,0,0,ranged_onehand_knock,knife03,,0,15,,2,群体浇灌 1,"2,100",,1,0,3,,,,,,,,,,
+0,0,0,,,0,100,0,1,0,0,ranged_onehand_knock,knife03,,0,15,,2,群体浇灌 2,"2,200",,1,0,3,,,,,,,,,,
+0,0,0,,,0,101,0,1,0,0,ranged_onehand_knock,knife03,,0,15,,2,群体浇灌 3,"2,300",,1,0,3,,,,,,,,,,
