@@ -15,7 +15,7 @@ public class HomeSaveData
 
     public List<HomeResourcesAreaSaveData> HomeAreaSaveDataList;
     public List<AnimalSaveData> AnimSaveDataList;
-    public AnimalBowlSaveData[] BowlSaveDataList;
+    public AnimalSceneSaveData AnimalSceneSaveData;
 
     public static string ToJson(object data)
     {
