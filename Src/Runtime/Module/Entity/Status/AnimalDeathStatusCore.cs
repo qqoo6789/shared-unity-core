@@ -16,6 +16,11 @@ public class AnimalDeathStatusCore : EntityStatusCore, IEntityCanMove, IEntityCa
         base.OnEnter(fsm);
 
         HomeAnimal = StatusCtrl.RefEntity.GetComponent<HomeAnimalCore>();
+
+        if (StatusCtrl.RefEntity.TryGetComponent(out FindPathMove move))
+        {
+            move.StopMove();
+        }
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
