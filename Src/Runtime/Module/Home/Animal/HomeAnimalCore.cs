@@ -224,7 +224,13 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         {
             gameObject.GetComponent<HomeActionProgressData>().EndProgressAction();
             Data.SaveData.IsDead = true;
+
+            if (gameObject.TryGetComponent(out FindPathMove move))
+            {
+                move.StopMove();
+            }
         }
+
         ClearDropProduct();//TODO: home 暂时这样
     }
 

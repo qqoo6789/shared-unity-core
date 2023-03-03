@@ -37,6 +37,9 @@ public static class HomeDefine
     /// </summary>
     public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ (eAction.Hoeing | eAction.Shearing | eAction.Milking);
 
+
+    #region 畜牧动物
+
     public const string ANIMAL_AI_NAME = "HomeAnimalAI";
 
     /// <summary>
@@ -68,6 +71,16 @@ public static class HomeDefine
     /// 动物好感度一颗心的好感度数量
     /// </summary>
     public const int ANIMAL_FAVORABILITY_ONE_HEART_NUM = 2;
+    /// <summary>
+    /// 畜牧动物死亡后能触发的对话的最大距离
+    /// </summary>
+    public const int ANIMAL_DEATH_DIALOG_TRIGGER_DISTANCE = 3;
+    /// <summary>
+    /// 动物死亡对话的对话名
+    /// </summary>
+    public const string ANIMAL_DEATH_DIALOG_CONVERSATION_NAME = "DeathDialog";
+
+    #endregion
 
     /// <summary>
     /// 土地状态间的数据定义key

@@ -68,7 +68,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, DeathStatusCore.Name);
+            ChangeState(fsm, GetDeathStatusName());
             return;
         }
 

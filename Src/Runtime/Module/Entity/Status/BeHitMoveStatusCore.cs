@@ -77,7 +77,7 @@ public class BeHitMoveStatusCore : ListenEventStatusCore
     {
         if (RefEntityIsDead())
         {
-            ChangeState(OwnerFsm, DeathStatusCore.Name);
+            ChangeState(OwnerFsm, GetDeathStatusName());
             return;
         }
         ChangeState(OwnerFsm, IdleStatusCore.Name);
