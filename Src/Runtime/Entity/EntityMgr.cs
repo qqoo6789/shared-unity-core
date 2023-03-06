@@ -156,10 +156,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     public virtual void RemoveAllEntityExcept(IEnumerable<long> retainIds)
     {
         List<TEntity> retainEntities = new();
-        HashSet<long> retainIdSet = new(retainIds);
+        HashSet<long> retainIdSet;
+        retainIdSet = retainIds != null ? new(retainIds) : null;
         foreach (KeyValuePair<long, TEntity> item in EntityDic)
         {
-            if (retainIdSet.Contains(item.Key))
+            if (retainIdSet != null && retainIdSet.Contains(item.Key))
             {
                 retainEntities.Add(item.Value);
                 continue;
