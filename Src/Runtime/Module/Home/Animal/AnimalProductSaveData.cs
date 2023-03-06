@@ -26,7 +26,7 @@ public class AnimalProductSaveData
     /// <summary>
     /// 掉落位置
     /// </summary>
-    public UnityEngine.Vector3 Pos;
+    public Vector3 Pos;
 
     public AnimalProductSaveData()
     {
@@ -39,7 +39,7 @@ public class AnimalProductSaveData
         ItemCid = data.ItemCid;
         ItemNum = data.ItemNum;
         Quality = data.Quality;
-        Pos = NetUtilCore.Vector3FromNet(data.Position);
+        Pos = data.Position;
     }
 
     public ProxyProductData ToProxyAnimalData()
@@ -50,7 +50,7 @@ public class AnimalProductSaveData
             ItemCid = ItemCid,
             ItemNum = ItemNum,
             Quality = Quality,
-            Position = NetUtilCore.Vector3ToNet(Pos),
+            Position = Pos,
         };
     }
 }

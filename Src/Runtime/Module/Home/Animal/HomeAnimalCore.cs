@@ -291,7 +291,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
         Data.SaveData.ProductSaveData = productSaveData;
         DropEntity = GameObjectUtil.CreateGameObject($"{Data.BaseData.AnimId}_{productSaveData.ProductId}", parent);
-        DropEntity.transform.position = productSaveData.Pos;
+        DropEntity.transform.position = NetUtilCore.Vector3FromNet(productSaveData.Pos);
         AnimalDropCore drop = DropEntity.AddComponent<TDrop>();
         drop.InitAnimalDrop(productSaveData, Data.AnimId);
     }
