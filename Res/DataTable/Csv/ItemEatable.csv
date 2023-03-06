@@ -31,3 +31,9 @@ args-string[],callFunc-string[],cd-int,id-int,interactType-string,cdType-int
 -,Sow Seeds,0,154,equipItem,
 -,Feed,0,28,equipItem,
 -,Feed,0,29,equipItem,
+200,addHp,5000,191,addHp,1
+200,addHp,5000,192,addHp,1
+200,addHp,5000,194,addHp,1
+200,addHp,5000,195,addHp,1
+200,addHp,5000,196,addHp,1
+200,addHp,5000,197,addHp,1
