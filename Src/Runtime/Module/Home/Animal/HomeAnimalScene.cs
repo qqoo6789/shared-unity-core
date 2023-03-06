@@ -63,20 +63,28 @@ public class HomeAnimalScene : MonoBehaviour
     }
 
     /// <summary>
-    /// 找到下一个有食物的食盆 找不到返回null
+    /// 找到最近的一个有食物的食盆 找不到返回null
     /// </summary>
     /// <returns></returns>
-    public AnimalBowlCore SearchNextHaveFoodBowl()
+    public AnimalBowlCore SearchNearestHaveFoodBowl(Vector3 pos)
     {
+        AnimalBowlCore result = null;
+        float minDis = float.MaxValue;
+
         for (int i = 0; i < _bowlListMap.Count; i++)
         {
             if (_bowlListMap[i].Data.IsHaveFood)
             {
-                return _bowlListMap[i];
+                float dis = Vector3.Distance(pos, _bowlListMap[i].Position);
+                if (dis < minDis)
+                {
+                    minDis = dis;
+                    result = _bowlListMap[i];
+                }
             }
         }
 
-        return null;
+        return result;
     }
 
     /// <summary>
