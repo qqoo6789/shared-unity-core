@@ -1,16 +1,16 @@
 assetRes-string,desc-string,dropId-int,exp-int,homeAction-int,id-int,lv-int,icon-string,name-string
-Slice_12,Weeds,6,100.0,5,1,1.0,,
-Slice_12,Stone,6,100.0,7,2,2.0,,
-Slice_12,Tree,6,100.0,6,3,3.0,,
-2D_caijiziyuan_shumu01_4,,27,100.0,6,4,1.0,random_produce,['木材1-1 普通木材 Lv1 🌲采集 (62)']
-2D_caijiziyuan_shumu01_1,,27,100.0,6,5,1.0,random_produce,['木材1-1 普通木材 Lv1 🌲采集 (62)']
-2D_caijiziyuan_xianrenzhang,,28,100.0,6,6,2.0,random_produce,['木材1-2 仙人掌素材 Lv2 🌲采集 (63)']
-2D_caijiziyuan_hongguoshi,,34,100.0,5,7,3.0,lv2_herb,['草1-3 龙舌兰 Lv3 🌲采集 (68)']
-2D_caijiziyuan_shikuai_3,,26,100.0,7,8,1.0,mysterious_iron_ore,['矿石1-1 石头 Lv1 🌲采集 (58)']
-2D_caijiziyuan_heitikuang,,30,100.0,7,9,2.0,2D_caijiziyuan_tiekuangshi_icon,['矿石1-2 黑铁矿 Lv2 🌲采集 (59)']
-2D_caijiziyuan_hongbaoshi,,31,100.0,7,11,3.0,2D_caijiziyuan_hongbaoshi_icon,['矿石1-3 红色水晶矿 Lv3 🌲采集 (60)']
-2D_caijiziyuan_huangshigu,,33,100.0,5,12,2.0,lv2_herb,['草1-2 冰原菇 Lv2 🌲采集 (67)']
+Slice_12,Weeds,6,100,5,1,1,,
+Slice_12,Stone,6,100,7,2,2,,
+Slice_12,Tree,6,100,6,3,3,,
+2D_caijiziyuan_shumu01_4,,27,100,6,4,1,random_produce,木材1-1 普通木材 Lv1 🌲采集 (62)
+2D_caijiziyuan_shumu01_1,,27,100,6,5,1,random_produce,木材1-1 普通木材 Lv1 🌲采集 (62)
+2D_caijiziyuan_xianrenzhang,,28,100,6,6,2,random_produce,木材1-2 仙人掌素材 Lv2 🌲采集 (63)
+2D_caijiziyuan_hongguoshi,,34,100,5,7,3,lv2_herb,草1-3 龙舌兰 Lv3 🌲采集 (68)
+2D_caijiziyuan_shikuai_3,,26,100,7,8,1,mysterious_iron_ore,矿石1-1 石头 Lv1 🌲采集 (58)
+2D_caijiziyuan_heitikuang,,30,100,7,9,2,2D_caijiziyuan_tiekuangshi_icon,矿石1-2 黑铁矿 Lv2 🌲采集 (59)
+2D_caijiziyuan_hongbaoshi,,31,100,7,11,3,2D_caijiziyuan_hongbaoshi_icon,矿石1-3 红色水晶矿 Lv3 🌲采集 (60)
+2D_caijiziyuan_huangshigu,,33,100,5,12,2,lv2_herb,草1-2 冰原菇 Lv2 🌲采集 (67)
 ,,,,,13,,,
-Slice_11,,32,100.0,5,14,1.0,lv2_herb,['草1-1 植物纤维 Lv1 🌲采集 (66)']
-2D_caijiziyuan_bingyuanzhiwu,,33,100.0,5,15,2.0,lv2_herb,['草1-2 冰原菇 Lv2 🌲采集 (67)']
-Slice_12,,29,100.0,6,16,3.0,random_produce,['木材1-3 暗黑木材 Lv3 🌲采集 (64)']
+Slice_11,,32,100,5,14,1,lv2_herb,草1-1 植物纤维 Lv1 🌲采集 (66)
+2D_caijiziyuan_bingyuanzhiwu,,33,100,5,15,2,lv2_herb,草1-2 冰原菇 Lv2 🌲采集 (67)
+Slice_12,,29,100,6,16,3,random_produce,木材1-3 暗黑木材 Lv3 🌲采集 (64)

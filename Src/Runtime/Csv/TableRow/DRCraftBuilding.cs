@@ -24,6 +24,15 @@ public class DRCraftBuilding : DataRowBase
     public override int Id => _id;
 
     /// <summary>
+  /**获取queueLimit-int。*/
+    /// </summary>
+    public int QueueLimit
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取recipeId-int[]。*/
     /// </summary>
     public int[] RecipeId
@@ -38,6 +47,7 @@ public class DRCraftBuilding : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
+        QueueLimit = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RecipeId = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
 
         return true;
@@ -51,6 +61,7 @@ public class DRCraftBuilding : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
+                QueueLimit = binaryReader.Read7BitEncodedInt32();
                 RecipeId = binaryReader.ReadArray<Int32>();
             }
         }
