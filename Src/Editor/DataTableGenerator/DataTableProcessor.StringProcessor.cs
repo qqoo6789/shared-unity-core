@@ -16,6 +16,7 @@ namespace Meland.Editor.DataTableTools
             public override bool IsSystem => true;
 
             public override string LanguageKeyword => "string";
+            public override string ExtensionParseKey => "ParseString";
 
             public override string[] GetTypeStrings()
             {
