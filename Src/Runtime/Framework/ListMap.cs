@@ -47,6 +47,11 @@ public class ListMap<TKey, TValue> : IEnumerator, IEnumerable
         return true;
     }
 
+    public bool ContainsKey(TKey key)
+    {
+        return _dic.ContainsKey(key);
+    }
+
     public void Clear()
     {
         _dic.Clear();
