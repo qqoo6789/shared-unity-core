@@ -3,7 +3,7 @@ using System.Diagnostics.Tracing;
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能组件
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -97,5 +97,18 @@ public class SkillCpt : EntityBaseComponent
 
         }
         return false;
+    }
+
+    /// <summary>
+    /// 获得技能
+    /// </summary>
+    public SkillBase GetSkill(int skillID)
+    {
+        if (!SkillMap.TryGetValue(skillID, out SkillBase skill))
+        {
+            Log.Warning($"GetSkill Skill Is Null! skillId ={skillID}");
+            return null;
+        }
+        return skill;
     }
 }

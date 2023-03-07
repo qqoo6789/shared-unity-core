@@ -8,6 +8,7 @@
 
 
 using UnityEngine;
+using UnityGameFramework.Runtime;
 
 public class InputSkillReleaseData
 {
@@ -15,6 +16,10 @@ public class InputSkillReleaseData
     /// 技能位置
     /// </summary>
     public int SkillID { get; private set; }
+    /// <summary>
+    /// 技能配置
+    /// </summary>
+    public DRSkill DRSkill { get; private set; }
     /// <summary>
     /// 目标方向
     /// </summary>
@@ -52,5 +57,19 @@ public class InputSkillReleaseData
         TargetPos = targetPos;
         IsTry = isTry;
         SkillTimeScale = skillTimeScale;
+        DRSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        if (DRSkill == null)
+        {
+            Log.Error("InputSkillReleaseData The skill ID was not found in the skill table:{0}", skillID);
+            return;
+        }
+    }
+    /// <summary>
+    /// 设置目标位置
+    /// </summary>
+    /// <param name="targetPos"></param>
+    public void SetTargetPos(Vector3 targetPos)
+    {
+        TargetPos = targetPos;
     }
 }

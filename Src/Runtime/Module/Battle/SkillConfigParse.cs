@@ -13,29 +13,14 @@ using UnityGameFramework.Runtime;
 public static class SkillConfigParse
 {
     /// <summary>
-    /// 返回技能前摇效果 可能为空
+    /// 解析技能效果
     /// </summary>
     /// <param name="skillID"></param>
+    /// <param name="formID"></param>
+    /// <param name="targetID"></param>
+    /// <param name="effectList"></param>
     /// <returns></returns>
-    public static List<SkillEffectBase> ParseSkillForwardEffect(int skillID, long formID, long targetID)
-    {
-        if (skillID <= 0)
-        {
-            Log.Error($"ParseSkillEffect Error skillID is error, skillID = {skillID}");
-            return null;
-        }
-
-        DRSkill drSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
-        if (drSkill == null)
-        {
-            Log.Error($"ParseSkillEffect Error skillID is not exist, skillID = {skillID}");
-            return null;
-        }
-        List<SkillEffectBase> skillEffects = ParseSkillEffect(drSkill, formID, targetID, drSkill.EffectForward);
-        return skillEffects;
-    }
-
-    public static List<SkillEffectBase> ParseSkillEffect(DRSkill curSkillCfg, long formID, long targetID, int[] effectList)
+    public static List<SkillEffectBase> ParseSkillEffect(int skillID, long formID, long targetID, int[] effectList)
     {
         List<SkillEffectBase> skillEffects = new();
         if (effectList == null || effectList.Length <= 0)
@@ -49,17 +34,17 @@ public static class SkillConfigParse
             DRSkillEffect skillEffectCfg = GFEntryCore.DataTable.GetDataTable<DRSkillEffect>().GetDataRow(effectID);
             if (skillEffectCfg == null)
             {
-                Log.Error($"not find skill effect skillID = {curSkillCfg.Id} effectID = {effectID}");
+                Log.Error($"not find skill effect skillID = {skillID} effectID = {effectID}");
                 continue;
             }
             try
             {
-                SkillEffectBase skillBase = GFEntryCore.SkillEffectFactory.CreateOneSkillEffect(curSkillCfg.Id, effectID, formID, targetID, skillEffectCfg.Duration);
+                SkillEffectBase skillBase = GFEntryCore.SkillEffectFactory.CreateOneSkillEffect(skillID, effectID, formID, targetID, skillEffectCfg.Duration);
                 skillEffects.Add(skillBase);
             }
             catch (System.Exception)
             {
-                Log.Error($"ParseSkillEffect error = {curSkillCfg.Id} effectID = {effectID}");
+                Log.Error($"ParseSkillEffect error = {skillID} effectID = {effectID}");
             }
         }
         return skillEffects;

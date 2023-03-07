@@ -28,6 +28,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     protected UnityEngine.Vector3 SkillDir;
     protected double SkillTimeScale;
     protected InputSkillReleaseData InputSkillData;
+    protected SkillBase Skill;
 
     /// <summary>
     /// 是否正常继续战斗状态离开的 false以为着是打断离开的
@@ -46,6 +47,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         Targets = InputSkillData.Targets;
         SkillTimeScale = InputSkillData.SkillTimeScale;
         CurSkillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(SkillID);
+        Skill = StatusCtrl.GetComponent<SkillCpt>().GetSkill(SkillID);
         if (CurSkillCfg.ReleaseSpd != 0)
         {
             float releaseSpd = StatusCtrl.RefEntity.EntityAttributeData.GetRealValue((eAttributeType)CurSkillCfg.ReleaseSpd);
@@ -150,8 +152,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     /// <param name="entity">实体</param>
     protected void SkillForwardEffectExecute(DRSkill drSkill, EntityBase entity)
     {
-
-        _ = SkillUtil.EntitySkillEffectExecute(drSkill, SkillDir, Targets, drSkill.EffectForward, entity, entity);
+        _ = SkillUtil.EntitySkillEffectExecute(InputSkillData, Skill.GetEffect(eSkillEffectApplyType.Forward), entity, entity);
     }
 
     public bool CheckCanMove()

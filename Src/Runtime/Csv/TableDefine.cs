@@ -136,3 +136,13 @@ public enum eSkillEffectType : int
     SEBloodRage = 13,
     SEUnharmedAddAttr = 14,
 }
+/// <summary>
+/// 技能效果作用类型
+/// </summary>
+public enum eSkillEffectApplyType : int
+{
+    Init = 0, //初始阶段
+    Forward = 1, //前置阶段
+    CastSelf = 2, //对自己释放
+    CastEnemy = 3, //对敌人释放
+}

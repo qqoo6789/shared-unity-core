@@ -8,6 +8,7 @@
 using GameFramework;
 using UnityEngine;
 using UnityGameFramework.Runtime;
+using System.Collections.Generic;
 
 public class SkillBase : IReference
 {
@@ -26,6 +27,15 @@ public class SkillBase : IReference
     /// 宿主对象
     /// </summary>
     public EntityBase RefEntity { get; private set; }
+
+    /// <summary>
+    /// 效果Map
+    /// </summary>
+    public Dictionary<eSkillEffectApplyType, List<int>> EffectMap { get; private set; } = new();
+    /// <summary>
+    /// 是否添加
+    /// </summary>
+    public bool IsAdd { get; private set; }
     public void SetData(int skillID)
     {
         SkillID = skillID;
@@ -52,14 +62,83 @@ public class SkillBase : IReference
                 TargetFlag |= 1 << DRSkill.TargetFlag[i];
             }
         }
+        //添加效果
+        AddEffect(eSkillEffectApplyType.Init, DRSkill.EffectInit);
+        AddEffect(eSkillEffectApplyType.Forward, DRSkill.EffectForward);
+        AddEffect(eSkillEffectApplyType.CastSelf, DRSkill.EffectSelf);
+        AddEffect(eSkillEffectApplyType.CastEnemy, DRSkill.EffectEnemy);
     }
+
+    /// <summary>
+    /// 添加效果
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="addList"></param>
+    public void AddEffect(eSkillEffectApplyType type, int[] addList)
+    {
+        if (addList == null)
+        {
+            return;
+        }
+
+        if (!EffectMap.TryGetValue(type, out List<int> list))
+        {
+            list = new List<int>();
+            EffectMap.Add(type, list);
+        }
+        for (int i = 0; i < addList.Length; i++)
+        {
+            list.Add(addList[i]);
+        }
+        if (type == eSkillEffectApplyType.Init && IsAdd)
+        {
+            InputSkillReleaseData inputData = new(SkillID, Vector3.zero, null, Vector3.zero);
+            _ = SkillUtil.EntitySkillEffectExecute(inputData, addList, RefEntity, RefEntity);
+        }
+    }
+
+    public int[] GetEffect(eSkillEffectApplyType type)
+    {
+        return !EffectMap.TryGetValue(type, out List<int> list) ? null : list.ToArray();
+    }
+
+    /// <summary>
+    /// 删除效果
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="removeList"></param>
+    /// <returns></returns>
+    public bool RemoveEffect(eSkillEffectApplyType type, int[] removeList)
+    {
+        if (removeList == null)
+        {
+            return false;
+        }
+
+        if (!EffectMap.TryGetValue(type, out List<int> list))
+        {
+            return false;
+        }
+        for (int i = 0; i < removeList.Length; i++)
+        {
+            _ = list.Remove(removeList[i]);
+        }
+        if (type == eSkillEffectApplyType.Init && IsAdd)
+        {
+            SkillUtil.EntityAbolishSkillEffect(SkillID, removeList, RefEntity, RefEntity);
+        }
+        return true;
+    }
+
     /// <summary>
     /// 技能被添加
     /// </summary>
     public virtual void OnAdd(EntityBase owner)
     {
+        IsAdd = true;
         RefEntity = owner;
-        _ = SkillUtil.EntitySkillEffectExecute(DRSkill, Vector3.zero, null, DRSkill.EffectInit, RefEntity, RefEntity);
+        InputSkillReleaseData inputData = new(SkillID, Vector3.zero, null, Vector3.zero);
+        _ = SkillUtil.EntitySkillEffectExecute(inputData, GetEffect(eSkillEffectApplyType.Init), RefEntity, RefEntity);
     }
 
     /// <summary>
@@ -67,7 +146,8 @@ public class SkillBase : IReference
     /// </summary>
     public virtual void OnRemove()
     {
-        SkillUtil.EntityAbolishSkillEffect(DRSkill, DRSkill.EffectInit, RefEntity, RefEntity);
+        IsAdd = false;
+        SkillUtil.EntityAbolishSkillEffect(SkillID, GetEffect(eSkillEffectApplyType.Init), RefEntity, RefEntity);
         RefEntity = null;
     }
 
@@ -91,6 +171,7 @@ public class SkillBase : IReference
         SkillID = 0;
         DRSkill = null;
         RefEntity = null;
+        EffectMap.Clear();
     }
 
     /// <summary>
