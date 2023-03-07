@@ -149,3 +149,4 @@ accuBreakable-bool,accuTime-int,attackCanMove-bool,effectEnemy-int[],effectForwa
 0,,0,,,0,161,0,0,0,0,ranged_RPG_attack2,,,200,20,,2,地震波 1,"4,800,200,12000",CameraShakeGrade_3,1,0,7,,,,,,,,,,craft_scroll
 0,,0,,,0,162,0,0,0,0,ranged_RPG_attack2,,,200,20,,2,地震波 2,"4,800,400,12000",CameraShakeGrade_3,1,0,7,,,,,,,,,,craft_scroll
 0,,0,,,0,163,0,0,0,0,ranged_RPG_attack2,,,200,20,,2,地震波 3,"4,800,600,12000",CameraShakeGrade_3,1,0,7,,,,,,,,,,craft_scroll
+0,,0,15,,200,164,1,0,0,1,hit,,,950,0,100,2,Hopper Attack,"4,300,200,12000",CameraShakeGrade_1,1,0,,,,,,,,,,,
