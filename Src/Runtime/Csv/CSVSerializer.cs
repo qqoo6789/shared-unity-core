@@ -33,7 +33,7 @@ public class CSVSerializer
                 }
                 else if (text[i] == '\"')
                 {
-                    line.Add(token.ToString());
+                    line.Add(ValidString(token));
                     token = new StringBuilder();
                     quotes = false;
                     if (i + 1 < text.Length && text[i + 1] == separator)
@@ -50,12 +50,12 @@ public class CSVSerializer
             {
                 if (i - 1 >= 0 && text[i - 1] == separator)
                 {
-                    line.Add(token.ToString());
+                    line.Add(ValidString(token));
                     token = new StringBuilder();
                 }
                 else if (token.Length > 0)
                 {
-                    line.Add(token.ToString());
+                    line.Add(ValidString(token));
                     token = new StringBuilder();
                 }
 
@@ -67,7 +67,7 @@ public class CSVSerializer
             }
             else if (text[i] == separator)
             {
-                line.Add(token.ToString());
+                line.Add(ValidString(token));
                 token = new StringBuilder();
             }
             else if (text[i] == '\"')
@@ -82,7 +82,7 @@ public class CSVSerializer
 
         if (token.Length > 0 || text[^1] == separator)
         {
-            line.Add(token.ToString());
+            line.Add(ValidString(token));
         }
         if (line.Count > 0)
         {
@@ -157,7 +157,7 @@ public class CSVSerializer
                 }
                 else if (text[i] == '\"')
                 {
-                    cols.Add(stringBuilder.ToString());
+                    cols.Add(ValidString(stringBuilder));
                     _ = stringBuilder.Clear();
                     quotes = false;
                     if (i + 1 < text.Length && text[i + 1] == separator)
@@ -172,7 +172,7 @@ public class CSVSerializer
             }
             else if (text[i] == separator)
             {
-                cols.Add(stringBuilder.ToString());
+                cols.Add(ValidString(stringBuilder));
                 _ = stringBuilder.Clear();
             }
             else if (text[i] == '\"')
@@ -186,10 +186,18 @@ public class CSVSerializer
         }
         if (stringBuilder.Length > 0 || text[^1] == separator)
         {
-            cols.Add(stringBuilder.ToString());
+            cols.Add(ValidString(stringBuilder));
         }
         return cols.ToArray();
     }
 
-
+    public static string ValidString(StringBuilder stringBuilder)
+    {
+        string value = stringBuilder.ToString();
+        if (value == "-")
+        {
+            value = "";
+        }
+        return value;
+    }
 }
