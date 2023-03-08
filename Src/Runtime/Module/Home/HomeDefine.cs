@@ -76,6 +76,10 @@ public static class HomeDefine
     /// </summary>
     public const int ANIMAL_APPEASE_ADD_VALUE = 1;
     /// <summary>
+    /// 好感度爱心显示的最大数量
+    /// </summary>
+    public const int ANIMAL_HEAT_SHOW_MAX_NUM = 4;
+    /// <summary>
     /// 畜牧动物死亡后能触发的对话的最大距离
     /// </summary>
     public const int ANIMAL_DEATH_DIALOG_TRIGGER_DISTANCE = 3;
