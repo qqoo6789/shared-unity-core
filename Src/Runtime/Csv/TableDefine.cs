@@ -1,18 +1,29 @@
+using System.Collections.Generic;
+using GameMessageCore;
 /*
- * @Author: mangit
- * @LastEditors: Please set LastEditors
- * @Description: 表定义
- * @Date: 2022-06-23 20:28:37
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/TableDefine.cs
- */
+* @Author: mangit
+* @LastEditors: Please set LastEditors
+* @Description: 表定义
+* @Date: 2022-06-23 20:28:37
+* @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/TableDefine.cs
+*/
 public static class TableDefine
 {
-    public static readonly int ITEMID_EXP = 11;
+    public static readonly int ITEMID_EXP_FARMING = 188;
+    public static readonly int ITEMID_EXP_COMBAT = 189;
+    public static readonly int ITEMID_EXP_GATHER = 190;
     public static readonly int ITEMID_BATTERY = 21;
     public static readonly int ITEMID_SEED = 22;
     public static readonly int DATA_TABLE_START_ROW = 1;
     public static readonly string DATA_TABLE_ENCODING = "UTF-8";
     public const int DAMAGE_EFFECT_ID = 15;  // 基础伤害效果ID
+
+    public static Dictionary<TalentType, int> TalentType2ItemIdDic = new(){
+        {TalentType.Farming, ITEMID_EXP_FARMING},
+        {TalentType.Battle, ITEMID_EXP_COMBAT},
+        {TalentType.Gather, ITEMID_EXP_GATHER},
+    };
+
     public enum eRoleAttrName//表属性属性字段名
     {
         Hp,
