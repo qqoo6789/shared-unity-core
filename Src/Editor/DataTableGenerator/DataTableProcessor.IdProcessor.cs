@@ -34,7 +34,7 @@ namespace Meland.Editor.DataTableTools
                 {
                     value = "0";
                 }
-                binaryWriter.Write7BitEncodedInt32(int.Parse(value));
+                binaryWriter.Write7BitEncodedInt32(DataTableParseUtil.ParseInt(value));
             }
         }
     }

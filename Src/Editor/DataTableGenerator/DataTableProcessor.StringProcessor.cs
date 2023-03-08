@@ -29,7 +29,7 @@ namespace Meland.Editor.DataTableTools
 
             public override string Parse(string value)
             {
-                return value;
+                return DataTableParseUtil.ParseString(value);
             }
 
             public override void WriteToStream(DataTableProcessor dataTableProcessor, BinaryWriter binaryWriter, string value)

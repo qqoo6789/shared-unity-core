@@ -29,8 +29,7 @@ namespace Meland.Editor.DataTableTools
 
             public override short Parse(string value)
             {
-                bool isParse = short.TryParse(value, out short result);
-                return isParse ? result : (short)0;
+                return DataTableParseUtil.ParseShort(value);
             }
 
             public override void WriteToStream(DataTableProcessor dataTableProcessor, BinaryWriter binaryWriter, string value)
