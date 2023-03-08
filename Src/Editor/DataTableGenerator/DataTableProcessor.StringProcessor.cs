@@ -16,6 +16,7 @@ namespace Meland.Editor.DataTableTools
             public override bool IsSystem => true;
 
             public override string LanguageKeyword => "string";
+            public override string ExtensionParseKey => "ParseString";
 
             public override string[] GetTypeStrings()
             {
@@ -28,7 +29,7 @@ namespace Meland.Editor.DataTableTools
 
             public override string Parse(string value)
             {
-                return value;
+                return DataTableParseUtil.ParseString(value);
             }
 
             public override void WriteToStream(DataTableProcessor dataTableProcessor, BinaryWriter binaryWriter, string value)

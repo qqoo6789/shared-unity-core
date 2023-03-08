@@ -27,6 +27,11 @@ public abstract class FindPathMove : EntityBaseComponent
     /// <value></value>
     protected Vector3? Destination { get; private set; }
 
+    /// <summary>
+    /// 寻路移动中
+    /// </summary>
+    public bool IsMoving => Destination != null;
+
     protected virtual void Start()
     {
         if (OnlyInputMoveData)

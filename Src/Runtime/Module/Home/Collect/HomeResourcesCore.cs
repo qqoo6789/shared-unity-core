@@ -92,6 +92,11 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         OnDeath();
     }
 
+    public void ExecuteProgress(eAction targetCurAction)
+    {
+
+    }
+
     /// <summary>
     /// 当采集资源死亡时
     /// </summary>

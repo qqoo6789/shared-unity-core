@@ -11,35 +11,85 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityGameFramework.Runtime;
 
 public static class DataTableParseUtil
 {
+    /// <summary>
+    /// 取消 air table 等外部中的一些无效字符 使之有效
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public static string ValidString(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return value;
+        }
+
+        if (value[0] == '[' && value[^1] == ']')
+        {
+            return value[1..^1];
+        }
+
+        return value;
+    }
+
+    public static string ParseString(string value)
+    {
+        value = ValidString(value);
+        return value;
+    }
+
     public static bool ParseBool(string value)
     {
+        value = ValidString(value);
         return !(string.IsNullOrEmpty(value) || value.Equals("0"));
     }
 
     public static short ParseShort(string value)
     {
+        value = ValidString(value);
         bool isParse = short.TryParse(value, out short result);
         return isParse ? result : (short)0;
     }
 
     public static int ParseInt(string value)
     {
-        bool isParse = int.TryParse(value, out int result);
-        return isParse ? result : 0;
+        value = ValidString(value);
+        if (string.IsNullOrEmpty(value) || value == "-")//- 是江哥要求的有的 我们不用
+        {
+            return 0;
+        }
+
+        if (int.TryParse(value, out int result))
+        {
+            return result;
+        }
+        else
+        {
+            if (float.TryParse(value, out float resultFloat))//air table 不特殊处理会int会输出 100.0这种小数
+            {
+                return (int)resultFloat;
+            }
+            else
+            {
+                Log.Error($"ParseInt error, value:{value}");
+                return 0;
+            }
+        }
     }
 
     public static long ParseLong(string value)
     {
+        value = ValidString(value);
         bool isParse = long.TryParse(value, out long result);
         return isParse ? result : 0;
     }
 
     public static double ParseDouble(string value)
     {
+        value = ValidString(value);
         bool isParse = double.TryParse(value, out double result);
         return isParse ? result : 0;
     }

@@ -51,24 +51,32 @@ namespace Meland.Editor.DataTableTools
                 throw new GameFrameworkException(Utility.Text.Format("Data table file '{0}' is not exist.", dataTableFileName));
             }
 
-            string tableText = File.ReadAllText(dataTableFileName, encoding);
-            List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
-            string[] nameRawRow = new string[rawValues[0].Length];
-            string[] typeRawRow = new string[rawValues[0].Length];
-            for (int i = 0; i < rawValues[0].Length; i++)
+            UnityEngine.Debug.Log($"DataTableProcessor dataTableFileName={dataTableFileName}");
+
+            try
             {
-                string nameTypeStr = rawValues[0][i];
-                string[] valueList = nameTypeStr.Split('-');
-                nameRawRow[i] = valueList[0];
-                typeRawRow[i] = valueList[1];
+                string tableText = File.ReadAllText(dataTableFileName, encoding);
+                List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
+                string[] nameRawRow = new string[rawValues[0].Length];
+                string[] typeRawRow = new string[rawValues[0].Length];
+                for (int i = 0; i < rawValues[0].Length; i++)
+                {
+                    string nameTypeStr = rawValues[0][i];
+                    string[] valueList = nameTypeStr.Split('-');
+                    nameRawRow[i] = valueList[0];
+                    typeRawRow[i] = valueList[1];
+                }
+                rawValues.Insert(1, nameRawRow);
+                rawValues.Insert(2, typeRawRow);
+                _rawValues = rawValues.ToArray();
             }
-            rawValues.Insert(1, nameRawRow);
-            rawValues.Insert(2, typeRawRow);
-            _rawValues = rawValues.ToArray();
+            catch (Exception e)
+            {
+                throw new GameFrameworkException(Utility.Text.Format("Parse data table file '{0}' failure.", dataTableFileName), e);
+            }
 
             int rawRowCount = _rawValues.Length;
             int rawColumnCount = _rawValues[0].Length;
-
 
             if (nameRow < 0)
             {

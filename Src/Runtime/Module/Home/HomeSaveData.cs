@@ -14,6 +14,8 @@ public class HomeSaveData
     public List<SoilSaveData> SoilSaveDataList;
 
     public List<HomeResourcesAreaSaveData> HomeAreaSaveDataList;
+    public List<AnimalSaveData> AnimSaveDataList;
+    public AnimalSceneSaveData AnimalSceneSaveData;
 
     public static string ToJson(object data)
     {

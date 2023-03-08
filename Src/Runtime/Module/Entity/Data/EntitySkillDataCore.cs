@@ -100,6 +100,19 @@ public class EntitySkillDataCore : EntityBaseComponent
     }
 
     /// <summary>
+    /// 外部debug测试强制设置装备技能
+    /// </summary>
+    /// <param name="equipmentItemID"></param>
+    public void DebugTestForceSetEquipmentSkill(int equipmentItemID)
+    {
+        DREquipment drEquipment = EquipmentTable.Inst.GetRowByItemID(equipmentItemID);
+        if (drEquipment != null)
+        {
+            SetExtraGroupSkill(drEquipment.GivenSkillId, EquipmentSkillIDList);
+        }
+    }
+
+    /// <summary>
     /// 设置装备和道具上这种额外的一组技能
     /// </summary>
     /// <param name="newSkillIds"></param>
