@@ -289,6 +289,12 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             Log.Error($"动物掉落实体不为空 cid:{Data.BaseData.Cid}");
         }
 
+        if (productSaveData.ProductId == 0)
+        {
+            Log.Error($"动物掉落产品数据错误 id==0  product :{productSaveData}");
+            return;
+        }
+
         Data.SaveData.ProductSaveData = productSaveData;
         DropEntity = GameObjectUtil.CreateGameObject($"{Data.BaseData.AnimId}_{productSaveData.ProductId}", parent);
         DropEntity.transform.position = NetUtilCore.Vector3FromNet(productSaveData.Pos);

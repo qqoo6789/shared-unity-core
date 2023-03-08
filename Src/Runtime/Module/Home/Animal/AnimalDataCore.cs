@@ -55,6 +55,12 @@ public class AnimalDataCore : MonoBehaviour
     {
         if (animalSaveData != null)
         {
+            if (animalSaveData.ProductSaveData != null && animalSaveData.ProductSaveData.ProductId == 0)
+            {
+                Log.Error($"动物存档数据中的产品数据有误 id==0 Product:{animalSaveData.ProductSaveData}");
+                animalSaveData.ProductSaveData = null;
+            }
+
             _saveData = animalSaveData;
             if (_baseData.AnimId != _saveData.AnimId)
             {
