@@ -8,7 +8,7 @@ public static class HomeDefine
     public const int COLLECT_RESOURCE_DEATH_TIME = 1000;//采集资源死亡时间 ms
     public const float PROGRESS_FULL_ANIM_TIME = 0.7f;//进度满了后的动画时间 需要等待
 
-    public static readonly Vector3 SOIL_SIZE = new Vector3(1.5f,1.5f,1.5f);  //土地格子大小
+    public static readonly Vector3 SOIL_SIZE = new(1.5f, 1.5f, 1.5f);  //土地格子大小
     public static readonly Vector3 EMPTY_SIZE = Vector3.one; //空地格子大小
 
     public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 3;//进度动作统一流逝速度 每秒
@@ -70,7 +70,11 @@ public static class HomeDefine
     /// <summary>
     /// 动物好感度一颗心的好感度数量
     /// </summary>
-    public const int ANIMAL_FAVORABILITY_ONE_HEART_NUM = 2;
+    public const int ANIMAL_FAVORABILITY_ONE_HEART_NUM = 10;
+    /// <summary>
+    /// 安抚动作增加的好感度值
+    /// </summary>
+    public const int ANIMAL_APPEASE_ADD_VALUE = 1;
     /// <summary>
     /// 畜牧动物死亡后能触发的对话的最大距离
     /// </summary>
