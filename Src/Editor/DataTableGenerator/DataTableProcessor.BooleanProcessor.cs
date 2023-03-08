@@ -30,7 +30,7 @@ namespace Meland.Editor.DataTableTools
 
             public override bool Parse(string value)
             {
-                return !(string.IsNullOrEmpty(value) || value.Equals("0"));
+                return DataTableParseUtil.ParseBool(value);
             }
 
             public override void WriteToStream(DataTableProcessor dataTableProcessor, BinaryWriter binaryWriter, string value)

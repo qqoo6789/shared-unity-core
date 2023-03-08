@@ -30,8 +30,7 @@ namespace Meland.Editor.DataTableTools
 
             public override double Parse(string value)
             {
-                bool isParse = double.TryParse(value, out double result);
-                return isParse ? result : 0;
+                return DataTableParseUtil.ParseDouble(value);
             }
 
             public override void WriteToStream(DataTableProcessor dataTableProcessor, BinaryWriter binaryWriter, string value)
