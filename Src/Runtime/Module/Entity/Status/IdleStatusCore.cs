@@ -41,7 +41,7 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, DeathStatusCore.Name);
+            ChangeState(fsm, GetDeathStatusName());
             return;
         }
 

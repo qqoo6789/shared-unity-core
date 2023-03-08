@@ -73,4 +73,9 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
             SoilData.SaveData.ExtraWateringNum = extraWateringNum;
         }
     }
+
+    public void ExecuteProgress(eAction targetCurAction)
+    {
+
+    }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System;
-using static HomeDefine;
 
 /// <summary>
 /// 单个资源区域 可能是数据库的  也可能是服务器转给客户端的

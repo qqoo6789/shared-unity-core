@@ -46,4 +46,21 @@ public static class MTag
     /// 收纳箱
     /// </summary>
     public const string STORAGE_BOX = "StorageBox";
+    /// <summary>
+    /// 家园畜牧场景配置
+    /// </summary>
+    public const string HOME_ANIMAL_SCENE_CONFIG = "HomeAnimalSceneConfig";
+    /// <summary>
+    /// 畜牧食盆
+    /// </summary>
+    public const string HOME_ANIMAL_BOWL = "HomeAnimalBowl";
+    /// <summary>
+    /// 畜牧动物
+    /// </summary>
+    public const string HOME_ANIMAL = "HomeAnimal";
+
+    /// <summary>
+    /// 畜牧动物掉落
+    /// </summary>
+    public const string HOME_ANIMAL_DROP = "HomeAnimalDrop";
 }

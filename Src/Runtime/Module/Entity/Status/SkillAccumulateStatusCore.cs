@@ -88,7 +88,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, DeathStatusCore.Name);
+            ChangeState(fsm, GetDeathStatusName());
             return;
         }
         if (CheckCanMove())

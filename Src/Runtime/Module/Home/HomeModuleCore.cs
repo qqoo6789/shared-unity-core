@@ -29,6 +29,12 @@ public abstract class HomeModuleCore : MonoBehaviour
     /// <value></value>
     public static HomeSoilResourceRelation SoilResourceRelation { get; private set; }
 
+    /// <summary>
+    /// 畜牧场景管理
+    /// </summary>
+    /// <value></value>
+    public static HomeAnimalScene AnimalScene { get; private set; }
+
     private void Start()
     {
         if (Root != null)
@@ -58,6 +64,7 @@ public abstract class HomeModuleCore : MonoBehaviour
     protected virtual void InitModule()
     {
         SoilResourceRelation = gameObject.AddComponent<HomeSoilResourceRelation>();
+        AnimalScene = gameObject.AddComponent<HomeAnimalScene>();
     }
 
     protected virtual void UnInitModule()
@@ -74,6 +81,7 @@ public abstract class HomeModuleCore : MonoBehaviour
         SoilMgr = AddHomeSoilMgr();
 
         _ = gameObject.AddComponent<InitHomeLogicCore>();
+        _ = gameObject.AddComponent<AnimalInitLogicCore>();
     }
 
     /// <summary>
