@@ -74,11 +74,11 @@ public class DRAvatar : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        ResouceBoy = columnStrings[index++];
+        ResouceBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
         AvatarType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        ResouceBoyIcon = columnStrings[index++];
-        ResouceGirl = columnStrings[index++];
-        ResouceGirlIcon = columnStrings[index++];
+        ResouceBoyIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ResouceGirl = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ResouceGirlIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

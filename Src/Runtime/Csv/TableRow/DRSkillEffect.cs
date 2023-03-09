@@ -138,7 +138,7 @@ public class DRSkillEffect : DataRowBase
         EffectInterval = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectImmuneFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        BuffIcon = columnStrings[index++];
+        BuffIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

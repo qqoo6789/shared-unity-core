@@ -105,7 +105,7 @@ public class DREquipment : DataRowBase
         GearDurabilityMax = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GearQuality = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GearType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Gender = columnStrings[index++];
+        Gender = DataTableParseUtil.ParseString(columnStrings[index++]);
         GivenSkillId = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         ItemId = DataTableParseUtil.ParseInt(columnStrings[index++]);

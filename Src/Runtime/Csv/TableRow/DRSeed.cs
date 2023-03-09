@@ -109,12 +109,12 @@ public class DRSeed : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        Desc = columnStrings[index++];
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GrowRes = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         GrowTotalTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        HarvestRes = columnStrings[index++];
+        HarvestRes = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         NeedWaterValue = DataTableParseUtil.ParseInt(columnStrings[index++]);

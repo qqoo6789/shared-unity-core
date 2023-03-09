@@ -137,17 +137,17 @@ public class DRRole : DataRowBase
 
         int index = 0;
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        GrasslandRunSound = columnStrings[index++];
+        GrasslandRunSound = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         InitialAttribute = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         JumpRollSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        PickUpSound = columnStrings[index++];
+        PickUpSound = DataTableParseUtil.ParseString(columnStrings[index++]);
         RandomAnim = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleDefaultAvatar = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         RoleDefaultSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         RoleIcon = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        RoleName = columnStrings[index++];
+        RoleName = DataTableParseUtil.ParseString(columnStrings[index++]);
         RoleSex = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;

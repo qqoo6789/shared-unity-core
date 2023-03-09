@@ -336,29 +336,29 @@ public class DRSkill : DataRowBase
         IsHoldSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsRemote = DataTableParseUtil.ParseBool(columnStrings[index++]);
         RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        ReleaseAct = columnStrings[index++];
+        ReleaseAct = DataTableParseUtil.ParseString(columnStrings[index++]);
         ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         ReleaseSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        SkillName = columnStrings[index++];
+        SkillName = DataTableParseUtil.ParseString(columnStrings[index++]);
         SkillRange = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillShake = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         TargetFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        ReleaseEff = columnStrings[index++];
+        ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        FlyAvatar = columnStrings[index++];
+        FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlySpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        SkillIcon = columnStrings[index++];
+        SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

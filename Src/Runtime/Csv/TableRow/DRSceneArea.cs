@@ -47,8 +47,8 @@ public class DRSceneArea : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        SceneName = columnStrings[index++];
-        SceneType = columnStrings[index++];
+        SceneName = DataTableParseUtil.ParseString(columnStrings[index++]);
+        SceneType = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

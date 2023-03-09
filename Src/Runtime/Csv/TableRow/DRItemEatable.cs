@@ -77,7 +77,7 @@ public class DRItemEatable : DataRowBase
         CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
-        InteractType = columnStrings[index++];
+        InteractType = DataTableParseUtil.ParseString(columnStrings[index++]);
         CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;

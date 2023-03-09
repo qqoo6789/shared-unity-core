@@ -83,12 +83,12 @@ public class DRBuilding : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        ArmatureRes = columnStrings[index++];
+        ArmatureRes = DataTableParseUtil.ParseString(columnStrings[index++]);
         PowerCostPerHour = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RewardList = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         MaxCanHarvest = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MaxCanCollect = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Stolenpercentage = columnStrings[index++];
+        Stolenpercentage = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

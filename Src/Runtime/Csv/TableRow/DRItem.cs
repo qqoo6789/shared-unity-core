@@ -110,10 +110,10 @@ public class DRItem : DataRowBase
 
         int index = 0;
         CanMint = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Desc = columnStrings[index++];
-        Icon = columnStrings[index++];
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         Quality = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UseLv = DataTableParseUtil.ParseInt(columnStrings[index++]);

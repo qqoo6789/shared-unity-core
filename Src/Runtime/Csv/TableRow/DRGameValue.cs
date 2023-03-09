@@ -48,7 +48,7 @@ public class DRGameValue : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         Value = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        StrValue = columnStrings[index++];
+        StrValue = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

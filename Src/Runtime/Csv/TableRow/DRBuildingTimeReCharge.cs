@@ -48,7 +48,7 @@ public class DRBuildingTimeReCharge : DataRowBase
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
         PowerTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
