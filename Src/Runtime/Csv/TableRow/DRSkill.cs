@@ -159,6 +159,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取skillDesc-string。*/
+    /// </summary>
+    public string SkillDesc
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取skillDistance-int。*/
     /// </summary>
     public int SkillDistance
@@ -341,6 +350,7 @@ public class DRSkill : DataRowBase
         ReleaseSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        SkillDesc = DataTableParseUtil.ParseString(columnStrings[index++]);
         SkillDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillName = DataTableParseUtil.ParseString(columnStrings[index++]);
@@ -386,6 +396,7 @@ public class DRSkill : DataRowBase
                 ReleaseSpd = binaryReader.Read7BitEncodedInt32();
                 ReleaseTime = binaryReader.Read7BitEncodedInt32();
                 SkillCD = binaryReader.Read7BitEncodedInt32();
+                SkillDesc = binaryReader.ReadString();
                 SkillDistance = binaryReader.Read7BitEncodedInt32();
                 SkillFlag = binaryReader.ReadArray<Int32>();
                 SkillName = binaryReader.ReadString();
