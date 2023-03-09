@@ -72,7 +72,7 @@ public class SESkillEffectModifierCore : SkillEffectBase
     /// </summary>
     private void UpdateEffectModifier()
     {
-        if (_skillCpt != null)
+        if (_skillCpt == null)
         {
             Log.Error($"SESkillAddEffectCore not find skillCpt Error EntityID = {RefEntity.BaseData.Id}");
             return;
