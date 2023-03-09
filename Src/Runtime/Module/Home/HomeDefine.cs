@@ -14,7 +14,7 @@ public static class HomeDefine
     public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 3;//进度动作统一流逝速度 每秒
     public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
 
-    public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 1800;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
+    public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 7200;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
 
     /// <summary>
     /// 需要消耗道具的动作集合
