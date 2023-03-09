@@ -205,4 +205,51 @@ public static partial class SkillUtil
             }
         }
     }
+    /// <summary>
+    /// 计算技能效果列表
+    /// </summary>
+    /// <param name="modifierList"></param>
+    /// <returns></returns>
+    public static List<int> CalculateSkillEffectModifierList(List<SkillEffectModifier> modifierList)
+    {
+        Dictionary<int, int> effectValueMap = new();
+        bool isReplace = false;
+        for (int i = 0; i < modifierList.Count; i++)
+        {
+            SkillEffectModifier modifier = modifierList[i];
+            if (modifier.Type == eSkillEffectModifierType.Replace)
+            {
+                effectValueMap.Clear();
+                isReplace = true;
+            }
+
+            for (int j = 0; j < modifier.EffectIDs.Length; j++)
+            {
+                int effectID = modifier.EffectIDs[j];
+                if (effectValueMap.TryGetValue(effectID, out int count))
+                {
+                    effectValueMap[effectID] = count + modifier.Value;
+                }
+                else
+                {
+                    effectValueMap.Add(effectID, modifier.Value);
+                }
+            }
+
+            if (isReplace)
+            {
+                break;
+            }
+        }
+
+        List<int> effectList = new();
+        foreach (KeyValuePair<int, int> item in effectValueMap)
+        {
+            if (item.Value > 0)
+            {
+                effectList.Add(item.Key);
+            }
+        }
+        return effectList;
+    }
 }
