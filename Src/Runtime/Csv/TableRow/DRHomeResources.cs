@@ -100,15 +100,15 @@ public class DRHomeResources : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        AssetRes = columnStrings[index++];
-        Desc = columnStrings[index++];
+        AssetRes = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Icon = columnStrings[index++];
-        Name = columnStrings[index++];
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

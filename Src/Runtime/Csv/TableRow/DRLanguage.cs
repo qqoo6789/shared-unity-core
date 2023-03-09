@@ -56,9 +56,9 @@ public class DRLanguage : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        Module = columnStrings[index++];
-        Value = columnStrings[index++];
-        Describe = columnStrings[index++];
+        Module = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Value = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Describe = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

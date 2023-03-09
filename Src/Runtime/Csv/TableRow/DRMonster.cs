@@ -288,7 +288,7 @@ public class DRMonster : DataRowBase
         CritDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CritRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Def = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Desc = columnStrings[index++];
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -297,14 +297,14 @@ public class DRMonster : DataRowBase
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HungerSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Icon = columnStrings[index++];
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         LockEnemyRange = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MaxHunger = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MissPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MoveSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         PushDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
         PushDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);

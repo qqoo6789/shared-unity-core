@@ -91,11 +91,11 @@ public class DRNpc : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        Desc = columnStrings[index++];
-        Icon = columnStrings[index++];
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         MoveSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         TaskBegin = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         TaskEnd = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);

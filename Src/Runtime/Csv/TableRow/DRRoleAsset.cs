@@ -91,14 +91,14 @@ public class DRRoleAsset : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        ArmatureRes = columnStrings[index++];
-        AttackSound = columnStrings[index++];
-        DeathSound = columnStrings[index++];
-        Desc = columnStrings[index++];
-        HurtedCritSound = columnStrings[index++];
-        HurtedSound = columnStrings[index++];
+        ArmatureRes = DataTableParseUtil.ParseString(columnStrings[index++]);
+        AttackSound = DataTableParseUtil.ParseString(columnStrings[index++]);
+        DeathSound = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
+        HurtedCritSound = DataTableParseUtil.ParseString(columnStrings[index++]);
+        HurtedSound = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
-        IdleSound = columnStrings[index++];
+        IdleSound = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

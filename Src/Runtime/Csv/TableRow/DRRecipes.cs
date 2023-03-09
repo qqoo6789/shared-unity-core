@@ -182,13 +182,13 @@ public class DRRecipes : DataRowBase
 
         int index = 0;
         ClassifyLevel = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Desc = columnStrings[index++];
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         DisplayType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Icon = columnStrings[index++];
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Level = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MatItemId = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         ProductId = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         Proficiency = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RecipesSort = DataTableParseUtil.ParseInt(columnStrings[index++]);

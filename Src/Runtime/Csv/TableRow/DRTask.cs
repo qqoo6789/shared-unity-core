@@ -118,17 +118,17 @@ public class DRTask : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        DesignateOptions = columnStrings[index++];
-        Details = columnStrings[index++];
+        DesignateOptions = DataTableParseUtil.ParseString(columnStrings[index++]);
+        Details = DataTableParseUtil.ParseString(columnStrings[index++]);
         Difficulty = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ExpReward = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         IsSelfEnd = DataTableParseUtil.ParseBool(columnStrings[index++]);
         ItemReward = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         Level = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         PreTaskReq = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        ChanceOptions = columnStrings[index++];
+        ChanceOptions = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }

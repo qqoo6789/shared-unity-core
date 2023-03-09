@@ -66,7 +66,7 @@ public class DREntityAttribute : DataRowBase
         int index = 0;
         DefaultValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ValueType = DataTableParseUtil.ParseInt(columnStrings[index++]);
 

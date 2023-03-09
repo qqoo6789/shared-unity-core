@@ -155,15 +155,15 @@ public class DRTalentTree : DataRowBase
 
         int index = 0;
         Col = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Desc = columnStrings[index++];
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         GainsArgs = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         GainsType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Icon = columnStrings[index++];
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         IsTrunk = DataTableParseUtil.ParseBool(columnStrings[index++]);
         Layer = DataTableParseUtil.ParseInt(columnStrings[index++]);
         LvLimit = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Name = columnStrings[index++];
+        Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UpgradeEXP = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         UpgradeRequireTreeLv = DataTableParseUtil.ParseInt(columnStrings[index++]);

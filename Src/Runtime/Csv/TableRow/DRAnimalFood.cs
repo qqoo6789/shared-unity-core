@@ -65,7 +65,7 @@ public class DRAnimalFood : DataRowBase
 
         int index = 0;
         Capacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Desc = columnStrings[index++];
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
