@@ -6,7 +6,11 @@ public static class MoveDefine
     /// <summary>
     /// 走直线时的最大请求间隔时间 s
     /// </summary>
-    public const float MOVE_MAX_SYNC_INTERVAL_TIME = 0.5f;
+    public const float MOVE_MAX_SYNC_INTERVAL_TIME = 0.3f;
+    /// <summary>
+    /// 方向偏移多少度就需要同步
+    /// </summary>
+    public const float MOVE_SYNC_DIRECTION_OFFSET_ANGLE = 10f;
     /// <summary>
     /// 允许的网络延迟时间 s
     /// </summary>
