@@ -7,7 +7,7 @@ public class EntityMoveData : EntityBaseComponent
     /// <summary>
     /// 移动速度 m/s
     /// </summary>
-    public float Speed = 1;
+    public float Speed { get; private set; } = 1;
 
     /// <summary>
     /// 着陆的 不是浮空的
@@ -20,5 +20,13 @@ public class EntityMoveData : EntityBaseComponent
     private void Start()
     {
         _characterController = RefEntity.GetComponent<CharacterMoveCtrl>();
+    }
+    /// <summary>
+    /// 设置移动速度
+    /// </summary>
+    /// <param name="speed"></param>
+    public void SetMoveSpeed(float speed)
+    {
+        Speed = speed;
     }
 }
