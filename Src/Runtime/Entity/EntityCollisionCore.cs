@@ -66,10 +66,12 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         //因为现在移动主要都是依赖角色控制器 但是角色控制器控制的移动只能是控制器所在对象 所以只能将预制件中的碰撞器参数复制到实体根上来移动 这是暂时折中办法
         if (prefab.TryGetComponent(out Mover prefabMover))
         {
+            Collider prefabCollider = prefab.GetComponent<Collider>();
+
             //先手动创建移动碰撞的依赖组件
             _ = RefEntity.AddComponent<Rigidbody>();
             CapsuleCollider collider = RefEntity.AddComponent<CapsuleCollider>();
-            collider.isTrigger = true;
+            collider.isTrigger = prefabCollider.isTrigger;
 
             Mover mover = RefEntity.AddComponent<Mover>();
             mover.SetColliderHeight(prefabMover.ColliderHeight);
