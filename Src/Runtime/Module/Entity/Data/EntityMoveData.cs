@@ -7,7 +7,7 @@ public class EntityMoveData : EntityBaseComponent
     /// <summary>
     /// 移动速度 m/s
     /// </summary>
-    public float Speed { get; private set; } = 1;
+    public float Speed = 1;
 
     /// <summary>
     /// 着陆的 不是浮空的
