@@ -157,5 +157,14 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action<IEnumerable<int>, IEnumerable<int>> TalentSkillUpdated;
     public Action<IEnumerable<int>> TalentSkillInited;
+
+    /// <summary>
+    /// 实体技能添加  T0:技能ID
+    /// </summary>
+    public Action<int> EntitySkillAdd;
+    /// <summary>
+    /// 实体技能删除  T0:技能ID
+    /// </summary>
+    public Action<int> EntitySkillRemove;
     #endregion
 }

@@ -1,9 +1,8 @@
-using System.Diagnostics.Tracing;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能组件
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -32,6 +31,7 @@ public class SkillCpt : EntityBaseComponent
         SkillBase skill = SkillBase.Create<SkillBase>(skillID);
         SkillMap.Add(skillID, skill);
         skill.OnAdd(RefEntity);
+        RefEntity.EntityEvent.EntitySkillAdd?.Invoke(skillID);
         return skill;
     }
 
@@ -48,6 +48,7 @@ public class SkillCpt : EntityBaseComponent
         skill.OnRemove();
         skill.Dispose();
         _ = SkillMap.Remove(skillID);
+        RefEntity.EntityEvent.EntitySkillRemove?.Invoke(skillID);
     }
     public void RemoveAllSkill()
     {
@@ -97,5 +98,25 @@ public class SkillCpt : EntityBaseComponent
 
         }
         return false;
+    }
+
+    /// <summary>
+    /// 获得技能
+    /// </summary>
+    public SkillBase GetSkill(int skillID)
+    {
+        if (!SkillMap.TryGetValue(skillID, out SkillBase skill))
+        {
+            Log.Warning($"GetSkill Skill Is Null! skillId ={skillID}");
+            return null;
+        }
+        return skill;
+    }
+    /// <summary>
+    /// 是否拥有技能
+    /// </summary>
+    public bool HasSkill(int skillID)
+    {
+        return SkillMap.ContainsKey(skillID);
     }
 }

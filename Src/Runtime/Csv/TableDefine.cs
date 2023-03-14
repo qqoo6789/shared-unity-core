@@ -135,4 +135,24 @@ public enum eSkillEffectType : int
     SESkillRangeTrigger = 12,
     SEBloodRage = 13,
     SEUnharmedAddAttr = 14,
+    SESkillEffectModifier = 15,
+}
+/// <summary>
+/// 技能效果作用类型
+/// </summary>
+public enum eSkillEffectApplyType : int
+{
+    Init = 0, //初始阶段
+    Forward = 1, //前置阶段
+    CastSelf = 2, //对自己释放
+    CastEnemy = 3, //对敌人释放
+}
+/// <summary>
+/// 技能效果修改类型
+/// </summary>
+public enum eSkillEffectModifierType : int
+{
+    Replace = 0, //替换
+    Add = 1, //增加
+    Remove = 2, //移除
 }

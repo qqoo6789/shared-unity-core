@@ -65,9 +65,10 @@ public static partial class SkillUtil
     /// <summary>
     /// 搜索目标列表
     /// </summary>
-    /// <param name="entity">实体ID</param>
-    /// <param name="skillRange">技能范围配置</param>
-    /// <param name="skillDir">技能方向</param>
+    /// <param name="pos"></param>
+    /// <param name="fromEntity"></param>
+    /// <param name="skillRange"></param>
+    /// <param name="skillDir"></param>
     public static List<EntityBase> SearchTargetEntityList(Vector3 pos, EntityBase fromEntity, int[] skillRange, Vector3 skillDir)
     {
 
@@ -124,14 +125,8 @@ public static partial class SkillUtil
             Log.Error($"CalculateSkillCD  Error skillID = {skillID}");
             return 0;
         }
-        if (entity.BattleDataCore == null)
-        {
-            Log.Error($"CalculateSkillCD  Not Find EntityBattleDataCore skillID = {skillID}");
-            return 0;
-        }
-        //AttSpeed暂时做冷却缩减使用
-        double cdScale = (10000 - entity.BattleDataCore.AttSpeed) / 10000.0;
-        long skillCD = (long)(CurSkillCfg.SkillCD * cdScale);
+
+        long skillCD = CurSkillCfg.SkillCD;
         if (skillCD < 0)
         {
             skillCD = 0;
@@ -142,14 +137,12 @@ public static partial class SkillUtil
     /// <summary>
     /// 实体技能效果执行
     /// </summary>
-    /// <param name="skillCfg">技能配置</param>
-    /// <param name="skillDir">技能方向</param>
-    /// <param name="targets">技能目标列表</param>
+    /// <param name="inputData">输入数据</param>
     /// <param name="effectList">效果列表</param>
     /// <param name="fromEntity">释放实体</param>
     /// <param name="targetEntity">目标实体</param>
     /// <returns></returns>
-    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecute(DRSkill skillCfg, Vector3 skillDir, long[] targets, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecute(InputSkillReleaseData inputData, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
     {
         List<GameMessageCore.DamageEffect> effects = new();
         if (effectList == null || effectList.Length <= 0)
@@ -157,7 +150,7 @@ public static partial class SkillUtil
             return effects;
         }
         SkillEffectCpt effectCpt = targetEntity.GetComponent<SkillEffectCpt>();
-        List<SkillEffectBase> skillEffects = SkillConfigParse.ParseSkillEffect(skillCfg, fromEntity.BaseData.Id, targetEntity.BaseData.Id, effectList);
+        List<SkillEffectBase> skillEffects = SkillConfigParse.ParseSkillEffect(inputData.SkillID, fromEntity.BaseData.Id, targetEntity.BaseData.Id, effectList);
         for (int i = 0; i < skillEffects.Count; i++)
         {
             try
@@ -165,7 +158,7 @@ public static partial class SkillUtil
                 SkillEffectBase skillEffect = skillEffects[i];
                 if (effectCpt.CheckApplyEffect(fromEntity, targetEntity, skillEffect))
                 {
-                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, skillDir, targets);
+                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, inputData.Dir, inputData.Targets);
                     if (effectData == null)
                     {
                         continue;
@@ -186,7 +179,7 @@ public static partial class SkillUtil
             }
             catch (System.Exception e)
             {
-                Log.Error($"skill cast skill effect apply error skillID = {skillCfg.Id}, effectID = {skillEffects[i].EffectID} error = {e}");
+                Log.Error($"skill cast skill effect apply error skillID = {inputData.SkillID}, effectID = {skillEffects[i].EffectID} error = {e}");
                 continue;
             }
         }
@@ -196,20 +189,67 @@ public static partial class SkillUtil
     /// <summary>
     /// 实体技能效果取消
     /// </summary>
-    /// <param name="skillCfg">技能配置</param>
+    /// <param name="skillID">技能ID</param>
     /// <param name="effectList">效果列表</param>
     /// <param name="fromEntity">释放实体</param>
     /// <param name="targetEntity">目标实体</param>
     /// <returns></returns>
-    public static void EntityAbolishSkillEffect(DRSkill skillCfg, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
+    public static void EntityAbolishSkillEffect(int skillID, int[] effectList, EntityBase fromEntity, EntityBase targetEntity)
     {
         SkillEffectCpt effectCpt = targetEntity.GetComponent<SkillEffectCpt>();
         if (effectList != null && effectList.Length > 0)
         {
             for (int i = 0; i < effectList.Length; i++)
             {
-                effectCpt.AbolishSkillEffect(effectList[i], skillCfg.Id, fromEntity.BaseData.Id);
+                effectCpt.AbolishSkillEffect(effectList[i], skillID, fromEntity.BaseData.Id);
             }
         }
+    }
+    /// <summary>
+    /// 计算技能效果列表
+    /// </summary>
+    /// <param name="modifierList"></param>
+    /// <returns></returns>
+    public static List<int> CalculateSkillEffectModifierList(List<SkillEffectModifier> modifierList)
+    {
+        Dictionary<int, int> effectValueMap = new();
+        bool isReplace = false;
+        for (int i = 0; i < modifierList.Count; i++)
+        {
+            SkillEffectModifier modifier = modifierList[i];
+            if (modifier.Type == eSkillEffectModifierType.Replace)
+            {
+                effectValueMap.Clear();
+                isReplace = true;
+            }
+
+            for (int j = 0; j < modifier.EffectIDs.Length; j++)
+            {
+                int effectID = modifier.EffectIDs[j];
+                if (effectValueMap.TryGetValue(effectID, out int count))
+                {
+                    effectValueMap[effectID] = count + modifier.Value;
+                }
+                else
+                {
+                    effectValueMap.Add(effectID, modifier.Value);
+                }
+            }
+
+            if (isReplace)
+            {
+                break;
+            }
+        }
+
+        List<int> effectList = new();
+        foreach (KeyValuePair<int, int> item in effectValueMap)
+        {
+            if (item.Value > 0)
+            {
+                effectList.Add(item.Key);
+            }
+        }
+        return effectList;
     }
 }
