@@ -69,18 +69,18 @@ public class DRHomeResources : DataRowBase
     }
 
     /// <summary>
-  /**获取lv-int。*/
+  /**获取icon-string。*/
     /// </summary>
-    public int Lv
+    public string Icon
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取icon-string。*/
+  /**获取lv-int。*/
     /// </summary>
-    public string Icon
+    public int Lv
     {
         get;
         private set;
@@ -105,9 +105,9 @@ public class DRHomeResources : DataRowBase
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         Name = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
@@ -125,9 +125,9 @@ public class DRHomeResources : DataRowBase
                 DropId = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
                 HomeAction = binaryReader.Read7BitEncodedInt32();
+                Icon = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
-                Icon = binaryReader.ReadString();
                 Name = binaryReader.ReadString();
             }
         }

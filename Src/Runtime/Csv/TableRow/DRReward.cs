@@ -41,6 +41,15 @@ public class DRReward : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取rewardType-int。*/
+    /// </summary>
+    public int RewardType
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -49,6 +58,7 @@ public class DRReward : DataRowBase
         _id = int.Parse(columnStrings[index++]);
         RewardList = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         RewardTimes = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        RewardType = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -63,6 +73,7 @@ public class DRReward : DataRowBase
                 _id = binaryReader.Read7BitEncodedInt32();
                 RewardList = binaryReader.ReadArrayList<Int32>();
                 RewardTimes = binaryReader.ReadArrayList<Int32>();
+                RewardType = binaryReader.Read7BitEncodedInt32();
             }
         }
 

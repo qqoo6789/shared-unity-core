@@ -69,18 +69,18 @@ public class DRNpc : DataRowBase
     }
 
     /// <summary>
-  /**获取taskBegin-int[]。*/
+  /**获取taskEnd-int[]。*/
     /// </summary>
-    public int[] TaskBegin
+    public int[] TaskEnd
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取taskEnd-int[]。*/
+  /**获取taskBegin-int[]。*/
     /// </summary>
-    public int[] TaskEnd
+    public int[] TaskBegin
     {
         get;
         private set;
@@ -97,8 +97,8 @@ public class DRNpc : DataRowBase
         MoveSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        TaskBegin = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         TaskEnd = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        TaskBegin = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
 
         return true;
     }
@@ -116,8 +116,8 @@ public class DRNpc : DataRowBase
                 MoveSpeed = binaryReader.Read7BitEncodedInt32();
                 Name = binaryReader.ReadString();
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
-                TaskBegin = binaryReader.ReadArray<Int32>();
                 TaskEnd = binaryReader.ReadArray<Int32>();
+                TaskBegin = binaryReader.ReadArray<Int32>();
             }
         }
 
