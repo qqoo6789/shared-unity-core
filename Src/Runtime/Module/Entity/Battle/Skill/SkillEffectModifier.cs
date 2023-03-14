@@ -19,7 +19,7 @@ public class SkillEffectModifier : IReference
     {
         Type = eSkillEffectModifierType.Add;
         ApplyType = eSkillEffectApplyType.Init;
-        EffectIDs = new int[0];
+        EffectIDs = null;
         Value = 0;
     }
     public static SkillEffectModifier Create(eSkillEffectApplyType applyType, eSkillEffectModifierType type, params int[] values)
