@@ -21,4 +21,12 @@ public class EntityMoveData : EntityBaseComponent
     {
         _characterController = RefEntity.GetComponent<CharacterMoveCtrl>();
     }
+    /// <summary>
+    /// 设置移动速度
+    /// </summary>
+    /// <param name="speed"></param>
+    public void SetMoveSpeed(float speed)
+    {
+        Speed = speed;
+    }
 }

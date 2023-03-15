@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -60,7 +60,7 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// <summary>
     /// 移动速度 属性是cm转成m
     /// </summary>
-    public float MoveSpeed { get => GetValue(eAttributeType.MoveSpd) * MathUtilCore.CM2M; protected set => SetBaseValue(eAttributeType.MoveSpd, (int)(value * MathUtilCore.M2CM)); }
+    public float MoveSpeed { get => GetMoveSpeedValue(); protected set => SetBaseValue(eAttributeType.MoveSpd, (int)(value * MathUtilCore.M2CM)); }
     /// <summary>
     /// 等级
     /// </summary>
@@ -90,6 +90,11 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// </summary>
     private readonly Dictionary<BattleDefine.eBattleState, int> _battleStateMap = new();
 
+    private PlayerAreaRecord _playerAreaRecord;
+    private void Start()
+    {
+        _playerAreaRecord = GetComponent<PlayerAreaRecord>();
+    }
     public virtual void SetHP(int hp)
     {
         HP = hp;
@@ -205,6 +210,19 @@ public class EntityBattleDataCore : EntityBaseComponent
     protected void SetBaseValue(eAttributeType type, int value)
     {
         RefEntity.EntityAttributeData.SetBaseValue(type, value);
+    }
+
+    /// <summary>
+    /// 返回移动速度
+    /// </summary>
+    protected float GetMoveSpeedValue()
+    {
+        float speed = GetValue(eAttributeType.MoveSpd) * MathUtilCore.CM2M;
+        if (_playerAreaRecord != null && _playerAreaRecord.CurArea == eSceneArea.home)
+        {
+            speed += GetValue(eAttributeType.HomeExtraMoveSpd) * MathUtilCore.CM2M;
+        }
+        return speed;
     }
 
     /// <summary>
