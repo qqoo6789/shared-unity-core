@@ -1,3 +1,4 @@
+using UnityGameFramework.Runtime;
 /// <summary>
 /// 畜牧工具
 /// </summary>
@@ -11,5 +12,27 @@ public class AnimalUtilCore
     public static int CalculateAnimalFavorabilityHeartNum(int favorabilityValue)
     {
         return favorabilityValue / HomeDefine.ANIMAL_FAVORABILITY_ONE_HEART_NUM;
+    }
+
+    /// <summary>
+    /// 从monster实体上生成 AnimalBaseData数据 异常返回null
+    /// </summary>
+    /// <returns></returns>
+    public static AnimBaseData GenerateAnimalBaseDataFromMonster(EntityBase monster)
+    {
+        if (monster == null)
+        {
+            Log.Error("GenerateAnimalBaseDataFromMonster monster is null");
+            return null;
+        }
+
+        DRMonster dRMonster = monster.GetComponent<MonsterDataCore>().DRMonster;
+        return new()
+        {
+            AnimId = (ulong)monster.BaseData.Id,
+            Name = dRMonster.Name,
+            Cid = dRMonster.Id,
+            Favorability = 0,
+        };
     }
 }

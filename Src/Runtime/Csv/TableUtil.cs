@@ -1,3 +1,4 @@
+using UnityGameFramework.Runtime;
 /// <summary>
 /// 通用配置表工具类
 /// </summary>
@@ -36,5 +37,47 @@ public static class TableUtil
         }
 
         return (HomeDefine.eAction)(1 << drAction);
+    }
+
+    /// <summary>
+    /// 配置表中的字符串格式化输入 xxx{0}bbbb{1}
+    /// </summary>
+    /// <param name="format"></param>
+    /// <param name="args"></param>
+    /// <returns></returns>
+    public static string StringFormat(string format, params object[] args)
+    {
+        try
+        {
+            string res = string.Format(format, args);
+            return res;
+        }
+        catch (System.Exception e)
+        {
+            Log.Error($"table StringFormat error format = {format} args = {args} e = {e}");
+            return format;
+        }
+    }
+
+    public static string GetLanguage(int id)
+    {
+        DRLanguage drLanguage = GFEntryCore.DataTable.GetDataTable<DRLanguage>().GetDataRow(id);
+        if (drLanguage == null)
+        {
+            Log.Error($"GetLanguage DRLanguage is null id = {id}");
+            return $"#{id}";
+        }
+        return drLanguage.Value;
+    }
+
+    public static DRGameValue GetGameValue(eGameValueID id)
+    {
+        DRGameValue drGameValue = GFEntryCore.DataTable.GetDataTable<DRGameValue>().GetDataRow((int)id);
+        if (drGameValue == null)
+        {
+            Log.Error($"GetGameValue DRGameValue is null id = {id}");
+            throw new System.Exception($"GetGameValue not find id = {id}");
+        }
+        return drGameValue;
     }
 }
