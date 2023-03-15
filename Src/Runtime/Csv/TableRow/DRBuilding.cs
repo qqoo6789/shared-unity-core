@@ -33,18 +33,9 @@ public class DRBuilding : DataRowBase
     }
 
     /// <summary>
-  /**获取powerCostPerHour-int。*/
+  /**获取maxCanCollect-int。*/
     /// </summary>
-    public int PowerCostPerHour
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取rewardList-int[][]。*/
-    /// </summary>
-    public int[][] RewardList
+    public int MaxCanCollect
     {
         get;
         private set;
@@ -60,9 +51,18 @@ public class DRBuilding : DataRowBase
     }
 
     /// <summary>
-  /**获取maxCanCollect-int。*/
+  /**获取powerCostPerHour-int。*/
     /// </summary>
-    public int MaxCanCollect
+    public int PowerCostPerHour
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取rewardList-int[][]。*/
+    /// </summary>
+    public int[][] RewardList
     {
         get;
         private set;
@@ -82,12 +82,12 @@ public class DRBuilding : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
         ArmatureRes = DataTableParseUtil.ParseString(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
+        MaxCanCollect = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        MaxCanHarvest = DataTableParseUtil.ParseInt(columnStrings[index++]);
         PowerCostPerHour = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RewardList = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
-        MaxCanHarvest = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        MaxCanCollect = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Stolenpercentage = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
@@ -100,12 +100,12 @@ public class DRBuilding : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
                 ArmatureRes = binaryReader.ReadString();
+                _id = binaryReader.Read7BitEncodedInt32();
+                MaxCanCollect = binaryReader.Read7BitEncodedInt32();
+                MaxCanHarvest = binaryReader.Read7BitEncodedInt32();
                 PowerCostPerHour = binaryReader.Read7BitEncodedInt32();
                 RewardList = binaryReader.ReadArrayList<Int32>();
-                MaxCanHarvest = binaryReader.Read7BitEncodedInt32();
-                MaxCanCollect = binaryReader.Read7BitEncodedInt32();
                 Stolenpercentage = binaryReader.ReadString();
             }
         }

@@ -55,8 +55,8 @@ public class DRBuildingBatteryReCharge : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        _id = int.Parse(columnStrings[index++]);
         Battery = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
         PresentBattery = DataTableParseUtil.ParseInt(columnStrings[index++]);
         TokenCost = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
@@ -70,8 +70,8 @@ public class DRBuildingBatteryReCharge : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                _id = binaryReader.Read7BitEncodedInt32();
                 Battery = binaryReader.Read7BitEncodedInt32();
+                _id = binaryReader.Read7BitEncodedInt32();
                 PresentBattery = binaryReader.Read7BitEncodedInt32();
                 TokenCost = binaryReader.Read7BitEncodedInt32();
             }

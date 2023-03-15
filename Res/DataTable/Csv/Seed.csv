@@ -1,12 +1,12 @@
 desc-string,dropId-int,exp-int,growRes-string[],growTotalTime-int,harvestRes-string,id-int,lv-int,needWaterValue-int,witherTime-int
-测试种子描述,6,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,26,1,100,10
-测试种子描述,6,100,"2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03,2D_Tree__Eguo_03",9,2D_Tree__Eguo_03,22,1,100,10
-,16,100,"Slice 1,2D_crops_zhuzi_2,2D_crops_zhuzi_3,2D_crops_zhuzi_4",60,2D_crops_zhuzi_5,146,1,100,86400
-,17,100,"Slice 1,2D_crops_sanyecao_2,2D_crops_sanyecao_3",180,2D_crops_sanyecao_4,147,1,150,86400
-,18,100,"Slice 1,2D_crops_huluobo_2,2D_crops_huluobo_3",540,2D_crops_huluobo_4,148,1,200,86400
-,19,100,"Slice 1,2D_crops_zhulongcao_2,2D_crops_zhulongcao_3",80,2D_crops_zhulongcao_4,149,2,100,86400
-,20,100,"Slice 1,2D_crops_mianhua_2,2D_crops_mianhua_3,2D_crops_mianhua_4",240,2D_crops_mianhua_5,150,2,150,86400
-,21,100,"Slice 1,Slice 13,Slice 14",720,Slice 14,151,2,200,86400
-,22,100,"Slice 1,2D_crops_lajiao_2,2D_crops_lajiao_3,2D_crops_lajiao_4",100,2D_crops_lajiao_5,152,3,100,86400
-,23,100,"Slice 1,2D_crops_ciguo_2,2D_crops_ciguo_3",300,2D_crops_ciguo_4,153,3,150,86400
-,24,100,"Slice 1,2D_crops_mogu_2,2D_crops_mogu_3,2D_crops_mogu_4",900,2D_crops_mogu_5,154,3,200,86400
+测试种子描述,6,100,"seed-26-p1,seed-26-p2,seed-26-p3",9,seed-26-final,26,1,100,10
+测试种子描述,6,100,"seed-22-p1,seed-22-p2,seed-22-p3,seed-22-p4",9,seed-22-final,22,1,100,10
+,16,100,"seed-146-p1,seed-146-p2,seed-146-p3,seed-146-p4",60,seed-146-final,146,1,100,86400
+,17,100,"seed-147-p1,seed-147-p2,seed-147-p3",180,seed-147-final,147,1,150,86400
+,18,100,"seed-148-p1,seed-148-p2,seed-148-p3",540,seed-148-final,148,1,200,86400
+,19,100,"seed-149-p1,seed-149-p2,seed-149-p3",80,seed-149-final,149,2,100,86400
+,20,100,"seed-150-p1,seed-150-p2,seed-150-p3,seed-150-p4",240,seed-150-final,150,2,150,86400
+,21,100,"seed-151-p1,seed-151-p2,seed-151-p3",720,seed-151-final,151,2,200,86400
+,22,100,"seed-152-p1,seed-152-p2,seed-152-p3,seed-152-p4",100,seed-152-final,152,3,100,86400
+,23,100,"seed-153-p1,seed-153-p2,seed-153-p3",300,seed-153-final,153,3,150,86400
+,24,100,"seed-154-p1,seed-154-p2,seed-154-p3,seed-154-p4",900,seed-154-final,154,3,200,86400

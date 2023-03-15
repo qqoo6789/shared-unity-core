@@ -24,18 +24,18 @@ public class DRBuildingTimeReCharge : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取powerTime-int。*/
+  /**获取name-string。*/
     /// </summary>
-    public int PowerTime
+    public string Name
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取name-string。*/
+  /**获取powerTime-int。*/
     /// </summary>
-    public string Name
+    public int PowerTime
     {
         get;
         private set;
@@ -47,8 +47,8 @@ public class DRBuildingTimeReCharge : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        PowerTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Name = DataTableParseUtil.ParseString(columnStrings[index++]);
+        PowerTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -61,8 +61,8 @@ public class DRBuildingTimeReCharge : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                PowerTime = binaryReader.Read7BitEncodedInt32();
                 Name = binaryReader.ReadString();
+                PowerTime = binaryReader.Read7BitEncodedInt32();
             }
         }
 

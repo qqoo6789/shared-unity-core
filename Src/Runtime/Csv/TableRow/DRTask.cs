@@ -113,6 +113,15 @@ public class DRTask : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取finishText-string。*/
+    /// </summary>
+    public string FinishText
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -129,6 +138,7 @@ public class DRTask : DataRowBase
         Level = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         PreTaskReq = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         ChanceOptions = DataTableParseUtil.ParseString(columnStrings[index++]);
+        FinishText = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
@@ -151,6 +161,7 @@ public class DRTask : DataRowBase
                 Level = binaryReader.ReadArrayList<Int32>();
                 PreTaskReq = binaryReader.ReadArray<Int32>();
                 ChanceOptions = binaryReader.ReadString();
+                FinishText = binaryReader.ReadString();
             }
         }
 
