@@ -17,7 +17,7 @@ public class EntityMoveData : EntityBaseComponent
 
     private CharacterMoveCtrl _characterController;
 
-    private void Start()
+    protected virtual void Start()
     {
         _characterController = RefEntity.GetComponent<CharacterMoveCtrl>();
     }
