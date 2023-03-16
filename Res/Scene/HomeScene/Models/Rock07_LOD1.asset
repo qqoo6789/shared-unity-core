@@ -156,8 +156,8 @@ Mesh:
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 237.46234
-  m_MeshMetrics[1]: 124.17537
+  m_MeshMetrics[0]: 237.56963
+  m_MeshMetrics[1]: 124.2348
   m_MeshOptimizationFlags: -1
   m_StreamData:
     serializedVersion: 2
