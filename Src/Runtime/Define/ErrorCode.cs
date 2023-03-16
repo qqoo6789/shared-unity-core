@@ -30,6 +30,8 @@ public enum eErrorCode : int
     homeCollectResourceNotExist = 0005001, //家园采集资源不存在
     homeActionNotSupport = 0005002, //家园操作不支持
     homeItemCostError = 0005003, //家园道具扣除异常
+    animalCaptureReqError = 0006001, //捕捉动物请求异常
+    animalCaptureInvalid = 0006002, //捕捉动物无效
 
     #endregion
 
