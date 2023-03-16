@@ -11,6 +11,8 @@ public static class HomeDefine
     public static readonly Vector3 SOIL_SIZE = new(1.5f, 1.5f, 1.5f);  //土地格子大小
     public static readonly Vector3 EMPTY_SIZE = Vector3.one; //空地格子大小
 
+    public const float HOME_PROGRESS_ACTION_BACK_PROTECT_TIME = 2000;//家园进度动作回退保护时间 ms
+
     public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 3;//进度动作统一流逝速度 每秒
     public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
 
