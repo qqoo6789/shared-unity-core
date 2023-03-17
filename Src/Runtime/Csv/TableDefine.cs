@@ -44,29 +44,34 @@ public enum eRoleID
     male = 1,
 }
 
-public static class GameValueID
+public enum eGameValueID
 {
-    /// <summary>
-    /// 角色最大等级配置
-    /// </summary>
-    public const int ROLE_MAX_LV = 1;
-    /// <summary>
-    /// 角色插槽最大等级配置
-    /// </summary>
-    public const int SLOT_MAX_LV = 2;
-    /// <summary>
-    /// 技能最大等级配置
-    /// </summary>
-    public const int CRAFT_SKILL_MAX_LV = 3;
-    /// <summary>
-    /// 角色等级与插槽等级正负差距
-    /// </summary>
-    public const int MAX_LV_GAP_BETWEEN_SLOT_AND_ROLE = 4;
-    /// <summary>
-    /// 升级时不小于角色等级5级的插槽数量限制
-    /// </summary>
-    public const int COUNT_OF_VALID_SLOT_LV_TO_UPGRADE_ROLE = 5;
+    animalMaxNum = 8,
 }
+
+// public static class GameValueID
+// {
+//     /// <summary>
+//     /// 角色最大等级配置
+//     /// </summary>
+//     public const int ROLE_MAX_LV = 1;
+//     /// <summary>
+//     /// 角色插槽最大等级配置
+//     /// </summary>
+//     public const int SLOT_MAX_LV = 2;
+//     /// <summary>
+//     /// 技能最大等级配置
+//     /// </summary>
+//     public const int CRAFT_SKILL_MAX_LV = 3;
+//     /// <summary>
+//     /// 角色等级与插槽等级正负差距
+//     /// </summary>
+//     public const int MAX_LV_GAP_BETWEEN_SLOT_AND_ROLE = 4;
+//     /// <summary>
+//     /// 升级时不小于角色等级5级的插槽数量限制
+//     /// </summary>
+//     public const int COUNT_OF_VALID_SLOT_LV_TO_UPGRADE_ROLE = 5;
+// }
 
 /// <summary>
 /// 语言表id

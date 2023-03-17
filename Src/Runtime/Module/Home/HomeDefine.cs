@@ -78,7 +78,7 @@ public static class HomeDefine
     /// <summary>
     /// 好感度爱心显示的最大数量
     /// </summary>
-    public const int ANIMAL_HEAT_SHOW_MAX_NUM = 4;
+    public const int ANIMAL_HEAT_SHOW_MAX_NUM = 10;
     /// <summary>
     /// 畜牧动物死亡后能触发的对话的最大距离
     /// </summary>
