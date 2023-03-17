@@ -756,3 +756,12 @@ The higher the level of crafting the item, the more the increased proficiency.",
 5002,家园错误码,Operation not supported,操作不支持
 5003,家园错误码,Home item deduction abnormal,家园道具扣除异常
 20030001,保存技能配置,Save successfully,
+20040001,畜牧,"You can have up to [color=#e08638]{0} sprites[/color]
+
+Please choose to abandon this Sprite or replace it with another
+Sprite due to insufficient space",超过上限提示
+20040002,畜牧,PETS ARE FULL,超过上限提示标题
+20040003,畜牧,ABANDON,放弃按钮
+20040004,畜牧,DISPLACE,替换按钮
+6001,畜牧错误码,Capture animals request exception,捕捉动物请求异常
+6002,畜牧错误码,Capture animals is invalid,捕捉动物无效
