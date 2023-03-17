@@ -1,8 +1,7 @@
 assetRes-string,desc-string,dropId-int,exp-int,homeAction-int,icon-string,id-int,lv-int,name-string
 Slice_12,Weeds,6,100,5,Slice_12,1,1,
 Slice_12,Stone,6,100,7,Slice_12,2,2,
-USDC_icon,Tree,6,100,6,USDC_icon,3,3,
-,,27,100,6,,4,1,木材1-1 普通木材 Lv1 🌲采集 (62)
+Slice_12,,27,100,6,Slice_12,4,1,木材1-1 普通木材 Lv1 🌲采集 (62)
 2D_caijiziyuan_shumu01_1,,27,100,6,2D_caijiziyuan_shumu01_1,5,1,木材1-1 普通木材 Lv1 🌲采集 (62)
 2D_caijiziyuan_xianrenzhang,,28,100,6,2D_caijiziyuan_xianrenzhang,6,2,木材1-2 仙人掌素材 Lv2 🌲采集 (63)
 2D_caijiziyuan_hongguoshi,,34,100,5,2D_caijiziyuan_hongguoshi,7,3,草1-3 龙舌兰 Lv3 🌲采集 (68)
