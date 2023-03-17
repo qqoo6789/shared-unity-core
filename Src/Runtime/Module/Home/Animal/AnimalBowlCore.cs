@@ -48,7 +48,7 @@ public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
         return (SupportAction & action) != 0 && !Data.IsHaveFood;
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
     {
         DRAnimalFood drAnimalFood = GFEntryCore.DataTable.GetDataTable<DRAnimalFood>().GetDataRow(toolCid);
         if (drAnimalFood == null)
@@ -60,7 +60,7 @@ public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
         Data.UpdateFood(toolCid, drAnimalFood.Capacity);
     }
 
-    public void ExecuteProgress(eAction targetCurAction)
+    public void ExecuteProgress(eAction targetCurAction, int skillId)
     {
 
     }

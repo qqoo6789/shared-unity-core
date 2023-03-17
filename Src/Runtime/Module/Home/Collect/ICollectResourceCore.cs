@@ -45,10 +45,12 @@ public interface ICollectResourceCore
     /// <param name="toolCid">工具id 可能是种子 肥料 装备</param>
     /// <param name="itemValid">道具是否有效 种子肥料专精不够使也许会无效</param>
     /// <param name="extraWateringNum">额外浇水次数</param>
-    void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum);
+    /// <param name="skillId">技能id</param>
+    void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId);
     /// <summary>
     /// 执行了一次进度 最后一次进度也会调用 再去调用执行动作
     /// </summary>
     /// <param name="targetCurAction"></param>
-    void ExecuteProgress(eAction targetCurAction);
+    /// <param name="skillId">技能id</param>
+    void ExecuteProgress(eAction targetCurAction, int skillId);
 }

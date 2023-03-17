@@ -186,7 +186,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         return Data.IsCanHarvest;
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
     {
         if (action == eAction.LastWords)//触碰遗言
         {
@@ -202,7 +202,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
     }
 
-    public virtual void ExecuteProgress(eAction targetCurAction)
+    public virtual void ExecuteProgress(eAction targetCurAction, int skillId)
     {
 
     }

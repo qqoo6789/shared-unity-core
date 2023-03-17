@@ -80,7 +80,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         return (SupportAction & action) != 0;
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
     {
         if (!CheckSupportAction(action))
         {
@@ -92,7 +92,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         OnDeath();
     }
 
-    public void ExecuteProgress(eAction targetCurAction)
+    public virtual void ExecuteProgress(eAction targetCurAction, int skillId)
     {
 
     }
