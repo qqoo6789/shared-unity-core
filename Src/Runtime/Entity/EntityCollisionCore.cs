@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-26 14:25:46
  * @Description: 实体碰撞盒
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityCollisionCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityCollisionCore.cs
  * 
  */
 using CMF;
@@ -14,7 +14,8 @@ public abstract class EntityCollisionCore : EntityBaseComponent
     public GameObject CollisionObject { get; private set; }
     public Collider BodyCollision { get; private set; }  //躯干碰撞盒
 
-    public HashSet<long> EntityTriggerSet = new(); //触碰实体Map
+    public EntityCollisionTrigger EntityTrigger { get; private set; } //实体触发器
+    public HashSet<long> EntityTriggerSet => EntityTrigger.EntityTriggerSet; //触碰实体Map
     /// <summary>
     /// 加载碰撞预制体
     /// </summary>
@@ -33,25 +34,6 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         CollisionObject = null;
         BodyCollision = null;
     }
-
-    //勿删
-    // /// <summary>
-    // /// 初始化碰撞盒
-    // /// </summary>
-    // public virtual void Init(GameObject collisionObject)
-    // {
-    //     if (collisionObject == null)
-    //     {
-    //         return;
-    //     }
-    //     CollisionObject = collisionObject;
-    //     CollisionObject.transform.parent = RefEntity.GetTransform();
-    //     CollisionObject.transform.localPosition = Vector3.zero;
-    //     CollisionObject.transform.localRotation = Quaternion.identity;
-    //     EntityReferenceData refData = CollisionObject.AddComponent<EntityReferenceData>();
-    //     refData.SetEntity(RefEntity);
-    //     BodyCollision = CollisionObject.GetComponent<Collider>();
-    // }
 
     /// <summary>
     /// 初始化碰撞盒
@@ -87,7 +69,8 @@ public abstract class EntityCollisionCore : EntityBaseComponent
 
             CollisionObject = collider.gameObject;
             BodyCollision = collider;
-            // Log.Error($"not find CharacterMovement of collider prefab name:{RefEntity.BaseData.Id}");
+
+            AddEntityTrigger();
         }
         else
         {
@@ -99,8 +82,6 @@ public abstract class EntityCollisionCore : EntityBaseComponent
             BodyCollision = CollisionObject.GetComponent<Collider>();
         }
 
-
-
         EntityReferenceData refData = RefEntity.AddComponent<EntityReferenceData>();
         refData.SetEntity(RefEntity);
 
@@ -109,44 +90,47 @@ public abstract class EntityCollisionCore : EntityBaseComponent
             roleData.SetHeight(prefabMover.ColliderHeight);
             roleData.SetRadius(prefabMover.ColliderThickness * 0.5f);
         }
-
         RefEntity.EntityEvent.ColliderLoadFinish?.Invoke(CollisionObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    /// <summary>
+    /// 添加实体触发器
+    /// </summary>
+    public void AddEntityTrigger()
     {
-        if (((1 << other.gameObject.layer) & MLayerMask.ENTITY_TRIGGER) == 0)
-        {
-            return;
-        }
+        RemoveEntityTrigger();
+        GameObject entityTriggerObject = new();
+        entityTriggerObject.transform.parent = transform;
+        entityTriggerObject.transform.localPosition = Vector3.zero;
+        entityTriggerObject.transform.localRotation = Quaternion.identity;
+        entityTriggerObject.layer = MLayerMask.ENTITY_TRIGGER;
+        entityTriggerObject.name = "EntityTrigger";
 
-        EntityBase entity = GFEntryCore.GetModule<IEntityMgr>().GetEntityWithRoot<EntityBase>(other.gameObject);
-        if (entity != null && entity.Inited)
-        {
-            if (!EntityTriggerSet.Contains(entity.BaseData.Id))
-            {
-                _ = EntityTriggerSet.Add(entity.BaseData.Id);
-            }
-            RefEntity.EntityEvent.EntityTriggerEnter?.Invoke(entity);
-        }
+        CapsuleCollider bodyCollider = BodyCollision as CapsuleCollider;
+        CapsuleCollider collider = entityTriggerObject.AddComponent<CapsuleCollider>();
+        collider.radius = bodyCollider.radius;
+        collider.height = bodyCollider.height;
+        collider.center = bodyCollider.center;
+        collider.isTrigger = true;
 
+        EntityTrigger = entityTriggerObject.AddComponent<EntityCollisionTrigger>();
+        EntityTrigger.Init(RefEntity);
+    }
+    /// <summary>
+    /// 删除实体触发器
+    /// </summary>
+    public void RemoveEntityTrigger()
+    {
+        if (EntityTrigger != null)
+        {
+            Destroy(EntityTrigger.gameObject);
+            EntityTrigger = null;
+        }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (((1 << other.gameObject.layer) & MLayerMask.ENTITY_TRIGGER) <= 0)
-        {
-            return;
-        }
-        EntityBase entity = GFEntryCore.GetModule<IEntityMgr>().GetEntityWithRoot<EntityBase>(other.gameObject);
-        if (entity != null && entity.Inited)
-        {
-            _ = EntityTriggerSet.Remove(entity.BaseData.Id);
-            RefEntity.EntityEvent.EntityTriggerExit?.Invoke(entity);
-        }
-    }
     private void OnDestroy()
     {
+        RemoveEntityTrigger();
         UnloadCollision();
     }
 }

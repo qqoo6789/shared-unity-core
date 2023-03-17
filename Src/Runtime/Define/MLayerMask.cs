@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:51:41
  * @Description: layer层级
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Define/MLayerMask.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Define/MLayerMask.cs
  * 
  */
 
@@ -59,5 +59,5 @@ public static class MLayerMask
     /// 实体触碰层
     /// </summary>
     /// <returns></returns>
-    public const int ENTITY_TRIGGER = (1 << MONSTER) | (1 << PLAYER);
+    public const int ENTITY_TRIGGER = 20;
 }
