@@ -6,13 +6,12 @@ public class SkillDefine
     public static int MIN_CAPTURE_ROPE_LEN = 2;         // 最短捕获绳长度
 }
 
-// todo 
 public enum eSkillId : int
 {
-    Capture = 205007, //捕获
-    CaptureHook = 205008, //捕获-> 钩怪
-    CaptureShoot = 205009, //捕获-> 射怪
-    CaptureMonsterAttack = 205010 // 怪物打人
+    Capture = 166, //捕获
+    CaptureHook = 167, //捕获-> 钩怪
+    CaptureShoot = 168, //捕获-> 射怪
+    CaptureMonsterAttack = 169 // 怪物打人
 }
 
 public enum eSkillFlyerType : int
