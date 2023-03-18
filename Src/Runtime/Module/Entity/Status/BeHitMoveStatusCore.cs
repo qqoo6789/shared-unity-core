@@ -24,6 +24,7 @@ public class BeHitMoveStatusCore : ListenEventStatusCore
     protected override Type[] EventFunctionTypes => new Type[]
     {
         typeof(BeStunEventFunc),
+        typeof(BeCapturedEventFunc),
     };
     private int _moveTime;
 

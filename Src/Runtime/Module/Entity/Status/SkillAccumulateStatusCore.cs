@@ -38,6 +38,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         typeof(OnInputSkillInBattleStatusEventFunc),
         typeof(BeHitMoveEventFunc),
         typeof(BeStunEventFunc),
+        typeof(BeCapturedEventFunc),
     };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
@@ -63,12 +64,18 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
 
         if (CurSkillCfg.AccuTime > 0)
         {
-            AccumulateStart();
+            StartTimingAccumulate();
         }
         else
         {
-            AccumulateEnd();
+            EndAccumulate();
         }
+    }
+
+    // 蓄力动画
+    protected virtual void StartAccumulateAnim()
+    {
+        //.. 
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
@@ -79,7 +86,6 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         SkillDir = UnityEngine.Vector3.zero;
         CurSkillCfg = null;
         IsContinueBattleLeave = false;
-
         base.OnLeave(fsm, isShutdown);
     }
 
@@ -114,8 +120,10 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         }
     }
 
-    protected virtual async void AccumulateStart()
+    // 开始定时蓄力
+    protected virtual async void StartTimingAccumulate()
     {
+        StartAccumulateAnim();
         CancelTimeAccumulate();
         try
         {
@@ -127,9 +135,10 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         {
             return;
         }
-        AccumulateEnd();
+        EndAccumulate();
     }
-    protected virtual void AccumulateEnd()
+    // 结束蓄力
+    protected virtual void EndAccumulate()
     {
         IsContinueBattleLeave = true;
         ChangeState(OwnerFsm, SkillForwardStatusCore.Name);

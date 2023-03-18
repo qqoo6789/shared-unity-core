@@ -17,6 +17,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         typeof(OnInputSkillInBattleStatusEventFunc),
         typeof(BeHitMoveEventFunc),
         typeof(BeStunEventFunc),
+        typeof(BeCapturedEventFunc),
     };
 
     private CancellationTokenSource _forwardTimeToken;

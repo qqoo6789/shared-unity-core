@@ -167,4 +167,11 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action<int> EntitySkillRemove;
     #endregion
+
+    #region 捕获
+    /// <summary>
+    /// 实体被捕获
+    /// </summary>
+    public Action<long> EntityBeCaptured;
+    #endregion
 }

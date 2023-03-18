@@ -65,6 +65,11 @@ public class EntitySkillDataCore : EntityBaseComponent
         {
             _ = SkillComponent.AddSkill(BaseSkillIDList[i]);
         }
+
+        // todo  test code
+        _ = SkillComponent.AddSkill((int)eSkillId.CaptureHook);
+        _ = SkillComponent.AddSkill((int)eSkillId.CaptureShoot);
+
     }
 
     public void RemoveBaseSkillList()

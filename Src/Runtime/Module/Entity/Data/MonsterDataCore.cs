@@ -23,4 +23,30 @@ public class MonsterDataCore : EntityBaseComponent
             Log.Error($"Can not find monster cfg id:{cfgID}");
         }
     }
+
+    // 拥有指定捕获技能
+    public bool HasCaptureSkillId(int skillId)
+    {
+        foreach (int[] skillInfo in DRMonster.CaptureSkillCastPool)
+        {
+            if (skillInfo[0] == skillId)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 是否是怪物喜欢的item
+    public bool IsFavoriteItem(int itemCid)
+    {
+        foreach (int itemId in DRMonster.FavoriteItem)
+        {
+            if (itemId == itemCid)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

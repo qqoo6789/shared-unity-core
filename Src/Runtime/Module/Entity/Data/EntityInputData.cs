@@ -18,6 +18,22 @@ public class EntityInputData : EntityBaseComponent
     /// <value></value>
     public Queue<Vector3> InputMovePath { get; private set; } = new();
 
+
+    /// <summary>
+    /// 当前输入了鼠标位置 空代表没有输入
+    /// </summary>
+    /// <value></value>
+    public Vector3? InputMouseDirection { get; private set; }
+
+    /// <summary>
+    /// 输入了鼠标位置 置空为没有鼠标位置
+    /// </summary>
+    /// <param name="moveDir"></param>
+    public void SetInputMouseDirection(Vector3? dir)
+    {
+        InputMouseDirection = dir != null ? ((Vector3)dir).normalized : dir;
+    }
+
     /// <summary>
     /// 输入了方向移动 置空为没有方向移动
     /// </summary>
@@ -103,5 +119,13 @@ public class EntityInputData : EntityBaseComponent
     {
         ClearInputMoveDir();
         ClearInputMovePath(true);
+    }
+
+    /// <summary>
+    /// 清理输入鼠标输入
+    /// </summary>
+    public void ClearInputMouse()
+    {
+        InputMouseDirection = null;
     }
 }

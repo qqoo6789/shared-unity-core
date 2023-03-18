@@ -61,7 +61,14 @@ public class EntitySkillCollector : EntityBaseComponent
         {
             return;
         }
-
+        DRSkill skillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        if (skillCfg != null)
+        {
+            foreach (int skill in skillCfg.ComposeSkill)
+            {
+                _ = _skillCpt.AddSkill(skill);//添加组合技能
+            }
+        }
         _ = _skillCpt.AddSkill(skillID);
     }
 
@@ -70,6 +77,15 @@ public class EntitySkillCollector : EntityBaseComponent
         if (_skillCpt == null)
         {
             return;
+        }
+
+        DRSkill skillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
+        if (skillCfg != null)
+        {
+            foreach (int skill in skillCfg.ComposeSkill)
+            {
+                _skillCpt.RemoveSkill(skill);//删除组合技能
+            }
         }
 
         _skillCpt.RemoveSkill(skillID);
