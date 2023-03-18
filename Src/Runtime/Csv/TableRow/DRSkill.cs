@@ -24,189 +24,9 @@ public class DRSkill : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取accuBreakable-bool。*/
+  /**获取RefKey-string。*/
     /// </summary>
-    public bool AccuBreakable
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取accuTime-int。*/
-    /// </summary>
-    public int AccuTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取attackCanMove-bool。*/
-    /// </summary>
-    public bool AttackCanMove
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取effectEnemy-int[]。*/
-    /// </summary>
-    public int[] EffectEnemy
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取effectForward-int[]。*/
-    /// </summary>
-    public int[] EffectForward
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取flyType-int。*/
-    /// </summary>
-    public int FlyType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取forwardReleaseTime-int。*/
-    /// </summary>
-    public int ForwardReleaseTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取isAccuSkill-bool。*/
-    /// </summary>
-    public bool IsAccuSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取isAutoUse-bool。*/
-    /// </summary>
-    public bool IsAutoUse
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取isCheckHit-bool。*/
-    /// </summary>
-    public bool IsCheckHit
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取isHoldSkill-bool。*/
-    /// </summary>
-    public bool IsHoldSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取isRemote-bool。*/
-    /// </summary>
-    public bool IsRemote
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取rangeTips-bool。*/
-    /// </summary>
-    public bool RangeTips
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取releaseAct-string。*/
-    /// </summary>
-    public string ReleaseAct
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取releaseSound-string[]。*/
-    /// </summary>
-    public string[] ReleaseSound
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取releaseSpd-int。*/
-    /// </summary>
-    public int ReleaseSpd
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取releaseTime-int。*/
-    /// </summary>
-    public int ReleaseTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取skillCD-int。*/
-    /// </summary>
-    public int SkillCD
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取skillDesc-string。*/
-    /// </summary>
-    public string SkillDesc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取skillDistance-int。*/
-    /// </summary>
-    public int SkillDistance
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取skillFlag-int[]。*/
-    /// </summary>
-    public int[] SkillFlag
+    public string RefKey
     {
         get;
         private set;
@@ -222,36 +42,27 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取skillRange-int[]。*/
+  /**获取skillDesc-string。*/
     /// </summary>
-    public int[] SkillRange
+    public string SkillDesc
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取skillShake-string[]。*/
+  /**获取skillCD-int。*/
     /// </summary>
-    public string[] SkillShake
+    public int SkillCD
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取targetFlag-int[]。*/
+  /**获取skillIcon-string。*/
     /// </summary>
-    public int[] TargetFlag
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取targetLock-bool。*/
-    /// </summary>
-    public bool TargetLock
+    public string SkillIcon
     {
         get;
         private set;
@@ -267,9 +78,180 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取effectEnemy-int[]。*/
+    /// </summary>
+    public int[] EffectEnemy
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取effectSelf-int[]。*/
+    /// </summary>
+    public int[] EffectSelf
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取effectForward-int[]。*/
+    /// </summary>
+    public int[] EffectForward
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取accuTime-int。*/
+    /// </summary>
+    public int AccuTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取accuAct-string。*/
+    /// </summary>
+    public string AccuAct
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取accuEff-int。*/
+    /// </summary>
+    public int AccuEff
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取accuBreakable-bool。*/
+    /// </summary>
+    public bool AccuBreakable
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取accuTab-string。*/
+    /// </summary>
+    public string AccuTab
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取accuSound-string[]。*/
+    /// </summary>
+    public string[] AccuSound
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取isHoldSkill-bool。*/
+    /// </summary>
+    public bool IsHoldSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取releaseAct-string。*/
+    /// </summary>
+    public string ReleaseAct
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取releaseEff-string。*/
     /// </summary>
     public string ReleaseEff
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取releaseSound-string[]。*/
+    /// </summary>
+    public string[] ReleaseSound
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取releaseTime-int。*/
+    /// </summary>
+    public int ReleaseTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取forwardReleaseTime-int。*/
+    /// </summary>
+    public int ForwardReleaseTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取rangeTips-bool。*/
+    /// </summary>
+    public bool RangeTips
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取skillDistance-int。*/
+    /// </summary>
+    public int SkillDistance
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取targetLock-bool。*/
+    /// </summary>
+    public bool TargetLock
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取skillShake-string[]。*/
+    /// </summary>
+    public string[] SkillShake
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取attackCanMove-bool。*/
+    /// </summary>
+    public bool AttackCanMove
     {
         get;
         private set;
@@ -294,18 +276,27 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取flyAvatar-string。*/
+  /**获取isAutoUse-bool。*/
     /// </summary>
-    public string FlyAvatar
+    public bool IsAutoUse
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取flyDistance-int。*/
+  /**获取isRemote-bool。*/
     /// </summary>
-    public int FlyDistance
+    public bool IsRemote
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取flyAvatar-string。*/
+    /// </summary>
+    public string FlyAvatar
     {
         get;
         private set;
@@ -330,9 +321,18 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取accuEff-int。*/
+  /**获取flyDistance-int。*/
     /// </summary>
-    public int AccuEff
+    public int FlyDistance
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取skillFlag-int[]。*/
+    /// </summary>
+    public int[] SkillFlag
     {
         get;
         private set;
@@ -348,18 +348,90 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取effectSelf-int[]。*/
+  /**获取targetFlag-int[]。*/
     /// </summary>
-    public int[] EffectSelf
+    public int[] TargetFlag
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取skillIcon-string。*/
+  /**获取releaseSpd-int。*/
     /// </summary>
-    public string SkillIcon
+    public int ReleaseSpd
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取skillRange-int[]。*/
+    /// </summary>
+    public int[] SkillRange
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取flyType-int。*/
+    /// </summary>
+    public int FlyType
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取isAccuSkill-bool。*/
+    /// </summary>
+    public bool IsAccuSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取maxAccuTime-int。*/
+    /// </summary>
+    public int MaxAccuTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取costPropType-int[]。*/
+    /// </summary>
+    public int[] CostPropType
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取isCheckHit-bool。*/
+    /// </summary>
+    public bool IsCheckHit
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取composeSkill-int[]。*/
+    /// </summary>
+    public int[] ComposeSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取hitEff-string。*/
+    /// </summary>
+    public string HitEff
     {
         get;
         private set;
@@ -397,48 +469,52 @@ public class DRSkill : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        AccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        AttackCanMove = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        FlyType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        ForwardReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RefKey = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
-        IsAccuSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        IsAutoUse = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        IsCheckHit = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        IsHoldSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        IsRemote = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        ReleaseAct = DataTableParseUtil.ParseString(columnStrings[index++]);
-        ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        ReleaseSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        SkillDesc = DataTableParseUtil.ParseString(columnStrings[index++]);
-        SkillDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        SkillFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillName = DataTableParseUtil.ParseString(columnStrings[index++]);
-        SkillRange = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        SkillShake = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        TargetFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        SkillDesc = DataTableParseUtil.ParseString(columnStrings[index++]);
+        SkillCD = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        AccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        AccuAct = DataTableParseUtil.ParseString(columnStrings[index++]);
+        AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        AccuTab = DataTableParseUtil.ParseString(columnStrings[index++]);
+        AccuSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        IsHoldSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        ReleaseAct = DataTableParseUtil.ParseString(columnStrings[index++]);
         ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
-        HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        ForwardReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        SkillDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        SkillShake = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
+        AttackCanMove = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        IsAutoUse = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        IsRemote = DataTableParseUtil.ParseBool(columnStrings[index++]);
         FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
-        FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlySpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        SkillFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
-        ComposeSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        TargetFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        ReleaseSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        SkillRange = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        FlyType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        IsAccuSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
         MaxAccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CostPropType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        IsCheckHit = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        ComposeSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
@@ -450,48 +526,52 @@ public class DRSkill : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                AccuBreakable = binaryReader.ReadBoolean();
-                AccuTime = binaryReader.Read7BitEncodedInt32();
-                AttackCanMove = binaryReader.ReadBoolean();
-                EffectEnemy = binaryReader.ReadArray<Int32>();
-                EffectForward = binaryReader.ReadArray<Int32>();
-                FlyType = binaryReader.Read7BitEncodedInt32();
-                ForwardReleaseTime = binaryReader.Read7BitEncodedInt32();
+                RefKey = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
-                IsAccuSkill = binaryReader.ReadBoolean();
-                IsAutoUse = binaryReader.ReadBoolean();
-                IsCheckHit = binaryReader.ReadBoolean();
-                IsHoldSkill = binaryReader.ReadBoolean();
-                IsRemote = binaryReader.ReadBoolean();
-                RangeTips = binaryReader.ReadBoolean();
-                ReleaseAct = binaryReader.ReadString();
-                ReleaseSound = binaryReader.ReadArray<String>();
-                ReleaseSpd = binaryReader.Read7BitEncodedInt32();
-                ReleaseTime = binaryReader.Read7BitEncodedInt32();
-                SkillCD = binaryReader.Read7BitEncodedInt32();
-                SkillDesc = binaryReader.ReadString();
-                SkillDistance = binaryReader.Read7BitEncodedInt32();
-                SkillFlag = binaryReader.ReadArray<Int32>();
                 SkillName = binaryReader.ReadString();
-                SkillRange = binaryReader.ReadArray<Int32>();
-                SkillShake = binaryReader.ReadArray<String>();
-                TargetFlag = binaryReader.ReadArray<Int32>();
-                TargetLock = binaryReader.ReadBoolean();
+                SkillDesc = binaryReader.ReadString();
+                SkillCD = binaryReader.Read7BitEncodedInt32();
+                SkillIcon = binaryReader.ReadString();
                 HomeAction = binaryReader.ReadArray<Int32>();
+                EffectEnemy = binaryReader.ReadArray<Int32>();
+                EffectSelf = binaryReader.ReadArray<Int32>();
+                EffectForward = binaryReader.ReadArray<Int32>();
+                AccuTime = binaryReader.Read7BitEncodedInt32();
+                AccuAct = binaryReader.ReadString();
+                AccuEff = binaryReader.Read7BitEncodedInt32();
+                AccuBreakable = binaryReader.ReadBoolean();
+                AccuTab = binaryReader.ReadString();
+                AccuSound = binaryReader.ReadArray<String>();
+                IsHoldSkill = binaryReader.ReadBoolean();
+                ReleaseAct = binaryReader.ReadString();
                 ReleaseEff = binaryReader.ReadString();
-                HitEff = binaryReader.ReadString();
+                ReleaseSound = binaryReader.ReadArray<String>();
+                ReleaseTime = binaryReader.Read7BitEncodedInt32();
+                ForwardReleaseTime = binaryReader.Read7BitEncodedInt32();
+                RangeTips = binaryReader.ReadBoolean();
+                SkillDistance = binaryReader.Read7BitEncodedInt32();
+                TargetLock = binaryReader.ReadBoolean();
+                SkillShake = binaryReader.ReadArray<String>();
+                AttackCanMove = binaryReader.ReadBoolean();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
+                IsAutoUse = binaryReader.ReadBoolean();
+                IsRemote = binaryReader.ReadBoolean();
                 FlyAvatar = binaryReader.ReadString();
-                FlyDistance = binaryReader.Read7BitEncodedInt32();
                 FlySpeed = binaryReader.Read7BitEncodedInt32();
                 FlyTime = binaryReader.Read7BitEncodedInt32();
-                AccuEff = binaryReader.Read7BitEncodedInt32();
+                FlyDistance = binaryReader.Read7BitEncodedInt32();
+                SkillFlag = binaryReader.ReadArray<Int32>();
                 EffectInit = binaryReader.ReadArray<Int32>();
-                EffectSelf = binaryReader.ReadArray<Int32>();
-                SkillIcon = binaryReader.ReadString();
-                ComposeSkill = binaryReader.ReadArray<Int32>();
+                TargetFlag = binaryReader.ReadArray<Int32>();
+                ReleaseSpd = binaryReader.Read7BitEncodedInt32();
+                SkillRange = binaryReader.ReadArray<Int32>();
+                FlyType = binaryReader.Read7BitEncodedInt32();
+                IsAccuSkill = binaryReader.ReadBoolean();
                 MaxAccuTime = binaryReader.Read7BitEncodedInt32();
                 CostPropType = binaryReader.ReadArray<Int32>();
+                IsCheckHit = binaryReader.ReadBoolean();
+                ComposeSkill = binaryReader.ReadArray<Int32>();
+                HitEff = binaryReader.ReadString();
             }
         }
 
