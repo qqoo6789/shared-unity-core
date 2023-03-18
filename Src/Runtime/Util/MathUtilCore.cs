@@ -134,4 +134,40 @@ public static class MathUtilCore
         }
         return listT;
     }
+    /// <summary>
+    /// 线经过球体的交点
+    /// </summary>
+    /// <param name="sphereCentre">球心位置</param>
+    /// <param name="sphereRadius">球半径</param>
+    /// <param name="lineRay">直线射线</param>
+    /// <returns></returns>
+    public static (Vector3?, Vector3?) LineIntersectSphere(Vector3 sphereCentre, float sphereRadius, Ray lineRay)
+    {
+        Vector3 rayDirection = lineRay.direction;
+        Vector3 rayOrigin = lineRay.origin;
+        Vector3 oc = rayOrigin - sphereCentre;
+
+        float b = 2 * Vector3.Dot(rayDirection, oc);
+        float c = oc.sqrMagnitude - (sphereRadius * sphereRadius);
+        float discriminant = (b * b) - (4 * c);
+
+        if (discriminant >= 0)
+        {
+            float t1 = (-b + Mathf.Sqrt(discriminant)) / 2;
+            float t2 = (-b - Mathf.Sqrt(discriminant)) / 2;
+            Vector3 intersection1 = rayOrigin + (rayDirection * t1);
+            Vector3 intersection2 = rayOrigin + (rayDirection * t2);
+
+            // Debug.Log("Intersection 1: " + intersection1 + " Intersection 2: " + intersection2);
+            // Debug.DrawLine(sphereCentre, (Vector3)intersection1, Color.blue);
+            // Debug.DrawLine(sphereCentre, (Vector3)intersection2, Color.green);
+            return (intersection1, intersection2);
+        }
+        else
+        {
+            // Debug.Log("No intersection.");
+            return (null, null);
+        }
+    }
+
 }

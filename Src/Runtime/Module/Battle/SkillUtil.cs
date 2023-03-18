@@ -170,6 +170,7 @@ public static partial class SkillUtil
                     }
                     effectData.EffectType = (GameMessageCore.DamageEffectId)skillEffect.EffectCfg.Id;
                     skillEffect.SetEffectData(effectData);
+                    skillEffect.SetUserData(inputData);
                     effects.Add(effectData);
                     fromEntity.EntityEvent.BeforeGiveSkillEffect?.Invoke(targetEntity, effectData);
                     targetEntity.EntityEvent.BeforeApplySkillEffect?.Invoke(effectData);
