@@ -74,6 +74,9 @@ public class SkillEffectBase : IReference
     /// 下次间隔触发时间
     /// </summary>
     protected long NextIntervalTime { get; private set; }
+
+    public object UserData { get; private set; }
+
     /// <summary>
     /// 设置效果数据
     /// </summary>
@@ -274,5 +277,10 @@ public class SkillEffectBase : IReference
         }
 
         return EffectCfg.ShowBuffIcon && !string.IsNullOrEmpty(EffectCfg.BuffIcon);
+    }
+
+    public virtual void SetUserData(object data)
+    {
+        UserData = data;
     }
 }

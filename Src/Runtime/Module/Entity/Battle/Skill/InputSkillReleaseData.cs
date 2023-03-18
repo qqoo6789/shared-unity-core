@@ -32,6 +32,11 @@ public class InputSkillReleaseData
     /// 目标位置
     /// </summary>
     public Vector3 TargetPos { get; private set; }
+
+    /// <summary>
+    /// 技能消耗道具
+    /// </summary>
+    public GameMessageCore.UseSkillCostItem CostItem { get; private set; }
     /// <summary>
     /// 尝试释放
     /// </summary>
@@ -40,6 +45,12 @@ public class InputSkillReleaseData
     /// 技能释放速率
     /// </summary>
     public double SkillTimeScale { get; private set; }
+
+    /// <summary>
+    /// 技能蓄力时间 s
+    /// </summary>
+    public float AccumulateTime { get; private set; }
+
     /// <summary>
     /// 技能输入数据
     /// </summary>
@@ -49,7 +60,7 @@ public class InputSkillReleaseData
     /// <param name="targetPos">技能目标位置</param>
     /// <param name="isTry">尝试释放</param>
     /// <param name="skillTimeScale">释放速率</param>
-    public InputSkillReleaseData(int skillID, Vector3 dir, long[] targets, Vector3 targetPos, bool isTry = false, double skillTimeScale = 1)
+    public InputSkillReleaseData(int skillID, Vector3 dir, long[] targets, Vector3 targetPos, bool isTry = false, double skillTimeScale = 1, GameMessageCore.UseSkillCostItem costItem = null, float accumulateTime = 0)
     {
         SkillID = skillID;
         Dir = dir;
@@ -57,6 +68,8 @@ public class InputSkillReleaseData
         TargetPos = targetPos;
         IsTry = isTry;
         SkillTimeScale = skillTimeScale;
+        CostItem = costItem;
+        AccumulateTime = accumulateTime;
         DRSkill = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(skillID);
         if (DRSkill == null)
         {
