@@ -72,6 +72,12 @@ public class EntityBase
     public EntityBattleDataCore BattleDataCore { get; set; }
 
     /// <summary>
+    /// 捕获数据
+    /// </summary>
+    /// <value></value>
+    public EntityCaptureDataCore CaptureData { get; set; }
+
+    /// <summary>
     /// 角色的基础数据 名字 宽高等
     /// </summary>
     /// <value></value>
