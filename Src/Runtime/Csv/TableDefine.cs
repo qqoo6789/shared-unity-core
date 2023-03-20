@@ -141,8 +141,8 @@ public enum eSkillEffectType : int
     SEBloodRage = 13,
     SEUnharmedAddAttr = 14,
     SESkillEffectModifier = 15,
-    SECaptureDamage = 16,
-    SECaptureRopeHit = 17,
+    SECaptureRopeHit = 16,
+    SECaptureDamage = 17,
 }
 /// <summary>
 /// 技能效果作用类型
