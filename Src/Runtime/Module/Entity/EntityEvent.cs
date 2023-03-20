@@ -101,6 +101,11 @@ public class EntityEvent : EntityBaseComponent
     public Action<InputSkillReleaseData> SkillCastHit;
 
     /// <summary>
+    /// 进入死亡态
+    /// </summary>
+    public Action EnterDeath;
+
+    /// <summary>
     /// 实体属性更新  T0:属性类型 T1:更新后到属性值
     /// </summary>
     public Action<eAttributeType, int> EntityAttributeUpdate;
@@ -174,4 +179,5 @@ public class EntityEvent : EntityBaseComponent
     /// </summary>
     public Action<long> EntityBeCaptured;
     #endregion
+
 }

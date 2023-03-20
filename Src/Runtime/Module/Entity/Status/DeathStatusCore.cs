@@ -23,6 +23,7 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
+        StatusCtrl.RefEntity.EntityEvent.EnterDeath?.Invoke();
 
         OnDeathStart();
 
