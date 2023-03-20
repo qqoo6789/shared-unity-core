@@ -1,7 +1,4 @@
 
-using System;
-using System.Threading;
-using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
 
 /// <summary>
@@ -12,7 +9,6 @@ public class BeCapturedStatusCore : ListenEventStatusCore, IEntityCanMove, IEnti
     public static new string Name = "BeCaptured";
 
     public override string StatusName => Name;
-    protected CancellationTokenSource CancelToken;
     protected virtual int CaptureSuccEndDurTime => 3000;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
@@ -28,31 +24,18 @@ public class BeCapturedStatusCore : ListenEventStatusCore, IEntityCanMove, IEnti
     }
     private void CancelTimeCapture()
     {
-        if (CancelToken != null)
-        {
-            CancelToken.Cancel();
-            CancelToken = null;
-        }
+        _ = TimerMgr.RemoveTimer(GetHashCode());
     }
 
     /// <summary>
     /// 被捕获
     /// </summary>
     /// <value></value>
-    protected virtual async void OnBeCapturedStart()
+    protected virtual void OnBeCapturedStart()
     {
+
         CancelTimeCapture();
-        try
-        {
-            CancelToken = new();
-            await UniTask.Delay(CaptureSuccEndDurTime, false, PlayerLoopTiming.Update, CancelToken.Token);
-            CancelToken = null;
-        }
-        catch (System.Exception)
-        {
-            return;
-        }
-        OnBeCapturedEnd();
+        TimerMgr.AddTimer(GetHashCode(), CaptureSuccEndDurTime, OnBeCapturedEnd);
     }
 
     protected virtual void OnBeCapturedEnd()

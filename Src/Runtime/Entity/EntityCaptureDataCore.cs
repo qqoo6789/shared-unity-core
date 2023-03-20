@@ -14,7 +14,7 @@ public class EntityCaptureDataCore : EntityBaseComponent
 
     // 捕获绳子血量
     public int RopeCurHp { get; protected set; }
-    public readonly int RopeMaxHp = SkillDefine.MAX_CAPTURE_ROPE_HP;
+    public readonly int RopeMaxHp = CaptureDefine.MAX_CAPTURE_ROPE_HP;
 
     // 捕获怪物血量
     public float CaptureCurHp { get; protected set; }
