@@ -69,6 +69,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取flyType-int。*/
+    /// </summary>
+    public int FlyType
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取forwardReleaseTime-int。*/
     /// </summary>
     public int ForwardReleaseTime
@@ -78,9 +87,27 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取isAccuSkill-bool。*/
+    /// </summary>
+    public bool IsAccuSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取isAutoUse-bool。*/
     /// </summary>
     public bool IsAutoUse
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取isCheckHit-bool。*/
+    /// </summary>
+    public bool IsCheckHit
     {
         get;
         private set;
@@ -249,6 +276,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取hitEff-string。*/
+    /// </summary>
+    public string HitEff
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取animRotate-int。*/
     /// </summary>
     public int AnimRotate
@@ -329,6 +365,33 @@ public class DRSkill : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取composeSkill-int[]。*/
+    /// </summary>
+    public int[] ComposeSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取maxAccuTime-int。*/
+    /// </summary>
+    public int MaxAccuTime
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取costPropType-int[]。*/
+    /// </summary>
+    public int[] CostPropType
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -339,9 +402,12 @@ public class DRSkill : DataRowBase
         AttackCanMove = DataTableParseUtil.ParseBool(columnStrings[index++]);
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        FlyType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ForwardReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
+        IsAccuSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsAutoUse = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        IsCheckHit = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsHoldSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsRemote = DataTableParseUtil.ParseBool(columnStrings[index++]);
         RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
@@ -360,6 +426,7 @@ public class DRSkill : DataRowBase
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
+        HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -369,6 +436,9 @@ public class DRSkill : DataRowBase
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ComposeSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        MaxAccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        CostPropType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
 
         return true;
     }
@@ -385,9 +455,12 @@ public class DRSkill : DataRowBase
                 AttackCanMove = binaryReader.ReadBoolean();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
                 EffectForward = binaryReader.ReadArray<Int32>();
+                FlyType = binaryReader.Read7BitEncodedInt32();
                 ForwardReleaseTime = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
+                IsAccuSkill = binaryReader.ReadBoolean();
                 IsAutoUse = binaryReader.ReadBoolean();
+                IsCheckHit = binaryReader.ReadBoolean();
                 IsHoldSkill = binaryReader.ReadBoolean();
                 IsRemote = binaryReader.ReadBoolean();
                 RangeTips = binaryReader.ReadBoolean();
@@ -406,6 +479,7 @@ public class DRSkill : DataRowBase
                 TargetLock = binaryReader.ReadBoolean();
                 HomeAction = binaryReader.ReadArray<Int32>();
                 ReleaseEff = binaryReader.ReadString();
+                HitEff = binaryReader.ReadString();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 FlyAvatar = binaryReader.ReadString();
                 FlyDistance = binaryReader.Read7BitEncodedInt32();
@@ -415,6 +489,9 @@ public class DRSkill : DataRowBase
                 EffectInit = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
                 SkillIcon = binaryReader.ReadString();
+                ComposeSkill = binaryReader.ReadArray<Int32>();
+                MaxAccuTime = binaryReader.Read7BitEncodedInt32();
+                CostPropType = binaryReader.ReadArray<Int32>();
             }
         }
 

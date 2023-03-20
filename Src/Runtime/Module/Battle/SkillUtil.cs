@@ -105,6 +105,11 @@ public static partial class SkillUtil
     /// <returns></returns>
     public static List<Collider> SearchTargetColliders(Vector3 pos, int[] skillRange, Vector3 skillDir, int targetLayer, int blockLayer)
     {
+        if (skillRange == null || skillRange.Length <= 0)
+        {
+            return new();
+        }
+
         SkillShapeBase shape = SkillShapeFactory.CreateOneSkillShape(skillRange, pos, skillDir);
         List<Collider> colliders = shape.CheckHited(targetLayer, blockLayer);
         SkillShapeBase.Release(shape);
