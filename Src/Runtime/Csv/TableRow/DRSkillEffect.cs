@@ -24,9 +24,9 @@ public class DRSkillEffect : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取RefKey-string。*/
+  /**获取duration-int。*/
     /// </summary>
-    public string RefKey
+    public int Duration
     {
         get;
         private set;
@@ -42,18 +42,18 @@ public class DRSkillEffect : DataRowBase
     }
 
     /// <summary>
-  /**获取maxLayer-int。*/
+  /**获取isRepeat-bool。*/
     /// </summary>
-    public int MaxLayer
+    public bool IsRepeat
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取isRepeat-bool。*/
+  /**获取maxLayer-int。*/
     /// </summary>
-    public bool IsRepeat
+    public int MaxLayer
     {
         get;
         private set;
@@ -69,18 +69,18 @@ public class DRSkillEffect : DataRowBase
     }
 
     /// <summary>
-  /**获取parameters2-int[][]。*/
+  /**获取showBuffIcon-bool。*/
     /// </summary>
-    public int[][] Parameters2
+    public bool ShowBuffIcon
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取duration-int。*/
+  /**获取parameters2-int[][]。*/
     /// </summary>
-    public int Duration
+    public int[][] Parameters2
     {
         get;
         private set;
@@ -114,15 +114,6 @@ public class DRSkillEffect : DataRowBase
     }
 
     /// <summary>
-  /**获取showBuffIcon-bool。*/
-    /// </summary>
-    public bool ShowBuffIcon
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取buffIcon-string。*/
     /// </summary>
     public string BuffIcon
@@ -136,18 +127,17 @@ public class DRSkillEffect : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        RefKey = DataTableParseUtil.ParseString(columnStrings[index++]);
-        _id = int.Parse(columnStrings[index++]);
-        EffectType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        MaxLayer = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        IsRepeat = DataTableParseUtil.ParseBool(columnStrings[index++]);
-        Parameters = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        Parameters2 = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         Duration = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        EffectType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
+        IsRepeat = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        MaxLayer = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Parameters = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        ShowBuffIcon = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        Parameters2 = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         EffectInterval = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectImmuneFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        ShowBuffIcon = DataTableParseUtil.ParseBool(columnStrings[index++]);
         BuffIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
@@ -160,18 +150,17 @@ public class DRSkillEffect : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                RefKey = binaryReader.ReadString();
-                _id = binaryReader.Read7BitEncodedInt32();
-                EffectType = binaryReader.Read7BitEncodedInt32();
-                MaxLayer = binaryReader.Read7BitEncodedInt32();
-                IsRepeat = binaryReader.ReadBoolean();
-                Parameters = binaryReader.ReadArray<Int32>();
-                Parameters2 = binaryReader.ReadArrayList<Int32>();
                 Duration = binaryReader.Read7BitEncodedInt32();
+                EffectType = binaryReader.Read7BitEncodedInt32();
+                _id = binaryReader.Read7BitEncodedInt32();
+                IsRepeat = binaryReader.ReadBoolean();
+                MaxLayer = binaryReader.Read7BitEncodedInt32();
+                Parameters = binaryReader.ReadArray<Int32>();
+                ShowBuffIcon = binaryReader.ReadBoolean();
+                Parameters2 = binaryReader.ReadArrayList<Int32>();
                 EffectInterval = binaryReader.Read7BitEncodedInt32();
                 EffectFlag = binaryReader.ReadArray<Int32>();
                 EffectImmuneFlag = binaryReader.ReadArray<Int32>();
-                ShowBuffIcon = binaryReader.ReadBoolean();
                 BuffIcon = binaryReader.ReadString();
             }
         }
