@@ -9,6 +9,7 @@ using static HomeDefine;
 /// </summary>
 public class HomeActionProgressData : MonoBehaviour
 {
+    private const string BACK_PROTECT_TIMER_KEY = "BACK_PROTECT_TIMER_KEY";
     private int _fullTimeStamp;//进度充满的时间戳 只在设置HoldToFull才有效
     private Action<HomeActionProgressData> _onProgressHoldFull;//进度满了后回调
     private Tweener _tween;
@@ -35,9 +36,19 @@ public class HomeActionProgressData : MonoBehaviour
     /// <value></value>
     public float CurProgressActionMaxValue { get; private set; }
 
+    private bool _backProtectTimerRunning;//是否正在进度返回保护计时
+
     private void Update()
     {
-        UpdateProgressActionValueLost();
+        if (!_backProtectTimerRunning && !IsHoldToFulling)
+        {
+            UpdateProgressActionValueLost();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        StopBackProtectTimer();
     }
 
     //在进度型操作中 进度值会一直衰减
@@ -70,7 +81,9 @@ public class HomeActionProgressData : MonoBehaviour
             return;
         }
 
-        StopHoldToFull();
+        StopHoldToFull(true);
+
+        StopBackProtectTimer();
 
         CurProgressAction = action;
         CurProgressActionMaxValue = maxValue;
@@ -86,7 +99,9 @@ public class HomeActionProgressData : MonoBehaviour
         CurProgressActionMaxValue = 0;
         CurProgressActionValue = 0;
 
-        StopHoldToFull();
+        StopHoldToFull(true);
+
+        StopBackProtectTimer();
     }
 
     /// <summary>
@@ -96,7 +111,9 @@ public class HomeActionProgressData : MonoBehaviour
     /// <param name="onProgressHoldFull"></param>
     public void SetHoldToFull(float fullTime, Action<HomeActionProgressData> onProgressHoldFull = null)
     {
-        StopHoldToFull();
+        StopHoldToFull(true);
+
+        StartBackProtectTimer();
 
         if (fullTime <= 0)
         {
@@ -121,8 +138,13 @@ public class HomeActionProgressData : MonoBehaviour
     /// <summary>
     /// 停止hold到满的缓动
     /// </summary>
-    public void StopHoldToFull()
+    public void StopHoldToFull(bool force)
     {
+        if (!force)
+        {
+            StartBackProtectTimer();
+        }
+
         if (_tween == null)
         {
             return;
@@ -138,11 +160,38 @@ public class HomeActionProgressData : MonoBehaviour
     /// 直接设置进度值 会停掉hold到满的缓动
     /// </summary>
     /// <param name="progressValue">进度值</param>
-    public void SetProgressValue(int progressValue)
+    public void SetProgressValue(int progressValue, bool force)
     {
-        StopHoldToFull();
+        if (!force)
+        {
+            StartBackProtectTimer();
+        }
+
+        StopHoldToFull(true);
 
         CurProgressActionValue = progressValue;
+    }
+
+    private void StartBackProtectTimer()
+    {
+        if (_backProtectTimerRunning)
+        {
+            StopBackProtectTimer();
+        }
+
+        _backProtectTimerRunning = true;
+        TimerMgr.AddTimer(UIDUtil.ToLongUID(this, BACK_PROTECT_TIMER_KEY), HOME_PROGRESS_ACTION_BACK_PROTECT_TIME, () => _backProtectTimerRunning = false);
+    }
+
+    private void StopBackProtectTimer()
+    {
+        if (!_backProtectTimerRunning)
+        {
+            return;
+        }
+
+        _ = TimerMgr.RemoveTimer(UIDUtil.ToLongUID(this, BACK_PROTECT_TIMER_KEY));
+        _backProtectTimerRunning = false;
     }
 
     /// <summary>
