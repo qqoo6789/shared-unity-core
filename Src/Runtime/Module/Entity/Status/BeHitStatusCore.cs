@@ -41,7 +41,7 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, GetDeathStatusName());
+            ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
     }

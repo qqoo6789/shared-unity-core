@@ -226,6 +226,8 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             Data.SaveData.IsDead = true;
         }
 
+        RefEntity.BattleDataCore.SetHP(0);
+
         ClearDropProduct();//TODO: home 暂时这样
     }
 
