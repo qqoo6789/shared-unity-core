@@ -67,5 +67,5 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 2,Mining crit chance increased by 5%/10%/15%.,158;159;160,1,ic_battery,68,0,3,3,Mining Skill,3,"10,100,1000",0,"0,0,10",67
 2,"Quickly shakes the ground, releasing seismic waves in a small/medium/large area ahead, causing damage to ores within the area.",161;162;163,0,lv0_sword,69,0,4,3,Seismic Wave,3,"10,100,1000",0,"0,0,10",68
 1,"The weapon's attack leaves wounds, dealing 1%/2%/3% attack damage every 0.5 seconds for 5 seconds, and can stack up to 5 layers.",172;173;174,1,ic_battery,70,0,3,3,Rending Wounds,2,"10,100,1000",0,"0,0,10",52
-3,"Striking the target's weak point, causing the target to receive an additional 1% damage for the next 5 seconds, and can stack up to 5 layers.",175;176;177,1,ic_battery,71,0,4,3,Severe Injury,2,"10,100,1000",0,"0,0,10",61
+3,"Striking the target's weak point, causing the target to receive an additional 1%/2%/3% damage for the next 5 seconds, and can stack up to 5 layers.",175;176;177,1,ic_battery,71,0,4,3,Severe Injury,2,"10,100,1000",0,"0,0,10",61
 -2,捕获技能（总技能）,166,0,craft_scroll,72,0,0,1,Capture Animal,1,10,0,0,
