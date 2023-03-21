@@ -1,4 +1,4 @@
-accuBreakable-bool,accuTime-int,attackCanMove-bool,effectEnemy-int[],effectForward-int[],flyType-int,forwardReleaseTime-int,id-int,isAccuSkill-bool,isAutoUse-bool,isCheckHit-bool,isHoldSkill-bool,isRemote-bool,rangeTips-bool,releaseAct-string,releaseSound-string[],releaseSpd-int,releaseTime-int,skillCD-int,skillDesc-string,skillDistance-int,skillFlag-int[],skillName-string,skillRange-int[],skillShake-string[],targetFlag-int[],targetLock-bool,homeAction-int[],releaseEff-string,hitEff-string,animRotate-int,flyAvatar-string,flyDistance-int,flySpeed-int,flyTime-int,accuEff-int,effectInit-int[],effectSelf-int[],skillIcon-string,composeSkill-int[],maxAccuTime-int,costPropType-int[]
+accuBreakable-bool,accuTime-int,attackCanMove-bool,effectEnemy-int[],effectForward-int[],flyType-int,forwardReleaseTime-int,id-int,isAccuSkill-bool,isAutoUse-bool,isCheckHit-bool,isHoldSkill-bool,isRemote-bool,rangeTips-bool,releaseAct-string,releaseSound-string[],releaseSpd-int,releaseTime-int,skillCD-int,skillDesc-string,skillDistance-int,skillFlag-int[],skillName-string,skillRange-int[],skillShake-string[],targetFlag-int[],targetLock-bool,homeAction-int[],releaseEff-string,hitEff-string,animRotate-int,flyAvatar-string,flyDistance-int,flySpeed-int,flyTime-int,accuEff-int,effectInit-int[],effectSelf-int[],skillIcon-string,composeSkill-int[],costPropType-int[],maxAccuTime-int
 0,0,0,"15,17",31,0,180,14,0,0,1,0,0,1,skill_attack1,Punch,14,670,-1,空手攻击1,500,2,空手攻击,"4,300,200,16000",CameraShakeGrade_1,1,0,,,,,,,,,,,,,,,
 0,0,0,"15,17",31,0,180,15,0,0,1,0,0,1,skill_attack2,Punch,14,670,-1,空手攻击2,500,2,空手攻击,"4,300,200,16000",CameraShakeGrade_1,1,0,,,,,,,,,,,,,,,
 0,0,0,"15,21",31,0,180,16,0,0,1,0,0,1,skill_attack3,Punch2,14,670,-1,空手攻击3,500,2,空手攻击,"4,300,200,16000",CameraShakeGrade_2,1,0,,,,,,,,,,,,,,,
@@ -150,9 +150,9 @@ accuBreakable-bool,accuTime-int,attackCanMove-bool,effectEnemy-int[],effectForwa
 0,,0,,,0,0,162,0,0,1,0,0,0,A1-gaozi-AOE-NEW,,,200,20000,快速震动地面，朝前方中等范围释放出地震波，对范围内的矿石造成伤害,,2,Seismic Wave 2,"4,800,400,12000",CameraShakeGrade_3,1,0,7,,,,,,,,,,,craft_scroll,,,
 0,,0,,,0,0,163,0,0,1,0,0,0,A1-gaozi-AOE-NEW,,,200,20000,快速震动地面，朝前方大范围释放出地震波，对范围内的矿石造成伤害,,2,Seismic Wave 3,"4,800,600,12000",CameraShakeGrade_3,1,0,7,,,,,,,,,,,craft_scroll,,,
 0,,0,15,,0,200,164,0,1,1,0,0,1,hit,,,950,0,Hopper Attack,100,2,Hopper Attack,"4,300,200,12000",CameraShakeGrade_1,1,0,,,,,,,,,,,,,,,
-0,,0,,,0,,166,0,0,1,0,0,0,,,,,,捕获技能（总技能）,,2,Capture Animal,,,1,0,,,,,,,,,,,,lv0_sword,"167,168",,
-0,,0,176,,2,0,167,1,0,1,0,1,0,A3-buzhuo,,,300,1000,捕获抛绳钩怪,,2,Capture Hook,"2,100",,1,0,,,,,CaptureRope,2000,2000,,,,,ic_battery,,5,
-0,,0,"177,17",,3,0,168,1,0,0,0,1,0,A3-buzhuo,,,300,1000,捕获抛绳投喂,,2,Capture Shoot,,,2,1,,,,,Resource_ball,,2000,,,,,lv0_sword,,10,"1,2,3,4"
+0,,0,,,0,,166,0,0,0,0,0,0,,,,,,捕获技能（总技能）,,2,Capture Animal,,,1,0,,,,,,,,,,,,lv0_sword,"167,168","1,2,3,4",
+0,,0,176,,2,0,167,1,0,1,0,1,0,A3-buzhuo,,,300,1000,捕获抛绳钩怪,,2,Capture Hook,"2,100",,1,0,,,,,CaptureRope,2000,2000,,,,,ic_battery,,,5
+0,,0,"177,17",,3,0,168,1,0,0,0,1,0,A3-buzhuo,,,300,1000,捕获抛绳投喂,,2,Capture Shoot,,,2,1,,,,,Resource_ball,,2000,,,,,lv0_sword,,,10
 0,,0,"177,17",,0,730,169,0,0,0,0,0,0,attack,,,1030,2000,怪物被捕获反击通用技能,100,2,BeCapture Attack,"4,300,200,12000",,1,0,,,,,,,,,,,,,,,
 0,,0,,,0,,170,0,0,0,0,0,0,,,,,,,,,,,,1,0,,,,,,,,,,,,,,,
 1,0,0,15,,0,1000,171,0,0,1,0,1,0,A-gongjian-NEW,monsterattack,,2000,2000,角色远程,1500,2,角色远程,,,1,1,,,,0,Projectile_ball,2000,800,2000,,,,,,,
