@@ -47,7 +47,7 @@ public static class HomeDefine
     /// <summary>
     /// 动物完全饥饿后死亡时间 秒
     /// </summary>
-    public const float ANIM_HUNGER_DEAD_TIME = 20.0f;
+    public const float ANIMAL_HUNGER_DEAD_TIME = 20.0f;
     /// <summary>
     /// 动物找吃的距离食盆的距离
     /// </summary>

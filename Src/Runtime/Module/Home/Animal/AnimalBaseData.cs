@@ -3,12 +3,12 @@ using GameMessageCore;
 /// 动物基础数据 用于数据管理面板的数据
 /// </summary>
 [System.Serializable]
-public class AnimBaseData
+public class AnimalBaseData
 {
     /// <summary>
     /// 动物全局Id 和存档数据id一致
     /// </summary>
-    public ulong AnimId;
+    public ulong AnimalId;
     /// <summary>
     /// 玩家取得名字
     /// </summary>
@@ -22,14 +22,14 @@ public class AnimBaseData
     /// </summary>
     public int Favorability;
 
-    public AnimBaseData()
+    public AnimalBaseData()
     {
 
     }
 
-    public AnimBaseData(ProxyAnimalBaseData data)
+    public AnimalBaseData(ProxyAnimalBaseData data)
     {
-        AnimId = data.AnimId;
+        AnimalId = data.AnimalId;
         Name = data.Name;
         Cid = data.Cid;
         Favorability = data.Favorability;
@@ -39,7 +39,7 @@ public class AnimBaseData
     {
         return new ProxyAnimalBaseData()
         {
-            AnimId = AnimId,
+            AnimalId = AnimalId,
             Name = Name,
             Cid = Cid,
             Favorability = Favorability,

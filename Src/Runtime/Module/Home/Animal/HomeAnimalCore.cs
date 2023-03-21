@@ -7,7 +7,7 @@ using static HomeDefine;
 /// </summary>
 public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 {
-    public ulong Id => Data.AnimId;
+    public ulong Id => Data.AnimalId;
 
     public eResourceType ResourceType => eResourceType.Animal;
 
@@ -66,7 +66,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     {
         if (Data.SaveData.IsDead)
         {
-            EnterAnimDeadStatus(true);
+            EnterAnimalDeadStatus(true);
         }
         else
         {
@@ -129,7 +129,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         {
             if (saveData.LastCompleteHungerStamp > 0)
             {
-                if ((TimeUtil.GetTimeStamp() - saveData.LastCompleteHungerStamp) * TimeUtil.MS2S >= ANIM_HUNGER_DEAD_TIME)
+                if ((TimeUtil.GetTimeStamp() - saveData.LastCompleteHungerStamp) * TimeUtil.MS2S >= ANIMAL_HUNGER_DEAD_TIME)
                 {
                     saveData.LastCompleteHungerStamp = 0;
                     OnTimerHungerDead();
@@ -218,7 +218,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// <summary>
     /// 进入动物死亡状态
     /// </summary>
-    public virtual void EnterAnimDeadStatus(bool isInit)
+    public virtual void EnterAnimalDeadStatus(bool isInit)
     {
         if (!isInit)
         {
@@ -296,10 +296,10 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
 
         Data.SaveData.ProductSaveData = productSaveData;
-        DropEntity = GameObjectUtil.CreateGameObject($"{Data.BaseData.AnimId}_{productSaveData.ProductId}", parent);
+        DropEntity = GameObjectUtil.CreateGameObject($"{Data.BaseData.AnimalId}_{productSaveData.ProductId}", parent);
         DropEntity.transform.position = NetUtilCore.Vector3FromNet(productSaveData.Pos);
         AnimalDropCore drop = DropEntity.AddComponent<TDrop>();
-        drop.InitAnimalDrop(productSaveData, Data.AnimId);
+        drop.InitAnimalDrop(productSaveData, Data.AnimalId);
     }
 
     /// <summary>

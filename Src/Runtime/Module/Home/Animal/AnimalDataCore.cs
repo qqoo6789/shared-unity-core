@@ -10,19 +10,19 @@ public class AnimalDataCore : MonoBehaviour
     /// <summary>
     /// 动物Id 家园系统中的ID和数据管理Id一致
     /// </summary>
-    public ulong AnimId => _saveData.AnimId;
+    public ulong AnimalId => _saveData.AnimalId;
     /// <summary>
     /// 配置表
     /// </summary>
     /// <value></value>
     public DRMonster DRMonster { get; private set; }
     [SerializeField]
-    private AnimBaseData _baseData;
+    private AnimalBaseData _baseData;
     /// <summary>
     /// 动物基础数据 对应动物管理列表中的数据
     /// </summary>
     /// <value></value>
-    public AnimBaseData BaseData => _baseData;
+    public AnimalBaseData BaseData => _baseData;
     [SerializeField]
     private AnimalSaveData _saveData;
     /// <summary>
@@ -41,7 +41,7 @@ public class AnimalDataCore : MonoBehaviour
     /// </summary>
     public Action<int> MsgFavorabilityChanged;
 
-    public void SetBaseData(AnimBaseData animalBaseData)
+    public void SetBaseData(AnimalBaseData animalBaseData)
     {
         _baseData = animalBaseData;
         DRMonster = GFEntryCore.DataTable.GetDataTable<DRMonster>().GetDataRow(_baseData.Cid);
@@ -62,15 +62,15 @@ public class AnimalDataCore : MonoBehaviour
             }
 
             _saveData = animalSaveData;
-            if (_baseData.AnimId != _saveData.AnimId)
+            if (_baseData.AnimalId != _saveData.AnimalId)
             {
-                Log.Error($"动物数据和存档数据不一致 _baseData.AnimId:{_baseData.AnimId} _saveData.AnimId:{_saveData.AnimId}");
-                _saveData.AnimId = _baseData.AnimId;
+                Log.Error($"动物数据和存档数据不一致 _baseData.AnimalId:{_baseData.AnimalId} _saveData.AnimalId:{_saveData.AnimalId}");
+                _saveData.AnimalId = _baseData.AnimalId;
             }
         }
         else
         {
-            _saveData = new AnimalSaveData(_baseData.AnimId)
+            _saveData = new AnimalSaveData(_baseData.AnimalId)
             {
                 HungerProgress = DRMonster.MaxHunger
             };
