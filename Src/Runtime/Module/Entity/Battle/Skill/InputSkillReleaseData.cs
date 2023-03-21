@@ -77,6 +77,21 @@ public class InputSkillReleaseData
             return;
         }
     }
+
+    public InputSkillReleaseData Clone()
+    {
+        return new InputSkillReleaseData(
+            SkillID,
+            Dir,
+            Targets,
+            TargetPos,
+            IsTry,
+            SkillTimeScale,
+            CostItem,
+            AccumulateTime
+        );
+    }
+
     /// <summary>
     /// 设置目标位置
     /// </summary>

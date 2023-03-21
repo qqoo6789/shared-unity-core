@@ -47,6 +47,9 @@ public enum eRoleID
 public enum eGameValueID
 {
     animalMaxNum = 8,
+    captureFavoriteItemRate = 9, // 捕获怪物喜欢的item倍率加成
+    captureBaseDamage = 10,      // 捕获怪物基础伤害值
+
 }
 
 // public static class GameValueID
