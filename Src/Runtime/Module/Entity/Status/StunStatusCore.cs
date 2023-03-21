@@ -1,3 +1,4 @@
+using System;
 using GameFramework.Fsm;
 /// <summary>
 /// 实体眩晕状态
@@ -8,6 +9,10 @@ public class StunStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
 
     public override string StatusName => Name;
     private int _stunStatusCounter;
+
+    protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeCapturedEventFunc),
+    };
     public bool CheckCanMove()
     {
         return false;

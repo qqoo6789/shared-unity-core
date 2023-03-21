@@ -18,6 +18,7 @@ public abstract class BeHitStatusCore : ListenEventStatusCore, IEntityCanMove, I
         typeof(BeHitMoveEventFunc),
         typeof(WaitToBattleStatusEventFunc),
         typeof(BeStunEventFunc),
+        typeof(BeCapturedEventFunc),
      };
 
     public override string StatusName => Name;

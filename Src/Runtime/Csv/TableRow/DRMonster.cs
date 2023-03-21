@@ -69,6 +69,15 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
+  /**获取captureSkillCastPool-int[][]。*/
+    /// </summary>
+    public int[][] CaptureSkillCastPool
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取combatDist-int。*/
     /// </summary>
     public int CombatDist
@@ -303,6 +312,7 @@ public class DRMonster : DataRowBase
         AutoHarvest = DataTableParseUtil.ParseBool(columnStrings[index++]);
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CaptureHp = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        CaptureSkillCastPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         CombatDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CritDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CritRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -345,6 +355,7 @@ public class DRMonster : DataRowBase
                 AutoHarvest = binaryReader.ReadBoolean();
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
                 CaptureHp = binaryReader.Read7BitEncodedInt32();
+                CaptureSkillCastPool = binaryReader.ReadArrayList<Int32>();
                 CombatDist = binaryReader.Read7BitEncodedInt32();
                 CritDmg = binaryReader.Read7BitEncodedInt32();
                 CritRate = binaryReader.Read7BitEncodedInt32();

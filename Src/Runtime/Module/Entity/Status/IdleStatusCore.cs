@@ -21,6 +21,7 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
         typeof(BeHitMoveEventFunc),
         typeof(WaitToBattleStatusEventFunc),
         typeof(BeStunEventFunc),
+        typeof(BeCapturedEventFunc),
     };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {

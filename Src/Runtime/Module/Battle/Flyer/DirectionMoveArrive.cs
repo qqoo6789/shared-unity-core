@@ -1,19 +1,51 @@
 using System;
 using UnityEngine;
-
+using DG.Tweening;
 /// <summary>
 /// 固定方向以固定速度、时间到达
 /// </summary>
 public class DirectionMoveArrive : ArriveAutoDestroy
 {
+    private Tweener _tweener;
+
     /// <summary>
     /// 开始移动
     /// </summary>
-    /// <param name="dir">固定方向</param>
-    /// <param name="speed">速度 m/s</param>
-    /// <param name="costTime">时间 s</param>
-    public void StartMove(Vector3 dir, float speed, float costTime)
+    /// <param name="toPos">目标位置</param>
+    /// <param name="costTime">消耗时间</param>
+    public void StartMove(Vector3 toPos, float costTime)
     {
-        throw new NotImplementedException();//预留
+        StartTween(toPos, costTime);
+    }
+
+    private void StartTween(Vector3 targetPos, float costTime)
+    {
+        if (_tweener != null)
+        {
+            StopTween();
+        }
+
+        _tweener = transform.DOMove(targetPos, costTime).SetEase(Ease.OutQuint).OnComplete(() =>
+        {
+            StopTween();
+            OnArrived();
+        });
+
+    }
+
+    private void OnDestroy()
+    {
+        StopTween();
+    }
+
+    private void StopTween()
+    {
+        if (_tweener == null)
+        {
+            return;
+        }
+
+        _tweener.Kill();
+        _tweener = null;
     }
 }

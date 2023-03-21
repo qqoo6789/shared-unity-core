@@ -375,18 +375,18 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取maxAccuTime-int。*/
+  /**获取costPropType-int[]。*/
     /// </summary>
-    public int MaxAccuTime
+    public int[] CostPropType
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取costPropType-int[]。*/
+  /**获取maxAccuTime-int。*/
     /// </summary>
-    public int[] CostPropType
+    public int MaxAccuTime
     {
         get;
         private set;
@@ -437,8 +437,8 @@ public class DRSkill : DataRowBase
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
         ComposeSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        MaxAccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CostPropType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        MaxAccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -490,8 +490,8 @@ public class DRSkill : DataRowBase
                 EffectSelf = binaryReader.ReadArray<Int32>();
                 SkillIcon = binaryReader.ReadString();
                 ComposeSkill = binaryReader.ReadArray<Int32>();
-                MaxAccuTime = binaryReader.Read7BitEncodedInt32();
                 CostPropType = binaryReader.ReadArray<Int32>();
+                MaxAccuTime = binaryReader.Read7BitEncodedInt32();
             }
         }
 

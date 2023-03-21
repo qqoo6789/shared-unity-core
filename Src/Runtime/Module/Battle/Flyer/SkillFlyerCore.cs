@@ -10,7 +10,7 @@ public abstract class SkillFlyerCore : MonoBehaviour
     public long FormEntityID { get; private set; }
     public DRSkill DRSkill { get; private set; }
     public long TargetEntityID { get; private set; }//没有为-1
-    public Vector3? Dir { get; private set; }//没有为Null
+    public Vector3? FlyEndPos { get; private set; }//没有为Null
 
     public void Init(int flyerID, long formEntityID, DRSkill drSkill)
     {
@@ -24,12 +24,12 @@ public abstract class SkillFlyerCore : MonoBehaviour
     public void SetTargetEntityID(long targetID)
     {
         TargetEntityID = targetID;
-        Dir = null;
+        FlyEndPos = null;
     }
 
-    public void SetDir(Vector3 dir)
+    public void SetFlyEndPos(Vector3 pos)
     {
-        Dir = dir;
+        FlyEndPos = pos;
         TargetEntityID = -1;
     }
 

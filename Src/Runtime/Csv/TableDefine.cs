@@ -47,6 +47,9 @@ public enum eRoleID
 public enum eGameValueID
 {
     animalMaxNum = 8,
+    captureFavoriteItemRate = 9, // 捕获怪物喜欢的item倍率加成
+    captureBaseDamage = 10,      // 捕获怪物基础伤害值
+
 }
 
 // public static class GameValueID
@@ -141,6 +144,8 @@ public enum eSkillEffectType : int
     SEBloodRage = 13,
     SEUnharmedAddAttr = 14,
     SESkillEffectModifier = 15,
+    SECaptureRopeHit = 16,
+    SECaptureDamage = 17,
 }
 /// <summary>
 /// 技能效果作用类型
@@ -160,4 +165,13 @@ public enum eSkillEffectModifierType : int
     Replace = 0, //替换
     Add = 1, //增加
     Remove = 2, //移除
+}
+
+
+
+public enum eSkillId : int
+{
+    Capture = 166, //捕获
+    CaptureHook = 167, //捕获-> 钩怪
+    CaptureShoot = 168, //捕获-> 射怪
 }

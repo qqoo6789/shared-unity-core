@@ -27,6 +27,7 @@ public class DirectionMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IE
         typeof(BeHitMoveEventFunc),
         typeof(WaitToBattleStatusEventFunc),
         typeof(BeStunEventFunc),
+        typeof(BeCapturedEventFunc),
     };
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
