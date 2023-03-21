@@ -392,33 +392,6 @@ public class DRSkill : DataRowBase
         private set;
     }
 
-    /// <summary>
-  /**获取composeSkill-int[]。*/
-    /// </summary>
-    public int[] ComposeSkill
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取maxAccuTime-int。*/
-    /// </summary>
-    public int MaxAccuTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取costPropType-int[]。*/
-    /// </summary>
-    public int[] CostPropType
-    {
-        get;
-        private set;
-    }
-
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);

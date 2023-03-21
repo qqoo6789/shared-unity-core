@@ -765,3 +765,8 @@ Sprite due to insufficient space",超过上限提示
 20040004,畜牧,DISPLACE,替换按钮
 6001,畜牧错误码,Capture animals request exception,捕捉动物请求异常
 6002,畜牧错误码,Capture animals is invalid,捕捉动物无效
+20050001,捕获取消操作,Capture Cancel,
+20050002,捕获距离太远,It's too far away,
+20050003,捕获绳子断开,The rope is broken,
+20050004,捕获超时,Capture timed out,
+20050005,捕获过程道具不足,Lack of props,
