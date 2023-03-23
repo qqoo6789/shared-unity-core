@@ -142,5 +142,15 @@ public static class TimeUtil
         nSeconds %= SecondsOfMinute;
         return $"{hour.ToString().PadLeft(2, '0')}:{minute.ToString().PadLeft(2, '0')}:{nSeconds.ToString().PadLeft(2, '0')}";
     }
-
+    // 秒 转 分:秒 
+    public static string SecondsToMS(int nSeconds)
+    {
+        if (nSeconds < 0)
+        {
+            nSeconds = 0;
+        }
+        int minute = Convert.ToInt32(decimal.Floor(nSeconds / SecondsOfMinute));
+        nSeconds %= SecondsOfMinute;
+        return $"{minute.ToString().PadLeft(2, '0')}:{nSeconds.ToString().PadLeft(2, '0')}";
+    }
 }
