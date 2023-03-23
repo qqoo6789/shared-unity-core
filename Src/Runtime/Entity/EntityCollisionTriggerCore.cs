@@ -41,6 +41,7 @@ public class EntityCollisionTrigger : MonoBehaviour
         {
             return;
         }
+        //TODO: 可能在实体销毁时这里无法清除
         EntityCollisionTrigger otherTrigger = other.gameObject.GetComponent<EntityCollisionTrigger>();
         if (otherTrigger != null && otherTrigger.RefEntity != null && otherTrigger.RefEntity.Inited)
         {

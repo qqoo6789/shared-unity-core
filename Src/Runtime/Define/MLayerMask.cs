@@ -38,6 +38,11 @@ public static class MLayerMask
     /// 家园资源类型
     /// </summary>
     public const int HOME_RESOURCE = 18;
+    /// <summary>
+    /// 实体触碰层
+    /// </summary>
+    /// <returns></returns>
+    public const int ENTITY_TRIGGER = 20;
 
     /// <summary>
     /// 默认的相机自动避开的遮挡层
@@ -55,9 +60,4 @@ public static class MLayerMask
     /// <returns></returns>
     public const int MASK_SCENE_DESTRUCTION = (1 << DEFAULT) | (1 << DISTANCE_CULL_SMALL) | (1 << DISTANCE_CULL_MIDDLE) | (1 << DISTANCE_CULL_BIG);
 
-    /// <summary>
-    /// 实体触碰层
-    /// </summary>
-    /// <returns></returns>
-    public const int ENTITY_TRIGGER = 20;
 }
