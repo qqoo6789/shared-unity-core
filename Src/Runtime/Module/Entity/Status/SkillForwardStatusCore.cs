@@ -94,7 +94,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, GetDeathStatusName());
+            ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
         if (CheckCanMove())

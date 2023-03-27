@@ -133,7 +133,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         if (RefEntityIsDead())
         {
             OnBeforeChangeToDeath();
-            ChangeState(fsm, GetDeathStatusName());
+            ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
 

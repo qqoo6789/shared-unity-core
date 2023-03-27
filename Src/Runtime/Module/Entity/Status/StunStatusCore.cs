@@ -43,7 +43,7 @@ public class StunStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, GetDeathStatusName());
+            ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
 

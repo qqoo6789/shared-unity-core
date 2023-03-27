@@ -18,7 +18,7 @@ public class AnimalUtilCore
     /// 从monster实体上生成 AnimalBaseData数据 异常返回null
     /// </summary>
     /// <returns></returns>
-    public static AnimBaseData GenerateAnimalBaseDataFromMonster(EntityBase monster)
+    public static AnimalBaseData GenerateAnimalBaseDataFromMonster(EntityBase monster)
     {
         if (monster == null)
         {
@@ -29,7 +29,7 @@ public class AnimalUtilCore
         DRMonster dRMonster = monster.GetComponent<MonsterDataCore>().DRMonster;
         return new()
         {
-            AnimId = (ulong)monster.BaseData.Id,
+            AnimalId = (ulong)monster.BaseData.Id,
             Name = dRMonster.Name,
             Cid = dRMonster.Id,
             Favorability = 0,

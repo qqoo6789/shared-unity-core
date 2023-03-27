@@ -10,7 +10,7 @@ public class AnimalSaveData
     /// <summary>
     /// 动物在家园系统中的全局ID和数据服那边的ID一致 和实体的ID没有直接关系
     /// </summary>
-    public ulong AnimId;
+    public ulong AnimalId;
     /// <summary>
     /// 饥饿进度 0代表完全饿了
     /// </summary>
@@ -41,14 +41,14 @@ public class AnimalSaveData
 
     }
 
-    public AnimalSaveData(ulong animId)
+    public AnimalSaveData(ulong animalId)
     {
-        AnimId = animId;
+        AnimalId = animalId;
     }
 
     public AnimalSaveData(ProxyAnimalData data)
     {
-        AnimId = data.AnimId;
+        AnimalId = data.AnimalId;
         HungerProgress = data.HungerProgress;
         HarvestProgress = data.HarvestProgress;
         IsComforted = data.IsComforted;
@@ -61,7 +61,7 @@ public class AnimalSaveData
     {
         ProxyAnimalData data = new()
         {
-            AnimId = AnimId,
+            AnimalId = AnimalId,
             HungerProgress = Mathf.CeilToInt(HungerProgress),
             HarvestProgress = Mathf.CeilToInt(HarvestProgress),
             IsComforted = IsComforted,

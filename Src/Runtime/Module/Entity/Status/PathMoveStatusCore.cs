@@ -122,7 +122,7 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, GetDeathStatusName());
+            ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
 

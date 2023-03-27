@@ -3,12 +3,8 @@ using GameFramework.Fsm;
 /// <summary>
 /// 畜牧动物死亡状态
 /// </summary>
-public class AnimalDeathStatusCore : EntityStatusCore, IEntityCanMove, IEntityCanSkill
+public class AnimalDeathStatusCore : DeathStatusCore
 {
-    public static new string Name = "animalDeath";
-
-    public override string StatusName => Name;
-
     protected HomeAnimalCore HomeAnimal;
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
@@ -28,14 +24,5 @@ public class AnimalDeathStatusCore : EntityStatusCore, IEntityCanMove, IEntityCa
         HomeAnimal = null;
 
         base.OnLeave(fsm, isShutdown);
-    }
-
-    public bool CheckCanMove()
-    {
-        return false;
-    }
-    public bool CheckCanSkill(int skillID)
-    {
-        return false;
     }
 }

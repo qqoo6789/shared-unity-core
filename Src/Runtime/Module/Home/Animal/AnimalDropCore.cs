@@ -7,9 +7,9 @@ public abstract class AnimalDropCore : MonoBehaviour
 {
     protected AnimalProductSaveData RefProductSaveData { get; private set; }
     protected ulong AnimalId { get; private set; }
-    public virtual void InitAnimalDrop(AnimalProductSaveData productSaveData, ulong animId)
+    public virtual void InitAnimalDrop(AnimalProductSaveData productSaveData, ulong animalId)
     {
         RefProductSaveData = productSaveData;
-        AnimalId = animId;
+        AnimalId = animalId;
     }
 }

@@ -72,7 +72,7 @@ public class CollectStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityC
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, GetDeathStatusName());
+            ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
         if (CheckCanMove())

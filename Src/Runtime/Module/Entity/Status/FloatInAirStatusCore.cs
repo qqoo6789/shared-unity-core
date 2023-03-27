@@ -25,7 +25,7 @@ public class FloatInAirStatusCore : ListenEventStatusCore
 
         if (RefEntityIsDead())
         {
-            ChangeState(fsm, GetDeathStatusName());
+            ChangeState(fsm, DeathStatusCore.Name);
             return;
         }
 

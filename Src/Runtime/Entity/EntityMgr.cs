@@ -26,7 +26,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     public int EntityCount => EntityDic.Count;
 
     /// <summary>
-    /// 获取存在的场景实体
+    /// 获取存在的场景实体 找不到会报错 返回null
     /// </summary>
     /// <param name="id"></param>
     /// <returns>如果没有会返回null</returns>
@@ -38,13 +38,24 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         //     return EntityDic[id];
         // }
 
-        if (EntityDic.TryGetValue(id, out TEntity entity))
+        if (TryGetEntity(id, out TEntity entity))
         {
             return entity;
         }
 
-        Log.Warning($"Can not find entity with id {id}");
+        Log.Error($"Can not find entity with id {id}");
         return null;
+    }
+
+    /// <summary>
+    /// 尝试获取存在的场景实体
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    public bool TryGetEntity(long id, out TEntity entity)
+    {
+        return EntityDic.TryGetValue(id, out entity);
     }
 
     public T GetEntity<T>(long id) where T : EntityBase
