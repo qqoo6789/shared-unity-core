@@ -133,7 +133,7 @@ public enum eFoodItemInteractType
     addHp,//增加血量
     occupyLand,//占地
     equipItem,//装备道具
-    addBuff,//增加buff
+    usePotion,//增加buff
 }
 
 public enum eSkillEffectType : int
