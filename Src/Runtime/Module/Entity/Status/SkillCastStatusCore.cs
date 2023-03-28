@@ -146,29 +146,11 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     }
     protected virtual void OnInputSkillRelease(InputSkillReleaseData inputData)
     {
-        bool valid = false;
+        SeContinueNextSkill(true);
 
-        if (!inputData.IsTry)
-        {
-            valid = true;
-        }
-        else//尝试释放
-        {
-            //是翻滚动作
-            if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == inputData.SkillID)
-            {
-                valid = true;
-            }
-        }
-
-        if (valid)
-        {
-            SeContinueNextSkill(true);
-
-            StatusCtrl.transform.forward = inputData.Dir;
-            OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
-            ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
-        }
+        StatusCtrl.transform.forward = inputData.Dir;
+        OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
+        ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 
     //施法完成定时
@@ -238,14 +220,14 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         _continueNextSkill = isContinue;
     }
 
-    public bool CheckCanSkill(int skillID)
+    public virtual bool CheckCanSkill(int skillID)
     {
-        if (skillID == 0)
+        //是翻滚动作
+        if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == skillID)
         {
-            return false;
+            return true;
         }
 
-        //现在没有强校验技能具体技能
-        return true;
+        return false;
     }
 }

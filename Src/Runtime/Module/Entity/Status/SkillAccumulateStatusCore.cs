@@ -151,12 +151,12 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
 
     public bool CheckCanSkill(int skillID)
     {
-        if (skillID == 0)
+        //是翻滚动作
+        if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == skillID)
         {
-            return false;
+            return true;
         }
 
-        //现在没有强校验技能具体技能
-        return true;
+        return false;
     }
 }
