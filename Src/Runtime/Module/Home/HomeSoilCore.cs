@@ -52,7 +52,7 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         return GetCurStatus().CheckSupportAction(action);
     }
 
-    public virtual void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
+    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
     {
         if (action == eAction.Sowing)
         {
@@ -71,10 +71,15 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         {
             SoilData.SaveData.ExtraWateringNum = extraWateringNum;
         }
+
+        if ((action & PROGRESS_ACTION_MASK) == 0)//非进度的动作 因为进度动作 在执行动作前会执行进度动作 已经触发过了
+        {
+            SoilEvent.OnBeHit?.Invoke(skillId);
+        }
     }
 
-    public virtual void ExecuteProgress(eAction targetCurAction, int skillId)
+    public void ExecuteProgress(eAction targetCurAction, int skillId)
     {
-
+        SoilEvent.OnBeHit?.Invoke(skillId);
     }
 }
