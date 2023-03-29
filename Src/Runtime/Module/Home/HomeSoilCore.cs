@@ -52,7 +52,7 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         return GetCurStatus().CheckSupportAction(action);
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
+    public virtual void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
     {
         if (action == eAction.Sowing)
         {
@@ -73,7 +73,7 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         }
     }
 
-    public void ExecuteProgress(eAction targetCurAction, int skillId)
+    public virtual void ExecuteProgress(eAction targetCurAction, int skillId)
     {
 
     }
