@@ -31,8 +31,6 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     protected virtual void Awake()
     {
         IsDead = false;
-
-        _ = gameObject.AddComponent<HomeActionProgressData>();
     }
 
     /// <summary>
