@@ -276,18 +276,18 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取homeAttRate-int。*/
+  /**获取hitEff-string。*/
     /// </summary>
-    public int HomeAttRate
+    public string HitEff
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取hitEff-string。*/
+  /**获取homeAttRate-int。*/
     /// </summary>
-    public string HitEff
+    public int HomeAttRate
     {
         get;
         private set;
@@ -435,8 +435,8 @@ public class DRSkill : DataRowBase
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
-        HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
+        HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -489,8 +489,8 @@ public class DRSkill : DataRowBase
                 TargetLock = binaryReader.ReadBoolean();
                 HomeAction = binaryReader.ReadArray<Int32>();
                 ReleaseEff = binaryReader.ReadString();
-                HomeAttRate = binaryReader.Read7BitEncodedInt32();
                 HitEff = binaryReader.ReadString();
+                HomeAttRate = binaryReader.Read7BitEncodedInt32();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 FlyAvatar = binaryReader.ReadString();
                 FlyDistance = binaryReader.Read7BitEncodedInt32();
