@@ -97,12 +97,12 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,item-icon-128,128,Accelerated Fertilizer,1,3,0,1,98
 1,description placeholder,item-icon-129,129,Increase Production Fertilizers,1,3,0,1,98
 1,description placeholder,item-icon-130,130,Moisture-rich Fertilizer,1,3,0,1,98
-1,description placeholder,item-icon-134,134,Secondary Therapeutic Solution,1,3,0,1,
-1,description placeholder,item-icon-135,135,Secondary Attack Potion,1,3,0,1,
-1,description placeholder,item-icon-136,136,Secondary Movement Speed Potion,1,3,0,1,
-1,description placeholder,item-icon-137,137,Secondary Critical Strike Potion,1,3,0,1,
-1,description placeholder,item-icon-138,138,Secondary Life Potion,1,3,0,1,
-1,description placeholder,item-icon-139,139,Secondary Defense Potion,1,3,0,1,
+1,Heals 80 HP,item-icon-134,134,Secondary Healing Potion,1,3,0,1,
+1,Increase attack power by 20 points for 60 seconds,item-icon-135,135,Secondary Attack Potion,1,3,0,1,
+1,Increase movement speed by 80 points for 60 seconds,item-icon-136,136,Secondary Movement Speed Potion,1,3,0,1,
+1,Increase critical rate by 3% for 60 seconds,item-icon-137,137,Secondary Critical Strike Potion,1,3,0,1,
+1,Increases maximum health by 80 points for 60 seconds,item-icon-138,138,Secondary Life Potion,1,3,0,1,
+1,Increase defense value by 5 points for 60 seconds,item-icon-139,139,Secondary Defense Potion,1,3,0,1,
 1,description placeholder,item-icon-146,146,Bamboo Seeds,1,3,1,1,97
 1,description placeholder,item-icon-147,147,Trifolium Seeds,1,3,1,1,97
 1,description placeholder,item-icon-148,148,Carrot Seeds,1,3,1,1,97
@@ -122,12 +122,12 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,item-icon-131,131,Advanced Accelerated Fertilizer,1,3,0,1,98
 1,description placeholder,item-icon-132,132,Advanced Yield-increasing Fertilizer,1,3,0,1,98
 1,description placeholder,item-icon-133,133,Advanced Moisture Fertilizer,1,3,0,1,98
-1,description placeholder,item-icon-140,140,Treatment Potion,1,3,1,1,
-1,description placeholder,item-icon-141,141,Attack Potion,1,3,1,1,
-1,description placeholder,item-icon-142,142,Movement Speed Potion,1,3,1,1,
-1,description placeholder,item-icon-143,143,Critical Strike Potion,1,3,1,1,
-1,description placeholder,item-icon-144,144,Life Potion,1,3,1,1,
-1,description placeholder,item-icon-145,145,Defensive Potion,1,3,1,1,
+1,Heals 160 HP,item-icon-140,140,Treatment Potion,1,3,1,1,
+1,Increase attack power by 30 points for 60 seconds,item-icon-141,141,Attack Potion,1,3,1,1,
+1,Increase movement speed by 120 for 60 seconds,item-icon-142,142,Movement Speed Potion,1,3,1,1,
+1,Increase critical rate by 6% for 60 seconds,item-icon-143,143,Critical Strike Potion,1,3,1,1,
+1,Increases maximum health by 120 for 60 seconds,item-icon-144,144,Life Potion,1,3,1,1,
+1,Increase defense value by 10 points for 60 seconds,item-icon-145,145,Defensive Potion,1,3,1,1,
 1,description placeholder,item-icon-61,61,Clay,1,4,1,1,
 1,description placeholder,item-icon-65,65,Resin,1,4,1,1,
 1,description placeholder,item-icon-68,68,Maguey,1,4,3,1,
@@ -151,9 +151,9 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,item-icon-177,177,Cactus Essence,1,4,1,1,
 1,description placeholder,item-icon-178,178,Screw,1,4,1,1,
 1,description placeholder,item-icon-179,179,Pumpkin Essence,1,4,1,1,
-1,description placeholder,item-icon-180,180,Monster Husbandry Output,1,4,2,1,
-1,description placeholder,item-icon-181,181,Monster Livestock Production Output,1,4,2,1,
-1,description placeholder,item-icon-182,182,Monster Livestock Output,1,4,2,1,
+1,description placeholder,item-icon-180,180,Blue Crystal,1,4,2,1,
+1,description placeholder,item-icon-181,181,Grass monster leaf,1,4,2,1,
+1,description placeholder,item-icon-182,182,Honey,1,4,2,1,
 1,description placeholder,item-icon-183,183,Monster Husbandry Output,1,4,3,1,
 1,description placeholder,item-icon-184,184,Monster Livestock Output,1,4,3,1,
 1,description placeholder,item-icon-185,185,Monster Livestock Production,1,4,3,1,
@@ -184,9 +184,9 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 0,,item-icon-188,188,Farming EXP,1,4,0,0,
 0,,item-icon-189,189,Combat EXP,1,4,0,0,
 0,,item-icon-190,190,Gather EXP,1,4,0,0,
-1,description placeholder,item-icon-191,191,Crystallization Therapy Potion,1,3,2,1,
-1,description placeholder,item-icon-192,192,Crystalization Attack Potion,1,3,2,1,
-1,description placeholder,item-icon-194,194,Crystalization Movement Speed Potion,1,3,2,1,
-1,description placeholder,item-icon-195,195,Crystallization Critical Strike Potion,1,3,2,1,
-1,description placeholder,item-icon-196,196,Crystallization Of Life Elixir,1,3,2,1,
-1,description placeholder,item-icon-197,197,Crystallization Defense Potion,1,3,2,1,
+1,Heals 240 HP,item-icon-191,191,Crystallization Therapy Potion,1,3,2,1,
+1,Increase attack power by 40 points for 60 seconds,item-icon-192,192,Crystalization Attack Potion,1,3,2,1,
+1,Increases movement speed by 160 for 60 seconds,item-icon-194,194,Crystalization Movement Speed Potion,1,3,2,1,
+1,Increase critical rate by 9% for 60 seconds,item-icon-195,195,Crystallization Critical Strike Potion,1,3,2,1,
+1,Increases maximum health by 160 for 60 seconds,item-icon-196,196,Crystallization Of Life Elixir,1,3,2,1,
+1,Increase defense value by 15 points for 60 seconds,item-icon-197,197,Crystallization Defense Potion,1,3,2,1,
