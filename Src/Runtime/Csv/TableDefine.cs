@@ -9,6 +9,14 @@ using GameMessageCore;
 */
 public static class TableDefine
 {
+    /// <summary>
+    /// 配置中的千分位配置变小数
+    /// </summary>
+    public static readonly float THOUSANDTH_2_FLOAT = 1 / 1000f;
+    /// <summary>
+    /// 配置中的百分位配置变小数
+    /// </summary>
+    public static readonly float PERCENTAGE_2_FLOAT = 1 / 100f;
     public static readonly int ITEMID_EXP_FARMING = 188;
     public static readonly int ITEMID_EXP_COMBAT = 189;
     public static readonly int ITEMID_EXP_GATHER = 190;
