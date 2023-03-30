@@ -38,10 +38,6 @@ public class InputSkillReleaseData
     /// </summary>
     public GameMessageCore.UseSkillCostItem CostItem { get; private set; }
     /// <summary>
-    /// 尝试释放
-    /// </summary>
-    public bool IsTry { get; private set; }
-    /// <summary>
     /// 技能释放速率
     /// </summary>
     public double SkillTimeScale { get; private set; }
@@ -58,15 +54,13 @@ public class InputSkillReleaseData
     /// <param name="dir">技能方向</param>
     /// <param name="targets">技能目标列表</param>
     /// <param name="targetPos">技能目标位置</param>
-    /// <param name="isTry">尝试释放</param>
     /// <param name="skillTimeScale">释放速率</param>
-    public InputSkillReleaseData(int skillID, Vector3 dir, long[] targets, Vector3 targetPos, bool isTry = false, double skillTimeScale = 1, GameMessageCore.UseSkillCostItem costItem = null, float accumulateTime = 0)
+    public InputSkillReleaseData(int skillID, Vector3 dir, long[] targets, Vector3 targetPos, double skillTimeScale = 1, GameMessageCore.UseSkillCostItem costItem = null, float accumulateTime = 0)
     {
         SkillID = skillID;
         Dir = dir;
         Targets = targets;
         TargetPos = targetPos;
-        IsTry = isTry;
         SkillTimeScale = skillTimeScale;
         CostItem = costItem;
         AccumulateTime = accumulateTime;
@@ -85,7 +79,6 @@ public class InputSkillReleaseData
             Dir,
             Targets,
             TargetPos,
-            IsTry,
             SkillTimeScale,
             CostItem,
             AccumulateTime

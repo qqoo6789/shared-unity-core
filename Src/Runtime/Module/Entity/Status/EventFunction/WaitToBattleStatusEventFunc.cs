@@ -22,16 +22,6 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
 
     protected virtual void OnInputSkillRelease(InputSkillReleaseData inputData)
     {
-        if (EntityStatus is not IEntityCanSkill entityCanSkill)
-        {
-            return;
-        }
-
-        if (!entityCanSkill.CheckCanSkill(inputData.SkillID))
-        {
-            return;
-        }
-
         StatusCtrl.transform.forward = inputData.Dir;
 
         OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);

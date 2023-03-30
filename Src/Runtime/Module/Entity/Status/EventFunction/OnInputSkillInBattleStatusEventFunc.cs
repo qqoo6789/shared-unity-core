@@ -24,27 +24,9 @@ public class OnInputSkillInBattleStatusEventFunc : EntityStatusEventFunctionBase
 
     private void OnInputSkillRelease(InputSkillReleaseData inputData)
     {
-        bool valid = false;
+        StatusCtrl.transform.forward = inputData.Dir;
 
-        if (!inputData.IsTry)
-        {
-            valid = true;
-        }
-        else//尝试释放
-        {
-            //是翻滚动作
-            if (StatusCtrl.TryGetComponent(out PlayerRoleDataCore playerData) && playerData.DRRole.JumpRollSkill == inputData.SkillID)
-            {
-                valid = true;
-            }
-        }
-
-        if (valid)
-        {
-            StatusCtrl.transform.forward = inputData.Dir;
-
-            OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
-            EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
-        }
+        OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
+        EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
 }
