@@ -110,6 +110,7 @@ public class EntityAttributeTable
             CritRate = eAttributeType.CombatCritRate,
             CritDmg = eAttributeType.CombatCritDmg,
             Def = eAttributeType.CombatDef,
+            Vulnerable = eAttributeType.CombatVulnerable,
         };
         _damageAttributeClassifyMap.Add(HomeDefine.eAction.AttackEnemy, attack);
 
