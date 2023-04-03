@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 实体属性数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/EntityAttributeData.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/EntityAttributeData.cs
  * 
  */
 using System.Collections.Generic;
@@ -82,12 +82,12 @@ public class EntityAttributeData : EntityBaseComponent
             attribute = CreateAttribute(type);
             AttributeMap.Add(type, attribute);
         }
+        _ = attribute.SetBase(value);
         //基础属性没变化
         if (attribute.BaseValue == value)
         {
             return;
         }
-        _ = attribute.SetBase(value);
         RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(type, attribute.Value);
     }
 
