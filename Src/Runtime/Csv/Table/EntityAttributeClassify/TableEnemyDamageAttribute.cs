@@ -7,4 +7,9 @@ public class TableEnemyDamageAttribute : TableCoreDamageAttribute
     /// 防御力
     /// </summary>
     public eAttributeType Def;
+
+    /// <summary>
+    /// 伤害加深比例
+    /// </summary>
+    public eAttributeType Vulnerable;
 }
