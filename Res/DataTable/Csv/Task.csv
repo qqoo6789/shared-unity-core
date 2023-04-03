@@ -1,28 +1,31 @@
-designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,isSelfEnd-bool,itemReward-int,name-string,level-int[][],preTaskReq-int[],chanceOptions-string,finishText-string
-"{""options"":[{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,11,10001,,,,
-"{""options"":[{""optionType"":1,""value"":""134,2""},{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,11,10002,"1,1;2,1",1,,
-"{""options"":[{""optionType"":3,""value"":""1,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,11,10003,"2,2",2,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,11,10004,"2,3",3,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,11,10005,"2,4",4,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,11,10006,,5,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,11,10007,,5,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,11,10008,,"6,7",,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,11,Traveling,,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,11,Traveling,,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,11,Traveling,,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,11,Traveling,,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,11,Traveling,,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,,
-,"For love and peace, please give me these",0,"1,100",17,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100""},{""optionType"":1,""value"":""2,10,100;2,2,300;1,1,100""}]}",
-,"For love and peace, please give me these",0,"1,100",18,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}",
-,"For love and peace, please give me these",0,"1,100",19,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}",
-,"For love and peace, please give me these",0,"1,100",20,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}",
-"{""options"":[{""optionType"":4,""value"":""6,5""}]}","Travelers, help me! I'm blocked by monsters nearby, can you help me fight them off?",,,21,0,11,Help me,,,,Thank you! I have some potions for you.
-"{""options"":[{""optionType"":2,""value"":""134,1""}]}","There is still a battle to go on, so use the healing potion to heal yourself.",,,22,0,12,Heal yourself,,21,,"Very well, take this wooden sword, you are ready to go."
-"{""options"":[{""optionType"":1,""value"":""32,10""}]}","Kill the monsters nearby, and I'll be on my way home. Take the materials they drop, and the blacksmith in the city will trade you some good stuff.",,,23,0,13,Kill them all,,22,,"Well well, how did you know I needed these resources urgently? This is what I can give you, take it."
-"{""options"":[{""optionType"":1,""value"":""62,5""},{""optionType"":1,""value"":""58,5""}]}",The most important thing in craft is to collect materials. Take your axe and pickaxe and follow the list to gather materials.,,,24,0,14,Ready to craft?,,23,,"Great, you've learned how to gather.Now it's time to get down to business."
-"{""options"":[{""optionType"":9,""value"":""44,1""}]}","The materials I gave you may not be enough, so gather all the materials for making a stone sword and make a stone sword.",,"2,1000",25,0,,Rookie blacksmith,,24,,"Yes, you have initially mastered the method of crafting."
-"{""options"":[{""optionType"":15,""value"":""1,1""}]}","You made a lv1 sword, you need to improve your combat talent before you can use it.",,"2,1000",26,0,,Like the Sword in the Stone,,25,,"It seems that you are already a qualified fighter. During the adventure, you will continue to accumulate combat specialization experience and continue to improve your combat talent!"
-"{""options"":[{""optionType"":1,""value"":""62,5""}]}",There is just an open space near the town for adventurers like you to use. Collect some wood and hand it over to Mr. Mayor near the city gate. He will give you some useful information.,,,27,0,17,New home to be gifted,,26,,"Thank you traveler. In your homeland, you can farm, raise livestock, and become an agricultural tycoon as long as you want. I'll send you some resources to get started, go try farming!"
+designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,isSelfEnd-bool,itemReward-int,name-string,level-int[][],preTaskReq-int[],chanceOptions-string
+"{""options"":[{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,11,10001,,,
+"{""options"":[{""optionType"":1,""value"":""134,2""},{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,11,10002,"1,1;2,1",1,
+"{""options"":[{""optionType"":3,""value"":""1,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,11,10003,"2,2",2,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,11,10004,"2,3",3,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,11,10005,"2,4",4,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,11,10006,,5,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,11,10007,,5,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,11,10008,,"6,7",
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,
+,"For love and peace, please give me these",0,"1,100",17,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100""},{""optionType"":1,""value"":""2,10,100;2,2,300;1,1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",18,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",19,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",20,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":""1,1,100;5,3,200""},{""optionType"":1,""value"":""1,1,100""}]}"
+"{""options"":[{""optionType"":4,""value"":""6,5""}]}",Help the tramp defeat nearby monsters.,,"2,100",21,0,11,Help me,,,
+"{""options"":[{""optionType"":2,""value"":""134,1""}]}",Open the backpack and heal yourself once with a Secondary Healing Potion.,,"2,200",22,0,12,Heal yourself,,21,
+"{""options"":[{""optionType"":1,""value"":""32,10""}]}",Defeat monsters and collect some Crystallization Residues. Go into town to find the blacksmith and give him the materials.,,"2,200",23,0,13,Kill them all,,22,
+"{""options"":[{""optionType"":1,""value"":""58,5""}]}",Gather some Minerals to the blacksmith. Mineral can be found near the beach.,,"2,200;3,200",24,0,14,Ready to craft?,,23,
+"{""options"":[{""optionType"":9,""value"":""44,1""}]}",Talk to the blacksmith to open the equipment crafting interface and make a Stone Sword.,,"2,500",25,0,,Rookie blacksmith,,24,
+"{""options"":[{""optionType"":15,""value"":""1,1""}]}","Open the Talent Tree interface, switch to Combat Specialization, and upgrade the Combat Mastery 1 node.",,"2,500",26,0,,The sword chooses the warrior,,25,
+"{""options"":[{""optionType"":1,""value"":""62,5""}]}","Gather some Ordinary Wood and give it to the mayor, and he will give you some props for farming.",,"2,200;1,400;3,200",27,0,17,Become a farmer,,23,
+"{""options"":[{""optionType"":1,""value"":""66,5""}]}",The pharmacist needs you to gather some basic herbs. It can be collected by chopping grass plants near towns with a sword.,,"2,200;3,200",28,0,21,Shortage of herbs,,23,
+"{""options"":[{""optionType"":15,""value"":""58,1""}]}",Upgrade the Potion Mastery node in the combat talent tree to level 1.,,"2,200;3,200",29,0,22,Learn to make potions,,"28,26",
+"{""options"":[{""optionType"":9,""value"":""95,5""}]}",Find that pharmacist to make a few potions using the Secondary Potion Recipe you learned.,,"2,500",30,0,,Trainee pharmacist,,29,
