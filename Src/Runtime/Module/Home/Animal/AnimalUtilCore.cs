@@ -27,12 +27,15 @@ public class AnimalUtilCore
         }
 
         DRMonster dRMonster = monster.GetComponent<MonsterDataCore>().DRMonster;
+        long createMs = TimeUtil.GetTimeStamp();//共享库内容用本机时间 如果是服务器会重新校验纠正
         return new()
         {
             AnimalId = (ulong)monster.BaseData.Id,
             Name = dRMonster.Name,
             Cid = dRMonster.Id,
             Favorability = 0,
+            CreateMs = createMs,
+            UpdateMs = createMs,
         };
     }
 }
