@@ -130,10 +130,11 @@ public enum eEquipmentType
 //消耗品使用交互类型
 public enum eFoodItemInteractType
 {
-    addHp,//增加血量
+    usePotion,//嗑药
     occupyLand,//占地
     equipItem,//装备道具
 }
+
 public enum eSkillEffectType : int
 {
     EffectIdUnknown = 0,
@@ -174,8 +175,6 @@ public enum eSkillEffectModifierType : int
     Add = 1, //增加
     Remove = 2, //移除
 }
-
-
 
 public enum eSkillId : int
 {
