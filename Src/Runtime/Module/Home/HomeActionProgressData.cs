@@ -113,7 +113,7 @@ public class HomeActionProgressData : MonoBehaviour
     {
         StopHoldToFull(true);
 
-        StartBackProtectTimer();
+        OnTriggerActionChangeProgress(true);
 
         if (fullTime <= 0)
         {
@@ -124,12 +124,17 @@ public class HomeActionProgressData : MonoBehaviour
 
         _fullTimeStamp = (int)(TimeUtil.GetTimeStamp() + (fullTime * TimeUtil.S2MS));
         _onProgressHoldFull = onProgressHoldFull;
-        _tween = DOTween.To(() => CurProgressActionValue, x => CurProgressActionValue = x, CurProgressActionMaxValue, fullTime).SetEase(Ease.Linear);
+        _tween = DOTween.To(() => CurProgressActionValue, x =>
+        {
+            CurProgressActionValue = x;
+            OnHoldUpdateChangeProgress();
+        }, CurProgressActionMaxValue, fullTime).SetEase(Ease.Linear);
         _tween.onComplete += () =>
         {
             CurProgressActionValue = CurProgressActionMaxValue;//防止精度问题
             _onProgressHoldFull?.Invoke(this);
             _onProgressHoldFull = null;
+            OnHoldUpdateFinish();
             _fullTimeStamp = 0;
             _tween = null;
         };
@@ -142,7 +147,7 @@ public class HomeActionProgressData : MonoBehaviour
     {
         if (!force)
         {
-            StartBackProtectTimer();
+            OnTriggerActionHoldStop();
         }
 
         if (_tween == null)
@@ -157,6 +162,37 @@ public class HomeActionProgressData : MonoBehaviour
     }
 
     /// <summary>
+    /// 在触发动作改变进度时调用 不会再初始化时调用
+    /// </summary>
+    /// <param name="isHoldAction"></param>
+    protected virtual void OnTriggerActionChangeProgress(bool isHoldAction)
+    {
+        StartBackProtectTimer();
+    }
+
+    /// <summary>
+    /// 在触发动作停止时调用 不会再初始化时调用
+    /// </summary>
+    protected virtual void OnTriggerActionHoldStop()
+    {
+        StartBackProtectTimer();
+    }
+
+    /// <summary>
+    /// 在holdToFull中每次进度值改变时调用
+    /// </summary>
+    protected virtual void OnHoldUpdateChangeProgress()
+    {
+    }
+
+    /// <summary>
+    /// 在holdToFull中满了自动结束时调用
+    /// </summary>
+    protected virtual void OnHoldUpdateFinish()
+    {
+    }
+
+    /// <summary>
     /// 直接设置进度值 会停掉hold到满的缓动
     /// </summary>
     /// <param name="progressValue">进度值</param>
@@ -164,7 +200,7 @@ public class HomeActionProgressData : MonoBehaviour
     {
         if (!force)
         {
-            StartBackProtectTimer();
+            OnTriggerActionChangeProgress(false);
         }
 
         StopHoldToFull(true);

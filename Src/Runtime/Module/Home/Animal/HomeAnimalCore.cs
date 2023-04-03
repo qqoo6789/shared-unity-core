@@ -35,7 +35,6 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     protected virtual void Awake()
     {
         Data = gameObject.AddComponent<AnimalDataCore>();
-        _ = gameObject.AddComponent<HomeActionProgressData>();
     }
 
     protected virtual void Start()

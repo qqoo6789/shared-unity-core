@@ -15,4 +15,8 @@ public class SoilEvent : MonoBehaviour
     /// 执行某个动作 T0:动作类型 T1：动作参数（比如播种的种子cid和是否有效等）自行判断解析异常
     /// </summary>
     public Action<HomeDefine.eAction, object> MsgExecuteAction;
+    /// <summary>
+    /// 被击中 T0:skillID
+    /// </summary>
+    public Action<int> OnBeHit;
 }
