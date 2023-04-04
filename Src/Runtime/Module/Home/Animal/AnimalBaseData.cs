@@ -21,6 +21,14 @@ public class AnimalBaseData
     /// 好感度数值
     /// </summary>
     public int Favorability;
+    /// <summary>
+    /// 动物创建时间戳
+    /// </summary>
+    public long CreateMs;
+    /// <summary>
+    /// 动物最近更新时间戳
+    /// </summary>
+    public long UpdateMs;
 
     public AnimalBaseData()
     {
@@ -33,6 +41,8 @@ public class AnimalBaseData
         Name = data.Name;
         Cid = data.Cid;
         Favorability = data.Favorability;
+        CreateMs = data.CreateMs;
+        UpdateMs = data.UpdateMs;
     }
 
     public ProxyAnimalBaseData ToProxyAnimalBaseData()
@@ -43,6 +53,8 @@ public class AnimalBaseData
             Name = Name,
             Cid = Cid,
             Favorability = Favorability,
+            CreateMs = CreateMs,
+            UpdateMs = UpdateMs,
         };
     }
 }
