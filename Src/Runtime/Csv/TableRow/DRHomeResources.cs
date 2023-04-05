@@ -33,15 +33,6 @@ public class DRHomeResources : DataRowBase
     }
 
     /// <summary>
-  /**获取desc-string。*/
-    /// </summary>
-    public string Desc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取dropId-int。*/
     /// </summary>
     public int DropId
@@ -101,7 +92,6 @@ public class DRHomeResources : DataRowBase
 
         int index = 0;
         AssetRes = DataTableParseUtil.ParseString(columnStrings[index++]);
-        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -121,7 +111,6 @@ public class DRHomeResources : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 AssetRes = binaryReader.ReadString();
-                Desc = binaryReader.ReadString();
                 DropId = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
                 HomeAction = binaryReader.Read7BitEncodedInt32();
