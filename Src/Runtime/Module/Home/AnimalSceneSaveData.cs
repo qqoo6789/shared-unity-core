@@ -5,4 +5,8 @@
 public class AnimalSceneSaveData
 {
     public AnimalBowlSaveData[] BowlSaveDataList;
+    /// <summary>
+    /// 上次保存的时间戳
+    /// </summary>
+    public long LastSaveStamp;
 }

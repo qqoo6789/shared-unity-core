@@ -72,4 +72,12 @@ public class AnimalSaveData
 
         return data;
     }
+
+    /// <summary>
+    /// 统一设置饥饿进度 0~100
+    /// </summary>
+    public void SetHarvestProgress(float progress)
+    {
+        HarvestProgress = Mathf.Clamp(progress, 0, HomeDefine.ANIMAL_CAN_HARVEST_PROCESS);
+    }
 }

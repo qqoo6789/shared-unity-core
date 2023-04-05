@@ -34,7 +34,7 @@ public class AnimalDataCore : MonoBehaviour
     /// <summary>
     /// 是否能收获
     /// </summary>
-    public bool IsCanHarvest => _saveData.HarvestProgress >= 100;
+    public bool IsCanHarvest => _saveData.HarvestProgress >= HomeDefine.ANIMAL_CAN_HARVEST_PROCESS;
 
     /// <summary>
     /// 好感度改变事件 T0:更改后好感度
