@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-01-11 14:21:18
  * @Description: 实体整型属性
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/IntAttribute.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/IntAttribute.cs
  * 
  */
 
@@ -57,6 +57,7 @@ public class IntAttribute : IReference
 
     public void Initialize(float coefficient)
     {
+        Value = 0;
         BaseValue = Add = PctAdd = FinalAdd = FinalPctAdd = 0;
         RealValue = 0f;
         Coefficient = coefficient;
