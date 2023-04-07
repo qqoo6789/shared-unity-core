@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
 using System.Collections.Generic;
@@ -40,6 +40,7 @@ public class EntityEvent : EntityBaseComponent
     /// 输入的移动路径变化了 T0:path
     /// </summary>
     public Action InputMovePathChanged;
+
     /// <summary>
     /// 实体路径移动到达目标点 中途停止不会广播 只有通过实体本身路径移动才会广播 单纯使用通用移动脚本直接移动的不会广播
     /// </summary>
@@ -178,6 +179,11 @@ public class EntityEvent : EntityBaseComponent
     /// 实体被捕获
     /// </summary>
     public Action<long> EntityBeCaptured;
+
+    /// <summary>
+    /// 停止路径移动状态  T0:停止位置
+    /// </summary>
+    public Action<Vector3> InputMovePathMoveStop;
     #endregion
 
 }

@@ -98,19 +98,39 @@ public class PathMoveStatusCore : ListenEventStatusCore, IEntityCanMove, IEntity
     {
         entityEvent.InputMovePathChanged += OnPathChanged;
         entityEvent.SpecialMoveStartNotMoveStatus += OnSpecialMoveStart;
+        entityEvent.InputMovePathMoveStop += OnPathStop;
     }
 
     protected override void RemoveEvent(EntityEvent entityEvent)
     {
         entityEvent.InputMovePathChanged -= OnPathChanged;
         entityEvent.SpecialMoveStartNotMoveStatus -= OnSpecialMoveStart;
+        entityEvent.InputMovePathMoveStop -= OnPathStop;
     }
+
 
     private void OnSpecialMoveStart()
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
+    private void OnPathStop(Vector3 stopPos)
+    {
+        InputData.ClearInputMovePath(false);
+        _distanceMove.StopMove();
+        //移动到停止点, 服务器已经在停止点，而客户端可能还没跑到，这里就移动到停止点
+        Vector3 offset = stopPos - StatusCtrl.RefEntity.Position;
+        if (offset != Vector3.zero)
+        {
+            float speed = StatusCtrl.RefEntity.MoveData.Speed;
+            _distanceMove.MoveTo(offset, offset.magnitude, speed, OnMoveFinish);
+        }
+        else
+        {
+            OnMoveFinish();
+        }
+
+    }
     private void OnMoveFinish()
     {
         ChangeState(OwnerFsm, IdleStatusCore.Name);
