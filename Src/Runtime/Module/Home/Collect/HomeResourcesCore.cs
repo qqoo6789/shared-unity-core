@@ -45,7 +45,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
 
         if ((PROGRESS_ACTION_MASK & SupportAction) != 0)
         {
-            GetComponent<HomeActionProgressData>().StartProgressAction(SupportAction, SOIL_PROGRESS_ACTION_MAX_VALUE);
+            GetComponent<HomeActionProgressData>().StartProgressAction(SupportAction, dr.MaxActionValue);
         }
     }
 

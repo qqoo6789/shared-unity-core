@@ -29,7 +29,7 @@ public class SoilSeedThirstyStatusCore : SoilStatusCore
     {
         base.OnEnter(fsm);
 
-        StatusCtrl.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Watering, SOIL_PROGRESS_ACTION_MAX_VALUE);
+        StatusCtrl.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Watering, SoilData.DRSeed != null ? SoilData.DRSeed.NeedWaterValue : ACTION_MAX_PROGRESS_PROTECT);
     }
 
     protected override void OnLeave(IFsm<SoilStatusCtrl> fsm, bool isShutdown)

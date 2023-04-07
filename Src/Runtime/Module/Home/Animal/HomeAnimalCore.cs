@@ -31,10 +31,12 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// 自动收获的掉落实体
     /// </summary>
     protected GameObject DropEntity { get; private set; }
+    private int _animalDeadTimeFromHunger;
 
     protected virtual void Awake()
     {
         Data = gameObject.AddComponent<AnimalDataCore>();
+        _animalDeadTimeFromHunger = TableUtil.GetGameValue(eGameValueID.animalDeadTimeFromHunger).Value;
     }
 
     protected virtual void Start()
@@ -75,7 +77,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             }
             else
             {
-                gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
+                gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, TableUtil.GetGameValue(eGameValueID.animalAppeaseMaxActionValue).Value);
             }
         }
     }
@@ -128,7 +130,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         {
             if (saveData.LastCompleteHungerStamp > 0)
             {
-                if ((TimeUtil.GetTimeStamp() - saveData.LastCompleteHungerStamp) * TimeUtil.MS2S >= ANIMAL_HUNGER_DEAD_TIME)
+                if ((TimeUtil.GetTimeStamp() - saveData.LastCompleteHungerStamp) * TimeUtil.MS2S >= _animalDeadTimeFromHunger)
                 {
                     saveData.LastCompleteHungerStamp = 0;
                     OnTimerHungerDead();
@@ -211,7 +213,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// </summary>
     protected virtual void OnEnterHarvestStatus(bool isInit)
     {
-        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(_harvestAction, ANIMAL_HARVEST_ACTION_MAX_PROGRESS);
+        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(_harvestAction, TableUtil.GetGameValue(eGameValueID.animalHarvestMaxActionValue).Value);
     }
 
     /// <summary>
@@ -244,10 +246,10 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         if (appeaseValid)
         {
             Data.SaveData.IsComforted = true;
-            Data.BaseData.Favorability += ANIMAL_APPEASE_ADD_VALUE;
+            Data.BaseData.Favorability += TableUtil.GetGameValue(eGameValueID.animalAddFavorabilityEveryAppease).Value;
             Data.MsgFavorabilityChanged?.Invoke(Data.BaseData.Favorability);
         }
-        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
+        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, TableUtil.GetGameValue(eGameValueID.animalAppeaseMaxActionValue).Value);
     }
 
     /// <summary>
@@ -263,7 +265,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
         Data.SaveData.HarvestProgress = 0;
         Data.SaveData.IsComforted = false;
-        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, ANIMAL_APPEASE_ACTION_MAX_PROGRESS);
+        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, TableUtil.GetGameValue(eGameValueID.animalAppeaseMaxActionValue).Value);
     }
 
     /// <summary>
