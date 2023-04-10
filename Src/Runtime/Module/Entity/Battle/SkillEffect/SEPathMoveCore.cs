@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 技能路径移动效果
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
  * 
  */
 
@@ -31,6 +31,10 @@ public class SEPathMoveCore : SkillEffectBase
         Vector3 targetPos = NetUtilCore.LocFromNet(EffectData.BeatBackValue.BackToPos);
         Vector3 offset = targetPos - RefEntity.Position;
         float distance = offset.magnitude;
+        if (distance <= 0)
+        {
+            return;
+        }
         float speed = distance / (EffectCfg.Duration * TimeUtil.MS2S);
         DistanceMove.SetMoveSpeed(speed);
         DistanceMove.MoveTo(offset, distance, speed);
