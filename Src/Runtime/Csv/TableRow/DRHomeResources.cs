@@ -78,6 +78,15 @@ public class DRHomeResources : DataRowBase
     }
 
     /// <summary>
+  /**获取maxActionValue-int。*/
+    /// </summary>
+    public int MaxActionValue
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取name-string。*/
     /// </summary>
     public string Name
@@ -98,6 +107,7 @@ public class DRHomeResources : DataRowBase
         Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        MaxActionValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Name = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
@@ -117,6 +127,7 @@ public class DRHomeResources : DataRowBase
                 Icon = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
+                MaxActionValue = binaryReader.Read7BitEncodedInt32();
                 Name = binaryReader.ReadString();
             }
         }
