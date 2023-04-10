@@ -1,39 +1,36 @@
-args-string[],callFunc-string[],cd-int,interactType-string,cdType-int,id-int
-1*1,occupyLand,5000,occupyLand,,
--,Sow Seeds,0,equipItem,,
--,Fertilize,0,equipItem,,
-199,Add Buff,5000,usePotion,1,140
-189,Add Buff,60000,usePotion,6,141
-190,Add Buff,60000,usePotion,6,142
-191,Add Buff,60000,usePotion,6,143
-192,Add Buff,60000,usePotion,6,144
-193,Add Buff,60000,usePotion,6,145
-200,Add Buff,5000,usePotion,1,134
-178,Add Buff,60000,usePotion,6,135
-185,Add Buff,60000,usePotion,6,136
-186,Add Buff,60000,usePotion,6,137
-187,Add Buff,60000,usePotion,6,138
-188,Add Buff,60000,usePotion,6,139
--,Fertilize,0,equipItem,,128
--,Fertilize,0,equipItem,,129
--,Fertilize,0,equipItem,,130
--,Fertilize,0,equipItem,,131
--,Fertilize,0,equipItem,,132
--,Fertilize,0,equipItem,,133
--,Sow Seeds,0,equipItem,,146
--,Sow Seeds,0,equipItem,,147
--,Sow Seeds,0,equipItem,,148
--,Sow Seeds,0,equipItem,,149
--,Sow Seeds,0,equipItem,,150
--,Sow Seeds,0,equipItem,,151
--,Sow Seeds,0,equipItem,,152
--,Sow Seeds,0,equipItem,,153
--,Sow Seeds,0,equipItem,,154
--,Feed,0,equipItem,,28
--,Feed,0,equipItem,,29
-201,Add Buff,5000,usePotion,1,191
-194,Add Buff,60000,usePotion,6,192
-195,Add Buff,60000,usePotion,6,194
-196,Add Buff,60000,usePotion,6,195
-197,Add Buff,60000,usePotion,6,196
-198,Add Buff,60000,usePotion,6,197
+args-string[],callFunc-string[],cd-int,cdType-int,id-int,interactType-string
+200,Add Buff,5000,1,140,usePotion
+189,Add Buff,60000,6,141,usePotion
+190,Add Buff,60000,6,142,usePotion
+191,Add Buff,60000,6,143,usePotion
+192,Add Buff,60000,6,144,usePotion
+193,Add Buff,60000,6,145,usePotion
+199,Add Buff,5000,1,134,usePotion
+178,Add Buff,60000,6,135,usePotion
+185,Add Buff,60000,6,136,usePotion
+186,Add Buff,60000,6,137,usePotion
+187,Add Buff,60000,6,138,usePotion
+188,Add Buff,60000,6,139,usePotion
+-,Fertilize,0,,128,equipItem
+-,Fertilize,0,,129,equipItem
+-,Fertilize,0,,130,equipItem
+-,Fertilize,0,,131,equipItem
+-,Fertilize,0,,132,equipItem
+-,Fertilize,0,,133,equipItem
+-,Sow Seeds,0,,146,equipItem
+-,Sow Seeds,0,,147,equipItem
+-,Sow Seeds,0,,148,equipItem
+-,Sow Seeds,0,,149,equipItem
+-,Sow Seeds,0,,150,equipItem
+-,Sow Seeds,0,,151,equipItem
+-,Sow Seeds,0,,152,equipItem
+-,Sow Seeds,0,,153,equipItem
+-,Sow Seeds,0,,154,equipItem
+-,Feed,0,,28,equipItem
+-,Feed,0,,29,equipItem
+201,Add Buff,5000,1,191,usePotion
+194,Add Buff,60000,6,192,usePotion
+195,Add Buff,60000,6,194,usePotion
+196,Add Buff,60000,6,195,usePotion
+197,Add Buff,60000,6,196,usePotion
+198,Add Buff,60000,6,197,usePotion

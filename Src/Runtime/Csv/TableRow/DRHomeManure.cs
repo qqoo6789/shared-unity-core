@@ -46,9 +46,9 @@ public class DRHomeManure : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        _id = int.Parse(columnStrings[index++]);
         Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
-        _id = int.Parse(columnStrings[index++]);
 
         return true;
     }
@@ -60,9 +60,9 @@ public class DRHomeManure : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                _id = binaryReader.Read7BitEncodedInt32();
                 Args = binaryReader.ReadArray<String>();
                 CallFunc = binaryReader.ReadArray<String>();
-                _id = binaryReader.Read7BitEncodedInt32();
             }
         }
 

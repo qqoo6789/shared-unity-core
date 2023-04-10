@@ -51,18 +51,18 @@ public class DRItemEatable : DataRowBase
     }
 
     /// <summary>
-  /**获取interactType-string。*/
+  /**获取cdType-int。*/
     /// </summary>
-    public string InteractType
+    public int CdType
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取cdType-int。*/
+  /**获取interactType-string。*/
     /// </summary>
-    public int CdType
+    public string InteractType
     {
         get;
         private set;
@@ -76,9 +76,9 @@ public class DRItemEatable : DataRowBase
         Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        InteractType = DataTableParseUtil.ParseString(columnStrings[index++]);
         CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
+        InteractType = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
@@ -93,9 +93,9 @@ public class DRItemEatable : DataRowBase
                 Args = binaryReader.ReadArray<String>();
                 CallFunc = binaryReader.ReadArray<String>();
                 Cd = binaryReader.Read7BitEncodedInt32();
-                InteractType = binaryReader.ReadString();
                 CdType = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
+                InteractType = binaryReader.ReadString();
             }
         }
 
