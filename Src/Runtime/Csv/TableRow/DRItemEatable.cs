@@ -76,9 +76,9 @@ public class DRItemEatable : DataRowBase
         Args = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         CallFunc = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         Cd = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        _id = int.Parse(columnStrings[index++]);
         InteractType = DataTableParseUtil.ParseString(columnStrings[index++]);
         CdType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        _id = int.Parse(columnStrings[index++]);
 
         return true;
     }
@@ -93,9 +93,9 @@ public class DRItemEatable : DataRowBase
                 Args = binaryReader.ReadArray<String>();
                 CallFunc = binaryReader.ReadArray<String>();
                 Cd = binaryReader.Read7BitEncodedInt32();
-                _id = binaryReader.Read7BitEncodedInt32();
                 InteractType = binaryReader.ReadString();
                 CdType = binaryReader.Read7BitEncodedInt32();
+                _id = binaryReader.Read7BitEncodedInt32();
             }
         }
 

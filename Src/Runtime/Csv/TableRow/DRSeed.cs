@@ -24,15 +24,6 @@ public class DRSeed : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取desc-string。*/
-    /// </summary>
-    public string Desc
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取dropId-int。*/
     /// </summary>
     public int DropId
@@ -109,7 +100,6 @@ public class DRSeed : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GrowRes = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
@@ -130,7 +120,6 @@ public class DRSeed : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                Desc = binaryReader.ReadString();
                 DropId = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
                 GrowRes = binaryReader.ReadArray<String>();

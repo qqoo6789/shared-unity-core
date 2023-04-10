@@ -4,13 +4,12 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 3 equipment.",53,1,lv0_sword,3,1,3,1,Combat Mastery 3,2,15000,2,0,2
 0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 4 equipment.",54,1,lv0_sword,4,1,4,1,Combat Mastery 4,2,50000,3,0,3
 0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 5 equipment.",55,1,lv0_sword,5,1,5,1,Combat Mastery 5,2,150000,4,0,4
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 6 equipment.",56,1,lv0_sword,6,1,6,1,Combat Mastery 6,2,60,5,0,5
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 7 equipment.",57,1,lv0_sword,7,1,7,1,Combat Mastery 7,2,70,6,0,6
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 8 equipment.",58,1,lv0_sword,8,1,8,1,Combat Mastery 8,2,80,7,0,7
-0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 9 equipment.",59,1,lv0_sword,9,1,9,1,Combat Mastery 9,2,90,8,0,8
+0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 6 equipment.",56,1,lv0_sword,6,1,6,1,Combat Mastery 6,2,450000,5,0,5
+0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 7 equipment.",57,1,lv0_sword,7,1,7,1,Combat Mastery 7,2,450000,6,0,6
+0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 8 equipment.",58,1,lv0_sword,8,1,8,1,Combat Mastery 8,2,1350000,7,0,7
+0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 9 equipment.",,1,lv0_sword,9,1,9,1,Combat Mastery 9,2,,8,,8
 1,Increase your critical hit rate against monsters by 5%/10%/15% by targeting their weak points.,60;61;62,1,ic_battery,10,0,1,3,Weakness Exploit,2,"600,3000,12000",0,"0,0,10",
 1,"Deliver a powerful ground pound attack in a small/medium/large radius, stunning all enemies around you for 2 seconds and dealing 50% weapon damage.",63;64;65,0,lv0_sword,11,0,2,3,War Trampling,2,"1500,7500,30000",0,"0,0,10",10
--1,Unlocks the crafting recipe for the Scroll of Combat Gear 1,,2,craft_scroll,12,0,1,1,Combat Gear lore level 1,2,600,0,0,
 0,The probability of doubling the quantity of farming products harvested will increase by 1%.,66,1,ic_battery,13,1,1,1,Farming Mastery 1,1,10,0,0,
 0,The probability of doubling the quantity of farming products harvested will increase by 1%.,67,1,ic_battery,14,1,2,1,Farming Mastery 2,1,20,1,0,13
 0,The probability of doubling the quantity of farming products harvested will increase by 1%. Grade 2 crops can be planted.,68,1,ic_battery,15,1,3,1,Farming Mastery 3,1,30,2,0,14
@@ -33,14 +32,6 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 0,Increase the probability of acquiring additional resources by 1%. Cause higher damage to level 4 resources.,89,1,craft_scroll,32,1,9,1,Gather Mastery 9,3,90,8,0,31
 1,Increase the speed of the axe.,90;91;92,1,ic_battery,33,0,1,3,Axe Mastery,3,"10,100,1000",0,"0,0,10",
 1,Increases the critical hit rate when dealing damage to trees.,93;94;95,1,ic_battery,34,0,2,3,Logging Skill,3,"10,100,1000",0,"0,0,10",33
--1,Unlocks the crafting recipe for the Scroll of Combat Gear 2,,2,craft_scroll,35,0,2,1,Combat Gear lore level 2,2,6000,0,10,12
--1,Unlocks the crafting recipe for the Scroll of Combat Gear 3,,2,craft_scroll,36,0,3,1,Combat Gear lore level 3,2,48000,0,20,35
--1,Unlocks the crafting recipe for the Scroll of Farming Gear 1,,2,craft_scroll,37,0,1,1,Farming Gear lore level 1,1,10,0,0,
--1,Unlocks the crafting recipe for the Scroll of Farming Gear 2,,2,craft_scroll,38,0,2,1,Farming Gear lore level 2,1,100,0,0,37
--1,Unlocks the crafting recipe for the Scroll of Farming Gear 3,,2,craft_scroll,39,0,3,1,Farming Gear lore level 3,1,1000,0,10,38
--1,Unlocks the crafting recipe for the Scroll of Gather Gear 1,,2,craft_scroll,40,0,1,1,Gather Gear lore level 1,3,10,0,0,
--1,Unlocks the crafting recipe for the Scroll of Gather Gear 2,,2,craft_scroll,43,0,2,1,Gather Gear lore level 2,3,100,0,0,40
--1,Unlocks the crafting recipe for the Scroll of Gather Gear 3,,2,craft_scroll,44,0,3,1,Gather Gear lore level 3,3,1000,0,10,43
 1,Waters small/medium/large fields around you.,99;100;101,0,lv0_sword,45,0,3,3,Group Watering,1,"10,100,1000",0,"0,0,10",23
 1,"Tear apart the ground ahead, and perform a hoeing of farmland within a short/medium/long range.",102;103;104,0,lv0_sword,46,0,4,3,Earth Splitter,1,"10,100,1000",0,"0,0,10",45
 2,"Carefully harvest crops, there is a 5%/10%/15% chance to get crop seeds.",105;106;107,1,ic_battery,47,0,1,3,Careful Harvester,1,"10,100,1000",0,"0,0,10",

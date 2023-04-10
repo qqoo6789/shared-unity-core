@@ -123,15 +123,6 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取dropId-int。*/
-    /// </summary>
-    public int DropId
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取exp-int。*/
     /// </summary>
     public int Exp
@@ -141,27 +132,9 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取favoriteItem-int[]。*/
-    /// </summary>
-    public int[] FavoriteItem
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取harvestAction-int。*/
     /// </summary>
     public int HarvestAction
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取harvestDropId-int。*/
-    /// </summary>
-    public int HarvestDropId
     {
         get;
         private set;
@@ -302,6 +275,15 @@ public class DRMonster : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取dropId-int。*/
+    /// </summary>
+    public int DropId
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -318,11 +300,8 @@ public class DRMonster : DataRowBase
         CritRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Def = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
-        DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        FavoriteItem = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         HarvestAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        HarvestDropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -339,6 +318,7 @@ public class DRMonster : DataRowBase
         PushDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillCastPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
+        DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -361,11 +341,8 @@ public class DRMonster : DataRowBase
                 CritRate = binaryReader.Read7BitEncodedInt32();
                 Def = binaryReader.Read7BitEncodedInt32();
                 Desc = binaryReader.ReadString();
-                DropId = binaryReader.Read7BitEncodedInt32();
                 Exp = binaryReader.Read7BitEncodedInt32();
-                FavoriteItem = binaryReader.ReadArray<Int32>();
                 HarvestAction = binaryReader.Read7BitEncodedInt32();
-                HarvestDropId = binaryReader.Read7BitEncodedInt32();
                 HarvestTime = binaryReader.Read7BitEncodedInt32();
                 HitPoint = binaryReader.Read7BitEncodedInt32();
                 Hp = binaryReader.Read7BitEncodedInt32();
@@ -382,6 +359,7 @@ public class DRMonster : DataRowBase
                 PushDmg = binaryReader.Read7BitEncodedInt32();
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 SkillCastPool = binaryReader.ReadArrayList<Int32>();
+                DropId = binaryReader.Read7BitEncodedInt32();
             }
         }
 
