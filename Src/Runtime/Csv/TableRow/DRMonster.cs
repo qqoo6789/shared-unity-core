@@ -150,6 +150,15 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
+  /**获取harvestDropId-int。*/
+    /// </summary>
+    public int HarvestDropId
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取harvestTime-int。*/
     /// </summary>
     public int HarvestTime
@@ -312,6 +321,7 @@ public class DRMonster : DataRowBase
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FavoriteItem = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         HarvestAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HarvestDropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -354,6 +364,7 @@ public class DRMonster : DataRowBase
                 Exp = binaryReader.Read7BitEncodedInt32();
                 FavoriteItem = binaryReader.ReadArray<Int32>();
                 HarvestAction = binaryReader.Read7BitEncodedInt32();
+                HarvestDropId = binaryReader.Read7BitEncodedInt32();
                 HarvestTime = binaryReader.Read7BitEncodedInt32();
                 HitPoint = binaryReader.Read7BitEncodedInt32();
                 Hp = binaryReader.Read7BitEncodedInt32();
