@@ -17,6 +17,9 @@ public class HomeSaveData
     public List<AnimalSaveData> AnimalSaveDataList;
     public AnimalSceneSaveData AnimalSceneSaveData;
 
+    // 是否使用初始家园数据
+    public bool UseDefaultData;
+
     public static string ToJson(object data)
     {
         return JsonConvert.SerializeObject(data, Formatting.None);
