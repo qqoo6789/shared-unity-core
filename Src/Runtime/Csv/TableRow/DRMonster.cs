@@ -132,6 +132,15 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
+  /**获取favoriteItem-int[]。*/
+    /// </summary>
+    public int[] FavoriteItem
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取harvestAction-int。*/
     /// </summary>
     public int HarvestAction
@@ -301,6 +310,7 @@ public class DRMonster : DataRowBase
         Def = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        FavoriteItem = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         HarvestAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -342,6 +352,7 @@ public class DRMonster : DataRowBase
                 Def = binaryReader.Read7BitEncodedInt32();
                 Desc = binaryReader.ReadString();
                 Exp = binaryReader.Read7BitEncodedInt32();
+                FavoriteItem = binaryReader.ReadArray<Int32>();
                 HarvestAction = binaryReader.Read7BitEncodedInt32();
                 HarvestTime = binaryReader.Read7BitEncodedInt32();
                 HitPoint = binaryReader.Read7BitEncodedInt32();
