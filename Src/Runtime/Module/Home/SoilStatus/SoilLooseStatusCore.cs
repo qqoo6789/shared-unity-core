@@ -11,7 +11,7 @@ public class SoilLooseStatusCore : SoilStatusCore
 
     public override eAction SupportAction => eAction.Sowing;
 
-    protected override float AutoEnterNextStatusTime => HomeDefine.SOIL_FROM_LOOSE_TO_IDLE_TIME;
+    protected override float AutoEnterNextStatusTime => TableUtil.GetGameValue(eGameValueID.soilFromLooseToIdleTime).Value;
 
     protected override void OnAutoEnterNextStatus()
     {

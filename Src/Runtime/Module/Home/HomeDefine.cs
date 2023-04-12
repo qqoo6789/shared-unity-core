@@ -13,10 +13,7 @@ public static class HomeDefine
 
     public const float HOME_PROGRESS_ACTION_BACK_PROTECT_TIME = 2000;//家园进度动作回退保护时间 ms
 
-    public const int SOIL_PROGRESS_ACTION_LOST_SPEED = 3;//进度动作统一流逝速度 每秒
-    public const int SOIL_PROGRESS_ACTION_MAX_VALUE = 100;//进度动作统一最大值
-
-    public const int SOIL_FROM_LOOSE_TO_IDLE_TIME = 7200;//3 * 24 * 60 * 60 //土壤从松土到空白的时间 秒
+    public const int ACTION_MAX_PROGRESS_PROTECT = 100;//进度动作最大值的保护性值 防止异常报错 正常不会用到
 
     /// <summary>
     /// 需要消耗道具的动作集合
@@ -45,42 +42,10 @@ public static class HomeDefine
     public const string ANIMAL_AI_NAME = "HomeAnimalAI";
 
     /// <summary>
-    /// 动物完全饥饿后死亡时间 秒
-    /// </summary>
-    public const float ANIMAL_HUNGER_DEAD_TIME = 20.0f;
-    /// <summary>
     /// 动物找吃的距离食盆的距离
     /// </summary>
     public const float ANIMAL_EAT_FOOD_DISTANCE = 2f;
 
-    /// <summary>
-    /// 动物收获动作进度的伤害值
-    /// </summary>
-    public const float ANIMAL_HARVEST_ACTION_DAMAGE_PROGRESS = 40;
-    /// <summary>
-    /// 动物收获动作进度的最大值
-    /// </summary>
-    public const float ANIMAL_HARVEST_ACTION_MAX_PROGRESS = 100;
-    /// <summary>
-    /// 动物安抚动作进度的每秒伤害值
-    /// </summary>
-    public const float ANIMAL_APPEASE_ACTION_DAMAGE_PROGRESS = 60;
-    /// <summary>
-    /// 动物安抚动作进度的最大值
-    /// </summary>
-    public const float ANIMAL_APPEASE_ACTION_MAX_PROGRESS = 100;
-    /// <summary>
-    /// 动物好感度一颗心的好感度数量
-    /// </summary>
-    public const int ANIMAL_FAVORABILITY_ONE_HEART_NUM = 10;
-    /// <summary>
-    /// 安抚动作增加的好感度值
-    /// </summary>
-    public const int ANIMAL_APPEASE_ADD_VALUE = 1;
-    /// <summary>
-    /// 好感度爱心显示的最大数量
-    /// </summary>
-    public const int ANIMAL_HEAT_SHOW_MAX_NUM = 10;
     /// <summary>
     /// 畜牧动物死亡后能触发的对话的最大距离
     /// </summary>

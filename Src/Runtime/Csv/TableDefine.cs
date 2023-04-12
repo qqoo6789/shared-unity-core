@@ -57,7 +57,17 @@ public enum eGameValueID
     animalMaxNum = 8,
     captureFavoriteItemRate = 9, // 捕获怪物喜欢的item倍率加成
     captureBaseDamage = 10,      // 捕获怪物基础伤害值
-
+    hoeingMaxActionValue = 13,
+    animalAppeaseMaxActionValue = 14,
+    animalHarvestMaxActionValue = 15,
+    homeActionLostSpeed = 16,
+    soilFromLooseToIdleTime = 17,
+    animalDeadTimeFromHunger = 18,
+    animalHarvestActionValue = 19,
+    animalAppeaseActionSpeed = 20,
+    animalFavorabilityValueEveryHeart = 21,
+    animalAddFavorabilityEveryAppease = 22,
+    animalHeartShowMaxNum = 23,
 }
 
 // public static class GameValueID

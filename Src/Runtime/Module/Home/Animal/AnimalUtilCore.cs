@@ -11,7 +11,7 @@ public class AnimalUtilCore
     /// <returns></returns>
     public static int CalculateAnimalFavorabilityHeartNum(int favorabilityValue)
     {
-        return favorabilityValue / HomeDefine.ANIMAL_FAVORABILITY_ONE_HEART_NUM;
+        return favorabilityValue / TableUtil.GetGameValue(eGameValueID.animalFavorabilityValueEveryHeart).Value;
     }
 
     /// <summary>

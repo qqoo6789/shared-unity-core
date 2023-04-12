@@ -64,7 +64,7 @@ public class HomeActionProgressData : MonoBehaviour
             return;
         }
 
-        CurProgressActionValue -= SOIL_PROGRESS_ACTION_LOST_SPEED * Time.deltaTime;
+        CurProgressActionValue -= TableUtil.GetGameValue(eGameValueID.homeActionLostSpeed).Value * Time.deltaTime;
         CurProgressActionValue = Mathf.Max(0, CurProgressActionValue);
     }
 
