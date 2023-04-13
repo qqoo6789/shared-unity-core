@@ -94,8 +94,8 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         if (Data.SaveData.HungerProgress > 0)
         {
             bool oldCanHarvest = Data.IsCanHarvest;
-            Data.SaveData.HarvestProgress += Time.deltaTime / Data.DRMonster.HarvestTime * 100;//配置的是多少秒收获能收获 这个收获进度时百分比0~100
-            Data.SaveData.HarvestProgress = Mathf.Clamp(Data.SaveData.HarvestProgress, 0, 100);
+            float addHarvestProgress = Time.deltaTime / Data.DRMonster.HarvestTime * 100;//配置的是多少秒收获能收获 这个收获进度时百分比0~100
+            Data.SaveData.SetHarvestProgress(Data.SaveData.HarvestProgress + addHarvestProgress);
             if (Data.IsCanHarvest != oldCanHarvest && Data.IsCanHarvest)
             {
                 if (!Data.DRMonster.AutoHarvest)
@@ -263,7 +263,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             return;
         }
 
-        Data.SaveData.HarvestProgress = 0;
+        Data.SaveData.SetHarvestProgress(0);
         Data.SaveData.IsComforted = false;
         gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, TableUtil.GetGameValue(eGameValueID.animalAppeaseMaxActionValue).Value);
     }

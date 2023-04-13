@@ -54,6 +54,10 @@ public static class HomeDefine
     /// 动物死亡对话的对话名
     /// </summary>
     public const string ANIMAL_DEATH_DIALOG_CONVERSATION_NAME = "DeathDialog";
+    /// <summary>
+    /// 动物可以收获的进度值
+    /// </summary>
+    public const int ANIMAL_CAN_HARVEST_PROCESS = 100;
 
     #endregion
 
