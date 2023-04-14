@@ -26,7 +26,7 @@ namespace Meland.Editor.DataTableTools
 
         public static DataTableProcessor CreateDataTableProcessor(string fullName)
         {
-            return new DataTableProcessor(fullName, Encoding.GetEncoding(TableDefine.DATA_TABLE_ENCODING), 1, 2, null, 0, 3);
+            return new DataTableProcessor(fullName, Encoding.GetEncoding(CSVDefine.DATA_TABLE_ENCODING), 1, 2, null, 0, 3);
         }
 
         public static bool CheckRawData(DataTableProcessor dataTableProcessor, string dataTableName)
