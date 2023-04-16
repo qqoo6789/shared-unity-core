@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-08-12 20:30:01
  * @LastEditors: Please set LastEditors
  * @Description: 
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/DataTableParseUtil.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Aot/Csv/DataTableParseUtil.cs
  * 
  */
 

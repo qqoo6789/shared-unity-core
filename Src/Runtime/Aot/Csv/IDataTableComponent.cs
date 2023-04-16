@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-26 19:06:17
  * @Description: table组件接口
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/IDataTableComponent.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Aot/Csv/IDataTableComponent.cs
  * 
  */
 

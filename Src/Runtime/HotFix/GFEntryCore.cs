@@ -1,3 +1,5 @@
+using System.Reflection;
+using System;
 /*
  * @Author: xiang huan
  * @Date: 2022-07-26 15:38:17
@@ -16,13 +18,40 @@ public static class GFEntryCore
     /// 获取数据表组件。
     /// </summary>
     private static IDataTableComponent s_DataTableComponent = null;
+    /// <summary>
+    /// IDataTableComponent比较特殊，由于DataTableComponent定义在Aot顶层模块中，编辑态无法获取到，所以需要通过反射的方式获取
+    /// </summary>
+    /// <value></value>
     public static IDataTableComponent DataTable
     {
         get
         {
             if (s_DataTableComponent == null)
             {
-                s_DataTableComponent = GetModule<IDataTableComponent>();
+                try
+                {
+                    Type gameEntryType = Type.GetType("UnityGameFramework.Runtime.GameEntry, UnityGameFramework.Runtime");
+                    if (gameEntryType == null)
+                    {
+                        Log.Error($"获取GameEntry类型失败，请检查GameEntry是否存在于UnityGameFramework.Runtime命名空间下");
+                        return null;
+                    }
+                    Type dataTableComponentType = Type.GetType("UnityGameFramework.Runtime.DataTableComponent, UnityGameFramework.Runtime");
+                    if (dataTableComponentType == null)
+                    {
+                        Log.Error($"获取DataTableComponent类型失败，请检查DataTableComponent是否存在于UnityGameFramework.Runtime命名空间下");
+                        return null;
+                    }
+                    //获取参数类型是Type的GetComponent方法
+                    MethodInfo method = gameEntryType.GetMethod("GetComponent", new Type[] { typeof(Type) });
+                    //调用GetComponent方法
+                    s_DataTableComponent = (IDataTableComponent)method.Invoke(null, new object[] { dataTableComponentType });
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Get DataTable failed, {e.Message}");
+                    return null;
+                }
             }
 
             return s_DataTableComponent;
@@ -75,7 +104,7 @@ public static class GFEntryCore
         }
     }
     /// <summary>
-    /// 注意！！！频繁获取会有性能损耗，如果有频繁获取的需求，请参照DataTable的获取方式
+    /// 注意！！！频繁获取会有性能损耗，如果有频繁获取的需求，用成员变量缓存
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public static T GetModule<T>() where T : class

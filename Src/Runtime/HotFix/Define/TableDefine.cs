@@ -5,7 +5,7 @@ using GameMessageCore;
 * @LastEditors: Please set LastEditors
 * @Description: 表定义
 * @Date: 2022-06-23 20:28:37
-* @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/TableDefine.cs
+* @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Aot/Csv/TableDefine.cs
 */
 public static class TableDefine
 {
