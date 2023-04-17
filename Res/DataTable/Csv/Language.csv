@@ -770,4 +770,4 @@ Sprite due to insufficient space",超过上限提示
 20050003,捕获绳子断开,The rope is broken,
 20050004,捕获超时,Capture timed out,
 20050005,捕获过程道具不足,Lack of props,
-20060001,技能,Skill In CD,技能CD
+20060001,技能,Skill In CD,释放技能正在CD中
