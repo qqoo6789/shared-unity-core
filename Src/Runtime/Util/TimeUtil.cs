@@ -1,3 +1,4 @@
+#define SHARED_CORE_TIME_UTIL
 using System;
 using UnityGameFramework.Runtime;
 
