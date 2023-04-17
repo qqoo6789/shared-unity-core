@@ -167,7 +167,6 @@ public class EntityBase
         //限制y轴不变 都是水平的 目前看起来实体这样也才更加合理 为什么要打印是因为业务层没有考虑到0说明其他地方也可能会有问题
         if (!forward.y.ApproximatelyEquals(0))
         {
-            Log.Warning($"entity y of dir not set 0 name={Name} id={BaseData.Id} type={BaseData.Type}");
             forward.y = 0;
         }
         _transform.forward = forward;

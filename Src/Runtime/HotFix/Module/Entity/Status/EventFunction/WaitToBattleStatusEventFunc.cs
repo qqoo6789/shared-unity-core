@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 19:31:15
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/WaitToBattleStatusEventFunc.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/WaitToBattleStatusEventFunc.cs
  */
 
 using UnityGameFramework.Runtime;
@@ -22,7 +22,7 @@ public class WaitToBattleStatusEventFunc : EntityStatusEventFunctionBase
 
     protected virtual void OnInputSkillRelease(InputSkillReleaseData inputData)
     {
-        StatusCtrl.transform.forward = inputData.Dir;
+        StatusCtrl.RefEntity.SetForward(inputData.Dir);
 
         OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
         EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
