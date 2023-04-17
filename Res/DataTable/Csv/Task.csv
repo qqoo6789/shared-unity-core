@@ -15,10 +15,10 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 "{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,
 "{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,
 "{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,
-,"For love and peace, please give me these",0,"1,100",17,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100""},{""optionType"":1,""value"":"",10,100;,2,300;,1,100""}]}"
-,"For love and peace, please give me these",0,"1,100",18,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100;,3,200""},{""optionType"":1,""value"":"",1,100""}]}"
-,"For love and peace, please give me these",0,"1,100",19,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100;,3,200""},{""optionType"":1,""value"":"",1,100""}]}"
-,"For love and peace, please give me these",0,"1,100",20,1,1,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100;,3,200""},{""optionType"":1,""value"":"",1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",17,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100""},{""optionType"":1,""value"":"",10,100;,2,300;,1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",18,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100;,3,200""},{""optionType"":1,""value"":"",1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",19,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100;,3,200""},{""optionType"":1,""value"":"",1,100""}]}"
+,"For love and peace, please give me these",0,"1,100",20,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":"",1,100;,3,200""},{""optionType"":1,""value"":"",1,100""}]}"
 "{""options"":[{""optionType"":4,""value"":""6,5""}]}",Help the tramp defeat nearby monsters.,,"2,100",21,0,11,Help me,,,
 "{""options"":[{""optionType"":2,""value"":""134,1""}]}",Open the backpack and heal yourself once with a Secondary Healing Potion.,,"2,200",22,0,12,Heal yourself,,21,
 "{""options"":[{""optionType"":1,""value"":""32,10""}]}",Defeat monsters and collect some Crystallization Residues. Go into town to find the blacksmith and give him the materials.,,"2,200",23,0,13,Kill them all,,22,
