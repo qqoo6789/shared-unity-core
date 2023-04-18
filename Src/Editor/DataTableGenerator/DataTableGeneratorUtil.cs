@@ -142,7 +142,7 @@ namespace Meland.Editor.DataTableTools
         }
         public static string GeneratorAttributeType()
         {
-            string tableText = File.ReadAllText(ATTRIBUTE_TYPE_CSV_FILE_NAME, Encoding.GetEncoding(TableDefine.DATA_TABLE_ENCODING));
+            string tableText = File.ReadAllText(ATTRIBUTE_TYPE_CSV_FILE_NAME, Encoding.GetEncoding(CSVDefine.DATA_TABLE_ENCODING));
             List<string[]> rawValues = CSVSerializer.ParseCSV(tableText);
 
             StringBuilder stringBuilder = new();
@@ -159,7 +159,7 @@ namespace Meland.Editor.DataTableTools
                     idIndex = i;
                 }
             }
-            for (int i = TableDefine.DATA_TABLE_START_ROW; i < rawValues.Count; i++)
+            for (int i = CSVDefine.DATA_TABLE_START_ROW; i < rawValues.Count; i++)
             {
                 _ = stringBuilder
                     .AppendLine($"    {rawValues[i][keyIndex]} = {rawValues[i][idIndex]},");

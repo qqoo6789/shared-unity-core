@@ -19,14 +19,14 @@ namespace Meland.Editor.DataTableTools
     {
         public const string DATA_TABLE_PATH = "Assets/Plugins/SharedCore/Res/DataTable/Bytes";
         public static string DATA_TABLE_CSV_PATH = "Assets/Plugins/SharedCore/Res/DataTable/Csv";
-        public const string CSHARP_CODE_PATH = "Assets/Plugins/SharedCore/Src/Runtime/Csv/TableRow";
+        public const string CSHARP_CODE_PATH = "Assets/Plugins/SharedCore/Src/Runtime/HotFix/Csv/TableRow";
         private const string CSHARP_CODE_TEMPLATE_FILE_NAME = "Assets/Plugins/SharedCore/Src/Editor/DataTableGenerator/Template/DataTableCodeTemplate.txt";
         public static string DATA_TABLE_CONFIG_TEMPLATE_NAME = "Assets/Plugins/SharedCore/Src/Editor/DataTableGenerator/Template/DataTableConfigTemplate.txt";
-        public static string DATA_TABLE_CONFIG_NAME = "Assets/Plugins/SharedCore/Src/Runtime/Csv/DataTableConfig.cs";
+        public static string DATA_TABLE_CONFIG_NAME = "Assets/Plugins/SharedCore/Src/Runtime/HotFix/Csv/DataTableConfig.cs";
 
         public static DataTableProcessor CreateDataTableProcessor(string fullName)
         {
-            return new DataTableProcessor(fullName, Encoding.GetEncoding(TableDefine.DATA_TABLE_ENCODING), 1, 2, null, 0, 3);
+            return new DataTableProcessor(fullName, Encoding.GetEncoding(CSVDefine.DATA_TABLE_ENCODING), 1, 2, null, 0, 3);
         }
 
         public static bool CheckRawData(DataTableProcessor dataTableProcessor, string dataTableName)
