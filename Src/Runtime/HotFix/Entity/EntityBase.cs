@@ -4,7 +4,7 @@ using UnityGameFramework.Runtime;
 /// <summary>
 /// 场景实体,前后端可以直接使用，或者根据差异化派生出新的类
 /// </summary>
-public class EntityBase : IEntityBaseAot
+public class EntityBase
 {
     /// <summary>
     /// 实体是否初始化，dispose后变为false
