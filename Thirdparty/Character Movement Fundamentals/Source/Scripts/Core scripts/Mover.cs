@@ -42,6 +42,8 @@ namespace CMF
         //Ground detection variables;
         bool isGrounded = false;
 
+        public bool IsMove = false;
+
         //Sensor range variables;
         bool IsUsingExtendedSensorRange = true;
         float baseSensorRange = 0f;
@@ -54,6 +56,9 @@ namespace CMF
         Rigidbody rig;
         Transform tr;
         Sensor sensor;
+
+        public float RealColliderHeight; //实际的碰撞体高度
+        public float RealColliderMiddle; //实际的碰撞体中心，用于计算脚底高度
 
         void Awake()
         {
@@ -171,7 +176,9 @@ namespace CMF
                 if (capsuleCollider.height / 2f < capsuleCollider.radius)
                     capsuleCollider.radius = capsuleCollider.height / 2f;
             }
-
+            RealColliderHeight = colliderHeight * transform.localScale.x;
+            float _upperLimit = RealColliderHeight * (1f - stepHeightRatio) * 0.5f;
+            RealColliderMiddle = _upperLimit + (RealColliderHeight * stepHeightRatio);
             //Recalibrate sensor variables to fit new collider dimensions;
             if (sensor != null)
                 RecalibrateSensor();
@@ -318,6 +325,7 @@ namespace CMF
         public void SetVelocity(Vector3 _velocity)
         {
             rig.velocity = _velocity + currentGroundAdjustmentVelocity;
+            IsMove = rig.velocity.magnitude > 0;
         }
 
         //Returns 'true' if mover is touching ground and the angle between hte 'up' vector and ground normal is not too steep (e.g., angle < slope_limit);
@@ -373,6 +381,45 @@ namespace CMF
             _newStepHeightRatio = Mathf.Clamp(_newStepHeightRatio, 0f, 1f);
             stepHeightRatio = _newStepHeightRatio;
             RecalculateColliderDimensions();
+        }
+
+        /// <summary>
+        /// 优化性能 简单检测是否在地面上
+        /// </summary>
+        public void SimpleCheckForGround()
+        {
+            //重置地面调整速度
+            currentGroundAdjustmentVelocity = Vector3.zero;
+
+            //设置射线长度
+            if (IsUsingExtendedSensorRange)
+            {
+                sensor.castLength = baseSensorRange + (RealColliderHeight * stepHeightRatio);
+            }
+            else
+            {
+                sensor.castLength = baseSensorRange;
+            }
+            sensor.SimpleCast();
+
+            //如果传感器没有检测到任何东西，设置标志并返回
+            if (!sensor.HasDetectedHit())
+            {
+                isGrounded = false;
+                return;
+            }
+
+            //设置地面
+            isGrounded = true;
+
+            //获取射线到达的地面距离
+            float _distance = sensor.GetDistance();
+
+            //计算移动者需要向上或向下移动多少
+            float _distanceToGo = RealColliderMiddle - _distance;
+
+            //为下一帧设置新的地面调整速度
+            currentGroundAdjustmentVelocity = Vector3.up * (_distanceToGo / Time.fixedDeltaTime);
         }
 
         //Getters;

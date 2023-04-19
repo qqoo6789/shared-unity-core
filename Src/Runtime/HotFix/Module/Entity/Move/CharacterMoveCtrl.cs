@@ -34,6 +34,8 @@ public class CharacterMoveCtrl : EntityBaseComponent
 
     private bool _isPhysics;
 
+    private bool _isMove = false;
+
     private void Start()
     {
         if (!TryGetComponent(out _mover))
@@ -59,8 +61,13 @@ public class CharacterMoveCtrl : EntityBaseComponent
         {
             return;
         }
-        _mover.CheckForGround();
+        //如果在地面上 且没有移动速度 则返回，避免频繁调用地面检测函数
+        if (_mover.IsGrounded() && !IsMove())
+        {
+            return;
+        }
 
+        _mover.SimpleCheckForGround();
         // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
         bool isGrounded = _mover.IsGrounded();
         Vector3 curSpeed;
@@ -173,6 +180,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
     /// <param name="moveSpeed"></param>
     public void SetMoveSpeed(Vector3 moveSpeed)
     {
+        _isMove = true;
         _isPhysics = false;
         MoveSpeed = moveSpeed;
     }
@@ -193,6 +201,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
     public void StopMove()
     {
         MoveSpeed = Vector3.zero;
+        _isMove = false;
     }
 
     /// <summary>
@@ -207,5 +216,13 @@ public class CharacterMoveCtrl : EntityBaseComponent
     private void OnColliderLoadFinish(GameObject go)
     {
         _mover = go.GetComponent<Mover>();
+    }
+    /// <summary>
+    /// 是否正在移动
+    /// </summary>
+    /// <returns></returns>
+    public bool IsMove()
+    {
+        return _isMove || _isPhysics || _mover.IsMove;
     }
 }
