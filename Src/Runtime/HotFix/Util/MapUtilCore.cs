@@ -38,7 +38,6 @@ public static class MapUtilCore
     {
         if (!NavMesh.SamplePosition(position, out NavMeshHit hit, maxError, NavMesh.AllAreas))
         {
-            Log.Warning($"SampleTerrainWalkablePos not find position:{position}");
             walkablePos = position;
             return false;
         }
