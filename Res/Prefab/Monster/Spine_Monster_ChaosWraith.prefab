@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98ace8715c2a184ca85247b18eb0853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepHeightRatio: 0.25
-  colliderHeight: 2
-  colliderThickness: 1
+  stepHeightRatio: 0.15
+  colliderHeight: 3.5
+  colliderThickness: 2.01
   colliderOffset: {x: 0, y: 0.5, z: 0}
   sensorType: 0
   isInDebugMode: 0
@@ -66,10 +66,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.65
-  m_Height: 2.89
+  m_Radius: 1.005
+  m_Height: 2.975
   m_Direction: 1
-  m_Center: {x: -0.24, y: 1.25, z: 0}
+  m_Center: {x: 0, y: 1.26, z: 0}
 --- !u!54 &-7381327059217123703
 Rigidbody:
   m_ObjectHideFlags: 0
