@@ -26,7 +26,7 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 "{""options"":[{""optionType"":9,""value"":""44,1""}]}",Talk to the blacksmith to open the equipment crafting interface and make a Stone Sword.,,"2,500",25,0,,Rookie blacksmith,,24,
 "{""options"":[{""optionType"":15,""value"":""1,1""}]}","Open the Talent Tree interface, switch to Combat Specialization, and upgrade the Combat Mastery 1 node.",,"2,500",26,0,,The sword chooses the warrior,,25,
 "{""options"":[{""optionType"":1,""value"":""62,5""}]}","Gather some Ordinary Wood and give it to the mayor, and he will give you some props for farming.",,"2,200;1,400;3,200",27,0,17,Become a farmer,,23,
-"{""options"":[unkonw]}",The pharmacist needs you to gather some basic herbs. It can be collected by chopping grass plants near towns with a sword.,,"2,200;3,200",28,0,21,Shortage of herbs,,23,
+"{""options"":[{""optionType"":1,""value"":""66,20""}]}",The pharmacist needs you to gather some basic herbs. It can be collected by chopping grass plants near towns with a sword.,,"2,200;3,200",28,0,21,Shortage of herbs,,23,
 "{""options"":[{""optionType"":15,""value"":""58,1""}]}",Upgrade the Potion Mastery node in the combat talent tree to level 1.,,"2,200;3,200",29,0,22,Learn to make potions,,"28,26",
 "{""options"":[{""optionType"":9,""value"":""95,5""}]}",Find that pharmacist to make a few potions using the Secondary Potion Recipe you learned.,,"2,500",30,0,,Trainee pharmacist,,29,
 "{""options"":[{""optionType"":13,""value"":""652,509.6,5""}]}",Your equipment is too poor. You should head over to the nearby town and visit the blacksmith to craft yourself some better gear.,,,32,0,27,Find Smith,,23,
