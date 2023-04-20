@@ -61,11 +61,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
         {
             return;
         }
-        //如果在地面上 且没有移动速度 则返回，避免频繁调用地面检测函数
-        if (_mover.IsGrounded() && !IsMove())
-        {
-            return;
-        }
+
 
         _mover.SimpleCheckForGround();
         // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
@@ -102,6 +98,12 @@ public class CharacterMoveCtrl : EntityBaseComponent
         _mover.SetExtendSensorRange(isGrounded);
         // 给移动器正式应用速度
         _mover.SetVelocity(curSpeed);
+        //如果在地面上 且没有移动速度 则返回，避免频繁调用地面检测函数
+        if (_mover.IsGrounded() && !IsMove())
+        {
+            enabled = false;
+            return;
+        }
 
     }
     /// <summary>
@@ -183,6 +185,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
         _isMove = true;
         _isPhysics = false;
         MoveSpeed = moveSpeed;
+        enabled = true;
     }
 
     /// <summary>
@@ -193,6 +196,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
     {
         _isPhysics = true;
         PhysicsMoveSpeed = moveSpeed;
+        enabled = true;
     }
 
     /// <summary>

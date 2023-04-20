@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 namespace CMF
@@ -416,7 +417,7 @@ namespace CMF
             float _distance = sensor.GetDistance();
 
             //计算移动者需要向上或向下移动多少
-            float _distanceToGo = RealColliderMiddle - _distance;
+            float _distanceToGo = MathF.Round(RealColliderMiddle - _distance, 3);
 
             //为下一帧设置新的地面调整速度
             currentGroundAdjustmentVelocity = Vector3.up * (_distanceToGo / Time.fixedDeltaTime);

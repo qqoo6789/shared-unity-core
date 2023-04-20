@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-26 14:25:46
  * @Description: 实体碰撞盒
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityCollisionCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Entity/EntityCollisionCore.cs
  * 
  */
 using CMF;
@@ -49,6 +49,7 @@ public abstract class EntityCollisionCore : EntityBaseComponent
         if (prefab.TryGetComponent(out Mover prefabMover))
         {
             Collider prefabCollider = prefab.GetComponent<Collider>();
+            RefEntity.EntityRoot.layer = prefab.layer;//暂时直接直接赋值成碰撞盒的层
 
             //先手动创建移动碰撞的依赖组件
             _ = RefEntity.AddComponent<Rigidbody>();
@@ -65,7 +66,6 @@ public abstract class EntityCollisionCore : EntityBaseComponent
             // characterMovement.stepOffset = MoveDefine.MOVE_STEP_HEIGHT;
             // characterMovement.collisionLayers = MLayerMask.MASK_SCENE_OBSTRUCTION;
             // characterMovement.skinWidth = MoveDefine.MOVE_SKIN_WIDTH;
-            RefEntity.EntityRoot.layer = prefab.layer;//暂时直接直接赋值成碰撞盒的层
 
             CollisionObject = collider.gameObject;
             BodyCollision = collider;
