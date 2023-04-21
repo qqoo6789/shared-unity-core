@@ -22,7 +22,7 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 "{""options"":[{""optionType"":4,""value"":""6,5""}]}",Help the tramp defeat nearby monsters.,,"2,100",21,0,11,Help me,,,
 "{""options"":[{""optionType"":2,""value"":""134,1""}]}",Open the backpack and heal yourself once with a Secondary Healing Potion.,,"2,200",22,0,12,Heal yourself,,21,
 "{""options"":[{""optionType"":1,""value"":""31,10""}]}",Defeat monsters and collect some Crystallization Residues. Go into town to find the blacksmith and give him the materials.,,"2,200",23,0,,Kill them all,,34,
-"{""options"":[{""optionType"":1,""value"":""58,5""}]}",Gather some Minerals to the blacksmith. Mineral can be found near the beach.,,"2,200;3,200",24,0,,Ready to craft?,,23,
+"{""options"":[{""optionType"":1,""value"":""58,5""}]}",Gather some Minerals to the blacksmith. Mineral can be found near the beach.,,"2,200;3,200",24,0,32,Ready to craft?,,23,
 "{""options"":[{""optionType"":9,""value"":""44,1""}]}",Talk to the blacksmith to open the equipment crafting interface and make a Stone Sword.,,"2,500",25,0,,Rookie blacksmith,,24,
 "{""options"":[{""optionType"":15,""value"":""1,1""}]}","Open the Talent Tree interface, switch to Combat Specialization, and upgrade the Combat Mastery 1 node.",,"2,500",26,0,,The sword chooses the warrior,,25,
 "{""options"":[{""optionType"":1,""value"":""62,5""}]}","Gather some Ordinary Wood and give it to the mayor, and he will give you some props for farming.",,"1,400",27,0,17,Become a farmer,,30,
