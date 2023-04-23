@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -18,7 +18,8 @@ public class EntityBattleDataCore : EntityBaseComponent
     /// 当前血量
     /// </summary>
     /// <value></value>
-    public int HP { get => GetValue(eAttributeType.HP); protected set => SetBaseValue(eAttributeType.HP, value); }
+    public int HP { get => GetHpValue(); protected set => SetHpValue(value); }
+    private IntAttribute _hpAttribute;  //血量属性。会高频调用，单独存储优化性能
     /// <summary>
     /// 最大血量
     /// </summary>
@@ -200,6 +201,30 @@ public class EntityBattleDataCore : EntityBaseComponent
     public bool IsLive()
     {
         return HP > 0;
+    }
+
+    private int GetHpValue()
+    {
+        if (_hpAttribute == null)
+        {
+            _hpAttribute = RefEntity.EntityAttributeData.GetAttribute(eAttributeType.HP);
+        }
+        return _hpAttribute.Value;
+    }
+
+    private void SetHpValue(int value)
+    {
+        if (_hpAttribute == null)
+        {
+            _hpAttribute = RefEntity.EntityAttributeData.GetAttribute(eAttributeType.HP);
+        }
+        //基础属性没变化
+        if (_hpAttribute.BaseValue == value)
+        {
+            return;
+        }
+        _ = _hpAttribute.SetBase(value);
+        RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(eAttributeType.HP, value);
     }
 
     protected int GetValue(eAttributeType type)
