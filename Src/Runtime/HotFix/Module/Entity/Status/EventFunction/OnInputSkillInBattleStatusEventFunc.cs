@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/OnInputSkillInBattleStatusEventFunc.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Status/EventFunction/OnInputSkillInBattleStatusEventFunc.cs
  */
 
 using UnityEngine;
@@ -24,7 +24,7 @@ public class OnInputSkillInBattleStatusEventFunc : EntityStatusEventFunctionBase
 
     private void OnInputSkillRelease(InputSkillReleaseData inputData)
     {
-        StatusCtrl.transform.forward = inputData.Dir;
+        StatusCtrl.RefEntity.SetForward(inputData.Dir);
 
         OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
         EntityStatus.EventFuncChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);

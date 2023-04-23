@@ -148,7 +148,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     {
         SeContinueNextSkill(true);
 
-        StatusCtrl.transform.forward = inputData.Dir;
+        StatusCtrl.RefEntity.SetForward(inputData.Dir);
         OwnerFsm.SetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT, inputData);
         ChangeState(OwnerFsm, SkillAccumulateStatusCore.Name);
     }
