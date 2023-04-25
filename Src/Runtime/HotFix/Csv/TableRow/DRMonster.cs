@@ -186,6 +186,15 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
+  /**获取icon-string。*/
+    /// </summary>
+    public string Icon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取lockEnemyRange-int。*/
     /// </summary>
     public int LockEnemyRange
@@ -316,6 +325,7 @@ public class DRMonster : DataRowBase
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HungerSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         LockEnemyRange = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -358,6 +368,7 @@ public class DRMonster : DataRowBase
                 HitPoint = binaryReader.Read7BitEncodedInt32();
                 Hp = binaryReader.Read7BitEncodedInt32();
                 HungerSpeed = binaryReader.Read7BitEncodedInt32();
+                Icon = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
                 LockEnemyRange = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
