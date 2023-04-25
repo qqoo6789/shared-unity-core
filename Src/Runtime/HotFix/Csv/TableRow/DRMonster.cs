@@ -141,15 +141,6 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
-  /**获取harvestAction-int。*/
-    /// </summary>
-    public int HarvestAction
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取harvestDropId-int。*/
     /// </summary>
     public int HarvestDropId
@@ -189,15 +180,6 @@ public class DRMonster : DataRowBase
   /**获取hungerSpeed-int。*/
     /// </summary>
     public int HungerSpeed
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取icon-string。*/
-    /// </summary>
-    public string Icon
     {
         get;
         private set;
@@ -302,6 +284,15 @@ public class DRMonster : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取harvestAction-int。*/
+    /// </summary>
+    public int HarvestAction
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -320,13 +311,11 @@ public class DRMonster : DataRowBase
         Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         Exp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FavoriteItem = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        HarvestAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestDropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HarvestTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HitPoint = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Hp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         HungerSpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         LockEnemyRange = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -339,6 +328,7 @@ public class DRMonster : DataRowBase
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillCastPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        HarvestAction = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -363,13 +353,11 @@ public class DRMonster : DataRowBase
                 Desc = binaryReader.ReadString();
                 Exp = binaryReader.Read7BitEncodedInt32();
                 FavoriteItem = binaryReader.ReadArray<Int32>();
-                HarvestAction = binaryReader.Read7BitEncodedInt32();
                 HarvestDropId = binaryReader.Read7BitEncodedInt32();
                 HarvestTime = binaryReader.Read7BitEncodedInt32();
                 HitPoint = binaryReader.Read7BitEncodedInt32();
                 Hp = binaryReader.Read7BitEncodedInt32();
                 HungerSpeed = binaryReader.Read7BitEncodedInt32();
-                Icon = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
                 LockEnemyRange = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
@@ -382,6 +370,7 @@ public class DRMonster : DataRowBase
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 SkillCastPool = binaryReader.ReadArrayList<Int32>();
                 DropId = binaryReader.Read7BitEncodedInt32();
+                HarvestAction = binaryReader.Read7BitEncodedInt32();
             }
         }
 
