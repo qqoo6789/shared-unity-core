@@ -2,36 +2,51 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 "{""options"":[{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,11,10001,,,
 "{""options"":[{""optionType"":1,""value"":""134,2""},{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,11,10002,"1,1;2,1",1,
 "{""options"":[{""optionType"":3,""value"":""30,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,11,10003,"2,2",2,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,11,10004,"2,3",3,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,11,10005,"2,4",4,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,11,10006,,5,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,11,10007,,5,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,11,10008,,"6,7",
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""1,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,11,10004,"2,3",3,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,11,10005,"2,4",4,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,11,10006,,5,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,11,10007,,5,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,11,10008,,"6,7",
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,
 ,"For love and peace, please give me these",0,"1,100",17,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100""},{""optionType"":1,""value"":""70,10,100;33,2,300;30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",18,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",19,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",20,1,124,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-"{""options"":[{""optionType"":4,""value"":""6,5""}]}",Help the tramp defeat nearby monsters.,,"2,100",21,0,11,Help me,,,
-"{""options"":[{""optionType"":2,""value"":""134,1""}]}",Open the backpack and heal yourself once with a Secondary Healing Potion.,,"2,200",22,0,12,Heal yourself,,21,
-"{""options"":[{""optionType"":1,""value"":""31,10""}]}",Defeat monsters and collect some Crystallization Residues. Go into town to find the blacksmith and give him the materials.,,"2,200",23,0,,Kill them all,,34,
-"{""options"":[{""optionType"":1,""value"":""58,5""}]}",Gather some Minerals to the blacksmith. Mineral can be found near the beach.,,"2,200;3,200",24,0,32,Ready to craft?,,23,
+"{""options"":[{""optionType"":4,""value"":""6,5""}]}",Help the tramp defeat nearby monsters.,,"2,300",21,0,11,Where is here?,,,
+"{""options"":[{""optionType"":2,""value"":""134,1""}]}",Open the backpack and heal yourself once with a Secondary Healing Potion.,,"2,300",22,0,12,Heal yourself,,21,
+"{""options"":[{""optionType"":1,""value"":""31,10""}]}",Defeat monsters and collect some Crystallization Residues. Go into town to find the blacksmith and give him the materials.,,"2,300",23,0,,Kill them all,,34,
+"{""options"":[{""optionType"":1,""value"":""58,5""}]}",Gather some Minerals to the blacksmith. Mineral can be found near the beach.,,"3,200;2,300",24,0,32,Ready to craft?,,23,
 "{""options"":[{""optionType"":9,""value"":""44,1""}]}",Talk to the blacksmith to open the equipment crafting interface and make a Stone Sword.,,"2,500",25,0,,Rookie blacksmith,,24,
 "{""options"":[{""optionType"":15,""value"":""1,1""}]}","Open the Talent Tree interface, switch to Combat Specialization, and upgrade the Combat Mastery 1 node.",,"2,500",26,0,,The sword chooses the warrior,,25,
 "{""options"":[{""optionType"":1,""value"":""62,5""}]}","Gather some Ordinary Wood and give it to the mayor, and he will give you some props for farming.",,"1,400",27,0,17,Become a farmer,,30,
 "{""options"":[{""optionType"":1,""value"":""66,20""}]}",The Pharmacist Silas needs you to gather some basic herbs. It can be collected by chopping grass plants near towns with a sword.,,"2,200;3,200",28,0,21,Pharmacist‘s help,,26,
 "{""options"":[{""optionType"":15,""value"":""58,1""}]}",Upgrade the Potion Mastery node in the combat talent tree to level 1.,,"2,200;3,200",29,0,22,Learn to make potions,,28,
 "{""options"":[{""optionType"":9,""value"":""95,5""}]}",Find that pharmacist to make a few potions using the Secondary Potion Recipe you learned.,,"2,500",30,0,,Trainee pharmacist,,29,
-"{""options"":[{""optionType"":13,""value"":""652,80,509,5""}]}","Now you are an excellent farmer, It's time back to Terrance Town. Now start your adventure!",,,32,0,,Back to Terrance Town,,37,
+"{""options"":[{""optionType"":13,""value"":""652,80,509,5""}]}","Now you are an excellent farmer, It's time back to Terrance Town. Now start your adventure!",,,32,0,,Back to Terrance Town,,46,
 "{""options"":[{""optionType"":1,""value"":""66,20""}]}",Collect 20 Herbs and give them to Captain Gunner.,,"3,200",33,0,28,Collect some herbs,,22,
 "{""options"":[{""optionType"":1,""value"":""58,10""}]}",Collect 10 stones and give them to Captain Gunner.,,"3,200",34,0,30,Collect some stone,,35,
 "{""options"":[{""optionType"":1,""value"":""62,10""}]}",Collect 10 pieces of wood and give them to Captain Gunner.,,"3,200",35,0,29,Collect some woods,,33,
 "{""options"":[{""optionType"":2,""value"":""146,5""},{""optionType"":2,""value"":""147,5""},{""optionType"":2,""value"":""148,5""}]}","Plant 5 Bamboos, 5 Trifoliums, and 5 Carrots.",,"1,200",36,0,31,Hoeing and Seeding,,27,
-"{""options"":[{""optionType"":1,""value"":""70,5""},{""optionType"":1,""value"":""71,5""},{""optionType"":1,""value"":""72,5""}]}",Water your crops and give your harvest to farmer Terrance.,,"1,200",37,0,,Watering and harvest,,36,
+"{""options"":[{""optionType"":1,""value"":""70,5""},{""optionType"":1,""value"":""71,5""},{""optionType"":1,""value"":""72,5""}]}",Water your crops and give your harvest to farmer Terrance.,,"1,200",37,0,33,Watering and harvest,,36,
+,Monsters are running rampant. Go and exterminate them,,"2,94",38,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,4,100;8,4,100;7,4,100""}]}"
+,Monsters are running rampant. Go and exterminate them,,"2,139",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
+,Monsters are running rampant. Go and exterminate them,,"2,185",40,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,4,100;13,4,100;14,4,100""}]}"
+,Hunt them down and bring back some loot,,"2,94",41,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,2,100;8,2,100;7,2,100""},{""optionType"":1,""value"":""30,1,100;31,1,100;32,1,100""}]}"
+,Hunt them down and bring back some loot,,"2,139",42,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,2,100;11,2,100;10,2,100""},{""optionType"":1,""value"":""33,1,100;34,1,100;35,1,100""}]}"
+,Hunt them down and bring back some loot,,"2,185",43,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,2,100;14,2,100;13,2,100""},{""optionType"":1,""value"":""36,1,100;37,1,100;38,1,100""}]}"
+"{""options"":[{""optionType"":15,""value"":""72,1""}]}","Open your skill interface, find the Gather talent tree, and unlock your capture skills!",,"1,100",44,0,34,Catching monster,,37,
+"{""options"":[{""optionType"":2,""value"":""28,2""}]}",Now try filling your feed tank up,,"1,100",45,0,35,Feeding your livestock,,44,
+"{""options"":[{""optionType"":1,""value"":""178,2""}]}",Capture some Tiny-dogs and collect some screws from your pet when they mature,,"1,100",46,0,36,Harvest from your livestock,,45,
+,Give me these,,"2,94",47,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""30,2,100;31,2,100;32,2,100""}]}"
+,Give me these,,"2,139",48,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""33,2,100;34,2,100;35,2,100""}]}"
+,Give me these,,"2,185",49,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""36,2,100;37,2,100;38,2,100""}]}"
+,Give me these,,"2,1412",52,1,,Reward-lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""40,1,100;46,1,100;52,1,100;49,1,100;55,1,100;43,1,100""},{""optionType"":1,""value"":""41,1,100;47,1,100;44,1,100;53,1,100;50,1,100;56,1,100""}]}"
+,Give me these,,"2,2090",53,1,,Reward-lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""41,1,100;47,1,100;44,1,100;53,1,100;50,1,100;56,1,100""}]}"
+,Give me these,,"2,2772",54,1,,Reward-lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""42,1,100;57,1,100;48,1,100;45,1,100;54,1,100;51,1,100""}]}"
