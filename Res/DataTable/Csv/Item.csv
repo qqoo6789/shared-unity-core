@@ -96,7 +96,7 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,item-icon-152,152,Explosive Hot Pepper Seeds,1,3,3,1,97
 1,description placeholder,item-icon-153,153,Hard-shelled Fruit Seeds,1,3,3,1,97
 1,description placeholder,item-icon-154,154,Blue Mushroom Seeds,1,3,3,1,97
-1,description placeholder,item-icon-161,161,Talisman,"1,2,3,4,5",1,0,1,
+1,description placeholder,item-icon-161,161,Talisman,"1,2,3,4,5",4,0,1,
 1,description placeholder,item-icon-131,131,Advanced Accelerated Fertilizer,1,3,0,1,98
 1,description placeholder,item-icon-132,132,Advanced Yield-increasing Fertilizer,1,3,0,1,98
 1,description placeholder,item-icon-133,133,Advanced Moisture Fertilizer,1,3,0,1,98
@@ -112,15 +112,15 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,description placeholder,item-icon-66,66,Plant Fibre,1,4,1,1,
 1,description placeholder,item-icon-67,67,Frozen Fungus,1,4,2,1,
 1,description placeholder,item-icon-69,69,Cobweb,1,4,1,1,
-1,description placeholder,item-icon-162,162,NFT Talisman #1,1,1,0,1,
-1,description placeholder,item-icon-163,163,NFT Talisman #2,1,1,0,1,
-1,description placeholder,item-icon-164,164,NFT Talisman #4,"2,1",1,0,1,
-1,description placeholder,item-icon-165,165,NFT Talisman #8,"2,1",1,0,1,
-1,description placeholder,item-icon-166,166,NFT Talisman #16,"3,1",1,0,1,
-1,description placeholder,item-icon-167,167,NFT Talisman #32,"3,1",1,0,1,
-1,description placeholder,item-icon-168,168,NFT Talisman #64,"4,1",1,0,1,
-1,description placeholder,item-icon-169,169,NFT Talisman #128,"4,1",1,0,1,
-1,description placeholder,item-icon-170,170,NFT Talisman #256,"5,1",1,0,1,
+1,description placeholder,item-icon-162,162,NFT Talisman #1,1,4,0,1,
+1,description placeholder,item-icon-163,163,NFT Talisman #2,1,4,0,1,
+1,description placeholder,item-icon-164,164,NFT Talisman #4,"2,1",4,0,1,
+1,description placeholder,item-icon-165,165,NFT Talisman #8,"2,1",4,0,1,
+1,description placeholder,item-icon-166,166,NFT Talisman #16,"3,1",4,0,1,
+1,description placeholder,item-icon-167,167,NFT Talisman #32,"3,1",4,0,1,
+1,description placeholder,item-icon-168,168,NFT Talisman #64,"4,1",4,0,1,
+1,description placeholder,item-icon-169,169,NFT Talisman #128,"4,1",4,0,1,
+1,description placeholder,item-icon-170,170,NFT Talisman #256,"5,1",4,0,1,
 1,description placeholder,item-icon-171,171,Ticket #1,1,4,0,1,
 1,description placeholder,item-icon-172,172,Ticket #2,1,4,0,1,
 1,description placeholder,item-icon-173,173,Ticket #3,1,4,0,1,
