@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能效果组件
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Battle/Cpt/SkillEffectCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -22,6 +22,9 @@ public class SkillEffectCpt : EntityBaseComponent
     public Dictionary<eEffectType, List<SkillEffectBase>> SkillEffectMap { get; private set; }
 
     private int _immuneFlag; //免疫标识
+
+    private bool _isNetDirty = true;
+    private string _netSaveData;
 
     private void Awake()
     {
@@ -256,6 +259,7 @@ public class SkillEffectCpt : EntityBaseComponent
         {
             RefEntity.EntityEvent.SeListUpdated?.Invoke();
         }
+        _isNetDirty = true;
     }
 
     private void UpdateImmuneFlag()
@@ -276,19 +280,24 @@ public class SkillEffectCpt : EntityBaseComponent
     /// 获取运行效果的保存数据
     /// </summary>
     /// <returns></returns>
-    public string GetRuntimeEffectSaveData()
+    public string GetNetData()
     {
-        SkillEffectSaveDataConfig config = new();
-        List<SkillEffectSaveData> saveDataList = new();
-
-        List<SkillEffectBase> effectList = SkillEffectMap[eEffectType.Runtime];
-        for (int i = 0; i < effectList.Count; i++)
+        if (_isNetDirty)
         {
-            saveDataList.Add(effectList[i].GetSaveData());
+            SkillEffectSaveDataConfig config = new();
+            List<SkillEffectSaveData> saveDataList = new();
+
+            List<SkillEffectBase> effectList = SkillEffectMap[eEffectType.Runtime];
+            for (int i = 0; i < effectList.Count; i++)
+            {
+                saveDataList.Add(effectList[i].GetSaveData());
+            }
+
+            config.EffectSaveList = saveDataList;
+            _netSaveData = config.ToJson();
         }
 
-        config.EffectSaveList = saveDataList;
-        return config.ToJson();
+        return _netSaveData;
     }
     private void OnDestroy()
     {
