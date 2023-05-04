@@ -295,6 +295,7 @@ public class SkillEffectCpt : EntityBaseComponent
 
             config.EffectSaveList = saveDataList;
             _netSaveData = config.ToJson();
+            _isNetDirty = false;
         }
 
         return _netSaveData;

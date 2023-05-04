@@ -15,10 +15,6 @@ public class EntityBaseNetDataCore : EntityBaseComponent
     /// </summary>
     public virtual void CreateData()
     {
-        if (EntityWithLocation != null)
-        {
-            return;
-        }
         EntityWithLocation = new();
     }
 
@@ -35,11 +31,12 @@ public class EntityBaseNetDataCore : EntityBaseComponent
     /// </summary>
     public virtual EntityWithLocation GetData()
     {
-        if (EntityWithLocation == null)
+        if (EntityWithLocation == null || EntityWithLocation.IsLock)
         {
             CreateData();
         }
         UpdateData();
+        EntityWithLocation.IsLock = true;
         return EntityWithLocation;
     }
 
