@@ -507,13 +507,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -523,16 +529,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -1264,13 +1270,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -1280,16 +1292,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -2652,13 +2664,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -2668,16 +2686,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -3017,13 +3035,25 @@ MonoBehaviour:
     LimitNum: 75
   - Weight: 20
     ConfigId: 20
-    LimitNum: 75
+    LimitNum: 55
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 10
+  - Weight: 10
+    ConfigId: 33
+    LimitNum: 10
   - Weight: 10
     ConfigId: 4
     LimitNum: 6
   - Weight: 10
     ConfigId: 29
     LimitNum: 3
+  - Weight: 10
+    ConfigId: 8
+    LimitNum: 2
+  - Weight: 5
+    ConfigId: 26
+    LimitNum: 10
 --- !u!1 &561038451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,13 +3107,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -3093,16 +3129,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -3693,13 +3729,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -3709,16 +3751,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -3872,13 +3914,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -3888,16 +3936,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -3960,13 +4008,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -3976,16 +4030,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -7117,13 +7171,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -7133,16 +7193,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -7891,13 +7951,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -7907,16 +7973,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -7977,22 +8043,34 @@ MonoBehaviour:
   PointList:
   - Weight: 20
     ConfigId: 14
-    LimitNum: 150
+    LimitNum: 120
   - Weight: 20
     ConfigId: 21
-    LimitNum: 150
+    LimitNum: 120
   - Weight: 20
     ConfigId: 19
-    LimitNum: 150
+    LimitNum: 120
   - Weight: 20
     ConfigId: 20
-    LimitNum: 150
+    LimitNum: 120
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 60
+  - Weight: 10
+    ConfigId: 33
+    LimitNum: 60
   - Weight: 10
     ConfigId: 4
     LimitNum: 12
   - Weight: 10
     ConfigId: 29
     LimitNum: 6
+  - Weight: 10
+    ConfigId: 8
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 26
+    LimitNum: 30
 --- !u!1 &1832429204
 GameObject:
   m_ObjectHideFlags: 0
@@ -8306,13 +8384,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -8322,16 +8406,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
@@ -9346,13 +9430,19 @@ MonoBehaviour:
     ConfigId: 14
     LimitNum: 15
   - Weight: 20
+    ConfigId: 21
+    LimitNum: 15
+  - Weight: 20
     ConfigId: 30
     LimitNum: 15
   - Weight: 10
     ConfigId: 31
     LimitNum: 15
-  - Weight: 10
+  - Weight: 20
     ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 33
     LimitNum: 15
   - Weight: 5
     ConfigId: 4
@@ -9362,16 +9452,16 @@ MonoBehaviour:
     LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 24
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 25
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 26
-    LimitNum: 15
+    LimitNum: 5
   - Weight: 5
     ConfigId: 27
     LimitNum: 15
