@@ -156,6 +156,7 @@ public class EntityBase
     public virtual void SetPosition(Vector3 pos)
     {
         _transform.position = pos;
+        EntityEvent.SetPos?.Invoke(pos);
     }
 
     /// <summary>

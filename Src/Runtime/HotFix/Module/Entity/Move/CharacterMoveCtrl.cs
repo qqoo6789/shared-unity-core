@@ -43,6 +43,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
             //直接拿不到就要等待加载完成事件
             _isAddColliderLoadEvent = true;
             RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
+            RefEntity.EntityEvent.SetPos += OnSetPosition;
         }
     }
 
@@ -52,9 +53,18 @@ public class CharacterMoveCtrl : EntityBaseComponent
         {
             _isAddColliderLoadEvent = false;
             RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
+            RefEntity.EntityEvent.SetPos -= OnSetPosition;
         }
     }
 
+    private void OnSetPosition(Vector3 pos)
+    {
+        //位置改变时 激活移动器
+        if (!enabled)
+        {
+            enabled = true;
+        }
+    }
     private void FixedUpdate()
     {
         if (_mover == null)

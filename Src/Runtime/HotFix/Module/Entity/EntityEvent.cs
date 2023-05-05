@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/EntityEvent.cs
  */
 using System;
 using System.Collections.Generic;
@@ -184,6 +184,11 @@ public class EntityEvent : EntityBaseComponent
     /// 停止路径移动状态  T0:停止位置
     /// </summary>
     public Action<Vector3> InputMovePathMoveStop;
+
+    /// <summary>
+    /// 实体设置位置  T0:位置
+    /// </summary>
+    public Action<Vector3> SetPos;
     #endregion
 
 }
