@@ -503,51 +503,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &112696734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,51 +1260,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &199982787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,51 +2648,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &491206068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,51 +3006,24 @@ MonoBehaviour:
   AreaType: 1
   UpdateInterval: 600000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
-    LimitNum: 12
-  - Weight: 15
-    ConfigId: 8
-    LimitNum: 15
-  - Weight: 5
-    ConfigId: 22
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 24
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 26
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 27
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 28
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 29
-    LimitNum: 4
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 20
-    LimitNum: 10
-  - Weight: 5
+    LimitNum: 75
+  - Weight: 20
     ConfigId: 21
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 30
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 31
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 32
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 33
-    LimitNum: 10
+    LimitNum: 75
+  - Weight: 20
+    ConfigId: 19
+    LimitNum: 75
+  - Weight: 20
+    ConfigId: 20
+    LimitNum: 75
+  - Weight: 10
+    ConfigId: 4
+    LimitNum: 6
+  - Weight: 10
+    ConfigId: 29
+    LimitNum: 3
 --- !u!1 &561038451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,51 +3073,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &583941156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,51 +3689,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &731407605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,51 +3868,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &766381575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4019,51 +3956,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &791255712
 GameObject:
   m_ObjectHideFlags: 0
@@ -7182,51 +7113,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &1619096171
 GameObject:
   m_ObjectHideFlags: 0
@@ -7962,51 +7887,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &1830558763
 GameObject:
   m_ObjectHideFlags: 0
@@ -8056,51 +7975,24 @@ MonoBehaviour:
   AreaType: 1
   UpdateInterval: 600000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
-    LimitNum: 12
-  - Weight: 15
-    ConfigId: 8
-    LimitNum: 15
-  - Weight: 5
-    ConfigId: 22
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 24
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 26
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 27
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 28
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 29
-    LimitNum: 4
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 20
-    LimitNum: 10
-  - Weight: 5
+    LimitNum: 150
+  - Weight: 20
     ConfigId: 21
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 30
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 31
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 32
-    LimitNum: 10
-  - Weight: 5
-    ConfigId: 33
-    LimitNum: 10
+    LimitNum: 150
+  - Weight: 20
+    ConfigId: 19
+    LimitNum: 150
+  - Weight: 20
+    ConfigId: 20
+    LimitNum: 150
+  - Weight: 10
+    ConfigId: 4
+    LimitNum: 12
+  - Weight: 10
+    ConfigId: 29
+    LimitNum: 6
 --- !u!1 &1832429204
 GameObject:
   m_ObjectHideFlags: 0
@@ -8410,51 +8302,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &1912297959
 GameObject:
   m_ObjectHideFlags: 0
@@ -9456,51 +9342,45 @@ MonoBehaviour:
   AreaType: 0
   UpdateInterval: 300000
   PointList:
-  - Weight: 5
+  - Weight: 20
     ConfigId: 14
     LimitNum: 15
+  - Weight: 20
+    ConfigId: 30
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 31
+    LimitNum: 15
+  - Weight: 10
+    ConfigId: 32
+    LimitNum: 15
+  - Weight: 5
+    ConfigId: 4
+    LimitNum: 3
+  - Weight: 5
+    ConfigId: 8
+    LimitNum: 2
   - Weight: 5
     ConfigId: 22
-    LimitNum: 2
-  - Weight: 7
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 24
-    LimitNum: 2
-  - Weight: 8
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 25
-    LimitNum: 2
-  - Weight: 9
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 26
-    LimitNum: 2
-  - Weight: 10
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 27
-    LimitNum: 2
-  - Weight: 3
+    LimitNum: 15
+  - Weight: 5
     ConfigId: 28
-    LimitNum: 2
+    LimitNum: 15
   - Weight: 5
     ConfigId: 29
     LimitNum: 1
-  - Weight: 5
-    ConfigId: 19
-    LimitNum: 2
-  - Weight: 8
-    ConfigId: 20
-    LimitNum: 2
-  - Weight: 7
-    ConfigId: 21
-    LimitNum: 2
-  - Weight: 4
-    ConfigId: 30
-    LimitNum: 3
-  - Weight: 6
-    ConfigId: 31
-    LimitNum: 4
-  - Weight: 9
-    ConfigId: 32
-    LimitNum: 5
-  - Weight: 4
-    ConfigId: 33
-    LimitNum: 6
 --- !u!1 &2119399690
 GameObject:
   m_ObjectHideFlags: 0
