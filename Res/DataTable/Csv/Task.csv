@@ -19,31 +19,37 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 ,"For love and peace, please give me these",0,"1,100",18,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",19,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-"{""options"":[{""optionType"":4,""value"":""6,5""}]}",Help the tramp defeat nearby monsters.,,"2,117",21,0,11,Where is here?,,,
-"{""options"":[{""optionType"":2,""value"":""134,1""}]}",Open the backpack and heal yourself once with a Secondary Healing Potion.,,"2,117",22,0,12,Heal yourself,,21,
-"{""options"":[{""optionType"":1,""value"":""31,10""}]}",Defeat monsters and collect some Crystallization Residues. Go into town to find the blacksmith and give him the materials.,,"2,117",23,0,,Kill them all,,34,
-"{""options"":[{""optionType"":1,""value"":""31,1""}]}",Gather some Minerals to the blacksmith. Mineral can be found near the beach.,,"2,117",24,0,32,Ready to craft?,,23,
-"{""options"":[{""optionType"":9,""value"":""44,1""}]}",Talk to the blacksmith to open the equipment crafting interface and make a Stone Sword.,,"2,117",25,0,,Rookie blacksmith,,24,
-"{""options"":[{""optionType"":15,""value"":""1,1""}]}","Open the Talent Tree interface, switch to Combat Specialization, and upgrade the Combat Mastery 1 node.",,"2,117",26,0,,The sword chooses the warrior,,25,
-"{""options"":[{""optionType"":1,""value"":""134,1""}]}","Gather some Ordinary Wood and give it to the mayor, and he will give you some props for farming.",,"1,117",27,0,17,Become a farmer,,30,
-"{""options"":[{""optionType"":1,""value"":""66,1""}]}",The Pharmacist Silas needs you to gather some basic herbs. It can be collected by chopping grass plants near towns with a sword.,,"3,117",28,0,21,Pharmacist‘s help,,26,
-"{""options"":[{""optionType"":15,""value"":""58,1""}]}",Upgrade the Potion Mastery node in the combat talent tree to level 1.,,"3,117",29,0,22,Learn to make potions,,28,
-"{""options"":[{""optionType"":9,""value"":""95,5""}]}",Find that pharmacist to make a few potions using the Secondary Potion Recipe you learned.,,"3,117",30,0,,Trainee pharmacist,,29,
+"{""options"":[{""optionType"":4,""value"":""6,5""}]}",杀死出现在主城周边的Metal Mutt五个,,"2,117",21,0,11,这里是哪？,,,
+"{""options"":[{""optionType"":2,""value"":""134,1""}]}",打开你的背包，找到次级治疗药水并使用它,,"2,117",22,0,12,吃口药,,21,
+"{""options"":[{""optionType"":1,""value"":""31,10""}]}","找到并杀死沙滩附近那些烦人的南瓜怪，并带回十个南瓜藤曼给我
+（在你交给我之前你的任务进度不会有变化，确保你的背包拥有足够的南瓜藤曼）",,"2,117",23,0,,给我一些南瓜藤曼,,34,
+"{""options"":[{""optionType"":1,""value"":""139,1""}]}",进到城镇里面，找到战士前辈Nash，并交给他一个南瓜藤曼,,"2,117",24,0,32,进城找战士前辈-Nash,,23,
+"{""options"":[{""optionType"":9,""value"":""44,1""}]}",跟战士前辈-Nash交流，在对话中打开合成界面，并锻造一把石头剑,,"2,117",25,0,,第一次锻造石剑,,24,
+"{""options"":[{""optionType"":15,""value"":""1,1""}]}",打开技能树界面，将你的战斗主干升至1级，这样你就可以装备你刚刚锻造出来的石头剑了,,"2,117",26,0,,升级战斗主干,,25,
+"{""options"":[{""optionType"":1,""value"":""128,1""}]}",找到主城里面的农民-Terrance，并把治疗药水交给他,,"1,117",27,0,17,找到农民-Terrance,,30,
+"{""options"":[{""optionType"":1,""value"":""39,1""}]}",找到主城里的炼药师-Silas，并把木剑交给他,,"3,117",28,0,,找到炼药师-Silas,,26,
+"{""options"":[{""optionType"":15,""value"":""58,1""}]}",打开技能树界面，找到炼药技能 Potion Mastery并升至1级,,"3,117",29,0,22,解锁炼药技能,,28,
+"{""options"":[{""optionType"":9,""value"":""95,5""}]}",跟炼药师Silas交谈并打开合成界面，炼制五个次级治疗药水,,"3,117",30,0,38,炼制五个次级治疗药水,,29,
 "{""options"":[{""optionType"":13,""value"":""678,80,538,50""}]}","Now you are an excellent farmer, It's time back to Terrance Town. Now start your adventure!",,,32,0,,Back to Terrance Town,,46,
-"{""options"":[{""optionType"":1,""value"":""66,1""}]}",Collect 20 Herbs and give them to Captain Gunner.,,"3,117",33,0,28,Collect some herbs,,22,
-"{""options"":[{""optionType"":1,""value"":""58,10""}]}",Collect 10 stones and give them to Captain Gunner.,,"3,117",34,0,30,Collect some stone,,35,
-"{""options"":[{""optionType"":1,""value"":""62,10""}]}",Collect 10 pieces of wood and give them to Captain Gunner.,,"3,117",35,0,29,Collect some woods,,33,
-"{""options"":[{""optionType"":2,""value"":""146,5""},{""optionType"":2,""value"":""147,5""},{""optionType"":2,""value"":""148,5""}]}","Plant 5 Bamboos, 5 Trifoliums, and 5 Carrots.",,"1,117",36,0,31,Hoeing and Seeding,,27,
-"{""options"":[{""optionType"":1,""value"":""70,5""},{""optionType"":1,""value"":""71,5""},{""optionType"":1,""value"":""72,5""}]}",Water your crops and give your harvest to farmer Terrance.,,"1,117",37,0,33,Watering and harvest,,36,
+"{""options"":[{""optionType"":1,""value"":""39,1""}]}","拿上你的剑，找到这附近的纸片草砍断它们，并且带回十个植物纤维给我
+（在你交给我之前你的任务进度不会有变化，确保你的背包拥有足够的植物纤维）",,"3,117",33,0,28,给我一些植物纤维,,22,
+"{""options"":[{""optionType"":1,""value"":""58,10""}]}","拿上你的镐子，找到这附近的纸片石头挖开它们，并且带回十个石头给我
+（在你交给我之前你的任务进度不会有变化，确保你的背包拥有足够的石头）",,"3,117",34,0,30,给我一些石头,,35,
+"{""options"":[{""optionType"":1,""value"":""62,10""}]}","拿上你的斧头，找到这附近的纸片树砍倒它们，并且带回十个普通木材给我
+（在你交给我之前你的任务进度不会有变化，确保你的背包拥有足够的普通木材）",,"3,117",35,0,29,给我一些木材,,33,
+"{""options"":[{""optionType"":2,""value"":""146,5""},{""optionType"":2,""value"":""147,5""},{""optionType"":2,""value"":""148,5""}]}","从靠近农民Terrance的这个门出去，往右前方走上S型斜坡就可以去到个人专属家园
+使用锄头可以在田地松弛土壤，再使用种子就可以在已松弛的土壤上播种了
+在你的家园种下五个竹子，五个三叶草和五个胡萝卜吧",,"1,117",36,0,31,种下第一批种子,,27,
+"{""options"":[{""optionType"":1,""value"":""70,5""},{""optionType"":1,""value"":""71,5""},{""optionType"":1,""value"":""72,5""}]}",Water your crops and give your harvest to farmer Terrance.,,"1,117",37,0,,收获你的作物并交给Terrance,,36,
 ,Monsters are running rampant. Go and exterminate them,,"2,188",38,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,4,100;8,4,100;7,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them,,"2,279",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them,,"2,370",40,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,4,100;13,4,100;14,4,100""}]}"
 ,Hunt them down and bring back some loot,,"2,188",41,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,2,100;8,2,100;7,2,100""},{""optionType"":1,""value"":""30,1,100;31,1,100;32,1,100""}]}"
 ,Hunt them down and bring back some loot,,"2,279",42,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,2,100;11,2,100;10,2,100""},{""optionType"":1,""value"":""33,1,100;34,1,100;35,1,100""}]}"
 ,Hunt them down and bring back some loot,,"2,370",43,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,2,100;14,2,100;13,2,100""},{""optionType"":1,""value"":""36,1,100;37,1,100;38,1,100""}]}"
-"{""options"":[{""optionType"":15,""value"":""72,1""}]}","Open your skill interface, find the Gather talent tree, and unlock your capture skills!",,"1,117",44,0,34,Catching monster,,37,
-"{""options"":[{""optionType"":2,""value"":""28,2""}]}",Now try filling your feed tank up,,"1,117",45,0,35,Feeding your livestock,,44,
-"{""options"":[{""optionType"":1,""value"":""178,2""}]}",Capture some Tiny-dogs and collect some screws from your pet when they mature,,"1,117",46,0,36,Harvest from your livestock,,45,
+"{""options"":[{""optionType"":15,""value"":""72,1""}]}","Open your skill interface, find the Gather talent tree, and unlock your capture skills!",,"1,117",44,0,34,解锁农牧技能树的捕捉技能,,37,
+"{""options"":[{""optionType"":2,""value"":""28,2""}]}",Now try filling your feed tank up,,"1,117",45,0,35,使用小饲料填满你的食槽,,44,
+"{""options"":[{""optionType"":1,""value"":""178,2""}]}",Capture some Tiny-dogs and collect some screws from your pet when they mature,,"1,117",46,0,36,捕捉罐头狗和产出,,45,
 ,Give me these,,"2,188",47,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""30,2,100;31,2,100;32,2,100""}]}"
 ,Give me these,,"2,279",48,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""33,2,100;34,2,100;35,2,100""}]}"
 ,Give me these,,"2,370",49,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""36,2,100;37,2,100;38,2,100""}]}"

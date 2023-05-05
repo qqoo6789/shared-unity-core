@@ -99,3 +99,6 @@ classifyLevel-int,desc-string,displayType-int,icon-string,id-int,level-int,matIt
 ,,0,recipe-icon-194,194,0,"62,5;66,10",Lv 0 木质水壶配方,"83,1,1,10000",,1,0,3,1,1,1,,0
 ,,0,recipe-icon-195,195,0,"62,5;66,10",Lv 0 木质斧头配方,"91,1,1,10000",,1,0,3,3,1,1,,0
 ,,0,recipe-icon-196,196,0,"62,5;66,10",Lv 0 木质镐子配方,"87,1,1,10000",,1,0,10,3,1,1,,0
+,湿润肥料2,0,recipe-icon-197,197,2,"69,2;35,5",Advanced Accelerated Fertilizer Recipe,"219,1,1,10000",,3,1,10,1,1,1,,0
+,增产肥料2,0,recipe-icon-198,198,2,"61,2;35,5",Advanced Yield-increasing Fertilizer Recipe,"220,1,1,10000",,3,1,10,1,1,1,,0
+,加速肥料2,0,recipe-icon-199,199,2,"65,2;35,5",Advanced Moisture Fertilizer Recipe,"221,1,1,10000",,3,1,10,1,1,1,,0
