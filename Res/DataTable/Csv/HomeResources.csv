@@ -9,7 +9,7 @@ Slice_12,27,10,6,Slice_12,5,1,100,Lv 1-普通木材 🌲采集 原材料 (id:62)
 Slice_11,32,2,5,Slice_11,14,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
 2D_caijiziyuan_bingyuanzhiwu,33,4,5,2D_caijiziyuan_bingyuanzhiwu,15,2,100,Lv 2-冰原菇 🌲采集 原材料 (id:67)
 2D_caijiziyuan_anheimucai,29,30,6,2D_caijiziyuan_anheimucai,16,3,100,Lv 3-暗黑木材 🌲采集 原材料 (id:64)
-homeresource-19,32,2,5,2D_caijiziyuan_cao2,19,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
+homeresource-19,32,2,5,2D_caijiziyuan_cao2 ,19,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
 homeresource-20,32,2,5,2D_caijiziyuan_cao1,20,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
 2D_caijiziyuan_cao3,32,2,5,2D_caijiziyuan_cao3,21,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
 homeresource-22,,2,5,2D_caijiziyuan_zhuangshicaoye_4,22,1,100,
@@ -19,3 +19,7 @@ homeresource-26,,2,5,2D_caijiziyuan_zhuangshicaoye_1,26,1,100,
 homeresource-27,,2,5,2D_caijiziyuan_zhuangshikucaoye_4,27,1,100,
 homeresource-28,,2,5,2D_caijiziyuan_zhuangshikucaoye_3,28,1,100,
 homeresource-29,,2,6,2D_caijiziyuan_kushu_1,29,1,100,
+homeresource-30,32,2,5,2D_caijiziyuan_kucao1,30,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
+homeresource-31,32,2,5,2D_caijiziyuan_kucao2,31,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
+homeresource-32,32,2,5,2D_caijiziyuan_kucao3,32,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
+homeresource-33,32,2,5,2D_caijiziyuan_kucao4,33,1,100,Lv 1-植物纤维 🌲采集 原材料 (id:66)
