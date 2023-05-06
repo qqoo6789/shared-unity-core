@@ -14,6 +14,13 @@ public class EntitySkillDataCore : EntityBaseComponent
     protected List<int> EquipmentSkillIDList = new(); //装备技能列表
     protected List<int> BaseSkillIDList = new(); //基础技能列表
 
+    /// <summary>
+    /// 有GC 不要频繁使用
+    /// </summary>
+    /// <typeparam name="int"></typeparam>
+    /// <returns></returns>
+    public List<int> EquipmentSkillIDListClone => EquipmentSkillIDList == null ? null : new List<int>(EquipmentSkillIDList);
+
     private SkillCpt _skillCpt;
     protected SkillCpt SkillComponent
     {
