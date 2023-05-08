@@ -3,7 +3,7 @@ id-int,resouceBoy-string,avatarType-int,resouceBoyIcon-string,resouceGirl-string
 2,weapon/boy_lv10_sword,,,,
 13,coat/boy_base_coat,2,,,
 14,gloves/boy_base_gloves,3,,,
-15,hair/boy_base_hair,1,,,
+15,hair/boy_lv0_hair,1,,,
 16,pants/boy_base_pants,4,,,
 17,shoes/boy_base_shoes,14,,,
 18,boy_face,5,,,
