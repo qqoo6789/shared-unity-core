@@ -1,4 +1,4 @@
-# meland-shared_unity_core
+# Game shared core
 
 the core script about move and battle in unity, meland client and server shared used.
 
