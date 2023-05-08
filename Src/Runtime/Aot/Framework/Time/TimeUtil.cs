@@ -26,6 +26,11 @@ public static class TimeUtil
     private static SyncSvrTimeLogic s_syncSvrTimeLogic;
 
     /// <summary>
+    /// 是否初始化过
+    /// </summary>
+    public static bool IsInitedSyncTimeLogic => s_syncSvrTimeLogic != null;
+
+    /// <summary>
     /// 初始化时间同步逻辑
     /// </summary>
     /// <param name="reqQuerySvrTimeFunc">请求查询服务器时间的方法 可以为null 为null时需要自己情趣服务器时间</param>
@@ -44,6 +49,7 @@ public static class TimeUtil
         if (s_syncSvrTimeLogic != null)
         {
             s_syncSvrTimeLogic.Dispose();
+            s_syncSvrTimeLogic = null;
         }
     }
 
