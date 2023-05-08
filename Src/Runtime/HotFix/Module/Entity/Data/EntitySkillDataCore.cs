@@ -47,6 +47,23 @@ public class EntitySkillDataCore : EntityBaseComponent
         }
     }
 
+    /// <summary>
+    /// 当前连击技能id组
+    /// </summary>
+    /// <value></value>
+    public int[] ComboSkillIdArray
+    {
+        get
+        {
+            if (EquipmentSkillIDList.Count > 0)
+            {
+                return EquipmentSkillIDList.ToArray();
+            }
+
+            return BaseSkillIDList.ToArray();
+        }
+    }
+
     protected virtual void Start()
     {
         RefEntity.EntityEvent.EntityAvatarUpdated += OnUpdateEquipmentSkillID;

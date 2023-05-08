@@ -1,3 +1,4 @@
+using System;
 using GameFramework.Fsm;
 
 /// <summary>
@@ -27,7 +28,7 @@ public class PlayerSkillCastStatusCore : SkillCastStatusCore
     /// <returns></returns>
     protected virtual bool CheckCanSetCombo(int skillId)
     {
-        if (SkillDataCore.EquipmentSkillIDListClone.IndexOf(skillId) < 0)
+        if (Array.IndexOf(SkillDataCore.ComboSkillIdArray, SkillID) < 0)
         {
             return false;
         }
