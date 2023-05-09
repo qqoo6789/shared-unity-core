@@ -150,9 +150,9 @@ accuBreakable-bool,accuTime-int,attackCanMove-bool,effectEnemy-int[],effectForwa
 0,,0,,,0,400,162,0,0,1,0,0,0,A1-gaozi-AOE-NEW,,,660,20000,"Vibrate ground, release seismic waves, damage minerals.",,2,Seismic Wave 2,"4,800,400,12000",CameraShakeGrade_3,1,0,7,Skill_earthquake,skill_rock_hurt,1000,,,,,,,,,,skill-icon-162,,,
 0,,0,,,0,400,163,0,0,1,0,0,0,A1-gaozi-AOE-NEW,,,660,20000,"Vibrate ground, release seismic waves, damage ores.",,2,Seismic Wave 3,"4,800,600,12000",CameraShakeGrade_3,1,0,7,Skill_earthquake,skill_rock_hurt,1000,,,,,,,,,,skill-icon-163,,,
 0,,0,15,,0,200,164,0,1,1,0,0,1,hit,,,950,0,Hopper Attack: Game or Event?,100,2,Hopper Attack,"4,300,200,120004,300,150,12000",CameraShakeGrade_1,1,0,,,,,,,,,,,,,,,,,
-0,,0,,,0,,166,0,0,0,0,0,0,,,,,,Capture skill (overall skill),,2,Capture Animal,,,1,0,,,,,,,,,,,,,,skill-icon-166,"167,168","1,2,3,4",
+0,,0,,,0,,166,0,0,0,0,0,0,,,,,,Capture skill (overall skill),,2,Capture Animal,,,1,0,,,,,,,,,,,,,,skill-icon-166,"167,168","2,3,4",
 0,,0,176,,2,0,167,1,0,1,0,1,0,A3-buzhuo,,,300,300,Capture grappling hook monster.,,2,Capture Hook,"2,100",,1,0,,,,,,,CaptureRope,2000,2000,,,,,skill-icon-167,,,5
-0,,0,"177,17",,3,0,168,1,0,0,0,1,0,A3-buzhuo,,,300,300,Catch and feed with rope.,,2,Capture Shoot,,,2,1,,,,,,,Resource_ball,,2000,,,,,skill-icon-168,,"1,2,3,4",10
+0,,0,"177,17",,3,0,168,1,0,0,0,1,0,A3-buzhuo,,,300,300,Catch and feed with rope.,,2,Capture Shoot,,,2,1,,,,,,,Resource_ball,,2000,,,,,skill-icon-168,,"2,3,4",10
 0,,0,"177,17",,0,730,169,0,0,0,0,0,0,attack,,,1030,2000,Monster counterattack skill.,100,2,BeCapture Attack,"4,300,200,12000",,1,0,,,,,,,,,,,,,,,,,
 1,0,0,15,,0,1000,171,0,0,1,0,1,0,A-gongjian-NEW,monsterattack,,2000,2000,Character ranged.,1500,2,Character ranged.,,,1,1,,,,,,0,Projectile_ball,2000,800,2000,,,,,,,
 0,,0,,,0,,172,0,0,0,0,0,0,,,,,-1,"Weapon inflicts wounds, 1% attack damage every 0.5s for 5s, stackable 5 times.",,1,Torn wound.,,,1,0,,,,,,,,,,,,184,,skill-icon-172,,,
@@ -185,3 +185,7 @@ accuBreakable-bool,accuTime-int,attackCanMove-bool,effectEnemy-int[],effectForwa
 0,,0,,,0,,199,0,0,0,0,0,0,,,,,0,Treat 80 HP.,,2,Secondary healing potion.,,,1,0,,PS_VFX_HealCast,,1000,,,,,,,,,208,,,,
 0,,0,,,0,,200,0,0,0,0,0,0,,,,,0,Heal 160 HP.,,2,Treatment potion.,,,1,0,,PS_VFX_HealCast,,1000,,,,,,,,,209,,,,
 0,,0,,,0,,201,0,0,0,0,0,0,,,,,0,Treat 240 HP.,,2,Crystallization therapy potion.,,,1,0,,PS_VFX_HealCast,,1000,,,,,,,,,210,,,,
+0,0,0,"15,17",31,0,330,202,0,0,1,0,0,1,A-chuisanlianji-1-NEW,,14,660,-1,Hammer attack - Action 1.,400,2,Hammer attack.,"4,300,300,21000",CameraShakeGrade_1,1,0,,,,,,,,,,,,,,,,,
+0,0,0,"15,17",31,0,330,203,0,0,1,0,0,1,A-chuisanlianji-2-NEW,,14,660,-1,Hammer attack - Action 2.,400,2,Hammer attack.,"4,300,300,21000",CameraShakeGrade_1,1,0,,,,,,,,,,,,,,,,,
+0,0,0,"15,17",31,0,330,204,0,0,1,0,0,1,A-chuisanlianji-3-NEW,,14,660,-1,Hammer attack - Action 3.,400,2,Hammer attack.,"4,300,300,21000",CameraShakeGrade_1,1,0,,,,,,,,,,,,,,,,,
+1,0,0,15,,0,280,205,0,0,1,0,1,0,A-gongjian-NEW,monsterattack,14,330,200,Bow Attack,1500,2,Bow Attack,,,1,1,,,,,,0,Projectile_ball,2000,800,2000,,,,,,,
