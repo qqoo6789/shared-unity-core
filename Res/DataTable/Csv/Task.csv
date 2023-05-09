@@ -32,7 +32,7 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 （通过砍草、砍树、挖矿等行为可以获得经验）",,"3,117",29,0,22,解锁炼药技能,,28,
 "{""options"":[{""optionType"":9,""value"":""95,5""}]}",跟炼药师Silas交谈并打开合成界面，炼制五个次级治疗药水,,"3,117",30,0,38,炼制五个次级治疗药水,,29,
 "{""options"":[{""optionType"":13,""value"":""678,80,538,50""}]}","Now you are an excellent farmer, It's time back to Terrance Town. Now start your adventure!",,,32,0,,Back to Terrance Town,,46,
-"{""options"":[{""optionType"":1,""value"":""39,1""}]}","拿上你的剑，找到这附近的纸片草砍断它们，并且带回十个植物纤维给我
+"{""options"":[{""optionType"":1,""value"":""66,10""}]}","拿上你的剑，找到这附近的纸片草砍断它们，并且带回十个植物纤维给我
 （在交给我之前你的任务进度不会有变化，确保你的背包拥有足够的植物纤维）",,"3,117",33,0,28,给Gunner一些植物纤维,,22,
 "{""options"":[{""optionType"":1,""value"":""58,10""}]}","拿上你的镐子，找到这附近的纸片石头挖开它们，并且带回十个石头给我
 （在交给我之前你的任务进度不会有变化，确保你的背包拥有足够的石头）",,"3,117",34,0,30,给Gunner一些石头,,35,
