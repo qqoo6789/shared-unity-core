@@ -16,6 +16,10 @@ public class HomeSaveData
     public List<HomeResourcesAreaSaveData> HomeAreaSaveDataList;
     public List<AnimalSaveData> AnimalSaveDataList;
     public AnimalSceneSaveData AnimalSceneSaveData;
+    /// <summary>
+    /// 上次保存的时间戳
+    /// </summary>
+    public long LastSaveStamp;
 
     // 是否使用初始家园数据
     public bool UseDefaultData;
