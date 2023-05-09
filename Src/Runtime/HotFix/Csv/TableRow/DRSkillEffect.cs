@@ -24,6 +24,15 @@ public class DRSkillEffect : DataRowBase
     public override int Id => _id;
 
     /// <summary>
+  /**获取desc-string。*/
+    /// </summary>
+    public string Desc
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取duration-int。*/
     /// </summary>
     public int Duration
@@ -127,6 +136,7 @@ public class DRSkillEffect : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        Desc = DataTableParseUtil.ParseString(columnStrings[index++]);
         Duration = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
@@ -150,6 +160,7 @@ public class DRSkillEffect : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                Desc = binaryReader.ReadString();
                 Duration = binaryReader.Read7BitEncodedInt32();
                 EffectType = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
