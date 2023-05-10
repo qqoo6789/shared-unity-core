@@ -7,12 +7,16 @@
  */
 using System.Collections.Generic;
 using GameFramework.DataTable;
+using GameMessageCore;
 using UnityGameFramework.Runtime;
 
 public class EntityAttributeData : EntityBaseComponent
 {
     public Dictionary<eAttributeType, IntAttribute> AttributeMap { get; private set; } = new();
     private readonly Dictionary<eAttributeType, int> _defaultMap = new();
+
+    private readonly List<AttributeData> _netAttributeBaseDataList = new();
+    private bool _isNetDirty = true;
     private void Awake()
     {
         IDataTable<DREntityAttribute> dtAircraft = GFEntryCore.DataTable.GetDataTable<DREntityAttribute>();
@@ -93,6 +97,7 @@ public class EntityAttributeData : EntityBaseComponent
             return;
         }
         _ = attribute.SetBase(value);
+        _isNetDirty = true;
         RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(type, attribute.Value);
     }
 
@@ -164,5 +169,23 @@ public class EntityAttributeData : EntityBaseComponent
             item.Value.Dispose();
         }
         AttributeMap.Clear();
+    }
+
+    public List<AttributeData> GetNetData()
+    {
+        if (_isNetDirty)
+        {
+            _netAttributeBaseDataList.Clear();
+            foreach (KeyValuePair<eAttributeType, IntAttribute> item in AttributeMap)
+            {
+                _netAttributeBaseDataList.Add(new AttributeData()
+                {
+                    Id = (int)item.Key,
+                    Value = item.Value.BaseValue,
+                });
+            }
+            _isNetDirty = false;
+        }
+        return _netAttributeBaseDataList;
     }
 }

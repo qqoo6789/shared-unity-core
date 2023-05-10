@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体CD数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntityCDDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Data/EntityCDDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -11,9 +11,12 @@ public class EntityCDDataCore : EntityBaseComponent
 
     public Dictionary<eEntityCDType, EntityCDBase> EntityCDMap { get; private set; }
     private EntityCDBase _skillEntityCD; //快速调用
+    protected GameMessageCore.EntityCD NetEntityCD;
+    protected bool IsNetDirty = true;
     protected virtual void Awake()
     {
         EntityCDMap = new();
+        NetEntityCD = new();
         _skillEntityCD = EntityCDBase.Create(typeof(EntitySkillCD));
         EntityCDMap.Add(eEntityCDType.Skill, _skillEntityCD); //技能CD
         EntityCDMap.Add(eEntityCDType.Extend, EntityCDBase.Create(typeof(EntityExtendCD))); //扩展CD
@@ -58,6 +61,7 @@ public class EntityCDDataCore : EntityBaseComponent
     /// <param name="skillID">技能ID</param>
     public void ResetSkillCD(int skillID)
     {
+        IsNetDirty = true;
         long curTimeStamp = TimeUtil.GetTimeStamp();
         long skillCD = SkillUtil.CalculateSkillCD(skillID, RefEntity);
         long cdTime = curTimeStamp + skillCD;
@@ -72,6 +76,7 @@ public class EntityCDDataCore : EntityBaseComponent
     /// <param name="time">到期时间戳</param>
     public void SetCD(eEntityCDType cdType, int key, long time)
     {
+        IsNetDirty = true;
         if (EntityCDMap.TryGetValue(cdType, out EntityCDBase entityCD))
         {
             entityCD.SetCD(key, time);
@@ -116,6 +121,7 @@ public class EntityCDDataCore : EntityBaseComponent
         {
             entityCD.ResetAllCD();
         }
+        IsNetDirty = true;
     }
 
     /// <summary>
@@ -127,9 +133,18 @@ public class EntityCDDataCore : EntityBaseComponent
         {
             item.Value.ResetAllCD();
         }
+        IsNetDirty = true;
     }
 
-
+    public GameMessageCore.EntityCD GetNetData()
+    {
+        if (IsNetDirty)
+        {
+            IsNetDirty = false;
+            NetEntityCD = ToSvrEntityCD();
+        }
+        return NetEntityCD;
+    }
     private void OnDestroy()
     {
         foreach (KeyValuePair<eEntityCDType, EntityCDBase> item in EntityCDMap)
