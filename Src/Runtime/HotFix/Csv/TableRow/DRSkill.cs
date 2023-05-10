@@ -294,9 +294,9 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取effectSelf-int[]。*/
+  /**获取forwardEffectTime-int。*/
     /// </summary>
-    public int[] EffectSelf
+    public int ForwardEffectTime
     {
         get;
         private set;
@@ -360,6 +360,15 @@ public class DRSkill : DataRowBase
   /**获取effectInit-int[]。*/
     /// </summary>
     public int[] EffectInit
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取effectSelf-int[]。*/
+    /// </summary>
+    public int[] EffectSelf
     {
         get;
         private set;
@@ -437,7 +446,7 @@ public class DRSkill : DataRowBase
         ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        ForwardEffectTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -445,6 +454,7 @@ public class DRSkill : DataRowBase
         FlyTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
         ComposeSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         CostPropType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -491,7 +501,7 @@ public class DRSkill : DataRowBase
                 ReleaseEff = binaryReader.ReadString();
                 HitEff = binaryReader.ReadString();
                 HomeAttRate = binaryReader.Read7BitEncodedInt32();
-                EffectSelf = binaryReader.ReadArray<Int32>();
+                ForwardEffectTime = binaryReader.Read7BitEncodedInt32();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 FlyAvatar = binaryReader.ReadString();
                 FlyDistance = binaryReader.Read7BitEncodedInt32();
@@ -499,6 +509,7 @@ public class DRSkill : DataRowBase
                 FlyTime = binaryReader.Read7BitEncodedInt32();
                 AccuEff = binaryReader.Read7BitEncodedInt32();
                 EffectInit = binaryReader.ReadArray<Int32>();
+                EffectSelf = binaryReader.ReadArray<Int32>();
                 SkillIcon = binaryReader.ReadString();
                 ComposeSkill = binaryReader.ReadArray<Int32>();
                 CostPropType = binaryReader.ReadArray<Int32>();
