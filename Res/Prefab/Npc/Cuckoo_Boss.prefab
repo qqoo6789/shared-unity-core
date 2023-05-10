@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6430181625036610847}
   - component: {fileID: 2942034132429565340}
   m_Layer: 16
-  m_Name: Cuckoo Boss
+  m_Name: Cuckoo_Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
