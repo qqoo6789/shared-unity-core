@@ -96,6 +96,12 @@ public class EntityBase
     public EntityAttributeData EntityAttributeData { get; set; }
 
     /// <summary>
+    /// 网络数据
+    /// </summary>
+    /// <value></value>
+    public EntityBaseNetDataCore NetData { get; set; }
+
+    /// <summary>
     /// 不要乱用 读写相关属性都有独立方法 只能在特定情境下只能通过获取Transform来获取时使用
     /// </summary>
     /// <returns></returns>
@@ -182,7 +188,7 @@ public class EntityBase
     {
         if (TryGetComponent(out SkillEffectCpt skillEffectCpt))
         {
-            return skillEffectCpt.GetRuntimeEffectSaveData();
+            return skillEffectCpt.GetNetData();
         }
         return "";
     }

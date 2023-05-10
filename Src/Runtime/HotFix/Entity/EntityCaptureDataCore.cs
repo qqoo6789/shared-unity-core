@@ -22,6 +22,8 @@ public class EntityCaptureDataCore : EntityBaseComponent
 
     public float CaptureProgress => CaptureMaxHp > 0 ? CaptureCurHp / CaptureMaxHp : 0;
 
+    private readonly CaptureData _netData = new();
+
     // 是否处于捕获状态（正在捕获，或 已被捕获）
     public bool IsInCaptureStatus()
     {
@@ -47,5 +49,17 @@ public class EntityCaptureDataCore : EntityBaseComponent
         CaptureCurHp = 0;
         CaptureMaxHp = 0;
         Status = CaptureStatus.Unknown;
+    }
+
+    public CaptureData GetNetData()
+    {
+        _netData.CaptureId = CaptureId;
+        _netData.CaptureAt = CaptureAt;
+        _netData.CaptureCurHp = CaptureCurHp;
+        _netData.CaptureMaxHp = CaptureMaxHp;
+        _netData.RopeCurHp = RopeCurHp;
+        _netData.RopeMaxHp = RopeMaxHp;
+        _netData.Status = Status;
+        return _netData;
     }
 }
