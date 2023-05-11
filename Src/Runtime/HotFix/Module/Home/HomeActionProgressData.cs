@@ -95,6 +95,16 @@ public class HomeActionProgressData : MonoBehaviour
             return true;
         }
 
+        if (CurProgressActionValue <= 0)
+        {
+            if (CurProgressOwnerId != 0)
+            {
+                Log.Error($"home action progress is empty ,but owner is not empty:{CurProgressOwnerId}");
+                CurProgressOwnerId = 0;
+            }
+            return true;
+        }
+
         return CurProgressOwnerId == 0 || CurProgressOwnerId == playerId;
     }
 
