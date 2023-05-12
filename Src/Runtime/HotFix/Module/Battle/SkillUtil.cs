@@ -258,4 +258,24 @@ public static partial class SkillUtil
         }
         return effectList;
     }
+
+    public static int[] GetSkillEffect(EntityBase entity, DRSkill drSkill, eSkillEffectApplyType type)
+    {
+        //拥有技能, 效果可能是动态的，所以需要从技能组件中获取
+        SkillBase skill = entity.GetComponent<SkillCpt>().GetSkill(drSkill.Id);
+        if (skill != null)
+        {
+            return skill.GetEffect(type);
+        }
+
+        //没有技能， 效果是静态的，直接从配置中获取
+        return type switch
+        {
+            eSkillEffectApplyType.Init => drSkill.EffectInit,
+            eSkillEffectApplyType.Forward => drSkill.EffectForward,
+            eSkillEffectApplyType.CastSelf => drSkill.EffectSelf,
+            eSkillEffectApplyType.CastEnemy => drSkill.EffectEnemy,
+            _ => null,
+        };
+    }
 }
