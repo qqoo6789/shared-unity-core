@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 13:38:00
  * @Description: 技能组件
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/Cpt/SkillCpt.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Battle/Cpt/SkillCpt.cs
  * 
  */
 using System.Collections.Generic;
@@ -12,9 +12,10 @@ using UnityGameFramework.Runtime;
 public class SkillCpt : EntityBaseComponent
 {
     public Dictionary<int, SkillBase> SkillMap { get; private set; } = new();
-
+    private bool _isDestroy = false;
     private void OnDestroy()
     {
+        _isDestroy = true;
         RemoveAllSkill();
     }
 
@@ -23,6 +24,10 @@ public class SkillCpt : EntityBaseComponent
     /// </summary>
     public SkillBase AddSkill(int skillID)
     {
+        if (_isDestroy)
+        {
+            return null;
+        }
         if (SkillMap.ContainsKey(skillID))
         {
             Log.Warning($"Add Skill Repeat! skillId ={skillID}");
@@ -40,6 +45,10 @@ public class SkillCpt : EntityBaseComponent
     /// </summary>
     public void RemoveSkill(int skillID)
     {
+        if (_isDestroy)
+        {
+            return;
+        }
         if (!SkillMap.TryGetValue(skillID, out SkillBase skill))
         {
             Log.Warning($"Remove Skill Is Null! skillId ={skillID}");
@@ -112,6 +121,7 @@ public class SkillCpt : EntityBaseComponent
         }
         return skill;
     }
+
     /// <summary>
     /// 是否拥有技能
     /// </summary>
@@ -119,4 +129,5 @@ public class SkillCpt : EntityBaseComponent
     {
         return SkillMap.ContainsKey(skillID);
     }
+
 }
