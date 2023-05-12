@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/EntityEvent.cs
  */
 using System;
 using System.Collections.Generic;
@@ -117,13 +117,13 @@ public class EntityEvent : EntityBaseComponent
     public Action EntityAvatarUpdated;
 
     /// <summary>
-    /// 主动移动开始 不包括强制位移
+    /// 实体触碰开始 T0:触碰实体
     /// </summary>
     public Action<EntityBase> EntityTriggerEnter;
     /// <summary>
-    /// 主动移动结束 不包括强制位移
+    /// 实体触碰结束
     /// </summary>
-    public Action<EntityBase> EntityTriggerExit;
+    public Action<long> EntityTriggerExit;
     /// <summary>
     /// 给目标实体应用效果之前 T0:目标实体 T1:效果数据
     /// </summary>
