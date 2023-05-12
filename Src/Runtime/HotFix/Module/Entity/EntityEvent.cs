@@ -191,4 +191,12 @@ public class EntityEvent : EntityBaseComponent
     public Action<Vector3> SetPos;
     #endregion
 
+    #region  行为树
+    /// <summary>
+    /// 实体对话事件
+    /// </summary>
+    public Action<GameMessageCore.DialogueEvent> EntityDialogueEvent;
+
+    #endregion
+
 }
