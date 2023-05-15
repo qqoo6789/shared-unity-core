@@ -25,14 +25,13 @@ public class SEPathMoveCore : SkillEffectBase
             Log.Error($"SEPathMoveCore not find DistanceMove cpt");
             return;
         }
-
-        RefEntity.GetComponent<EntityEvent>().SpecialMoveStartNotMoveStatus?.Invoke();
         TimerMgr.AddTimer(GetHashCode(), EffectData.BeatBackValue.DelayTime, Move);
     }
 
     //移动
     private void Move()
     {
+        RefEntity.GetComponent<EntityEvent>().SpecialMoveStartNotMoveStatus?.Invoke();
         Vector3 targetPos = NetUtilCore.LocFromNet(EffectData.BeatBackValue.BackToPos);
         Vector3 offset = targetPos - RefEntity.Position;
         float distance = offset.magnitude;
