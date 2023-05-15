@@ -3,7 +3,7 @@ using System;
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 向目标单位移动一段距离
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SELockEnemyPathMoveCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Battle/SkillEffect/SELockEnemyPathMoveCore.cs
  * 
  */
 
@@ -22,6 +22,11 @@ public class SELockEnemyPathMoveCore : SEPathMoveCore
         }
         float minDist = EffectCfg.Parameters[0] * MathUtilCore.CM2M;
         float maxDist = EffectCfg.Parameters[1] * MathUtilCore.CM2M;
+        int delayTime = 0;
+        if (EffectCfg.Parameters.Length > 2)
+        {
+            delayTime = EffectCfg.Parameters[2];
+        }
         float moveDist = minDist;
         EntityBase enemy = null;
         if (targets != null && targets.Length > 0)
@@ -49,7 +54,8 @@ public class SELockEnemyPathMoveCore : SEPathMoveCore
             BeatBackValue = new()
             {
                 CurLoc = NetUtilCore.LocToNet(curPos),
-                BackToPos = NetUtilCore.LocToNet(targetPos)
+                BackToPos = NetUtilCore.LocToNet(targetPos),
+                DelayTime = delayTime
             }
         };
         return effect;
