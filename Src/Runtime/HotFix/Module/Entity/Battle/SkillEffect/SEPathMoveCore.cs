@@ -7,15 +7,12 @@
  */
 
 
-using System.Threading;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
 public class SEPathMoveCore : SkillEffectBase
 {
     protected DistanceMove DistanceMove;
-    private CancellationTokenSource _timeToken;
     public override void Start()
     {
         base.Start();
@@ -30,42 +27,7 @@ public class SEPathMoveCore : SkillEffectBase
         }
 
         RefEntity.GetComponent<EntityEvent>().SpecialMoveStartNotMoveStatus?.Invoke();
-        if (EffectData.IntValue > 0)
-        {
-            DelayMove();
-        }
-        else
-        {
-            Move();
-        }
-    }
-
-    //延时移动
-    private async void DelayMove()
-    {
-        CancelTime();
-
-        try
-        {
-            _timeToken = new();
-            await UniTask.Delay(EffectData.IntValue, false, PlayerLoopTiming.Update, _timeToken.Token);
-        }
-        catch (System.Exception)
-        {
-            return;
-        }
-        _timeToken = null;
-        Move();
-    }
-
-    // 取消施法完成定时
-    private void CancelTime()
-    {
-        if (_timeToken != null)
-        {
-            _timeToken.Cancel();
-            _timeToken = null;
-        }
+        TimerMgr.AddTimer(GetHashCode(), EffectData.IntValue, Move);
     }
 
     //移动
@@ -88,7 +50,7 @@ public class SEPathMoveCore : SkillEffectBase
         {
             DistanceMove = null;
         }
-        CancelTime();
+        _ = TimerMgr.RemoveTimer(GetHashCode());
     }
 
     public override GameMessageCore.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir, long[] targets)
