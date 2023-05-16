@@ -17,6 +17,7 @@ public class EntityAttributeData : EntityBaseComponent
 
     private readonly List<AttributeData> _netAttributeBaseDataList = new();
     private bool _isNetDirty = true;
+    private bool _isDestroy = false;
     private void Awake()
     {
         IDataTable<DREntityAttribute> dtAircraft = GFEntryCore.DataTable.GetDataTable<DREntityAttribute>();
@@ -118,6 +119,11 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public IntAttributeModifier AddModifier(eAttributeType type, eModifierType modifierType, int value)
     {
+        if (_isDestroy)
+        {
+            return null;
+        }
+
         if (!AttributeMap.TryGetValue(type, out IntAttribute attribute))
         {
             attribute = CreateAttribute(type);
@@ -133,6 +139,11 @@ public class EntityAttributeData : EntityBaseComponent
     /// </summary>
     public void RemoveModifier(IntAttributeModifier modifier)
     {
+        if (_isDestroy)
+        {
+            return;
+        }
+
         if (!AttributeMap.TryGetValue(modifier.AttributeType, out IntAttribute attribute))
         {
             Log.Error($"EntityAttributeData RemoveModifier Not Find Attribute Type = {modifier.AttributeType}");
@@ -169,6 +180,7 @@ public class EntityAttributeData : EntityBaseComponent
             item.Value.Dispose();
         }
         AttributeMap.Clear();
+        _isDestroy = true;
     }
 
     public List<AttributeData> GetNetData()
