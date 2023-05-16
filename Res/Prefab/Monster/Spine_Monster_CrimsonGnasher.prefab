@@ -56,6 +56,9 @@ MonoBehaviour:
   sensorArrayRayCount: 6
   sensorArrayRowsAreOffset: 0
   raycastArrayPreviewPositions: []
+  IsMove: 0
+  RealColliderHeight: 3.04
+  RealColliderMiddle: 1.7479999
 --- !u!136 &2968927320251847465
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -69,7 +72,7 @@ CapsuleCollider:
   m_Radius: 1.015
   m_Height: 2.5839999
   m_Direction: 1
-  m_Center: {x: 0, y: 1.51, z: 0}
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!54 &-7381327059217123703
 Rigidbody:
   m_ObjectHideFlags: 0

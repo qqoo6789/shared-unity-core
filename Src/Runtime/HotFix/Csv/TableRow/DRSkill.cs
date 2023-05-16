@@ -294,15 +294,6 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取forwardEffectTime-int。*/
-    /// </summary>
-    public int ForwardEffectTime
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取animRotate-int。*/
     /// </summary>
     public int AnimRotate
@@ -446,7 +437,6 @@ public class DRSkill : DataRowBase
         ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        ForwardEffectTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -501,7 +491,6 @@ public class DRSkill : DataRowBase
                 ReleaseEff = binaryReader.ReadString();
                 HitEff = binaryReader.ReadString();
                 HomeAttRate = binaryReader.Read7BitEncodedInt32();
-                ForwardEffectTime = binaryReader.Read7BitEncodedInt32();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 FlyAvatar = binaryReader.ReadString();
                 FlyDistance = binaryReader.Read7BitEncodedInt32();

@@ -25,14 +25,13 @@ public class SEPathMoveCore : SkillEffectBase
             Log.Error($"SEPathMoveCore not find DistanceMove cpt");
             return;
         }
-
-        RefEntity.GetComponent<EntityEvent>().SpecialMoveStartNotMoveStatus?.Invoke();
-        TimerMgr.AddTimer(GetHashCode(), EffectData.IntValue, Move);
+        TimerMgr.AddTimer(GetHashCode(), EffectData.BeatBackValue.DelayTime, Move);
     }
 
     //移动
     private void Move()
     {
+        RefEntity.GetComponent<EntityEvent>().SpecialMoveStartNotMoveStatus?.Invoke();
         Vector3 targetPos = NetUtilCore.LocFromNet(EffectData.BeatBackValue.BackToPos);
         Vector3 offset = targetPos - RefEntity.Position;
         float distance = offset.magnitude;
@@ -40,7 +39,7 @@ public class SEPathMoveCore : SkillEffectBase
         {
             return;
         }
-        float speed = distance / ((EffectCfg.Duration - EffectData.IntValue) * TimeUtil.MS2S);
+        float speed = distance / ((EffectCfg.Duration - EffectData.BeatBackValue.DelayTime) * TimeUtil.MS2S);
         DistanceMove.SetMoveSpeed(speed);
         DistanceMove.MoveTo(offset, distance, speed);
     }
@@ -71,10 +70,10 @@ public class SEPathMoveCore : SkillEffectBase
         forward.Set(forward.x, 0, forward.z);
         Vector3 targetPos = curPos + (forward.normalized * distance);
         GameMessageCore.DamageEffect effect = new();
-        effect.IntValue = delayTime;
         effect.BeatBackValue = new();
         effect.BeatBackValue.CurLoc = NetUtilCore.LocToNet(curPos);
         effect.BeatBackValue.BackToPos = NetUtilCore.LocToNet(targetPos);
+        effect.BeatBackValue.DelayTime = delayTime;
         return effect;
     }
 }
