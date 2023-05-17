@@ -29,6 +29,11 @@ public class HomeActionProgressData : MonoBehaviour
     /// </summary>
     /// <value></value>
     public float CurProgressActionValue { get; private set; }
+    /// <summary>
+    /// 当前进度归属玩家id 0代表没有归属
+    /// </summary>
+    /// <value></value>
+    public long CurProgressOwnerId { get; private set; }
 
     /// <summary>
     /// 当前进度动作的最大值
@@ -66,6 +71,41 @@ public class HomeActionProgressData : MonoBehaviour
 
         CurProgressActionValue -= TableUtil.GetGameValue(eGameValueID.homeActionLostSpeed).Value * Time.deltaTime;
         CurProgressActionValue = Mathf.Max(0, CurProgressActionValue);
+
+        if (CurProgressActionValue.ApproximatelyEquals(0))
+        {
+            SetCurProgressOwnerId(0);
+        }
+    }
+
+    public void SetCurProgressOwnerId(long id)
+    {
+        CurProgressOwnerId = id;
+    }
+
+    /// <summary>
+    /// 检查某个玩家是否能够操作进度
+    /// </summary>
+    /// <param name="playerId"></param>
+    /// <returns></returns>
+    public bool CheckCanOperate(long playerId)
+    {
+        if (HomeModuleCore.IsInited)//家园里的不需要归属检查 都可以叠加操作
+        {
+            return true;
+        }
+
+        if (CurProgressActionValue <= 0)
+        {
+            if (CurProgressOwnerId != 0)
+            {
+                Log.Error($"home action progress is empty ,but owner is not empty:{CurProgressOwnerId}");
+                CurProgressOwnerId = 0;
+            }
+            return true;
+        }
+
+        return CurProgressOwnerId == 0 || CurProgressOwnerId == playerId;
     }
 
     /// <summary>
@@ -80,6 +120,8 @@ public class HomeActionProgressData : MonoBehaviour
             Log.Error($"不支持的进度操作:{action}");
             return;
         }
+
+        SetCurProgressOwnerId(0);
 
         StopHoldToFull(true);
 
@@ -98,6 +140,8 @@ public class HomeActionProgressData : MonoBehaviour
         CurProgressAction = eAction.None;
         CurProgressActionMaxValue = 0;
         CurProgressActionValue = 0;
+
+        SetCurProgressOwnerId(0);
 
         StopHoldToFull(true);
 
@@ -271,6 +315,7 @@ public class HomeActionProgressData : MonoBehaviour
             {
                 TotalProgress = Mathf.CeilToInt(CurProgressActionValue),
                 ProgressFullStamp = _fullTimeStamp,
+                ProgressOwnerId = CurProgressOwnerId,
             };
         }
 
@@ -283,6 +328,7 @@ public class HomeActionProgressData : MonoBehaviour
         {
             TotalProgress = Mathf.CeilToInt(CurProgressActionValue),
             ProgressFullStamp = 0,
+            ProgressOwnerId = CurProgressOwnerId,
         };
     }
 }
