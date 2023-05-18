@@ -43,6 +43,10 @@ public static class MLayerMask
     /// </summary>
     /// <returns></returns>
     public const int ENTITY_TRIGGER = 20;
+    /// <summary>
+    /// 像树叶那种遮挡人物时半透的场景物件层
+    /// </summary>
+    public const int OBSTRUCT_TRANSPARENT = 22;
 
     /// <summary>
     /// 默认的相机自动避开的遮挡层
