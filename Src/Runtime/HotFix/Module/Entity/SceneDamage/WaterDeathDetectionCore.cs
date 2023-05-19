@@ -69,7 +69,7 @@ public class WaterDeathDetectionCore : EntityBaseComponent, ISceneDamageDetectio
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!_isDetecting || _curTriggerWater.Count == 0)
         {
