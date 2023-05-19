@@ -1,7 +1,7 @@
 /// <summary>
 /// 掉落死亡检测
 /// </summary>
-public abstract class FallDeathDetectionCore : EntityBaseComponent
+public class FallDeathDetectionCore : EntityBaseComponent, ISceneDamageDetection
 {
     public const float DEATH_HEIGHT = -100;//死亡层高度坐标
     public static int Detection_interval = 10;// 检测间隔 单位帧 为了优化 不需要实时那么准确
@@ -44,5 +44,8 @@ public abstract class FallDeathDetectionCore : EntityBaseComponent
         }
     }
 
-    protected abstract void OnFallDeath();
+    private void OnFallDeath()
+    {
+        RefEntity.EntityEvent.OnSceneDeath?.Invoke(GameMessageCore.DamageState.Fall);
+    }
 }

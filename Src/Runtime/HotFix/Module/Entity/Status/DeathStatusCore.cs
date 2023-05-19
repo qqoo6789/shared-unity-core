@@ -37,6 +37,12 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
             }
             IsFallDeath = true;
         }
+
+        ISceneDamageDetection[] detections = StatusCtrl.GetComponents<ISceneDamageDetection>();
+        for (int i = 0; i < detections.Length; i++)
+        {
+            detections[i].StopDetection();
+        }
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
@@ -50,6 +56,12 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
                 moveCtrl.SetEnableGravity(true);
             }
             IsFallDeath = false;
+        }
+
+        ISceneDamageDetection[] detections = StatusCtrl.GetComponents<ISceneDamageDetection>();
+        for (int i = 0; i < detections.Length; i++)
+        {
+            detections[i].StartDetection();
         }
 
         base.OnLeave(fsm, isShutdown);
