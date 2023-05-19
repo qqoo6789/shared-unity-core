@@ -1,60 +1,51 @@
 designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,isSelfEnd-bool,itemReward-int,name-string,level-int[][],preTaskReq-int[],chanceOptions-string
-"{""options"":[{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,11,10001,,,
-"{""options"":[{""optionType"":1,""value"":""134,2""},{""optionType"":2,""value"":""134,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,11,10002,"1,1;2,1",1,
-"{""options"":[{""optionType"":3,""value"":""30,1""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,11,10003,"2,2",2,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,11,10004,"2,3",3,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,11,10005,"2,4",4,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,11,10006,,5,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,11,10007,,5,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,11,10008,,"6,7",
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2""}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,
+"{""options"":[{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,11,10001,,,
+"{""options"":[{""optionType"":1,""value"":""134,2"",""guiderPoint"":0},{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,11,10002,"1,1;2,1",1,
+"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,11,10003,"2,2",2,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,11,10004,"2,3",3,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,11,10005,"2,4",4,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,11,10006,,5,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,11,10007,,5,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,11,10008,,"6,7",
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,
 ,"For love and peace, please give me these",0,"1,100",17,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100""},{""optionType"":1,""value"":""70,10,100;33,2,300;30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",18,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",19,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-"{""options"":[{""optionType"":4,""value"":""6,5""}]}",杀死出现在主城周边的Metal Mutt五个,,"2,117",21,0,11,这里是哪？,,,
-"{""options"":[{""optionType"":2,""value"":""134,1""}]}",打开你的背包，找到次级治疗药水并使用它,,"2,117",22,0,12,吃口药,,21,
-"{""options"":[{""optionType"":1,""value"":""31,10""}]}","找到并杀死沙滩附近那些烦人的南瓜怪，并带回十个南瓜藤曼给我
-（在你交给我之前你的任务进度不会有变化，确保你的背包拥有足够的南瓜藤曼）",,"2,117",23,0,,给Gunner一些南瓜藤曼,,34,
-"{""options"":[{""optionType"":1,""value"":""139,1""}]}",进到城镇里面，找到战士前辈Nash，并交给他一个次级防御药水,,"2,117",24,0,32,进城找战士前辈-Nash,,23,
-"{""options"":[{""optionType"":9,""value"":""44,1""}]}",跟战士前辈-Nash交流，在对话中打开合成界面，并锻造一把石头剑,,"2,117",25,0,,第一次锻造石剑,,24,
-"{""options"":[{""optionType"":15,""value"":""1,1""}]}",打开技能树界面，将你的战斗主干升至1级，这样你就可以装备你刚刚锻造出来的石头剑了,,"2,117",26,0,,升级战斗主干,,25,
-"{""options"":[{""optionType"":1,""value"":""128,1""}]}",找到主城里面的农民-Terrance，并把治疗药水交给他,,"1,117",27,0,17,找到农民-Terrance,,30,
-"{""options"":[{""optionType"":1,""value"":""39,1""}]}",找到主城里的炼药师-Silas，并把木剑交给他,,"3,117",28,0,,找到炼药师-Silas,,26,
-"{""options"":[{""optionType"":15,""value"":""58,1""}]}","打开技能树界面，找到炼药技能 Potion Mastery并升至1级
-（通过砍草、砍树、挖矿等行为可以获得经验）",,"3,117",29,0,22,解锁炼药技能,,28,
-"{""options"":[{""optionType"":9,""value"":""95,5""}]}",跟炼药师Silas交谈并打开合成界面，炼制五个次级治疗药水,,"3,117",30,0,38,炼制五个次级治疗药水,,29,
-"{""options"":[{""optionType"":13,""value"":""678,80,538,50""}]}","Now you are an excellent farmer, It's time back to Terrance Town. Now start your adventure!",,,32,0,,Back to Terrance Town,,46,
-"{""options"":[{""optionType"":1,""value"":""66,10""}]}","拿上你的剑，找到这附近的纸片草砍断它们，并且带回十个植物纤维给我
-（在交给我之前你的任务进度不会有变化，确保你的背包拥有足够的植物纤维）",,"3,117",33,0,28,给Gunner一些植物纤维,,22,
-"{""options"":[{""optionType"":1,""value"":""58,10""}]}","拿上你的镐子，找到这附近的纸片石头挖开它们，并且带回十个石头给我
-（在交给我之前你的任务进度不会有变化，确保你的背包拥有足够的石头）",,"3,117",34,0,30,给Gunner一些石头,,35,
-"{""options"":[{""optionType"":1,""value"":""62,10""}]}","拿上你的斧头，找到这附近的纸片树砍倒它们，并且带回十个普通木材给我
-（在交给我之前你的任务进度不会有变化，确保你的背包拥有足够的普通木材）",,"3,117",35,0,29,给Gunner一些木材,,33,
-"{""options"":[{""optionType"":2,""value"":""146,5""},{""optionType"":2,""value"":""147,5""},{""optionType"":2,""value"":""148,5""}]}","地点：从靠近农民Terrance的这个门出去，往右前方走上S型斜坡就可以去到个人专属家园
-方法：使用锄头可以在田地松弛土壤，再使用种子就可以在已松弛的土壤上播种了
-在你的家园种下五个竹子，五个三叶草和五个胡萝卜吧！",,"1,117",36,0,31,种下第一批种子,,27,
-"{""options"":[{""optionType"":1,""value"":""70,5""},{""optionType"":1,""value"":""71,5""},{""optionType"":1,""value"":""72,5""}]}","种下种子之后需要耐心为他们浇水三到四遍，成熟之后就可以使用剑进行收获
-为你的农作物浇水，并给Terrance带来五个竹子、五个三叶草和五个胡萝卜吧
-",,"1,117",37,0,,收获作物并交给Terrance,,36,
+"{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101}]}",Kill Metal Mutt in main city.,,"2,117",21,0,11,Where are we?,,,
+"{""options"":[{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","Open bag, use minor healing potion.",,"2,117",22,0,12,Take a pill.,,21,
+"{""options"":[{""optionType"":1,""value"":""31,10"",""guiderPoint"":2301}]}","Kill pumpkin monsters near beach, bring back 10 vines.",,"2,117",23,0,,"""Give Gunner some pumpkin vine treats.""",,34,
+"{""options"":[{""optionType"":1,""value"":""139,1"",""guiderPoint"":0}]}",Find warrior Nash in town and give him a minor defense potion.,,"2,117",24,0,32,Find warrior senior in the city.,,23,
+"{""options"":[{""optionType"":9,""value"":""44,1"",""guiderPoint"":0}]}","Talk with Nash, open synthesis, forge sword.",,"2,117",25,0,,First time forging a stone sword.,,24,
+"{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0}]}","Open skill tree, upgrade combat to level 1, equip stone sword.",,"2,117",26,0,,Upgrade combat backbone.,,25,
+"{""options"":[{""optionType"":1,""value"":""128,1"",""guiderPoint"":0}]}",Find Terrance in the main city and give him healing potion.,,"1,117",27,0,17,Found farmer-Terrance.,,30,
+"{""options"":[{""optionType"":1,""value"":""39,1"",""guiderPoint"":0}]}",Find alchemist Silas in the main city and give him the wooden sword.,,"3,117",28,0,,Find alchemist-Silas.,,26,
+"{""options"":[{""optionType"":15,""value"":""58,1"",""guiderPoint"":0}]}","Open skill tree, find Potion Mastery, level up to 1.",,"3,117",29,0,22,Unlock Alchemy Skill,,28,
+"{""options"":[{""optionType"":9,""value"":""95,5"",""guiderPoint"":0}]}","Talk to Silas, open synthesis, make 5 minor healing potions.",,"3,117",30,0,38,Make five minor healing potions.,,29,
+"{""options"":[{""optionType"":13,""value"":""678,80,538,50"",""guiderPoint"":0}]}","Now you are an excellent farmer, It's time back to Terrance Town. Now start your adventure!",,,32,0,,Back to Terrance Town,,46,
+"{""options"":[{""optionType"":1,""value"":""66,10"",""guiderPoint"":3301}]}","Take sword, cut paper grass, bring 10 fibers.",,"3,117",33,0,28,Give Gunner plant fiber.,,22,
+"{""options"":[{""optionType"":1,""value"":""58,10"",""guiderPoint"":3401}]}",Bring me 10 paper stones dug nearby with your pickaxe.,,"3,117",34,0,30,Give Gunner some stones.,,35,
+"{""options"":[{""optionType"":1,""value"":""62,10"",""guiderPoint"":3501}]}","Take your axe, cut down paper trees nearby, bring back 10 normal wood.",,"3,117",35,0,29,Give Gunner some wood.,,33,
+"{""options"":[{""optionType"":2,""value"":""146,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""147,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""148,5"",""guiderPoint"":3601}]}","Location: Go out from the door near farmer Terrance, walk up the S-shaped slope on the right to reach your personal home.
+Method: Use a hoe to loosen the soil in the field, then use seeds to sow on the loosened soil.
+Plant five bamboo, five clover, and five carrots in your home.",,"1,117",36,0,31,Plant first batch of seeds.,,27,
+"{""options"":[{""optionType"":1,""value"":""70,5"",""guiderPoint"":3701},{""optionType"":1,""value"":""71,5"",""guiderPoint"":3701},{""optionType"":1,""value"":""72,5"",""guiderPoint"":3701}]}","Water seeds, harvest with sword. Give Terrance bamboo, clover, carrot.",,"1,117",37,0,,Harvest and give to Terrance.,,36,
 ,Monsters are running rampant. Go and exterminate them,,"2,188",38,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,4,100;8,4,100;7,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them,,"2,279",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them,,"2,370",40,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,4,100;13,4,100;14,4,100""}]}"
 ,Hunt them down and bring back some loot,,"2,188",41,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,2,100;8,2,100;7,2,100""},{""optionType"":1,""value"":""30,1,100;31,1,100;32,1,100""}]}"
 ,Hunt them down and bring back some loot,,"2,279",42,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,2,100;11,2,100;10,2,100""},{""optionType"":1,""value"":""33,1,100;34,1,100;35,1,100""}]}"
 ,Hunt them down and bring back some loot,,"2,370",43,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,2,100;14,2,100;13,2,100""},{""optionType"":1,""value"":""36,1,100;37,1,100;38,1,100""}]}"
-"{""options"":[{""optionType"":15,""value"":""72,1""}]}",打开你的技能界面，切到农牧区域，升级你的捕捉技能,,"1,117",44,0,34,解锁农牧技能树的捕捉技能,,37,
-"{""options"":[{""optionType"":2,""value"":""28,2""}]}",回到家园，找到用围栏围起来的畜牧场，打开背包装备小饲料，对准食槽使用他们,,"1,117",45,0,35,使用小饲料填满你的食槽,,44,
-"{""options"":[{""optionType"":1,""value"":""178,2""}]}","使用捕捉技能捕捉一些Metal Mutt，及时补充食槽以免宠物饿死。
-可以收获时对宠物使用收获手套可以获得宠物产出.
-成功收获两个螺丝并带回给Terrance吧！",,"1,117",46,0,36,捕捉罐头狗和产出,,45,
+"{""options"":[{""optionType"":15,""value"":""72,1"",""guiderPoint"":0}]}","Open skill panel, upgrade capture skill.",,"1,117",44,0,34,Unlock capture skills for farming and animal husbandry skill tree.,,37,
+"{""options"":[{""optionType"":2,""value"":""28,2"",""guiderPoint"":4501}]}","Go home, find fenced pasture, feed animals.",,"1,117",45,0,35,Fill feeder with small feed.,,44,
+"{""options"":[{""optionType"":1,""value"":""178,2"",""guiderPoint"":4601}]}","Catch Metal Mutts, feed them, harvest with gloves, bring screws to Terrance.",,"1,117",46,0,36,Capture can dog and output.,,45,
 ,Give me these,,"2,188",47,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""30,2,100;31,2,100;32,2,100""}]}"
 ,Give me these,,"2,279",48,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""33,2,100;34,2,100;35,2,100""}]}"
 ,Give me these,,"2,370",49,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""36,2,100;37,2,100;38,2,100""}]}"
