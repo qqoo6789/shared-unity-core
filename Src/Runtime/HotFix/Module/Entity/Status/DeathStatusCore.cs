@@ -8,6 +8,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameFramework.Fsm;
+using GameMessageCore;
 
 /// <summary>
 /// 死亡状态通用状态基类
@@ -19,7 +20,7 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
     public override string StatusName => Name;
     protected CancellationTokenSource CancelToken;
     protected virtual int DeathTime => 3000;
-    protected bool IsFallDeath;
+    protected bool IsStopGravityDeath;
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
@@ -27,15 +28,15 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
 
         OnDeathStart();
 
-        //掉落死亡的
-        if (StatusCtrl.RefEntity.BattleDataCore.DeathReason == GameMessageCore.DamageState.Fall)
+        //需要停止重力的死亡
+        if (StatusCtrl.RefEntity.BattleDataCore.DeathReason is DamageState.Fall or DamageState.WaterDrown)
         {
             if (StatusCtrl.TryGetComponent(out CharacterMoveCtrl moveCtrl))
             {
                 moveCtrl.StopMove();
                 moveCtrl.SetEnableGravity(false);
             }
-            IsFallDeath = true;
+            IsStopGravityDeath = true;
         }
 
         ISceneDamageDetection[] detections = StatusCtrl.GetComponents<ISceneDamageDetection>();
@@ -49,13 +50,13 @@ public class DeathStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCan
     {
         CancelTimeDeath();
 
-        if (IsFallDeath)
+        if (IsStopGravityDeath)
         {
             if (StatusCtrl.TryGetComponent(out CharacterMoveCtrl moveCtrl))
             {
                 moveCtrl.SetEnableGravity(true);
             }
-            IsFallDeath = false;
+            IsStopGravityDeath = false;
         }
 
         ISceneDamageDetection[] detections = StatusCtrl.GetComponents<ISceneDamageDetection>();
