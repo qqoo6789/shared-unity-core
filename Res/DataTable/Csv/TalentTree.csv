@@ -8,8 +8,8 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 7 equipment.",57,1,talentTree-7,7,1,7,1,Combat Mastery 7,2,4770,6,0,6
 0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 8 equipment.",58,1,talentTree-8,8,1,8,1,Combat Mastery 8,2,1350000,7,0,7
 0,"Improve your combat skills, increase your combat attack power by 1%, and be able to wear level 9 equipment.",,1,talentTree-9,9,1,9,1,Combat Mastery 9,2,,8,,8
-1,Increase your critical hit rate against monsters by 5%/10%/15% by targeting their weak points.,60;61;62,1,talentTree-10,10,0,1,3,Weakness Exploit,2,"80,128,205",0,"0,0,10",
-1,"Deliver a powerful ground pound attack in a small/medium/large radius, stunning all enemies around you for 2 seconds and dealing 50% weapon damage.",63;64;65,0,talentTree-11,11,0,2,3,War Trampling,2,"249,399,638",0,"0,0,10",10
+1,Increase your critical hit rate against monsters by 5%/10%/15% by targeting their weak points.,60;61;62,1,talentTree-10,10,0,1,3,Weakness Exploit,2,"80,128,205",0,"0,0,0",
+1,"Deliver a powerful ground pound attack in a small/medium/large radius, stunning all enemies around you for 2 seconds and dealing 50% weapon damage.",63;64;65,0,talentTree-11,11,0,2,3,War Trampling,2,"249,399,638",0,"0,0,0",10
 0,The probability of doubling the quantity of farming products harvested will increase by 1%.,66,1,talentTree-13,13,1,1,1,Farming Mastery 1,1,160,0,0,
 0,The probability of doubling the quantity of farming products harvested will increase by 1%.,67,1,talentTree-14,14,1,2,1,Farming Mastery 2,1,498,1,0,13
 0,The probability of doubling the quantity of farming products harvested will increase by 1%. Grade 2 crops can be planted.,68,1,talentTree-15,15,1,3,1,Farming Mastery 3,1,1168,2,0,14
@@ -39,16 +39,16 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 2,Learn additional food recipes.,95;96;96,2,talentTree-49,49,0,2,3,Chef,1,"373,598,957",0,"0,0,10",47
 2,Unlocks level 1/2/3 fertilizer recipes.,"92,93,94;101,102,103;101,102,103",2,talentTree-50,50,0,4,3,Fertilizer,1,"1466,2348,3760",0,"0,0,10",48
 2,Learn the method of recycling seeds from 3/6/9 kinds of crops.,"123,124,125;126,127,128;129,130,131",2,talentTree-51,51,0,5,3,Recycling Seed,1,"4242,6794,10880",0,"0,0,10",50
-1,Increases critical hit damage by 10%/20%/30%.,113;114;115,1,talentTree-52,52,0,3,3,Deadly Strike,2,"584,935,1498",0,"0,0,10",11
-2,Increases movement speed by 10%/20%/30%.,116;117;118,1,talentTree-53,53,0,1,3,Swift Foot,2,"80,128,205",0,"0,0,10",
-2,"Every 20/10/5 seconds, if you haven't taken any damage, you gain a 10% damage boost.",119;120;121,1,talentTree-54,54,0,2,3,Blade Dance,2,"249,399,638",0,"0,0,10",53
-2,"Charge forward, knocking back enemies along the way and dealing 50%/100%/150% weapon damage.",122;123;124,0,talentTree-55,55,0,3,3,Bull Rush,2,"584,935,1498",0,"0,0,10",54
-2,Grants 2%/4%/6% dodge rate.,125;126;127,1,talentTree-56,56,0,4,3,Evasive Footwork,2,"977,1565,2507",0,"0,0,10",55
-2,Grants 0.1%/0.3%/0.5% damage boost for every 1% of missing health.,128;129;130,1,talentTree-57,57,0,5,3,Blood Rage,2,"2121,3397,5440",0,"0,0,10",56
-3,Unlocks 0/1/2 levels of combat potion recipes.,95;96;132,2,talentTree-58,58,0,1,3,Potion Mastery,2,"80,128,205",0,"0,0,100",
-3,Increases attack speed by 10%/20%/30%.,131;132;133,1,talentTree-59,59,0,2,3,Rapid Strikes,2,"249,399,638",0,"0,0,10",58
-3,Attacks have a 5%/10%/15% chance to trigger a level 3 War Trampling.,134;135;136,1,talentTree-60,60,0,3,3,Unexpected Strike,2,"584,935,1498",0,"0,0,10",59
-3,"Performs 5/10/15 attacks against enemies in a small/medium/large radius around you, targeting random enemies with each attack.",137;138;139,0,talentTree-61,61,0,4,3,Blade Flurry,2,"977,1565,2507",0,"0,0,10",60
+1,Increases critical hit damage by 10%/20%/30%.,113;114;115,1,talentTree-52,52,0,3,3,Deadly Strike,2,"584,935,1498",0,"0,0,0",11
+2,Increases movement speed by 10%/20%/30%.,116;117;118,1,talentTree-53,53,0,1,3,Swift Foot,2,"80,128,205",0,"0,0,0",
+2,"Every 20/10/5 seconds, if you haven't taken any damage, you gain a 10% damage boost.",119;120;121,1,talentTree-54,54,0,2,3,Blade Dance,2,"249,399,638",0,"0,0,0",53
+2,"Charge forward, knocking back enemies along the way and dealing 50%/100%/150% weapon damage.",122;123;124,0,talentTree-55,55,0,3,3,Bull Rush,2,"584,935,1498",0,"0,0,0",54
+2,Grants 2%/4%/6% dodge rate.,125;126;127,1,talentTree-56,56,0,4,3,Evasive Footwork,2,"977,1565,2507",0,"0,0,0",55
+2,Grants 0.1%/0.3%/0.5% damage boost for every 1% of missing health.,128;129;130,1,talentTree-57,57,0,5,3,Blood Rage,2,"2121,3397,5440",0,"0,0,0",56
+3,Unlocks 0/1/2 levels of combat potion recipes.,95;96;132,2,talentTree-58,58,0,1,3,Potion Mastery,2,"80,128,205",0,"0,0,0",
+3,Increases attack speed by 10%/20%/30%.,131;132;133,1,talentTree-59,59,0,2,3,Rapid Strikes,2,"249,399,638",0,"0,0,0",58
+3,Attacks have a 5%/10%/15% chance to trigger a level 3 War Trampling.,134;135;136,1,talentTree-60,60,0,3,3,Unexpected Strike,2,"584,935,1498",0,"0,0,0",59
+3,"Performs 5/10/15 attacks against enemies in a small/medium/large radius around you, targeting random enemies with each attack.",137;138;139,0,talentTree-61,61,0,4,3,Blade Flurry,2,"977,1565,2507",0,"0,0,0",60
 1,"Vigorously swing the ax in your hand to produce a small/medium/large range of air blade attacks, causing damage to trees within the range.",140;141;142,0,talentTree-62,62,0,3,3,Air Blade,3,"876,1403,2247",0,"0,0,10",34
 1,The chance of doubling the wood drop is increased by 3%/6%/9%.,143;144;145,1,talentTree-63,63,0,4,3,Wood Collector,3,"1466,2348,3760",0,"0,0,10",62
 1,Increase tree cutting damage by 10%/20%/30%.,146;147;148,1,talentTree-64,64,0,5,3,Tree Harvester,3,"2121,3397,5440",0,"0,0,10",63
@@ -57,6 +57,6 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 2,The chance of doubling the ore drop is increased by 3%/6%/9%.,155;156;157,1,talentTree-67,67,0,3,3,Ore Collector,3,"876,1403,2247",0,"0,0,10",66
 2,Mining crit chance increased by 5%/10%/15%.,158;159;160,1,talentTree-68,68,0,4,3,Mining Skill,3,"1466,2348,3760",0,"0,0,10",67
 2,"Quickly shakes the ground, releasing seismic waves in a small/medium/large area ahead, causing damage to ores within the area.",161;162;163,0,talentTree-69,69,0,5,3,Seismic Wave,3,"2121,3397,5440",0,"0,0,10",68
-1,"The weapon's attack leaves wounds, dealing 1%/2%/3% attack damage every 0.5 seconds for 5 seconds, and can stack up to 5 layers.",172;173;174,1,talentTree-70,70,0,4,3,Rending Wounds,2,"977,1565,2507",0,"0,0,10",52
-3,"Striking the target's weak point, causing the target to receive an additional 1%/2%/3% damage for the next 5 seconds, and can stack up to 5 layers.",175;176;177,1,talentTree-71,71,0,5,3,Severe Injury,2,"2121,3397,5440",0,"0,0,10",61
+1,"The weapon's attack leaves wounds, dealing 1%/2%/3% attack damage every 0.5 seconds for 5 seconds, and can stack up to 5 layers.",172;173;174,1,talentTree-70,70,0,4,3,Rending Wounds,2,"977,1565,2507",0,"0,0,0",52
+3,"Striking the target's weak point, causing the target to receive an additional 1%/2%/3% damage for the next 5 seconds, and can stack up to 5 layers.",175;176;177,1,talentTree-71,71,0,5,3,Severe Injury,2,"2121,3397,5440",0,"0,0,0",61
 -2,捕获技能（总技能）,166,0,talentTree-72,72,0,1,1,Capture Animal,1,80,0,0,
