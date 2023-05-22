@@ -1,4 +1,3 @@
-using System.Numerics;
 using System;
 
 /// <summary>
@@ -18,5 +17,5 @@ public class HomeResourcesPointSaveData
     /// <summary>
     /// 位置
     /// </summary>
-    public Vector3 Pos;
+    public SerializableVector3 Pos;
 }
