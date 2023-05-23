@@ -10,6 +10,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// </summary>
     /// <returns></returns>
     protected readonly Dictionary<long, TEntity> EntityDic = new();
+    protected readonly Dictionary<GameMessageCore.EntityType, Dictionary<long, TEntity>> EntityTypeDic = new();
     /// <summary>
     /// 场景所有实体 包括了主角,通过root节点id作为key
     /// </summary>
@@ -101,6 +102,21 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     }
 
     /// <summary>
+    /// 获取entityType类型的所有实体 不走GC 不要改变里面值 而且不要频繁使用 慎用
+    /// </summary>
+    /// <param name="entityType"></param>
+    /// <returns></returns>
+    public Dictionary<long, TEntity> GetAllEntityOfType(GameMessageCore.EntityType entityType)
+    {
+        if (EntityTypeDic.TryGetValue(entityType, out Dictionary<long, TEntity> entityDic))
+        {
+            return entityDic;
+        }
+
+        return null;
+    }
+
+    /// <summary>
     /// 添加一个场景实体 主角使用另外一个方法
     /// </summary>
     /// <param name="entityID"></param>
@@ -117,8 +133,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         try
         {
             TEntity entity = CreateEntity(entityID, entityType);
-            EntityDic.Add(entityID, entity);
-            EntityRootDic.Add(entity.RootID, entity);
+            AddEntityToDic(entity);
             return entity;
         }
         catch (Exception e)
@@ -140,8 +155,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
             return;
         }
 
-        _ = EntityDic.Remove(entityID);
-        _ = EntityRootDic.Remove(entity.RootID);
+        RemoveEntityFromDic(entityID);
         try
         {
             DisposeEntity(entity);
@@ -191,8 +205,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
 
         foreach (TEntity entity in retainEntities)
         {
-            EntityDic.Add(entity.BaseData.Id, entity);
-            EntityRootDic.Add(entity.RootID, entity);
+            AddEntityToDic(entity);
         }
     }
 
@@ -219,5 +232,35 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     public override void UnloadSceneBefore()
     {
         RemoveAllEntity();
+    }
+
+    protected virtual void AddEntityToDic(TEntity entity)
+    {
+        EntityDic.Add(entity.BaseData.Id, entity);
+        EntityRootDic.Add(entity.RootID, entity);
+        if (!EntityTypeDic.TryGetValue(entity.BaseData.Type, out Dictionary<long, TEntity> dic))
+        {
+            dic = new();
+            EntityTypeDic.Add(entity.BaseData.Type, dic);
+        }
+        else
+        {
+            dic.Add(entity.BaseData.Id, entity);
+        }
+    }
+
+    protected virtual void RemoveEntityFromDic(long id)
+    {
+        if (!EntityDic.TryGetValue(id, out TEntity entity))
+        {
+            return;
+        }
+
+        _ = EntityDic.Remove(id);
+        _ = EntityRootDic.Remove(entity.RootID);
+        if (EntityTypeDic.TryGetValue(entity.BaseData.Type, out Dictionary<long, TEntity> dic))
+        {
+            _ = dic.Remove(id);
+        }
     }
 }
