@@ -3,7 +3,7 @@ using System.Collections.Generic;
  * @Author: xiang huan
  * @Date: 2023-01-11 19:15:17
  * @Description: 属性修改
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEAttributeModifierCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Battle/SkillEffect/SEAttributeModifierCore.cs
  * 
  */
 
@@ -30,11 +30,10 @@ public class SEAttributeModifierCore : SkillEffectBase
                         eAttributeType attributeType = (eAttributeType)EffectCfg.Parameters2[index][0];
                         eModifierType modifierType = (eModifierType)EffectCfg.Parameters2[index][1];
                         int value = EffectCfg.Parameters2[index][2];
-                        //血量做特殊处理，直接修改base值
+                        //血量做特殊处理，
                         if (attributeType == eAttributeType.HP)
                         {
-                            int curValue = RefEntity.EntityAttributeData.GetValue(attributeType);
-                            RefEntity.EntityAttributeData.SetBaseValue(attributeType, curValue + value);
+                            RefEntity.BattleDataCore.SetHP(RefEntity.BattleDataCore.HP + value);
                         }
                         else
                         {

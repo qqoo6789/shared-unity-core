@@ -276,6 +276,41 @@ public class SkillEffectCpt : EntityBaseComponent
         }
     }
 
+    //获取效果
+    public SkillEffectBase GetEffect(int effectID)
+    {
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
+        {
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                SkillEffectBase effect = effectList[i];
+                if (effect.EffectID == effectID)
+                {
+                    return effect;
+                }
+            }
+        }
+        return null;
+    }
+
+    //获取效果
+    public SkillEffectBase GetEffectByType(int effectType)
+    {
+        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
+        {
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                SkillEffectBase effect = effectList[i];
+                if (effect.EffectCfg.EffectType == effectType)
+                {
+                    return effect;
+                }
+            }
+        }
+        return null;
+    }
     /// <summary>
     /// 获取运行效果的保存数据
     /// </summary>
