@@ -137,7 +137,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         try
         {
             TEntity entity = CreateEntity(entityID, entityType);
-            AddEntityToDic(entity);
+            AddEntityToDataCache(entity);
             return entity;
         }
         catch (Exception e)
@@ -159,7 +159,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
             return;
         }
 
-        RemoveEntityFromDic(entityID);
+        RemoveEntityFromDataCache(entityID);
         try
         {
             DisposeEntity(entity);
@@ -209,7 +209,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
 
         foreach (TEntity entity in retainEntities)
         {
-            AddEntityToDic(entity);
+            AddEntityToDataCache(entity);
         }
     }
 
@@ -238,7 +238,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         RemoveAllEntity();
     }
 
-    protected virtual void AddEntityToDic(TEntity entity)
+    /// <summary>
+    /// 统一把实体添加到数据缓存中，所有缓存实体的数据结构都在这里添加数据，譬如 Dictionary<Type,List<TEntity>>等
+    /// </summary>
+    /// <param name="entity"></param>
+    protected virtual void AddEntityToDataCache(TEntity entity)
     {
         EntityDic.Add(entity.BaseData.Id, entity);
         EntityRootDic.Add(entity.RootID, entity);
@@ -253,7 +257,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         }
     }
 
-    protected virtual void RemoveEntityFromDic(long id)
+    /// <summary>
+    /// 统一移除数据缓存入口，所有缓存实体的数据结构都在这里移除数据
+    /// </summary>
+    /// <param name="id"></param>
+    protected virtual void RemoveEntityFromDataCache(long id)
     {
         if (!EntityDic.TryGetValue(id, out TEntity entity))
         {
