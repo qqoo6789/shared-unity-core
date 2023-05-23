@@ -11,6 +11,11 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// <returns></returns>
     protected readonly Dictionary<long, TEntity> EntityDic = new();
     /// <summary>
+    /// 场景所有实体的归类字典 通过type作为key，每个type下面又有一个字典，通过id作为key
+    /// </summary>
+    /// <returns></returns>
+    protected readonly Dictionary<GameMessageCore.EntityType, Dictionary<long, TEntity>> EntityTypeDic = new();
+    /// <summary>
     /// 场景所有实体 包括了主角,通过root节点id作为key
     /// </summary>
     /// <returns></returns>
@@ -101,6 +106,21 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     }
 
     /// <summary>
+    /// 获取entityType类型的所有实体 不走GC 不要改变里面值 而且不要频繁使用 慎用
+    /// </summary>
+    /// <param name="entityType"></param>
+    /// <returns></returns>
+    public Dictionary<long, TEntity> GetAllEntityOfType(GameMessageCore.EntityType entityType)
+    {
+        if (EntityTypeDic.TryGetValue(entityType, out Dictionary<long, TEntity> entityDic))
+        {
+            return entityDic;
+        }
+
+        return null;
+    }
+
+    /// <summary>
     /// 添加一个场景实体 主角使用另外一个方法
     /// </summary>
     /// <param name="entityID"></param>
@@ -117,8 +137,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
         try
         {
             TEntity entity = CreateEntity(entityID, entityType);
-            EntityDic.Add(entityID, entity);
-            EntityRootDic.Add(entity.RootID, entity);
+            AddEntityToDataCache(entity);
             return entity;
         }
         catch (Exception e)
@@ -140,8 +159,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
             return;
         }
 
-        _ = EntityDic.Remove(entityID);
-        _ = EntityRootDic.Remove(entity.RootID);
+        RemoveEntityFromDataCache(entityID);
         try
         {
             DisposeEntity(entity);
@@ -191,8 +209,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
 
         foreach (TEntity entity in retainEntities)
         {
-            EntityDic.Add(entity.BaseData.Id, entity);
-            EntityRootDic.Add(entity.RootID, entity);
+            AddEntityToDataCache(entity);
         }
     }
 
@@ -219,5 +236,43 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     public override void UnloadSceneBefore()
     {
         RemoveAllEntity();
+    }
+
+    /// <summary>
+    /// 统一把实体添加到数据缓存中，所有缓存实体的数据结构都在这里添加数据，譬如 Dictionary<Type,List<TEntity>>等
+    /// </summary>
+    /// <param name="entity"></param>
+    protected virtual void AddEntityToDataCache(TEntity entity)
+    {
+        EntityDic.Add(entity.BaseData.Id, entity);
+        EntityRootDic.Add(entity.RootID, entity);
+        if (!EntityTypeDic.TryGetValue(entity.BaseData.Type, out Dictionary<long, TEntity> dic))
+        {
+            dic = new();
+            EntityTypeDic.Add(entity.BaseData.Type, dic);
+        }
+        else
+        {
+            dic.Add(entity.BaseData.Id, entity);
+        }
+    }
+
+    /// <summary>
+    /// 统一移除数据缓存入口，所有缓存实体的数据结构都在这里移除数据
+    /// </summary>
+    /// <param name="id"></param>
+    protected virtual void RemoveEntityFromDataCache(long id)
+    {
+        if (!EntityDic.TryGetValue(id, out TEntity entity))
+        {
+            return;
+        }
+
+        _ = EntityDic.Remove(id);
+        _ = EntityRootDic.Remove(entity.RootID);
+        if (EntityTypeDic.TryGetValue(entity.BaseData.Type, out Dictionary<long, TEntity> dic))
+        {
+            _ = dic.Remove(id);
+        }
     }
 }
