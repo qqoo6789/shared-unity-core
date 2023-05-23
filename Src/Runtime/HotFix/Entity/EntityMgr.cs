@@ -251,10 +251,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
             dic = new();
             EntityTypeDic.Add(entity.BaseData.Type, dic);
         }
-        else
-        {
-            dic.Add(entity.BaseData.Id, entity);
-        }
+        dic.Add(entity.BaseData.Id, entity);
     }
 
     /// <summary>
