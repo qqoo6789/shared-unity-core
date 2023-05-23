@@ -77,7 +77,7 @@ public abstract class ResourcesPointMgrCore : MonoBehaviour
     {
         if (AreaTypeResourcesPointMap.TryGetValue(sceneArea, out Dictionary<eResourcesPointType, List<ResourcesPointData>> resourcesPointMap))
         {
-            return !resourcesPointMap.ContainsKey(type) ? null : resourcesPointMap[type];
+            return resourcesPointMap.GetValueOrDefault(type);
         }
         return null;
     }
