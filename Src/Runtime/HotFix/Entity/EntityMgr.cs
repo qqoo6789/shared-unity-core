@@ -10,6 +10,10 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
     /// </summary>
     /// <returns></returns>
     protected readonly Dictionary<long, TEntity> EntityDic = new();
+    /// <summary>
+    /// 场景所有实体的归类字典 通过type作为key，每个type下面又有一个字典，通过id作为key
+    /// </summary>
+    /// <returns></returns>
     protected readonly Dictionary<GameMessageCore.EntityType, Dictionary<long, TEntity>> EntityTypeDic = new();
     /// <summary>
     /// 场景所有实体 包括了主角,通过root节点id作为key
