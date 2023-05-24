@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体技能数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntitySkillDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -11,15 +11,8 @@ using UnityGameFramework.Runtime;
 public class EntitySkillDataCore : EntityBaseComponent
 {
     protected int JumpSkillID = BattleDefine.JUMP_SKILL_ID_NULL; //翻滚技能
-    protected List<int> EquipmentSkillIDList = new(); //装备技能列表
+    public List<int> EquipmentSkillIDList = new(); //装备技能列表
     protected List<int> BaseSkillIDList = new(); //基础技能列表
-
-    /// <summary>
-    /// 有GC 不要频繁使用
-    /// </summary>
-    /// <typeparam name="int"></typeparam>
-    /// <returns></returns>
-    public List<int> EquipmentSkillIDListClone => EquipmentSkillIDList == null ? null : new List<int>(EquipmentSkillIDList);
 
     private SkillCpt _skillCpt;
     protected SkillCpt SkillComponent
@@ -141,12 +134,13 @@ public class EntitySkillDataCore : EntityBaseComponent
     /// </summary>
     /// <param name="newSkillIds"></param>
     /// <param name="oldSkillIds">老技能id组 会直接改掉这里的源数据 不能空</param>
-    public void SetExtraGroupSkill(IEnumerable<int> newSkillIds, List<int> oldSkillIds)
+    public virtual bool SetExtraGroupSkill(IEnumerable<int> newSkillIds, List<int> oldSkillIds)
     {
+        bool isChange = false;
         if (oldSkillIds == null)
         {
             Log.Error("SetExtraGroupSkill oldSkillIds is null");
-            return;
+            return isChange;
         }
 
         HashSet<int> newSkillIDMap = new();
@@ -168,6 +162,7 @@ public class EntitySkillDataCore : EntityBaseComponent
                 //删除多余的技能
                 SkillComponent.RemoveSkill(oldSkillIds[i]);
                 oldSkillIds.RemoveAt(i);
+                isChange = true;
             }
         }
 
@@ -175,7 +170,9 @@ public class EntitySkillDataCore : EntityBaseComponent
         {
             oldSkillIds.Add(skillID);
             _ = SkillComponent.AddSkill(skillID);
+            isChange = true;
         }
+        return isChange;
     }
 
     public void RemoveEquipmentSkill()
