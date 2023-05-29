@@ -12,6 +12,7 @@ public static class MLayerMask
     /// 默认层级
     /// </summary>
     public const int DEFAULT = 0;
+    public const int WATER = 4;
     public const int UI = 5;
     /// <summary>
     /// 地表层 能够行走的物体

@@ -37,7 +37,7 @@ public class SENormalDamageCore : SkillEffectBase
             return;
         }
 
-        if (CheckAndApplyFallDeath(EffectData.DamageValue))
+        if (CheckAndApplySceneDeath(EffectData.DamageValue))
         {
             return;
         }
@@ -54,19 +54,19 @@ public class SENormalDamageCore : SkillEffectBase
     }
 
     /// <summary>
-    /// 检查并应用掉落死亡
+    /// 检查并应用环境死亡
     /// </summary>
     /// <param name="damageData"></param>
     /// <returns>如果是掉落死亡返回true</returns>
-    protected bool CheckAndApplyFallDeath(DamageData damageData)
+    protected bool CheckAndApplySceneDeath(DamageData damageData)
     {
-        if (damageData.DmgState != DamageState.Fall)
+        if (damageData.DmgState is not DamageState.Fall and not DamageState.WaterDrown)
         {
             return false;
         }
 
         RefEntity.BattleDataCore.SetHP(0);
-        RefEntity.BattleDataCore.SetDeathReason(DamageState.Fall);
+        RefEntity.BattleDataCore.SetDeathReason(damageData.DmgState);
         return true;
     }
 }

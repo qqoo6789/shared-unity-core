@@ -199,4 +199,10 @@ public class EntityEvent : EntityBaseComponent
 
     #endregion
 
+    #region 场景影响
+    /// <summary>
+    /// 场景环境死亡 T0:伤害类型
+    /// </summary>
+    public Action<GameMessageCore.DamageState> OnSceneDeath;
+    #endregion
 }
