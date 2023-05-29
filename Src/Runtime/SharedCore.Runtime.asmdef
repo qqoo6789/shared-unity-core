@@ -1,8 +1,7 @@
 {
-    "name": "SharedCore.Runtime.HotFix",
+    "name": "SharedCore.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:722ce5ff4b1a4462fbf3609599377774",
         "GUID:5ee44b2e0cf0b427789d287c25ffb1bb",
         "GUID:122df4e7707ce4461af1a1456e030f66",
         "GUID:2a5f3032e5a3b416abb94d22b3c4a942",
