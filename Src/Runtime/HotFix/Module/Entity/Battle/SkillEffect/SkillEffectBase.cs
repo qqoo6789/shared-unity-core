@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -224,6 +224,7 @@ public class SkillEffectBase : IReference
         }
         RefEntity = owner;
         OnAdd();
+        RefEntity.EntityEvent.EntitySkillEffectAdd?.Invoke(EffectID);
     }
 
     //删除效果
@@ -233,7 +234,7 @@ public class SkillEffectBase : IReference
         {
             return;
         }
-
+        RefEntity.EntityEvent.EntitySkillEffectRemove?.Invoke(EffectID);
         OnRemove();
         RefEntity = null;
     }
