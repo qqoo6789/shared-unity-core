@@ -131,6 +131,15 @@ public class DRSkillEffect : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取entityEffect-string。*/
+    /// </summary>
+    public string EntityEffect
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -149,6 +158,7 @@ public class DRSkillEffect : DataRowBase
         EffectFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectImmuneFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         BuffIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
+        EntityEffect = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
@@ -173,6 +183,7 @@ public class DRSkillEffect : DataRowBase
                 EffectFlag = binaryReader.ReadArray<Int32>();
                 EffectImmuneFlag = binaryReader.ReadArray<Int32>();
                 BuffIcon = binaryReader.ReadString();
+                EntityEffect = binaryReader.ReadString();
             }
         }
 
