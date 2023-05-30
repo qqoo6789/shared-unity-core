@@ -99,6 +99,10 @@ public class EntityBattleDataCore : EntityBaseComponent
     public virtual void SetHP(int hp)
     {
         HP = hp;
+        if (HP > HPMAX)
+        {
+            HP = HPMAX;
+        }
         if (hp > 0)
         {
             DeathReason = DamageState.Normal;

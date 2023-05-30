@@ -13,13 +13,13 @@ using UnityGameFramework.Runtime;
 public class SkillEffectCpt : EntityBaseComponent
 {
 
-    public enum eEffectType
+    public enum eStatusType
     {
         Runtime,
         Static, //静态效果，不会进行刷新。节省性能开销
         StaticUpdate, //静态效果，但是需要刷新
     }
-    public Dictionary<eEffectType, List<SkillEffectBase>> SkillEffectMap { get; private set; }
+    public Dictionary<eStatusType, List<SkillEffectBase>> SkillEffectMap { get; private set; }
 
     private int _immuneFlag; //免疫标识
 
@@ -30,15 +30,15 @@ public class SkillEffectCpt : EntityBaseComponent
     {
         SkillEffectMap = new()
         {
-            { eEffectType.Runtime, new() },
-            { eEffectType.Static, new() },
-            { eEffectType.StaticUpdate, new() }
+            { eStatusType.Runtime, new() },
+            { eStatusType.Static, new() },
+            { eStatusType.StaticUpdate, new() }
         };
     }
 
     private void Update()
     {
-        List<SkillEffectBase> runList = SkillEffectMap[eEffectType.Runtime];
+        List<SkillEffectBase> runList = SkillEffectMap[eStatusType.Runtime];
         if (runList.Count > 0)
         {
             long curTimeStamp = TimeUtil.GetTimeStamp();
@@ -64,7 +64,7 @@ public class SkillEffectCpt : EntityBaseComponent
             }
         }
         //静态需要刷新的
-        List<SkillEffectBase> staticUpdateList = SkillEffectMap[eEffectType.StaticUpdate];
+        List<SkillEffectBase> staticUpdateList = SkillEffectMap[eStatusType.StaticUpdate];
         if (staticUpdateList.Count > 0)
         {
             for (int i = staticUpdateList.Count - 1; i >= 0; i--)
@@ -91,7 +91,7 @@ public class SkillEffectCpt : EntityBaseComponent
             }
             SkillEffectBase skillBase = GFEntryCore.SkillEffectFactory.CreateOneSkillEffect(saveData.SkillID, saveData.EffectID, saveData.FromID, RefEntity.BaseData.Id, skillEffectCfg.Duration, saveData.CurLayer);
             skillBase.DestroyTimestamp = saveData.DestroyTimestamp;
-            AddEffectList(skillBase, SkillEffectMap[eEffectType.Runtime]);
+            AddEffectList(skillBase, SkillEffectMap[eStatusType.Runtime]);
         }
 
     }
@@ -122,17 +122,17 @@ public class SkillEffectCpt : EntityBaseComponent
             effect.DestroyTimestamp = effect.Duration > 0 ? (TimeUtil.GetTimeStamp() + effect.Duration) : -1;
             if (effect.Duration > 0)
             {
-                AddEffectList(effect, SkillEffectMap[eEffectType.Runtime]);
+                AddEffectList(effect, SkillEffectMap[eStatusType.Runtime]);
             }
             else
             {
                 if (!effect.IsUpdate)
                 {
-                    AddEffectList(effect, SkillEffectMap[eEffectType.Static]);
+                    AddEffectList(effect, SkillEffectMap[eStatusType.Static]);
                 }
                 else
                 {
-                    AddEffectList(effect, SkillEffectMap[eEffectType.StaticUpdate]);
+                    AddEffectList(effect, SkillEffectMap[eStatusType.StaticUpdate]);
                 }
             }
 
@@ -199,7 +199,7 @@ public class SkillEffectCpt : EntityBaseComponent
     //取消某种效果
     public void AbolishSkillEffect(int effectID)
     {
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
+        foreach (KeyValuePair<eStatusType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)
@@ -219,7 +219,7 @@ public class SkillEffectCpt : EntityBaseComponent
     //取消某种效果
     public void AbolishSkillEffect(int effectID, int skillID, long fromID)
     {
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
+        foreach (KeyValuePair<eStatusType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)
@@ -237,7 +237,7 @@ public class SkillEffectCpt : EntityBaseComponent
     }
     public void ClearAllSkillEffect()
     {
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
+        foreach (KeyValuePair<eStatusType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)
@@ -265,7 +265,7 @@ public class SkillEffectCpt : EntityBaseComponent
     private void UpdateImmuneFlag()
     {
         _immuneFlag = 0;
-        foreach (KeyValuePair<eEffectType, List<SkillEffectBase>> item in SkillEffectMap)
+        foreach (KeyValuePair<eStatusType, List<SkillEffectBase>> item in SkillEffectMap)
         {
             List<SkillEffectBase> effectList = item.Value;
             for (int i = effectList.Count - 1; i >= 0; i--)
@@ -276,6 +276,41 @@ public class SkillEffectCpt : EntityBaseComponent
         }
     }
 
+    //获取效果
+    public SkillEffectBase GetEffect(int effectID)
+    {
+        foreach (KeyValuePair<eStatusType, List<SkillEffectBase>> item in SkillEffectMap)
+        {
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                SkillEffectBase effect = effectList[i];
+                if (effect.EffectID == effectID)
+                {
+                    return effect;
+                }
+            }
+        }
+        return null;
+    }
+
+    //获取效果
+    public SkillEffectBase GetEffectByType(int effectType)
+    {
+        foreach (KeyValuePair<eStatusType, List<SkillEffectBase>> item in SkillEffectMap)
+        {
+            List<SkillEffectBase> effectList = item.Value;
+            for (int i = effectList.Count - 1; i >= 0; i--)
+            {
+                SkillEffectBase effect = effectList[i];
+                if (effect.EffectCfg.EffectType == effectType)
+                {
+                    return effect;
+                }
+            }
+        }
+        return null;
+    }
     /// <summary>
     /// 获取运行效果的保存数据
     /// </summary>
@@ -287,7 +322,7 @@ public class SkillEffectCpt : EntityBaseComponent
             SkillEffectSaveDataConfig config = new();
             List<SkillEffectSaveData> saveDataList = new();
 
-            List<SkillEffectBase> effectList = SkillEffectMap[eEffectType.Runtime];
+            List<SkillEffectBase> effectList = SkillEffectMap[eStatusType.Runtime];
             for (int i = 0; i < effectList.Count; i++)
             {
                 saveDataList.Add(effectList[i].GetSaveData());

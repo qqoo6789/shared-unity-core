@@ -19,9 +19,9 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 ,"For love and peace, please give me these",0,"1,100",18,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",19,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-"{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101}]}",Kill Metal Mutt in main city.,,"2,117",21,0,11,Where are we?,,,
+"{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101}]}",Kill five metal mutts that appear around the main city,,"2,117",21,0,11,Where are we?,,,
 "{""options"":[{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","Open bag, use minor healing potion.",,"2,117",22,0,12,Take a pill.,,21,
-"{""options"":[{""optionType"":1,""value"":""31,10"",""guiderPoint"":2301}]}","Kill pumpkin monsters near beach, bring back 10 vines.",,"2,117",23,0,,"""Give Gunner some pumpkin vine treats.""",,34,
+"{""options"":[{""optionType"":1,""value"":""31,10"",""guiderPoint"":2301}]}","Kill pumpkin monsters near beach, bring back 10 vines.",,"2,117",23,0,,Give Gunner some pumpkin vine treats.,,34,
 "{""options"":[{""optionType"":1,""value"":""139,1"",""guiderPoint"":0}]}",Find warrior Nash in town and give him a minor defense potion.,,"2,117",24,0,32,Find warrior senior in the city.,,23,
 "{""options"":[{""optionType"":9,""value"":""44,1"",""guiderPoint"":0}]}","Talk with Nash, open synthesis, forge sword.",,"2,117",25,0,,First time forging a stone sword.,,24,
 "{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0}]}","Open skill tree, upgrade combat to level 1, equip stone sword.",,"2,117",26,0,,Upgrade combat backbone.,,25,
