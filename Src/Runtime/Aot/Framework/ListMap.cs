@@ -80,6 +80,17 @@ public class ListMap<TKey, TValue> : IEnumerator, IEnumerable
     }
 
     /// <summary>
+    /// 通过key尝试获取 如同字典的TryGetValue
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public bool TryGetValueFromKey(TKey key, out TValue value)
+    {
+        return _dic.TryGetValue(key, out value);
+    }
+
+    /// <summary>
     /// 通过key获取值 会保护key不存在
     /// </summary>
     /// <param name="key"></param>
