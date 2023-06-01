@@ -53,6 +53,11 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             SkillTimeScale = Math.Max(1 + releaseSpd, 0.1f) * SkillTimeScale;
         }
 
+        if (CurSkillCfg.IsHoldSkill)
+        {
+            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill += StopHoldSkill;
+        }
+
         try
         {
             SkillForwardExecute(CurSkillCfg);
@@ -78,6 +83,11 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
         CancelTimeForwardFinish();
 
+        if (CurSkillCfg.IsHoldSkill)
+        {
+            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill -= StopHoldSkill;
+        }
+
         _inputData = null;
         CurSkillCfg = null;
         Targets = null;
@@ -86,7 +96,6 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
         base.OnLeave(fsm, isShutdown);
     }
-
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
@@ -106,6 +115,11 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
                 ChangeState(fsm, PathMoveStatusCore.Name);
             }
         }
+    }
+
+    private void StopHoldSkill()
+    {
+        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     //前摇完成定时

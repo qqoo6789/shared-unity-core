@@ -73,7 +73,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
         //如果是持续技能 不用定时去下个阶段 而是需要等待取消动作
         if (CurSkillCfg.IsHoldSkill)
         {
-            Log.Info($"hold test, skill cast status hold skill add stop listener id={SkillID} entity={StatusCtrl.RefEntity.BaseData.Id}");
             StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill += StopHoldSkill;
         }
         else
@@ -188,7 +187,6 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     /// </summary>
     protected virtual void StopHoldSkill()
     {
-        Log.Info($"hold test, skill cast status on stop hold skill id={SkillID} entity={StatusCtrl.RefEntity.BaseData.Id}");
         OnFinishChangeToNextStatus();
     }
 
