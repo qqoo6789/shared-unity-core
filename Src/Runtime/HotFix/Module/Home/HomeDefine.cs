@@ -58,6 +58,15 @@ public static class HomeDefine
     /// 动物可以收获的进度值
     /// </summary>
     public const int ANIMAL_CAN_HARVEST_PROCESS = 100;
+    /// <summary>
+    /// 动物离主角多近时可以显示状态图标
+    /// </summary>
+    public const int ANIMAL_SHOW_STATUS_ICON_DISTANCE = 20;
+    /// <summary>
+    /// 动物离主角多近时可以显示头顶详细信息
+    /// </summary>
+    public const int ANIMAL_DETAIL_INFO_SHOW_DISTANCE = 3;
+
 
     #endregion
 
@@ -170,6 +179,10 @@ public static class HomeDefine
         /// 操作遗言
         /// </summary>
         LastWords = 1 << 13,
+        /// <summary>
+        /// 喂养 目前只是兼容一下进度界面需要饥饿状态 没有实际意义
+        /// </summary>
+        Feeding = 1 << 14,
         /// <summary>
         /// 攻击敌人 怪物 boss（这个给伤害计算分类用的 家园并不使用）
         /// </summary>
