@@ -27,6 +27,7 @@ public class SceneAreaEntryChecker : MonoBehaviour
         {
             //避免铺地图的时候忘记设置tag
             gameObject.tag = MTag.SCENE_AREA_CHECKER;
+            gameObject.layer = MLayerMask.PUBLIC_TRIGGER;
         }
 #endif
         if (TryGetComponent(out Collider collider))
