@@ -27,7 +27,7 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 "{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0}]}","Open skill tree, upgrade combat to level 1, equip stone sword.",,"2,117",26,0,,Upgrade combat backbone.,,25,
 "{""options"":[{""optionType"":1,""value"":""128,1"",""guiderPoint"":0}]}",Find Terrance in the main city and give him healing potion.,,"1,117",27,0,17,Found farmer-Terrance.,,30,
 "{""options"":[{""optionType"":1,""value"":""39,1"",""guiderPoint"":0}]}",Find alchemist Silas in the main city and give him the wooden sword.,,"3,117",28,0,,Find alchemist-Silas.,,26,
-"{""options"":[{""optionType"":15,""value"":""58,1"",""guiderPoint"":0}]}","Open skill tree, find Potion Mastery, level up to 1.",,"3,117",29,0,22,Unlock Alchemy Skill,,28,
+"{""options"":[{""optionType"":15,""value"":""58,1"",""guiderPoint"":0}]}","Open skill tree, find Potion Mastery, level up to 1.",,"3,117",29,0,22,Unlock Alchemy Skill,,23,
 "{""options"":[{""optionType"":9,""value"":""95,5"",""guiderPoint"":0}]}","Talk to Silas, open synthesis, make 5 minor healing potions.",,"3,117",30,0,38,Make five minor healing potions.,,29,
 "{""options"":[{""optionType"":13,""value"":""678,80,538,50"",""guiderPoint"":0}]}","Now you are an excellent farmer, It's time back to Terrance Town. Now start your adventure!",,,32,0,,Back to Terrance Town,,46,
 "{""options"":[{""optionType"":1,""value"":""66,10"",""guiderPoint"":3301}]}","Take sword, cut paper grass, bring 10 fibers.",,"3,117",33,0,28,Give Gunner plant fiber.,,22,
@@ -35,7 +35,7 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 "{""options"":[{""optionType"":1,""value"":""62,10"",""guiderPoint"":3501}]}","Take your axe, cut down paper trees nearby, bring back 10 normal wood.",,"3,117",35,0,29,Give Gunner some wood.,,33,
 "{""options"":[{""optionType"":2,""value"":""146,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""147,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""148,5"",""guiderPoint"":3601}]}","Location: Go out from the door near farmer Terrance, walk up the S-shaped slope on the right to reach your personal home.
 Method: Use a hoe to loosen the soil in the field, then use seeds to sow on the loosened soil.
-Plant five bamboo, five clover, and five carrots in your home.",,"1,117",36,0,31,Plant first batch of seeds.,,27,
+Plant five bamboo, five clover, and five carrots in your home.",,"1,117",36,0,31,Plant first batch of seeds.,,23,
 "{""options"":[{""optionType"":1,""value"":""70,5"",""guiderPoint"":3701},{""optionType"":1,""value"":""71,5"",""guiderPoint"":3701},{""optionType"":1,""value"":""72,5"",""guiderPoint"":3701}]}","Water seeds, harvest with sword. Give Terrance bamboo, clover, carrot.",,"1,117",37,0,,Harvest and give to Terrance.,,36,
 ,Monsters are running rampant. Go and exterminate them,,"2,188",38,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,4,100;8,4,100;7,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them,,"2,279",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
