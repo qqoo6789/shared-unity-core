@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 635851061}
   - component: {fileID: 635851063}
   - component: {fileID: 635851062}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AreaCollider (3)
   m_TagString: SceneAreaChecker
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 709992890}
   - component: {fileID: 709992892}
   - component: {fileID: 709992891}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AreaCollider
   m_TagString: SceneAreaChecker
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 758790559}
   - component: {fileID: 758790561}
   - component: {fileID: 758790560}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AreaCollider (4)
   m_TagString: SceneAreaChecker
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 1523405278}
   - component: {fileID: 1523405280}
   - component: {fileID: 1523405279}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AreaCollider (1)
   m_TagString: SceneAreaChecker
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119288747}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: SceneAreaCheckerRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
