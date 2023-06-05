@@ -52,7 +52,7 @@ public class SEPathMoveCore : SkillEffectBase
         _ = TimerMgr.RemoveTimer(GetHashCode());
     }
 
-    public override GameMessageCore.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir, long[] targets)
+    public override GameMessageCore.DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, InputSkillReleaseData inputData)
     {
         if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
         {
