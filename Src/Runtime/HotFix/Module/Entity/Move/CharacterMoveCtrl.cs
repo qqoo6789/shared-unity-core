@@ -43,8 +43,12 @@ public class CharacterMoveCtrl : EntityBaseComponent
             //直接拿不到就要等待加载完成事件
             _isAddColliderLoadEvent = true;
             RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
-            RefEntity.EntityEvent.SetPos += OnSetPosition;
         }
+        else
+        {
+            _mover.SetMoveCtrl(this);
+        }
+        RefEntity.EntityEvent.SetPos += OnSetPosition;
     }
 
     private void OnDestroy()
@@ -53,8 +57,8 @@ public class CharacterMoveCtrl : EntityBaseComponent
         {
             _isAddColliderLoadEvent = false;
             RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
-            RefEntity.EntityEvent.SetPos -= OnSetPosition;
         }
+        RefEntity.EntityEvent.SetPos -= OnSetPosition;
     }
 
     private void OnSetPosition(Vector3 pos)
@@ -230,6 +234,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
     private void OnColliderLoadFinish(GameObject go)
     {
         _mover = go.GetComponent<Mover>();
+        _mover.SetMoveCtrl(this);
     }
     /// <summary>
     /// 是否正在移动
