@@ -16,7 +16,7 @@ public class EntityAttributeData : EntityBaseComponent
     private readonly Dictionary<eAttributeType, int> _defaultMap = new();
 
     private readonly List<AttributeData> _netAttributeBaseDataList = new();
-    private bool _isNetDirty = true;
+    public bool IsNetDirty = true;
     private bool _isDestroy = false;
     private void Awake()
     {
@@ -98,7 +98,7 @@ public class EntityAttributeData : EntityBaseComponent
             return;
         }
         _ = attribute.SetBase(value);
-        _isNetDirty = true;
+        IsNetDirty = true;
         RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(type, attribute.Value);
     }
 
@@ -185,7 +185,7 @@ public class EntityAttributeData : EntityBaseComponent
 
     public List<AttributeData> GetNetData()
     {
-        if (_isNetDirty)
+        if (IsNetDirty)
         {
             _netAttributeBaseDataList.Clear();
             foreach (KeyValuePair<eAttributeType, IntAttribute> item in AttributeMap)
@@ -196,7 +196,7 @@ public class EntityAttributeData : EntityBaseComponent
                     Value = item.Value.BaseValue,
                 });
             }
-            _isNetDirty = false;
+            IsNetDirty = false;
         }
         return _netAttributeBaseDataList;
     }
