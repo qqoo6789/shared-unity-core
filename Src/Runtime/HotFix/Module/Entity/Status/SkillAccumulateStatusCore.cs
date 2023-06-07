@@ -39,6 +39,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         typeof(BeHitMoveEventFunc),
         typeof(BeStunEventFunc),
         typeof(BeCapturedEventFunc),
+        typeof(StopHoldSkillEventFunc),
     };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
@@ -62,11 +63,6 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
             _inputData = StatusCtrl.GetComponent<EntityInputData>();
         }
 
-        if (CurSkillCfg.IsHoldSkill)
-        {
-            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill += StopHoldSkill;
-        }
-
         if (CurSkillCfg.AccuTime > 0)
         {
             StartTimingAccumulate();
@@ -86,10 +82,6 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
         CancelTimeAccumulate();
-        if (CurSkillCfg.IsHoldSkill)
-        {
-            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill -= StopHoldSkill;
-        }
         _inputData = null;
         Targets = null;
         SkillDir = UnityEngine.Vector3.zero;
@@ -117,11 +109,6 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
                 ChangeState(fsm, PathMoveStatusCore.Name);
             }
         }
-    }
-
-    private void StopHoldSkill()
-    {
-        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     // 取消蓄力

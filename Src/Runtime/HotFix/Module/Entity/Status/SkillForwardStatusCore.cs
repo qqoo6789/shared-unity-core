@@ -18,6 +18,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         typeof(BeHitMoveEventFunc),
         typeof(BeStunEventFunc),
         typeof(BeCapturedEventFunc),
+        typeof(StopHoldSkillEventFunc),
     };
 
     private CancellationTokenSource _forwardTimeToken;
@@ -53,11 +54,6 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
             SkillTimeScale = Math.Max(1 + releaseSpd, 0.1f) * SkillTimeScale;
         }
 
-        if (CurSkillCfg.IsHoldSkill)
-        {
-            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill += StopHoldSkill;
-        }
-
         try
         {
             SkillForwardExecute(CurSkillCfg);
@@ -82,11 +78,6 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         StatusCtrl.RefEntity.EntityEvent.ExitSkillForward?.Invoke(!IsContinueBattleLeave);
 
         CancelTimeForwardFinish();
-
-        if (CurSkillCfg.IsHoldSkill)
-        {
-            StatusCtrl.RefEntity.EntityEvent.TryStopHoldSkill -= StopHoldSkill;
-        }
 
         _inputData = null;
         CurSkillCfg = null;
@@ -115,11 +106,6 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
                 ChangeState(fsm, PathMoveStatusCore.Name);
             }
         }
-    }
-
-    private void StopHoldSkill()
-    {
-        ChangeState(OwnerFsm, IdleStatusCore.Name);
     }
 
     //前摇完成定时
