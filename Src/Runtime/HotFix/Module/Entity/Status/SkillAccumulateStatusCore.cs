@@ -39,6 +39,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
         typeof(BeHitMoveEventFunc),
         typeof(BeStunEventFunc),
         typeof(BeCapturedEventFunc),
+        typeof(StopHoldSkillEventFunc),
     };
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)

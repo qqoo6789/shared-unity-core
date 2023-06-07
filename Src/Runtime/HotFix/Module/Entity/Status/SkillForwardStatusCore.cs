@@ -18,6 +18,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
         typeof(BeHitMoveEventFunc),
         typeof(BeStunEventFunc),
         typeof(BeCapturedEventFunc),
+        typeof(StopHoldSkillEventFunc),
     };
 
     private CancellationTokenSource _forwardTimeToken;
@@ -86,7 +87,6 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
         base.OnLeave(fsm, isShutdown);
     }
-
     protected override void OnUpdate(IFsm<EntityStatusCtrl> fsm, float elapseSeconds, float realElapseSeconds)
     {
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
