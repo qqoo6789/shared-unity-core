@@ -2,16 +2,16 @@ classifyLevel-int,desc-string,displayType-int,icon-string,id-int,level-int,matIt
 1,Sword 1 recipe.,2,recipe-icon-44,44,1,"210,2;31,5;30,5",Stone Sword Recipe,"40,1,1,10000",0,1,1,10,2,1,1,0,0
 ,Sword 2 recipe.,2,recipe-icon-45,45,2,"211,2;216,2;33,5;34,5",Iron Sword Recipe,"41,1,1,8000;41,2,1,2000",,1,1,10,2,1,1,,0
 ,Sword 3 formula.,2,recipe-icon-46,46,3,"217,2;212,2;36,5;37,5",Crystal Sword Recipe,"42,1,1,7600;42,2,1,1900;42,3,1,500",,1,1,10,2,1,1,,10
-,Hoe 1.,2,recipe-icon-62,62,1,"207,2;70,5;72,5",Iron Hoe Recipe,"80,1,1,10000",,1,1,10,1,1,1,,0
+,Hoe 1.,2,recipe-icon-62,62,1,"207,2;178,5;177,5",Iron Hoe Recipe,"80,1,1,10000",,1,1,10,1,1,1,,0
 ,Hoe 2.,2,recipe-icon-63,63,2,"208,2;213,2;74,5;73,5",Curse Hoe Recipe,"81,1,1,10000",,1,1,10,1,1,1,,0
 ,Hoe 3.,2,recipe-icon-64,64,3,"209,2;211,2;76,5;77,5",Blessing Hoe Recipe,"82,1,1,10000",,1,1,10,1,1,1,,0
-,Kettle 1.,2,recipe-icon-66,66,1,"207,2;178,5;177,5",Iron Kettle Recipe,"84,1,1,10000",,1,1,10,1,1,1,,0
+,Kettle 1.,2,recipe-icon-66,66,1,"207,2;70,5;72,2",Iron Kettle Recipe,"84,1,1,10000",,1,1,10,1,1,1,,0
 ,Kettle 2.,2,recipe-icon-67,67,2,"182,5;181,5;208,2;213,2",Curse Kettle Recipe,"85,2,1,2000;84,1,1,8000",,1,1,10,1,1,1,,0
 ,Kettle 3.,2,recipe-icon-68,68,3,"183,5;185,5;209,2;214,2",Blessing Water Bottle Recipe,"86,1,1,10000",,1,1,10,1,1,1,,0
-,Pickaxe 1.,2,recipe-icon-70,70,1,"216,2;62,5;58,5",Iron Pickaxe Recipe,"88,1,1,10000",,1,1,10,3,1,1,,0
+,Pickaxe 1.,2,recipe-icon-70,70,1,"216,2;62,5;66,5",Iron Pickaxe Recipe,"88,1,1,10000",,1,1,10,3,1,1,,0
 ,Pickaxe 2,2,recipe-icon-71,71,2,"217,2;207,2;63,5;67,5",Curse Of The Pickaxe Recipe,"89,1,1,8000;89,2,1,2000",,1,1,10,3,1,1,,0
 ,Pickaxe 3.,2,recipe-icon-72,72,3,"218,2;208,2;64,5;60,5",Blessing Pickaxe Recipe,"90,1,1,10000",,1,1,10,3,1,1,,0
-,Axe 1.,2,recipe-icon-74,74,1,"216,2;62,5;66,5",Iron Axe Recipe,"92,1,1,10000",,1,1,10,3,1,1,,0
+,Axe 1.,2,recipe-icon-74,74,1,"216,2;62,5;58,5",Iron Axe Recipe,"92,1,1,10000",,1,1,10,3,1,1,,0
 ,Axe 2.,2,recipe-icon-75,75,2,"217,2;207,2;63,5;59,5",Curse Axe Recipe,"93,1,1,8000;93,2,1,2000",,1,1,10,3,1,1,,0
 ,Axe 3.,2,recipe-icon-76,76,3,"218,2;208,2;60,5;68,5",Blessed Axe Recipe,"94,1,1,10000",,1,1,10,3,1,1,,0
 ,Accelerate fertilizer 1.,2,recipe-icon-92,92,1,"65,1",Accelerated Fertilizer Recipe,"128,1,1,10000",,3,1,10,1,50,4,,0
