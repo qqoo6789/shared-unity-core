@@ -24,41 +24,41 @@ public class SceneAreaMgr : SceneModuleBase
     /// <param eSceneArea>新区域标识</param>
     /// </summary>
     public Action<long, eSceneArea> OnPlayerExitCurSceneCheckArea = delegate { };
-    private eSceneArea _defaultArea;
-    private readonly List<eSceneArea> _areaQueue = new();
+    public eSceneArea DefaultArea { get; private set; }
+    // private readonly List<eSceneArea> _areaQueue = new();
     /// <summary>
     /// 设置默认区域
     /// </summary>
     public void SetDefaultArea(eSceneArea area)
     {
-        _defaultArea = area;
+        DefaultArea = area;
     }
 
     /// <summary>
     /// 进入区域
     /// </summary>
-    public void EnterArea(eSceneArea area)
-    {
-        _areaQueue.Add(area);
-    }
+    // public void EnterArea(eSceneArea area)
+    // {
+    //     _areaQueue.Add(area);
+    // }
 
-    /// <summary>
-    /// 离开区域
-    /// </summary>
-    public void ExitArea(eSceneArea area)
-    {
-        _ = _areaQueue.Remove(area);
-    }
+    // /// <summary>
+    // /// 离开区域
+    // /// </summary>
+    // public void ExitArea(eSceneArea area)
+    // {
+    //     _ = _areaQueue.Remove(area);
+    // }
 
     /// <summary>
     /// 获取当前区域
     /// </summary>
-    public eSceneArea GetCurArea()
-    {
-        if (_areaQueue.Count > 0)
-        {
-            return _areaQueue[^1];
-        }
-        return _defaultArea;
-    }
+    // public eSceneArea GetCurArea()
+    // {
+    //     if (_areaQueue.Count > 0)
+    //     {
+    //         return _areaQueue[^1];
+    //     }
+    //     return DefaultArea;
+    // }
 }
