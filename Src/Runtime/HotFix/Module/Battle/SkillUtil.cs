@@ -163,7 +163,7 @@ public static partial class SkillUtil
                 SkillEffectBase skillEffect = skillEffects[i];
                 if (effectCpt.CheckApplyEffect(fromEntity, targetEntity, skillEffect))
                 {
-                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, inputData.Dir, inputData.Targets);
+                    GameMessageCore.DamageEffect effectData = skillEffect.CreateEffectData(fromEntity, targetEntity, inputData);
                     if (effectData == null)
                     {
                         continue;

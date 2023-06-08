@@ -13,7 +13,7 @@ using UnityGameFramework.Runtime;
 
 public class SELockEnemyPathMoveCore : SEPathMoveCore
 {
-    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, UnityEngine.Vector3 skillDir, long[] targets)
+    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, InputSkillReleaseData inputData)
     {
         if (EffectCfg.Parameters == null || EffectCfg.Parameters.Length <= 0)
         {
@@ -28,14 +28,9 @@ public class SELockEnemyPathMoveCore : SEPathMoveCore
             delayTime = EffectCfg.Parameters[2];
         }
         float moveDist = minDist;
-        EntityBase enemy = null;
-        if (targets != null && targets.Length > 0)
+        if (inputData.TargetPos != UnityEngine.Vector3.zero)
         {
-            enemy = GFEntryCore.GetModule<IEntityMgr>().GetEntity<EntityBase>(targets[0]);
-        }
-        if (enemy != null)
-        {
-            float dist = UnityEngine.Vector3.Distance(targetEntity.Position, enemy.Position);
+            float dist = UnityEngine.Vector3.Distance(targetEntity.Position, inputData.TargetPos);
             if (dist > minDist)
             {
                 moveDist = MathF.Min(dist - minDist, maxDist);
@@ -46,7 +41,7 @@ public class SELockEnemyPathMoveCore : SEPathMoveCore
             }
         }
         UnityEngine.Vector3 curPos = targetEntity.Position;
-        UnityEngine.Vector3 moveDir = skillDir;
+        UnityEngine.Vector3 moveDir = inputData.Dir;
         moveDir.Set(moveDir.x, 0, moveDir.z);
         UnityEngine.Vector3 targetPos = curPos + (moveDir.normalized * moveDist);
         DamageEffect effect = new()

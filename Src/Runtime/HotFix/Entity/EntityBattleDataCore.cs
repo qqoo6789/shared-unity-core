@@ -228,6 +228,7 @@ public class EntityBattleDataCore : EntityBaseComponent
             return;
         }
         _ = _hpAttribute.SetBase(value);
+        RefEntity.EntityAttributeData.IsNetDirty = true;
         RefEntity.EntityEvent.EntityAttributeUpdate?.Invoke(eAttributeType.HP, value);
     }
 

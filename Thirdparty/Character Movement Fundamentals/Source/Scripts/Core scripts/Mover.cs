@@ -61,6 +61,8 @@ namespace CMF
         public float RealColliderHeight; //实际的碰撞体高度
         public float RealColliderMiddle; //实际的碰撞体中心，用于计算脚底高度
 
+        private MonoBehaviour _moveCtrl;
+
         void Awake()
         {
             Setup();
@@ -69,6 +71,10 @@ namespace CMF
             sensor = new Sensor(this.tr, col);
             RecalculateColliderDimensions();
             RecalibrateSensor();
+        }
+        public void SetMoveCtrl(MonoBehaviour moveCtrl)
+        {
+            _moveCtrl = moveCtrl;
         }
 
         void Reset()
@@ -120,8 +126,14 @@ namespace CMF
         }
 
         //Draw debug information if debug mode is enabled;
-        void LateUpdate()
+        private void LateUpdate()
         {
+            IsMove = rig.velocity.magnitude > 0;
+            if (_moveCtrl != null && !_moveCtrl.enabled && IsMove)
+            {
+                _moveCtrl.enabled = true;
+            }
+
             if (isInDebugMode)
                 sensor.DrawDebug();
         }
@@ -326,7 +338,6 @@ namespace CMF
         public void SetVelocity(Vector3 _velocity)
         {
             rig.velocity = _velocity + currentGroundAdjustmentVelocity;
-            IsMove = rig.velocity.magnitude > 0;
         }
 
         //Returns 'true' if mover is touching ground and the angle between hte 'up' vector and ground normal is not too steep (e.g., angle < slope_limit);
