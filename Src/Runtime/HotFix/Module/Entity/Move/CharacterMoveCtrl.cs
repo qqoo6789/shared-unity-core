@@ -36,6 +36,8 @@ public class CharacterMoveCtrl : EntityBaseComponent
 
     private bool _isMove = false;
 
+    private Sensor.CastType? _specialCastType;//特殊的mover组件检测类型 因为某些时间需要用到特殊的检测类型提高精准度
+
     private void Start()
     {
         if (!TryGetComponent(out _mover))
@@ -46,7 +48,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
         }
         else
         {
-            _mover.SetMoveCtrl(this);
+            RefreshSettingMover();
         }
         RefEntity.EntityEvent.SetPos += OnSetPosition;
     }
@@ -59,6 +61,20 @@ public class CharacterMoveCtrl : EntityBaseComponent
             RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
         }
         RefEntity.EntityEvent.SetPos -= OnSetPosition;
+    }
+
+    /// <summary>
+    /// 设置特殊的检测类型 可以提高精准度 给null代表取消特殊设置
+    /// </summary>
+    /// <param name="castType"></param>
+    public void SetSpecialCastType(Sensor.CastType? castType)
+    {
+        _specialCastType = castType;
+
+        if (castType != null)
+        {
+            RefreshSettingMover();
+        }
     }
 
     private void OnSetPosition(Vector3 pos)
@@ -76,8 +92,14 @@ public class CharacterMoveCtrl : EntityBaseComponent
             return;
         }
 
-
-        _mover.SimpleCheckForGround();
+        if (_specialCastType == null)
+        {
+            _mover.SimpleCheckForGround();
+        }
+        else
+        {
+            _mover.CheckForGround();
+        }
         // bool _isSliding = _mover.IsGrounded() && IsGroundTooSteep();
         bool isGrounded = _mover.IsGrounded();
         Vector3 curSpeed;
@@ -234,8 +256,24 @@ public class CharacterMoveCtrl : EntityBaseComponent
     private void OnColliderLoadFinish(GameObject go)
     {
         _mover = go.GetComponent<Mover>();
-        _mover.SetMoveCtrl(this);
+        RefreshSettingMover();
     }
+
+    private void RefreshSettingMover()
+    {
+        if (_mover == null)
+        {
+            return;
+        }
+
+        _mover.SetMoveCtrl(this);
+
+        if (_specialCastType != null)
+        {
+            _mover.SetSensorCastType(_specialCastType.Value);
+        }
+    }
+
     /// <summary>
     /// 是否正在移动
     /// </summary>

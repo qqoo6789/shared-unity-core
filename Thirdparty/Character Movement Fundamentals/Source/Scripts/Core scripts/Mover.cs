@@ -451,5 +451,14 @@ namespace CMF
             return sensor.GetCollider();
         }
 
+        public void SetSensorCastType(Sensor.CastType castType)
+        {
+            sensorType = castType;
+
+            if (sensor != null)
+            {
+                sensor.castType = castType;
+            }
+        }
     }
 }
