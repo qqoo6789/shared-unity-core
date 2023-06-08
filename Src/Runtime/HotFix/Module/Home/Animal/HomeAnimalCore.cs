@@ -167,13 +167,20 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             return false;
         }
 
-        if (action == eAction.Appease)
+        if (Data.DRMonster.AutoHarvest)
         {
-            return !Data.IsCanHarvest;//不在收获状态下可以随时安抚 不一定有效果而已
+            return action == eAction.Appease;//自动收获的只支持安抚 不允许手动收获
         }
+        else//需要手动收获的
+        {
+            if (action == eAction.Appease)
+            {
+                return !Data.IsCanHarvest;//不在收获状态下才可以安抚
+            }
 
-        //收获动作
-        return Data.IsCanHarvest;
+            //收获动作
+            return Data.IsCanHarvest;
+        }
     }
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
