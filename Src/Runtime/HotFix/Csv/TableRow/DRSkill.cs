@@ -24,6 +24,15 @@ public class DRSkill : DataRowBase
     public override int Id => _id;
 
     /// <summary>
+  /**获取IsIndependentLogic-bool。*/
+    /// </summary>
+    public bool IsIndependentLogic
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取accuBreakable-bool。*/
     /// </summary>
     public bool AccuBreakable
@@ -117,6 +126,15 @@ public class DRSkill : DataRowBase
   /**获取isHoldSkill-bool。*/
     /// </summary>
     public bool IsHoldSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取isReleastActLoop-bool。*/
+    /// </summary>
+    public bool IsReleastActLoop
     {
         get;
         private set;
@@ -406,6 +424,7 @@ public class DRSkill : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        IsIndependentLogic = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AttackCanMove = DataTableParseUtil.ParseBool(columnStrings[index++]);
@@ -418,6 +437,7 @@ public class DRSkill : DataRowBase
         IsAutoUse = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsCheckHit = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsHoldSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
+        IsReleastActLoop = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsRemote = DataTableParseUtil.ParseBool(columnStrings[index++]);
         RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
         ReleaseAct = DataTableParseUtil.ParseString(columnStrings[index++]);
@@ -460,6 +480,7 @@ public class DRSkill : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                IsIndependentLogic = binaryReader.ReadBoolean();
                 AccuBreakable = binaryReader.ReadBoolean();
                 AccuTime = binaryReader.Read7BitEncodedInt32();
                 AttackCanMove = binaryReader.ReadBoolean();
@@ -472,6 +493,7 @@ public class DRSkill : DataRowBase
                 IsAutoUse = binaryReader.ReadBoolean();
                 IsCheckHit = binaryReader.ReadBoolean();
                 IsHoldSkill = binaryReader.ReadBoolean();
+                IsReleastActLoop = binaryReader.ReadBoolean();
                 IsRemote = binaryReader.ReadBoolean();
                 RangeTips = binaryReader.ReadBoolean();
                 ReleaseAct = binaryReader.ReadString();
