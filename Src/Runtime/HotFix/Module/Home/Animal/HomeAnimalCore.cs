@@ -17,7 +17,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     public int Lv => Data.DRMonster.Lv;
 
-    public eAction SupportAction { get; set; } = eAction.Appease | eAction.LastWords;
+    public eAction SupportAction { get; set; } = eAction.Appease;
 
     private eAction _harvestAction = eAction.None;//收获动作
 
@@ -164,17 +164,6 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
         if (Data.SaveData.IsDead)//死了
         {
-            if (action == eAction.LastWords)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        //活着
-        if (action == eAction.LastWords)
-        {
             return false;
         }
 
@@ -189,11 +178,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
     {
-        if (action == eAction.LastWords)//触碰遗言
-        {
-            OnExecuteLastWords();
-        }
-        else if (action == eAction.Appease)//安抚
+        if (action == eAction.Appease)//安抚
         {
             OnExecuteAppease(Data.SaveData.IsComforted == false);
         }
@@ -231,11 +216,6 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
         ClearDropProduct();//TODO: home 暂时这样
     }
-
-    /// <summary>
-    /// 死亡后触发遗言
-    /// </summary>
-    protected virtual void OnExecuteLastWords() { }
 
     /// <summary>
     /// 抚摸操作
