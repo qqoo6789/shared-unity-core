@@ -34,3 +34,6 @@ args-string[],callFunc-string[],cd-int,cdType-int,id-int,interactType-string
 196,Add Buff,60000,6,195,usePotion
 197,Add Buff,60000,6,196,usePotion
 198,Add Buff,60000,6,197,usePotion
+-,Fertilize,0,,219,equipItem
+-,Fertilize,0,,220,equipItem
+-,Fertilize,0,,221,equipItem
