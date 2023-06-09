@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7137569298369816773}
   - component: {fileID: 5829358857170635715}
   - component: {fileID: 6841347625436169406}
-  m_Layer: 16
+  m_Layer: 12
   m_Name: Spine_NPC_Lucas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

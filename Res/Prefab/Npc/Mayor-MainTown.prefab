@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -7698674407181581849}
   - component: {fileID: -6430181625036610847}
   - component: {fileID: 2942034132429565340}
-  m_Layer: 16
+  m_Layer: 12
   m_Name: Mayor-MainTown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,6 +56,9 @@ MonoBehaviour:
   sensorArrayRayCount: 6
   sensorArrayRowsAreOffset: 0
   raycastArrayPreviewPositions: []
+  IsMove: 0
+  RealColliderHeight: 0
+  RealColliderMiddle: 0
 --- !u!136 &-6430181625036610847
 CapsuleCollider:
   m_ObjectHideFlags: 0
