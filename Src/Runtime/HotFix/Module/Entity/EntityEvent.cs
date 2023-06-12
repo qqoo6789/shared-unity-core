@@ -86,11 +86,11 @@ public class EntityEvent : EntityBaseComponent
     /// <summary>
     /// 离开技能前摇 T0:是否是被打断离开 不是打断代表自动进入后续状态
     /// </summary>
-    public Action<bool> ExitSkillForward;
+    public Action<DRSkill, bool> ExitSkillForward;
     /// <summary>
     /// 进入技能后摇释放 T0:技能配置
     /// </summary>
-    public Action<DRSkill> EnterSkillCast;
+    public Action<InputSkillReleaseData, DRSkill> EnterSkillCast;
     /// <summary>
     /// 离开技能后摇释放
     /// </summary>
