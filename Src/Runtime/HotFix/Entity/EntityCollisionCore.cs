@@ -8,6 +8,7 @@
 using CMF;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityGameFramework.Runtime;
 
 public abstract class EntityCollisionCore : EntityBaseComponent
 {
@@ -42,6 +43,7 @@ public abstract class EntityCollisionCore : EntityBaseComponent
     {
         if (prefab == null)
         {
+            Log.Error("EntityCollision prefab is Null");
             return;
         }
 
