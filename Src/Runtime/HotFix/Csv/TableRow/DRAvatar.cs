@@ -24,6 +24,24 @@ public class DRAvatar : DataRowBase
     public override int Id => _id;
 
     /// <summary>
+  /**获取resGirl-string。*/
+    /// </summary>
+    public string ResGirl
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取resIconGirl-string。*/
+    /// </summary>
+    public string ResIconGirl
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取avatarType-int。*/
     /// </summary>
     public int AvatarType
@@ -42,27 +60,9 @@ public class DRAvatar : DataRowBase
     }
 
     /// <summary>
-  /**获取resGirl-string。*/
-    /// </summary>
-    public string ResGirl
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取resIconBoy-string。*/
     /// </summary>
     public string ResIconBoy
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取resIconGirl-string。*/
-    /// </summary>
-    public string ResIconGirl
     {
         get;
         private set;
@@ -73,12 +73,12 @@ public class DRAvatar : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        AvatarType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
-        ResBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
         ResGirl = DataTableParseUtil.ParseString(columnStrings[index++]);
-        ResIconBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
         ResIconGirl = DataTableParseUtil.ParseString(columnStrings[index++]);
+        AvatarType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        ResBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ResIconBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
@@ -90,12 +90,12 @@ public class DRAvatar : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                AvatarType = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
-                ResBoy = binaryReader.ReadString();
                 ResGirl = binaryReader.ReadString();
-                ResIconBoy = binaryReader.ReadString();
                 ResIconGirl = binaryReader.ReadString();
+                AvatarType = binaryReader.Read7BitEncodedInt32();
+                ResBoy = binaryReader.ReadString();
+                ResIconBoy = binaryReader.ReadString();
             }
         }
 
