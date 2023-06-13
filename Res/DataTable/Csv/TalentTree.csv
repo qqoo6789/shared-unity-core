@@ -59,4 +59,4 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 2,"Quickly shakes the ground, releasing seismic waves in a small/medium/large area ahead, causing damage to ores within the area.",161;162;163,0,talentTree-69,69,0,5,3,Seismic Wave,3,"2121,3397,5440",0,"0,0,10",68
 1,"The weapon's attack leaves wounds, dealing 1%/2%/3% attack damage every 0.5 seconds for 5 seconds, and can stack up to 5 layers.",172;173;174,1,talentTree-70,70,0,4,3,Rending Wounds,2,"977,1565,2507",0,"0,0,0",52
 3,"Striking the target's weak point, causing the target to receive an additional 1%/2%/3% damage for the next 5 seconds, and can stack up to 5 layers.",175;176;177,1,talentTree-71,71,0,5,3,Severe Injury,2,"2121,3397,5440",0,"0,0,0",61
-2,Capture animals as your pets,166,0,talentTree-72,72,0,1,1,Capture Animal,1,80,0,0,
+3,Capture animals as your pets,166,0,talentTree-72,72,0,1,1,Capture Animal,1,80,0,0,

@@ -154,7 +154,7 @@ IsIndependentLogic-bool,accuBreakable-bool,accuTime-int,attackCanMove-bool,effec
 0,0,,0,176,,2,0,167,1,0,1,0,0,1,0,A3-buzhuo,,,300,300,Capture grappling hook monster.,,2,Capture Hook,"2,100",,1,0,,,,,,CaptureRope,2000,2000,,,,,skill-icon-167,,,5
 0,0,,0,"177,17",,3,0,168,1,0,0,0,0,1,0,A3-buzhuo,,,300,300,Catch and feed with rope.,,2,Capture Shoot,,,2,1,,,,,,Resource_ball,,2000,,,,,skill-icon-168,,"3,4",10
 0,0,,0,"177,17",,0,730,169,0,0,0,0,0,0,0,attack,,,1030,2000,Monster counterattack skill.,100,2,BeCapture Attack,"4,300,200,12000",,1,0,,,,,,,,,,,,,,,,
-0,1,0,0,15,,0,1000,171,0,0,1,0,0,1,0,A-gongjian-NEW,monsterattack,,2000,500,Character ranged.,1500,2,Character ranged.,,,1,1,,,,,0,Projectile_ball,2000,800,2000,,,,,,,
+0,0,,0,15,,0,1000,171,0,0,1,0,0,1,0,A-gongjian-NEW,monsterattack,,2000,500,Character ranged.,1500,2,Character ranged.,,,1,1,,,,,0,Projectile_ball,2000,800,2000,,,,,,,
 0,0,,0,,,0,,172,0,0,0,0,0,0,0,,,,,-1,"Weapon inflicts wounds, 1% attack damage every 0.5s for 5s, stackable 5 times.",,1,Torn wound.,,,1,0,,,,,,,,,,,184,,skill-icon-172,,,
 0,0,,0,,,0,,173,0,0,0,0,0,0,0,,,,,-1,"Weapon inflicts wounds, 2% attack damage every 0.5s for 5s, stackable 5 times.",,1,Torn wound 2.,,,1,0,,,,,,,,,,,185,,skill-icon-173,,,
 0,0,,0,,,0,,174,0,0,0,0,0,0,0,,,,,-1,"Weapon inflicts wounds, 3% damage every 0.5s for 5s, stacks up to 5.",,1,Torn wound 3.,,,1,0,,,,,,,,,,,186,,skill-icon-174,,,
