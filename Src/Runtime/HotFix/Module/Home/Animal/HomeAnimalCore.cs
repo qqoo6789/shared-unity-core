@@ -17,9 +17,9 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     public int Lv => Data.DRMonster.Lv;
 
-    public eAction SupportAction { get; set; } = eAction.Appease | eAction.LastWords;
+    public eAction SupportAction { get; set; } = eAction.Appease;
 
-    private eAction _harvestAction = eAction.None;//收获动作
+    public eAction HarvestAction { get; private set; } = eAction.None;//收获动作
 
     /// <summary>
     /// 动物数据
@@ -31,6 +31,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// 自动收获的掉落实体
     /// </summary>
     protected GameObject DropEntity { get; private set; }
+
     private int _animalDeadTimeFromHunger;
 
     protected virtual void Awake()
@@ -43,8 +44,8 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     {
         if (Data.DRMonster != null)
         {
-            _harvestAction = TableUtil.ToHomeAction(Data.DRMonster.HarvestAction);
-            SupportAction |= _harvestAction;//收获动作添加到支持列表
+            HarvestAction = TableUtil.ToHomeAction(Data.DRMonster.HarvestAction);
+            SupportAction |= HarvestAction;//收获动作添加到支持列表
         }
         else
         {
@@ -164,40 +165,32 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
         if (Data.SaveData.IsDead)//死了
         {
-            if (action == eAction.LastWords)
+            return false;
+        }
+
+        if (Data.DRMonster.AutoHarvest)
+        {
+            return action == eAction.Appease;//自动收获的只支持安抚 不允许手动收获
+        }
+        else//需要手动收获的
+        {
+            if (action == eAction.Appease)
             {
-                return true;
+                return !Data.IsCanHarvest;//不在收获状态下才可以安抚
             }
 
-            return false;
+            //收获动作
+            return Data.IsCanHarvest;
         }
-
-        //活着
-        if (action == eAction.LastWords)
-        {
-            return false;
-        }
-
-        if (action == eAction.Appease)
-        {
-            return !Data.IsCanHarvest;//不在收获状态下可以随时安抚 不一定有效果而已
-        }
-
-        //收获动作
-        return Data.IsCanHarvest;
     }
 
     public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
     {
-        if (action == eAction.LastWords)//触碰遗言
-        {
-            OnExecuteLastWords();
-        }
-        else if (action == eAction.Appease)//安抚
+        if (action == eAction.Appease)//安抚
         {
             OnExecuteAppease(Data.SaveData.IsComforted == false);
         }
-        else if (action == _harvestAction)//收获 能执行的都是手动收货的
+        else if (action == HarvestAction)//收获 能执行的都是手动收货的
         {
             OnExecuteHarvest();
         }
@@ -213,7 +206,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// </summary>
     protected virtual void OnEnterHarvestStatus(bool isInit)
     {
-        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(_harvestAction, TableUtil.GetGameValue(eGameValueID.animalHarvestMaxActionValue).Value);
+        gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(HarvestAction, TableUtil.GetGameValue(eGameValueID.animalHarvestMaxActionValue).Value);
     }
 
     /// <summary>
@@ -231,11 +224,6 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
         ClearDropProduct();//TODO: home 暂时这样
     }
-
-    /// <summary>
-    /// 死亡后触发遗言
-    /// </summary>
-    protected virtual void OnExecuteLastWords() { }
 
     /// <summary>
     /// 抚摸操作

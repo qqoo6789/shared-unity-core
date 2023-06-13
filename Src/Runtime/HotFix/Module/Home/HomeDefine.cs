@@ -176,10 +176,6 @@ public static class HomeDefine
         /// </summary>
         Milking = 1 << 12,
         /// <summary>
-        /// 操作遗言
-        /// </summary>
-        LastWords = 1 << 13,
-        /// <summary>
         /// 喂养 目前只是兼容一下进度界面需要饥饿状态 没有实际意义
         /// </summary>
         Feeding = 1 << 14,
