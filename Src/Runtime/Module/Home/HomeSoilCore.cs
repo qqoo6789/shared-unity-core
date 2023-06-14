@@ -52,24 +52,19 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         return GetCurStatus().CheckSupportAction(action);
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
+    public void ExecuteAction(eAction action, int toolCid, int skillId, object actionData)
     {
         if (action == eAction.Sowing)
         {
-            SoilEvent.MsgExecuteAction?.Invoke(eAction.Sowing, (toolCid, itemValid));
+            SoilEvent.MsgExecuteAction?.Invoke(eAction.Sowing, (toolCid, actionData));
         }
         else if (action == eAction.Manure)
         {
-            SoilEvent.MsgExecuteAction?.Invoke(eAction.Manure, (toolCid, itemValid));
+            SoilEvent.MsgExecuteAction?.Invoke(eAction.Manure, (toolCid, actionData));
         }
         else
         {
-            SoilEvent.MsgExecuteAction?.Invoke(action, null);
-        }
-
-        if (action == eAction.Watering && extraWateringNum > 0)
-        {
-            SoilData.SaveData.ExtraWateringNum = extraWateringNum;
+            SoilEvent.MsgExecuteAction?.Invoke(action, actionData);
         }
 
         if ((action & PROGRESS_ACTION_MASK) == 0)//非进度的动作 因为进度动作 在执行动作前会执行进度动作 已经触发过了

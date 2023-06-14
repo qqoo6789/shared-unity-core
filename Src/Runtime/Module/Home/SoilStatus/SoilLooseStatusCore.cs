@@ -17,6 +17,7 @@ public class SoilLooseStatusCore : SoilStatusCore
     {
         base.OnAutoEnterNextStatus();
 
+        SoilData.SetSoilFertile(0);
         ChangeState(eSoilStatus.Idle);
     }
     protected override void OnExecuteHomeAction(eAction action, object actionData)

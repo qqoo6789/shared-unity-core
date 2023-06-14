@@ -78,7 +78,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         return (SupportAction & action) != 0;
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
+    public void ExecuteAction(eAction action, int toolCid, int skillId, object actionData)
     {
         if (!CheckSupportAction(action))
         {

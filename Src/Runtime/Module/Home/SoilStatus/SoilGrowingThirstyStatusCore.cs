@@ -1,5 +1,7 @@
 using static HomeDefine;
 using GameFramework.Fsm;
+using Newtonsoft.Json;
+using UnityGameFramework.Runtime;
 
 /// <summary>
 /// 土地种子发苗后的生长干涸状态
@@ -29,7 +31,7 @@ public class SoilGrowingThirstyStatusCore : SoilStatusCore
     protected override void OnEnterInitStatus(IFsm<SoilStatusCtrl> fsm)
     {
         //如果有额外次数就不用进初始状态去找下一个状态 直接等update时进入下一个生长状态 并且保留初始时进入的初始标记和时间
-        if (SoilData.SaveData.ExtraWateringNum <= 0)
+        if (SoilData.SaveData.SeedData.ExtraWateringNum <= 0)
         {
             base.OnEnterInitStatus(fsm);
         }
@@ -40,9 +42,9 @@ public class SoilGrowingThirstyStatusCore : SoilStatusCore
         base.OnUpdate(fsm, elapseSeconds, realElapseSeconds);
 
         //自动进入湿润状态
-        if (SoilData.SaveData.ExtraWateringNum > 0)
+        if (SoilData.SaveData.SeedData.ExtraWateringNum > 0)
         {
-            SoilData.SaveData.ExtraWateringNum--;
+            SoilData.SaveData.SeedData.ExtraWateringNum--;
             ChangeState(eSoilStatus.GrowingWet);
         }
     }
@@ -60,11 +62,24 @@ public class SoilGrowingThirstyStatusCore : SoilStatusCore
 
         if (action == eAction.Eradicate)
         {
-            SoilData.ClearAllData();
+            SoilData.ClearSeedData();
             ChangeState(eSoilStatus.Loose);
         }
         else if (action == eAction.Watering)
         {
+            try
+            {
+                int extraWateringNum = (int)actionData;
+                if (extraWateringNum > 0)
+                {
+                    SoilData.SaveData.SeedData.ExtraWateringNum = extraWateringNum;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Log.Error($"生长干涸时浇水有错误 actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
+            }
+
             ChangeState(eSoilStatus.GrowingWet);
         }
     }

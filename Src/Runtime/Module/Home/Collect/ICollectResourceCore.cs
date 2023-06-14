@@ -46,7 +46,7 @@ public interface ICollectResourceCore
     /// <param name="itemValid">道具是否有效 种子肥料专精不够使也许会无效</param>
     /// <param name="extraWateringNum">额外浇水次数</param>
     /// <param name="skillId">技能id</param>
-    void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId);
+    void ExecuteAction(eAction action, int toolCid, int skillId, object actionData);
     /// <summary>
     /// 执行了一次进度 最后一次进度也会调用 再去调用执行动作
     /// </summary>

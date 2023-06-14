@@ -26,7 +26,25 @@ public class SoilData : MonoBehaviour
     /// <summary>
     /// 种子每个生长阶段的时间 无效时为0
     /// </summary>
-    public float SeedEveryGrowStageTime => SeedGrowStageNum == 0 ? 0 : DRSeed.GrowTotalTime / SeedGrowStageNum;
+    public float SeedEveryGrowStageTime
+    {
+        get
+        {
+            if (SeedGrowStageNum == 0)
+            {
+                return 0;
+            }
+
+            int remainFertile = SaveData.Fertile - DRSeed.RequiredFertilizer;
+            if (remainFertile <= 0)
+            {
+                Log.Error($"fertile error when calculate seed grow time,soil fertile:{SaveData.Fertile} seed:{DRSeed.RequiredFertilizer} seedId:{DRSeed.Id}");
+                remainFertile = 1;
+            }
+            float totalGrowTime = (float)DRSeed.PlantingDifficulty / remainFertile * TableUtil.GetGameValue(eGameValueID.SoilGrowTimeRate).Value;
+            return totalGrowTime / SeedGrowStageNum;
+        }
+    }
 
     private void Awake()
     {
@@ -46,12 +64,12 @@ public class SoilData : MonoBehaviour
     {
         _saveData = saveData;
 
-        if (saveData.SeedCid > 0)
+        if (saveData.SeedData.SeedCid > 0)
         {
-            DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(saveData.SeedCid);
+            DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(saveData.SeedData.SeedCid);
             if (DRSeed == null)
             {
-                Log.Error($"初始化土地数据时种子配置表里没有找到cid为 {saveData.SeedCid} 的种子");
+                Log.Error($"初始化土地数据时种子配置表里没有找到cid为 {saveData.SeedData.SeedCid} 的种子");
             }
         }
     }
@@ -63,12 +81,12 @@ public class SoilData : MonoBehaviour
     /// <param name="sowingValid">是否播种有效</param>
     internal void SetSeedCid(int seedCid, bool sowingValid)
     {
-        if (SaveData.SeedCid == seedCid)
+        if (SaveData.SeedData.SeedCid == seedCid)
         {
             return;
         }
 
-        SaveData.SeedCid = seedCid;
+        SaveData.SeedData.SeedCid = seedCid;
 
         DRSeed = GFEntryCore.DataTable.GetDataTable<DRSeed>().GetDataRow(seedCid);
         if (DRSeed == null)
@@ -76,7 +94,7 @@ public class SoilData : MonoBehaviour
             Log.Error($"种子配置表里没有找到cid为 {seedCid} 的种子");
         }
         SetGrowStage(0);
-        SaveData.SowingValid = sowingValid;
+        SaveData.SeedData.SowingValid = sowingValid;
     }
 
     /// <summary>
@@ -89,12 +107,21 @@ public class SoilData : MonoBehaviour
     }
 
     /// <summary>
+    /// 清理种子数据到默认值
+    /// </summary>
+    internal void ClearSeedData()
+    {
+        DRSeed = null;
+        _saveData.ClearSeedData();
+    }
+
+    /// <summary>
     /// 设置当前种子的成长阶段 从0开始 最大不能超过配置的数量索引
     /// </summary>
     /// <param name="growStage"></param>
     internal void SetGrowStage(int growStage)
     {
-        if (SaveData.GrowingStage == growStage)
+        if (SaveData.SeedData.GrowingStage == growStage)
         {
             return;
         }
@@ -105,7 +132,7 @@ public class SoilData : MonoBehaviour
             return;
         }
 
-        SaveData.GrowingStage = growStage;
+        SaveData.SeedData.GrowingStage = growStage;
     }
 
     /// <summary>
@@ -115,7 +142,7 @@ public class SoilData : MonoBehaviour
     /// <param name="isValid">是否施肥有效</param>
     internal void SetManure(int manureCid, bool isValid)
     {
-        if (SaveData.ManureCid > 0)
+        if (SaveData.SeedData.ManureCid > 0)
         {
             Log.Error($"土地已经施肥了 不能再施肥了");
             return;
@@ -127,7 +154,26 @@ public class SoilData : MonoBehaviour
             return;
         }
 
-        SaveData.ManureCid = manureCid;
-        SaveData.ManureValid = isValid;
+        SaveData.SeedData.ManureCid = manureCid;
+        SaveData.SeedData.ManureValid = isValid;
+    }
+
+    /// <summary>
+    /// 设置土地肥沃度 如果之前有的话 会退回给系统
+    /// </summary>
+    /// <param name="soilFertile"></param>
+    internal void SetSoilFertile(int soilFertile)
+    {
+        if (SaveData.Fertile > 0)//需要返回肥沃度
+        {
+            MessageCore.HomeUsedSoilFertileChanged.Invoke(SaveData.Id, -SaveData.Fertile);
+            SaveData.Fertile = 0;
+        }
+
+        SaveData.Fertile = soilFertile;
+        if (soilFertile > 0)
+        {
+            MessageCore.HomeUsedSoilFertileChanged.Invoke(SaveData.Id, soilFertile);
+        }
     }
 }

@@ -1,4 +1,5 @@
 using GameFramework.Fsm;
+using Newtonsoft.Json;
 using UnityGameFramework.Runtime;
 using static HomeDefine;
 
@@ -49,6 +50,22 @@ public class SoilIdleStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, actionData);
 
-        ChangeState(eSoilStatus.Loose);
+        try
+        {
+            int soilFertile = (int)actionData;
+            if (soilFertile <= 0)
+            {
+                Log.Error($"not should less equal zero from idle to loose status,fertile:{soilFertile}");
+                return;
+            }
+
+            SoilData.SetSoilFertile(soilFertile);
+
+            ChangeState(eSoilStatus.Loose);
+        }
+        catch (System.Exception e)
+        {
+            Log.Error($"锄地失败 actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
+        }
     }
 }

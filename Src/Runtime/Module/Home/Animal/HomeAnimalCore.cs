@@ -184,7 +184,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
+    public void ExecuteAction(eAction action, int toolCid, int skillId, object actionData)
     {
         if (action == eAction.Appease)//安抚
         {

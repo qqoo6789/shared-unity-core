@@ -15,7 +15,7 @@ public class SoilRotHarvestStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, actionData);
 
-        SoilData.ClearAllData();
+        SoilData.ClearSeedData();
         ChangeState(eSoilStatus.Loose);
     }
 }
