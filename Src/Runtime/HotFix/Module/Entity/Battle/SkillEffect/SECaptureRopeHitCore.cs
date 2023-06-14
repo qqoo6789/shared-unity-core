@@ -30,5 +30,6 @@ public class SECaptureRopeHitCore : SkillEffectBase
         {
             return;
         }
+        RefEntity.EntityEvent.EntityBeHit?.Invoke(SkillID);
     }
 }

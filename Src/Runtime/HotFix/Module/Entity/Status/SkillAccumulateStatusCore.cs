@@ -37,6 +37,7 @@ public class SkillAccumulateStatusCore : ListenEventStatusCore, IEntityCanMove, 
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(OnInputSkillInBattleStatusEventFunc),
         typeof(BeHitMoveEventFunc),
+        typeof(BeHitEventFunc),
         typeof(BeStunEventFunc),
         typeof(BeCapturedEventFunc),
         typeof(StopHoldSkillEventFunc),

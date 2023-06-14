@@ -16,6 +16,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     {
         typeof(OnInputSkillInBattleStatusEventFunc),
         typeof(BeHitMoveEventFunc),
+        typeof(BeHitEventFunc),
         typeof(BeStunEventFunc),
         typeof(BeCapturedEventFunc),
         typeof(StopHoldSkillEventFunc),
