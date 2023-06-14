@@ -82,6 +82,7 @@ public static class TimeUtil
 
     /// <summary>
     /// 获取当前服务器时间戳
+    /// !!尽量不要在update里面使用，比如计算倒计时表现（该方法获得的时间可能会有抖动的）
     /// </summary>
     /// <returns></returns>
     public static long GetServerTimeStamp()
