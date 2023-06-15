@@ -21,6 +21,8 @@ id-int,resGirl-string,resIconGirl-string,avatarType-int,resBoy-string,resIconBoy
 84,,,2,hair/boy_agriculture_lv3_hair,
 89,,,2,hair/boy_collection_lv2_hair,
 98,,,2,hair/boy_collection_lv3_hair,
+161,,,2,hair/boy_base_hair,
+162,,,2,hair/boy_lv0_hair,
 123,,,3,head/eyebrow/boy_eyebrow_01,avatar-icon-eyebrow-1
 124,,,3,head/eyebrow/boy_eyebrow_02,avatar-icon-eyebrow-2
 125,,,3,head/eyebrow/boy_eyebrow_03,avatar-icon-eyebrow-3
