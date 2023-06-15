@@ -18,6 +18,8 @@ public class HomeDataCore : MonoBehaviour
     public int UsedAnimalHappyValue { get; private set; }
     public int MaxAnimalHappyValue { get; private set; }
 
+    private EntityBase _fertileListenEntity;//监听某个实体(农场主)的肥沃值和快乐值
+
     public void SetOwnerInfo(long ownerUserId, string ownerName)
     {
         OwnerPlayerId = ownerUserId;
@@ -77,5 +79,50 @@ public class HomeDataCore : MonoBehaviour
     public int GetRemainAnimalHappyValue()
     {
         return Mathf.Max(0, MaxAnimalHappyValue - UsedAnimalHappyValue);
+    }
+
+    protected void SetFertileHappyListenEntity(EntityBase role)
+    {
+        _fertileListenEntity = role;
+
+        if (_fertileListenEntity == null)
+        {
+            return;
+        }
+
+        role.EntityEvent.EntityAttributeUpdate += OnEntityAttributeUpdate;
+        UpdateFertileAndHappyMax();
+    }
+
+    protected void CancelFertileHappyListenEntity()
+    {
+        if (_fertileListenEntity == null)
+        {
+            return;
+        }
+
+        _fertileListenEntity.EntityEvent.EntityAttributeUpdate -= OnEntityAttributeUpdate;
+        _fertileListenEntity = null;
+    }
+
+    private void OnEntityAttributeUpdate(eAttributeType type, int value)
+    {
+        if (type is not eAttributeType.MaxFertility and not eAttributeType.MaxPetHappiness)
+        {
+            return;
+        }
+
+        UpdateFertileAndHappyMax();
+    }
+
+    protected virtual void UpdateFertileAndHappyMax()
+    {
+        if (_fertileListenEntity == null)
+        {
+            return;
+        }
+
+        EntityAttributeData attr = _fertileListenEntity.EntityAttributeData;
+        SetMaxFertileAndHappyValue((int)attr.GetRealValue(eAttributeType.MaxFertility), (int)attr.GetRealValue(eAttributeType.MaxPetHappiness));
     }
 }
