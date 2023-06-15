@@ -19,7 +19,7 @@ namespace Meland.Editor.DataTableTools
     {
         public static string ATTRIBUTE_TYPE_CSV_FILE_NAME = "Assets/Plugins/SharedCore/Res/DataTable/Csv/EntityAttribute.csv";
         public static string ATTRIBUTE_TYPE_FILE_TEMPLATE_NAME = "Assets/Plugins/SharedCore/Src/Editor/DataTableGenerator/Template/AttributeTypeTemplate.txt";
-        public static string ATTRIBUTE_TYPE_FILE_NAME = "Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Attribute/AttributeType.cs";
+        public static string ATTRIBUTE_TYPE_FILE_NAME = "Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Attribute/AttributeType.cs";
         public static string SVNCsvPath { get; private set; }
         public static string SVNConfigPath { get; private set; }
 
