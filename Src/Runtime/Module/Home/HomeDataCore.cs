@@ -11,7 +11,7 @@ public class HomeDataCore : MonoBehaviour
     /// </summary>
     /// <value></value>
     public long OwnerPlayerId { get; private set; }
-    public string OwnerPlayerName { get; private set; }
+    public string OwnerPlayerName { get; private set; } = "-";
 
     public int UsedSoilFertileValue { get; private set; }
     public int MaxSoilFertileValue { get; private set; }
