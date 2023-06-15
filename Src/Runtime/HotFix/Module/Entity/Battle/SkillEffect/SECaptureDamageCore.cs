@@ -30,5 +30,6 @@ public class SECaptureDamageCore : SkillEffectBase
         {
             return;
         }
+        RefEntity.EntityEvent.EntityBeHit?.Invoke(SkillID);
     }
 }

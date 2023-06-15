@@ -31,6 +31,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
     private bool _continueNextSkill;//是否继续下一个技能
     protected override Type[] EventFunctionTypes => new Type[] {
         typeof(BeHitMoveEventFunc),
+        typeof(BeHitEventFunc),
         typeof(BeCapturedEventFunc),
     };
 
@@ -80,7 +81,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             TimeCastFinish();
         }
 
-        StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(CurSkillCfg);
+        StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(InputSkillData.Clone(), CurSkillCfg);
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)

@@ -52,6 +52,8 @@ public enum eGameValueID
     animalFavorabilityValueEveryHeart = 21,
     animalAddFavorabilityEveryAppease = 22,
     animalHeartShowMaxNum = 23,
+    captureRopeMaxLen = 24,
+    captureTrapTime = 25,
 }
 
 // public static class GameValueID
@@ -175,4 +177,5 @@ public enum eSkillId : int
     Capture = 166, //捕获
     CaptureHook = 167, //捕获-> 钩怪
     CaptureShoot = 168, //捕获-> 射怪
+    CaptureTrap = 226,  //捕获-> 陷阱
 }

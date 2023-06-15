@@ -24,6 +24,15 @@ public class DRSkill : DataRowBase
     public override int Id => _id;
 
     /// <summary>
+  /**获取IsBeHitBreakable-bool。*/
+    /// </summary>
+    public bool IsBeHitBreakable
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取IsIndependentLogic-bool。*/
     /// </summary>
     public bool IsIndependentLogic
@@ -424,6 +433,7 @@ public class DRSkill : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        IsBeHitBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
         IsIndependentLogic = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuBreakable = DataTableParseUtil.ParseBool(columnStrings[index++]);
         AccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -480,6 +490,7 @@ public class DRSkill : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                IsBeHitBreakable = binaryReader.ReadBoolean();
                 IsIndependentLogic = binaryReader.ReadBoolean();
                 AccuBreakable = binaryReader.ReadBoolean();
                 AccuTime = binaryReader.Read7BitEncodedInt32();

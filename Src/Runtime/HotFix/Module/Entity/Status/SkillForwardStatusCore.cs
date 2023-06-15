@@ -16,6 +16,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
     {
         typeof(OnInputSkillInBattleStatusEventFunc),
         typeof(BeHitMoveEventFunc),
+        typeof(BeHitEventFunc),
         typeof(BeStunEventFunc),
         typeof(BeCapturedEventFunc),
         typeof(StopHoldSkillEventFunc),
@@ -75,7 +76,7 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        StatusCtrl.RefEntity.EntityEvent.ExitSkillForward?.Invoke(!IsContinueBattleLeave);
+        StatusCtrl.RefEntity.EntityEvent.ExitSkillForward?.Invoke(CurSkillCfg, !IsContinueBattleLeave);
 
         CancelTimeForwardFinish();
 

@@ -45,6 +45,11 @@ public class EntityEvent : EntityBaseComponent
     /// 实体路径移动到达目标点 中途停止不会广播 只有通过实体本身路径移动才会广播 单纯使用通用移动脚本直接移动的不会广播
     /// </summary>
     public Action OnEntityPathMoveArrived;
+
+    /// <summary>
+    /// 实体受到伤害 T0:skillId
+    /// </summary>
+    public Action<int> EntityBeHit;
     /// <summary>
     /// 受击移动 T0:持续时间
     /// </summary>
@@ -86,11 +91,11 @@ public class EntityEvent : EntityBaseComponent
     /// <summary>
     /// 离开技能前摇 T0:是否是被打断离开 不是打断代表自动进入后续状态
     /// </summary>
-    public Action<bool> ExitSkillForward;
+    public Action<DRSkill, bool> ExitSkillForward;
     /// <summary>
     /// 进入技能后摇释放 T0:技能配置
     /// </summary>
-    public Action<DRSkill> EnterSkillCast;
+    public Action<InputSkillReleaseData, DRSkill> EnterSkillCast;
     /// <summary>
     /// 离开技能后摇释放
     /// </summary>
