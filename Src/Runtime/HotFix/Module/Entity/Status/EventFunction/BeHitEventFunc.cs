@@ -23,11 +23,13 @@ public class BeHitEventFunc : EntityStatusEventFunctionBase
         {
             InputSkillReleaseData inputSkill = OwnerFsm.GetData<VarInputSkill>(StatusDataDefine.SKILL_INPUT).Value;
             DRSkill skillCfg = GFEntryCore.DataTable.GetDataTable<DRSkill>().GetDataRow(inputSkill.SkillID);
-            if (skillCfg.IsBeHitBreakable)
+            if (!skillCfg.IsBeHitBreakable)
             {
-                EntityStatus.EventFuncChangeState(OwnerFsm, BeHitStatusCore.Name);
+                return;
             }
+
         }
 
+        EntityStatus.EventFuncChangeState(OwnerFsm, BeHitStatusCore.Name);
     }
 }

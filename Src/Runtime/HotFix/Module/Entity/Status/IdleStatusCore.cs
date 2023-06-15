@@ -18,6 +18,7 @@ public class IdleStatusCore : ListenEventStatusCore, IEntityCanMove, IEntityCanS
     private EntityInputData _inputData;
 
     protected override Type[] EventFunctionTypes => new Type[] {
+        typeof(BeHitEventFunc),
         typeof(BeHitMoveEventFunc),
         typeof(WaitToBattleStatusEventFunc),
         typeof(BeStunEventFunc),
