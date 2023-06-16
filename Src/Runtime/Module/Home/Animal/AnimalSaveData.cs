@@ -57,6 +57,7 @@ public class AnimalSaveData
         HarvestProgress = data.HarvestProgress;
         IsComforted = data.IsComforted;
         IsDead = data.IsDead;
+        Happiness = data.Happiness;
 
         ProductSaveData = data.ProductData == null ? null : new AnimalProductSaveData(data.ProductData);
     }
@@ -70,6 +71,7 @@ public class AnimalSaveData
             HarvestProgress = HarvestProgress,
             IsComforted = IsComforted,
             IsDead = IsDead,
+            Happiness = Happiness,
 
             ProductData = ProductSaveData?.ToProxyAnimalData()
         };

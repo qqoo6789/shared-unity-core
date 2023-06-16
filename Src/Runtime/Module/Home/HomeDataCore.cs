@@ -72,7 +72,7 @@ public class HomeDataCore : MonoBehaviour
         }
     }
 
-    public virtual void SetUsedSoilFertileValue(int fertileValue, bool init = false)
+    public virtual void SetUsedSoilFertileValue(int fertileValue, bool init)
     {
         UsedSoilFertileValue = fertileValue;
 
@@ -82,7 +82,7 @@ public class HomeDataCore : MonoBehaviour
         }
     }
 
-    public virtual void SetUsedAnimalHappyValue(int happyValue, bool init = false)
+    public virtual void SetUsedAnimalHappyValue(int happyValue, bool init)
     {
         UsedAnimalHappyValue = happyValue;
 
