@@ -55,9 +55,9 @@ public static class HomeDefine
     /// </summary>
     public const string ANIMAL_DEATH_DIALOG_CONVERSATION_NAME = "DeathDialog";
     /// <summary>
-    /// 动物可以收获的进度值
+    /// 动物收获进度最大值的表现单位 可以是10000 也可以是1
     /// </summary>
-    public const int ANIMAL_CAN_HARVEST_PROCESS = 100;
+    public const int ANIMAL_HARVEST_PROCESS_MAX_UNIT = 10000;
     /// <summary>
     /// 动物离主角多近时可以显示状态图标
     /// </summary>

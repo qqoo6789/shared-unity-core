@@ -21,4 +21,20 @@ public static class HomeUtilCore
         }
         return totalFertilityUsed;
     }
+
+    /// <summary>
+    /// 计算所有动物的已使用幸福值
+    /// </summary>
+    /// <param name="animals"></param>
+    /// <returns></returns>
+    public static int CalculateTotalHappyUsed(IEnumerable<HomeAnimalCore> animals)
+    {
+        int totalHappyUsed = 0;
+        foreach (HomeAnimalCore animal in animals)
+        {
+            if (animal.Data.SaveData.Happiness > 0)
+                totalHappyUsed += animal.Data.SaveData.Happiness;
+        }
+        return totalHappyUsed;
+    }
 }

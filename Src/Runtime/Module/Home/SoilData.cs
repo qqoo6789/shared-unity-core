@@ -36,11 +36,7 @@ public class SoilData : MonoBehaviour
             }
 
             int remainFertile = SaveData.Fertile - DRSeed.RequiredFertilizer;
-            if (remainFertile <= 0)
-            {
-                Log.Error($"fertile error when calculate seed grow time,soil fertile:{SaveData.Fertile} seed:{DRSeed.RequiredFertilizer} seedId:{DRSeed.Id}");
-                remainFertile = 1;
-            }
+            remainFertile = Mathf.Max(remainFertile, 1);
             float totalGrowTime = (float)DRSeed.PlantingDifficulty / remainFertile * TableUtil.GetGameValue(eGameValueID.SoilGrowTimeRate).Value;
             return totalGrowTime / SeedGrowStageNum;
         }

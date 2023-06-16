@@ -9,4 +9,8 @@ public static class MessageCore
     /// 家园已使用的土地肥沃度发生变化 T0:土地唯一ID T1:变化的值 负数代表减少
     /// </summary>
     public static Action<ulong, int> HomeUsedSoilFertileChanged = delegate { };
+    /// <summary>
+    /// 家园已使用的动物幸福值发生变化 T0:动物唯一ID T1:变化的值 负数代表减少
+    /// </summary>
+    public static Action<ulong, int> HomeUsedAnimalHappyChanged = delegate { };
 }

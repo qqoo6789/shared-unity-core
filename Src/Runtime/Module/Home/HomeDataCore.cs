@@ -19,6 +19,8 @@ public class HomeDataCore : MonoBehaviour
     public int MaxAnimalHappyValue { get; private set; }
 
     private EntityBase _fertileListenEntity;//监听某个实体(农场主)的肥沃值和快乐值
+    private bool _soilFertileIsInit;
+    private bool _animalHappyIsInit;
 
     public void SetOwnerInfo(long ownerUserId, string ownerName)
     {
@@ -29,15 +31,38 @@ public class HomeDataCore : MonoBehaviour
     protected virtual void Start()
     {
         MessageCore.HomeUsedSoilFertileChanged += OnHomeUsedSoilFertileChanged;
+        MessageCore.HomeUsedAnimalHappyChanged += OnHomeUsedAnimalHappyChanged;
     }
 
     protected virtual void OnDestroy()
     {
         MessageCore.HomeUsedSoilFertileChanged -= OnHomeUsedSoilFertileChanged;
+        MessageCore.HomeUsedAnimalHappyChanged -= OnHomeUsedAnimalHappyChanged;
+    }
+
+    private void OnHomeUsedAnimalHappyChanged(ulong animalId, int deltaHappy)
+    {
+        if (!_animalHappyIsInit)
+        {
+            return;
+        }
+
+        UsedAnimalHappyValue += deltaHappy;
+
+        if (UsedAnimalHappyValue < 0)
+        {
+            Log.Error($"动物快乐值不应该小于0,当前值为{UsedAnimalHappyValue}");
+            UsedAnimalHappyValue = 0;
+        }
     }
 
     private void OnHomeUsedSoilFertileChanged(ulong soilId, int deltaFertile)
     {
+        if (!_soilFertileIsInit)
+        {
+            return;
+        }
+
         UsedSoilFertileValue += deltaFertile;
 
         if (UsedSoilFertileValue < 0)
@@ -47,14 +72,24 @@ public class HomeDataCore : MonoBehaviour
         }
     }
 
-    public virtual void SetUsedSoilFertileValue(int fertileValue)
+    public virtual void SetUsedSoilFertileValue(int fertileValue, bool init = false)
     {
         UsedSoilFertileValue = fertileValue;
+
+        if (init)
+        {
+            _soilFertileIsInit = true;
+        }
     }
 
-    public virtual void SetUsedAnimalHappyValue(int happyValue)
+    public virtual void SetUsedAnimalHappyValue(int happyValue, bool init = false)
     {
         UsedAnimalHappyValue = happyValue;
+
+        if (init)
+        {
+            _animalHappyIsInit = true;
+        }
     }
 
     public virtual void SetMaxFertileAndHappyValue(int maxFertile, int maxHappy)
