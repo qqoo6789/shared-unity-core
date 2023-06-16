@@ -15,4 +15,8 @@ public class TableCoreDamageAttribute : TableSingleAttackAttribute
     /// 暴击伤害
     /// </summary>
     public eAttributeType CritDmg;
+    /// <summary>
+    /// 防御力
+    /// </summary>
+    public eAttributeType Def;
 }

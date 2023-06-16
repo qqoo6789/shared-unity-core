@@ -3,8 +3,8 @@
 /// </summary>
 public class TableHomeDamageAttribute : TableCoreDamageAttribute
 {
-    /// <summary>
-    /// 可作用等级
-    /// </summary>
-    public eAttributeType AvailableLv;
+    // /// <summary>
+    // /// 可作用等级
+    // /// </summary>
+    // public eAttributeType AvailableLv;
 }
