@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-05 12:54:15
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Behavior/EntityBehaviorCheckLogic.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Behavior/EntityBehaviorCheckLogic.cs
  */
 
 using GameFramework.Fsm;
@@ -77,6 +77,22 @@ public static class EntityBehaviorCheckLogic
         }
 
         return curStatus is SkillAccumulateStatusCore or SkillForwardStatusCore or SkillCastStatusCore;
+    }
+
+    /// <summary>
+    /// 实体是否在死亡状态
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    public static bool IsDeathStatus(EntityBase entity)
+    {
+        FsmState<EntityStatusCtrl> curStatus = GetCurrentStatus(entity);
+        if (curStatus == null)
+        {
+            return false;
+        }
+
+        return curStatus.StatusName == DeathStatusCore.Name;
     }
 
     /// <summary>

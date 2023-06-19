@@ -96,8 +96,14 @@ public class EntityBattleDataCore : EntityBaseComponent
     {
         _playerAreaRecord = GetComponent<PlayerAreaRecord>();
     }
-    public virtual void SetHP(int hp)
+    public virtual void SetHP(int hp, bool isForce = false)
     {
+        //死亡状态返回
+        if (!isForce && EntityBehaviorCheckLogic.IsDeathStatus(RefEntity))
+        {
+            return;
+        }
+
         HP = hp;
         if (HP > HPMAX)
         {
