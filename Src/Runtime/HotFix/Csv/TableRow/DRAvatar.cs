@@ -24,9 +24,18 @@ public class DRAvatar : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取resouceBoy-string。*/
+  /**获取resGirl-string。*/
     /// </summary>
-    public string ResouceBoy
+    public string ResGirl
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取resIconGirl-string。*/
+    /// </summary>
+    public string ResIconGirl
     {
         get;
         private set;
@@ -42,27 +51,18 @@ public class DRAvatar : DataRowBase
     }
 
     /// <summary>
-  /**获取resouceBoyIcon-string。*/
+  /**获取resBoy-string。*/
     /// </summary>
-    public string ResouceBoyIcon
+    public string ResBoy
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取resouceGirl-string。*/
+  /**获取resIconBoy-string。*/
     /// </summary>
-    public string ResouceGirl
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取resouceGirlIcon-string。*/
-    /// </summary>
-    public string ResouceGirlIcon
+    public string ResIconBoy
     {
         get;
         private set;
@@ -74,11 +74,11 @@ public class DRAvatar : DataRowBase
 
         int index = 0;
         _id = int.Parse(columnStrings[index++]);
-        ResouceBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ResGirl = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ResIconGirl = DataTableParseUtil.ParseString(columnStrings[index++]);
         AvatarType = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        ResouceBoyIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
-        ResouceGirl = DataTableParseUtil.ParseString(columnStrings[index++]);
-        ResouceGirlIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ResBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ResIconBoy = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
@@ -91,11 +91,11 @@ public class DRAvatar : DataRowBase
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
                 _id = binaryReader.Read7BitEncodedInt32();
-                ResouceBoy = binaryReader.ReadString();
+                ResGirl = binaryReader.ReadString();
+                ResIconGirl = binaryReader.ReadString();
                 AvatarType = binaryReader.Read7BitEncodedInt32();
-                ResouceBoyIcon = binaryReader.ReadString();
-                ResouceGirl = binaryReader.ReadString();
-                ResouceGirlIcon = binaryReader.ReadString();
+                ResBoy = binaryReader.ReadString();
+                ResIconBoy = binaryReader.ReadString();
             }
         }
 
