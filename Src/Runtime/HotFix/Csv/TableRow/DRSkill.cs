@@ -294,6 +294,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取homeAttRate-int。*/
+    /// </summary>
+    public int HomeAttRate
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取releaseEff-string。*/
     /// </summary>
     public string ReleaseEff
@@ -306,15 +315,6 @@ public class DRSkill : DataRowBase
   /**获取hitEff-string。*/
     /// </summary>
     public string HitEff
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取homeAttRate-int。*/
-    /// </summary>
-    public int HomeAttRate
     {
         get;
         private set;
@@ -464,9 +464,9 @@ public class DRSkill : DataRowBase
         TargetFlag = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
+        HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
-        HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -521,9 +521,9 @@ public class DRSkill : DataRowBase
                 TargetFlag = binaryReader.ReadArray<Int32>();
                 TargetLock = binaryReader.ReadBoolean();
                 HomeAction = binaryReader.ReadArray<Int32>();
+                HomeAttRate = binaryReader.Read7BitEncodedInt32();
                 ReleaseEff = binaryReader.ReadString();
                 HitEff = binaryReader.ReadString();
-                HomeAttRate = binaryReader.Read7BitEncodedInt32();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 FlyAvatar = binaryReader.ReadString();
                 FlyDistance = binaryReader.Read7BitEncodedInt32();
