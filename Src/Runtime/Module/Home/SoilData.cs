@@ -180,6 +180,11 @@ public class SoilData : MonoBehaviour
     /// <returns></returns>
     public float GetNextRipeTime()
     {
+        if (SaveData.SoilStatus is not HomeDefine.eSoilStatus.SeedWet and not HomeDefine.eSoilStatus.GrowingWet)
+        {
+            return -1f;
+        }
+
         if (SeedEveryGrowStageTime.ApproximatelyEquals(0))
         {
             return -1f;

@@ -47,13 +47,15 @@ public class HomeDataCore : MonoBehaviour
             return;
         }
 
-        UsedAnimalHappyValue += deltaHappy;
+        int newValue = UsedAnimalHappyValue + deltaHappy;
 
-        if (UsedAnimalHappyValue < 0)
+        if (newValue < 0)
         {
-            Log.Error($"动物快乐值不应该小于0,当前值为{UsedAnimalHappyValue}");
-            UsedAnimalHappyValue = 0;
+            Log.Error($"动物快乐值不应该小于0,当前值为{newValue}");
+            newValue = 0;
         }
+
+        SetUsedAnimalHappyValue(newValue, false);
     }
 
     private void OnHomeUsedSoilFertileChanged(ulong soilId, int deltaFertile)
@@ -63,13 +65,15 @@ public class HomeDataCore : MonoBehaviour
             return;
         }
 
-        UsedSoilFertileValue += deltaFertile;
+        int newValue = UsedSoilFertileValue + deltaFertile;
 
-        if (UsedSoilFertileValue < 0)
+        if (newValue < 0)
         {
-            Log.Error($"土地肥沃值不应该小于0,当前值为{UsedSoilFertileValue}");
-            UsedSoilFertileValue = 0;
+            Log.Error($"土地肥沃值不应该小于0,当前值为{newValue}");
+            newValue = 0;
         }
+
+        SetUsedSoilFertileValue(newValue, false);
     }
 
     public virtual void SetUsedSoilFertileValue(int fertileValue, bool init)
