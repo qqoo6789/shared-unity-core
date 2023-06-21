@@ -21,7 +21,7 @@ public class SkillDamage
     /// <param name="attackerBattleData"></param>
     /// <param name="defenderBattleData"></param>
     /// <returns>DamageData</returns>
-    public static bool CheckHit(EntityBattleDataCore attackerBattleData, EntityBattleDataCore defenderBattleData, Random inputRandom = null)
+    public static bool CheckHit(EntityBattleDataCore attackerBattleData, EntityBattleDataCore defenderBattleData, InputRandomData inputRandom = null)
     {
         //无敌状态无法命中
         if (defenderBattleData.HasBattleState(BattleDefine.eBattleState.Invincible))
@@ -37,7 +37,7 @@ public class SkillDamage
         }
         else
         {
-            randValue = inputRandom.Next(0, 100);
+            randValue = inputRandom.HitValue;
         }
         return randValue <= realHitRatePercent;
     }
@@ -47,7 +47,7 @@ public class SkillDamage
     /// </summary>
     /// <param name="coefficient">伤害系数</param>
     /// <returns>DamageData</returns>
-    public static DamageData DamageCalculation(EntityAttributeData fromAttribute, EntityAttributeData toAttribute, float coefficient = 1, Random inputRandom = null)
+    public static DamageData DamageCalculation(EntityAttributeData fromAttribute, EntityAttributeData toAttribute, float coefficient = 1, InputRandomData inputRandom = null)
     {
         /*
             命中概率算法：  命中率=1+（（HIT-EVA）/100） %
@@ -79,7 +79,7 @@ public class SkillDamage
     /// <param name="fromAttribute"></param>
     /// <param name="toAttribute"></param>
     /// <returns></returns>
-    public static (float damage, bool crit) CalculateEnemyDamage(EntityAttributeData fromAttribute, EntityAttributeData toAttribute, Random inputRandom = null)
+    public static (float damage, bool crit) CalculateEnemyDamage(EntityAttributeData fromAttribute, EntityAttributeData toAttribute, InputRandomData inputRandom = null)
     {
         if (fromAttribute == null || toAttribute == null)
         {
@@ -136,7 +136,7 @@ public class SkillDamage
     /// <param name="coreDamageClassify"></param>
     /// <param name="fromAttribute"></param>
     /// <returns></returns>
-    private static (float damage, bool crit) CalculateCoreDamage(float baseDamage, TableCoreDamageAttribute coreDamageClassify, EntityAttributeData fromAttribute, Random inputRandom = null)
+    private static (float damage, bool crit) CalculateCoreDamage(float baseDamage, TableCoreDamageAttribute coreDamageClassify, EntityAttributeData fromAttribute, InputRandomData inputRandom = null)
     {
         int critRate = (int)(fromAttribute.GetRealValue(coreDamageClassify.CritRate) * 1000);
         int realCritExtra;
@@ -146,7 +146,7 @@ public class SkillDamage
         }
         else
         {
-            realCritExtra = inputRandom.Next(0, 1000) < critRate ? 1 : 0;
+            realCritExtra = inputRandom.CritValue < critRate ? 1 : 0;
         }
         float res = baseDamage * (1 + (realCritExtra * fromAttribute.GetRealValue(coreDamageClassify.CritDmg)));
         res *= 1 + fromAttribute.GetRealValue(coreDamageClassify.DmgBonus);

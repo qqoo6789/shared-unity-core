@@ -48,9 +48,9 @@ public class InputSkillReleaseData
     public float AccumulateTime { get; private set; }
 
     /// <summary>
-    /// 随机器
+    /// 输入随机数
     /// </summary>
-    public System.Random InputRandom;
+    public InputRandomData InputRandom;
 
     /// <summary>
     /// 技能输入数据
@@ -101,6 +101,7 @@ public class InputSkillReleaseData
 
     public void SetInputRandomSeed(int seed)
     {
-        InputRandom = new System.Random(seed);
+        InputRandom ??= new InputRandomData();
+        InputRandom.SetInputRandomSeed(seed);
     }
 }
