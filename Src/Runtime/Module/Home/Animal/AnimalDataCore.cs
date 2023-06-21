@@ -47,6 +47,11 @@ public class AnimalDataCore : MonoBehaviour
     public bool IsHappyValid => _saveData.Happiness > 0 && _saveData.Happiness >= DRMonster.RequiredHappiness;
 
     /// <summary>
+    /// 是否饥饿状态
+    /// </summary>
+    public bool IsHunger => SaveData.HungerProgress <= 0;
+
+    /// <summary>
     /// 好感度改变事件 T0:更改后好感度
     /// </summary>
     public Action<int> MsgFavorabilityChanged;
@@ -131,5 +136,25 @@ public class AnimalDataCore : MonoBehaviour
         SetHappiness(0);
         SaveData.SetHarvestProgress(0);
         SaveData.IsComforted = false;
+    }
+
+    /// <summary>
+    /// 获取下一次收获的时间 秒 无效时返回-1
+    /// </summary>
+    /// <returns></returns>
+    public float GetNextHarvestTime()
+    {
+        if (IsHunger)
+        {
+            return -1f;
+        }
+
+        if (!IsHappyValid)
+        {
+            return -1f;
+        }
+
+        float remainProgress = 1 - (SaveData.HarvestProgress / HomeDefine.ANIMAL_HARVEST_PROCESS_MAX_UNIT);
+        return Mathf.Max(HarvestMaxTime * remainProgress, 0);
     }
 }

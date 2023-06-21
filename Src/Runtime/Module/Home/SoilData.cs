@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -24,7 +25,7 @@ public class SoilData : MonoBehaviour
     /// </summary>
     public int SeedGrowStageNum => DRSeed == null ? 0 : DRSeed.GrowRes.Length;
     /// <summary>
-    /// 种子每个生长阶段的时间 无效时为0
+    /// 种子每个生长阶段的时间 无效时为0 秒
     /// </summary>
     public float SeedEveryGrowStageTime
     {
@@ -171,5 +172,22 @@ public class SoilData : MonoBehaviour
         {
             MessageCore.HomeUsedSoilFertileChanged.Invoke(SaveData.Id, soilFertile);
         }
+    }
+
+    /// <summary>
+    /// 获取下一次成熟的时间 秒 无效时返回-1
+    /// </summary>
+    /// <returns></returns>
+    public float GetNextRipeTime()
+    {
+        if (SeedEveryGrowStageTime.ApproximatelyEquals(0))
+        {
+            return -1f;
+        }
+
+        int lostTimeMs = (int)(SoilStatusCore.GetNowTimestamp() - SaveData.StatusStartStamp);
+        lostTimeMs = Mathf.Max(lostTimeMs, 0);
+        float remain = SeedEveryGrowStageTime - (lostTimeMs * TimeUtil.MS2S);
+        return Mathf.Max(remain, 0);
     }
 }

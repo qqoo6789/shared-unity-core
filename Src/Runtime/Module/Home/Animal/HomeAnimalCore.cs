@@ -100,7 +100,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     private void TickHarvest()
     {
         //饥饿
-        if (Data.SaveData.HungerProgress <= 0)
+        if (Data.IsHunger)
         {
             return;
         }
