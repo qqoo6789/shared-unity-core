@@ -69,4 +69,18 @@ public class SENormalDamageCore : SkillEffectBase
         RefEntity.BattleDataCore.SetDeathReason(damageData.DmgState);
         return true;
     }
+
+    public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, InputSkillReleaseData inputData)
+    {
+        float damageCoefficient = 1;
+        if (EffectCfg.Parameters != null && EffectCfg.Parameters.Length > 0)
+        {
+            damageCoefficient = EffectCfg.Parameters[0] * MathUtilCore.I2T;
+        }
+        DamageEffect effect = new();
+        DamageData damage = SkillDamage.DamageCalculation(fromEntity.EntityAttributeData, targetEntity.EntityAttributeData, damageCoefficient, inputData.InputRandom);
+        effect.DamageValue = damage;
+        effect.DamageValue.CurrentInt = targetEntity.BattleDataCore.HP + damage.DeltaInt;
+        return effect;
+    }
 }

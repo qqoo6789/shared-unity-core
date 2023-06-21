@@ -48,6 +48,11 @@ public class InputSkillReleaseData
     public float AccumulateTime { get; private set; }
 
     /// <summary>
+    /// 随机器
+    /// </summary>
+    public System.Random InputRandom;
+
+    /// <summary>
     /// 技能输入数据
     /// </summary>
     /// <param name="skillID">技能ID</param>
@@ -92,5 +97,10 @@ public class InputSkillReleaseData
     public void SetTargetPos(Vector3 targetPos)
     {
         TargetPos = targetPos;
+    }
+
+    public void SetInputRandomSeed(int seed)
+    {
+        InputRandom = new System.Random(seed);
     }
 }
