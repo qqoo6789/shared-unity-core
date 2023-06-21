@@ -20,7 +20,7 @@ public class SoilIdleStatusCore : SoilStatusCore
 
         StatusCtrl.SoilEvent.MsgInitStatus += OnMsgInitStatus;
 
-        StatusCtrl.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Hoeing, TableUtil.GetGameValue(eGameValueID.hoeingMaxActionValue).Value);
+        // StatusCtrl.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Hoeing, TableUtil.GetGameValue(eGameValueID.hoeingMaxActionValue).Value);
     }
 
     protected override void OnLeave(IFsm<SoilStatusCtrl> fsm, bool isShutdown)
