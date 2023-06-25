@@ -206,6 +206,7 @@ public class EntityMgr<TEntity, TFactory> : SceneModuleBase, IEntityMgr where TE
 
         EntityDic.Clear();
         EntityRootDic.Clear();
+        EntityTypeDic.Clear();
 
         foreach (TEntity entity in retainEntities)
         {
