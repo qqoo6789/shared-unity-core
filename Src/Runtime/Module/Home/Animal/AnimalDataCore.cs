@@ -90,6 +90,8 @@ public class AnimalDataCore : MonoBehaviour
                 HungerProgress = DRMonster.MaxHunger
             };
         }
+
+        SetHappiness(_saveData.Happiness);
     }
 
     /// <summary>
