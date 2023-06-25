@@ -172,11 +172,20 @@ public static partial class SkillUtil
                     skillEffect.SetEffectData(effectData);
                     skillEffect.SetUserData(inputData);
                     effects.Add(effectData);
-                    fromEntity.EntityEvent.BeforeGiveSkillEffect?.Invoke(targetEntity, effectData);
-                    targetEntity.EntityEvent.BeforeApplySkillEffect?.Invoke(effectData);
-                    effectCpt.ApplyOneEffect(skillEffect);//注意顺序，Effects如果是瞬间的，应用后会立即被清除
-                    fromEntity.EntityEvent.AfterGiveSkillEffect?.Invoke(targetEntity, effectData);
-                    targetEntity.EntityEvent.AfterApplySkillEffect?.Invoke(effectData);
+                    if (!inputData.IsPreRelease)
+                    {
+                        fromEntity.EntityEvent.BeforeGiveSkillEffect?.Invoke(targetEntity, effectData);
+                        targetEntity.EntityEvent.BeforeApplySkillEffect?.Invoke(effectData);
+                        effectCpt.ApplyOneEffect(skillEffect);//注意顺序，Effects如果是瞬间的，应用后会立即被清除
+                        fromEntity.EntityEvent.AfterGiveSkillEffect?.Invoke(targetEntity, effectData);
+                        targetEntity.EntityEvent.AfterApplySkillEffect?.Invoke(effectData);
+                    }
+                    else
+                    {
+                        skillEffect.OnPreRelease();
+                        skillEffect.Dispose();
+                    }
+
                 }
                 else
                 {

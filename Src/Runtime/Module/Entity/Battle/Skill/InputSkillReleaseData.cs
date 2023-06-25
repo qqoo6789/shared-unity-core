@@ -53,6 +53,11 @@ public class InputSkillReleaseData
     public InputRandomData InputRandom;
 
     /// <summary>
+    /// 是否为预释放
+    /// </summary>
+    public bool IsPreRelease;
+
+    /// <summary>
     /// 技能输入数据
     /// </summary>
     /// <param name="skillID">技能ID</param>
@@ -75,6 +80,7 @@ public class InputSkillReleaseData
             Log.Error("InputSkillReleaseData The skill ID was not found in the skill table:{0}", skillID);
             return;
         }
+        IsPreRelease = false;
     }
 
     public InputSkillReleaseData Clone()
