@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-06-25 10:26:23
  * @Description: 
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Battle/SkillCastHelpUtilCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Battle/SkillCastHelpUtilCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -25,10 +25,16 @@ public static class SkillCastHelpUtilCore
     {
 
         bool needHitCheck = inputData.DRSkill.IsCheckHit && fromEntity != targetEntity;//非自己需要检查命中系统
-
-        List<DamageEffect> effects = needHitCheck && !SkillDamage.CheckHit(fromEntity.BattleDataCore, targetEntity.BattleDataCore, inputData.InputRandom)
-            ? new() { SkillDamage.CreateSpecialDamageEffect(DamageState.Miss, targetEntity.BattleDataCore.HP, 0) }
-            : SkillUtil.EntitySkillEffectExecute(inputData, effectList, fromEntity, targetEntity);
+        bool isHit = !needHitCheck || SkillDamage.CheckHit(fromEntity.BattleDataCore, targetEntity.BattleDataCore, inputData.InputRandom);
+        List<DamageEffect> effects;
+        if (isHit)
+        {
+            effects = SkillUtil.EntitySkillEffectExecute(inputData, effectList, fromEntity, targetEntity);
+        }
+        else
+        {
+            effects = SkillUtil.EntitySkillEffectExecuteMiss(inputData, fromEntity, targetEntity);
+        }
 
         if (effects != null && effects.Count > 0)
         {

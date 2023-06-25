@@ -2,7 +2,7 @@
 * @Author: xiang huan
 * @Date: 2022-07-19 16:19:58
 * @Description: 普通伤害效果
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SENormalDamageCore.cs
 * 
 */
 
@@ -36,8 +36,11 @@ public class SENormalDamageCore : SkillEffectBase
             return;
         }
 
-        if (CheckAndApplySceneDeath(EffectData.DamageValue))
+        //场景死亡
+        if (SkillUtil.IsSceneDeath(EffectData.DamageValue.DmgState))
         {
+            RefEntity.BattleDataCore.SetHP(0);
+            RefEntity.BattleDataCore.SetDeathReason(EffectData.DamageValue.DmgState);
             return;
         }
 
@@ -51,23 +54,6 @@ public class SENormalDamageCore : SkillEffectBase
             }
         }
         RefEntity.EntityEvent.EntityBeHit?.Invoke(SkillID);
-    }
-
-    /// <summary>
-    /// 检查并应用环境死亡
-    /// </summary>
-    /// <param name="damageData"></param>
-    /// <returns>如果是掉落死亡返回true</returns>
-    protected bool CheckAndApplySceneDeath(DamageData damageData)
-    {
-        if (damageData.DmgState is not DamageState.Fall and not DamageState.WaterDrown)
-        {
-            return false;
-        }
-
-        RefEntity.BattleDataCore.SetHP(0);
-        RefEntity.BattleDataCore.SetDeathReason(damageData.DmgState);
-        return true;
     }
 
     public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, InputSkillReleaseData inputData)

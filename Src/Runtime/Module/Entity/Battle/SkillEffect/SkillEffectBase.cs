@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -74,8 +74,10 @@ public class SkillEffectBase : IReference
     /// 下次间隔触发时间
     /// </summary>
     protected long NextIntervalTime { get; private set; }
-
-    public object UserData { get; private set; }
+    /// <summary>
+    /// 技能输入数据
+    /// </summary>
+    public InputSkillReleaseData InputData { get; private set; }
 
     /// <summary>
     /// 设置效果数据
@@ -158,6 +160,7 @@ public class SkillEffectBase : IReference
         EffectImmuneFlag = 0;
         CurLayer = 1;
         NextIntervalTime = 0;
+        InputData = null;
     }
     /// <summary>
     /// 添加后执行第一次
@@ -279,15 +282,20 @@ public class SkillEffectBase : IReference
         return EffectCfg.ShowBuffIcon && !string.IsNullOrEmpty(EffectCfg.BuffIcon);
     }
 
-    public virtual void SetUserData(object data)
+    public virtual void SetInputData(InputSkillReleaseData data)
     {
-        UserData = data;
+        InputData = data;
     }
 
     /// <summary>
-    /// 技能释放时，预先表现技能效果球
+    /// 播放预表现
     /// </summary>
-    public virtual void OnPreRelease()
+    public void PlayPreEffect(EntityBase owner)
+    {
+        RefEntity = owner;
+        OnPlayPreEffect();
+    }
+    protected virtual void OnPlayPreEffect()
     {
 
     }
