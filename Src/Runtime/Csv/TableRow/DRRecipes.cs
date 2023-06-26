@@ -141,15 +141,6 @@ public class DRRecipes : DataRowBase
     }
 
     /// <summary>
-  /**获取unlockCondition-int。*/
-    /// </summary>
-    public int UnlockCondition
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取unlockType-int。*/
     /// </summary>
     public int UnlockType
@@ -176,6 +167,15 @@ public class DRRecipes : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取unlockCondition-int。*/
+    /// </summary>
+    public int UnlockCondition
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -195,10 +195,10 @@ public class DRRecipes : DataRowBase
         SourceText = DataTableParseUtil.ParseInt(columnStrings[index++]);
         TimeCost = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        UnlockCondition = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UnlockType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UseDitamin = DataTableParseUtil.ParseInt(columnStrings[index++]);
         UseMELD = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        UnlockCondition = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -224,10 +224,10 @@ public class DRRecipes : DataRowBase
                 SourceText = binaryReader.Read7BitEncodedInt32();
                 TimeCost = binaryReader.Read7BitEncodedInt32();
                 Type = binaryReader.Read7BitEncodedInt32();
-                UnlockCondition = binaryReader.Read7BitEncodedInt32();
                 UnlockType = binaryReader.Read7BitEncodedInt32();
                 UseDitamin = binaryReader.Read7BitEncodedInt32();
                 UseMELD = binaryReader.Read7BitEncodedInt32();
+                UnlockCondition = binaryReader.Read7BitEncodedInt32();
             }
         }
 

@@ -87,6 +87,33 @@ public class DRSeed : DataRowBase
     }
 
     /// <summary>
+  /**获取plantingDifficulty-int。*/
+    /// </summary>
+    public int PlantingDifficulty
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取requiredFertilizer-int。*/
+    /// </summary>
+    public int RequiredFertilizer
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取requirementProficiency-int。*/
+    /// </summary>
+    public int RequirementProficiency
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取witherTime-int。*/
     /// </summary>
     public int WitherTime
@@ -108,6 +135,9 @@ public class DRSeed : DataRowBase
         _id = int.Parse(columnStrings[index++]);
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         NeedWaterValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        PlantingDifficulty = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RequiredFertilizer = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RequirementProficiency = DataTableParseUtil.ParseInt(columnStrings[index++]);
         WitherTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
@@ -128,6 +158,9 @@ public class DRSeed : DataRowBase
                 _id = binaryReader.Read7BitEncodedInt32();
                 Lv = binaryReader.Read7BitEncodedInt32();
                 NeedWaterValue = binaryReader.Read7BitEncodedInt32();
+                PlantingDifficulty = binaryReader.Read7BitEncodedInt32();
+                RequiredFertilizer = binaryReader.Read7BitEncodedInt32();
+                RequirementProficiency = binaryReader.Read7BitEncodedInt32();
                 WitherTime = binaryReader.Read7BitEncodedInt32();
             }
         }

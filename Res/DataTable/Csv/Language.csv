@@ -771,3 +771,13 @@ Sprite due to insufficient space",超过上限提示
 20050004,捕获超时,Capture timed out,
 20050005,捕获过程道具不足,Lack of props,
 20060001,技能,Skill In CD,释放技能正在CD中
+20040005,畜牧,Get home data error,
+20040006,畜牧,Get home data time out,
+20040007,畜牧,Get home data incomplete,
+20040008,畜牧,One of the food bowls has become empty,
+20040011,畜牧,No petting for the time being,
+20040009,畜牧,One of the food bowls has been filled with food,
+20040010,畜牧,Your bond with your pet goes up,
+20040012,畜牧,Soil fertility is insufficient,
+20040013,畜牧,Animal happiness is insufficient,
+20040014,畜牧,The current fertility of the soil is insufficient,
