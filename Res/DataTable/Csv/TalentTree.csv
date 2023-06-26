@@ -96,7 +96,7 @@ Gather Set Unlock",3,,0,,63
 -4,,"44,149;133,136;139,142,145",2,talentTree-95,95,0,1,3,Unlock Set Recipes,2,"1,1,1",0,"0,0,0",
 4,Combat MaxHP +20,264,1,talentTree-96,96,0,1,1,Combat - HP,2,1,0,0,
 3,Combat DEF +18,258,1,talentTree-97,97,0,1,1,Combat - Defense,2,1,0,0,
-2,Combat ATK +20,172,1,talentTree-98,98,0,1,1,Combat - Attack Power,2,1,0,0,
+2,Combat ATK +20,252,1,talentTree-98,98,0,1,1,Combat - Attack Power,2,1,0,0,
 1,,172;173;174,1,talentTree-99,99,0,1,3,Expert,2,"977,1565,2507",0,"0,0,0",
 4,Combat MaxHP +20,265,1,talentTree-100,100,0,2,1,Combat - HP,2,1,0,0,96
 -4,,"45,150;134,137;140,143,146",2,talentTree-101,101,0,2,3,Unlock Set Recipes,2,"1,1,1",0,"0,0,0",95
