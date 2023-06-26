@@ -95,6 +95,42 @@ public class DRHomeResources : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取requiredProficiency-int。*/
+    /// </summary>
+    public int RequiredProficiency
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取treeDef-int。*/
+    /// </summary>
+    public int TreeDef
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取grassDef-int。*/
+    /// </summary>
+    public int GrassDef
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取oreDef-int。*/
+    /// </summary>
+    public int OreDef
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -109,6 +145,10 @@ public class DRHomeResources : DataRowBase
         Lv = DataTableParseUtil.ParseInt(columnStrings[index++]);
         MaxActionValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Name = DataTableParseUtil.ParseString(columnStrings[index++]);
+        RequiredProficiency = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        TreeDef = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        GrassDef = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        OreDef = DataTableParseUtil.ParseInt(columnStrings[index++]);
 
         return true;
     }
@@ -129,6 +169,10 @@ public class DRHomeResources : DataRowBase
                 Lv = binaryReader.Read7BitEncodedInt32();
                 MaxActionValue = binaryReader.Read7BitEncodedInt32();
                 Name = binaryReader.ReadString();
+                RequiredProficiency = binaryReader.Read7BitEncodedInt32();
+                TreeDef = binaryReader.Read7BitEncodedInt32();
+                GrassDef = binaryReader.Read7BitEncodedInt32();
+                OreDef = binaryReader.Read7BitEncodedInt32();
             }
         }
 

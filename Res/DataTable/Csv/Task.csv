@@ -19,62 +19,39 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 ,"For love and peace, please give me these",0,"1,100",18,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",19,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these",0,"1,100",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-"{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101}]}","杀死那些罐头狗
+"{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101}]}",Kill those canned dogs. Be careful not to get bitten. Canned dogs in a frenzy have significantly increased attack power. Rolling with space can avoid any form of damage.,,"2,117",21,0,12,Fresh Start,,,
+"{""options"":[{""optionType"":4,""value"":""6,10"",""guiderPoint"":2101}]}","Open your backpack and equip your sword. Hitting Tin Can Dog six times or more triggers its vulnerability state, causing a significant decrease in its attack power. Before that, be sure to avoid Tin Can Dog's attacks!",,"2,117",22,0,11,Intelligence Gathering,,21,
+"{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0},{""optionType"":15,""value"":""11,1"",""guiderPoint"":0}]}","Press [Esc] to open your talent tree interface, select the main branch to upgrade, choose to upgrade the War Stomp skill, and place the skill in the quick slot. By completing these steps, you can use the War Stomp skill in combat. Mastering this skill will make your battles much easier.",,"2,117",23,0,,Lend a Hand,,22,
+"{""options"":[{""optionType"":2,""value"":""146,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""147,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""148,5"",""guiderPoint"":3601}]}","Follow the guide points to your homeland, use a hoe to till the cultivable land, and then sow the seeds on the tilled land.",,"1,117",24,0,31,Hoeing and Seeding,,45,
+"{""options"":[{""optionType"":3,""value"":""70,5"",""guiderPoint"":3701},{""optionType"":3,""value"":""71,5"",""guiderPoint"":3701},{""optionType"":3,""value"":""72,5"",""guiderPoint"":3701}]}","Patience is key. Observe the style of the land and the condition of the crops. If the land is dry, it needs to be watered immediately. The number of times different crops need to be watered to mature varies. Remember, crops can wither and die if not watered for too long.",,"1,117",25,0,13,Patient Watering and Harvesting,,24,
+"{""options"":[{""optionType"":3,""value"":""66,20"",""guiderPoint"":3301},{""optionType"":3,""value"":""62,20"",""guiderPoint"":3501},{""optionType"":3,""value"":""58,20"",""guiderPoint"":3401},{""optionType"":9,""value"":""158,2"",""guiderPoint"":0}]}","Follow the guide points to collect grass with a sword, trees with an axe, and stones with a pickaxe. After completing these tasks, return to Silas and open the crafting interface. Select ""Craft Gathering Essence"" to begin crafting.",,"3,117",26,0,32,Essence of a Profession,,25,
+"{""options"":[{""optionType"":3,""value"":""62,5"",""guiderPoint"":3501},{""optionType"":3,""value"":""58,5"",""guiderPoint"":3401}]}",I have obtained five pieces of ordinary wood and five stones.,,"3,117",27,0,43,Gather Some Goodies,,26,
+"{""options"":[{""optionType"":3,""value"":""62,5"",""guiderPoint"":3501},{""optionType"":3,""value"":""66,5"",""guiderPoint"":2101},{""optionType"":15,""value"":""33,1"",""guiderPoint"":0},{""optionType"":9,""value"":""70,1"",""guiderPoint"":0}]}","Farm for enough regular wood and gather enough fiber to unlock recipes by upgrading the left side nodes of the gathering talent tree. Then, craft an iron pickaxe. Combat may be necessary to protect yourself while gathering resources.",,"3,117",28,0,44,Crafting an Iron Pickaxe,,27,
+"{""options"":[{""optionType"":3,""value"":""59,1"",""guiderPoint"":20103},{""optionType"":3,""value"":""63,1"",""guiderPoint"":20203},{""optionType"":3,""value"":""67,1"",""guiderPoint"":20201}]}","Get a black iron ore.
+Get a desert tree.
+Get an arctic mushroom.",,"3,117",29,0,42,The Next Level Challenge(Gather),,28,
+"{""options"":[{""optionType"":4,""value"":""8,5"",""guiderPoint"":3501},{""optionType"":4,""value"":""7,5"",""guiderPoint"":3401}]}",Kill 5 cacti with a stone hammer and kill 5 pumpkin monsters with a bow and arrow.,,"2,117",30,0,40,Teach Them a Lesson,,26,
+"{""options"":[{""optionType"":3,""value"":""30,5"",""guiderPoint"":3501},{""optionType"":3,""value"":""31,5"",""guiderPoint"":3401},{""optionType"":15,""value"":""95,1"",""guiderPoint"":0},{""optionType"":9,""value"":""44,1"",""guiderPoint"":0}]}",Farm to gather enough green slime and combat to unlock the recipe by upgrading the left side nodes of the talent tree. Gather enough pumpkin vines and craft an iron sword at Nash's workshop.,,"2,117",32,0,30,Crafting an Iron Sword,,30,
+"{""options"":[{""optionType"":4,""value"":""10,1"",""guiderPoint"":20102},{""optionType"":4,""value"":""9,1"",""guiderPoint"":20203},{""optionType"":4,""value"":""11,1"",""guiderPoint"":20103}]}","Killing a bee, a hamster, and a lizard.",,"2,117",33,0,41,The Next Level Challenge(Combat),,32,
+"{""options"":[{""optionType"":15,""value"":""13,1"",""guiderPoint"":0},{""optionType"":15,""value"":""72,1"",""guiderPoint"":0}]}",Open your skill interface and switch to the farming and animal husbandry area. Upgrade your capture skill.,,"1,117",34,0,35,Master the Art of Capture,,26,
+"{""options"":[{""optionType"":3,""value"":""178,5"",""guiderPoint"":4601},{""optionType"":3,""value"":""177,5"",""guiderPoint"":4601},{""optionType"":15,""value"":""78,1"",""guiderPoint"":0},{""optionType"":9,""value"":""62,1"",""guiderPoint"":0}]}","Farm to Gather Enough ScrewsCombat to Gather Enough Pumpkin Sprouts
 
-注意[不要被它咬到]，触发了狂暴状态的罐头狗攻击力将大幅提高
+Unlock the recipe by upgrading the left nodes of the Farm talent tree
 
-使用空格进行翻滚可以躲避任何形式的伤害",,"2,117",21,0,12,初来乍到,,,
-"{""options"":[{""optionType"":4,""value"":""6,10"",""guiderPoint"":2101}]}","打开你的背包，装备上你的剑
-
-击打罐头狗6次以上可以触发罐头狗的破绽状态，罐头狗的攻击力将大幅降低
-
-在这之前注意躲避罐头狗的攻击！",,"2,117",22,0,11,情报,,21,
-"{""options"":[{""optionType"":15,""value"":""11,1"",""guiderPoint"":0}]}","按下[Esc]打开你的天赋树界面-选择升级主干-选择升级战争践踏技能-将技能放置到快捷槽中
-
-完成以上流程就可以在战斗中使用技能[战争践踏]，熟练使用技能将使你的战斗事半功倍",,"2,117",23,0,,帮忙,,22,
-"{""options"":[{""optionType"":2,""value"":""146,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""147,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""148,5"",""guiderPoint"":3601}]}",跟随引导点来到你的家园，使用锄头锄开可开垦的土地，再使用种子播种到已开垦的土地上,,"1,117",24,0,31,锄地和播种,,45,
-"{""options"":[{""optionType"":3,""value"":""70,5"",""guiderPoint"":3701},{""optionType"":3,""value"":""71,5"",""guiderPoint"":3701},{""optionType"":3,""value"":""72,5"",""guiderPoint"":3701}]}","耐心是关键，观察土地的样式和作物的状态，当土地干涸则需要即使浇水
-
-不同的作物成熟所需要浇水的次数也不同
-
-太久没浇水作物可是会枯死的哦",,"1,117",25,0,13,耐心浇灌和收获,,24,
-"{""options"":[{""optionType"":3,""value"":""66,20"",""guiderPoint"":3301},{""optionType"":3,""value"":""62,20"",""guiderPoint"":3501},{""optionType"":3,""value"":""58,20"",""guiderPoint"":3401},{""optionType"":9,""value"":""158,2"",""guiderPoint"":0}]}","跟随引导点
-使用[剑]采集[草]；
-使用[斧头]采集[树]；
-使用[镐子]采集[石头]；
-
-完成以上目标后，回到Silas处，打开合成界面，选择[采集合成精华]进行合成",,"3,117",26,0,32,职业的精华,,25,
-"{""options"":[{""optionType"":3,""value"":""62,5"",""guiderPoint"":3501},{""optionType"":3,""value"":""58,5"",""guiderPoint"":3401}]}","获得五个普通木材
-获得五个石头",,"3,117",27,0,43,多采点东西,,26,
-"{""options"":[{""optionType"":3,""value"":""62,5"",""guiderPoint"":3501},{""optionType"":3,""value"":""66,5"",""guiderPoint"":2101},{""optionType"":9,""value"":""70,1"",""guiderPoint"":0}]}","获得五个普通木材
-获得五个纤维
-制作一把铁镐子",,"3,117",28,0,44,制作一把铁镐,,27,
-"{""options"":[{""optionType"":3,""value"":""59,1"",""guiderPoint"":20103},{""optionType"":3,""value"":""63,1"",""guiderPoint"":20203},{""optionType"":3,""value"":""67,1"",""guiderPoint"":20201}]}","获取一个黑铁矿
-获取一个沙漠树
-获取一个冰原菇",,"3,117",29,0,42,更高级的挑战,,28,
-"{""options"":[{""optionType"":4,""value"":""8,5"",""guiderPoint"":3501},{""optionType"":4,""value"":""7,5"",""guiderPoint"":3401}]}","使用石锤杀死5只仙人掌
-使用弓箭杀死5只南瓜怪",,"2,117",30,0,40,教训一下他们,,26,
-"{""options"":[{""optionType"":3,""value"":""30,5"",""guiderPoint"":3501},{""optionType"":3,""value"":""31,5"",""guiderPoint"":3401},{""optionType"":9,""value"":""44,1"",""guiderPoint"":0}]}",制造一把铁剑,,"2,117",32,0,30,制作一把铁剑,,30,
-"{""options"":[{""optionType"":4,""value"":""10,1"",""guiderPoint"":20102},{""optionType"":4,""value"":""9,1"",""guiderPoint"":20203},{""optionType"":4,""value"":""11,1"",""guiderPoint"":20103}]}","杀死一只蜜蜂
-杀死一只仓鼠
-杀死一只蜥蜴",,"2,117",33,0,41,更高级的挑战,,32,
-"{""options"":[{""optionType"":15,""value"":""13,1"",""guiderPoint"":0},{""optionType"":15,""value"":""72,1"",""guiderPoint"":0}]}",打开你的技能界面，切到农牧区域，升级你的捕捉技能,,"1,117",34,0,35,学会捕捉技能,,26,
-"{""options"":[{""optionType"":3,""value"":""178,5"",""guiderPoint"":4601},{""optionType"":3,""value"":""177,5"",""guiderPoint"":4601},{""optionType"":9,""value"":""62,1"",""guiderPoint"":0}]}",制作一把锄头,,"1,117",35,0,34,制作一把铁锄,,34,
-"{""options"":[{""optionType"":2,""value"":""150,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""149,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""151,1"",""guiderPoint"":3601}]}","种下棉花种子
-种下猪笼草种子
-种下仙人掌种子",,"1,117",36,0,39,更高级的挑战,,35,
-"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}",去交易所买点东西吧,,"1,117;2,117;3,117",37,0,,Harvest and give to Terrance.,,"33,29,36",
+Craft a hoe at Terrance's to start farming and gather enough screws.",,"1,117",35,0,34,Crafting an Iron Hoe,,34,
+"{""options"":[{""optionType"":2,""value"":""150,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""149,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""151,1"",""guiderPoint"":3601}]}","Plant cotton seeds.
+Plant pitcher plant seeds.
+Plant cactus seeds.",,"1,117",36,0,39,The Next Level Challenge(Farm),,35,
+"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}","""Go to the exchange and buy something.""",,"1,117;2,117;3,117",37,0,,Transaction 1,,"33,29,36",
 ,Monsters are running rampant. Go and exterminate them,,"2,188",38,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,4,100;8,4,100;7,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them,,"2,279",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them,,"2,370",40,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,4,100;13,4,100;14,4,100""}]}"
 ,Hunt them down and bring back some loot,,"2,188",41,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,2,100;8,2,100;7,2,100""},{""optionType"":1,""value"":""30,1,100;31,1,100;32,1,100""}]}"
 ,Hunt them down and bring back some loot,,"2,279",42,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,2,100;11,2,100;10,2,100""},{""optionType"":1,""value"":""33,1,100;34,1,100;35,1,100""}]}"
 ,Hunt them down and bring back some loot,,"2,370",43,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,2,100;14,2,100;13,2,100""},{""optionType"":1,""value"":""36,1,100;37,1,100;38,1,100""}]}"
-"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}",去交易所买点东西吧,,"1,117;2,117;3,117",44,0,,Unlock capture skills for farming and animal husbandry skill tree.,,37,
-"{""options"":[{""optionType"":1,""value"":""32,15"",""guiderPoint"":2101}]}","农夫Terrance需要铁丝网，带一些过去给他吧
-
-Terrance应该就在城镇里面，找找看",,"1,117",45,0,17,农夫Terrance,,23,
-"{""options"":[{""optionType"":3,""value"":""178,5"",""guiderPoint"":4601}]}","Catch Metal Mutts, feed them, harvest with gloves, bring screws to Terrance.",,"1,117",46,0,,Capture can dog and output.,,45,
+"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}","""Go to the exchange and buy something.""",,"1,117;2,117;3,117",44,0,,Transaction 2,,37,
+"{""options"":[{""optionType"":1,""value"":""32,15"",""guiderPoint"":2101}]}","Terrance is probably in the town, let's go and look for him and bring some wire mesh for him.",,"1,117",45,0,17,Farmer Terrance,,23,
+"{""options"":[{""optionType"":3,""value"":""178,5"",""guiderPoint"":4601}]}",,,"1,117",46,0,,Capture can dog and output.,,45,
 ,Give me these,,"2,188",47,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""30,2,100;31,2,100;32,2,100""}]}"
 ,Give me these,,"2,279",48,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""33,2,100;34,2,100;35,2,100""}]}"
 ,Give me these,,"2,370",49,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""36,2,100;37,2,100;38,2,100""}]}"

@@ -60,6 +60,15 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
+  /**获取breedingDifficulty-int。*/
+    /// </summary>
+    public int BreedingDifficulty
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取captureHp-int。*/
     /// </summary>
     public int CaptureHp
@@ -267,6 +276,24 @@ public class DRMonster : DataRowBase
     }
 
     /// <summary>
+  /**获取requiredHappiness-int。*/
+    /// </summary>
+    public int RequiredHappiness
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取requiredProficiency-int。*/
+    /// </summary>
+    public int RequiredProficiency
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取roleAssetID-int。*/
     /// </summary>
     public int RoleAssetID
@@ -311,6 +338,7 @@ public class DRMonster : DataRowBase
         AttSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AutoHarvest = DataTableParseUtil.ParseBool(columnStrings[index++]);
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        BreedingDifficulty = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CaptureHp = DataTableParseUtil.ParseInt(columnStrings[index++]);
         CaptureSkillCastPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         CombatDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -335,6 +363,8 @@ public class DRMonster : DataRowBase
         Name = DataTableParseUtil.ParseString(columnStrings[index++]);
         PushDist = DataTableParseUtil.ParseInt(columnStrings[index++]);
         PushDmg = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RequiredHappiness = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        RequiredProficiency = DataTableParseUtil.ParseInt(columnStrings[index++]);
         RoleAssetID = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillCastPool = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         DropId = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -354,6 +384,7 @@ public class DRMonster : DataRowBase
                 AttSpd = binaryReader.Read7BitEncodedInt32();
                 AutoHarvest = binaryReader.ReadBoolean();
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
+                BreedingDifficulty = binaryReader.Read7BitEncodedInt32();
                 CaptureHp = binaryReader.Read7BitEncodedInt32();
                 CaptureSkillCastPool = binaryReader.ReadArrayList<Int32>();
                 CombatDist = binaryReader.Read7BitEncodedInt32();
@@ -378,6 +409,8 @@ public class DRMonster : DataRowBase
                 Name = binaryReader.ReadString();
                 PushDist = binaryReader.Read7BitEncodedInt32();
                 PushDmg = binaryReader.Read7BitEncodedInt32();
+                RequiredHappiness = binaryReader.Read7BitEncodedInt32();
+                RequiredProficiency = binaryReader.Read7BitEncodedInt32();
                 RoleAssetID = binaryReader.Read7BitEncodedInt32();
                 SkillCastPool = binaryReader.ReadArrayList<Int32>();
                 DropId = binaryReader.Read7BitEncodedInt32();

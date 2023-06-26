@@ -47,6 +47,29 @@ public enum eAttributeType : int
     ExtraHarvestRate = 40,
     HarvestSeedRate = 41,
     CropAvailableLv = 42,
+    FertilityCapacity = 43,
+    MaxFertility = 44,
+    PetHappinessCapacity = 46,
+    MaxPetHappiness = 47,
+    PlantingProficiency = 49,
+    BreedingProficiency
+ = 50,
+    GrassAtt
+ = 51,
+    SickleSpd = 52,
+    GrassCritRate = 53,
+    GrassProficiency = 54,
+    TreeProficiency
+ = 55,
+    OreProficiency
+ = 56,
+    GrassCritDmg = 58,
+    GrassDmgBonus = 59,
+    GrassDef = 60,
+    TreeDef = 61,
+    OreDef = 62,
+    RequiredProficiency
+ = 63,
 
 }
 
