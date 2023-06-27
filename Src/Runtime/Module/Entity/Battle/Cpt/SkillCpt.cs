@@ -59,6 +59,17 @@ public class SkillCpt : EntityBaseComponent
         _ = SkillMap.Remove(skillID);
         RefEntity.EntityEvent.EntitySkillRemove?.Invoke(skillID);
     }
+
+    /// <summary>
+    /// 是否已经添加包含某个技能
+    /// </summary>
+    /// <param name="skillID"></param>
+    /// <returns></returns>
+    public bool ContainsSkill(int skillID)
+    {
+        return SkillMap.ContainsKey(skillID);
+    }
+
     public void RemoveAllSkill()
     {
         foreach (KeyValuePair<int, SkillBase> item in SkillMap)
@@ -68,6 +79,7 @@ public class SkillCpt : EntityBaseComponent
         }
         SkillMap.Clear();
     }
+
     public bool CanUseSkill(int skillID, Vector3 dir, List<long> targetList)
     {
         //检测是否拥有技能

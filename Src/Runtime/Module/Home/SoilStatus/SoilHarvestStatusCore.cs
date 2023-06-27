@@ -7,7 +7,7 @@ public class SoilHarvestStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Harvest;
 
-    public override eAction SupportAction => eAction.Harvest;
+    public override eAction SupportAction => eAction.SoilHarvest;
 
     protected override float AutoEnterNextStatusTime => 0;
 
