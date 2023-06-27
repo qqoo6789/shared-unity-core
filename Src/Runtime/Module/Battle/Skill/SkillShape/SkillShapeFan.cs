@@ -44,13 +44,9 @@ public class SkillShapeFan : SkillShapeBase
         for (int i = 0; i < colliders.Length; i++)
         {
             Collider c = colliders[i];
-            if (Math.Abs(c.transform.position.y - Anchor.y) > _height / 2)
-            {
-                continue;
-            }
             //向量的y值都用Anchor.y,不然计算出来的角度是错误的
             Vector3 toTarget = new Vector3(c.transform.position.x, Anchor.y, c.transform.position.z) - Anchor;
-            //通过角度就算碰撞盒是否在扇形范围内
+            //通过角度计算碰撞盒是否在扇形范围内
             if (Vector3.Angle(toTarget, _forward) <= _angle / 2)
             {
                 result.Add(c);
