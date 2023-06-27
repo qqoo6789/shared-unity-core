@@ -42,6 +42,15 @@ public class DRRole : DataRowBase
     }
 
     /// <summary>
+  /**获取harvestSkill-int。*/
+    /// </summary>
+    public int HarvestSkill
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取initialAttribute-int[][]。*/
     /// </summary>
     public int[][] InitialAttribute
@@ -138,6 +147,7 @@ public class DRRole : DataRowBase
         int index = 0;
         BodyCapacity = DataTableParseUtil.ParseInt(columnStrings[index++]);
         GrasslandRunSound = DataTableParseUtil.ParseString(columnStrings[index++]);
+        HarvestSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         InitialAttribute = DataTableParseUtil.ParseArrayList<int>(columnStrings[index++]);
         JumpRollSkill = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -162,6 +172,7 @@ public class DRRole : DataRowBase
             {
                 BodyCapacity = binaryReader.Read7BitEncodedInt32();
                 GrasslandRunSound = binaryReader.ReadString();
+                HarvestSkill = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
                 InitialAttribute = binaryReader.ReadArrayList<Int32>();
                 JumpRollSkill = binaryReader.Read7BitEncodedInt32();
