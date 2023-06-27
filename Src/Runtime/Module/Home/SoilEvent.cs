@@ -19,4 +19,8 @@ public class SoilEvent : MonoBehaviour
     /// 被击中 T0:skillID
     /// </summary>
     public Action<int> OnBeHit;
+    /// <summary>
+    /// 开始收获特殊动画 T0:收获的实体
+    /// </summary>
+    public Action<EntityBase> StartHarvestSpecialAnim;
 }
