@@ -53,6 +53,7 @@ public class SENormalDamageCore : SkillEffectBase
                 RefEntity.EntityEvent.EntityBattleAddDamage?.Invoke(FromID, -EffectData.DamageValue.DeltaInt);
             }
         }
+        RefEntity.EntityEvent.EntityBeHit?.Invoke(SkillID);
     }
 
     public override DamageEffect CreateEffectData(EntityBase fromEntity, EntityBase targetEntity, InputSkillReleaseData inputData)
