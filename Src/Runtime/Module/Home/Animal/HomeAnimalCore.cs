@@ -192,7 +192,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
         else if (action == HarvestAction)//收获 能执行的都是手动收货的
         {
-            OnExecuteHarvest();
+            OnExecuteHarvest(action);
         }
     }
 
@@ -242,8 +242,9 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     /// <summary>
     /// 主动操作的收获
+    /// <param name="action">单一具体动作</param>
     /// </summary>
-    protected virtual void OnExecuteHarvest()
+    protected virtual void OnExecuteHarvest(eAction action)
     {
         if (Data.DRMonster.AutoHarvest)
         {
