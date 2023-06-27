@@ -22,11 +22,11 @@ public static class HomeDefine
     /// <summary>
     /// 持续性进度动作集合 比如浇水
     /// </summary>
-    public const eAction HOLD_PROGRESS_ACTION_MASK = eAction.Watering | eAction.Appease;
+    public const eAction HOLD_PROGRESS_ACTION_MASK = eAction.Watering | eAction.Appease | eAction.Shearing | eAction.Milking;
     /// <summary>
     /// 分段进度动作集合 比如砍树
     /// </summary>
-    public const eAction SEGMENT_PROGRESS_ACTION_MASK = eAction.Mowing | eAction.Mining | eAction.Cut | eAction.Shearing | eAction.Milking;
+    public const eAction SEGMENT_PROGRESS_ACTION_MASK = eAction.Mowing | eAction.Mining | eAction.Cut;
     /// <summary>
     /// 支持进度的动作集合
     /// </summary>
@@ -34,7 +34,7 @@ public static class HomeDefine
     /// <summary>
     /// 需要计算伤害的动作集合
     /// </summary>
-    public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ (eAction.Shearing | eAction.Milking);
+    public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ (0);
     /// <summary>
     /// 采集资源的动作集合
     /// </summary>
