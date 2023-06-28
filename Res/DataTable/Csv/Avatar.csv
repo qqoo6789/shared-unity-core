@@ -1,5 +1,6 @@
 id-int,resGirl-string,resIconGirl-string,avatarType-int,resBoy-string,resIconBoy-string
 19,boy_face,craft_scroll,,,
+163,,,,,
 109,,,1,full_skin/base,avatar-icon-skin-0
 110,,,1,full_skin/base-1,avatar-icon-skin-1
 111,,,1,full_skin/base-2,avatar-icon-skin-2
@@ -127,3 +128,10 @@ id-int,resGirl-string,resIconGirl-string,avatarType-int,resBoy-string,resIconBoy
 76,,,999,weapon/nongju/futou/boy_lv4_futou,
 103,,,999,weapon/boy_lv1_chuizi,
 104,,,999,weapon/boy_lv1_gongjian,
+166,,,999,weapon/nongju/liandao/boy_lv1_liandao,
+167,,,999,weapon/nongju/liandao/boy_lv2_liandao,
+173,,,999,weapon/nongju/liandao/boy_lv3_liandao,
+174,,,999,weapon/nongju/liandao/boy_lv4_liandao,
+175,,,999,weapon/nongju/liandao/boy_lv5_liandao,
+176,,,999,weapon/nongju/liandao/boy_lv6_liandao,
+177,,,999,weapon/nongju/liandao/boy_lv7_liandao,
