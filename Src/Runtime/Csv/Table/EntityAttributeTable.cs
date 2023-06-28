@@ -95,7 +95,7 @@ public class EntityAttributeTable
         {
             ExtraHarvestRate = eAttributeType.ExtraHarvestRate,
         };
-        _harvestAttributeClassifyMap.Add(HomeDefine.eAction.Harvest, harvest);
+        _harvestAttributeClassifyMap.Add(HomeDefine.eAction.SoilHarvest, harvest);
     }
 
     private void InitDamageAttributeClassify()
