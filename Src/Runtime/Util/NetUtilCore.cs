@@ -4,6 +4,8 @@
  * @FilePath /Assets/Plugins/SharedCore/Src/Runtime/Util/NetUtilCore.cs
  */
 using System;
+using System.Collections.Generic;
+using GameMessageCore;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -27,14 +29,14 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="location"></param>
     /// <returns></returns>
-    public static Vector3 LocFromNet(GameMessageCore.EntityLocation location)
+    public static UnityEngine.Vector3 LocFromNet(GameMessageCore.EntityLocation location)
     {
-        return new Vector3(location.Loc.X, location.Loc.Y, location.Loc.Z);
+        return new UnityEngine.Vector3(location.Loc.X, location.Loc.Y, location.Loc.Z);
     }
 
-    public static Vector3 LocFromNet(GameMessageCore.Vector3 location)
+    public static UnityEngine.Vector3 LocFromNet(GameMessageCore.Vector3 location)
     {
-        return new Vector3(location.X, location.Y, location.Z);
+        return new UnityEngine.Vector3(location.X, location.Y, location.Z);
     }
 
     /// <summary>
@@ -42,7 +44,7 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="clientPos"></param>
     /// <returns></returns>
-    public static GameMessageCore.EntityLocation LocToNet(Vector3 clientPos, int mapId = 0)
+    public static GameMessageCore.EntityLocation LocToNet(UnityEngine.Vector3 clientPos, int mapId = 0)
     {
         return new GameMessageCore.EntityLocation()
         {
@@ -56,7 +58,7 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="clientVector3"></param>
     /// <returns></returns>
-    public static GameMessageCore.Vector3 Vector3ToNet(Vector3 clientVector3)
+    public static GameMessageCore.Vector3 Vector3ToNet(UnityEngine.Vector3 clientVector3)
     {
         return new GameMessageCore.Vector3()
         {
@@ -71,11 +73,11 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="svrVector3"></param>
     /// <returns></returns>
-    public static Vector3 Vector3FromNet(GameMessageCore.Vector3 svrVector3)
+    public static UnityEngine.Vector3 Vector3FromNet(GameMessageCore.Vector3 svrVector3)
     {
         return svrVector3 == null
-        ? Vector3.zero
-        : new Vector3(svrVector3.X, svrVector3.Y, svrVector3.Z);
+        ? UnityEngine.Vector3.zero
+        : new UnityEngine.Vector3(svrVector3.X, svrVector3.Y, svrVector3.Z);
     }
 
     /// <summary>
@@ -83,16 +85,16 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="svrDir"></param>
     /// <returns></returns>
-    public static Vector3 DirFromNet(GameMessageCore.Vector3 svrDir)
+    public static UnityEngine.Vector3 DirFromNet(GameMessageCore.Vector3 svrDir)
     {
         if (svrDir == null)
         {
-            return Vector3.back;
+            return UnityEngine.Vector3.back;
         }
 
         if (svrDir.X.ApproximatelyEquals(0) && svrDir.Y.ApproximatelyEquals(0) && svrDir.Z.ApproximatelyEquals(0))
         {
-            return Vector3.back;
+            return UnityEngine.Vector3.back;
         }
 
         return Vector3FromNet(svrDir);
@@ -103,7 +105,7 @@ public static class NetUtilCore
     /// </summary>
     /// <param name="clientDir"></param>
     /// <returns></returns>
-    public static GameMessageCore.Vector3 DirToNet(Vector3 clientDir)
+    public static GameMessageCore.Vector3 DirToNet(UnityEngine.Vector3 clientDir)
     {
         return clientDir == null
             ? new GameMessageCore.Vector3()
@@ -128,4 +130,35 @@ public static class NetUtilCore
             Type = (GameMessageCore.CollectResourceType)resource.ResourceType
         };
     }
+
+    /// <summary>
+    /// 将实体和对应的多个具体效果转换为实体伤害服务器包
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="skillId"></param>
+    /// <param name="effects"></param>
+    /// <returns></returns>
+    public static EntityDamage AssembleEntityDamageNetMsg(EntityBase entity, int skillId, List<DamageEffect> effects)
+    {
+        if (entity == null || effects == null || effects.Count == 0)
+        {
+            return null;
+        }
+
+        EntityDamage entityDamage = new()
+        {
+            SkillId = skillId,
+            Entity = ToNetEntityId(entity.BaseData)
+        };
+        entityDamage.Effect.AddRange(effects);
+        return entityDamage;
+    }
+    public static EntityId ToNetEntityId(EntityBaseData data)
+    {
+        EntityId netEntityId = new();
+        netEntityId.Id = data.Id;
+        netEntityId.Type = data.Type;
+        return netEntityId;
+    }
+
 }

@@ -13,4 +13,5 @@ public class UseSkillParam
     public UseCollectResourceSkillInfo HomeSkillInfo;
     public UseSkillCostItem CostItem;
     public float AccumulateTime;
+    public int? RandomSeed;
 }

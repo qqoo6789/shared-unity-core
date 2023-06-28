@@ -170,13 +170,22 @@ public static partial class SkillUtil
                     }
                     effectData.EffectType = (GameMessageCore.DamageEffectId)skillEffect.EffectCfg.Id;
                     skillEffect.SetEffectData(effectData);
-                    skillEffect.SetUserData(inputData);
+                    skillEffect.SetInputData(inputData);
                     effects.Add(effectData);
-                    fromEntity.EntityEvent.BeforeGiveSkillEffect?.Invoke(targetEntity, effectData);
-                    targetEntity.EntityEvent.BeforeApplySkillEffect?.Invoke(effectData);
-                    effectCpt.ApplyOneEffect(skillEffect);//注意顺序，Effects如果是瞬间的，应用后会立即被清除
-                    fromEntity.EntityEvent.AfterGiveSkillEffect?.Invoke(targetEntity, effectData);
-                    targetEntity.EntityEvent.AfterApplySkillEffect?.Invoke(effectData);
+                    if (!inputData.IsPreRelease)
+                    {
+                        fromEntity.EntityEvent.BeforeGiveSkillEffect?.Invoke(targetEntity, effectData);
+                        targetEntity.EntityEvent.BeforeApplySkillEffect?.Invoke(effectData);
+                        effectCpt.ApplyOneEffect(skillEffect);//注意顺序，Effects如果是瞬间的，应用后会立即被清除
+                        fromEntity.EntityEvent.AfterGiveSkillEffect?.Invoke(targetEntity, effectData);
+                        targetEntity.EntityEvent.AfterApplySkillEffect?.Invoke(effectData);
+                    }
+                    else
+                    {
+                        skillEffect.PlayPreEffect(targetEntity);
+                        skillEffect.Dispose();
+                    }
+
                 }
                 else
                 {
@@ -191,7 +200,38 @@ public static partial class SkillUtil
         }
         return effects;
     }
+    /// <summary>
+    /// 实体技能效果执行
+    /// </summary>
+    /// <param name="inputData">输入数据</param>
+    /// <param name="effectList">效果列表</param>
+    /// <param name="fromEntity">释放实体</param>
+    /// <param name="targetEntity">目标实体</param>
+    /// <returns></returns>
+    public static List<GameMessageCore.DamageEffect> EntitySkillEffectExecuteMiss(InputSkillReleaseData inputData, EntityBase fromEntity, EntityBase targetEntity)
+    {
+        List<GameMessageCore.DamageEffect> effects = new();
 
+        try
+        {
+            GameMessageCore.DamageEffect effectData = SkillDamage.CreateSpecialDamageEffect(GameMessageCore.DamageState.Miss, targetEntity.BattleDataCore.HP, 0);
+            effects.Add(effectData);
+            if (inputData.IsPreRelease)
+            {
+                SkillEffectBase skillEffect = GFEntryCore.SkillEffectFactory.CreateOneSkillEffect(inputData.SkillID, TableDefine.DAMAGE_EFFECT_ID, fromEntity.BaseData.Id, targetEntity.BaseData.Id, 0);
+                skillEffect.SetEffectData(effectData);
+                skillEffect.SetInputData(inputData);
+                skillEffect.PlayPreEffect(targetEntity);
+                skillEffect.Dispose();
+            }
+        }
+        catch (System.Exception e)
+        {
+            Log.Error($"EntitySkillEffectExecuteMiss Error  = {inputData.SkillID}, error = {e}");
+        }
+
+        return effects;
+    }
     /// <summary>
     /// 实体技能效果取消
     /// </summary>
@@ -277,5 +317,10 @@ public static partial class SkillUtil
             eSkillEffectApplyType.CastEnemy => drSkill.EffectEnemy,
             _ => null,
         };
+    }
+
+    public static bool IsSceneDeath(GameMessageCore.DamageState dmgState)
+    {
+        return dmgState is GameMessageCore.DamageState.Fall or GameMessageCore.DamageState.WaterDrown;
     }
 }

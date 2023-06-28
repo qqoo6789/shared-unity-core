@@ -48,6 +48,16 @@ public class InputSkillReleaseData
     public float AccumulateTime { get; private set; }
 
     /// <summary>
+    /// 输入随机数
+    /// </summary>
+    public InputRandomData InputRandom;
+
+    /// <summary>
+    /// 是否为预释放
+    /// </summary>
+    public bool IsPreRelease;
+
+    /// <summary>
     /// 技能输入数据
     /// </summary>
     /// <param name="skillID">技能ID</param>
@@ -70,6 +80,7 @@ public class InputSkillReleaseData
             Log.Error("InputSkillReleaseData The skill ID was not found in the skill table:{0}", skillID);
             return;
         }
+        IsPreRelease = false;
     }
 
     public InputSkillReleaseData Clone()
@@ -92,5 +103,11 @@ public class InputSkillReleaseData
     public void SetTargetPos(Vector3 targetPos)
     {
         TargetPos = targetPos;
+    }
+
+    public void SetInputRandomSeed(int seed)
+    {
+        InputRandom ??= new InputRandomData();
+        InputRandom.SetInputRandomSeed(seed);
     }
 }

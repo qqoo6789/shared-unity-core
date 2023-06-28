@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-09-13 17:26:26
  * @Description: 战斗数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Entity/EntityBattleDataCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Entity/EntityBattleDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -92,6 +92,8 @@ public class EntityBattleDataCore : EntityBaseComponent
     private readonly Dictionary<BattleDefine.eBattleState, int> _battleStateMap = new();
 
     private PlayerAreaRecord _playerAreaRecord;
+
+    public int RandomSeed { get; private set; }
     private void Start()
     {
         _playerAreaRecord = GetComponent<PlayerAreaRecord>();
@@ -289,5 +291,14 @@ public class EntityBattleDataCore : EntityBaseComponent
             }
         }
         return true;
+    }
+
+    /// <summary>
+    /// 设置随机种子
+    /// </summary>
+    /// <param name="seed"></param>
+    public void SetRandomSeed(int seed)
+    {
+        RandomSeed = seed;
     }
 }
