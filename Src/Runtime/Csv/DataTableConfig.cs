@@ -32,6 +32,7 @@ public static class DataTableConfig
         "Seed",
         "Skill",
         "SkillEffect",
+        "SkillFlyer",
         "TalentTree",
         "Task",
         "TaskList",
