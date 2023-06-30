@@ -9,7 +9,7 @@ public class SoilLooseStatusCore : SoilStatusCore
 {
     public override eSoilStatus StatusFlag => eSoilStatus.Loose;
 
-    public override eAction SupportAction => eAction.Sowing;
+    public override eAction SupportAction => eAction.Sowing | eAction.Eradicate;
 
     protected override float AutoEnterNextStatusTime => TableUtil.GetGameValue(eGameValueID.soilFromLooseToIdleTime).Value;
 
@@ -17,6 +17,7 @@ public class SoilLooseStatusCore : SoilStatusCore
     {
         base.OnAutoEnterNextStatus();
 
+        SoilData.SetSoilFertile(0);
         ChangeState(eSoilStatus.Idle);
     }
     protected override void OnExecuteHomeAction(eAction action, object actionData)
@@ -25,13 +26,21 @@ public class SoilLooseStatusCore : SoilStatusCore
 
         try
         {
-            (int seedCid, bool sowingValid) = ((int, bool))actionData;
-            SoilData.SetSeedCid(seedCid, sowingValid);
-            ChangeState(eSoilStatus.SeedThirsty);
+            if (action == eAction.Sowing)
+            {
+                (int seedCid, bool sowingValid) = ((int, bool))actionData;
+                SoilData.SetSeedCid(seedCid, sowingValid);
+                ChangeState(eSoilStatus.SeedThirsty);
+            }
+            else if (action == eAction.Eradicate)
+            {
+                SoilData.SetSoilFertile(0);
+                ChangeState(eSoilStatus.Idle);
+            }
         }
         catch (System.Exception e)
         {
-            Log.Error($"播种失败 actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
+            Log.Error($"松土上动作错误 action:{action} actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
         }
     }
 }

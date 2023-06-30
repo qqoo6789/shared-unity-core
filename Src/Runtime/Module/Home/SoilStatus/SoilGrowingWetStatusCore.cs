@@ -15,10 +15,10 @@ public class SoilGrowingWetStatusCore : SoilStatusCore
     {
         base.OnAutoEnterNextStatus();
 
-        int growStage = SoilData.SaveData.GrowingStage;
+        int growStage = SoilData.SaveData.SeedData.GrowingStage;
         if (growStage >= SoilData.SeedGrowStageNum - 1)//成熟了
         {
-            ChangeState(SoilData.SaveData.SowingValid ? eSoilStatus.Harvest : eSoilStatus.RotHarvest);
+            ChangeState(SoilData.SaveData.SeedData.SowingValid ? eSoilStatus.Harvest : eSoilStatus.RotHarvest);
         }
         else
         {
@@ -33,7 +33,7 @@ public class SoilGrowingWetStatusCore : SoilStatusCore
 
         if (action == eAction.Eradicate)
         {
-            SoilData.ClearAllData();
+            SoilData.ClearSeedData();
             ChangeState(eSoilStatus.Loose);
         }
     }

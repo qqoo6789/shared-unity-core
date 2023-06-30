@@ -24,9 +24,9 @@ public static class HomeDefine
     /// </summary>
     public const eAction HOLD_PROGRESS_ACTION_MASK = eAction.Watering | eAction.Appease;
     /// <summary>
-    /// 分段进度动作集合 比如锄地
+    /// 分段进度动作集合 比如砍树
     /// </summary>
-    public const eAction SEGMENT_PROGRESS_ACTION_MASK = eAction.Hoeing | eAction.Mining | eAction.Cut | eAction.Shearing | eAction.Milking;
+    public const eAction SEGMENT_PROGRESS_ACTION_MASK = eAction.Mowing | eAction.Mining | eAction.Cut | eAction.Shearing | eAction.Milking;
     /// <summary>
     /// 支持进度的动作集合
     /// </summary>
@@ -34,7 +34,11 @@ public static class HomeDefine
     /// <summary>
     /// 需要计算伤害的动作集合
     /// </summary>
-    public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ (eAction.Hoeing | eAction.Shearing | eAction.Milking);
+    public const eAction NEED_CALCULATE_DAMAGE_ACTION_MASK = SEGMENT_PROGRESS_ACTION_MASK ^ (eAction.Shearing | eAction.Milking);
+    /// <summary>
+    /// 采集资源的动作集合
+    /// </summary>
+    public const eAction COLLECT_RESOURCE_ACTION_MASK = eAction.Mowing | eAction.Cut | eAction.Mining;
 
 
     #region 畜牧动物
@@ -55,9 +59,9 @@ public static class HomeDefine
     /// </summary>
     public const string ANIMAL_DEATH_DIALOG_CONVERSATION_NAME = "DeathDialog";
     /// <summary>
-    /// 动物可以收获的进度值
+    /// 动物收获进度最大值的表现单位 可以是10000 也可以是1
     /// </summary>
-    public const int ANIMAL_CAN_HARVEST_PROCESS = 100;
+    public const int ANIMAL_HARVEST_PROCESS_MAX_UNIT = 10000;
     /// <summary>
     /// 动物离主角多近时可以显示状态图标
     /// </summary>
@@ -144,9 +148,9 @@ public static class HomeDefine
         /// </summary>
         Manure = 1 << 4,
         /// <summary>
-        /// 收获收割（没有进度）
+        /// 割草
         /// </summary>
-        Harvest = 1 << 5,
+        Mowing = 1 << 5,
         /// <summary>
         /// 斧头砍树（有进度）
         /// </summary>
@@ -179,6 +183,10 @@ public static class HomeDefine
         /// 喂养 目前只是兼容一下进度界面需要饥饿状态 没有实际意义
         /// </summary>
         Feeding = 1 << 14,
+        /// <summary>
+        /// 作物收获
+        /// </summary>
+        Harvest = 1 << 15,
         /// <summary>
         /// 攻击敌人 怪物 boss（这个给伤害计算分类用的 家园并不使用）
         /// </summary>

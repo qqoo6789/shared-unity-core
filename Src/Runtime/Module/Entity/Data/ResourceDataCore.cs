@@ -26,6 +26,13 @@ public class ResourceDataCore : EntityBaseComponent
         {
             Log.Error($"Can not find DRHomeResources cfg id:{cfgID}");
         }
+        else
+        {
+            EntityAttributeData attributeData = GetComponent<EntityAttributeData>();
+            attributeData.SetBaseValue(eAttributeType.GrassDef, DRHomeResources.GrassDef);
+            attributeData.SetBaseValue(eAttributeType.TreeDef, DRHomeResources.TreeDef);
+            attributeData.SetBaseValue(eAttributeType.OreDef, DRHomeResources.OreDef);
+        }
     }
 
     public void SetSaveData(HomeResourcesPointSaveData saveData)

@@ -114,14 +114,25 @@ public class EntityAttributeTable
         };
         _damageAttributeClassifyMap.Add(HomeDefine.eAction.AttackEnemy, attack);
 
+        //割草
+        TableHomeDamageAttribute mowingGrass = new()
+        {
+            Att = eAttributeType.GrassAtt,
+            Def = eAttributeType.GrassDef,
+            DmgBonus = eAttributeType.GrassDmgBonus,
+            CritRate = eAttributeType.GrassCritRate,
+            CritDmg = eAttributeType.GrassCritDmg,
+        };
+        _damageAttributeClassifyMap.Add(HomeDefine.eAction.Mowing, mowingGrass);
+
         //砍树
         TableHomeDamageAttribute cutTree = new()
         {
             Att = eAttributeType.TreeAtt,
+            Def = eAttributeType.TreeDef,
             DmgBonus = eAttributeType.TreeDmgBonus,
             CritRate = eAttributeType.TreeCritRate,
             CritDmg = eAttributeType.TreeCritDmg,
-            AvailableLv = eAttributeType.TreeAvailableLv,
         };
         _damageAttributeClassifyMap.Add(HomeDefine.eAction.Cut, cutTree);
 
@@ -129,11 +140,12 @@ public class EntityAttributeTable
         TableHomeDamageAttribute mining = new()
         {
             Att = eAttributeType.OreAtt,
+            Def = eAttributeType.OreDef,
             DmgBonus = eAttributeType.OreDmgBonus,
             CritRate = eAttributeType.OreCritRate,
             CritDmg = eAttributeType.OreCritDmg,
-            AvailableLv = eAttributeType.OreAvailableLv,
         };
+
         _damageAttributeClassifyMap.Add(HomeDefine.eAction.Mining, mining);
     }
 }

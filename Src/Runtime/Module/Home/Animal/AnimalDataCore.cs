@@ -32,9 +32,24 @@ public class AnimalDataCore : MonoBehaviour
     public AnimalSaveData SaveData => _saveData;
 
     /// <summary>
+    /// 动物收获最大时间 秒
+    /// </summary>
+    public float HarvestMaxTime;
+
+    /// <summary>
     /// 是否能收获
     /// </summary>
-    public bool IsCanHarvest => _saveData.HarvestProgress >= HomeDefine.ANIMAL_CAN_HARVEST_PROCESS;
+    public bool IsCanHarvest => _saveData.HarvestProgress >= HomeDefine.ANIMAL_HARVEST_PROCESS_MAX_UNIT;
+
+    /// <summary>
+    /// 幸福值是否有效
+    /// </summary>
+    public bool IsHappyValid => _saveData.Happiness > 0 && _saveData.Happiness >= DRMonster.RequiredHappiness;
+
+    /// <summary>
+    /// 是否饥饿状态
+    /// </summary>
+    public bool IsHunger => SaveData.HungerProgress <= 0;
 
     /// <summary>
     /// 好感度改变事件 T0:更改后好感度
@@ -75,5 +90,73 @@ public class AnimalDataCore : MonoBehaviour
                 HungerProgress = DRMonster.MaxHunger
             };
         }
+
+        SetHappiness(_saveData.Happiness);
+    }
+
+    /// <summary>
+    /// 设置动物快乐值 如果之前有的话 会退回给系统
+    /// </summary>
+    /// <param name="happiness"></param>
+    internal void SetHappiness(int happiness)
+    {
+        if (SaveData.Happiness > 0)//需要返回快乐值
+        {
+            MessageCore.HomeUsedAnimalHappyChanged.Invoke(SaveData.AnimalId, -SaveData.Happiness);
+            SaveData.Happiness = 0;
+        }
+
+        SaveData.Happiness = happiness;
+        if (happiness > 0)
+        {
+            MessageCore.HomeUsedAnimalHappyChanged.Invoke(SaveData.AnimalId, happiness);
+        }
+
+        //当前进度比例不变 但是最大值变了 后面的进度根据新的最大值来计算
+        UpdateMaxHarvestTime();
+    }
+
+    private void UpdateMaxHarvestTime()
+    {
+        if (IsHappyValid)
+        {
+            int remainHappy = SaveData.Happiness - DRMonster.RequiredHappiness;
+            remainHappy = Mathf.Max(remainHappy, 1);
+            HarvestMaxTime = (float)DRMonster.BreedingDifficulty / remainHappy * TableUtil.GetGameValue(eGameValueID.AnimalHarvestTimeRate).Value;
+        }
+        else
+        {
+            HarvestMaxTime = 0;
+        }
+    }
+
+    /// <summary>
+    /// 收获后需要清理的数据
+    /// </summary>
+    public void ClearDataAfterHarvest()
+    {
+        SetHappiness(0);
+        SaveData.SetHarvestProgress(0);
+        SaveData.IsComforted = false;
+    }
+
+    /// <summary>
+    /// 获取下一次收获的时间 秒 无效时返回-1
+    /// </summary>
+    /// <returns></returns>
+    public float GetNextHarvestTime()
+    {
+        if (IsHunger)
+        {
+            return -1f;
+        }
+
+        if (!IsHappyValid)
+        {
+            return -1f;
+        }
+
+        float remainProgress = 1 - (SaveData.HarvestProgress / HomeDefine.ANIMAL_HARVEST_PROCESS_MAX_UNIT);
+        return Mathf.Max(HarvestMaxTime * remainProgress, 0);
     }
 }

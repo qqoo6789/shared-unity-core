@@ -34,6 +34,11 @@ public abstract class HomeModuleCore : MonoBehaviour
     /// </summary>
     /// <value></value>
     public static HomeAnimalScene AnimalScene { get; private set; }
+    /// <summary>
+    /// 家园数据core
+    /// </summary>
+    /// <value></value>
+    public static HomeDataCore HomeData { get; protected set; }
 
     private void Start()
     {

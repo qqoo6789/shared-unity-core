@@ -15,7 +15,8 @@ public class SoilWitheredStatusCore : SoilStatusCore
     {
         base.OnExecuteHomeAction(action, actionData);
 
-        SoilData.ClearAllData();
+        SoilData.ClearSeedData();
+        SoilData.SetSoilFertile(0);
         ChangeState(eSoilStatus.Idle);
     }
 }

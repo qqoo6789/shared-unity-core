@@ -1,4 +1,6 @@
+using Newtonsoft.Json;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 using static HomeDefine;
 
 /// <summary>
@@ -52,24 +54,26 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         return GetCurStatus().CheckSupportAction(action);
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
+    public void ExecuteAction(eAction action, int toolCid, int skillId, object actionData)
     {
-        if (action == eAction.Sowing)
+        try
         {
-            SoilEvent.MsgExecuteAction?.Invoke(eAction.Sowing, (toolCid, itemValid));
+            if (action == eAction.Sowing)
+            {
+                SoilEvent.MsgExecuteAction?.Invoke(eAction.Sowing, (toolCid, (bool)actionData));
+            }
+            else if (action == eAction.Manure)
+            {
+                SoilEvent.MsgExecuteAction?.Invoke(eAction.Manure, (toolCid, (bool)actionData));
+            }
+            else
+            {
+                SoilEvent.MsgExecuteAction?.Invoke(action, actionData);
+            }
         }
-        else if (action == eAction.Manure)
+        catch (System.Exception)
         {
-            SoilEvent.MsgExecuteAction?.Invoke(eAction.Manure, (toolCid, itemValid));
-        }
-        else
-        {
-            SoilEvent.MsgExecuteAction?.Invoke(action, null);
-        }
-
-        if (action == eAction.Watering && extraWateringNum > 0)
-        {
-            SoilData.SaveData.ExtraWateringNum = extraWateringNum;
+            Log.Error($"土地执行动作失败 action:{action} toolCid:{toolCid} skillId:{skillId} actionData:{JsonConvert.SerializeObject(actionData)}");
         }
 
         if ((action & PROGRESS_ACTION_MASK) == 0)//非进度的动作 因为进度动作 在执行动作前会执行进度动作 已经触发过了

@@ -56,6 +56,8 @@ public enum eGameValueID
     animalHeartShowMaxNum = 23,
     captureRopeMaxLen = 24,
     captureTrapTime = 25,
+    SoilGrowTimeRate = 26,
+    AnimalHarvestTimeRate = 27,
 }
 
 // public static class GameValueID

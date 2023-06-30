@@ -15,7 +15,7 @@ public class SoilSeedThirstyStatusCore : SoilStatusCore
         get
         {
             eAction res = eAction.Watering | eAction.Eradicate;
-            if (SoilData.SaveData.ManureCid <= 0)//如果没有施过肥可以施肥
+            if (SoilData.SaveData.SeedData.ManureCid <= 0)//如果没有施过肥可以施肥
             {
                 res |= eAction.Manure;
             }
@@ -45,11 +45,24 @@ public class SoilSeedThirstyStatusCore : SoilStatusCore
 
         if (action == eAction.Watering)
         {
+            try
+            {
+                int extraWateringNum = (int)actionData;
+                if (extraWateringNum > 0)
+                {
+                    SoilData.SaveData.SeedData.ExtraWateringNum = extraWateringNum;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Log.Error($"种子干涸时浇水有错误 actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
+            }
+
             ChangeState(eSoilStatus.SeedWet);
         }
         else if (action == eAction.Eradicate)
         {
-            SoilData.ClearAllData();
+            SoilData.ClearSeedData();
             ChangeState(eSoilStatus.Loose);
         }
         else if (action == eAction.Manure)

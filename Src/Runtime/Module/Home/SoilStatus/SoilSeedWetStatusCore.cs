@@ -14,7 +14,7 @@ public class SoilSeedWetStatusCore : SoilGrowingWetStatusCore
         get
         {
             eAction res = base.SupportAction;
-            if (SoilData.SaveData.ManureCid <= 0)//如果没有施过肥可以施肥
+            if (SoilData.SaveData.SeedData.ManureCid <= 0)//如果没有施过肥可以施肥
             {
                 res |= eAction.Manure;
             }

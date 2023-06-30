@@ -1,4 +1,3 @@
-using UnityEngine;
 using GameFramework.Fsm;
 using GameFramework;
 using UnityGameFramework.Runtime;
@@ -8,6 +7,9 @@ using UnityGameFramework.Runtime;
 /// </summary>
 public class EntityStatusCtrl : EntityBaseComponent
 {
+#if UNITY_EDITOR
+    public string FsmName;
+#endif
     private EntityEvent _entityEvent;//缓存实体上的事件组件 节省性能
 
     /// <summary>
@@ -43,6 +45,13 @@ public class EntityStatusCtrl : EntityBaseComponent
         }
         _entityEvent = null;
     }
+
+#if UNITY_EDITOR
+    private void LateUpdate()
+    {
+        FsmName = Fsm?.CurrentState?.StatusName ?? "error";
+    }
+#endif
 
     /// <summary>
     /// 初始化状态机 需要给定固定的状态实例

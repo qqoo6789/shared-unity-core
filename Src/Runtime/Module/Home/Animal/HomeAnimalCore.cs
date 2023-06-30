@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using static HomeDefine;
@@ -46,6 +47,12 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         {
             HarvestAction = TableUtil.ToHomeAction(Data.DRMonster.HarvestAction);
             SupportAction |= HarvestAction;//收获动作添加到支持列表
+
+            if (Data.DRMonster.AutoHarvest)
+            {
+                //https://codingmonkey.feishu.cn/docx/BgbRdOKxPo25mEx8apNcH65enlf
+                Log.Error($"动物目前不能再配置自动收获 cid:{Data.BaseData.Cid}");
+            }
         }
         else
         {
@@ -92,17 +99,29 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
 
     private void TickHarvest()
     {
-        if (Data.SaveData.HungerProgress > 0)
+        //饥饿
+        if (Data.IsHunger)
         {
-            bool oldCanHarvest = Data.IsCanHarvest;
-            float addHarvestProgress = Time.deltaTime / Data.DRMonster.HarvestTime * 100;//配置的是多少秒收获能收获 这个收获进度时百分比0~100
-            Data.SaveData.SetHarvestProgress(Data.SaveData.HarvestProgress + addHarvestProgress);
-            if (Data.IsCanHarvest != oldCanHarvest && Data.IsCanHarvest)
+            return;
+        }
+
+        //幸福值太低
+        if (Data.IsHappyValid == false)
+        {
+            return;
+        }
+
+        bool oldCanHarvest = Data.IsCanHarvest;
+        float curTime = Data.SaveData.HarvestProgress / ANIMAL_HARVEST_PROCESS_MAX_UNIT * Data.HarvestMaxTime;
+        float targetTime = curTime + Time.deltaTime;
+        float targetProgress = targetTime / Data.HarvestMaxTime * ANIMAL_HARVEST_PROCESS_MAX_UNIT;
+        Data.SaveData.SetHarvestProgress(targetProgress);
+
+        if (Data.IsCanHarvest != oldCanHarvest && Data.IsCanHarvest)
+        {
+            if (!Data.DRMonster.AutoHarvest)
             {
-                if (!Data.DRMonster.AutoHarvest)
-                {
-                    OnEnterHarvestStatus(false);
-                }
+                OnEnterHarvestStatus(false);
             }
         }
     }
@@ -184,11 +203,19 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
     }
 
-    public void ExecuteAction(eAction action, int toolCid, bool itemValid, int extraWateringNum, int skillId)
+    public void ExecuteAction(eAction action, int toolCid, int skillId, object actionData)
     {
         if (action == eAction.Appease)//安抚
         {
-            OnExecuteAppease(Data.SaveData.IsComforted == false);
+            try
+            {
+                int usedHappy = (int)actionData;
+                OnExecuteAppease(Data.SaveData.IsComforted == false, usedHappy);
+            }
+            catch (System.Exception e)
+            {
+                Log.Error($"安抚动物异常 actionData:{JsonConvert.SerializeObject(actionData)} error:{e}");
+            }
         }
         else if (action == HarvestAction)//收获 能执行的都是手动收货的
         {
@@ -229,7 +256,8 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     /// 抚摸操作
     /// </summary>
     /// <param name="appeaseValid">是否有效抚摸 无效代表一个成熟阶段重复抚摸</param>
-    protected virtual void OnExecuteAppease(bool appeaseValid)
+    /// <param name="usedHappy">抚摸使用的的幸福值</param>
+    protected virtual void OnExecuteAppease(bool appeaseValid, int usedHappy)
     {
         if (appeaseValid)
         {
@@ -238,6 +266,8 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             Data.MsgFavorabilityChanged?.Invoke(Data.BaseData.Favorability);
         }
         gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, TableUtil.GetGameValue(eGameValueID.animalAppeaseMaxActionValue).Value);
+
+        Data.SetHappiness(usedHappy);
     }
 
     /// <summary>
@@ -252,8 +282,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             return;
         }
 
-        Data.SaveData.SetHarvestProgress(0);
-        Data.SaveData.IsComforted = false;
+        Data.ClearDataAfterHarvest();
         gameObject.GetComponent<HomeActionProgressData>().StartProgressAction(eAction.Appease, TableUtil.GetGameValue(eGameValueID.animalAppeaseMaxActionValue).Value);
     }
 

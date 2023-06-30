@@ -20,7 +20,7 @@ public class AnimalSaveData
     /// </summary>
     public long LastCompleteHungerStamp;
     /// <summary>
-    /// 收获进度 0~100 代表进度百分比值 成长进度 进度满了后就可以收获了
+    /// 收获进度 0~ANIMAL_HARVEST_PROCESS_MAX_UNIT 为什么用比例因为新需求设置幸福值保留收获比例 为什么目前用10000 提升保存精度 防止统一截取浮点小数位
     /// </summary>
     public float HarvestProgress = 0;
     /// <summary>
@@ -31,6 +31,10 @@ public class AnimalSaveData
     /// 动物已经死亡
     /// </summary>
     public bool IsDead;
+    /// <summary>
+    /// 当前幸福值
+    /// </summary>
+    public int Happiness;
     /// <summary>
     /// 如果有自动生产的产品在场景中 这里就有数据
     /// </summary>
@@ -53,6 +57,7 @@ public class AnimalSaveData
         HarvestProgress = data.HarvestProgress;
         IsComforted = data.IsComforted;
         IsDead = data.IsDead;
+        Happiness = data.Happiness;
 
         ProductSaveData = data.ProductData == null ? null : new AnimalProductSaveData(data.ProductData);
     }
@@ -62,10 +67,11 @@ public class AnimalSaveData
         ProxyAnimalData data = new()
         {
             AnimalId = AnimalId,
-            HungerProgress = Mathf.CeilToInt(HungerProgress),
-            HarvestProgress = Mathf.CeilToInt(HarvestProgress),
+            HungerProgress = HungerProgress,
+            HarvestProgress = HarvestProgress,
             IsComforted = IsComforted,
             IsDead = IsDead,
+            Happiness = Happiness,
 
             ProductData = ProductSaveData?.ToProxyAnimalData()
         };
@@ -74,10 +80,10 @@ public class AnimalSaveData
     }
 
     /// <summary>
-    /// 统一设置饥饿进度 0~100
+    /// 统一设置饥饿进度 0~ANIMAL_HARVEST_PROCESS_MAX_UNIT
     /// </summary>
     public void SetHarvestProgress(float progress)
     {
-        HarvestProgress = Mathf.Clamp(progress, 0, HomeDefine.ANIMAL_CAN_HARVEST_PROCESS);
+        HarvestProgress = Mathf.Clamp(progress, 0, HomeDefine.ANIMAL_HARVEST_PROCESS_MAX_UNIT);
     }
 }
