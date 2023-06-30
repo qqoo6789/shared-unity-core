@@ -21,6 +21,10 @@ public class InputSkillReleaseData
     /// </summary>
     public DRSkill DRSkill { get; private set; }
     /// <summary>
+    /// 技能飞行物配置
+    /// </summary>
+    public DRSkillFlyer DRSkillFlyer { get; private set; }
+    /// <summary>
     /// 目标方向
     /// </summary>
     public Vector3 Dir { get; private set; }
@@ -80,6 +84,12 @@ public class InputSkillReleaseData
             Log.Error("InputSkillReleaseData The skill ID was not found in the skill table:{0}", skillID);
             return;
         }
+        DRSkillFlyer = GFEntryCore.DataTable.GetDataTable<DRSkillFlyer>().GetDataRow(DRSkill.SkillFlyerId);
+        if (DRSkillFlyer == null)
+        {
+            Log.Error("InputSkillReleaseData The SkillFlyer ID was not found in the skill table:{0}", DRSkill.SkillFlyerId);
+            return;
+        }
         IsPreRelease = false;
     }
 
@@ -94,15 +104,6 @@ public class InputSkillReleaseData
             CostItem,
             AccumulateTime
         );
-    }
-
-    /// <summary>
-    /// 设置目标位置
-    /// </summary>
-    /// <param name="targetPos"></param>
-    public void SetTargetPos(Vector3 targetPos)
-    {
-        TargetPos = targetPos;
     }
 
     public void SetInputRandomSeed(int seed)

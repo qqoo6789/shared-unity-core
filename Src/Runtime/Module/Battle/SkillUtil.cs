@@ -117,6 +117,62 @@ public static partial class SkillUtil
     }
 
     /// <summary>
+    /// 射线搜索目标列表, 可能为null
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="dir"></param>
+    /// <param name="maxDist"></param>
+    /// <param name="targetLayer"></param>
+    /// <param name="blockLayer"></param>
+    /// </summary>
+    public static EntityBase RaySearchTargetEntityList(Vector3 startPos, Vector3 dir, float maxDist, int targetLayer, int blockLayer)
+    {
+
+        if (Physics.Raycast(startPos, dir, out RaycastHit hit, maxDist, targetLayer | blockLayer))
+        {
+            if ((targetLayer & (1 << hit.collider.gameObject.layer)) > 0)
+            {
+                if (hit.collider.gameObject.TryGetComponent(out EntityReferenceData refData))
+                {
+                    if (refData.Entity != null)
+                    {
+                        return refData.Entity;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// 射线搜索目标列表, 可能为null
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="dir"></param>
+    /// <param name="maxDist"></param>
+    /// <param name="targetLayer"></param>
+    /// <param name="blockLayer"></param>
+    /// </summary>
+    public static List<EntityBase> RayAllSearchTargetEntityList(Vector3 startPos, Vector3 dir, float maxDist, int targetLayer, int blockLayer)
+    {
+        RaycastHit[] hitList = Physics.RaycastAll(startPos, dir, maxDist, targetLayer | blockLayer);
+        List<EntityBase> entityList = new();
+        for (int i = 0; i < hitList.Length; i++)
+        {
+            if ((targetLayer & (1 << hitList[i].collider.gameObject.layer)) > 0)
+            {
+                if (hitList[i].collider.gameObject.TryGetComponent(out EntityReferenceData refData))
+                {
+                    if (refData.Entity != null)
+                    {
+                        entityList.Add(refData.Entity);
+                    }
+                }
+            }
+        }
+        return entityList;
+    }
+    /// <summary>
     /// 计算技能CD
     /// </summary>
     /// <param name="skillID"></param>
