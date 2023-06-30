@@ -87,15 +87,6 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取flyType-int。*/
-    /// </summary>
-    public int FlyType
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取forwardReleaseTime-int。*/
     /// </summary>
     public int ForwardReleaseTime
@@ -330,36 +321,27 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取flyAvatar-string。*/
+  /**获取skillAlertEffect-string。*/
     /// </summary>
-    public string FlyAvatar
+    public string SkillAlertEffect
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取flyDistance-int。*/
+  /**获取skillFlyerId-int。*/
     /// </summary>
-    public int FlyDistance
+    public int SkillFlyerId
     {
         get;
         private set;
     }
 
     /// <summary>
-  /**获取flySpeed-int。*/
+  /**获取skillFlyerNum-int。*/
     /// </summary>
-    public int FlySpeed
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取flyTime-int。*/
-    /// </summary>
-    public int FlyTime
+    public int SkillFlyerNum
     {
         get;
         private set;
@@ -440,7 +422,6 @@ public class DRSkill : DataRowBase
         AttackCanMove = DataTableParseUtil.ParseBool(columnStrings[index++]);
         EffectEnemy = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectForward = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        FlyType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ForwardReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         IsAccuSkill = DataTableParseUtil.ParseBool(columnStrings[index++]);
@@ -468,10 +449,9 @@ public class DRSkill : DataRowBase
         ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
-        FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        FlySpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        FlyTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        SkillAlertEffect = DataTableParseUtil.ParseString(columnStrings[index++]);
+        SkillFlyerId = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        SkillFlyerNum = DataTableParseUtil.ParseInt(columnStrings[index++]);
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
@@ -497,7 +477,6 @@ public class DRSkill : DataRowBase
                 AttackCanMove = binaryReader.ReadBoolean();
                 EffectEnemy = binaryReader.ReadArray<Int32>();
                 EffectForward = binaryReader.ReadArray<Int32>();
-                FlyType = binaryReader.Read7BitEncodedInt32();
                 ForwardReleaseTime = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
                 IsAccuSkill = binaryReader.ReadBoolean();
@@ -525,10 +504,9 @@ public class DRSkill : DataRowBase
                 ReleaseEff = binaryReader.ReadString();
                 HitEff = binaryReader.ReadString();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
-                FlyAvatar = binaryReader.ReadString();
-                FlyDistance = binaryReader.Read7BitEncodedInt32();
-                FlySpeed = binaryReader.Read7BitEncodedInt32();
-                FlyTime = binaryReader.Read7BitEncodedInt32();
+                SkillAlertEffect = binaryReader.ReadString();
+                SkillFlyerId = binaryReader.Read7BitEncodedInt32();
+                SkillFlyerNum = binaryReader.Read7BitEncodedInt32();
                 AccuEff = binaryReader.Read7BitEncodedInt32();
                 EffectInit = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();

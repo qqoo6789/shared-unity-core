@@ -9,6 +9,7 @@ public abstract class SkillFlyerCore : MonoBehaviour
     public int FlyerID { get; private set; }
     public long FormEntityID { get; private set; }
     public DRSkill DRSkill { get; private set; }
+    public DRSkillFlyer DRSkillFlyer { get; private set; }
     public long TargetEntityID { get; private set; }//没有为-1
     public Vector3? FlyEndPos { get; private set; }//没有为Null
 
@@ -17,7 +18,7 @@ public abstract class SkillFlyerCore : MonoBehaviour
         FlyerID = flyerID;
         FormEntityID = formEntityID;
         DRSkill = drSkill;
-
+        DRSkillFlyer = GFEntryCore.DataTable.GetDataTable<DRSkillFlyer>().GetDataRow(drSkill.SkillFlyerId);
         OnInit();
     }
 
