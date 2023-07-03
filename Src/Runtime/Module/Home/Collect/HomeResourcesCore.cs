@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using static HomeDefine;
@@ -86,8 +87,14 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
             return;
         }
 
+        OnExecuteAction(action, skillId);
+
         IsDead = true;
         OnDeath();
+    }
+
+    protected virtual void OnExecuteAction(eAction action, int skillId)
+    {
     }
 
     public virtual void ExecuteProgress(eAction targetCurAction, int skillId)
