@@ -97,7 +97,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     {
     }
 
-    public virtual void ExecuteProgress(eAction targetCurAction, int skillId)
+    public virtual void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit)
     {
 
     }
