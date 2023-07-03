@@ -379,4 +379,41 @@ public static partial class SkillUtil
     {
         return dmgState is GameMessageCore.DamageState.Fall or GameMessageCore.DamageState.WaterDrown;
     }
+
+    /// <summary>
+    /// 计算飞行物花费时间
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="endPos"></param>
+    /// <param name="skillCfg"></param>
+    /// <returns>(花费时间，最终位置)</returns>
+    public static (float, Vector3) CalcFlyCostTime(Vector3 startPos, Vector3 endPos, DRSkillFlyer skillFlyerCfg)
+    {
+        //固定时间
+        if (skillFlyerCfg.FlyTime > 0)
+        {
+            return (skillFlyerCfg.FlyTime * TimeUtil.MS2S, endPos);
+        }
+
+        //固定速度
+        float flySpeed = 1;
+        if (skillFlyerCfg.FlySpeed > 0)
+        {
+            flySpeed = skillFlyerCfg.FlySpeed * MathUtilCore.CM2M;
+        }
+        else
+        {
+            Log.Error($"技能:{skillFlyerCfg.Id} 发射飞行物时，配置的飞行速度{skillFlyerCfg.FlySpeed}不合法");
+        }
+        float distance = Vector3.Distance(startPos, endPos);
+        float maxDist = skillFlyerCfg.FlyDistance * MathUtilCore.CM2M;
+        Vector3 finalPos = endPos;
+        if (distance > maxDist)
+        {
+            distance = maxDist;
+            finalPos = startPos + (endPos - startPos).normalized * maxDist;
+        }
+        float costTime = distance / flySpeed;
+        return (costTime, finalPos);
+    }
 }

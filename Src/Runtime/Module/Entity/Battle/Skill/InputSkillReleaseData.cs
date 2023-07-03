@@ -85,11 +85,6 @@ public class InputSkillReleaseData
             return;
         }
         DRSkillFlyer = GFEntryCore.DataTable.GetDataTable<DRSkillFlyer>().GetDataRow(DRSkill.SkillFlyerId);
-        if (DRSkillFlyer == null)
-        {
-            Log.Error("InputSkillReleaseData The SkillFlyer ID was not found in the skill table:{0}", DRSkill.SkillFlyerId);
-            return;
-        }
         IsPreRelease = false;
     }
 
