@@ -6,9 +6,9 @@ using UnityEngine;
 /// </summary>
 public class CharacterMoveCtrl : EntityBaseComponent
 {
-    private const float AIR_FRICTION = 0f;//空中下落摩擦力
+    private const float AIR_HORIZONTAL_FRICTION = 0.3f;//浮空时水平上的阻力 可以减少翻滚技能等的滑行距离 体验更加友好 每秒减少的比例
 
-    // private const float AIR_CONTROL = 0f;//空中下落时的水平移动控制系数
+    private const float AIR_CONTROL = 3f;//空中下落时的水平移动控制系数 每秒减少的速度
 
     private Mover _mover;
 
@@ -162,19 +162,18 @@ public class CharacterMoveCtrl : EntityBaseComponent
     {
         Vector3 velocity = _lastVelocity;
 
-        //这里在ECM2插件下是好的  在现在的CMF插件下会导致角色浮空容易瞬移到无穷远的地方 原因未知  功能现在不需要 先不搞
-        // //有外部移动 水平上根据系数调整速度
-        // if (MoveSpeed != Vector3.zero)
-        // {
-        //     Vector3 horizontalVelocity = Vector3.MoveTowards(velocity.OnlyXZ(), MoveSpeed.OnlyXZ(), AIR_CONTROL * Time.deltaTime);
-        //     velocity = horizontalVelocity + velocity.OnlyY();
-        // }
-
         //加重力
         velocity += Physics.gravity * Time.deltaTime;
 
-        //加上摩擦力
-        velocity -= AIR_FRICTION * Time.deltaTime * velocity;
+        if (MoveDefine.ENABLE_MOVE_IN_AIR)
+        {
+            Vector3 horizontalVelocity = Vector3.MoveTowards(velocity.OnlyXZ(), MoveSpeed.OnlyXZ(), AIR_CONTROL * Time.deltaTime);
+
+            velocity = horizontalVelocity + velocity.OnlyY();
+
+            //加上水平摩擦力
+            velocity -= AIR_HORIZONTAL_FRICTION * Time.deltaTime * velocity.OnlyXZ();
+        }
 
         _lastVelocity = velocity;
     }
@@ -206,11 +205,11 @@ public class CharacterMoveCtrl : EntityBaseComponent
         }
     }
 
-    //Returns true if angle between controller and ground normal is too big (> slope limit), i.e. ground is too steep;
-    private bool IsGroundTooSteep()
-    {
-        return !_mover.IsGrounded() || Vector3.Angle(_mover.GetGroundNormal(), Vector3.up) > MoveDefine.MOVE_SLOPE_LIMIT;
-    }
+    // //Returns true if angle between controller and ground normal is too big (> slope limit), i.e. ground is too steep;
+    // private bool IsGroundTooSteep()
+    // {
+    //     return !_mover.IsGrounded() || Vector3.Angle(_mover.GetGroundNormal(), Vector3.up) > MoveDefine.MOVE_SLOPE_LIMIT;
+    // }
 
     /// <summary>
     /// 设置移动速度 有速度时就会移动 现在不允许多个业务同时控制 将来需要时需要在stop里面减去业务速度
