@@ -34,6 +34,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
     protected GameObject DropEntity { get; private set; }
 
     private int _animalDeadTimeFromHunger;
+    private bool _isListenColliderLoadFinish;
 
     protected virtual void Awake()
     {
@@ -59,6 +60,19 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             Log.Error($"动物配置表为空 cid:{Data.BaseData.Cid}");
         }
 
+        if (gameObject.TryGetComponent(out EntityCollisionCore entityCollisionCore))
+        {
+            if (entityCollisionCore.CollisionObject != null)
+            {
+                OnColliderLoadFinish(entityCollisionCore.CollisionObject);
+            }
+            else
+            {
+                RefEntity.EntityEvent.ColliderLoadFinish += OnColliderLoadFinish;
+                _isListenColliderLoadFinish = true;
+            }
+        }
+
         InitStatus();
     }
 
@@ -68,6 +82,12 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         {
             Destroy(DropEntity);
             DropEntity = null;
+        }
+
+        if (_isListenColliderLoadFinish)
+        {
+            RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
+            _isListenColliderLoadFinish = false;
         }
     }
 
@@ -334,5 +354,11 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
             DropEntity = null;
         }
         Data.SaveData.ProductSaveData = null;
+    }
+
+    private void OnColliderLoadFinish(GameObject colliderGo)
+    {
+        colliderGo.layer = MLayerMask.HOME_RESOURCE;//将怪物碰撞盒改成家园触发层
+        colliderGo.tag = MTag.HOME_ANIMAL;
     }
 }
