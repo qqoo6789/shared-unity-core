@@ -212,7 +212,7 @@ public class CharacterMoveCtrl : EntityBaseComponent
     // }
 
     /// <summary>
-    /// 设置移动速度 有速度时就会移动 现在不允许多个业务同时控制 将来需要时需要在stop里面减去业务速度
+    /// 设置移动速度 有速度时就会移动 会标记为移动状态 现在不允许多个业务同时控制 将来需要时需要在stop里面减去业务速度
     /// </summary>
     /// <param name="moveSpeed"></param>
     public void SetMoveSpeed(Vector3 moveSpeed)

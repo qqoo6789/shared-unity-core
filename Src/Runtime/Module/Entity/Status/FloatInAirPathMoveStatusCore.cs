@@ -36,7 +36,11 @@ public class FloatInAirPathMoveStatusCore : FloatInAirStatusCore
                 InputData = null;
             }
 
-            _controller = null;
+            if (_controller != null)
+            {
+                _controller.StopMove();
+                _controller = null;
+            }
         }
 
         base.OnLeave(fsm, isShutdown);
