@@ -1,5 +1,5 @@
 explosionEffect-string,flyAvatar-string,flyDistance-int,flySpeed-int,flyTime-int,flyerType-int,id-int
-Hit 13,Skill_Arrow,2000,800,0,0,1
+Hit 13,Skill_Arrow,2000,2000,0,0,1
 Hit 13,Projectile_ball,2000,800,2000,0,2
 Hit 13,CaptureRope,2000,2000,,2,3
 Hit 13,Resource_ball,,2000,,3,4
