@@ -1,24 +1,24 @@
 designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,isSelfEnd-bool,itemReward-int,name-string,level-int[][],preTaskReq-int[],chanceOptions-string
-"{""options"":[{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",1,0,11,10001,,,
-"{""options"":[{""optionType"":1,""value"":""134,2"",""guiderPoint"":0},{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",2,0,11,10002,"1,1;2,1",1,
-"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",3,0,11,10003,"2,2",2,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",4,0,11,10004,"2,3",3,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",5,0,11,10005,"2,4",4,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",6,0,11,10006,,5,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",7,1,11,10007,,5,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",8,1,11,10008,,"6,7",
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",9,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",10,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",11,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",12,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",13,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",14,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",15,1,11,Traveling,,,
-"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,100",16,1,11,Traveling,,,
-,"For love and peace, please give me these",0,"1,100",17,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100""},{""optionType"":1,""value"":""70,10,100;33,2,300;30,1,100""}]}"
-,"For love and peace, please give me these",0,"1,100",18,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-,"For love and peace, please give me these",0,"1,100",19,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-,"For love and peace, please give me these",0,"1,100",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
+"{""options"":[{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",1,0,11,10001,,,
+"{""options"":[{""optionType"":1,""value"":""134,2"",""guiderPoint"":0},{""optionType"":2,""value"":""134,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",2,0,11,10002,"1,1;2,1",1,
+"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",3,0,11,10003,"2,2",2,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",4,0,11,10004,"2,3",3,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",5,0,11,10005,"2,4",4,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",6,0,11,10006,,5,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",7,1,11,10007,,5,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",8,1,11,10008,,"6,7",
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",9,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",10,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",11,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",12,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",13,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",14,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",15,1,11,Traveling,,,
+"{""options"":[{""optionType"":4,""value"":""8,2"",""guiderPoint"":0}]}","For the sake of love and peace, please go to the designated place",0,"1,259",16,1,11,Traveling,,,
+,"For love and peace, please give me these",0,"1,259",17,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100""},{""optionType"":1,""value"":""70,10,100;33,2,300;30,1,100""}]}"
+,"For love and peace, please give me these",0,"1,259",18,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
+,"For love and peace, please give me these",0,"1,259",19,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
+,"For love and peace, please give me these",0,"1,259",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 "{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101}]}",Kill those canned dogs. Be careful not to get bitten. Canned dogs in a frenzy have significantly increased attack power. Rolling with space can avoid any form of damage.,,"2,117",21,0,12,Fresh Start,,,
 "{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101}]}","Open your backpack and equip your sword. Hitting Tin Can Dog six times or more triggers its vulnerability state, causing a significant decrease in its attack power. Before that, be sure to avoid Tin Can Dog's attacks!",,"2,117",22,0,11,Intelligence Gathering,,21,
 "{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0},{""optionType"":15,""value"":""11,1"",""guiderPoint"":0}]}","Press [Esc] to open your talent tree interface, select the main branch to upgrade, choose to upgrade the War Stomp skill, and place the skill in the quick slot. By completing these steps, you can use the War Stomp skill in combat. Mastering this skill will make your battles much easier.",,"2,117",23,0,,Lend a Hand,,22,
@@ -42,44 +42,44 @@ Plant pitcher plant seeds.
 Plant cactus seeds.",,"1,117",36,0,39,The Next Level Challenge(Farm),,35,
 "{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}","""Go to the exchange and buy something.""",,"1,117;2,117;3,117",37,0,,Transaction 1,,"33,29,36",
 ,Monsters are running rampant. Go and exterminate them,,"2,188",38,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,4,100;8,4,100;7,4,100""}]}"
-,Monsters are running rampant. Go and exterminate them,,"2,279",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
-,Monsters are running rampant. Go and exterminate them,,"2,370",40,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,4,100;13,4,100;14,4,100""}]}"
+,Monsters are running rampant. Go and exterminate them,,"2,278",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
+,Monsters are running rampant. Go and exterminate them,,"2,369",40,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,4,100;13,4,100;14,4,100""}]}"
 ,Hunt them down and bring back some loot,,"2,188",41,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,2,100;8,2,100;7,2,100""},{""optionType"":1,""value"":""30,1,100;31,1,100;32,1,100""}]}"
-,Hunt them down and bring back some loot,,"2,279",42,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,2,100;11,2,100;10,2,100""},{""optionType"":1,""value"":""33,1,100;34,1,100;35,1,100""}]}"
-,Hunt them down and bring back some loot,,"2,370",43,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,2,100;14,2,100;13,2,100""},{""optionType"":1,""value"":""36,1,100;37,1,100;38,1,100""}]}"
+,Hunt them down and bring back some loot,,"2,278",42,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,2,100;11,2,100;10,2,100""},{""optionType"":1,""value"":""33,1,100;34,1,100;35,1,100""}]}"
+,Hunt them down and bring back some loot,,"2,369",43,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,2,100;14,2,100;13,2,100""},{""optionType"":1,""value"":""36,1,100;37,1,100;38,1,100""}]}"
 "{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}","""Go to the exchange and buy something.""",,"1,117;2,117;3,117",44,0,,Transaction 2,,37,
 "{""options"":[{""optionType"":1,""value"":""32,15"",""guiderPoint"":2101}]}","Terrance is probably in the town, let's go and look for him and bring some wire mesh for him.",,"1,117",45,0,17,Farmer Terrance,,23,
 "{""options"":[{""optionType"":3,""value"":""178,5"",""guiderPoint"":4601}]}",,,"1,117",46,0,,Capture can dog and output.,,45,
 ,Give me these,,"2,188",47,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""30,2,100;31,2,100;32,2,100""}]}"
-,Give me these,,"2,279",48,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""33,2,100;34,2,100;35,2,100""}]}"
-,Give me these,,"2,370",49,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""36,2,100;37,2,100;38,2,100""}]}"
-,Give me these,,"2,1412",52,1,,Reward-lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""40,1,100;46,1,100;52,1,100;49,1,100;55,1,100;43,1,100""},{""optionType"":1,""value"":""41,1,100;47,1,100;44,1,100;53,1,100;50,1,100;56,1,100""}]}"
-,Give me these,,"2,2090",53,1,,Reward-lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""41,1,100;47,1,100;44,1,100;53,1,100;50,1,100;56,1,100""}]}"
-,Give me these,,"2,2772",54,1,,Reward-lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""42,1,100;57,1,100;48,1,100;45,1,100;54,1,100;51,1,100""}]}"
+,Give me these,,"2,278",48,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""33,2,100;34,2,100;35,2,100""}]}"
+,Give me these,,"2,369",49,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""36,2,100;37,2,100;38,2,100""}]}"
+,Give me these,,"2,197",52,1,,Reward-lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""40,1,100;46,1,100;52,1,100;49,1,100;55,1,100;43,1,100""},{""optionType"":1,""value"":""41,1,100;47,1,100;44,1,100;53,1,100;50,1,100;56,1,100""}]}"
+,Give me these,,"2,292",53,1,,Reward-lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""41,1,100;47,1,100;44,1,100;53,1,100;50,1,100;56,1,100""}]}"
+,Give me these,,"2,388",54,1,,Reward-lv3-Battle,,,"{""options"":[{""optionType"":1,""value"":""42,1,100;57,1,100;48,1,100;45,1,100;54,1,100;51,1,100""}]}"
 ,Farm work,,"1,188",55,1,,Daily-Lv1-Farm,,,"{""options"":[{""optionType"":3,""value"":""70,2,100;72,2,100;71,1,100""}]}"
 ,Farm work and turn in,,"1,188",56,1,,Daily-Lv1-Farm,,,"{""options"":[{""optionType"":1,""value"":""70,1,100;72,1,100;71,1,100""},{""optionType"":3,""value"":""70,1,100;71,1,100;72,1,100""}]}"
 ,Give me these,,"1,188",57,1,,Daily-Lv1-Farm,,,"{""options"":[{""optionType"":1,""value"":""70,2,100;71,2,100;72,2,100""}]}"
-,Farm work,,"1,279",58,1,,Daily-Lv2-Farm,,,"{""options"":[{""optionType"":3,""value"":""74,2,100;75,2,100;73,2,100""}]}"
-,Farm work and turn in,,"1,279",59,1,,Daily-Lv2-Farm,,,"{""options"":[{""optionType"":1,""value"":""74,1,100;73,1,100;75,1,100""},{""optionType"":3,""value"":""74,1,100;73,1,100;75,1,100""}]}"
-,Give me these,,"1,279",60,1,,Daily-Lv2-Farm,,,"{""options"":[{""optionType"":1,""value"":""74,2,100;73,2,100;75,2,100""}]}"
-,Farm work,,"1,370",61,1,,Daily-Lv3-Farm,,,"{""options"":[{""optionType"":3,""value"":""78,2,100;76,2,100;77,2,100""}]}"
-,Farm work and turn in,,"1,370",62,1,,Daily-Lv3-Farm,,,"{""options"":[{""optionType"":1,""value"":""78,1,100;76,1,100;77,1,100""},{""optionType"":3,""value"":""78,1,100;76,1,100;77,1,100""}]}"
-,Give me these,,"1,370",63,1,,Daily-Lv3-Farm,,,"{""options"":[{""optionType"":1,""value"":""78,2,100;76,2,100;77,2,100""}]}"
-,Give me these,,"1,1412",64,1,,Reward-lv1-Farm,,,"{""options"":[{""optionType"":1,""value"":""95,1,100;96,1,100;97,1,100;80,1,100;84,1,100;104,1,100;110,1,100;101,1,100;98,1,100""}]}"
-,Give me these,,"1,2090",65,1,,Reward-lv2-Farm,,,"{""options"":[{""optionType"":1,""value"":""81,1,100;85,1,100;102,1,100;105,1,100;111,1,100;99,1,100""}]}"
-,Give me these,,"1,2772",66,1,,Reward-lv3-Farm,,,"{""options"":[{""optionType"":1,""value"":""82,1,100;100,1,100;112,1,100;86,1,100;103,1,100;106,1,100""}]}"
+,Farm work,,"1,278",58,1,,Daily-Lv2-Farm,,,"{""options"":[{""optionType"":3,""value"":""74,2,100;75,2,100;73,2,100""}]}"
+,Farm work and turn in,,"1,278",59,1,,Daily-Lv2-Farm,,,"{""options"":[{""optionType"":1,""value"":""74,1,100;73,1,100;75,1,100""},{""optionType"":3,""value"":""74,1,100;73,1,100;75,1,100""}]}"
+,Give me these,,"1,278",60,1,,Daily-Lv2-Farm,,,"{""options"":[{""optionType"":1,""value"":""74,2,100;73,2,100;75,2,100""}]}"
+,Farm work,,"1,369",61,1,,Daily-Lv3-Farm,,,"{""options"":[{""optionType"":3,""value"":""78,2,100;76,2,100;77,2,100""}]}"
+,Farm work and turn in,,"1,369",62,1,,Daily-Lv3-Farm,,,"{""options"":[{""optionType"":1,""value"":""78,1,100;76,1,100;77,1,100""},{""optionType"":3,""value"":""78,1,100;76,1,100;77,1,100""}]}"
+,Give me these,,"1,369",63,1,,Daily-Lv3-Farm,,,"{""options"":[{""optionType"":1,""value"":""78,2,100;76,2,100;77,2,100""}]}"
+,Give me these,,"1,197",64,1,,Reward-lv1-Farm,,,"{""options"":[{""optionType"":1,""value"":""95,1,100;96,1,100;97,1,100;80,1,100;84,1,100;104,1,100;110,1,100;101,1,100;98,1,100""}]}"
+,Give me these,,"1,292",65,1,,Reward-lv2-Farm,,,"{""options"":[{""optionType"":1,""value"":""81,1,100;85,1,100;102,1,100;105,1,100;111,1,100;99,1,100""}]}"
+,Give me these,,"1,388",66,1,,Reward-lv3-Farm,,,"{""options"":[{""optionType"":1,""value"":""82,1,100;100,1,100;112,1,100;86,1,100;103,1,100;106,1,100""}]}"
 ,Gather work,,"3,188",67,1,,Daily-Lv1-Gather,,,"{""options"":[{""optionType"":9,""value"":""95,2,100;92,2,100;93,2,100""}]}"
 ,Gather work and turn in,,"3,188",68,1,,Daily-Lv1-Gather,,,"{""options"":[{""optionType"":9,""value"":""95,1,100;92,1,100;93,1,100""},{""optionType"":1,""value"":""134,1,100;128,1,100;129,1,100""}]}"
 ,Give me these,,"3,188",69,1,,Daily-Lv1-Gather,,,"{""options"":[{""optionType"":1,""value"":""134,2,100;128,2,100;129,2,100""}]}"
-,Gather work,,"3,279",70,1,,Daily-Lv2-Gather,,,"{""options"":[{""optionType"":9,""value"":""96,2,100;197,2,100;198,2,100""}]}"
-,Gather work and turn in,,"3,279",71,1,,Daily-Lv2-Gather,,,"{""options"":[{""optionType"":9,""value"":""96,1,100;197,1,100;198,1,100""},{""optionType"":1,""value"":""140,1,100;219,1,100;220,1,100""}]}"
-,Give me these,,"3,279",72,1,,Daily-Lv2-Gather,,,"{""options"":[{""optionType"":1,""value"":""140,2,100;219,2,100;220,2,100""}]}"
-,Gather work,,"3,370",73,1,,Daily-Lv3-Gather,,,"{""options"":[{""optionType"":9,""value"":""132,2,100;103,2,100;102,2,100""}]}"
-,Gather work and turn in,,"3,370",74,1,,Daily-Lv3-Gather,,,"{""options"":[{""optionType"":9,""value"":""132,1,100;103,1,100;102,1,100""},{""optionType"":1,""value"":""191,1,100;131,1,100;132,1,100""}]}"
-,Give me these,,"3,370",75,1,,Daily-Lv3-Gather,,,"{""options"":[{""optionType"":1,""value"":""191,2,100;131,2,100;132,2,100""}]}"
-,Give me these,,"3,1412",76,1,,Reward-Lv1-Gather,,,"{""options"":[{""optionType"":1,""value"":""88,1,100;92,1,100;113,1,100;116,1,100;119,1,100;122,1,100;125,1,100""}]}"
-,Give me these,,"3,2090",77,1,,Reward-Lv1-Gather,,,"{""options"":[{""optionType"":1,""value"":""89,1,100;93,1,100;114,1,100;117,1,100;120,1,100;123,1,100;126,1,100""}]}"
-,Give me these,,"3,2772",78,1,,Reward-Lv1-Gather,,,"{""options"":[{""optionType"":1,""value"":""90,1,100;94,1,100;115,1,100;118,1,100;121,1,100;124,1,100;127,1,100""}]}"
+,Gather work,,"3,278",70,1,,Daily-Lv2-Gather,,,"{""options"":[{""optionType"":9,""value"":""96,2,100;197,2,100;198,2,100""}]}"
+,Gather work and turn in,,"3,278",71,1,,Daily-Lv2-Gather,,,"{""options"":[{""optionType"":9,""value"":""96,1,100;197,1,100;198,1,100""},{""optionType"":1,""value"":""140,1,100;219,1,100;220,1,100""}]}"
+,Give me these,,"3,278",72,1,,Daily-Lv2-Gather,,,"{""options"":[{""optionType"":1,""value"":""140,2,100;219,2,100;220,2,100""}]}"
+,Gather work,,"3,369",73,1,,Daily-Lv3-Gather,,,"{""options"":[{""optionType"":9,""value"":""132,2,100;103,2,100;102,2,100""}]}"
+,Gather work and turn in,,"3,369",74,1,,Daily-Lv3-Gather,,,"{""options"":[{""optionType"":9,""value"":""132,1,100;103,1,100;102,1,100""},{""optionType"":1,""value"":""191,1,100;131,1,100;132,1,100""}]}"
+,Give me these,,"3,369",75,1,,Daily-Lv3-Gather,,,"{""options"":[{""optionType"":1,""value"":""191,2,100;131,2,100;132,2,100""}]}"
+,Give me these,,"3,197",76,1,,Reward-Lv1-Gather,,,"{""options"":[{""optionType"":1,""value"":""88,1,100;92,1,100;113,1,100;116,1,100;119,1,100;122,1,100;125,1,100""}]}"
+,Give me these,,"3,292",77,1,,Reward-Lv1-Gather,,,"{""options"":[{""optionType"":1,""value"":""89,1,100;93,1,100;114,1,100;117,1,100;120,1,100;123,1,100;126,1,100""}]}"
+,Give me these,,"3,388",78,1,,Reward-Lv1-Gather,,,"{""options"":[{""optionType"":1,""value"":""90,1,100;94,1,100;115,1,100;118,1,100;121,1,100;124,1,100;127,1,100""}]}"
 "{""options"":[{""optionType"":4,""value"":""6,10"",""guiderPoint"":2101}]}",Kill 10 Grape Dogs.,,"2,314",80,0,,Kill 10 Grape Dogs,,,
 "{""options"":[{""optionType"":4,""value"":""8,10"",""guiderPoint"":3501}]}",Kill 10 Cacti.,,"2,314",81,0,,Kill 10 Cacti.,,89,
 "{""options"":[{""optionType"":4,""value"":""7,10"",""guiderPoint"":3401}]}",Kill 10 pumpkins.,,"2,314",82,0,,Kill 10 Pumpkins,,90,
