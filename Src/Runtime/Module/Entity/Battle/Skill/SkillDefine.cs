@@ -4,7 +4,7 @@ public class SkillDefine
 
 public enum eSkillFlyerType : int
 {
-    Follow = 0,       //锁定子弹
+    Follow = 1,       //锁定子弹
     Rope = 2,         //绳子子弹
     FollowRope = 3,   //锁定绳子子弹
     Quick = 4,        //快速子弹
