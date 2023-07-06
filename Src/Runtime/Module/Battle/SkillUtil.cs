@@ -172,6 +172,28 @@ public static partial class SkillUtil
         }
         return entityList;
     }
+
+    /// <summary>
+    // 射线检测碰撞的位置
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="dir"></param>
+    /// <param name="maxDist"></param>
+    /// <param name="targetLayer"></param>
+    /// <param name="blockLayer"></param>
+    /// </summary>
+    public static Vector3 RaySearchPos(Vector3 startPos, Vector3 dir, float maxDist, int targetLayer, int blockLayer)
+    {
+
+        if (Physics.Raycast(startPos, dir, out RaycastHit hit, maxDist, targetLayer | blockLayer))
+        {
+            if ((targetLayer & (1 << hit.collider.gameObject.layer)) > 0)
+            {
+                return hit.point;
+            }
+        }
+        return startPos + dir * maxDist;
+    }
     /// <summary>
     /// 计算技能CD
     /// </summary>
