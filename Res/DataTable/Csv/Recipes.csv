@@ -102,6 +102,6 @@ classifyLevel-int,desc-string,displayType-int,icon-string,id-int,level-int,matIt
 ,Moist fertilizer 2.,0,recipe-icon-197,197,2,"69,2;35,5",Advanced Accelerated Fertilizer Recipe,"219,1,1,10000",,3,1,10,1,4,,0,
 ,Increase fertilizer production 2.,0,recipe-icon-198,198,2,"61,2;35,5",Advanced Yield-increasing Fertilizer Recipe,"220,1,1,10000",,3,1,10,1,4,,0,
 ,Accelerate fertilizer 2.,0,recipe-icon-199,199,2,"65,2;35,5",Advanced Moisture Fertilizer Recipe,"221,1,1,10000",,3,1,10,1,4,,0,
-,,0,recipe-icon-201,201,,"216,2;62,5;58,5",Lv 1 Sickle Recipe,"225,1,1,10000",,1,1,10,3,0,,0,error
-,,0,recipe-icon-203,203,,"217,2;207,2;63,5;59,5",Lv 2 Sickle Recipe,"226,1,1,10000",,1,1,10,3,0,,0,error
-,,0,recipe-icon-204,204,,"218,2;208,2;60,5;68,5",Lv 3 Sickle Recipe,"227,1,1,10000",,1,1,10,3,0,,0,error
+,,0,recipe-icon-201,201,,"216,2;62,5;58,5",Lv 1 Sickle Recipe,"225,1,1,10000",,1,1,10,3,4,,0,
+,,0,recipe-icon-203,203,,"217,2;207,2;63,5;59,5",Lv 2 Sickle Recipe,"226,1,1,10000",,1,1,10,3,4,,0,
+,,0,recipe-icon-204,204,,"218,2;208,2;60,5;68,5",Lv 3 Sickle Recipe,"227,1,1,10000",,1,1,10,3,4,,0,
