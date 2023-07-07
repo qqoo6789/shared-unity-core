@@ -35,7 +35,7 @@ public class InputSkillReleaseData
     /// <summary>
     /// 目标位置
     /// </summary>
-    public Vector3 TargetPos { get; private set; }
+    public Vector3[] TargetPosList { get; private set; }
 
     /// <summary>
     /// 技能消耗道具
@@ -67,14 +67,14 @@ public class InputSkillReleaseData
     /// <param name="skillID">技能ID</param>
     /// <param name="dir">技能方向</param>
     /// <param name="targets">技能目标列表</param>
-    /// <param name="targetPos">技能目标位置</param>
+    /// <param name="targetPosList">技能目标位置列表</param>
     /// <param name="skillTimeScale">释放速率</param>
-    public InputSkillReleaseData(int skillID, Vector3 dir, long[] targets, Vector3 targetPos, double skillTimeScale = 1, GameMessageCore.UseSkillCostItem costItem = null, float accumulateTime = 0)
+    public InputSkillReleaseData(int skillID, Vector3 dir, long[] targets, Vector3[] targetPosList, double skillTimeScale = 1, GameMessageCore.UseSkillCostItem costItem = null, float accumulateTime = 0)
     {
         SkillID = skillID;
         Dir = dir;
         Targets = targets;
-        TargetPos = targetPos;
+        TargetPosList = targetPosList;
         SkillTimeScale = skillTimeScale;
         CostItem = costItem;
         AccumulateTime = accumulateTime;
@@ -94,7 +94,7 @@ public class InputSkillReleaseData
             SkillID,
             Dir,
             Targets,
-            TargetPos,
+            TargetPosList,
             SkillTimeScale,
             CostItem,
             AccumulateTime
