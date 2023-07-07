@@ -9,7 +9,7 @@ public class UseSkillParam
     public UnityEngine.Vector3 Pos;
     public UnityEngine.Vector3 SkillDir;
     public long[] Targets;
-    public UnityEngine.Vector3[] TargetPosList;
+    public UnityEngine.Vector3 TargetPos;
     public UseCollectResourceSkillInfo HomeSkillInfo;
     public UseSkillCostItem CostItem;
     public float AccumulateTime;

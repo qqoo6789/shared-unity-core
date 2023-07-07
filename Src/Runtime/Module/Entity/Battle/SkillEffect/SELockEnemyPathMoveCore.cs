@@ -3,7 +3,7 @@ using System;
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 向目标单位移动一段距离
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SELockEnemyPathMoveCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Battle/SkillEffect/SELockEnemyPathMoveCore.cs
  * 
  */
 
@@ -28,9 +28,9 @@ public class SELockEnemyPathMoveCore : SEPathMoveCore
             delayTime = EffectCfg.Parameters[2];
         }
         float moveDist = minDist;
-        if (inputData.TargetPosList != null && inputData.TargetPosList.Length > 0)
+        if (inputData.TargetPos != UnityEngine.Vector3.zero)
         {
-            float dist = UnityEngine.Vector3.Distance(targetEntity.Position, inputData.TargetPosList[0]);
+            float dist = UnityEngine.Vector3.Distance(targetEntity.Position, inputData.TargetPos);
             if (dist > minDist)
             {
                 moveDist = MathF.Min(dist - minDist, maxDist);

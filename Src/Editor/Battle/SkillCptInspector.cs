@@ -55,7 +55,7 @@ namespace SharedCore.Editor
                         {
                             return;
                         }
-                        InputSkillReleaseData inputData = new(value, dir, null, null);
+                        InputSkillReleaseData inputData = new(value, dir, null, Vector3.zero);
                         skillCpt.RefEntity.EntityEvent.InputSkillRelease?.Invoke(inputData);
                     }
                 }
