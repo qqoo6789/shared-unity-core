@@ -11,7 +11,7 @@ public static class HomeDefine
     public static readonly Vector3 SOIL_SIZE = new(1.2f, 1.2f, 1.2f);  //土地格子大小
     public static readonly Vector3 EMPTY_SIZE = Vector3.one; //空地格子大小
 
-    public const float HOME_PROGRESS_ACTION_BACK_PROTECT_TIME = 2000;//家园进度动作回退保护时间 ms
+    public const float HOME_PROGRESS_ACTION_BACK_PROTECT_TIME = 2000;//家园进度动作回退保护时间 ms 不能太小 因为需要考虑本地预表现回退时回包覆盖的情况
 
     public const int ACTION_MAX_PROGRESS_PROTECT = 100;//进度动作最大值的保护性值 防止异常报错 正常不会用到
 

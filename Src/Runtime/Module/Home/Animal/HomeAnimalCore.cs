@@ -243,7 +243,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
     }
 
-    public virtual void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit)
+    public virtual void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit, bool isPreEffect)
     {
 
     }

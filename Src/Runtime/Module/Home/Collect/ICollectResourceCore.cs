@@ -28,7 +28,7 @@ public interface ICollectResourceCore
     /// <value></value>
     int Lv { get; }
 
-    /// 检查是否支持当前复合动作
+    /// 检查是否支持当前复合动作 不支持也能选中 只是不会执行和发出去
     /// </summary>
     /// <param name="action">复合动作</param>
     /// <returns></returns>
@@ -54,5 +54,6 @@ public interface ICollectResourceCore
     /// <param name="skillId">技能id</param>
     /// <param name="deltaProgress">进度变化值</param>
     /// <param name="isCrit">是否暴击</param>
-    void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit);
+    /// <param name="isPreEffect">是否是预表现效果</param>
+    void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit, bool isPreEffect);
 }

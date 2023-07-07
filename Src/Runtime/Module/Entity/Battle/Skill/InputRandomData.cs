@@ -21,6 +21,7 @@ public class InputRandomData
     public void SetInputRandomSeed(int seed)
     {
         _random = new System.Random(seed);
+        Seed = seed;
         HitValue = _random.Next(0, 100);
         CritValue = _random.Next(0, 1000);
     }
