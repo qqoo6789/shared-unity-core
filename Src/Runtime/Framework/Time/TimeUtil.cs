@@ -161,4 +161,19 @@ public static class TimeUtil
         nSeconds %= SecondsOfMinute;
         return $"{minute.ToString().PadLeft(2, '0')}:{nSeconds.ToString().PadLeft(2, '0')}";
     }
+    /// <summary>
+    /// 服务器会获取本地时间戳，客户端会获取服务器时间戳
+    /// </summary>
+    /// <returns></returns>
+    public static long GetCommonTimeStamp()
+    {
+        if (GFEntryCore.GFEntryType == GFEntryType.Server)
+        {
+            return GetTimeStamp();
+        }
+        else
+        {
+            return GetServerTimeStamp();
+        }
+    }
 }

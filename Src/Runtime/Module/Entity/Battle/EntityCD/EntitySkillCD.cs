@@ -21,7 +21,7 @@ public class EntitySkillCD : EntityCDBase
     public override void InitSvrEntityCD(GameMessageCore.EntityCD entityCD)
     {
         CDMap.Clear();
-        long curTimeStamp = TimeUtil.GetTimeStamp();
+        long curTimeStamp = TimeUtil.GetCommonTimeStamp();
         if (entityCD.SkillCdList != null && entityCD.SkillCdList.Count > 0)
         {
             for (int i = 0; i < entityCD.SkillCdList.Count; i++)

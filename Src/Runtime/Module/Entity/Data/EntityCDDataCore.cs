@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-09 14:10:48
  * @Description: 实体CD数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Data/EntityCDDataCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Data/EntityCDDataCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -62,7 +62,7 @@ public class EntityCDDataCore : EntityBaseComponent
     public void ResetSkillCD(int skillID)
     {
         IsNetDirty = true;
-        long curTimeStamp = TimeUtil.GetTimeStamp();
+        long curTimeStamp = TimeUtil.GetCommonTimeStamp();
         long skillCD = SkillUtil.CalculateSkillCD(skillID, RefEntity);
         long cdTime = curTimeStamp + skillCD;
         _skillEntityCD.SetCD(skillID, cdTime);

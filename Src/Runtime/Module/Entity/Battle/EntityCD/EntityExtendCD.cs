@@ -21,7 +21,7 @@ public class EntityExtendCD : EntityCDBase
     public override void InitSvrEntityCD(GameMessageCore.EntityCD entityCD)
     {
         CDMap.Clear();
-        long curTimeStamp = TimeUtil.GetTimeStamp();
+        long curTimeStamp = TimeUtil.GetCommonTimeStamp();
         if (entityCD.ExtendCdList != null && entityCD.ExtendCdList.Count > 0)
         {
             for (int i = 0; i < entityCD.ExtendCdList.Count; i++)
