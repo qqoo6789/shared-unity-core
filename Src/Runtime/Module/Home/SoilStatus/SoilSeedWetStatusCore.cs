@@ -30,8 +30,8 @@ public class SoilSeedWetStatusCore : SoilGrowingWetStatusCore
         {
             try
             {
-                (int manureCid, bool manureValid) = ((int, bool))actionData;
-                SoilData.SetManure(manureCid, manureValid);
+                int manureCid = (int)actionData;
+                SoilData.SetManure(manureCid);
             }
             catch (System.Exception e)
             {

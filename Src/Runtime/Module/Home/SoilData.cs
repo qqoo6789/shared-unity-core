@@ -75,8 +75,7 @@ public class SoilData : MonoBehaviour
     /// 设置当前种子配置id 如果是要清除种子 则传入0
     /// </summary>
     /// <param name="seedCid">0代表清除</param>
-    /// <param name="sowingValid">是否播种有效</param>
-    internal void SetSeedCid(int seedCid, bool sowingValid)
+    internal void SetSeedCid(int seedCid)
     {
         if (SaveData.SeedData.SeedCid == seedCid)
         {
@@ -91,7 +90,6 @@ public class SoilData : MonoBehaviour
             Log.Error($"种子配置表里没有找到cid为 {seedCid} 的种子");
         }
         SetGrowStage(0);
-        SaveData.SeedData.SowingValid = sowingValid;
     }
 
     /// <summary>
@@ -136,8 +134,7 @@ public class SoilData : MonoBehaviour
     /// 设置施肥
     /// </summary>
     /// <param name="manureCid">肥料cid</param>
-    /// <param name="isValid">是否施肥有效</param>
-    internal void SetManure(int manureCid, bool isValid)
+    internal void SetManure(int manureCid)
     {
         if (SaveData.SeedData.ManureCid > 0)
         {
@@ -152,7 +149,6 @@ public class SoilData : MonoBehaviour
         }
 
         SaveData.SeedData.ManureCid = manureCid;
-        SaveData.SeedData.ManureValid = isValid;
     }
 
     /// <summary>

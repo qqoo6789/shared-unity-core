@@ -60,11 +60,11 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         {
             if (action == eAction.Sowing)
             {
-                SoilEvent.MsgExecuteAction?.Invoke(eAction.Sowing, (toolCid, (bool)actionData));
+                SoilEvent.MsgExecuteAction?.Invoke(eAction.Sowing, toolCid);
             }
             else if (action == eAction.Manure)
             {
-                SoilEvent.MsgExecuteAction?.Invoke(eAction.Manure, (toolCid, (bool)actionData));
+                SoilEvent.MsgExecuteAction?.Invoke(eAction.Manure, toolCid);
             }
             else
             {
