@@ -60,7 +60,7 @@ public class AnimalBowlCore : MonoBehaviour, ICollectResourceCore
         Data.UpdateFood(toolCid, drAnimalFood.Capacity);
     }
 
-    public void ExecuteProgress(eAction targetCurAction, int skillId)
+    public void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit)
     {
 
     }

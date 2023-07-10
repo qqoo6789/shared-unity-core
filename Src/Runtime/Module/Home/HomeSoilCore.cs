@@ -82,7 +82,7 @@ public abstract class HomeSoilCore : MonoBehaviour, ICollectResourceCore
         }
     }
 
-    public void ExecuteProgress(eAction targetCurAction, int skillId)
+    public void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit)
     {
         SoilEvent.OnBeHit?.Invoke(skillId);
     }

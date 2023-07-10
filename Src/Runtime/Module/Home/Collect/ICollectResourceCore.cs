@@ -52,5 +52,7 @@ public interface ICollectResourceCore
     /// </summary>
     /// <param name="targetCurAction"></param>
     /// <param name="skillId">技能id</param>
-    void ExecuteProgress(eAction targetCurAction, int skillId);
+    /// <param name="deltaProgress">进度变化值</param>
+    /// <param name="isCrit">是否暴击</param>
+    void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit);
 }
