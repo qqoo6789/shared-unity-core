@@ -19,7 +19,10 @@ public class EntitySkillSearchTarget : EntityBaseComponent
     {
         InputData = GetComponent<EntityInputData>();
     }
-
+    private void OnDestroy()
+    {
+        UpdateTarget(null);
+    }
     public virtual void UpdateTarget(List<EntityBase> targetEntities)
     {
         TargetEntity = null;
