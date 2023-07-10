@@ -27,7 +27,7 @@ public static class VectorExtension
         res.x = 0.0f;
         res.z = 0.0f;
 
-        return vector3;
+        return res;
     }
 
 

@@ -27,4 +27,8 @@ public static class MoveDefine
     /// 最大爬坡度数
     /// </summary>
     public const float MOVE_SLOPE_LIMIT = 45f;
+    /// <summary>
+    /// 是否启用空中移动特性
+    /// </summary>
+    public const bool ENABLE_MOVE_IN_AIR = true;
 }
