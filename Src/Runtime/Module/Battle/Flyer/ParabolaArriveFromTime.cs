@@ -49,11 +49,20 @@ public class ParabolaArriveFromTime : ArriveAutoDestroy
         }
         Vector3 startPos = transform.position;
         float startValue = 0f;
+        float endValue = 1f;
         _tweener = DOTween.To(() => startValue, value =>
         {
-            transform.position = MathUtilCore.Parabola(startPos, _targetPos, _height, value);
-            transform.LookAt(_targetPos);
-        }, 1, costTime).SetEase(Ease.Linear).OnComplete(() =>
+            Vector3 curPos = MathUtilCore.Parabola(startPos, _targetPos, _height, value);
+            transform.position = curPos;
+
+            float nextValue = value + 0.01f;
+            if (nextValue > endValue)
+            {
+                nextValue = endValue;
+            }
+            Vector3 nextPos = MathUtilCore.Parabola(startPos, _targetPos, _height, nextValue);
+            transform.LookAt(nextPos);
+        }, endValue, costTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             StopTween();
             OnArrived();

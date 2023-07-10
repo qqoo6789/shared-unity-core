@@ -174,7 +174,7 @@ public static partial class SkillUtil
     }
 
     /// <summary>
-    // 射线检测碰撞的位置
+    // 射线检测碰撞的位置，没有碰撞则返回射线最远终点位置
     /// </summary>
     /// <param name="startPos"></param>
     /// <param name="dir"></param>
