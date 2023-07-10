@@ -52,6 +52,7 @@ public class LineArriveFromTime : ArriveAutoDestroy
             StopTween();
             OnArrived();
         });
+
     }
 
     private void OnDestroy()
@@ -68,5 +69,13 @@ public class LineArriveFromTime : ArriveAutoDestroy
 
         _tweener.Kill();
         _tweener = null;
+    }
+    private void Update()
+    {
+        if (_tweener == null)
+        {
+            return;
+        }
+        transform.LookAt(_targetPos);
     }
 }
