@@ -1,90 +1,43 @@
 canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,useLv-int,userType-int,givenSkillId-int
 0,Currency of Lumiterra,item-icon-10,10,LNCO,1,4,0,0,
 0,"The term EXP refers to experience points, which are rewards earned by characters or players in games for completing quests, defeating monsters, and leveling up. EXP can be used to increase character levels, skill levels, enhance character attributes, and improve the overall gaming experience. In many games, EXP is an essential and crucial resource for players.",item-icon-11,11,EXP,1,4,0,0,
-1,This item is a level 0 lottery ticket that can be used to participate in lucky draws. It is made from raw materials with the number 12.,item-icon-12,12,Lottery Ticket,1,4,0,1,
-0,"This Lv 0-USDC raw material (id:13) is a high-quality material suitable for manufacturing various high-end products. It has good stability and durability, and can maintain stable performance in various environments. In addition, it also has excellent processing performance, making it easy to process various shapes and sizes. This raw material is an ideal choice for manufacturing high-quality products.",item-icon-13,13,USDC,1,4,0,0,
-1,"Battery: a device that can store electrical energy and convert it into electricity, usually consisting of positive and negative electrodes, electrolytes, and a casing. Common types of batteries include dry batteries and rechargeable batteries.",item-icon-21,21,Battery,1,4,0,1,
-1,This green slime is a rare raw material that can be used to make various combat equipment. It has extremely strong adhesion and can bond with a variety of materials.,item-icon-30,30,Crystal Spikes,1,4,1,1,
-1,"Pumpkin vines are a raw material that can be used to make weapons and armor. They have a tough texture and excellent toughness, providing reliable protection and attack power in combat.",item-icon-31,31,Crystal Fragments,1,4,1,1,
-1,"This type of wire mesh is a raw material used for combat, which can be used to manufacture defensive structures or equipment with high strength and durability.",item-icon-32,32,Crystallization Residue,1,4,1,1,
-1,Lv 2 - Cat Fangs from the mines are a sharp raw material that can be used to make weapons and armor. They come from feline animals that live in the mines and possess strong combat abilities and agility.,item-icon-33,33,Crystalline Fang,1,4,2,1,
-1,This lightweight film is a raw material used for combat and can be used to manufacture various defensive equipment and weapons.,item-icon-34,34,Crystalline Softskin,1,4,2,1,
-1,The Grass Demon Crown is a second-level combat material made from the head of Grass Demons and possesses powerful combat abilities.,item-icon-35,35,Crystalline Blood,1,4,2,1,
-1,"This hook claw is made of hard metal, very sharp, suitable for use in battle. Its shape is slender, and it can easily penetrate the enemy's defense.",item-icon-36,36,Crystal Blade,1,4,3,1,
-1,"Red fur is a high-end fur with excellent defensive performance, suitable for making combat equipment. It is a rare raw material with high collection difficulty.",item-icon-37,37,Crystalline Hard Skin,1,4,3,1,
-1,"This is a rare raw material that can be obtained in battles. It has an appearance like ice and snow, with a furry texture that makes people want to touch it.",item-icon-38,38,Crystalline Nucleus,1,4,3,1,
-1,"1. Stone Sword: a simple stone sword suitable for beginners to use.
-2. Combat Equipment: equipment designed specifically for combat, providing additional attack and defense power.
-3. Lv 1-Sword 1: a level 1 sword, one of the essential equipment for beginners.
-4. Iron Sword: stronger and with higher attack power than the stone sword.
-5. Magic Sword: a sword with magical properties that can cause additional damage to enemies.
-6. Dragon Sword: one of the legendary artifacts, with powerful attack power and special effects.
-7. Master Sword: the top-level weapon that only true swordsmen can use, with excellent attack power and special effects.
-8. Sword of Light: with mysterious power, it can deal a fatal blow to the forces of darkness.
-9. Sword of Darkness: a weapon from the forces of darkness with extremely high attack power, but the user must pay a price.
-10. Divine Sword: considered a gift from the gods, with unparalleled power and radiance.",item-icon-40,40,Stone Sword,1,1,1,1,
-1,This iron sword is a suitable equipment for combat and can be used for level 2 battles.,item-icon-41,41,Iron Sword,"1,2",1,2,1,
-1,"1. With sharp blade, it can easily cut through the enemy's defense.
-2. Made of crystal, it emits a mysterious light.
-3. Suitable for combat use, it can enhance combat effectiveness.
-4. Carefully crafted equipment can bring more victories.
-5. The sword body is smooth and the grip is comfortable, allowing you to fight with more confidence.
-6. With the sword as your companion, your battles become more magnificent.
-7. As your level increases, the power of the sword will also increase.
-8. The material of the crystal sword is very hard and can withstand more battle training.
-9. In battle, the light of the crystal sword will shine brighter, making you more noticeable.
-10. Whether attacking or defending, the crystal sword can provide you with strong support.",item-icon-42,42,Crystal Sword,"1,2,3",1,3,1,
-1,"1. Wooden sword, suitable for beginners.
-2. Simple weapons, not easy to cause damage.
-3. Basic combat equipment, used to practice skills.
-4. Wooden products, lightweight and easy to carry.
-5. Weapons suitable for novice adventurers.",item-icon-39,39,Wooden Sword,1,1,0,1,
-1,"This helmet is made of sturdy material that can provide reliable protection. There is a sparkling crystal embedded in the headband, which brings a mysterious atmosphere to the wearer. It is suitable for use in intense combat situations.",item-icon-43,43,Chip Head Ring,1,1,1,1,
-1,"This combat helmet is made of crystal skin soft cap material, which is lightweight and comfortable, suitable for long-term wear. It can provide excellent protection, making you safer in combat.",item-icon-44,44,Crystal Skin Soft Cap,"1,2",1,2,1,
-1,"This helmet is a Level 3 combat helmet made of crystal material with excellent defensive capabilities, suitable for use in battles.",item-icon-45,45,Crystal Helmet,"1,2,3",1,3,1,
-1,"This combat jacket is made of shattered crystal vine armor material, which provides excellent defense and durability. It is suitable for combat situations.",item-icon-46,46,Crystal Vine Armor,1,1,1,1,
-1,This top is made of crystal leather material and is suitable for combat use. It is rated at level 2 and provides good protection and defense.,item-icon-47,47,Crystal Skin Jacket,"1,2",1,2,1,
-1,"This battle jacket is made of crystal armor and has excellent defensive capabilities, making it suitable for wearing in combat.",item-icon-48,48,Crystal Armor,"1,2,3",1,3,1,
-1,"1. The skirt is woven from crushed crystal grass, making it lightweight and comfortable.
-2. The waist of the pants is adorned with metal buckles that can be adjusted for a perfect fit.
-3. The edges of the garment are embroidered with exquisite patterns, showcasing a warrior's style.
-4. The pants are made of tough and durable materials, capable of withstanding multiple intense battles.
-5. The skirt is designed with a split at the hem for ease of movement, enhancing combat agility.",item-icon-49,49,Crystal Grass Skirt,1,1,1,1,
-1,"1. High equipment level provides better defense and attack capabilities.
-2. Made of crystal skin material, it is tough and durable.
-3. The design of long pants can protect the legs from injury.
-4. Suitable for combat use and can improve combat efficiency.
-5. Beautifully designed with a fashionable and atmospheric appearance.
-6. Close-fitting and comfortable, it will not affect free movement.
-7. Can be paired with other equipment to enhance overall combat capabilities.
-8. Suitable for players of different professions and levels.
-9. Attributes and quality can be improved through upgrading and strengthening.
-10. It is a necessary combat equipment that can make you more powerful in battle.",item-icon-50,50,Crystal Leather Trousers,"1,2",1,2,1,
-1,"1. Durable and able to provide all-around protection.
-2. Inlaid with crystals to enhance resistance and attack power.
-3. Suitable for wearing during combat, lightweight and comfortable.
-4. Carefully crafted with attention to detail.
-5. The color is stable, displaying a sense of power and strength.
-6. Can be paired with other equipment to enhance overall combat effectiveness.
-7. Unique design makes you stand out on the battlefield.
-8. Use of high-quality materials gives you an advantage in combat.
-9. After multiple tests and improvements, quality and performance are guaranteed.
-10. Suitable for players of different professions and levels.",item-icon-51,51,Crystal Leg Armor,"1,2,3",1,3,1,
-1,"1. Durable gloves suitable for intense battles.
-2. The bracelet is embedded with broken crystals, enhancing combat power.
-3. Level 1 combat gloves provide additional defense and attack power.
-4. The crystal bracelet is a treasure among combat equipment, possessing powerful magical powers.
-5. Our Combat Gloves No.1, paired with the Crystal Bracelet, make you even more invincible on the battlefield.",item-icon-52,52,Crystal Bracelet,1,1,1,1,
-1,"This combat glove is made of crystal skin material and has excellent defensive capabilities, making it suitable for use in combat.",item-icon-53,53,Crystal Skin Gloves,"1,2",1,2,1,
-1,This combat glove features a crystal handguard design that provides better defense and offensive performance. It is suitable for use in combat and can enhance combat effectiveness.,item-icon-54,54,Crystal Handguards,"1,2,3",1,3,1,
-1,These combat shoes can help you be more agile in battle because they are made from crystal grass.,item-icon-55,55,Shattered Crystal Grass Shoes,1,1,1,1,
-1,"This combat shoe is made of crystal leather material and features a boot-style design, making it suitable for use with combat gear.",item-icon-56,56,Crystal Leather Long Boots,"1,2",1,2,1,
-1,"This combat shoe is a crystal shoe with powerful combat abilities, suitable for wearing in battles.",item-icon-57,57,Crystal Stone Shoes,"1,2,3",1,3,1,
+1,"Lottery is a form of gambling that involves drawing lots to determine prizes. Participants buy lottery tickets with combinations of numbers or symbols, hoping to win rewards such as money. Winning lottery tickets are determined by random draw. Despite this, many people still enjoy participating in lottery activities because they can bring excitement and unexpected fortunes that could change one's life.",item-icon-12,12,Lottery Ticket,1,4,0,1,
+0,"USDC, short for USD Coin, is a stablecoin pegged to the US Dollar (USD) and is maintained at a 1:1 ratio, meaning that for every USDC token issued, there is an equivalent of one US Dollar held in reserve by a regulated financial institution. USDC aims to provide a stable, secure, and transparent digital asset for various use cases such as trading, remittances, or payments.",item-icon-13,13,USDC,1,4,0,0,
+1,"Battery is a device that can store electrical energy and convert it into electricity, usually consisting of positive and negative electrodes, electrolytes, and a casing.
+",item-icon-21,21,Battery,1,4,0,1,
+1,This green slime is a rare raw material that can be used to make various combat equipment. It has extremely strong adhesion and can bond with a variety of materials.,item-icon-30,30,Green Slime,1,4,1,1,
+1,"Pumpkin vines are a raw material that can be used to make weapons and armor. They have a tough texture and excellent toughness, providing reliable protection and attack power in combat.",item-icon-31,31,Pumpkin Vines,1,4,1,1,
+1,"This type of wire mesh is a raw material used for combat, which can be used to manufacture defensive structures or equipment with high strength and durability.",item-icon-32,32,Wire Mesh ,1,4,1,1,
+1,Cat Fangs from the mines are a sharp raw material that can be used to make weapons and armor. They come from feline animals that live in the mines and possess strong combat abilities and agility.,item-icon-33,33,Mining Cat Sharp Fang,1,4,2,1,
+1,This lightweight film is a raw material used for combat and can be used to manufacture various defensive equipment and weapons.,item-icon-34,34,Light Thin Film,1,4,2,1,
+1,The Grass Demon Crown is a second-level combat material made from the head of Grass Demons and possesses powerful combat abilities.,item-icon-35,35,Grass Demon Crown,1,4,2,1,
+1,"This hook claw is made of hard metal, very sharp, suitable for use in battle. Its shape is slender, and it can easily penetrate the enemy's defense.",item-icon-36,36,Slender Hook Claw,1,4,3,1,
+1,"Red fur is a high-end fur with excellent defensive performance, suitable for making combat equipment. It is a rare raw material with high collection difficulty.",item-icon-37,37,Crimson Fur,1,4,3,1,
+1,"This is a rare raw material that can be obtained in battles. It has an appearance like ice and snow, with a furry texture that makes people want to touch it.",item-icon-38,38,Ice Snow Fluff,1,4,3,1,
+1,"A sharp and sturdy weapon crafted from solid stone, perfect for close combat. Its weight and balance make it easy to wield, delivering powerful strikes with precision.",item-icon-40,40,Stone Sword,1,1,1,1,
+1,"A sharp and sturdy weapon forged from iron, capable of slicing through enemies with ease. Its weight provides a satisfying heft, allowing for powerful strikes that leave opponents reeling.",item-icon-41,41,Iron Sword,"1,2",1,2,1,
+1,"A powerful weapon forged from pure crystal, capable of slicing through enemies with ease. Its shimmering blade reflects light, dazzling opponents and striking fear into their hearts. With each swing, the Crystal Sword unleashes a deadly combination of speed and precision.",item-icon-42,42,Crystal Sword,"1,2,3",1,3,1,
+1,"A sturdy wooden weapon crafted for swift and precise strikes, perfect for beginners honing their combat skills. Its lightweight design allows for agile movements, making it an ideal choice for those seeking a versatile and reliable weapon.",item-icon-39,39,Wooden Sword,1,1,0,1,
+1,"A stylish accessory that adds a touch of elegance to any outfit. Crafted with intricate details, this ring exudes sophistication and charm. Its unique design is sure to catch the eye of fellow fashion enthusiasts.",item-icon-43,43,Chip Head Ring,1,1,1,1,
+1,"This hat is made of a unique material that feels incredibly soft against your skin. It provides a luxurious and comfortable fit, making it perfect for long gaming sessions.",item-icon-44,44,Crystal Skin Soft Hat,"1,2",1,2,1,
+1,"A sturdy helmet crafted from shimmering crystals, providing exceptional protection without compromising agility. Its enchanting glow grants the wearer enhanced vision in dark dungeons.",item-icon-45,45,Crystal Stone Helmet,"1,2,3",1,3,1,
+1,"This armor, with its cracked crystal design, exudes an aura of resilience and power. Its shimmering surface reflects the light, captivating all who lay eyes upon it. A symbol of strength and endurance, it is a must-have for any seasoned warrior.",item-icon-46,46,Cracked Crystal Armor,1,1,1,1,
+1,"This armor is crafted with a unique crystal-like material, providing exceptional protection without sacrificing mobility. Its sleek design and shimmering surface make it a true masterpiece of craftsmanship. With the Crystal Skin Armor, you'll feel invincible on the battlefield.",item-icon-47,47,Crystal Skin Armor,"1,2",1,2,1,
+1,"A formidable armor forged from enchanted crystals, providing unparalleled protection against both physical and magical attacks. Its shimmering surface reflects light, dazzling enemies and instilling fear in their hearts. Wearing this armor grants the wearer an aura of invincibility, making them an unstoppable force on the battlefield.",item-icon-48,48,Crystal Stone Armor,"1,2,3",1,3,1,
+1,"A unique piece of clothing made from delicate crystals, this grass skirt adds a touch of elegance to any outfit. Its cracked texture gives it a mysterious and enchanting allure, making it a must-have for fashion-forward adventurers.",item-icon-49,49,Cracked Crystal Grass Skirt,1,1,1,1,
+1,"These pants have a unique crystal-like texture, giving them a sleek and futuristic appearance. The smooth fabric feels cool against the skin, providing maximum comfort during intense battles. With their eye-catching design, these pants are sure to make you stand out on the battlefield.",item-icon-50,50,Crystal Skin Pant,"1,2",1,2,1,
+1,"These leggings are crafted from a rare crystal stone, providing unparalleled protection and durability. The shimmering surface reflects light, making the wearer appear ethereal and mysterious.",item-icon-51,51,Crystal Stone Legging,"1,2,3",1,3,1,
+1,"A shimmering accessory with delicate cracks, exuding an air of mystery and resilience. Its fractured surface reflects the wearer's strength and determination, making it a symbol of resilience and perseverance.",item-icon-52,52,Cracked Crystal Bracelet,1,1,1,1,
+1,"This glove is crafted with a unique crystal-like material, providing a sleek and smooth texture that enhances grip and dexterity. Its lightweight design allows for effortless movement, making it a favorite among gamers seeking precision and comfort.",item-icon-53,53,Crystal Skin Glove,"1,2",1,2,1,
+1,"A powerful gauntlet infused with the energy of crystals, granting the wearer enhanced strength and the ability to manipulate elemental forces. Harness the raw power of nature and unleash devastating attacks against your enemies. Dominate the battlefield with the Crystal Stone Gauntlet!",item-icon-54,54,Crystal Stone Gauntlet,"1,2,3",1,3,1,
+1,"These shoes are made from a unique material that provides excellent grip and traction, making them perfect for traversing slippery surfaces. The cracked crystal design adds a touch of elegance and mystique to your outfit. Slip them on and feel the confidence as you step onto any terrain.",item-icon-55,55,Cracked Crystal Grass Shoes,1,1,1,1,
+1,"These boots are crafted with a unique material that enhances agility and provides excellent protection. Their sleek design allows for swift movement, making them a favorite among adventurers. The Crystal Skin Boots are a must-have for any player seeking both style and functionality.",item-icon-56,56,Crystal Skin Boots,"1,2",1,2,1,
+1,"These shoes are crafted with a unique crystal stone design, adding a touch of elegance to your every step. The shimmering stones embedded in the shoes create a mesmerizing effect, making you the center of attention wherever you go. Slip into these exquisite shoes and feel the enchantment they bring to your outfit.",item-icon-57,57,Crystal Stone Shoes,"1,2,3",1,3,1,
 1,This stone is of first grade and can be used for collecting raw materials such as trees.,item-icon-58,58,Mineral,1,4,1,1,
 1,"Black iron ore is a secondary raw material that can be obtained through mining. It has a black color, a hard texture, and contains abundant iron elements.",item-icon-59,59,Dark Iron,1,4,2,1,
-1,This is a tier-three red crystal ore that can be collected in the forest. It is an important raw material that can be used to craft various equipment and items.,item-icon-60,60,Red Crystal,1,4,3,1,
+1,This is a tier-three red crystal ore that can be collected in the forest. It is an important raw material that can be used to craft various equipment and items.,item-icon-60,60,Red Crystal Ore,1,4,3,1,
 1,"This type of wood is usually used for making simple furniture or building materials. Its texture is relatively soft, making it easy to process and carve.",item-icon-62,62,Ordinary Wood,1,4,1,1,
-1,"Desert trees are a type of tree that grows in the desert. They are usually of low height, with thick trunks and light green leaves. They can be used to collect raw materials and are suitable for making some special items.",item-icon-63,63,Cactus Material,1,4,2,1,
+1,"Desert trees are a type of tree that grows in the desert. They are usually of low height, with thick trunks and light green leaves. They can be used to collect raw materials and are suitable for making some special items.",item-icon-63,63,Desert Tree Wood,1,4,2,1,
 1,"Dark wood is a premium type of wood with black textures and a hard texture, suitable for making high-end furniture and crafts. It can only be harvested at specific collection points, which is difficult but also very profitable.",item-icon-64,64,Dark Wood,1,4,3,1,
 1,This type of bamboo is an agricultural output and a plant used for making various agricultural raw materials. It is very common in agriculture and can grow very quickly.,item-icon-70,70,Bamboo,1,4,1,1,
 1,"This item is a raw material produced in agriculture, usually harvestable at Lv 1. Its shape resembles three leaves, hence it is called a clover. It can be used to make many different items and is a very useful resource.",item-icon-71,71,Trifolium,1,4,1,1,
@@ -96,523 +49,110 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,"This hard fruit is a high-yield agricultural raw material that can be used to make various foods and medicines. It has a hard texture and rich nutritional components, making it an indispensable part of agricultural production.",item-icon-77,77,Hard Fruit,1,4,3,1,
 1,This blue mushroom is a premium mushroom species that is typically produced in the agricultural sector. It is a highly valuable raw material that can be used for making medicines and gourmet food.,item-icon-78,78,Blue Mushroom,1,4,3,1,
 1,This is a tool for farming that can help you easily till the soil and weed. It is suitable for beginners to use.,item-icon-79,79,Wooden Hoe,1,1,0,1,
-1,"1. Iron hoe: suitable for cultivation and weeding.
-2. Iron hoe: sturdy and durable, can be used to cultivate hard land.
-3. Iron hoe: one of the essential tools for farmers.
-4. Iron hoe: the head of the hoe is quenched and not easy to deform.
-5. Iron hoe: suitable for cultivation and excavation in the fields.
-6. Iron hoe: attention should be paid to maintenance when using it to prolong its service life.
-7. Iron hoe: can reduce labor intensity and improve work efficiency.
-8. Iron hoe: can be used to excavate underground waterways or drainage ditches.
-9. Iron hoe: the head is sharp and easy to turn over the soil.
-10. Iron hoe: not only suitable for agriculture, but also for horticulture and other fields.",item-icon-80,80,Iron Hoe,1,1,1,1,
+1,The Iron Hoe is a durable farming tool made of sturdy iron. It is essential for tilling soil and cultivating crops efficiently in the game.,item-icon-80,80,Iron Hoe,1,1,1,1,
 1,"This hoe can help farmers cultivate the land more easily, but at the same time it also brings some mysterious curses.",item-icon-81,81,Curse Hoe,"1,2",1,2,1,
-1,"1. This hoe is specially designed for agriculture and can help farmers cultivate more efficiently.
-2. The blessed hoe can bring good luck and make farming smoother for farmers.
-3. This hoe has reached level 3, making it more handy to use and more efficient.
-4. The blessed hoe is an equipment that can improve farmers' planting ability and harvesting efficiency.
-5. This hoe is suitable for all kinds of land and can easily turn over and cultivate the soil, making the land more fertile.",item-icon-82,82,Blessing Hoe,"1,2,3",1,3,1,
-1,"This wooden water pot is a piece of equipment suitable for agricultural use, which can be used to hold clean water or irrigation water.",item-icon-83,83,Wooden Water Kettle,1,1,0,1,
-1,"1. Iron water kettle: a sturdy and durable tool for boiling water, suitable for outdoor use.
-2. Iron water kettle: an essential kitchen utensil for farmers, can be used for boiling water, cooking porridge, etc.
-3. Iron water kettle: a must-have equipment for outdoor exploration, can be used for boiling water and disinfection.
-4. Iron water kettle: a classic iron style, not easy to rust, easy to clean.
-5. Iron water kettle: a simple and practical design, moderate capacity, convenient to carry.",item-icon-84,84,Iron Kettle,1,1,1,1,
-1,"1. A kettle with a spell.
-2. A kettle that can curse.
-3. A kettle with the ability to curse.
-4. A kettle used for spells.
-5. A cursed kettle in the agricultural field.
-6. Cursed equipment suitable for agriculture.
-7. A necessary cursed tool in agricultural production.
-8. A kettle with a significant curse effect.
-9. A kettle with powerful curse abilities.
-10. A kettle with mysterious powers.",item-icon-85,85,Curse Kettle,"1,2",1,2,1,
-1,The Blessing Watering Can is a piece of equipment specifically designed for agriculture. It can help you achieve better harvests when planting crops.,item-icon-86,86,Blessing Water Bottle,"1,2,3",1,3,1,
-1,"1. Simple mining tools
-2. Suitable for beginners to use
-3. Made of rough wooden materials
-4. Used to collect trees and stones
-5. Low collection efficiency
-6. Easily damaged and needs frequent replacement
-7. Collection process requires patience and skill
-8. The pickaxe is sharp and easy to dig
-9. Simple and convenient to use, lightweight and portable
-10. Suitable for collecting and exploring in the wild.",item-icon-87,87,Wooden Hoe,1,1,0,1,
-1,"1. The iron pickaxe is suitable for beginners to use and can be used to collect wood and ores.
-2. The iron pickaxe is an essential gathering tool that can easily collect various resources.
-3. This iron pickaxe is very sturdy and can dig more efficiently during the gathering process.
-4. Due to its moderate weight, the iron pickaxe is very convenient to use and is one of the preferred equipment for gatherers.
-5. The iron pickaxe is very sharp and can easily dig out various valuable resources.",item-icon-88,88,Iron Pickaxe,1,1,1,1,
-1,This cursed pickaxe can help you gather trees and ores faster. It is a level 2 equipment with powerful gathering abilities.,item-icon-89,89,Curse Of The Pickaxe,"1,2",1,2,1,
-1,"1. Wishing the Blessed Pickaxe can improve collection efficiency.
-2. The Blessed Pickaxe is a tool suitable for collecting trees.
-3. The Blessed Pickaxe has strong collection ability and can easily collect precious resources.
-4. The Blessed Pickaxe is a very durable equipment that can be used for a long time.
-5. The design of the Blessed Pickaxe is very user-friendly and easy to use.",item-icon-90,90,Blessing Pickaxe,"1,2,3",1,3,1,
+1,"The Blessing Hoe is a powerful tool that enhances farming efficiency and increases crop yields. It radiates a divine aura, imbuing each strike with blessings that promote healthy growth and bountiful harvests. With this enchanted hoe in hand, players can cultivate their land with ease and experience the joy of reaping the rewards of their hard work.",item-icon-82,82,Blessing Hoe,"1,2,3",1,3,1,
+1,"This wooden water pot is a piece of equipment suitable for agricultural use, which can be used to hold clean water or irrigation water.",item-icon-83,83,Wooden Kettle,1,1,0,1,
+1,"A sturdy and reliable cooking utensil made of durable iron. It heats up quickly and evenly, allowing for efficient cooking. Its ergonomic handle ensures a comfortable grip while pouring.",item-icon-84,84,Iron Kettle,1,1,1,1,
+1,"A mysterious kettle that brings misfortune to those who possess it, causing chaos and despair. Its dark aura emanates an eerie presence, tempting fate with every brew. Be cautious, for its cursed power can turn even the most fortunate into victims of their own demise.",item-icon-85,85,Curse Kettle,"1,2",1,2,1,
+1,"A sacred artifact that brings blessings and good fortune to its owner, enhancing their luck and granting them unexpected opportunities. This mystical kettle is said to radiate positive energy, attracting prosperity and happiness wherever it goes. A cherished possession for those seeking a touch of divine intervention in their lives.",item-icon-86,86,Blessing Kettle,"1,2,3",1,3,1,
+1,"A sturdy tool made of wood, perfect for mining and gathering resources efficiently. Its durability ensures it won't break easily, making it a reliable choice for any adventurer.",item-icon-87,87,Wooden pickaxe,1,1,0,1,
+1,"A sturdy tool made of iron, perfect for mining and excavating valuable resources. Its sharp edge and durable construction make it an essential item for any adventurer. With this pickaxe in hand, you'll be able to dig deeper and uncover hidden treasures.",item-icon-88,88,Iron Pickaxe,1,1,1,1,
+1,This cursed pickaxe can help you gather trees and ores faster. It is a level 2 equipment with powerful gathering abilities.,item-icon-89,89,Cursed Pickaxe,"1,2",1,2,1,
+1,"The Blessing Pickaxe, a sacred tool bestowed with divine power, effortlessly cleaves through the toughest of rocks, leaving behind a trail of shimmering fragments. Its enchanted blade glows with a radiant light, guiding miners towards hidden treasures deep within the earth. With each swing, it grants blessings of fortune and prosperity, making it an essential companion for any adventurer.",item-icon-90,90,Blessing Pickaxe,"1,2,3",1,3,1,
 1,"This axe is a wooden tool, suitable for outdoor gathering work. It is a type of equipment that can help you complete gathering tasks more efficiently.",item-icon-91,91,Wooden Axe,1,1,0,1,
 1,This iron axe can be used to fell trees and is an essential tool for gathering wood. It can also be used as equipment to increase combat effectiveness.,item-icon-92,92,Iron Axe,1,1,1,1,
 1,"The sharpness of this axe has reached level 2, making it easy to gather trees. However, it has also been cursed, so caution is required when using it.",item-icon-93,93,Curse Axe,"1,2",1,2,1,
-1,Blessed Axe is a level 3 axe that not only can be used for chopping trees but also has a blessing effect.,item-icon-94,94,Blessed Axe,"1,2,3",1,3,1,
-1,"- This hat is embedded with a lucky clover, which enhances luck!
-- The agricultural hat is suitable for wearing in the fields, providing sun protection and comfort.
-- The lucky clover hat is said to bring good luck and is a rare lucky item.
-- This hat is specifically designed for agricultural work, durable and practical.
-- Wearing this lucky clover hat will make you more confident and lucky in the fields!",item-icon-98,98,Lucky Clover Hat,1,1,1,1,
-1,"This lucky cotton hat is designed specifically for agricultural workers. It can increase the luck factor of the harvest and promote the healthy growth of crops. Additionally, it can effectively protect against sun exposure, providing a more comfortable working environment for the workers.",item-icon-99,99,Lucky Cotton Hat,"1,2",1,2,1,
-1,"1. The agriculture hat with lucky attributes can increase agricultural yields.
-2. The sturdy agriculture hat can protect farmers' heads from harm.
-3. The agriculture-specific hat is suitable for working in the fields.
-4. The agriculture hat with lucky attributes can increase agricultural profits.
-5. The durable agriculture hat can be used for a long time without being easily damaged.
-6. The essential agriculture hat can prevent direct sunlight and sandstorms from invading.
-7. The agriculture hat with lucky attributes can bring good luck to farmers.
-8. The standard hat for agricultural laborers can improve work efficiency.
-9. The sturdy agriculture hat can protect farmers' heads from the weather.
-10. The agriculture hat with lucky attributes can bring good luck to agricultural production.",item-icon-100,100,Lucky Hard Hat,"1,2,3",1,3,1,
-1,"This harvest jacket is specially designed for agricultural workers, providing comfortable wear and good protection, allowing farmers to work in the field with peace of mind.",item-icon-101,101,Harvest Jacket,1,1,1,1,
-1,"1. Breathable and comfortable, suitable for long-term wear.
-2. With multiple pockets, convenient for carrying tools.
-3. Durable and wear-resistant, suitable for wearing in the fields.
-4. Simple and elegant design, meets the practical needs of agricultural work.
-5. Adjustable cuffs and waistbands, suitable for workers of different body types.",item-icon-102,102,Farming Jacket,"1,2",1,2,1,
+1,"A powerful weapon bestowed with divine blessings, capable of cleaving through any obstacle with ease. Its razor-sharp blade glimmers with a holy light, instilling fear in the hearts of enemies. The Blessed Axe is a true symbol of strength and righteousness on the battlefield.",item-icon-94,94,Blessed Axe,"1,2,3",1,3,1,
+1,"This stylish hat brings good luck to its wearer, adding a touch of charm to any outfit. Its vibrant colors and intricate design make it a must-have accessory for fashion-forward players. Wear it and let the luck be on your side!",item-icon-98,98,Lucky Clover Hat,1,1,1,1,
+1,"This stylish hat is made of soft and comfortable cotton, bringing luck to its wearer. Its vibrant colors and intricate design make it a fashionable accessory for any outfit. With this hat, you'll feel confident and ready to take on any adventure.",item-icon-99,99,Lucky Cotton Hat,"1,2",1,2,1,
+1,"This sturdy hard hat brings good luck to its wearer, providing extra protection and increasing their chances of finding valuable treasures. Its vibrant colors and durable construction make it a favorite among adventurous players.",item-icon-100,100,Lucky Hard Hat,"1,2,3",1,3,1,
+1,"A stylish jacket perfect for outdoor adventures, providing warmth and protection against the elements. Its durable material and practical design make it a must-have for any adventurer. Stay comfortable and stylish with this Harvest Jacket.",item-icon-101,101,Harvest Jacket,1,1,1,1,
+1,"A durable jacket designed for farmers, providing protection against the elements and rugged terrain. Its reinforced stitching and sturdy fabric make it ideal for outdoor work. Stay comfortable and focused on your tasks with this reliable piece of clothing.",item-icon-102,102,Farming Jacket,"1,2",1,2,1,
 1,"This jacket is specially designed for people who work in agriculture. It features protection, breathability, and durability, making your work in the fields more comfortable and safe.",item-icon-103,103,Farming Jacket,"1,2,3",1,3,1,
-1,"- These pants are suitable for agricultural workers to wear.
-- The material of the pants is soft and comfortable.
-- The design of the pants is reasonable and will not affect agricultural work.
-- The color of the pants is natural and in line with the agricultural theme.
-- The details of the pants are exquisite and the craftsmanship is excellent.",item-icon-104,104,Farming Pants,1,1,1,1,
-1,"This agricultural pants are specifically designed for agricultural work, with features such as waterproof and abrasion resistance, making your field work more comfortable and safe.",item-icon-105,105,Farming Overalls,"1,2",1,2,1,
-1,"This pair of pants is designed specifically for agricultural workers, made with high-quality materials that are comfortable and durable. It features functions such as waterproofing, stain resistance, and puncture resistance, effectively protecting the worker's body and clothes. Additionally, it has multiple pockets and detailed designs to facilitate carrying tools and improve work efficiency.",item-icon-106,106,Farming Trousers,"1,2,3",1,3,1,
+1,"These pants are designed for farmers, providing comfort and durability for long hours of work in the fields. Made from high-quality materials, they offer excellent protection against dirt and stains. With their practical design and adjustable fit, these pants are a must-have for any dedicated farmer.",item-icon-104,104,Farming Pants,1,1,1,1,
+1,"This agricultural pants are specifically designed for agricultural work, with features such as waterproof and abrasion resistance, making your field work more comfortable and safe.",item-icon-105,105,Farming Pants,"1,2",1,2,1,
+1,"This pair of pants is designed specifically for agricultural workers, made with high-quality materials that are comfortable and durable. It features functions such as waterproofing, stain resistance, and puncture resistance, effectively protecting the worker's body and clothes. Additionally, it has multiple pockets and detailed designs to facilitate carrying tools and improve work efficiency.",item-icon-106,106,Farming Pants,"1,2,3",1,3,1,
 1,"This glove is suitable for use in the fields, and can protect hands from thorns, dirt and other sharp objects. It also has anti-slip function, making you more stable on wet soil.",item-icon-107,107,Farming Gloves,1,1,1,1,
-1,"1. Durable and comfortable, protecting your hands.
-2. Non-slip and breathable, making operations more convenient.
-3. Designed specifically for crops, improving work efficiency.
-4. Lightweight and portable, ready to use at any time.
-5. Stab and cut resistant, ensuring safety.
-6. High elasticity material, suitable for various hand sizes.
-7. Exquisitely handcrafted, ensuring quality.
-8. Stain-resistant and easy to clean, making cleaning convenient.
-9. Economical and practical, providing great value for money.
-10. Suitable for all seasons, can be used all year round.",item-icon-108,108,Farming Gloves,"1,2",1,2,1,
+1,"These gloves are designed specifically for farming tasks, providing excellent grip and protection against thorns and rough surfaces. They are made with durable materials to withstand long hours of work in the fields. With these gloves, you can handle any farming job with ease and comfort.",item-icon-108,108,Farming Gloves,"1,2",1,2,1,
 1,"This glove is suitable for agricultural work, providing comfortable grip and protection to help farmers complete various farming activities.",item-icon-109,109,Farming Gloves,"1,2,3",1,3,1,
-1,"These collection shoes are specially designed for collection. Wearing them can make you more agile when walking in the forest, and easily collect the resources you need.",item-icon-113,113,Gather Shoes,1,1,1,1,
-1,"These collection shoes are specially designed for collection. They can help you collect resources faster and more efficiently, making your collection journey smoother.",item-icon-114,114,Gather Shoes,"1,2",1,2,1,
-1,"1. Specialized collection shoes can improve collection efficiency.
-2. Anti-slip collection shoes are suitable for uneven terrain.
-3. Lightweight collection shoes are convenient for long-term collection.
-4. Wear-resistant collection shoes are suitable for collecting in densely populated areas.
-5. Specialized collection boots can protect feet from injury.",item-icon-115,115,Gather Shoes,"1,2,3",1,3,1,
-1,Lv 0 - Accelerator Fertilizer  is a consumable in agriculture that can promote crop growth and increase yield.,item-icon-128,128,Accelerated Fertilizer,1,3,0,1,98
-1,"Fertilizer for increasing crop yields is a consumable designed specifically for agricultural production at level LV0 and above. It can provide sufficient nutrients for crops, promote their growth and development, and improve their yield and quality.",item-icon-129,129,Increase Production Fertilizers,1,3,0,1,98
-1,"- Moisture fertilizer: Nutrients that can promote crop growth
-- Agricultural consumables: Necessities specifically used for agricultural production
-- Lv 0: Basic fertilizer suitable for novice farmers
-- Fertilizer specifically used for crop planting
-- Can enhance soil fertility and increase crop yields
-- Made from natural organic materials, harmless and environmentally friendly
-- Suitable for various crops, including vegetables, fruits, grains, etc.
-- Moisture fertilizer can improve the disease resistance of crops
-- Using moisture fertilizer can shorten the growth cycle of crops
-- Moisture fertilizer is an essential part of agricultural production.",item-icon-130,130,Moisture-rich Fertilizer,1,3,0,1,98
+1,"These collection shoes are specially designed for collection. Wearing them can make you more agile when walking in the forest, and easily collect the resources you need.",item-icon-113,113,Gathering Shoes,1,1,1,1,
+1,"These collection shoes are specially designed for collection. They can help you collect resources faster and more efficiently, making your collection journey smoother.",item-icon-114,114,Gathering Shoes,"1,2",1,2,1,
+1,"These shoes are designed for avid gatherers, providing enhanced agility and comfort during long expeditions. With their durable yet lightweight construction, they allow players to effortlessly traverse various terrains and gather resources with ease. The shoes also feature a specialized grip that ensures stability, preventing slips and falls even in treacherous environments.",item-icon-115,115,Gathering Shoes,"1,2,3",1,3,1,
+1,"Boost your crops' growth with this potent formula, ensuring a bountiful harvest in no time. Enhance your farming efficiency and watch your plants thrive with this powerful fertilizer.",item-icon-128,128,Accelerated Fertilizer,1,3,0,1,98
+1,"Fertilizer for increasing crop yields is a consumable designed specifically for agricultural production at level LV0 and above. It can provide sufficient nutrients for crops, promote their growth and development, and improve their yield and quality.",item-icon-129,129,Yield-Boosting Fertilizer,1,3,0,1,98
+1,"This nutrient-rich formula deeply nourishes plants, promoting healthy growth and vibrant blooms. It enhances soil moisture retention, ensuring plants stay hydrated for longer periods. Boost your garden's vitality with this essential fertilizer.",item-icon-130,130,Moisturizing Fertilizer,1,3,0,1,98
 1,This potion can be used during battles and provides a minor healing effect.,item-icon-134,134,Secondary Healing Potion,1,3,0,1,
 1,This potion can enhance your attack power.,item-icon-135,135,Secondary Attack Potion,1,3,0,1,
-1,"1. Potion that enhances movement speed
-2. Consumables used for combat
-3. Subpar potion with level 0
-4. Can increase character's movement speed
-5. Can help character escape or pursue enemies faster
-6. Can provide better opportunities during combat
-7. Suitable for various combat scenarios
-8. Should be used cautiously before combat
-9. Has a brief duration of effect
-10. Can save a character's life in emergency situations.",item-icon-136,136,Secondary Movement Speed Potion,1,3,0,1,
-1,"1. Swordsmanship is essential to increase critical hit rate.
-2. A combat weapon that instantly increases attack power.
-3. A key breakthrough that helps win battles.
-4. A critical hit is essential to make enemies tremble.
-5. A battlefield artifact that makes you the king of battle.
-6. A weapon for violent output that can kill enemies instantly.
-7. Instant acceleration makes you the king of combat speed.
-8. Explosive output gives you an advantage in battle.
-9. Immediate effect makes your attack more deadly.
-10. Enhancing combat ability makes you more powerful on the battlefield.",item-icon-137,137,Secondary Critical Strike Potion,1,3,0,1,
-1,"1. Potion that increases health points
-2. Potions that can be used during battles
-3. Temporary health-boosting potions
-4. Potions used for restoring health points
-5. Consumables that increase health points
-6. Lesser potions that restore health points
-7. Health-recovering potions
-8. Essential potions for battles
-9. Elixir that temporarily increases health points
-10. Lesser elixir for restoring health points.",item-icon-138,138,Secondary Life Potion,1,3,0,1,
+1,"This potion enhances your agility, allowing you to move swiftly and dodge attacks with ease. It gives you a temporary burst of speed, making you a formidable force on the battlefield. Use it strategically to outmaneuver your opponents and gain the upper hand in combat.",item-icon-136,136,Secondary Movement Speed Potion,1,3,0,1,
+1,"This potion enhances your critical strike chance, allowing you to deal devastating blows to your enemies. It's a must-have for any player looking to maximize their damage output. Use it wisely and watch your foes crumble before you.",item-icon-137,137,Secondary Critical Strike Potion,1,3,0,1,
+1,"This potion is a lifeline in the game, providing a much-needed boost to your character's health. It instantly restores a significant amount of HP, allowing you to continue your adventure without interruption. With its vibrant color and refreshing taste, it's the perfect remedy for any dire situation.",item-icon-138,138,Secondary Life Potion,1,3,0,1,
 1,"This potion can provide a temporary defensive effect, suitable for emergency situations in battle.",item-icon-139,139,Secondary Defense Potion,1,3,0,1,
-1,"This is a type of seed that can be planted to grow bamboo, which is suitable for use in the agricultural field.",item-icon-146,146,Bamboo Seeds,1,3,1,1,97
-1,Trifolium seeds are agricultural consumables used to plant trifolium and are suitable for use on low-grade land. They can grow rapidly and produce rich nutritional value in suitable environments.,item-icon-147,147,Trifolium Seeds,1,3,1,1,97
-1,This type of carrot seeds can be used to grow fresh and delicious carrots. It is suitable for use in home gardens or small farms and can be planted in spring and autumn. The carrots grown from these seeds are tasty and nutritious.,item-icon-148,148,Carrot Seeds,1,3,1,1,97
-1,"Pitcher plant seeds are an agricultural consumable that can be used to grow pitcher plants. This plant is a carnivorous plant that can absorb nutrients from insects. After planting, sufficient sunlight and water are needed for smooth growth.",item-icon-149,149,Pigmy Sundew Seeds,1,3,2,1,97
-1,This type of cotton seed can be planted in fields and harvested for cotton to be used in textile production.,item-icon-150,150,Cotton Seeds,1,3,2,1,97
-1,"1. Suitable for planting in desert environments.
-2. Shorter growth cycle.
-3. Requires ample sunlight and water.
-4. Can be used to make beauty and skincare products.
-5. Contains rich vitamins and minerals.
-6. Can be used as ornamental plants in homes.
-7. Suitable for planting in pots.
-8. Can be used to make beverages and food.
-9. Need to be careful not to overwater.
-10. Can be transplanted and propagated in spring and autumn.",item-icon-151,151,Endure The Fruit Seeds,1,3,2,1,97
-1,"This seed is suitable for planting in warm environments, it grows quickly and has excellent quality. Its taste is extremely spicy, which can add a unique flavor to food, making it the best choice for chili lovers.",item-icon-152,152,Explosive Hot Pepper Seeds,1,3,3,1,97
-1,"1. Hard fruit seeds: a type of seed suitable for planting.
-2. Agricultural consumables: a type of consumable used in agricultural production.
-3. Hard fruit: a type of fruit with a hard texture.
-4. Seed: a type of seed used for plant reproduction.
-5. Agriculture: items related to agriculture.
-6. Fruit: the fruit produced by plants.
-7. Hard: an item with a hard texture.
-8. Reproduction: the process of plant reproduction.
-9. Production: items used in agricultural production.
-10. Planting: the process of planting plants.",item-icon-153,153,Hard-shelled Fruit Seeds,1,3,3,1,97
-1,"1. Blue Mushroom Seeds: Can be planted to grow beautiful blue mushrooms.
-2. Agricultural Consumables: Used for agricultural cultivation to increase yield efficiency.
-3. Magic Seeds: When planted, it emits mysterious magic and accelerates growth.
-4. Rare Plants: Can only be found in specific locations, and harvesting can yield high profits.
-5. Healthy Ingredients: Blue mushrooms are a nutritious ingredient that helps to enhance physical fitness.
-6. Deep-Sea Products: Blue mushrooms grow in the deep sea and are a unique marine product.
-7. Mysterious Seeds: It is said to be excavated from mysterious ruins and has magical powers.
-8. Beautiful Flowers: The flowers grown from blue mushrooms are very beautiful and can be used for decoration.
-9. Precious Seeds: Blue mushroom seeds are scarce and are a precious type of seed.
-10. High-Value Crops: Blue mushrooms are a high-value crop that can bring in substantial profits.",item-icon-154,154,Blue Mushroom Seeds,1,3,3,1,97
-1,"1. Lv 0-Talisman: used to enhance the body's resistance.
-2. Lv 0-Talisman: it is said to be able to ward off evil and bless peace.
-3. Lv 0-Talisman: well-made, beautiful in appearance, suitable for wearing.
-4. Lv 0-Talisman: is a traditional protective prop with a long history.
-5. Lv 0-Talisman: made of superior materials, with a long lifespan, worth treasuring.
-6. Lv 0-Talisman: not only has the function of protection, but also has the effect of beautifying the body shape.
-7. Lv 0-Talisman: suitable for giving to relatives and friends to express love and care.
-8. Lv 0-Talisman: is a popular cultural art item with collection value.
-9. Lv 0-Talisman: convenient to wear, can be hung on the neck, wrist and other places.
-10. Lv 0-Talisman: is a mysterious item that can bring good luck and fortune.",item-icon-161,161,Talisman,"1,2,3,4,5",4,0,1,
-1,"1. Efficient fertilizer that promotes growth
-2. Magical fertilizer that improves crop yield
-3. Accelerated fertilizer that helps crops mature quickly
-4. High-quality fertilizer designed for agricultural production
-5. Advanced fertilizer that can increase soil fertility
-6. Professional fertilizer that effectively improves crop quality
-7. Comprehensive fertilizer that helps crops absorb nutrients
-8. High-tech fertilizer that can accelerate crop growth
-9. Professional fertilizer that enhances crop disease resistance
-10. Fertilizer that injects new vitality into agricultural production.",item-icon-131,131,Advanced Accelerated Fertilizer,1,3,0,1,98
-1,"1. Essential product for promoting crop growth
-2. Miracle worker for increasing crop yield
-3. Instrument for improving crop quality
-4. Reliable assistant for agricultural production
-5. Necessity for increasing land productivity
-6. Essential tool for optimizing soil environment
-7. Key item for ensuring agricultural production
-8. Important guarantee for improving agricultural efficiency
-9. Necessary condition for stable crop growth
-10. Necessary means for increasing crop yield.",item-icon-132,132,Advanced Yield-increasing Fertilizer,1,3,0,1,98
-1,"1. Essential items that help crop growth.
-2. Assistant to improve soil fertility.
-3. A magical tool that maintains soil moisture.
-4. Good medicine to promote healthy plant growth.
-5. A must-have product for supplementing crops with nutrients.
-6. The secret weapon to increase crop yields.
-7. Protect crops from the invasion of drought.
-8. A necessary product to improve crop resistance to diseases.
-9. Provide comprehensive nutrition for crops.
-10. A good helper to help crops grow strong.",item-icon-133,133,Advanced Moisture Fertilizer,1,3,0,1,98
+1,"This is a type of seed that can be planted to grow bamboo, which is suitable for use in the agricultural field.",item-icon-146,146,Bamboo Seed,1,3,1,1,97
+1,Trifolium seeds are agricultural consumables used to plant trifolium and are suitable for use on low-grade land. They can grow rapidly and produce rich nutritional value in suitable environments.,item-icon-147,147,Trifolium Seed,1,3,1,1,97
+1,This type of carrot seeds can be used to grow fresh and delicious carrots. It is suitable for use in home gardens or small farms and can be planted in spring and autumn. The carrots grown from these seeds are tasty and nutritious.,item-icon-148,148,Carrot Seed,1,3,1,1,97
+1,"Pitcher plant seeds are an agricultural consumable that can be used to grow pitcher plants. This plant is a carnivorous plant that can absorb nutrients from insects. After planting, sufficient sunlight and water are needed for smooth growth.",item-icon-149,149,Pigmy Sundew Seed,1,3,2,1,97
+1,This type of cotton seed can be planted in fields and harvested for cotton to be used in textile production.,item-icon-150,150,Cotton Seed,1,3,2,1,97
+1,"This seed holds the potential for a prickly and resilient plant to grow. It promises a touch of desert beauty in your garden. Plant it and watch nature's wonders unfold.
+",item-icon-151,151,Cactus Seed,1,3,2,1,97
+1,"This seed is suitable for planting in warm environments, it grows quickly and has excellent quality. Its taste is extremely spicy, which can add a unique flavor to food, making it the best choice for chili lovers.",item-icon-152,152,Explosive Hot Pepper Seed,1,3,3,1,97
+1,"A tough and durable seed that boasts a strong outer shell, perfect for protection and longevity. Its robust nature ensures it can withstand harsh conditions and thrive in any environment. This seed is a symbol of resilience and strength.",item-icon-153,153,Hard-shelled Fruit Seed,1,3,3,1,97
+1,"This seed holds the promise of a vibrant blue mushroom, ready to bring a splash of color to your garden. Plant it and watch as it grows into a mesmerizing fungi that will captivate your senses.",item-icon-154,154,Blue Mushroom Seed,1,3,3,1,97
+1,"A powerful charm that enhances your magical abilities, allowing you to cast spells with greater precision and potency. It radiates an aura of mystic energy, empowering you in your quest for victory.",item-icon-161,161,Talisman,"1,2,3,4,5",4,0,1,
+1,"This powerful fertilizer enhances plant growth and boosts yields, allowing crops to flourish in record time. It provides essential nutrients and promotes strong root development, resulting in healthier and more abundant harvests. Experience accelerated growth like never before with this advanced formula.",item-icon-131,131,Advanced Accelerated Fertilizer,1,3,0,1,98
+1,"This powerful fertilizer significantly boosts crop yields, resulting in bountiful harvests. It enhances plant growth and maximizes nutrient absorption, ensuring healthier and more robust crops. With this advanced fertilizer, farmers can expect impressive improvements in their agricultural productivity.",item-icon-132,132,Advanced Yield-increasing Fertilizer,1,3,0,1,98
+1,"This fertilizer is specially formulated to provide deep hydration and nourishment to plants, resulting in healthier and more vibrant growth. Its advanced formula ensures optimal moisture retention in the soil, promoting strong roots and lush foliage. Give your plants the ultimate hydration boost with this advanced moisturizing fertilizer.",item-icon-133,133,Advanced Moisturizing Fertilizer,1,3,0,1,98
 1,"This potion can be used in battle, and it can heal your wounds.",item-icon-140,140,Treatment Potion,1,3,1,1,
-1,"1. It can increase attack power.
-2. It is used during battles.
-3. It can enhance attack effectiveness.
-4. It is a consumable item that disappears after use.
-5. It can help players achieve victory.
-6. It can make it easier for players to defeat enemies.
-7. It can improve players' combat abilities.
-8. It can help players complete tasks more quickly.
-9. It can make it easier for players to pass levels.
-10. It can make players more powerful during battles.",item-icon-141,141,Attack Potion,1,3,1,1,
-1,"1. Increase character movement speed.
-2. Able to quickly dodge enemy attacks during combat.
-3. Consumable item with effects lasting for a certain period of time.
-4. Can play an important role in chasing down enemies.
-5. Suitable for professions that require high mobility.
-6. Can accelerate travel speed during exploration.
-7. Increases agility and flexibility in combat.
-8. Can be used to avoid pursuit and capture.
-9. Can quickly reach the target location during combat.
-10. Effectively enhances the character's combat abilities.",item-icon-142,142,Movement Speed Potion,1,3,1,1,
-1,"1. Increase critical hit rate
-2. Essential for battle
-3. Quickly boost attack power
-4. Consumable, expires after use
-5. Critical hit potion, significant effect
-6. Suitable for players at Lv 1 and above
-7. Used in critical moments during battle
-8. Instantly increase output efficiency
-9. Increase attack damage
-10. Can make battles easier to win.",item-icon-143,143,Critical Strike Potion,1,3,1,1,
+1,"This potion enhances your combat abilities, boosting your attack power for a limited time. It's a must-have for any adventurer looking to deal devastating blows to their enemies. Use it wisely and watch your foes tremble before you.",item-icon-141,141,Attack Potion,1,3,1,1,
+1,"This potion enhances your speed, allowing you to move swiftly and dodge attacks with ease. It's a must-have for any adventurer looking to gain an edge in battles.",item-icon-142,142,Swiftness Potion,1,3,1,1,
+1,"This potion enhances your combat abilities, increasing your chances of delivering devastating blows to your enemies. It boosts your critical strike rate, allowing you to deal massive damage in battles. With this potion, victory is within your grasp.",item-icon-143,143,Critical Strike Potion,1,3,1,1,
 1,This potion can restore your health points. It works better when used during battles.,item-icon-144,144,Life Potion,1,3,1,1,
-1,"1. Potion that increases defense ability
-2. Potion that can be used in battles
-3. Consumable item that disappears after use
-4. Item that helps players resist enemy attacks
-5. Potion that temporarily enhances character's defense
-6. Used to improve character's survival ability in battles
-7. Potion that can save lives in dangerous battles
-8. Defense item that can be used in emergency situations
-9. Used to increase character's endurance in battles
-10. Potion that allows players to face battles with more ease and composure.",item-icon-145,145,Defensive Potion,1,3,1,1,
+1,"A powerful elixir that enhances your defensive capabilities, providing a temporary shield against enemy attacks. This potion boosts your armor and resilience, allowing you to withstand even the toughest battles. Use it wisely to turn the tide in your favor and emerge victorious.",item-icon-145,145,Defensive Potion,1,3,1,1,
 1,"Clay is a highly malleable soil commonly used to make pottery, bricks, and other building materials. It typically comes in shades of grey-brown or red-brown and has a fine texture with a high concentration of organic matter and minerals. When collecting clay, it is important to keep the soil moist for better shaping and processing.",item-icon-61,61,Clay,1,4,1,1,
 1,"This resin is a highly viscous liquid that can be used to make adhesives, coatings, and sealants, among other things. It is usually collected from trees and requires special tools for collection.",item-icon-65,65,Resin,1,4,1,1,
-1,"Level 3 - Agave  Harvesting Raw Materials: A perennial herbaceous plant that grows in the wilderness, with strong drought resistance. Its thick leaves contain abundant water and nutrients, making it an important raw material for making alcoholic beverages and medicine.",item-icon-68,68,Maguey,1,4,3,1,
+1,"A perennial herbaceous plant that grows in the wilderness, with strong drought resistance. Its thick leaves contain abundant water and nutrients, making it an important raw material for making alcoholic beverages and medicine.",item-icon-68,68,Maguey,1,4,3,1,
 1,"This plant fiber is a collected raw material that is usually obtained from trees. It can be used to make a variety of different items, such as ropes, fabrics, and paper.",item-icon-66,66,Plant Fibre,1,4,1,1,
 1,These mushrooms grow in the cold polar regions and have a light blue color. They have a delicious taste and are suitable for cooking.,item-icon-67,67,Frozen Fungus,1,4,2,1,
 1,This spider web is level 1 and can be collected in the forest. It is a raw material that can be used to make various items.,item-icon-69,69,Cobweb,1,4,1,1,
-1,"1. Lv 0-NFT Talisman #1 Material: This is a talisman material that can be used to make powerful talismans.
-2. Lv 0-NFT Talisman #1 Material: This material is made of high-quality materials and can add more energy to the talisman.
-3. Lv 0-NFT Talisman #1 Material: This is a precious talisman material that needs to be carefully protected to avoid loss.
-4. Lv 0-NFT Talisman #1 Material: This material is very rare, and only a few people can obtain it, so the talisman made from it is very precious.
-5. Lv 0-NFT Talisman #1 Material: This is a mysterious material that is said to inject magical power into the talisman.",item-icon-162,162,NFT Talisman #1,1,4,0,1,
-1,"1. Has unique patterns.
-2. Made of high-quality raw materials.
-3. Provides protection.
-4. Can enhance luck.
-5. Suitable for various occasions.
-6. Sturdy and durable, not easily damaged.
-7. Comes with exquisite packaging.
-8. Can be displayed as a collectible.
-9. Limited edition, rare and limited.
-10. Can be given as a gift to friends and family.",item-icon-163,163,NFT Talisman #2,1,4,0,1,
-1,"1. This talisman is made of high-quality raw materials.
-2. The talisman has exquisite design and high collection value.
-3. This talisman is a unique NFT product.
-4. The talisman has powerful functions and can protect the wearer's safety.
-5. The talisman has a gorgeous appearance and is suitable as a gift for friends or family.
-6. This talisman is a precious handicraft, and each one is unique.
-7. The materials of the talisman have been specially treated and have good waterproof and dustproof performance.
-8. The design inspiration of the talisman comes from traditional culture and has high cultural connotations.
-9. This talisman is a limited edition product with high collection value.
-10. The production process of the talisman is exquisite, and every detail is done very well.",item-icon-164,164,NFT Talisman #4,"2,1",4,0,1,
-1,"1. This talisman is made of pure energy materials.
-2. The talisman has exquisitely carved patterns.
-3. The surface of the talisman is smooth and comfortable to the touch.
-4. This talisman can provide powerful energy protection for the wearer.
-5. The design inspiration of the talisman comes from mysterious ancient symbols.
-6. This talisman is a limited edition and has collection value.
-7. The talisman is brightly colored and has a strong visual impact.
-8. The talisman's shape is unique and has unique artistic value.
-9. This talisman can bring good luck and happiness to the wearer.
-10. The talisman's craftsmanship is exquisite and has a high-quality guarantee.",item-icon-165,165,NFT Talisman #8,"2,1",4,0,1,
-1,"1. A talisman made of pure silver.
-2. An NFT talisman with the number 16 designation.
-3. It can protect the wearer from evil forces.
-4. Made with special techniques, it has strong protective abilities.
-5. Adorned with exquisite gemstones, it adds to its mystique.
-6. Suitable for various occasions for the wearer, such as travel or work.
-7. It can be a valuable collectible with high collection value.
-8. Contains special energy that can bring good luck and happiness.
-9. Provides the wearer with a mysterious protective shield.
-10. A unique and precious talisman that is worth having.",item-icon-166,166,NFT Talisman #16,"3,1",4,0,1,
-1,"1. This talisman is made from precious raw materials.
-2. The design of the talisman is extremely exquisite and stunning.
-3. This talisman can bring good luck and protection to the wearer.
-4. The quality of the talisman is very high and can withstand the test of time.
-5. The appearance of the talisman is simple yet elegant, making it ideal for daily wear.
-6. This talisman is a very precious collectible with high historical value.
-7. The material of the talisman is very strong and can effectively resist various negative energies.
-8. This talisman is a very mysterious item with many mythological legends behind it.
-9. The production process of the talisman is very meticulous and requires multiple procedures to complete.
-10. This talisman can bring peace and happiness to the wearer.",item-icon-167,167,NFT Talisman #32,"3,1",4,0,1,
-1,"1. Silver Talisman
-2. One-of-a-kind Talisman
-3. Made from high-quality materials
-4. Possesses mystical energy
-5. Provides extra protection
-6. Specifically designed for NFT collectors
-7. Enhances the value of collectibles
-8. Precious collectible
-9. Unique design
-10. Perfect gift choice",item-icon-168,168,NFT Talisman #64,"4,1",4,0,1,
-1,"1. This talisman is made of precious raw materials.
-2. The talisman has a unique identifier with the number #128.
-3. The talisman is an NFT commodity with a unique digital identity.
-4. The talisman is a low-level talisman suitable for beginners to use.
-5. The talisman can help protect you from evil influences.
-6. The raw materials of the talisman are made of high-quality materials.
-7. The talisman can bring you good luck and happiness.
-8. The talisman is a mysterious item with mysterious power.
-9. The talisman can help protect you from dangerous threats.
-10. The talisman is an item with historical value and collectible value.",item-icon-169,169,NFT Talisman #128,"4,1",4,0,1,
-1,"1. This talisman is made of precious materials.
-2. This talisman is an NFT digital asset with unique value.
-3. Lv 0-NFT Talisman #256 is an artifact that can protect you from malicious attacks.
-4. This talisman can enhance your luck and bring good fortune.
-5. This talisman has powerful energy that can bring positive influence to you.
-6. This talisman is a precious collectible with high collection value.
-7. Lv 0-NFT Talisman #256 is a unique gift that can be given to your family and friends.
-8. This talisman is a fashionable accessory that can add highlights to your style.
-9. This talisman is a mysterious item with many unknown powers.
-10. This talisman is an ancient relic with a long history and cultural background.",item-icon-170,170,NFT Talisman #256,"5,1",4,0,1,
-1,"1. Level 0 ticket: suitable for low-level activities or attractions.
-2. First ticket: may be the first ticket in a series of tickets.
-3. Beginner ticket: suitable for beginners or people with a low budget.
-4. Entry ticket: suitable for first-time experiences or visits.
-5. Trial ticket: suitable for trying out products or services.
-6. Low-price ticket: a ticket with a relatively low price.
-7. Simple ticket: a ticket with a simple design and easy to use.
-8. Universal ticket: applicable to multiple activities or attractions.
-9. Personal ticket: only applicable for personal use and cannot be transferred.
-10. Limited ticket: limited in quantity, first come first served.",item-icon-171,171,Ticket #1,1,4,0,1,
-1,This ticket can be used to enter a specific place.,item-icon-172,172,Ticket #2,1,4,0,1,
-1,"This is a ticket with a level of 0, which can be used to participate in the third event.",item-icon-173,173,Ticket #3,1,4,0,1,
-1,"This withered plant may be caused by lack of water or nutrients. It can be used to make fertilizer or medicinal herbs, and can also be used as animal feed.",item-icon-174,174,Withered Plants,1,4,0,1,
+1,"This unique NFT Talisman is a powerful artifact that enhances your abilities and boosts your luck in the game. It radiates an aura of mystic energy, empowering you to overcome challenges and achieve greatness. Equip it to unlock hidden potential and embark on an extraordinary journey.",item-icon-162,162,NFT Talisman #1,1,4,0,1,
+1,"This NFT Talisman #2 is a powerful artifact that enhances your character's abilities, providing a boost to their strength and agility. It radiates a mystical aura, attracting luck and fortune to your adventures. With this talisman by your side, you'll become an unstoppable force in the game.",item-icon-163,163,NFT Talisman #2,1,4,0,1,
+1,"This NFT Talisman #4 is a powerful artifact that enhances your abilities and boosts your performance in battles. It radiates an aura of protection, granting you increased defense and resilience against enemy attacks. With this talisman by your side, you'll become an unstoppable force on the battlefield.",item-icon-164,164,NFT Talisman #4,"2,1",4,0,1,
+1,"This NFT Talisman #8 is a powerful artifact that enhances your character's abilities, granting them increased strength and agility. It is a must-have item for any serious player looking to dominate the game. Equip this talisman and watch your character become unstoppable on the battlefield.",item-icon-165,165,NFT Talisman #8,"2,1",4,0,1,
+1,"This unique NFT Talisman possesses extraordinary powers, enhancing your abilities and providing a boost to your gameplay. It is a valuable asset that can greatly improve your gaming experience, making you unstoppable in your virtual adventures. Unlock its potential and become a force to be reckoned with in the gaming world.",item-icon-166,166,NFT Talisman #16,"3,1",4,0,1,
+1,"This NFT Talisman #32 is a powerful artifact that enhances your abilities and boosts your luck in the game. It radiates a mystical aura, attracting rare treasures and granting you an edge in battles. With this talisman by your side, victory is within your grasp.",item-icon-167,167,NFT Talisman #32,"3,1",4,0,1,
+1,"This unique NFT Talisman possesses incredible powers, enhancing your abilities and granting you an edge in battles. Its intricate design and mystical aura make it a coveted item among adventurers. Unlock its hidden potential and unleash its magic to conquer new realms.",item-icon-168,168,NFT Talisman #64,"4,1",4,0,1,
+1,"This unique NFT Talisman possesses extraordinary powers, enhancing your abilities and granting you an edge in battles. Its intricate design and mystical aura make it a coveted item among adventurers. Unlock its hidden potential and embark on a thrilling journey with this remarkable artifact.",item-icon-169,169,NFT Talisman #128,"4,1",4,0,1,
+1,This unique NFT Talisman possesses extraordinary powers that can enhance your gameplay experience. Unlock hidden abilities and gain an edge over your opponents with this rare and coveted item. Elevate your gaming journey with the NFT Talisman #256.,item-icon-170,170,NFT Talisman #256,"5,1",4,0,1,
+1,This ticket grants you access to an exclusive event filled with thrilling adventures and unforgettable experiences. Get ready to embark on a journey like no other and create memories that will last a lifetime.,item-icon-171,171,Ticket #1,1,4,0,1,
+1,This ticket grants you access to an exclusive event filled with thrilling adventures and unforgettable experiences. Get ready to embark on a journey like no other and create memories that will last a lifetime.,item-icon-172,172,Ticket #2,1,4,0,1,
+1,This ticket grants you access to an exclusive event filled with thrilling adventures and unforgettable experiences. Get ready to embark on a journey like no other and create memories that will last a lifetime.,item-icon-173,173,Ticket #3,1,4,0,1,
+1,"This withered plant may be caused by lack of water or nutrients. It can be used to make fertilizer or medicinal herbs, and can also be used as animal feed.",item-icon-174,174,Withered Plant,1,4,0,1,
 1,"This item is an organic substance that acts as a fertilizer and can be used in agricultural production. It is obtained by fermentation and decay of animal excrement and contains rich nutrients such as nitrogen, phosphorus, potassium, etc.",item-icon-176,176,Feces,1,4,0,1,
-1,"This tender shoot is harvested from cactus and has a light green color and soft texture. It is an important agricultural raw material that can be used to make medicines, food, and beauty products, among others.",item-icon-177,177,Cactus Essence,1,4,1,1,
+1,"This tender shoot is harvested from cactus and has a light green color and soft texture. It is an important agricultural raw material that can be used to make medicines, food, and beauty products, among others.",item-icon-177,177,Cactus Sprout,1,4,1,1,
 1,This screw was obtained from monster husbandry and can be used as a raw material for agriculture.,item-icon-178,178,Screw,1,4,1,1,
-1,"Pumpkin sprouts are agricultural raw materials produced from monster breeding, presenting a tender green appearance and being rich in nutrients. They can be used to make a variety of foods and medicines.",item-icon-179,179,Pumpkin Essence,1,4,1,1,
-1,Blue crystal is a rare agricultural raw material that comes from monster farming. It can help farmers improve the growth rate and yield of crops and is an indispensable part of agricultural production.,item-icon-180,180,Blue Crystal,1,4,2,1,
+1,"Pumpkin sprouts are agricultural raw materials produced from monster breeding, presenting a tender green appearance and being rich in nutrients. They can be used to make a variety of foods and medicines.",item-icon-179,179,Pumpkin Sprout,1,4,1,1,
+1,Blue crystal is a rare agricultural raw material that comes from monster farming. It can help farmers improve the growth rate and yield of crops and is an indispensable part of agricultural production.,item-icon-180,180,Blue Crystal Stone,1,4,2,1,
 1,"This grass-type monster, Broadleaf, is a cute creature that is a livestock output in agricultural production, providing abundant raw materials.",item-icon-181,181,Grass monster leaf,1,4,2,1,
 1,This is honey produced from monster farms and can be used as agricultural raw materials.,item-icon-182,182,Honey,1,4,2,1,
 1,This item is produced from the monster ranch and is a raw material used in agriculture. It is a level 3 Dark Feather.,item-icon-183,183,Shadow Plume,1,4,3,1,
 1,"This solidified magma is produced by monster breeding and can be used for the production of agricultural raw materials. It has high viscosity and high temperature resistance, making it suitable for use under extreme conditions.",item-icon-184,184,Solidified Lava,1,4,3,1,
-1,This ice crystal is obtained from monster husbandry and is a material used in agriculture. It has three levels of quality and can be used to make various ice-based items.,item-icon-185,185,Frost Shard,1,4,3,1,
-1,"This Lv 0-brush is a tool specifically designed for agriculture, which can easily clean crops and land.",item-icon-95,95,Brush,1,1,0,1,
+1,This frost shard is obtained from monster husbandry and is a material used in agriculture. It has three levels of quality and can be used to make various ice-based items.,item-icon-185,185,Frost Shard,1,4,3,1,
+1,"This brush is a tool specifically designed for agriculture, which can easily clean crops and land.",item-icon-95,95,Brush,1,1,0,1,
 1,"This clipper can help farmers quickly and easily shear wool, improving shearing efficiency. It is suitable for different types of sheep.",item-icon-96,96,Hair Clipper,1,1,0,1,
-1,"1. Milk extractor - a convenient and practical agricultural tool.
-2. Lv 0 - Milk extractor - suitable for small farms.
-3. Milk extractor - a fast and efficient tool for dairy production.
-4. Lv 0 - Milk extractor - easily solves the problem of cow milking.
-5. Milk extractor - a durable and easy-to-clean agricultural essential.
-6. Lv 0 - Milk extractor - a simple operation for novice farmers.
-7. Milk extractor - a weapon to increase milk production.
-8. Lv 0 - Milk extractor - a good choice to save time and labor costs.
-9. Milk extractor - suitable for all types of dairy cattle breeds.
-10. Lv 0 - Milk extractor - a reliable assistant for farmers.",item-icon-97,97,Milker,1,1,0,1,
-1,This crop appears to have rotted and is no longer edible. It may have been caused by overwatering or pest infestation. These crops can be used as fertilizer or disposed of by burial.,item-icon-175,175,Decaying Crops,1,4,0,1,
-1,"1. Collection Hat: A headgear that improves collection efficiency.
-2. Collection Hat: Suitable for collecting resources such as wood and herbs.
-3. Collection Hat: Wearing it can earn additional collection experience rewards.
-4. Collection Hat: Reduces the chance of being attacked by monsters while collecting.
-5. Collection Hat: Provides guidance for quickly finding resource points in the wild.
-6. Collection Hat: Reduces stamina consumption and extends collection time while collecting.
-7. Collection Hat: Wearing it can earn additional collection drop rewards.
-8. Collection Hat: Suitable for collecting resources such as ores and pearls.
-9. Collection Hat: Wearing it can earn additional collection skill bonuses.
-10. Collection Hat: Suitable for collecting food ingredients, herbs, and other resources.",item-icon-116,116,Gather Hats,1,1,1,1,
-1,"1. Gathering tool, making gathering easier.
-2. Designed specifically for gathering, improving gathering efficiency.
-3. Essential for gathering, preventing hand injuries.
-4. Comfortable and durable, making gathering more sustainable.
-5. Gathering artifact, making you a gathering expert.
-6. A must-have for gathering, improving gathering success rate.
-7. Gathering acceleration, allowing you to quickly gather resources.
-8. Protective gathering, ensuring hand safety.
-9. Gathering tool, making it easy for you to handle various gathering tasks.
-10. Essential for gathering, enabling you to gather resources more professionally.",item-icon-126,126,Gather Gloves,"1,2",1,2,1,
-1,"1. Essential for collection, improves efficiency.
-2. Protects hands and prevents injury.
-3. Lightweight and comfortable, does not affect movement.
-4. Durable and wear-resistant, suitable for long-term use.
-5. Suitable for various collection work.
-6. Anti-slip design for stable collection.
-7. Elastic material that fits the shape of the hand.
-8. Machine washable for easy cleaning.
-9. Not stiff in low temperatures, suitable for winter collection.
-10. Beautiful and stylish, a must-have for fashionable collection.",item-icon-125,125,Gather Gloves,1,1,1,1,
-1,"1. Essential for collection, improves efficiency.
-2. Suitable for outdoor collection with good protection.
-3. A tool for collection tasks, comfortable and durable.
-4. Specifically designed for collection, lightweight and durable.
-5. A handy tool for collection, convenient and practical.
-6. Essential for collection, protects the legs.
-7. Collection equipment, protection cannot be ignored.
-8. Essential for collection tasks, comfortable and durable.
-9. A tool for efficient collection.
-10. Specifically designed for collection, easy to use.",item-icon-122,122,Gather Pants,1,1,1,1,
-1,"1. Comfortable and durable collection pants.
-2. Pants suitable for outdoor collection.
-3. Collection pants with multiple pockets.
-4. Waterproof and windproof collection pants.
-5. Pants that do not restrict movement during collection.
-6. Pants that are not easily soiled during collection.
-7. Pants that are not easily scratched by vegetation during collection.
-8. Collection pants with good breathability.
-9. Pants that are not easily bitten by insects during collection.
-10. Pants that are not easily tripped by plants during collection.",item-icon-124,124,Gather Pants,"1,2,3",1,3,1,
-1,"1. Essential equipment for gathering
-2. Suitable for outdoor gathering
-3. Improve gathering efficiency
-4. Comfortable and durable gathering pants
-5. Professional gathering equipment
-6. Essential for gathering experts
-7. Necessary for gathering valuable resources
-8. Efficient gathering equipment
-9. Essential equipment for gathering work
-10. Specialized gathering pants",item-icon-123,123,Gather Pants,"1,2",1,2,1,
-1,"1. Efficient collection tool, making collection easier.
-2. Specially designed gloves to prevent hand injuries during collection.
-3. Specialized equipment for collection to improve collection speed.
-4. Lightweight and comfortable, making your collection journey more enjoyable.
-5. Collection essential, making your harvest more abundant.
-6. Durable and practical, accompanying your collection journey.
-7. Professional-grade collection equipment, making you more professional.
-8. A good helper for collection, making your collection smoother.
-9. Collection artifact, making you a collection master.
-10. Boost collection efficiency, significantly improving your collection efficiency.",item-icon-127,127,Gather Gloves,"1,2,3",1,3,1,
-1,"1. Wear specialized clothing to improve collection efficiency.
-2. Suitable for collecting in outdoor environments such as forests.
-3. Wearing it makes collection easier and more comfortable.
-4. It has protective functions to protect the body from harm.
-5. The collection clothing uses environmentally friendly materials and does not pollute the environment.
-6. The collection clothing has waterproof function and can be used for collection in rainy days.
-7. The collection clothing has multiple pockets for carrying collection tools conveniently.
-8. The collection clothing uses breathable materials and is comfortable to wear.
-9. The collection clothing can be paired with collection pants to form a collection suit.
-10. Collection clothing is one of the essential equipment for collectors.",item-icon-121,121,Gather Tops,"1,2,3",1,3,1,
-1,"1. Collecting specialized clothing, increase collecting efficiency.
-2. Clothes suitable for collecting scenes, convenient for collecting.
-3. Essential collecting equipment, improve collecting speed.
-4. Exquisite collecting clothing, comfortable and practical.
-5. Essential for collecting tasks, make collecting easier.
-6. Professional collecting equipment, make collecting more efficient.
-7. One of the essential collecting items, make collecting smoother.
-8. Essential equipment for collectors, improve collecting efficiency.
-9. Comfortable collecting clothing, make collecting more enjoyable.
-10. Designed specifically for collecting, make collecting more convenient.",item-icon-120,120,Gather Tops,"1,2",1,2,1,
-1,"1. Essential equipment for collection
-2. Suitable tops for collecting
-3. Designed specifically for collection
-4. Comfortable and durable collection clothes
-5. Standard equipment for collectors
-6. Essential for efficient collection
-7. The preferred choice for collection tasks
-8. Necessary for collection scenes
-9. The choice of collection equipment
-10. Collection-specific tops",item-icon-119,119,Gather Tops,1,1,1,1,
-1,"1. Use specialized hats to improve efficiency.
-2. Wide brim for sun protection.
-3. Breathable material for comfort and ventilation.
-4. Lightweight and easy to carry for convenient collection.
-5. Waterproof design to withstand rain.
-6. Adjustable strap for different head sizes.
-7. Made with environmentally friendly and non-toxic materials.
-8. Unique design that is both fashionable and practical.
-9. Essential for collection and cannot be omitted.
-10. Available in multiple colors to meet different needs.",item-icon-118,118,Gather Hats,"1,2,3",1,3,1,
-1,"1. Essential for collection, can improve collection efficiency.
-2. Suitable for collecting resources in the forest.
-3. Wide brim can effectively shade from the sun.
-4. Can protect the head from injury during collection.
-5. Lightweight and comfortable, not tiring for long periods of collection.
-6. Made of high-quality materials, strong durability.
-7. Cute printed design on the hat.
-8. Adjustable hat circumference, suitable for people with different head sizes.
-9. Not easily detected during collection, suitable for covert operations.
-10. Can be paired with other collection equipment to improve collection effectiveness.",item-icon-117,117,Gather Hats,"1,2",1,2,1,
+1,A handheld device used by farmers to efficiently extract milk from cows. It features a comfortable grip and a suction mechanism that ensures a smooth and gentle milking process.,item-icon-97,97,Milker,1,1,0,1,
+1,This crop appears to have rotted and is no longer edible. It may have been caused by overwatering or pest infestation. These crops can be used as fertilizer or disposed of by burial.,item-icon-175,175,Decaying Crop,1,4,0,1,
+1,"This stylish hat is perfect for any adventurer, providing extra protection from the elements without sacrificing style. Its wide brim and adjustable strap ensure a comfortable fit, making it a must-have accessory for any outdoor excursion.Crafted with durable materials, this hat is designed to withstand the toughest conditions. Its lightweight construction and breathable fabric keep you cool and protected during long hours of exploration. With its practical design and fashionable look, the Gathering Hat is a must-have for any seasoned adventurer.",item-icon-116,116,Gathering Hat,1,1,1,1,
+1,"These gloves are designed for avid collectors, allowing them to easily gather various resources without getting their hands dirty. With a comfortable fit and durable material, they provide a reliable grip and protect against sharp edges. Whether it's picking herbs or mining ores, these gloves are a must-have for any dedicated gatherer.",item-icon-126,126,Gathering Gloves,"1,2",1,2,1,
+1,"These gloves are designed for avid gatherers, providing enhanced grip and dexterity. They are made from durable materials that protect your hands from thorns and sharp edges, allowing you to gather resources with ease and efficiency. With these gloves, you'll never have to worry about blisters or cuts again.",item-icon-125,125,Gathering Gloves,1,1,1,1,
+1,"These pants are designed for avid adventurers, providing comfort and flexibility during long journeys. With reinforced stitching and durable fabric, they are perfect for gathering resources in the wilderness. Stay agile and focused with these essential pants for any dedicated explorer.",item-icon-122,122,Gathering Pants,1,1,1,1,
+1,"These pants are designed for avid adventurers, providing comfort and flexibility during long journeys. Crafted with durable materials, they offer excellent protection against the elements without sacrificing mobility. Perfect for those who seek to gather resources efficiently while exploring the vast landscapes of the game.",item-icon-124,124,Gathering Pants,"1,2,3",1,3,1,
+1,"These pants are perfect for gathering resources in the game, providing extra storage space and durability. They are designed with reinforced stitching and multiple pockets, allowing players to easily carry and collect various materials without worrying about wear and tear.",item-icon-123,123,Gathering Pants,"1,2",1,2,1,
+1,"These gloves are designed for avid gatherers, providing enhanced dexterity and grip. They are made from a durable material that offers protection against thorns and sharp objects. With these gloves, you can gather resources with ease and efficiency.",item-icon-127,127,Gathering Gloves,"1,2,3",1,3,1,
+1,"A practical jacket designed for adventurers, providing excellent protection against the elements. Its durable fabric and reinforced stitching make it ideal for long journeys and outdoor activities. Stay warm and comfortable without sacrificing mobility with this essential piece of gear.",item-icon-121,121,Gathering Jacket,"1,2,3",1,3,1,
+1,"A practical jacket designed for adventurers, providing excellent protection against the elements. Its durable fabric and reinforced stitching make it ideal for long journeys and outdoor exploration. With multiple pockets and adjustable straps, it offers convenience and functionality for any outdoor enthusiast.",item-icon-120,120,Gathering Jacket,"1,2",1,2,1,
+1,"A durable jacket designed for outdoor adventures, providing excellent protection against the elements. Its lightweight and breathable fabric ensures comfort during long hours of exploration. With multiple pockets and reinforced stitching, it's the perfect companion for any avid adventurer.",item-icon-119,119,Gathering Jacket,1,1,1,1,
+1,"A stylish hat that enhances your gathering abilities, making it easier to collect resources in the game.A practical accessory that boosts your gathering efficiency, allowing you to gather materials faster and more efficiently.",item-icon-118,118,Gathering Hat,"1,2,3",1,3,1,
+1,"A stylish hat that enhances your gathering abilities, allowing you to collect resources more efficiently. Its unique design provides comfort and protection, making it a must-have accessory for any dedicated gatherer.A practical hat designed specifically for gathering tasks. Its lightweight and breathable material keeps you cool and focused during long hours of gathering. ",item-icon-117,117,Gathering Hat,"1,2",1,2,1,
 1,"These agricultural shoes are designed specifically for agricultural workers. They feature non-slip, wear-resistant, and breathable characteristics, which can protect the feet and improve work efficiency.",item-icon-112,112,Farming Shoes,"1,2,3",1,3,1,
 1,"This agricultural shoe is designed specifically for farming activities such as plowing and planting. It is made from high-quality materials that are durable, breathable, and comfortable, providing protection for the feet of farmers.",item-icon-111,111,Farming Shoes,"1,2",1,2,1,
 1,"This agricultural shoe is made of high-quality materials, lightweight and comfortable, suitable for long-term wear. The sole is non-slip and suitable for various agricultural fields, making your work easier.",item-icon-110,110,Farming Shoes,1,1,1,1,
@@ -620,49 +160,31 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,"Animal feed is a consumable product that provides the necessary nutrients for animals to maintain healthy growth. It is suitable for various livestock and pets, and can increase their productivity and lifespan.",item-icon-29,29,Feed - Big,1,3,0,1,27
 0,"Farming EXP is an experience value in the game that can be obtained through agricultural activities such as planting crops and raising animals. It is a key factor in improving agricultural skills and levels, and is also a necessary condition for unlocking higher-level agricultural tools and equipment.",item-icon-188,188,Farming EXP,1,4,0,0,
 0,"Combat EXP refers to the experience gained in battles. It can help players level up and improve their skills, enhancing their character's abilities. In many games, Combat EXP is one of the important ways for players to improve their strength.",item-icon-189,189,Combat EXP,1,4,0,0,
-0,Gather EXP is a game item that can help players quickly obtain experience points. Using it can make your character level up faster and increase its strength in the game. It is particularly useful for players who want to quickly level up and reach their game goals faster.,item-icon-190,190,Gather EXP,1,4,0,0,
-1,This potion can be used during battle to heal your wounds and restore your fighting ability.,item-icon-191,191,Crystallization Therapy Potion,1,3,2,1,
-1,This potion can increase your attack power and make your attacks sharper. Using it in battle can give you a greater advantage.,item-icon-192,192,Crystalization Attack Potion,1,3,2,1,
-1,This potion can increase your movement speed and greatly assist you in battles.,item-icon-194,194,Crystalization Movement Speed Potion,1,3,2,1,
-1,"This potion can increase your critical hit rate, making you more deadly in battle.",item-icon-195,195,Crystallization Critical Strike Potion,1,3,2,1,
-1,"1. It can increase health points.
-2. It can improve health recovery speed.
-3. It provides a brief period of invincibility after consumption.
-4. It can remove some negative status effects.
-5. It can increase the maximum health limit.
-6. It has a chance to trigger a life absorption effect.
-7. It can enhance health resistance.
-8. It can restore the health of teammates.
-9. It can extend the duration of health potions.
-10. It can enhance the effectiveness of health potions.",item-icon-196,196,Crystallization Of Life Elixir,1,3,2,1,
-1,"This potion can add a layer of crystalline protection to your defense, making you even more invincible in battle.",item-icon-197,197,Crystallization Defense Potion,1,3,2,1,
-1,This essence is collected from trees and can be used to produce various raw materials and synthetic substances.,item-icon-207,207,Level 1 Essence Collection,1,4,1,1,
-1,This essence can be collected by harvesting from trees and is a necessary material for crafting various raw material compounds.,item-icon-208,208,Level 2 Essence Collection,1,4,2,1,
-1,"This item is an essence used to collect raw materials for synthesis, and requires a level of 3-3 to use. It can be obtained by collecting from trees and is a very important resource.",item-icon-209,209,Level 3 Essence Collection,1,4,3,1,
-1,"This agricultural planting essence is carefully synthesized from high-quality agricultural raw materials and is suitable for agricultural planting from grade one to grade one. It can improve the growth rate and yield of crops, as well as increase the quality and taste of crops. Using it can make your crops healthier and more prosperous, and make your agricultural production more efficient and stable.",item-icon-210,210,Level 1 Agricultural Planting Essence,1,4,1,1,
+0,"Gathering EXP is a key resource in the game, playing a vital role in boosting resource collection efficiency and character capabilities. Players accumulate experience through activities such as logging and mining to increase gathering skill levels. Skill levels determine collection speed, rare resource acquisition probability, and unlocking of higher-level skills. As the game progresses, character needs become more complex, making high gathering skills essential for support. Additionally, elevated gathering experience also contributes to enhanced attack abilities. Players should continuously learn skills and improve gathering experience to bravely face challenges and rise among the strongest.",item-icon-190,190,Gathering EXP,1,4,0,0,
+1,This potion can be used during battle to heal your wounds and restore your fighting ability.,item-icon-191,191,Crystallized Healing Potion,1,3,2,1,
+1,This potion can increase your attack power and make your attacks sharper. Using it in battle can give you a greater advantage.,item-icon-192,192,Crystallized Attack Potion,1,3,2,1,
+1,This potion can increase your movement speed and greatly assist you in battles.,item-icon-194,194,Crystallized Swiftness Potion,1,3,2,1,
+1,"This potion can increase your critical hit rate, making you more deadly in battle.",item-icon-195,195,Crystallized Critical Potion,1,3,2,1,
+1,"A potent elixir that restores vitality and rejuvenates the weary adventurer, providing a surge of energy and healing properties. This precious potion is a lifeline in dire situations, offering a quick and refreshing boost to keep you going in the face of danger.",item-icon-196,196,Crystallized Life Potion,1,3,2,1,
+1,"This potion can add a layer of crystalline protection to your defense, making you even more invincible in battle.",item-icon-197,197,Crystallized Defense Potion,1,3,2,1,
+1,This essence is collected from trees and can be used to produce various raw materials and synthetic substances.,item-icon-207,207,Level 1 Gathering Essence,1,4,1,1,
+1,This essence can be collected by harvesting from trees and is a necessary material for crafting various raw material compounds.,item-icon-208,208,Level 2 Gathering Essence,1,4,2,1,
+1,"This item is an essence used to collect raw materials for synthesis, and requires a level of 3 to use. It can be obtained by collecting from trees and is a very important resource.",item-icon-209,209,Level 3 Gathering Essence,1,4,3,1,
+1,"This agricultural planting essence is carefully synthesized from high-quality agricultural raw materials and is suitable for agricultural planting from grade one. It can improve the growth rate and yield of crops, as well as increase the quality and taste of crops. Using it can make your crops healthier and more prosperous, and make your agricultural production more efficient and stable.",item-icon-210,210,Level 1 Agricultural Planting Essence,1,4,1,1,
 1,"This is an essence specially designed for agricultural planting, which can improve the growth rate and yield of crops and help improve agricultural production efficiency. It is synthesized from a variety of agricultural raw materials and is an indispensable important item in agricultural production.",item-icon-211,211,Level 2 Agricultural Planting Essence,1,4,2,1,
 1,"This agricultural planting essence is a mixture of various precious plant essences, which has a miraculous effect on promoting crop growth and increasing yield. It is one of the indispensable raw materials in the agricultural field and is suitable for various types of crops.",item-icon-212,212,Level 3 Agricultural Planting Essence,1,4,3,1,
 1,"This agricultural and animal husbandry essence is a mixture of various natural plant and animal essences, which can improve the production efficiency and yield of agriculture and animal husbandry. It is rich in nutritional components and bioactive substances, which can promote the healthy growth of crops and livestock.",item-icon-213,213,Level 1 Agricultural Livestock Essence,1,4,1,1,
 1,"This is an essence extracted from agriculture and animal husbandry, which can be used to synthesize other agricultural raw materials.",item-icon-214,214,Level 2 Agricultural Livestock Essence,1,4,2,1,
-1,"This essence is extracted from high-quality agricultural and livestock products, with extremely high nutritional and medicinal value. It can be used to make various agricultural and livestock-related medicines and seasonings.",item-icon-215,215,Level 3 Farming Essence,1,4,3,1,
-1,"This essence of battle is a raw material used to synthesize higher level equipment, possessing powerful combat abilities and suitable for battles at level 1-1.",item-icon-216,216,Level 1 Battle Essence,1,4,1,1,
-1,"This is a combat essence used to synthesize level 2-2 equipment, which can enhance the combat attributes of the equipment. It is synthesized from raw materials obtained during combat and is an indispensable item in battle.",item-icon-217,217,Level 2 Battle Essence,1,4,2,1,
-1,"This is a raw material used for synthesizing combat equipment, which has a high combat capability and can enhance the level and attributes of the equipment.",item-icon-218,218,Level 3 Battle Essence,1,4,3,1,
+1,"This essence is extracted from high-quality agricultural and livestock products, with extremely high nutritional and medicinal value. It can be used to make various agricultural and livestock-related medicines and seasonings.",item-icon-215,215,Level 3 Agricultural Livestock Essence,1,4,3,1,
+1,"This essence of combat is a raw material used to synthesize higher level equipment, possessing powerful combat abilities and suitable for battles at level 1.",item-icon-216,216,Level 1 Combat Essence,1,4,1,1,
+1,"This is a combat essence used to synthesize level 2 equipment, which can enhance the combat attributes of the equipment. It is synthesized from raw materials obtained during combat and is an indispensable item in battle.",item-icon-217,217,Level 2 Combat Essence,1,4,2,1,
+1,"This is a raw material used for synthesizing combat equipment, which has a high combat capability and can enhance the level and attributes of the equipment.",item-icon-218,218,Level 3 Combat Essence,1,4,3,1,
 1,This fertilizer can promote the growth rate of crops and is suitable for intermediate crops.,item-icon-219,219,Better Accelerated Fertilizer,1,3,0,1,98
-1,Lv 0-Intermediate Yield-Boosting Fertilizer  Agriculture Consumable: Can increase crop yields.,item-icon-220,220,Better Increase Production Fertilizers,1,3,0,1,98
-1,"1. Essential items for crop growth
-2. Effective assistants in improving soil fertility
-3. Universal fertilizer suitable for all types of crops
-4. Secret weapon to increase crop yield
-5. High-quality fertilizer that improves soil structure
-6. Professional formula for efficient nutrient absorption
-7. Essential farming tool to maintain soil moisture
-8. Nutrient that enhances crop immunity
-9. Natural fertilizer that promotes plant growth
-10. Environmentally friendly and healthy green agricultural fertilizer.",item-icon-221,221,Better Moisture-rich Fertilizer,1,3,0,1,98
-1,Hammer,item-icon-222,222,Stone Hammer,1,1,0,1,
-1,Wood Bow,item-icon-223,223,Wood Bow,1,1,0,1,
-1,"Stone sickle is a sickle made of hard stone. Its blade is sharp and can easily cut through various plants. The handle of the stone sickle is carefully designed, providing a comfortable grip and stable and flexible use. Its stone material makes it durable and resistant to rust, making it suitable for outdoor use. Whether it is trimming lawns or harvesting crops, the stone sickle is a practical tool.",item-icon-225,225,Stone sickle,1,1,1,1,
+1,"These fertilizers are specially formulated to enhance crop yields, resulting in bountiful harvests. They provide essential nutrients and promote healthy plant growth, ensuring optimal productivity for farmers. Boost your yields with these high-quality fertilizers.",item-icon-220,220,Better Yield-Boosting Fertilizers,1,3,0,1,98
+1,"This fertilizer provides enhanced moisture retention for plants, ensuring they stay hydrated and healthy. It promotes optimal growth and nourishment without the need for constant watering. Give your plants the best care with this advanced moisturizing fertilizer.",item-icon-221,221,Better Moisturizing Fertilizer,1,3,0,1,98
+1,"This powerful tool is crafted from solid stone, making it incredibly durable and perfect for smashing through tough obstacles. Its weighty head delivers a satisfying impact, making it a favorite among adventurers and builders alike. ",item-icon-222,222,Stone Hammer,1,1,0,1,
+1,"A sturdy wooden bow crafted with precision, perfect for long-range attacks. Its smooth surface and expertly carved design ensure a comfortable grip and accurate shots.",item-icon-223,223,Wood Bow,1,1,0,1,
+1,"Stone sickle is a sickle made of hard stone. Its blade is sharp and can easily cut through various plants. The handle of the stone sickle is carefully designed, providing a comfortable grip and stable and flexible use. Its stone material makes it durable and resistant to rust, making it suitable for outdoor use. Whether it is trimming lawns or harvesting crops, the stone sickle is a practical tool.",item-icon-225,225,Stone Sickle,1,1,1,1,
 1,"Copper sickle is a farming tool made of pure copper, featuring a curved blade and a sturdy handle. Its sharp and durable blade is suitable for cutting crops and grass. The copper material makes the sickle more robust and resistant to rust. It is exquisitely designed, comfortable to hold, and easy to use. Copper sickle is one of the essential labor tools for farmers, helping them complete the harvest in the fields. Whether in the field or on the farm, the copper sickle demonstrates its practicality and durability.",item-icon-226,226,Copper sickle,1,1,2,1,
 1,"The iron sickle is a sturdy and durable tool made of high-quality iron. Its blade is sharp and suitable for cutting grass, harvesting crops, and other agricultural work. The curved design of the sickle allows users to easily cut crops and improve work efficiency. Its handle is carefully designed for a comfortable grip and stable use. Whether it is agricultural work or gardening pruning, the iron sickle is an indispensable tool.",item-icon-227,227,Iron sickle,1,1,3,1,
 1,"Crystal Scythe, a weapon shining with crystal clear brilliance, the blade is made of pure crystal, transparent like water, emitting a mysterious magic. The scythe's blade is incredibly sharp, capable of effortlessly cutting through any obstacles. Its handle is adorned with exquisite silver patterns, giving off a sense of nobility and mystery. Holding the Crystal Scythe, it feels as if one can control the power of nature, unleashing boundless energy, becoming an invincible presence in battle. Whether it is a warrior or a mage, they all yearn to possess this unique weapon to showcase their immense strength.",item-icon-228,228,Crystal Sickle,1,1,4,1,

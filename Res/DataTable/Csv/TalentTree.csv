@@ -36,7 +36,7 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 -1,Efficiency Skills - Group Hoe,103,0,talentTree-46,46,0,4,1,Earth Splitter,1,547,0,0,45
 -4,Release Lv 4 equipment recipes,,2,talentTree-47,47,0,4,1,Unlock Set Recipes,1,,0,,88
 2,PlantingProficiency + 18,246,1,talentTree-48,48,0,3,1,Farm - Harvest proficiency,1,547,0,0,81
--2,Unlock Pet Essence Recipes Lv 2,156,2,talentTree-49,49,0,2,1,Unlock Essence Recipes,1,233,0,0,72
+-2,Unlock Pet Essence Recipes Lv 2,156,2,talentTree-49,49,0,2,1,Unlock Pet Essence Recipes Lv 2,1,233,0,0,72
 2,PlantingProficiency + 18,249,1,talentTree-50,50,0,4,1,Farm - Harvest proficiency,1,916,0,0,48
 -2,Unlock Pet Essence Recipes Lv 5,,2,talentTree-51,51,0,5,1,Unlock Essence Recipes,1,,0,,75
 -3,,333,1,talentTree-52,52,0,3,1,,2,486,0,,10
@@ -56,7 +56,7 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 -1,,330,0,talentTree-69,69,0,5,1,Seismic Wave: Earthquake Detection.,3,1767,0,0,68
 -1,,340,1,talentTree-70,70,0,4,1,,2,814,0,,60
 -3,"Striking the target's weak point, causing the target to receive an additional 1%/2%/3% damage for the next 5 seconds, and can stack up to 5 layers.",334,1,talentTree-71,71,0,5,1,Severe Injury,2,1178,0,,61
--2,Capture animals as your pets   Unlock Pet Essence Recipes Lv 2,166;,0,talentTree-72,72,0,1,2,Farm Combat Gather Animal.,1,"75,75",0,"0,0",
+-2,Unlock Pet Essence Recipes Lv 2,155,2,talentTree-72,72,0,1,1,Unlock Pet Essence Recipes Lv 2,1,75,0,0,
 2,PlantingProficiency + 18,230,1,talentTree-73,73,0,1,1,Farm - Harvest proficiency,1,75,0,0,
 3,PetHappinessCapacity + 4; MaxPetHappiness + 100,231,1,talentTree-74,74,0,1,1,Farm & Gather - Pet's Combat Happiness Index,1,75,0,0,
 -2,Unlock Pet Essence Recipes Lv 4,,2,talentTree-75,75,0,4,1,Unlock Essence Recipes,1,,0,,94
@@ -200,8 +200,8 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 1,Gather Grass Atk ++  Proficiency ++,302,1,talentTree-220,220,0,9,1,Gather - Grass: 10,3,4320,0,0,216
 2,Gather Tree Atk ++  Proficiency ++,311,1,talentTree-221,221,0,9,1,Gather - Trees,3,4320,0,0,215
 3,Gather Ore Atk ++  Proficiency ++,320,1,talentTree-222,222,0,9,1,Gather - for mining,3,4320,0,0,217
--3,Unlock Essence Recipes Lv 1,152,2,talentTree-227,227,0,1,1,Unlock Essence Recipes,1,75,0,0,
--3,Unlock Planting Essence Recipes Lv 2,153,2,talentTree-228,228,0,2,1,Unlock Essence Recipes,1,233,0,0,227
+-3,Unlock Planting Essence Recipes Lv 2,152,2,talentTree-227,227,0,1,1,Unlock Planting Essence Recipes Lv 2,1,75,0,0,
+-3,Unlock Planting Essence Recipes Lv 2,153,2,talentTree-228,228,0,2,1,Unlock Planting Essence Recipes Lv 2,1,233,0,0,227
 -3,Unlock Planting Essence Recipes Lv 3,154,2,talentTree-229,229,0,3,1,Unlock Essence Recipes,1,547,0,0,228
 -3,Unlock Planting Essence Recipes Lv 4,,2,talentTree-230,230,0,4,1,Unlock Essence Recipes,1,,0,,229
 -3,Unlock Planting Essence Recipes Lv 5,,2,talentTree-231,231,0,5,1,Unlock Essence Recipes,1,,0,,230
@@ -227,3 +227,4 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 -2,Unlock Essence Recipes Lv 7,,2,talentTree-251,251,0,7,1,Unlock Essence Recipes,3,,0,,250
 -2,Unlock Essence Recipes Lv 8,,2,talentTree-252,252,0,8,1,Unlock Essence Recipes,3,,0,,251
 -2,Unlock Essence Recipes Lv 9,,2,talentTree-253,253,0,9,1,Unlock Essence Recipes,3,,0,,252
+5,Capture animals as your pets,166,0,talentTree-254,254,0,1,1,Capture,1,75,0,0,
