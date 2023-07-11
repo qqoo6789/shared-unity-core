@@ -18,6 +18,7 @@ public class ParabolaArriveFromTime : ArriveAutoDestroy
     private float _height;
     private Vector3 _offset = Vector3.zero;
     private Tweener _tweener;
+    private Vector3 _lastPos;
 
     /// <summary>
     /// 开始跟随
@@ -48,20 +49,22 @@ public class ParabolaArriveFromTime : ArriveAutoDestroy
             StopTween();
         }
         Vector3 startPos = transform.position;
+        _lastPos = startPos;
         float startValue = 0f;
         float endValue = 1f;
         _tweener = DOTween.To(() => startValue, value =>
         {
             Vector3 curPos = MathUtilCore.Parabola(startPos, _targetPos, _height, value);
             transform.position = curPos;
-
-            float nextValue = value + 0.01f;
-            if (nextValue > endValue)
-            {
-                nextValue = endValue;
-            }
-            Vector3 nextPos = MathUtilCore.Parabola(startPos, _targetPos, _height, nextValue);
-            transform.LookAt(nextPos);
+            transform.forward = curPos - _lastPos;
+            //transform.LookAt(curPos + (curPos - _lastPos));
+            // float nextValue = value + 0.01f;
+            // if (nextValue > endValue)
+            // {
+            //     nextValue = endValue;
+            // }
+            // Vector3 nextPos = MathUtilCore.Parabola(startPos, _targetPos, _height, nextValue);
+            // transform.LookAt(nextPos);
         }, endValue, costTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             StopTween();
