@@ -5,6 +5,7 @@
  * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Data/EntitySkillDataCore.cs
  * 
  */
+using System;
 using System.Collections.Generic;
 using GameMessageCore;
 using UnityGameFramework.Runtime;
@@ -55,6 +56,16 @@ public class EntitySkillDataCore : EntityBaseComponent
 
             return BaseSkillIDList.ToArray();
         }
+    }
+
+    /// <summary>
+    /// 某个技能是否属于连击技能组的 往往也是代表了普通攻击
+    /// </summary>
+    /// <param name="skillID"></param>
+    /// <returns></returns>
+    public bool IsComboGroupSkill(int skillID)
+    {
+        return Array.IndexOf(ComboSkillIdArray, skillID) >= 0;
     }
 
     protected virtual void Start()
