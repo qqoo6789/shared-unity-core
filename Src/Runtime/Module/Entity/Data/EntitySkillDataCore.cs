@@ -14,6 +14,11 @@ public class EntitySkillDataCore : EntityBaseComponent
     protected int JumpSkillID = BattleDefine.JUMP_SKILL_ID_NULL; //翻滚技能
     public List<int> EquipmentSkillIDList = new(); //装备技能列表
     protected List<int> BaseSkillIDList = new(); //基础技能列表
+    /// <summary>
+    /// 当前连击技能组
+    /// </summary>
+    /// <returns></returns>
+    public readonly ListMap<int, int> ComboSkillIdMap = new();
 
     private SkillCpt _skillCpt;
     protected SkillCpt SkillComponent
@@ -41,20 +46,18 @@ public class EntitySkillDataCore : EntityBaseComponent
         }
     }
 
-    /// <summary>
-    /// 当前连击技能id组
-    /// </summary>
-    /// <value></value>
-    public int[] ComboSkillIdArray
+    private void RefreshComboSkill()
     {
-        get
-        {
-            if (EquipmentSkillIDList.Count > 0)
-            {
-                return EquipmentSkillIDList.ToArray();
-            }
+        ComboSkillIdMap.Clear();
 
-            return BaseSkillIDList.ToArray();
+        List<int> skillIDList = EquipmentSkillIDList.Count > 0 ? EquipmentSkillIDList : BaseSkillIDList;
+        if (skillIDList != null && skillIDList.Count > 0)
+        {
+            for (int i = 0; i < skillIDList.Count; i++)
+            {
+                int skillId = skillIDList[i];
+                _ = ComboSkillIdMap.Add(skillId, skillId);
+            }
         }
     }
 
@@ -65,7 +68,7 @@ public class EntitySkillDataCore : EntityBaseComponent
     /// <returns></returns>
     public bool IsComboGroupSkill(int skillID)
     {
-        return Array.IndexOf(ComboSkillIdArray, skillID) >= 0;
+        return ComboSkillIdMap.ContainsKey(skillID);
     }
 
     protected virtual void Start()
@@ -93,6 +96,8 @@ public class EntitySkillDataCore : EntityBaseComponent
         {
             _ = SkillComponent.AddSkill(BaseSkillIDList[i]);
         }
+
+        RefreshComboSkill();
     }
 
     public void RemoveBaseSkillList()
@@ -102,6 +107,8 @@ public class EntitySkillDataCore : EntityBaseComponent
             SkillComponent.RemoveSkill(BaseSkillIDList[i]);
         }
         BaseSkillIDList.Clear();
+
+        RefreshComboSkill();
     }
     protected void OnUpdateEquipmentSkillID()
     {
@@ -114,7 +121,7 @@ public class EntitySkillDataCore : EntityBaseComponent
             DREquipment drEquipment = EquipmentTable.Inst.GetRowByItemID(avatar.ObjectId);
             if (drEquipment != null)
             {
-                SetExtraGroupSkill(drEquipment.GivenSkillId, EquipmentSkillIDList);
+                _ = SetExtraGroupSkill(drEquipment.GivenSkillId, EquipmentSkillIDList);
             }
             else
             {
@@ -183,6 +190,9 @@ public class EntitySkillDataCore : EntityBaseComponent
             _ = SkillComponent.AddSkill(skillID);
             isChange = true;
         }
+
+        RefreshComboSkill();
+
         return isChange;
     }
 
@@ -193,6 +203,8 @@ public class EntitySkillDataCore : EntityBaseComponent
             SkillComponent.RemoveSkill(EquipmentSkillIDList[i]);
         }
         EquipmentSkillIDList.Clear();
+
+        RefreshComboSkill();
     }
 
     public void SetJumpSkillID(int skillID)
