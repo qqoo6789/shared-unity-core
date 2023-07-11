@@ -57,14 +57,7 @@ public class ParabolaArriveFromTime : ArriveAutoDestroy
             Vector3 curPos = MathUtilCore.Parabola(startPos, _targetPos, _height, value);
             transform.position = curPos;
             transform.forward = curPos - _lastPos;
-            //transform.LookAt(curPos + (curPos - _lastPos));
-            // float nextValue = value + 0.01f;
-            // if (nextValue > endValue)
-            // {
-            //     nextValue = endValue;
-            // }
-            // Vector3 nextPos = MathUtilCore.Parabola(startPos, _targetPos, _height, nextValue);
-            // transform.LookAt(nextPos);
+            _lastPos = curPos;
         }, endValue, costTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             StopTween();
