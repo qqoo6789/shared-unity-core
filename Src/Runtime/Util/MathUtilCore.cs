@@ -170,4 +170,11 @@ public static class MathUtilCore
         }
     }
 
+    public static Vector3 Parabola(Vector3 start, Vector3 end, float height, float t)
+    {
+        Vector3 mid = Vector3.Lerp(start, end, t);
+        float y = 4 * ((-height * t * t) + (height * t)) + Mathf.Lerp(start.y, end.y, t);
+        return new Vector3(mid.x, y, mid.z);
+    }
+
 }
