@@ -24,15 +24,6 @@ public class DRSkillFlyer : DataRowBase
     public override int Id => _id;
 
     /// <summary>
-  /**获取explosionEffect-string。*/
-    /// </summary>
-    public string ExplosionEffect
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取flyAvatar-string。*/
     /// </summary>
     public string FlyAvatar
@@ -82,7 +73,6 @@ public class DRSkillFlyer : DataRowBase
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
-        ExplosionEffect = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyAvatar = DataTableParseUtil.ParseString(columnStrings[index++]);
         FlyDistance = DataTableParseUtil.ParseInt(columnStrings[index++]);
         FlySpeed = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -100,7 +90,6 @@ public class DRSkillFlyer : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
-                ExplosionEffect = binaryReader.ReadString();
                 FlyAvatar = binaryReader.ReadString();
                 FlyDistance = binaryReader.Read7BitEncodedInt32();
                 FlySpeed = binaryReader.Read7BitEncodedInt32();
