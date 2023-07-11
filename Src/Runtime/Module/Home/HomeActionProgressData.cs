@@ -237,7 +237,7 @@ public class HomeActionProgressData : MonoBehaviour
     }
 
     /// <summary>
-    /// 直接设置进度值 会停掉hold到满的缓动
+    /// 直接设置进度值 会停掉hold到满的缓动 里面会保护进度范围
     /// </summary>
     /// <param name="progressValue">进度值</param>
     public void SetProgressValue(int progressValue, bool force)
@@ -250,6 +250,8 @@ public class HomeActionProgressData : MonoBehaviour
         StopHoldToFull(true);
 
         CurProgressActionValue = progressValue;
+
+        CurProgressActionValue = Mathf.Clamp(CurProgressActionValue, 0, CurProgressActionMaxValue);
     }
 
     private void StartBackProtectTimer()

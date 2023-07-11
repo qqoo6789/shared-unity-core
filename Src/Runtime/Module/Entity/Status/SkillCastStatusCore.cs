@@ -81,7 +81,7 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             TimeCastFinish();
         }
 
-        StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(InputSkillData.Clone(), CurSkillCfg);
+        StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(InputSkillData, CurSkillCfg);
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)

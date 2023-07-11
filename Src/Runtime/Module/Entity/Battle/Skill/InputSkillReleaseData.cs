@@ -7,6 +7,7 @@
  */
 
 
+using System;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -54,12 +55,18 @@ public class InputSkillReleaseData
     /// <summary>
     /// 输入随机数
     /// </summary>
-    public InputRandomData InputRandom;
+    public InputRandomData InputRandom { get; private set; }
 
     /// <summary>
     /// 是否为预释放
     /// </summary>
-    public bool IsPreRelease;
+    public bool IsPreRelease { get; private set; }
+
+    /// <summary>
+    /// 家园攻击目标
+    /// </summary>
+    /// <value></value>
+    public ICollectResourceCore[] HomeTargets { get; private set; }
 
     /// <summary>
     /// 技能输入数据
@@ -88,22 +95,19 @@ public class InputSkillReleaseData
         IsPreRelease = false;
     }
 
-    public InputSkillReleaseData Clone()
-    {
-        return new InputSkillReleaseData(
-            SkillID,
-            Dir,
-            Targets,
-            TargetPos,
-            SkillTimeScale,
-            CostItem,
-            AccumulateTime
-        );
-    }
-
     public void SetInputRandomSeed(int seed)
     {
         InputRandom ??= new InputRandomData();
         InputRandom.SetInputRandomSeed(seed);
+    }
+
+    public void SetHomeTargets(ICollectResourceCore[] homeTargets)
+    {
+        HomeTargets = homeTargets;
+    }
+
+    public void SetIsPreRelease(bool isPreRelease)
+    {
+        IsPreRelease = isPreRelease;
     }
 }
