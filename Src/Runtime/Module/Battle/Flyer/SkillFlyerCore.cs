@@ -10,7 +10,7 @@ public abstract class SkillFlyerCore : MonoBehaviour
     public long FormEntityID { get; private set; }
     public DRSkill DRSkill { get; private set; }
     public DRSkillFlyer DRSkillFlyer { get; private set; }
-    public long TargetEntityID { get; private set; }//没有为-1
+    public long TargetEntityID { get; private set; }//没有为 BattleDefine.ENTITY_ID_UNKNOWN
     public Vector3? FlyEndPos { get; private set; }//没有为Null
 
     public void Init(int flyerID, long formEntityID, DRSkill drSkill)
@@ -31,7 +31,7 @@ public abstract class SkillFlyerCore : MonoBehaviour
     public void SetFlyEndPos(Vector3 pos)
     {
         FlyEndPos = pos;
-        TargetEntityID = -1;
+        TargetEntityID = BattleDefine.ENTITY_ID_UNKNOWN;
     }
 
     /// <summary>

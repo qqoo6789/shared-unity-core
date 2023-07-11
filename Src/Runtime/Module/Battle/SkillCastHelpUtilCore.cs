@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-06-25 10:26:23
  * @Description: 
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Battle/SkillCastHelpUtilCore.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Battle/SkillCastHelpUtilCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -52,8 +52,9 @@ public static class SkillCastHelpUtilCore
     /// <param name="inputData">技能输入</param>
     /// <param name="fromEntity">来自实体 不会拿该实体位置方向计算 只是采集信息</param>
     /// <param name="effectEnemy">效果id组</param>
+    /// <param name="rangePos">范围位置</param>
     /// <returns></returns>
-    public static List<EntityDamage> ApplyRangeEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds)
+    public static List<EntityDamage> ApplyRangeEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds, UnityEngine.Vector3 rangePos)
     {
         List<EntityDamage> entityDamages = new();
 
@@ -62,7 +63,7 @@ public static class SkillCastHelpUtilCore
             return entityDamages;
         }
 
-        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(inputData.TargetPos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
+        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(rangePos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
         if (targetEntities == null || targetEntities.Count == 0)
         {
             return entityDamages;
@@ -87,8 +88,9 @@ public static class SkillCastHelpUtilCore
     /// <param name="fromEntity">来自实体 不会拿该实体位置方向计算 只是采集信息</param>
     /// <param name="effectEnemy">效果id组</param>
     /// <param name="maxNum">触发单位上限</param>
+    /// <param name="rangePos">范围位置</param>
     /// <returns></returns>
-    public static List<EntityDamage> ApplyRangeRandomTriggerEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds, int maxNum)
+    public static List<EntityDamage> ApplyRangeRandomTriggerEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds, int maxNum, UnityEngine.Vector3 rangePos)
     {
         List<EntityDamage> entityDamages = new();
 
@@ -98,7 +100,7 @@ public static class SkillCastHelpUtilCore
             return entityDamages;
         }
 
-        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(inputData.TargetPos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
+        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(rangePos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
         if (targetEntities == null || targetEntities.Count == 0)
         {
             return entityDamages;
@@ -146,8 +148,7 @@ public static class SkillCastHelpUtilCore
         }
 
         //应用对敌人效果
-        inputData.SetTargetPos(castEntity.RoleBaseDataCore.CenterPos);
-        List<EntityDamage> enemyDamages = ApplyRangeEffect(inputData, castEntity, SkillUtil.GetSkillEffect(castEntity, inputData.DRSkill, eSkillEffectApplyType.CastEnemy));
+        List<EntityDamage> enemyDamages = ApplyRangeEffect(inputData, castEntity, SkillUtil.GetSkillEffect(castEntity, inputData.DRSkill, eSkillEffectApplyType.CastEnemy), castEntity.RoleBaseDataCore.CenterPos);
         damages.AddRange(enemyDamages);
         return damages;
     }

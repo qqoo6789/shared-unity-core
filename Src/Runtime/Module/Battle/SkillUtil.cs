@@ -117,6 +117,84 @@ public static partial class SkillUtil
     }
 
     /// <summary>
+    /// 射线搜索目标列表, 可能为null
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="dir"></param>
+    /// <param name="maxDist"></param>
+    /// <param name="targetLayer"></param>
+    /// <param name="blockLayer"></param>
+    /// </summary>
+    public static EntityBase RaySearchTargetEntityList(Vector3 startPos, Vector3 dir, float maxDist, int targetLayer, int blockLayer)
+    {
+
+        if (Physics.Raycast(startPos, dir, out RaycastHit hit, maxDist, targetLayer | blockLayer))
+        {
+            if ((targetLayer & (1 << hit.collider.gameObject.layer)) > 0)
+            {
+                if (hit.collider.gameObject.TryGetComponent(out EntityReferenceData refData))
+                {
+                    if (refData.Entity != null)
+                    {
+                        return refData.Entity;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// 射线搜索目标列表, 可能为null
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="dir"></param>
+    /// <param name="maxDist"></param>
+    /// <param name="targetLayer"></param>
+    /// <param name="blockLayer"></param>
+    /// </summary>
+    public static List<EntityBase> RayAllSearchTargetEntityList(Vector3 startPos, Vector3 dir, float maxDist, int targetLayer, int blockLayer)
+    {
+        RaycastHit[] hitList = Physics.RaycastAll(startPos, dir, maxDist, targetLayer | blockLayer);
+        List<EntityBase> entityList = new();
+        for (int i = 0; i < hitList.Length; i++)
+        {
+            if ((targetLayer & (1 << hitList[i].collider.gameObject.layer)) > 0)
+            {
+                if (hitList[i].collider.gameObject.TryGetComponent(out EntityReferenceData refData))
+                {
+                    if (refData.Entity != null)
+                    {
+                        entityList.Add(refData.Entity);
+                    }
+                }
+            }
+        }
+        return entityList;
+    }
+
+    /// <summary>
+    // 射线检测碰撞的位置，没有碰撞则返回射线最远终点位置
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="dir"></param>
+    /// <param name="maxDist"></param>
+    /// <param name="targetLayer"></param>
+    /// <param name="blockLayer"></param>
+    /// </summary>
+    public static Vector3 RaySearchPos(Vector3 startPos, Vector3 dir, float maxDist, int targetLayer, int blockLayer)
+    {
+
+        if (Physics.Raycast(startPos, dir, out RaycastHit hit, maxDist, targetLayer | blockLayer))
+        {
+            if ((targetLayer & (1 << hit.collider.gameObject.layer)) > 0)
+            {
+                return hit.point;
+            }
+        }
+        return startPos + dir * maxDist;
+    }
+    /// <summary>
     /// 计算技能CD
     /// </summary>
     /// <param name="skillID"></param>
@@ -322,5 +400,42 @@ public static partial class SkillUtil
     public static bool IsSceneDeath(GameMessageCore.DamageState dmgState)
     {
         return dmgState is GameMessageCore.DamageState.Fall or GameMessageCore.DamageState.WaterDrown;
+    }
+
+    /// <summary>
+    /// 计算飞行物花费时间
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="endPos"></param>
+    /// <param name="skillCfg"></param>
+    /// <returns>(花费时间，最终位置)</returns>
+    public static (float, Vector3) CalcFlyCostTime(Vector3 startPos, Vector3 endPos, DRSkillFlyer skillFlyerCfg)
+    {
+        //固定时间
+        if (skillFlyerCfg.FlyTime > 0)
+        {
+            return (skillFlyerCfg.FlyTime * TimeUtil.MS2S, endPos);
+        }
+
+        //固定速度
+        float flySpeed = 1;
+        if (skillFlyerCfg.FlySpeed > 0)
+        {
+            flySpeed = skillFlyerCfg.FlySpeed * MathUtilCore.CM2M;
+        }
+        else
+        {
+            Log.Error($"技能:{skillFlyerCfg.Id} 发射飞行物时，配置的飞行速度{skillFlyerCfg.FlySpeed}不合法");
+        }
+        float distance = Vector3.Distance(startPos, endPos);
+        float maxDist = skillFlyerCfg.FlyDistance * MathUtilCore.CM2M;
+        Vector3 finalPos = endPos;
+        if (distance > maxDist)
+        {
+            distance = maxDist;
+            finalPos = startPos + (endPos - startPos).normalized * maxDist;
+        }
+        float costTime = distance / flySpeed;
+        return (costTime, finalPos);
     }
 }
