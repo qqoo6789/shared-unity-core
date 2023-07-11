@@ -202,7 +202,7 @@ IsBeHitBreakable-bool,IsIndependentLogic-bool,accuBreakable-bool,accuTime-int,at
 0,0,0,,0,,,,216,0,0,0,0,0,0,0,,,,,-1,移速++ 攻速++,,1,Flexible general dominance,,,1,0,,,,,,,,,,234,,,,,
 0,0,0,,0,,,,217,0,0,0,0,0,0,0,,,,,-1,移速-- 攻速--,,1,Flexible General Vulnerability,,,1,0,,,,,,,,,,235,,,,,
 0,0,0,,0,,,,218,0,0,0,0,0,0,0,,,,,-1,罐头狗额外攻击,,1,Canned Dog has an additional attack.,,,1,0,,,,,,,,,,229,,,,,
-0,0,0,,0,,,,219,0,0,1,0,0,0,0,,,,,-1,每2秒不受伤害，增加10%移速,,1,Flexible universal passive,,,1,0,,,,,,,,,,237,,skill-icon-219,,,
+0,0,0,,0,,,,219,0,0,1,0,0,0,0,,,,,-1,每2秒不受伤害，增加50%移速,,1,Flexible universal passive,,,1,0,,,,,,,,,,237,,skill-icon-219,,,
 0,0,0,,0,,,0,220,0,0,0,0,0,0,0,idle,,,100,-1,攻击型强势阶段切换特效,,2,Strong phase,,,1,0,,,,,,,,,,,,,,,
 0,0,0,,0,,,0,221,0,0,0,0,0,0,0,idle,,,100,-1,攻击型破绽阶段切换特效,,2,Vulnerability stage,,,1,0,,,,,,,,,,,,,,,
 1,1,1,0,0,176,,2000,226,0,0,0,0,1,0,0,A-jinai-NEW,A-CaptureTrap,,2000,3000,Capture Trap,,2,Capture trap capture,"2,300",,1,0,,1000,,skill_rock_hurt,,,,,,,,,,"3,4",
