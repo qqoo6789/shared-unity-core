@@ -52,9 +52,9 @@ public static class SkillCastHelpUtilCore
     /// <param name="inputData">技能输入</param>
     /// <param name="fromEntity">来自实体 不会拿该实体位置方向计算 只是采集信息</param>
     /// <param name="effectEnemy">效果id组</param>
-    /// <param name="searchPos">搜索位置</param>
+    /// <param name="rangePos">范围位置</param>
     /// <returns></returns>
-    public static List<EntityDamage> ApplyRangeEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds, UnityEngine.Vector3 searchPos)
+    public static List<EntityDamage> ApplyRangeEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds, UnityEngine.Vector3 rangePos)
     {
         List<EntityDamage> entityDamages = new();
 
@@ -63,7 +63,7 @@ public static class SkillCastHelpUtilCore
             return entityDamages;
         }
 
-        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(searchPos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
+        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(rangePos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
         if (targetEntities == null || targetEntities.Count == 0)
         {
             return entityDamages;
@@ -88,8 +88,9 @@ public static class SkillCastHelpUtilCore
     /// <param name="fromEntity">来自实体 不会拿该实体位置方向计算 只是采集信息</param>
     /// <param name="effectEnemy">效果id组</param>
     /// <param name="maxNum">触发单位上限</param>
+    /// <param name="rangePos">范围位置</param>
     /// <returns></returns>
-    public static List<EntityDamage> ApplyRangeRandomTriggerEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds, int maxNum, UnityEngine.Vector3 searchPos)
+    public static List<EntityDamage> ApplyRangeRandomTriggerEffect(InputSkillReleaseData inputData, EntityBase fromEntity, int[] effectIds, int maxNum, UnityEngine.Vector3 rangePos)
     {
         List<EntityDamage> entityDamages = new();
 
@@ -99,7 +100,7 @@ public static class SkillCastHelpUtilCore
             return entityDamages;
         }
 
-        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(searchPos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
+        List<EntityBase> targetEntities = SkillUtil.SearchTargetEntityList(rangePos, fromEntity, inputData.DRSkill.SkillRange, inputData.Dir);
         if (targetEntities == null || targetEntities.Count == 0)
         {
             return entityDamages;
