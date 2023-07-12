@@ -49,15 +49,20 @@ public static class MLayerMask
     public const int OBSTRUCT_TRANSPARENT = 23;
 
     /// <summary>
-    /// 默认的相机自动避开的遮挡层
+    /// 相机自动避开的非触发器的碰撞体遮挡层 比如地表 树
     /// </summary>
     /// <returns></returns>
-    public const int MASK_DEFAULT_CAMERA_OCCLUDE = (1 << DEFAULT) | (1 << TERRAIN);
+    public const int MASK_CAMERA_OCCLUDE_COLLIDER = (1 << DEFAULT) | (1 << TERRAIN);
+    /// <summary>
+    /// 相机自动避开的触发器的遮挡层 比如水
+    /// </summary>
+    /// <returns></returns>
+    public const int MASK_CAMERA_OCCLUDE_TRIGGER = 1 << WATER;
     /// <summary>
     /// 场景所有阻挡层mask
     /// </summary>
     /// <returns></returns>
-    public const int MASK_SCENE_OBSTRUCTION = MASK_DEFAULT_CAMERA_OCCLUDE;
+    public const int MASK_SCENE_OBSTRUCTION = MASK_CAMERA_OCCLUDE_COLLIDER;
     /// <summary>
     /// 场景能被破坏的元素所在层
     /// </summary>
