@@ -26,12 +26,14 @@ public abstract class SkillFlyerCore : MonoBehaviour
     {
         TargetEntityID = targetID;
         FlyEndPos = null;
+        OnStart();
     }
 
     public void SetFlyEndPos(Vector3 pos)
     {
         FlyEndPos = pos;
         TargetEntityID = BattleDefine.ENTITY_ID_UNKNOWN;
+        OnStart();
     }
 
     /// <summary>
@@ -43,4 +45,9 @@ public abstract class SkillFlyerCore : MonoBehaviour
     /// 初始化完成 子类可选实现
     /// </summary>
     protected virtual void OnInit() { }
+
+    /// <summary>
+    /// 开始 子类可选实现
+    /// </summary>
+    protected virtual void OnStart() { }
 }
