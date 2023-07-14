@@ -179,7 +179,5 @@ public enum eSkillEffectModifierType : int
 public enum eSkillId : int
 {
     Capture = 166, //捕获
-    CaptureHook = 167, //捕获-> 钩怪
     CaptureShoot = 168, //捕获-> 射怪
-    CaptureTrap = 226,  //捕获-> 陷阱
 }
