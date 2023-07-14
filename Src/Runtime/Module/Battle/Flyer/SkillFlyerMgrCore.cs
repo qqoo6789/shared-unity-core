@@ -44,6 +44,10 @@ public abstract class SkillFlyerMgrCore<TFlyer> : SceneModuleBase where TFlyer :
         flyer.Init(_nextFlyerID, formID, drSkill);
         _flyerMap.Add(_nextFlyerID, flyer);
         _nextFlyerID++;
+
+#if UNITY_EDITOR
+        go.AddComponent<SkillShapeGizmos>();
+#endif
         return flyer;
     }
 
