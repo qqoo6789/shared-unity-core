@@ -1,35 +1,35 @@
 assetRes-string,dropId-int,exp-int,homeAction-int,icon-string,id-int,lv-int,maxActionValue-int,name-string,requiredProficiency-int,treeDef-int,grassDef-int,oreDef-int
-2D_caijiziyuan_shumu01_1,27,20,6,2D_caijiziyuan_shumu01_1,4,1,176,Lv 1-普通木材 🌲 采集 原材料 (id:62),300,150.0,,
-Slice_12,27,20,6,Slice_12,5,1,176,Lv 1-普通木材 🌲 采集 原材料 (id:62),300,150.0,,
-2D_caijiziyuan_xianrenzhang,28,40.33081697,6,2D_caijiziyuan_xianrenzhang,6,2,265,Lv 2-沙漠树木材 🌲 采集 原材料 (id:63),400,225.0,,
-2D_caijiziyuan_hongguoshi,34,15,5,2D_caijiziyuan_hongguoshi,7,3,353,Lv 3-龙舌兰 🌲 采集 原材料 (id:68),500,,300.0,
-2D_caijiziyuan_shikuai_3,26,20,7,2D_caijiziyuan_shikuai_3,8,1,176,Lv 1-石头 🌲 采集 原材料 (id:58),300,,,150.0
-2D_caijiziyuan_heitikuang,30,40.33081697,7,2D_caijiziyuan_heitikuang,9,2,265,Lv 2-黑铁矿 🌲 采集 原材料 (id:59),400,,,225.0
-2D_caijiziyuan_hongbaoshi,31,59.72663478,7,2D_caijiziyuan_hongbaoshi,11,3,353,Lv 3-红色水晶矿 🌲 采集 原材料 (id:60),500,,,300.0
-Slice_11,32,5,5,Slice_11,14,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
-2D_caijiziyuan_bingyuanzhiwu,33,10,5,2D_caijiziyuan_bingyuanzhiwu,15,2,265,Lv 2-冰原菇 🌲 采集 原材料 (id:67),400,,225.0,
-2D_caijiziyuan_anheimucai,29,59.72663478,6,2D_caijiziyuan_anheimucai,16,3,353,Lv 3-暗黑木材 🌲 采集 原材料 (id:64),500,300.0,,
-homeresource-19,32,5,5,2D_caijiziyuan_cao2 ,19,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
-homeresource-20,32,5,5,2D_caijiziyuan_cao1,20,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
-2D_caijiziyuan_cao3,32,5,5,2D_caijiziyuan_cao3,21,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
+2D_caijiziyuan_shumu01_1,27,20,6,2D_caijiziyuan_shumu01_1,4,1,176,Lv 1-Lv 1 Ordinary Wood 🌲 采集 原材料 (id:62),300,150.0,,
+Slice_12,27,20,6,Slice_12,5,1,176,Lv 1-Lv 1 Ordinary Wood 🌲 采集 原材料 (id:62),300,150.0,,
+2D_caijiziyuan_xianrenzhang,28,40.33081697,6,2D_caijiziyuan_xianrenzhang,6,2,265,Lv 2-Lv 2 Desert Tree Wood 🌲 采集 原材料 (id:63),400,225.0,,
+2D_caijiziyuan_hongguoshi,34,15,5,2D_caijiziyuan_hongguoshi,7,3,353,Lv 3-Lv 3 Maguey 🌲 采集 原材料 (id:68),500,,300.0,
+2D_caijiziyuan_shikuai_3,26,20,7,2D_caijiziyuan_shikuai_3,8,1,176,Lv 1-Lv 1 Mineral 🌲 采集 原材料 (id:58),300,,,150.0
+2D_caijiziyuan_heitikuang,30,40.33081697,7,2D_caijiziyuan_heitikuang,9,2,265,Lv 2-Lv 2 Dark Iron 🌲 采集 原材料 (id:59),400,,,225.0
+2D_caijiziyuan_hongbaoshi,31,59.72663478,7,2D_caijiziyuan_hongbaoshi,11,3,353,Lv 3-Lv 3 Red Crystal Ore 🌲 采集 原材料 (id:60),500,,,300.0
+Slice_11,32,5,5,Slice_11,14,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
+2D_caijiziyuan_bingyuanzhiwu,33,10,5,2D_caijiziyuan_bingyuanzhiwu,15,2,265,Lv 2-Lv 2 Frozen Fungus 🌲 采集 原材料 (id:67),400,,225.0,
+2D_caijiziyuan_anheimucai,29,59.72663478,6,2D_caijiziyuan_anheimucai,16,3,353,Lv 3-Lv 3 Dark Wood 🌲 采集 原材料 (id:64),500,300.0,,
+homeresource-19,32,5,5,2D_caijiziyuan_cao2 ,19,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
+homeresource-20,32,5,5,2D_caijiziyuan_cao1,20,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
+2D_caijiziyuan_cao3,32,5,5,2D_caijiziyuan_cao3,21,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
 homeresource-22,,5,5,2D_caijiziyuan_zhuangshicaoye_4,22,1,176,,300,,150.0,
 homeresource-24,,5,5,2D_caijiziyuan_zhuangshicaoye_3,24,1,176,,300,,150.0,
 homeresource-25,,5,5,2D_caijiziyuan_zhuangshicaoye_2,25,1,176,,300,,150.0,
 homeresource-26,,5,5,2D_caijiziyuan_zhuangshicaoye_1,26,1,176,,300,,150.0,
 homeresource-27,,5,5,2D_caijiziyuan_zhuangshikucaoye_4,27,1,176,,300,,150.0,
 homeresource-28,,5,5,2D_caijiziyuan_zhuangshikucaoye_3,28,1,176,,300,,150.0,
-homeresource-29,,20,6,2D_caijiziyuan_kushu_1,29,1,176,Lv 1-普通木材 🌲 采集 原材料 (id:62),300,150.0,,
-homeresource-30,32,5,5,2D_caijiziyuan_kucao1,30,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
-homeresource-31,32,5,5,2D_caijiziyuan_kucao2,31,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
-homeresource-32,32,5,5,2D_caijiziyuan_kucao3,32,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
-homeresource-33,32,5,5,2D_caijiziyuan_kucao4,33,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
-2D_caijiziyuan_shikuai_4,26,20,7,2D_caijiziyuan_shikuai_4,34,1,176,Lv 1-石头 🌲 采集 原材料 (id:58),300,,,150.0
-homeresource-35,27,20,6,2d_shu_06,35,1,176,Lv 1-普通木材 🌲 采集 原材料 (id:62),300,150.0,,
-homeresource-36,28,40.33081697,6,2d_shu_07,36,2,265,Lv 2-沙漠树木材 🌲 采集 原材料 (id:63),400,225.0,,
-homeresource-37,29,59.72663478,6,2d_shu_08,37,3,353,Lv 3-暗黑木材 🌲 采集 原材料 (id:64),500,300.0,,
-homeresource-38,31,59.72663478,7,2d_shitou_06,38,3,353,Lv 3-红色水晶矿 🌲 采集 原材料 (id:60),500,,,300.0
-homeresource-41,30,40.33081697,7,2d_shitou_05,41,2,265,Lv 2-黑铁矿 🌲 采集 原材料 (id:59),400,,,225.0
-homeresource-42,26,20,7,2d_shitou_04,42,1,176,Lv 1-石头 🌲 采集 原材料 (id:58),300,,,150.0
-homeresource-43,33,10,5,2d_cao_10,43,2,265,Lv 2-冰原菇 🌲 采集 原材料 (id:67),400,,225.0,
-homeresource-44,34,15,5,2d_cao_11,44,3,353,Lv 3-龙舌兰 🌲 采集 原材料 (id:68),500,,300.0,
-homeresource-45,,5,5,2d_cao_09,45,1,176,Lv 1-植物纤维 🌲 采集 原材料 (id:66),300,,150.0,
+homeresource-29,,20,6,2D_caijiziyuan_kushu_1,29,1,176,Lv 1-Lv 1 Ordinary Wood 🌲 采集 原材料 (id:62),300,150.0,,
+homeresource-30,32,5,5,2D_caijiziyuan_kucao1,30,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
+homeresource-31,32,5,5,2D_caijiziyuan_kucao2,31,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
+homeresource-32,32,5,5,2D_caijiziyuan_kucao3,32,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
+homeresource-33,32,5,5,2D_caijiziyuan_kucao4,33,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,
+2D_caijiziyuan_shikuai_4,26,20,7,2D_caijiziyuan_shikuai_4,34,1,176,Lv 1-Lv 1 Mineral 🌲 采集 原材料 (id:58),300,,,150.0
+homeresource-35,27,20,6,2d_shu_06,35,1,176,Lv 1-Lv 1 Ordinary Wood 🌲 采集 原材料 (id:62),300,150.0,,
+homeresource-36,28,40.33081697,6,2d_shu_07,36,2,265,Lv 2-Lv 2 Desert Tree Wood 🌲 采集 原材料 (id:63),400,225.0,,
+homeresource-37,29,59.72663478,6,2d_shu_08,37,3,353,Lv 3-Lv 3 Dark Wood 🌲 采集 原材料 (id:64),500,300.0,,
+homeresource-38,31,59.72663478,7,2d_shitou_06,38,3,353,Lv 3-Lv 3 Red Crystal Ore 🌲 采集 原材料 (id:60),500,,,300.0
+homeresource-41,30,40.33081697,7,2d_shitou_05,41,2,265,Lv 2-Lv 2 Dark Iron 🌲 采集 原材料 (id:59),400,,,225.0
+homeresource-42,26,20,7,2d_shitou_04,42,1,176,Lv 1-Lv 1 Mineral 🌲 采集 原材料 (id:58),300,,,150.0
+homeresource-43,33,10,5,2d_cao_10,43,2,265,Lv 2-Lv 2 Frozen Fungus 🌲 采集 原材料 (id:67),400,,225.0,
+homeresource-44,34,15,5,2d_cao_11,44,3,353,Lv 3-Lv 3 Maguey 🌲 采集 原材料 (id:68),500,,300.0,
+homeresource-45,,5,5,2d_cao_09,45,1,176,Lv 1-Lv 1 Plant Fibre 🌲 采集 原材料 (id:66),300,,150.0,

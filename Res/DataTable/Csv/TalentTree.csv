@@ -8,8 +8,8 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 0,Combat ATK +20   Combat DEF +15    Combat MaxHP +50,57,1,talentTree-7,7,1,7,1,Combat Mastery 7,2,4770,6,0,6
 0,Combat ATK +20   Combat DEF +15    Combat MaxHP +50,58,1,talentTree-8,8,1,8,1,Combat Mastery 8,2,5819,7,0,7
 0,Combat ATK +20   Combat DEF +15    Combat MaxHP +50,59,1,talentTree-9,9,1,9,1,Combat Mastery 9,2,6912,8,0,8
--3,Increase your critical hit rate against monsters by 5%/10%/15% by targeting their weak points.,332,1,talentTree-10,10,0,2,1,Weakness Exploit,2,233,0,,11
--3,Stun enemies around you,63,0,talentTree-11,11,0,1,1,War Trampling,2,85,0,0,
+-3,Reduce the enemy's movement speed.,332,1,talentTree-10,10,0,2,1,Trampling - Enhance,2,233,0,,11
+-3,Stun enemies around you,63,0,talentTree-11,11,0,1,1,Trampling,2,85,0,0,
 0,FertilityCapacity + 4; MaxFertility + 400; PlantingProficiency + 18; PetHappinessCapacity + 4; MaxPetHappiness + 100; BreedingProficiency + 18;,66,1,talentTree-13,13,1,1,1,Farming Mastery 1,1,160,0,0,
 0,FertilityCapacity + 3; MaxFertility + 400; PlantingProficiency + 18; PetHappinessCapacity + 3; MaxPetHappiness + 100; BreedingProficiency + 18;,67,1,talentTree-14,14,1,2,1,Farming Mastery 2,1,497,1,0,13
 0,FertilityCapacity + 3; MaxFertility + 400; PlantingProficiency + 18; PetHappinessCapacity + 3; MaxPetHappiness + 100; BreedingProficiency + 18;,68,1,talentTree-15,15,1,3,1,Farming Mastery 3,1,1168,2,0,14
@@ -34,47 +34,47 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 -3,Unlock Set Recipes Lv 2,"71,75,203;112,182;181,183,184",2,talentTree-34,34,0,2,3,Farm Set Recipe Unlocked.,3,"311,485,758",0,"0,0,0",33
 -1,Lovely Touch,,0,talentTree-45,45,0,3,1,Lovely Touch,1,,0,,23
 -1,Efficiency Skills - Group Hoe,103,0,talentTree-46,46,0,4,1,Earth Splitter,1,547,0,0,45
--4,Release Lv 4 equipment recipes,,2,talentTree-47,47,0,4,1,Unlock Set Recipes,1,,0,,88
+-4,Unlock Lv 4 equipment recipes,,2,talentTree-47,47,0,4,1,Unlock Set Recipes,1,,0,,88
 2,PlantingProficiency + 18,246,1,talentTree-48,48,0,3,1,Farm - Harvest proficiency,1,547,0,0,81
 -2,Unlock Pet Essence Recipes Lv 2,156,2,talentTree-49,49,0,2,1,Unlock Pet Essence Recipes Lv 2,1,233,0,0,72
 2,PlantingProficiency + 18,249,1,talentTree-50,50,0,4,1,Farm - Harvest proficiency,1,916,0,0,48
 -2,Unlock Pet Essence Recipes Lv 5,,2,talentTree-51,51,0,5,1,Unlock Essence Recipes,1,,0,,75
--3,,333,1,talentTree-52,52,0,3,1,,2,486,0,,10
--2,"Charge, push enemies back, 50% damage.",122,0,talentTree-54,54,0,2,1,Bull Rush 1,2,233,0,0,
--2,,336,1,talentTree-55,55,0,3,1,,2,486,0,,54
--2,,337,1,talentTree-56,56,0,4,1,,2,814,0,,55
--2,"Charge forward, defeat enemies, 100% damage.",123,0,talentTree-57,57,0,5,1,Bull Rush 2,2,1178,0,0,56
--1,Attack 5 times randomly within small range.,137,0,talentTree-60,60,0,3,1,Blade Flurry 1,2,486,0,0,
--3,Stun enemies around you,64,0,talentTree-61,61,0,4,1,War Trampling 2,2,814,0,0,52
+-3,Increase the enemy's stun duration.,333,1,talentTree-52,52,0,3,1,Trampling - Enhance,2,486,0,,10
+-2,"Charge, push enemies back, 50% damage.",122,0,talentTree-54,54,0,2,1,Bull Rush,2,233,0,0,
+-2,Reduce the enemy's movement speed.,336,1,talentTree-55,55,0,3,1,Bull Rush - Enhance,2,486,0,,54
+-2,Reduce the enemy's movement speed.,337,1,talentTree-56,56,0,4,1,Bull Rush - Enhance,2,814,0,,55
+-2,"Charge forward, defeat enemies, 100% damage.",123,0,talentTree-57,57,0,5,1,Shark Rush,2,1178,0,0,56
+-1,Attack 5 times randomly within small range.,137,0,talentTree-60,60,0,3,1,Slight Flurry,2,486,0,0,
+-3,Stun enemies around you,64,0,talentTree-61,61,0,4,1,War Trampling,2,814,0,0,52
 -3,Unlock Set Recipes Lv 3,"72,76,204;113,186;185,187,188",2,talentTree-62,62,0,3,3,Unlock Set Recipes,3,"730,1140,1780",0,"0,0,0",34
 -3,Unlock Set Recipes Lv 4,,2,talentTree-63,63,0,4,1,Unlock Set Recipes,3,,0,,62
 -3,Unlock Set Recipes Lv 5,,2,talentTree-64,64,0,5,1,Unlock Set Recipes,3,,0,,63
--1,,326,0,talentTree-65,65,0,1,1,Active Skill - Gather Grass,3,100,0,0,
--1,,329,0,talentTree-66,66,0,2,1,Unlock item recipes.,3,311,0,0,65
--1,,"95,92,93,94",2,talentTree-67,67,0,3,1,"Farm, Combat, Gather.",3,730,0,0,66
--1,,327,0,talentTree-68,68,0,4,1,Unlock Item Recipes,3,1221,0,0,67
--1,,330,0,talentTree-69,69,0,5,1,Seismic Wave: Earthquake Detection.,3,1767,0,0,68
--1,,340,1,talentTree-70,70,0,4,1,,2,814,0,,60
--3,"Striking the target's weak point, causing the target to receive an additional 1%/2%/3% damage for the next 5 seconds, and can stack up to 5 layers.",334,1,talentTree-71,71,0,5,1,Severe Injury,2,1178,0,,61
+-1,,326,0,talentTree-65,65,0,1,1,Lv 1 Crazy Collector,3,100,0,0,
+-1,,329,0,talentTree-66,66,0,2,1,Lv 1 Chosen Person,3,311,0,0,65
+-1,,"95,92,93,94",2,talentTree-67,67,0,3,1,Unlock Item Recipes,3,730,0,0,66
+-1,,327,0,talentTree-68,68,0,4,1,Lv 2 Crazy Collector,3,1221,0,0,67
+-1,,330,0,talentTree-69,69,0,5,1,Lv 2 Chosen Person,3,1767,0,0,68
+-1,Reduce the enemy's movement speed.,340,1,talentTree-70,70,0,4,1,Slight Flurry - Enhance,2,814,0,,60
+-3,Increase the enemy's stun duration.,334,1,talentTree-71,71,0,5,1,War Trampling - Enhance,2,1178,0,,61
 -2,Unlock Pet Essence Recipes Lv 2,155,2,talentTree-72,72,0,1,1,Unlock Pet Essence Recipes Lv 2,1,75,0,0,
 2,PlantingProficiency + 18,230,1,talentTree-73,73,0,1,1,Farm - Harvest proficiency,1,75,0,0,
-3,PetHappinessCapacity + 4; MaxPetHappiness + 100,231,1,talentTree-74,74,0,1,1,Farm & Gather - Pet's Combat Happiness Index,1,75,0,0,
+3,PetHappinessCapacity + 4; MaxPetHappiness + 100,231,1,talentTree-74,74,0,1,1,Farm - Pet's Combat Happiness Index,1,75,0,0,
 -2,Unlock Pet Essence Recipes Lv 4,,2,talentTree-75,75,0,4,1,Unlock Essence Recipes,1,,0,,94
-4,BreedingProficiency + 18,233,1,talentTree-76,76,0,1,1,Farm & Ranch - Harvest Proficiency,1,75,0,0,
+4,BreedingProficiency + 18,233,1,talentTree-76,76,0,1,1,Farm - Harvest Proficiency,1,75,0,0,
 -1,Efficiency Skills - Group Hoe,102,0,talentTree-77,77,0,1,1,Earth Splitter,1,75,0,0,
--4,Release Lv 1 equipment recipes,"62,66;108,165;166,167,168",2,talentTree-78,78,0,1,3,Unlock Set Recipes,1,"75,113,172",0,"0,0,0",
--4,Release Lv 2 equipment recipes,"63,67;109,169;170,171,172",2,talentTree-79,79,0,2,3,Farm Set Unlocked,1,"233,434,809",0,"0,0,0",78
+-4,Unlock Lv 1 equipment recipes,"62,66;108,165;166,167,168",2,talentTree-78,78,0,1,3,Unlock Set Recipes,1,"75,113,172",0,"0,0,0",
+-4,Unlock Lv 2 equipment recipes,"63,67;109,169;170,171,172",2,talentTree-79,79,0,2,3,Farm Set Unlocked,1,"233,434,809",0,"0,0,0",78
 1,FertilityCapacity + 3; MaxFertility + 400,229,1,talentTree-80,80,0,2,1,Farm - Fertility output per unit of land,1,233,0,0,22
 2,PlantingProficiency + 18,245,1,talentTree-81,81,0,2,1,Farm - Fertility output of maximum land,1,233,0,0,73
 3,PetHappinessCapacity + 3; MaxPetHappiness + 100,232,1,talentTree-82,82,0,2,1,Farm - Harvest proficiency,1,233,0,0,74
-4,BreedingProficiency + 18,247,1,talentTree-83,83,0,2,1,Farm & Combat & Gather - Pet happiness based on agriculture and animal husbandry values.,1,233,0,0,76
+4,BreedingProficiency + 18,247,1,talentTree-83,83,0,2,1,Farm - Pet happiness based on agriculture and animal husbandry values.,1,233,0,0,76
 1,FertilityCapacity + 3; MaxFertility + 400,236,1,talentTree-84,84,0,4,1,Farm value - Fertility output per unit of land,1,916,0,0,93
-4,BreedingProficiency + 18,289,1,talentTree-85,85,0,5,1,Farm & Ranch - Harvest Proficiency,1,1325,0,0,90
--4,Release Lv 3 equipment recipes,"64,68;110,173;174,175,176",2,talentTree-88,88,0,3,3,Unlock Set Recipes,1,"547,1020,1900",0,"0,0,0",79
-3,PetHappinessCapacity + 3; MaxPetHappiness + 100,282,1,talentTree-89,89,0,4,1,Farm & Gather - Pet Combat Happiness Index,1,916,0,0,92
-4,BreedingProficiency + 18,288,1,talentTree-90,90,0,4,1,Farm & Ranch - Harvest Proficiency,1,916,0,0,91
-4,BreedingProficiency + 18,248,1,talentTree-91,91,0,3,1,Farm & Ranch - Harvest Proficiency,1,547,0,0,83
-3,PetHappinessCapacity + 3; MaxPetHappiness + 100,244,1,talentTree-92,92,0,3,1,Farm & Gather - Pet's Combat Happiness Index,1,547,0,0,82
+4,BreedingProficiency + 18,289,1,talentTree-85,85,0,5,1,Farm - Harvest Proficiency,1,1325,0,0,90
+-4,Unlock Lv 3 equipment recipes,"64,68;110,173;174,175,176",2,talentTree-88,88,0,3,3,Unlock Set Recipes,1,"547,1020,1900",0,"0,0,0",79
+3,PetHappinessCapacity + 3; MaxPetHappiness + 100,282,1,talentTree-89,89,0,4,1,Farm - Pet Combat Happiness Index,1,916,0,0,92
+4,BreedingProficiency + 18,288,1,talentTree-90,90,0,4,1,Farm - Harvest Proficiency,1,916,0,0,91
+4,BreedingProficiency + 18,248,1,talentTree-91,91,0,3,1,Farm  - Harvest Proficiency,1,547,0,0,83
+3,PetHappinessCapacity + 3; MaxPetHappiness + 100,244,1,talentTree-92,92,0,3,1,Farm  - Pet's Combat Happiness Index,1,547,0,0,82
 1,FertilityCapacity + 3; MaxFertility + 400,235,1,talentTree-93,93,0,3,1,Farm - Fertility output per unit of land,1,547,0,0,80
 -2,Unlock Pet Essence Recipes Lv 3,157,2,talentTree-94,94,0,3,1,Unlock Essence Recipes,1,547,0,0,49
 -5,Unlock Set Recipes Lv 1,"44;133,136;139,142,145",2,talentTree-95,95,0,1,3,Unlock Set Recipes,2,"85,94,105",0,"0,0,0",
@@ -101,17 +101,17 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 3,Combat DEF +15,262,1,talentTree-116,116,0,5,1,Combat - Defense,2,1178,0,0,111
 2,Combat ATK +20,256,1,talentTree-117,117,0,5,1,Combat - Attack Power,2,1178,0,0,113
 1,Increase Critical Hit Probability by 5/10/15%,60;61;62,1,talentTree-118,118,0,5,3,Expert,2,"1178,1535,1999",0,"0,0,0",112
--1,,341,1,talentTree-119,119,0,5,1,,2,1178,0,,70
+-1,Reduce the enemy's movement speed.,341,1,talentTree-119,119,0,5,1,Slight Flurry - Enhance,2,1178,0,,70
 4,Combat MaxHP +50,268,1,talentTree-120,120,0,5,1,Combat - HP,2,1178,0,0,114
 -5,Unlock Set Recipes Lv 6,,2,talentTree-121,121,0,6,1,Unlock Set Recipes,2,,0,,115
--3,,335,1,talentTree-122,122,0,6,1,,2,1570,0,,71
--2,,338,1,talentTree-123,123,0,6,1,,2,1570,0,,57
+-3,Reduce the enemy's movement speed.,335,1,talentTree-122,122,0,6,1,War Trampling - Enhance,2,1570,0,,71
+-2,Reduce the enemy's movement speed.,338,1,talentTree-123,123,0,6,1,Shark Rush - Enhance,2,1570,0,,57
 1,Increase crit damage to monsters by 10/20/30%.,113;114;115,1,talentTree-124,124,0,6,3,Expert,2,"1570,2046,2666",0,"0,0,0",118
--1,Attack 10 times randomly within medium range.,138,0,talentTree-125,125,0,6,1,Blade Flurry 2,2,1570,0,0,119
+-1,Attack 10 times randomly within medium range.,138,0,talentTree-125,125,0,6,1,Blade Flurry,2,1570,0,0,119
 -5,Unlock Set Recipes Lv 7,,2,talentTree-126,126,0,7,1,Unlock Set Recipes,2,,0,,121
--3,Stun enemies around you,65,0,talentTree-127,127,0,7,1,War Trampling 3,2,1987,0,0,122
--2,,339,1,talentTree-128,128,0,7,1,,2,1987,0,,123
--1,,342,1,talentTree-129,129,0,7,1,,2,1987,0,,125
+-3,Stun enemies around you,65,0,talentTree-127,127,0,7,1,Death Trampling,2,1987,0,0,122
+-2,Reduce the enemy's movement speed.,339,1,talentTree-128,128,0,7,1,Shark Rush - Enhance,2,1987,0,,123
+-1,Reduce the enemy's movement speed.,342,1,talentTree-129,129,0,7,1,Blade Flurry - Enhance ,2,1987,0,,125
 1,Attack speed increased by 10/20/30%.,131;132;133,1,talentTree-130,130,0,7,3,Expert,2,"1987,2589,3373",0,"0,0,0",124
 2,Combat ATK +20,257,1,talentTree-131,131,0,6,1,Combat - Attack Power,2,1570,0,0,117
 3,Combat DEF +15,263,1,talentTree-132,132,0,6,1,Combat - Defense,2,1570,0,0,116
@@ -120,51 +120,51 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 3,Combat DEF +15,273,1,talentTree-135,135,0,7,1,Combat - Defense,2,1987,0,0,132
 4,Combat MaxHP +50,276,1,talentTree-136,136,0,7,1,Combat - HP,2,1987,0,0,133
 -5,Unlock Set Recipes Lv 8,,2,talentTree-137,137,0,8,1,Unlock Set Recipes,2,,0,,126
--2,"Sprint forward, defeat enemies along the way, deal 150% damage.",124,0,talentTree-139,139,0,8,1,Bull Rush 3,2,2728,0,0,128
--1,,343,1,talentTree-140,140,0,8,1,,2,2728,0,,129
+-2,"Sprint forward, defeat enemies along the way, deal 150% damage.",124,0,talentTree-139,139,0,8,1,Dragon Rush,2,2728,0,0,128
+-1,Reduce the enemy's movement speed.,343,1,talentTree-140,140,0,8,1,Blade Flurry - Enhance ,2,2728,0,,129
 1,0.1/0.2/0.3% damage bonus per 1% health lost.,128;129;130,1,talentTree-141,141,0,8,3,Expert,2,"2728,3295,3979",0,"0,0,0",130
 2,Combat ATK +20,271,1,talentTree-142,142,0,8,1,Combat - Attack Power,2,2728,0,0,134
 3,Combat DEF +15,274,1,talentTree-143,143,0,8,1,Combat - Defense,2,2728,0,0,135
 4,Combat MaxHP +50,277,1,talentTree-144,144,0,8,1,Combat - Health,2,2728,0,0,136
 -5,Unlock Set Recipes Lv 9,,2,talentTree-146,146,0,9,1,Unlocking Set Recipes,2,,0,,137
--1,Attack 15 times randomly.,139,0,talentTree-149,149,0,9,1,Blade Flurry 3,2,3703,0,0,140
+-1,Attack 15 times randomly.,139,0,talentTree-149,149,0,9,1,Ultra Blade Flurry,2,3703,0,0,140
 2,Combat ATK +20,272,1,talentTree-150,150,0,9,1,Combat - Attack Power,2,3703,0,0,142
 1,"The weapon's attack leaves wounds, dealing 1%/2%/3% attack damage every 0.5 seconds for 5 seconds, and can stack up to 5 layers.",172;173;174,1,talentTree-151,151,0,9,3,Expert,2,"3703,3703,3703",0,"0,0,0",141
 3,Combat DEF +15,275,1,talentTree-152,152,0,9,1,Combat - Defense,2,3703,0,0,143
 4,Combat MaxHP +50,278,1,talentTree-153,153,0,9,1,Combat - HP,2,3703,0,0,144
--4,Release Lv 6 equipment recipes,,2,talentTree-155,155,0,6,1,Unlock Set Recipes,1,,0,,156
--4,Release Lv 5 equipment recipes,,2,talentTree-156,156,0,5,1,Unlock Set Recipes,1,,0,,47
+-4,Unlock Lv 6 equipment recipes,,2,talentTree-155,155,0,6,1,Unlock Set Recipes,1,,0,,156
+-4,Unlock Lv 5 equipment recipes,,2,talentTree-156,156,0,5,1,Unlock Set Recipes,1,,0,,47
 -1,Waters small fields around you.,100,0,talentTree-157,157,0,5,1,Watering Can Mastery,1,916,0,0,46
 1,FertilityCapacity + 2; MaxFertility + 400,237,1,talentTree-158,158,0,5,1,Farm - Fertility output per unit of land,1,1325,0,0,84
 2,PlantingProficiency + 18,250,1,talentTree-159,159,0,5,1,Farm - Gather proficiency,1,1325,0,0,50
-3,PetHappinessCapacity + 2; MaxPetHappiness + 100,283,1,talentTree-160,160,0,5,1,Farm & Combat & Gather - Pet Output Happiness Index,1,1325,0,0,89
+3,PetHappinessCapacity + 2; MaxPetHappiness + 100,283,1,talentTree-160,160,0,5,1,Farm - Pet Output Happiness Index,1,1325,0,0,89
 -2,Unlock Pet Essence Recipes Lv 6,,2,talentTree-161,161,0,6,1,Unlock Essence Recipes,1,,0,,51
 -1,Lovely Touch,,0,talentTree-162,162,0,6,1,Lovely Touch,1,,0,,157
 1,FertilityCapacity + 2; MaxFertility + 400,238,1,talentTree-163,163,0,6,1,Farm - Fertility output per unit of land,1,1767,0,0,158
-3,PetHappinessCapacity + 2; MaxPetHappiness + 100,284,1,talentTree-164,164,0,6,1,Farm & Combat & Gather - Pet Output Happiness Index,1,1767,0,0,160
+3,PetHappinessCapacity + 2; MaxPetHappiness + 100,284,1,talentTree-164,164,0,6,1,Farm - Pet Output Happiness Index,1,1767,0,0,160
 2,PlantingProficiency + 18,251,1,talentTree-165,165,0,6,1,Farm - Gather proficiency,1,1767,0,0,159
-4,BreedingProficiency + 18,290,1,talentTree-166,166,0,6,1,Farm & Combat & Gather - Harvest Proficiency,1,1767,0,0,85
+4,BreedingProficiency + 18,290,1,talentTree-166,166,0,6,1,Farm - Harvest Proficiency,1,1767,0,0,85
 -2,Unlock Pet Essence Recipes Lv 7,,2,talentTree-167,167,0,7,1,Unlock Essence Recipes,1,,0,,161
--4,Release Lv 7 equipment recipes,,2,talentTree-168,168,0,7,1,Unlock Set Recipes,1,,0,,155
+-4,Unlock Lv 7 equipment recipes,,2,talentTree-168,168,0,7,1,Unlock Set Recipes,1,,0,,155
 -1,Efficiency Skills - Group Hoe,104,0,talentTree-169,169,0,7,1,Earth Splitter,1,1325,0,10,162
 1,FertilityCapacity + 2; MaxFertility + 400,239,1,talentTree-170,170,0,7,1,Farm - Fertility output per unit of land,1,2236,0,0,163
 2,PlantingProficiency + 18,279,1,talentTree-171,171,0,7,1,Farm - Gather proficiency,1,2236,0,0,165
-3,PetHappinessCapacity + 2; MaxPetHappiness + 100,285,1,talentTree-172,172,0,7,1,Farm & Combat & Gather - Pet Happiness Index for Agricultural and Livestock Values,1,2236,0,0,164
-4,BreedingProficiency + 18,291,1,talentTree-173,173,0,7,1,Farm & Combat & Gather - Harvest Proficiency,1,2236,0,0,166
+3,PetHappinessCapacity + 2; MaxPetHappiness + 100,285,1,talentTree-172,172,0,7,1,Farm - Pet Happiness Index for Agricultural and Livestock Values,1,2236,0,0,164
+4,BreedingProficiency + 18,291,1,talentTree-173,173,0,7,1,Farm - Harvest Proficiency,1,2236,0,0,166
 -2,Unlock Pet Essence Recipes Lv 8,,2,talentTree-174,174,0,8,1,Unlock Essence Recipes,1,,0,,167
--4,Release Lv 8 equipment recipes,,2,talentTree-175,175,0,8,1,Unlock Set Recipes,1,,0,,168
+-4,Unlock Lv 8 equipment recipes,,2,talentTree-175,175,0,8,1,Unlock Set Recipes,1,,0,,168
 -1,Waters small fields around you.,101,0,talentTree-176,176,0,8,1,Watering Can Mastery,1,1767,0,10,169
 2,PlantingProficiency + 18,280,1,talentTree-177,177,0,8,1,Farm - Harvest proficiency,1,2728,0,0,171
 1,FertilityCapacity + 2; MaxFertility + 400,240,1,talentTree-178,178,0,8,1,Farm - Fertility output per unit of land,1,2728,0,0,170
-3,PetHappinessCapacity + 2; MaxPetHappiness + 100,286,1,talentTree-179,179,0,8,1,Farm & Combat & Gather - Pet Happiness Index for Agriculture and Animal Husbandry,1,2728,0,0,172
-4,BreedingProficiency + 18,292,1,talentTree-180,180,0,8,1,Farm & Combat & Gather - Harvest Proficiency,1,2728,0,0,173
+3,PetHappinessCapacity + 2; MaxPetHappiness + 100,286,1,talentTree-179,179,0,8,1,Farm - Pet Happiness Index for Agriculture and Animal Husbandry,1,2728,0,0,172
+4,BreedingProficiency + 18,292,1,talentTree-180,180,0,8,1,Farm - Harvest Proficiency,1,2728,0,0,173
 -2,Unlock Pet Essence Recipes Lv 9,,2,talentTree-181,181,0,9,1,Unlock Essence Recipes,1,,0,,174
--4,Release Lv 9 equipment recipes,,2,talentTree-182,182,0,9,1,Unlock Set Recipes,1,,0,,175
+-4,Unlock Lv 9 equipment recipes,,2,talentTree-182,182,0,9,1,Unlock Set Recipes,1,,0,,175
 -1,Lovely Touch,,0,talentTree-183,183,0,9,1,Lovely Touch,1,,0,,176
 1,FertilityCapacity + 2; MaxFertility + 400,241,1,talentTree-184,184,0,9,1,Farm - Fertility output per unit of land,1,3240,0,0,178
 2,PlantingProficiency + 18,281,1,talentTree-185,185,0,9,1,Farm - Harvest proficiency,1,3240,0,0,177
-3,PetHappinessCapacity + 2; MaxPetHappiness + 100,287,1,talentTree-186,186,0,9,1,Farm & Combat & Gather - Pet Output Happiness Index,1,3240,0,0,179
-4,BreedingProficiency + 18,293,1,talentTree-187,187,0,9,1,Farm & Combat & Gather - Harvest Proficiency,1,3240,0,0,180
+3,PetHappinessCapacity + 2; MaxPetHappiness + 100,287,1,talentTree-186,186,0,9,1,Farm - Pet Output Happiness Index,1,3240,0,0,179
+4,BreedingProficiency + 18,293,1,talentTree-187,187,0,9,1,Farm - Harvest Proficiency,1,3240,0,0,180
 1,Gather Grass Atk ++  Proficiency ++,294,1,talentTree-188,188,0,1,1,Gather - Grass: 10,3,100,0,0,
 2,Gather Tree Atk ++  Proficiency ++,303,1,talentTree-189,189,0,1,1,Gather value - on trees,3,100,0,0,
 3,Gather Ore Atk ++  Proficiency ++,312,1,talentTree-190,190,0,1,1,Gather value - for mining.,3,100,0,0,
@@ -186,17 +186,17 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 2,Gather Tree Atk ++  Proficiency ++,308,1,talentTree-206,206,0,6,1,Gather - Trees,3,2356,0,0,201
 3,Gather Ore Atk ++  Proficiency ++,317,1,talentTree-207,207,0,6,1,Gather value - for mining.,3,2356,0,0,202
 -3,Unlock Set Recipes Lv 7,,2,talentTree-208,208,0,7,1,Unlock Set Recipes.,3,,0,,203
--1,,328,0,talentTree-209,209,0,7,1,Toggle Skill - Overall Efficiency Boost,3,2981,0,0,204
+-1,,328,0,talentTree-209,209,0,7,1,Lv 3 Crazy Collector,3,2981,0,0,204
 1,Gather Grass Atk ++  Proficiency ++,300,1,talentTree-210,210,0,7,1,Gather - Grass value,3,2981,0,0,205
 2,Gather Tree Atk ++  Proficiency ++,309,1,talentTree-211,211,0,7,1,Gather - Trees,3,2981,0,0,206
 3,Gather Ore Atk ++  Proficiency ++,318,1,talentTree-212,212,0,7,1,Gather - for mining,3,2981,0,0,207
 -3,Unlock Set Recipes Lv 8,,2,talentTree-213,213,0,8,1,Unlock Set Recipes,3,,0,,208
--1,,331,0,talentTree-214,214,0,8,1,Unlock Item Recipes,3,3637,0,0,209
+-1,,331,0,talentTree-214,214,0,8,1,Lv 3 Chosen Person,3,3637,0,0,209
 2,Gather Tree Atk ++  Proficiency ++,310,1,talentTree-215,215,0,8,1,Gather - Trees,3,3637,0,0,211
 1,Gather Grass Atk ++  Proficiency ++,301,1,talentTree-216,216,0,8,1,Gather - Grass: 10,3,3637,0,0,210
 3,Gather Ore Atk ++  Proficiency ++,319,1,talentTree-217,217,0,8,1,Gather - for mining,3,3637,0,0,212
 -3,Unlock Set Recipes Lv 9,,2,talentTree-218,218,0,9,1,Unlock Set Recipes,3,,0,,213
--1,,"132,101,102,103",2,talentTree-219,219,0,9,1,Switch Skill - Overall Efficiency Boost,3,4320,0,0,214
+-1,,"132,101,102,103",2,talentTree-219,219,0,9,1,Unlock Item Recipes,3,4320,0,0,214
 1,Gather Grass Atk ++  Proficiency ++,302,1,talentTree-220,220,0,9,1,Gather - Grass: 10,3,4320,0,0,216
 2,Gather Tree Atk ++  Proficiency ++,311,1,talentTree-221,221,0,9,1,Gather - Trees,3,4320,0,0,215
 3,Gather Ore Atk ++  Proficiency ++,320,1,talentTree-222,222,0,9,1,Gather - for mining,3,4320,0,0,217
