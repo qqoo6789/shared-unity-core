@@ -106,9 +106,9 @@ public class SkillDamage
     /// <param name="action"></param>
     /// <param name="fromAttribute">发起攻击者属性 不能为空</param>
     /// <param name="toAttribute">防御方属性 为空时代表没有防御相关属性</param>
-    /// <param name="homeAttRate">家园攻击力技能倍率</param>
+    /// <param name="skillDamageRate">技能伤害倍率 由技能决定的</param>
     /// <returns></returns>
-    public static (float damage, bool crit) CalculateHomeDamage(HomeDefine.eAction action, EntityAttributeData fromAttribute, EntityAttributeData toAttribute, float homeAttRate, InputRandomData seedData)
+    public static (float damage, bool crit) CalculateHomeDamage(HomeDefine.eAction action, EntityAttributeData fromAttribute, EntityAttributeData toAttribute, float skillDamageRate, InputRandomData seedData)
     {
         if (fromAttribute == null)
         {
@@ -125,12 +125,13 @@ public class SkillDamage
         TableHomeDamageAttribute attributeClassify = EntityAttributeTable.Inst.GetDamageAttributeClassify<TableHomeDamageAttribute>(action);
 
         float toDef = toAttribute != null ? toAttribute.GetRealValue(attributeClassify.Def) : 0;
-        float baseDamage = (fromAttribute.GetRealValue(attributeClassify.Att) * homeAttRate) - toDef;
+        float baseDamage = fromAttribute.GetRealValue(attributeClassify.Att) - toDef;
         baseDamage = Math.Max(0, baseDamage);
 
         (float coreDamage, bool crit) = CalculateCoreDamage(baseDamage, attributeClassify, fromAttribute, seedData);
 
         float res = coreDamage;// * MathF.Min(1, fromAttribute.GetRealValue(attributeClassify.AvailableLv) / toLevel); 数值改造时去掉了
+        res *= skillDamageRate;
         res = Math.Max(MIN_DAMAGE, res);
 
         return (res, crit);
