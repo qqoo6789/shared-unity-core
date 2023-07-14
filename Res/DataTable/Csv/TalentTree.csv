@@ -31,7 +31,7 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 0,Increase the probability of acquiring additional resources by 1%.,88,1,talentTree-31,31,1,8,1,Gather Combat 8,3,5819,7,0,30
 0,Increase the probability of acquiring additional resources by 1%. Cause higher damage to level 4 resources.,89,1,talentTree-32,32,1,9,1,Gather Combat 9,3,6912,8,0,31
 -3,Unlock Set Recipes Lv 1,"70,74,201;111,178;177,179,180",2,talentTree-33,33,0,1,3,Unlock Set Recipes,3,"100,156,243",0,"0,0,0",
--3,Unlock Set Recipes Lv 2,"71,75,203;112,182;181,183,184",2,talentTree-34,34,0,2,3,Farm Set Recipe Unlocked.,3,"311,485,758",0,"0,0,0",33
+-3,Unlock Set Recipes Lv 2,"71,75,203;112,182;181,183,184",2,talentTree-34,34,0,2,3,Farm Set Recipe Unlocked,3,"311,485,758",0,"0,0,0",33
 -1,Lovely Touch,,0,talentTree-45,45,0,3,1,Lovely Touch,1,,0,,23
 -1,Efficiency Skills - Group Hoe,103,0,talentTree-46,46,0,4,1,Earth Splitter,1,547,0,0,45
 -4,Unlock equipment recipes Lv 4,,2,talentTree-47,47,0,4,1,Unlock Set Recipes,1,,0,,88
@@ -67,7 +67,7 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 1,FertilityCapacity + 3; MaxFertility + 400,229,1,talentTree-80,80,0,2,1,Farm - Fertility output per unit of land,1,233,0,0,22
 2,PlantingProficiency + 18,245,1,talentTree-81,81,0,2,1,Farm - Fertility output of maximum land,1,233,0,0,73
 3,PetHappinessCapacity + 3; MaxPetHappiness + 100,232,1,talentTree-82,82,0,2,1,Farm - Harvest proficiency,1,233,0,0,74
-4,BreedingProficiency + 18,247,1,talentTree-83,83,0,2,1,Farm - Pet happiness based on agriculture and animal husbandry values.,1,233,0,0,76
+4,BreedingProficiency + 18,247,1,talentTree-83,83,0,2,1,Farm - Pet Unit Output Happiness Index,1,233,0,0,76
 1,FertilityCapacity + 3; MaxFertility + 400,236,1,talentTree-84,84,0,4,1,Farm value - Fertility output per unit of land,1,916,0,0,93
 4,BreedingProficiency + 18,289,1,talentTree-85,85,0,5,1,Farm - Harvest Proficiency,1,1325,0,0,90
 -4,Unlock Lv 3 equipment recipes,"64,68;110,173;174,175,176",2,talentTree-88,88,0,3,3,Unlock Set Recipes,1,"547,1020,1900",0,"0,0,0",79
@@ -149,14 +149,14 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 -1,Efficiency Skills - Group Hoe,104,0,talentTree-169,169,0,7,1,Earth Splitter,1,1325,0,10,162
 1,FertilityCapacity + 2; MaxFertility + 400,239,1,talentTree-170,170,0,7,1,Farm - Fertility output per unit of land,1,2236,0,0,163
 2,PlantingProficiency + 18,279,1,talentTree-171,171,0,7,1,Farm - Gather proficiency,1,2236,0,0,165
-3,PetHappinessCapacity + 2; MaxPetHappiness + 100,285,1,talentTree-172,172,0,7,1,Farm - Pet Happiness Index for Agricultural and Livestock Values,1,2236,0,0,164
+3,PetHappinessCapacity + 2; MaxPetHappiness + 100,285,1,talentTree-172,172,0,7,1,Farm - Pet Unit Output Happiness Index,1,2236,0,0,164
 4,BreedingProficiency + 18,291,1,talentTree-173,173,0,7,1,Farm - Harvest Proficiency,1,2236,0,0,166
 -2,Unlock Pet Essence Recipes Lv 8,,2,talentTree-174,174,0,8,1,Unlock Essence Recipes,1,,0,,167
 -4,Unlock Lv 8 equipment recipes,,2,talentTree-175,175,0,8,1,Unlock Set Recipes,1,,0,,168
 -1,Waters small fields around you.,101,0,talentTree-176,176,0,8,1,Watering Can Mastery,1,1767,0,10,169
 2,PlantingProficiency + 18,280,1,talentTree-177,177,0,8,1,Farm - Harvest proficiency,1,2728,0,0,171
 1,FertilityCapacity + 2; MaxFertility + 400,240,1,talentTree-178,178,0,8,1,Farm - Fertility output per unit of land,1,2728,0,0,170
-3,PetHappinessCapacity + 2; MaxPetHappiness + 100,286,1,talentTree-179,179,0,8,1,Farm - Pet Happiness Index for Agriculture and Animal Husbandry,1,2728,0,0,172
+3,PetHappinessCapacity + 2; MaxPetHappiness + 100,286,1,talentTree-179,179,0,8,1,Farm - Pet Unit Output Happiness Index,1,2728,0,0,172
 4,BreedingProficiency + 18,292,1,talentTree-180,180,0,8,1,Farm - Harvest Proficiency,1,2728,0,0,173
 -2,Unlock Pet Essence Recipes Lv 9,,2,talentTree-181,181,0,9,1,Unlock Essence Recipes,1,,0,,174
 -4,Unlock Lv 9 equipment recipes,,2,talentTree-182,182,0,9,1,Unlock Set Recipes,1,,0,,175
@@ -165,41 +165,41 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 2,PlantingProficiency + 18,281,1,talentTree-185,185,0,9,1,Farm - Harvest proficiency,1,3240,0,0,177
 3,PetHappinessCapacity + 2; MaxPetHappiness + 100,287,1,talentTree-186,186,0,9,1,Farm - Pet Output Happiness Index,1,3240,0,0,179
 4,BreedingProficiency + 18,293,1,talentTree-187,187,0,9,1,Farm - Harvest Proficiency,1,3240,0,0,180
-1,Gather Grass Atk ++  Proficiency ++,294,1,talentTree-188,188,0,1,1,Gather - Grass: 10,3,100,0,0,
-2,Gather Tree Atk ++  Proficiency ++,303,1,talentTree-189,189,0,1,1,Gather value - on trees,3,100,0,0,
-3,Gather Ore Atk ++  Proficiency ++,312,1,talentTree-190,190,0,1,1,Gather value - for mining.,3,100,0,0,
-1,Gather Grass Atk ++  Proficiency ++,295,1,talentTree-191,191,0,2,1,Gather - Grass value,3,311,0,0,188
+1,Gather Grass Atk ++  Proficiency ++,294,1,talentTree-188,188,0,1,1,Gather - Grass,3,100,0,0,
+2,Gather Tree Atk ++  Proficiency ++,303,1,talentTree-189,189,0,1,1,Gather value - Trees,3,100,0,0,
+3,Gather Ore Atk ++  Proficiency ++,312,1,talentTree-190,190,0,1,1,Gather value - Mining,3,100,0,0,
+1,Gather Grass Atk ++  Proficiency ++,295,1,talentTree-191,191,0,2,1,Gather - Grass,3,311,0,0,188
 2,Gather Tree Atk ++  Proficiency ++,304,1,talentTree-192,192,0,2,1,Gather - Trees,3,311,0,0,189
-3,Gather Ore Atk ++  Proficiency ++,313,1,talentTree-193,193,0,2,1,Gather value - for mining.,3,311,0,0,190
-1,Gather Grass Atk ++  Proficiency ++,296,1,talentTree-194,194,0,3,1,Gather - Grass: 10,3,730,0,0,191
+3,Gather Ore Atk ++  Proficiency ++,313,1,talentTree-193,193,0,2,1,Gather value - Mining,3,311,0,0,190
+1,Gather Grass Atk ++  Proficiency ++,296,1,talentTree-194,194,0,3,1,Gather - Grass,3,730,0,0,191
 2,Gather Tree Atk ++  Proficiency ++,305,1,talentTree-195,195,0,3,1,Gather - Trees,3,730,0,0,192
-3,Gather Ore Atk ++  Proficiency ++,314,1,talentTree-196,196,0,3,1,Gather - for mining,3,730,0,0,193
-1,Gather Grass Atk ++  Proficiency ++,297,1,talentTree-197,197,0,4,1,Gather - Grass: 10,3,1221,0,0,194
+3,Gather Ore Atk ++  Proficiency ++,314,1,talentTree-196,196,0,3,1,Gather - Mining,3,730,0,0,193
+1,Gather Grass Atk ++  Proficiency ++,297,1,talentTree-197,197,0,4,1,Gather - Grass,3,1221,0,0,194
 2,Gather Tree Atk ++  Proficiency ++,306,1,talentTree-198,198,0,4,1,Gather - Trees,3,1221,0,0,195
-3,Gather Ore Atk ++  Proficiency ++,315,1,talentTree-199,199,0,4,1,Gather value - for mining,3,1221,0,0,196
-1,Gather Grass Atk ++  Proficiency ++,298,1,talentTree-200,200,0,5,1,Gather - Grass: 10,3,1767,0,0,197
-2,Gather Tree Atk ++  Proficiency ++,307,1,talentTree-201,201,0,5,1,Gather value - on trees,3,1767,0,0,198
-3,Gather Ore Atk ++  Proficiency ++,316,1,talentTree-202,202,0,5,1,Gather - for mining,3,1767,0,0,199
+3,Gather Ore Atk ++  Proficiency ++,315,1,talentTree-199,199,0,4,1,Gather value - Mining,3,1221,0,0,196
+1,Gather Grass Atk ++  Proficiency ++,298,1,talentTree-200,200,0,5,1,Gather - Grass,3,1767,0,0,197
+2,Gather Tree Atk ++  Proficiency ++,307,1,talentTree-201,201,0,5,1,Gather value - Trees,3,1767,0,0,198
+3,Gather Ore Atk ++  Proficiency ++,316,1,talentTree-202,202,0,5,1,Gather - Mining,3,1767,0,0,199
 -3,Unlock Set Recipes Lv 6,,2,talentTree-203,203,0,6,1,Unlock Set Recipes,3,,0,,64
 -1,Unlock Crystallized Healing Potion; Advanced Moisturizing Fertilizer; Advanced Accelerated Fertilizer Recipes,"96,197,198,199",2,talentTree-204,204,0,6,1,Unlock Item Recipes,3,2356,0,0,69
 1,Gather Grass Atk ++  Proficiency ++,299,1,talentTree-205,205,0,6,1,Gather - Grass value,3,2356,0,0,200
 2,Gather Tree Atk ++  Proficiency ++,308,1,talentTree-206,206,0,6,1,Gather - Trees,3,2356,0,0,201
-3,Gather Ore Atk ++  Proficiency ++,317,1,talentTree-207,207,0,6,1,Gather value - for mining.,3,2356,0,0,202
--3,Unlock Set Recipes Lv 7,,2,talentTree-208,208,0,7,1,Unlock Set Recipes.,3,,0,,203
+3,Gather Ore Atk ++  Proficiency ++,317,1,talentTree-207,207,0,6,1,Gather value - Mining,3,2356,0,0,202
+-3,Unlock Set Recipes Lv 7,,2,talentTree-208,208,0,7,1,Unlock Set Recipes,3,,0,,203
 -1,Temporarily increase gathering efficiency,328,0,talentTree-209,209,0,7,1,Lv 3 Crazy Collector,3,2981,0,0,204
-1,Gather Grass Atk ++  Proficiency ++,300,1,talentTree-210,210,0,7,1,Gather - Grass value,3,2981,0,0,205
+1,Gather Grass Atk ++  Proficiency ++,300,1,talentTree-210,210,0,7,1,Gather - Grass,3,2981,0,0,205
 2,Gather Tree Atk ++  Proficiency ++,309,1,talentTree-211,211,0,7,1,Gather - Trees,3,2981,0,0,206
-3,Gather Ore Atk ++  Proficiency ++,318,1,talentTree-212,212,0,7,1,Gather - for mining,3,2981,0,0,207
+3,Gather Ore Atk ++  Proficiency ++,318,1,talentTree-212,212,0,7,1,Gather - Mining,3,2981,0,0,207
 -3,Unlock Set Recipes Lv 8,,2,talentTree-213,213,0,8,1,Unlock Set Recipes,3,,0,,208
 -1,Temporarily increase gathering proficiency.,331,0,talentTree-214,214,0,8,1,Lv 3 Chosen Person,3,3637,0,0,209
 2,Gather Tree Atk ++  Proficiency ++,310,1,talentTree-215,215,0,8,1,Gather - Trees,3,3637,0,0,211
-1,Gather Grass Atk ++  Proficiency ++,301,1,talentTree-216,216,0,8,1,Gather - Grass: 10,3,3637,0,0,210
-3,Gather Ore Atk ++  Proficiency ++,319,1,talentTree-217,217,0,8,1,Gather - for mining,3,3637,0,0,212
+1,Gather Grass Atk ++  Proficiency ++,301,1,talentTree-216,216,0,8,1,Gather - Grass,3,3637,0,0,210
+3,Gather Ore Atk ++  Proficiency ++,319,1,talentTree-217,217,0,8,1,Gather - Mining,3,3637,0,0,212
 -3,Unlock Set Recipes Lv 9,,2,talentTree-218,218,0,9,1,Unlock Set Recipes,3,,0,,213
 -1,Unlock Crystallized Healing Potion; Lv 0-Lv 0 Advanced Moisturizing Fertilizer; Advanced Yield-increasing Fertilizer; Advanced Accelerated Fertilizer,"132,101,102,103",2,talentTree-219,219,0,9,1,Unlock Item Recipes,3,4320,0,0,214
-1,Gather Grass Atk ++  Proficiency ++,302,1,talentTree-220,220,0,9,1,Gather - Grass: 10,3,4320,0,0,216
+1,Gather Grass Atk ++  Proficiency ++,302,1,talentTree-220,220,0,9,1,Gather - Grass,3,4320,0,0,216
 2,Gather Tree Atk ++  Proficiency ++,311,1,talentTree-221,221,0,9,1,Gather - Trees,3,4320,0,0,215
-3,Gather Ore Atk ++  Proficiency ++,320,1,talentTree-222,222,0,9,1,Gather - for mining,3,4320,0,0,217
+3,Gather Ore Atk ++  Proficiency ++,320,1,talentTree-222,222,0,9,1,Gather - Mining,3,4320,0,0,217
 -3,Unlock Planting Essence Recipes Lv 2,152,2,talentTree-227,227,0,1,1,Unlock Planting Essence Recipes Lv 2,1,75,0,0,
 -3,Unlock Planting Essence Recipes Lv 2,153,2,talentTree-228,228,0,2,1,Unlock Planting Essence Recipes Lv 2,1,233,0,0,227
 -3,Unlock Planting Essence Recipes Lv 3,154,2,talentTree-229,229,0,3,1,Unlock Essence Recipes,1,547,0,0,228
