@@ -28,8 +28,8 @@ public class SoilLooseStatusCore : SoilStatusCore
         {
             if (action == eAction.Sowing)
             {
-                (int seedCid, bool sowingValid) = ((int, bool))actionData;
-                SoilData.SetSeedCid(seedCid, sowingValid);
+                int seedCid = (int)actionData;
+                SoilData.SetSeedCid(seedCid);
                 ChangeState(eSoilStatus.SeedThirsty);
             }
             else if (action == eAction.Eradicate)

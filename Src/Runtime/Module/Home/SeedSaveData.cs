@@ -16,17 +16,9 @@ public class SeedSaveData
     /// </summary>
     public int SeedCid;
     /// <summary>
-    /// 播种是否有效
-    /// </summary>
-    public bool SowingValid;
-    /// <summary>
     /// 施的肥料配置ID
     /// </summary>
     public int ManureCid;
-    /// <summary>
-    /// 施肥是否有效
-    /// </summary>
-    public bool ManureValid;
     /// <summary>
     /// 当前剩余额外浇水次数
     /// </summary>
@@ -40,9 +32,7 @@ public class SeedSaveData
     {
         GrowingStage = data.GrowingStage;
         SeedCid = data.SeedCid;
-        SowingValid = data.SowingValid;
         ManureCid = data.ManureCid;
-        ManureValid = data.ManureValid;
         ExtraWateringNum = data.ExtraWateringNum;
     }
 
@@ -52,9 +42,7 @@ public class SeedSaveData
         {
             GrowingStage = GrowingStage,
             SeedCid = SeedCid,
-            SowingValid = SowingValid,
             ManureCid = ManureCid,
-            ManureValid = ManureValid,
             ExtraWateringNum = ExtraWateringNum,
         };
     }

@@ -18,7 +18,7 @@ public class SoilGrowingWetStatusCore : SoilStatusCore
         int growStage = SoilData.SaveData.SeedData.GrowingStage;
         if (growStage >= SoilData.SeedGrowStageNum - 1)//成熟了
         {
-            ChangeState(SoilData.SaveData.SeedData.SowingValid ? eSoilStatus.Harvest : eSoilStatus.RotHarvest);
+            ChangeState(eSoilStatus.Harvest);
         }
         else
         {

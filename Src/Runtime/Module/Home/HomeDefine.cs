@@ -119,10 +119,6 @@ public static class HomeDefine
         /// 等待收获
         /// </summary>
         Harvest = 1 << 6,
-        /// <summary>
-        /// 腐烂收获（播种专精不够）
-        /// </summary>
-        RotHarvest = 1 << 7,
     }
 
     /// <summary>
