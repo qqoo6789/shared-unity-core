@@ -4,7 +4,7 @@ using System;
  * @Author: xiang huan
  * @Date: 2022-07-26 15:38:17
  * @Description: 共享库GFEntry引用
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/GFEntryCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/GFEntryCore.cs
  * 
  */
 using System.Collections.Generic;
@@ -13,6 +13,7 @@ using UnityGameFramework.Runtime;
 
 public static class GFEntryCore
 {
+    public static GFEntryType GFEntryType { get; set; } = GFEntryType.Client;
     private static List<object> s_GFEntryList = new();
     /// <summary>
     /// 获取数据表组件。
@@ -119,5 +120,10 @@ public static class GFEntryCore
 
         Log.Error($"GFEntry module is not exist, type {typeof(T).Name}.");
         return null;
+    }
+
+    public static void SetGFEntryType(GFEntryType type)
+    {
+        GFEntryType = type;
     }
 }

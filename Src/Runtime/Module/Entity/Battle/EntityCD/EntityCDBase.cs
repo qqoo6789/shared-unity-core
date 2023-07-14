@@ -49,7 +49,7 @@ public class EntityCDBase : IReference
     {
         if (CDMap.TryGetValue(key, out long outTime))
         {
-            long curTimeStamp = TimeUtil.GetTimeStamp();
+            long curTimeStamp = TimeUtil.GetCommonTimeStamp();
             return outTime > curTimeStamp;
         }
         return false;
