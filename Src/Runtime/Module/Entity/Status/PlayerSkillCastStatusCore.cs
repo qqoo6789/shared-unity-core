@@ -7,12 +7,14 @@ using GameFramework.Fsm;
 public class PlayerSkillCastStatusCore : SkillCastStatusCore
 {
     protected EntitySkillDataCore SkillDataCore { get; private set; }
+    private bool _curSkillIsComboGroupSkill;//当前技能是否连击组 往往代表普通攻击
 
     protected override void OnEnter(IFsm<EntityStatusCtrl> fsm)
     {
         base.OnEnter(fsm);
 
         SkillDataCore = StatusCtrl.GetComponent<EntitySkillDataCore>();
+        _curSkillIsComboGroupSkill = SkillDataCore.IsComboGroupSkill(SkillID);
     }
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
@@ -28,19 +30,26 @@ public class PlayerSkillCastStatusCore : SkillCastStatusCore
     /// <returns></returns>
     protected virtual bool CheckCanSetCombo(int skillId)
     {
-        if (Array.IndexOf(SkillDataCore.ComboSkillIdArray, SkillID) < 0)
-        {
-            return false;
-        }
-
-        return true;
+        return SkillDataCore.IsComboGroupSkill(skillId);
     }
 
     public override bool CheckCanSkill(int skillID)
     {
-        if (CheckCanSetCombo(skillID))
+        //当前是连击技能
+        if (_curSkillIsComboGroupSkill)
         {
-            return true;
+            bool isComboGroup = SkillDataCore.IsComboGroupSkill(skillID);
+            if (!isComboGroup)//后续主动是主动技能直接打断
+            {
+                return true;
+            }
+            else//后序还是连击技能需要判断是否能够打断
+            {
+                if (CheckCanSetCombo(skillID))
+                {
+                    return true;
+                }
+            }
         }
 
         return base.CheckCanSkill(skillID);
