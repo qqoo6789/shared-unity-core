@@ -19,19 +19,28 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     public bool IsDead { get; private set; }
 
     public eAction SupportAction { get; set; } = eAction.None;
+    public ResourceDataCore Data { get; private set; }
 
-    public int Lv
-    {
-        get
-        {
-            ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
-            return resourceData.DRHomeResources.Lv;
-        }
-    }
+    public int Lv => Data.DRHomeResources.Lv;
 
     protected virtual void Awake()
     {
         IsDead = false;
+    }
+
+    protected virtual void Start()
+    {
+        if (HomeModuleCore.IsInited)//在家园里
+        {
+            if (Data != null)
+            {
+                HomeModuleCore.SoilResourceRelation.AddResourceOnSoil((long)Id, Data.SaveData.Id);
+            }
+            else
+            {
+                Log.Error($"家园采集资源 Data 组件 is null");
+            }
+        }
     }
 
     /// <summary>
@@ -40,22 +49,13 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
     public void OnInitedResourceData()
     {
         Id = (ulong)RefEntity.BaseData.Id;
-        ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
-        DRHomeResources dr = resourceData.DRHomeResources;
+        Data = GetComponent<ResourceDataCore>();
+        DRHomeResources dr = Data.DRHomeResources;
         SupportAction = TableUtil.ToHomeAction(dr.HomeAction);
 
         if ((PROGRESS_ACTION_MASK & SupportAction) != 0)
         {
             GetComponent<HomeActionProgressData>().StartProgressAction(SupportAction, dr.MaxActionValue);
-        }
-    }
-
-    protected virtual void Start()
-    {
-        if (HomeModuleCore.IsInited)//在家园里
-        {
-            ResourceDataCore resourceData = GetComponent<ResourceDataCore>();
-            HomeModuleCore.SoilResourceRelation.AddResourceOnSoil((long)Id, resourceData.SaveData.Id);
         }
     }
 
