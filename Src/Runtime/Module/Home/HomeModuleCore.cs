@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -51,9 +52,16 @@ public abstract class HomeModuleCore : MonoBehaviour
 
         Root = gameObject;
 
+        InitGameConfig();
+
         InitModule();
 
         StartInitLogic();
+    }
+
+    private void InitGameConfig()
+    {
+        HomeDefine.HomeProgressLostSpeed = TableUtil.GetGameValue(eGameValueID.homeActionLostSpeed).Value;
     }
 
     private void OnDestroy()
