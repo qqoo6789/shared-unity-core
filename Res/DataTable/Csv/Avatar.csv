@@ -24,6 +24,15 @@ id-int,resGirl-string,resIconGirl-string,avatarType-int,resBoy-string,resIconBoy
 98,,,2,hair/boy_collection_lv3_hair,
 161,,,2,hair/boy_base_hair,avatar-icon-hair-1
 162,,,2,hair/boy_lv0_hair,avatar-icon-hair-0
+178,,,2,hair/boy_base_01_hair,avatar-icon-hair-01
+179,,,2,hair/boy_base_02_hair,avatar-icon-hair-2
+180,,,2,hair/boy_base_03_hair,avatar-icon-hair-3
+181,,,2,hair/boy_base_04_hair,avatar-icon-hair-4
+182,,,2,hair/boy_base_05_hair,avatar-icon-hair-5
+183,,,2,hair/boy_base_07_hair,avatar-icon-hair-7
+184,,,2,hair/boy_base_08_hair,avatar-icon-hair-8
+185,,,2,hair/boy_base_09_hair,avatar-icon-hair-9
+186,,,2,hair/boy_base_10_hair,avatar-icon-hair-10
 123,,,3,head/eyebrow/boy_eyebrow_01,avatar-icon-eyebrow-1
 124,,,3,head/eyebrow/boy_eyebrow_02,avatar-icon-eyebrow-2
 125,,,3,head/eyebrow/boy_eyebrow_03,avatar-icon-eyebrow-3
