@@ -319,3 +319,4 @@ IsBeHitBreakable-bool,IsIndependentLogic-bool,accuBreakable-bool,accuTime-int,at
 0,0,0,0,0,385,,250,344,0,0,1,0,0,1,0,A-gongjian-NEW,A-gongjian-NEW_audio,14,550,-1,Character ranged.,2000,2,Character Ranged 2,,,1,1,,,,,0,,[1],1.0,,,,,,,
 0,0,0,0,0,15,,550,345,0,0,1,0,0,1,0,A-gongjian-NEW,A-gongjian-NEW_audio,14,800,-1,Character ranged.,2000,2,Character Ranged 3,,,1,1,,,,,0,,[7],1.0,,,,,,,
 0,0,1,0,0,387,,300,346,0,0,1,0,0,1,0,attack,Skill_Bee_attack,,1000,2000,Buzz Buddy Far Attack,2000,2,Buzz Buddy Far Attack,,,1,1,,1000,,,,,[8],1.0,,,,,,,
+0,0,0,0,0,,,200,347,0,0,1,0,0,1,0,A-bozhong-NEW,playerroll,,660,-1,扔炸弹,,2,扔炸弹,,,1,0,2,,Skill_seeding_2,skill_tree_hurt,,top_down_bomb,[2],1.0,,,,,,,

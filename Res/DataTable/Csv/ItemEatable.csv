@@ -37,3 +37,4 @@ args-string[],callFunc-string[],cd-int,cdType-int,id-int,interactType-string
 -,Fertilize,0,,219,equipItem
 -,Fertilize,0,,220,equipItem
 -,Fertilize,0,,221,equipItem
+,Add Buff,0,,232,equipItem
