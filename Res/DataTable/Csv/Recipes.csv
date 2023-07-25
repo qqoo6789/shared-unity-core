@@ -109,3 +109,10 @@ classifyLevel-int,desc-string,displayType-int,icon-string,id-int,level-int,matIt
 ,Making Lv 0 Large Feed,0,recipe-icon-206,206,0,"66,40;62,20",Lv 0 Big Feed Recipe,"29,1,1,10000",,1,0,10,1,1,,0,1
 ,Crafting Lv 0 Wooden Bow,0,recipe-icon-207,207,0,"62,20;66,10",Lv 0 Wood Bow Recipe,"223,1,1,10000",,1,0,10,2,1,,0,1
 ,Crafting Lv 0 Stone Hammer,0,recipe-icon-208,208,0,"58,20;62,20",Lv 0 Stone Hammer Recipe,"222,1,1,10000",,1,0,10,2,1,,0,1
+,,0,recipe-icon-212,212,,"62,3",Bomb Recipe,"232,1,1,10000",,,1,10,3,1,,0,1
+,,0,recipe-icon-213,213,,"58,3",Stun Potion Recipe,"233,1,1,10000",,,1,10,3,1,,0,1
+,,0,recipe-icon-214,214,,"66,3",Moderate Potion Recipe,"234,1,1,10000",,,1,10,3,1,,0,1
+,,0,recipe-icon-215,215,,"65,1;61,1;69,1",Burning Potion Recipe,"235,1,1,10000",,,1,10,3,1,,0,1
+,,0,recipe-icon-216,216,,"32,3;70,3",Yellow Flash Recipe,"236,1,1,10000",,,1,10,3,1,,0,1
+,,0,recipe-icon-217,217,,"31,3;71,3", Combo Miss Potion Recipe,"237,1,1,10000",,,1,10,3,1,,0,1
+,,0,recipe-icon-218,218,,"30,3;72,3",Buff Clear Potion Recipe,"238,1,1,10000",,,1,10,3,1,,0,1

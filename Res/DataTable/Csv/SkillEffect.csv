@@ -367,3 +367,8 @@ Base damage (thousandth coefficient),0,1,385,0,1.0,750,0,,,,,,
 Base damage (thousandth coefficient),0,1,386,0,1.0,1250,0,,,,,,
 Base damage (thousandth coefficient),0,1,387,0,1.0,500,0,,,,,,
 Base damage (thousandth coefficient),0,1,388,0,1.0,1500,0,,,,,,
+Reduce the speed 50%,5000,,390,0,10.0,,0,"7,2,-500",,,,,Slowdown
+Burning,5000,,391,0,1.0,100,0,,500,,,,Burning
+Yellow Flash,300,,392,0,1.0,1000,0,,,,,,Flash 13
+Miss,5000,,393,0,1.0,,0,"17,2,500",,,,,Flash 13
+Clear,2000,,394,0,1.0,,0,,,,,,Flash 13
