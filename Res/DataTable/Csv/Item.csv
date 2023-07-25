@@ -195,6 +195,6 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,Stun Potion,item-icon-233,233,Stun Potion,1,3,0,1,348
 1,Moderate Potion,item-icon-234,234,Moderate Potion,1,3,0,1,351
 1,Burning Postion,item-icon-235,235,Burning Postion,1,3,0,1,352
-1,Yellow Flash,item-icon-236,236,Yellow Flash,1,unknown,0,1,356
-1,Combo Miss,item-icon-237,237,Combo Miss,1,unknown,0,1,357
-1,Buff Clear,item-icon-238,238,Buff Clear,1,unknown,0,1,358
+1,Yellow Flash,item-icon-236,236,Yellow Flash,1,3,0,1,356
+1,Combo Miss,item-icon-237,237,Combo Miss,1,3,0,1,357
+1,Buff Clear,item-icon-238,238,Buff Clear,1,3,0,1,358
