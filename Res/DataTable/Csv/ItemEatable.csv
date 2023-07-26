@@ -37,10 +37,10 @@ args-string[],callFunc-string[],cd-int,cdType-int,id-int,interactType-string
 -,Fertilize,0,,219,equipItem
 -,Fertilize,0,,220,equipItem
 -,Fertilize,0,,221,equipItem
-,Add Buff,5000,7,232,equipItem
-,Add Buff,5000,7,233,equipItem
-,Add Buff,5000,7,234,equipItem
-,Add Buff,5000,7,235,equipItem
-,Add Buff,5000,6,236,equipItem
-,Add Buff,5000,6,237,equipItem
-,Add Buff,5000,6,238,equipItem
+347,Add Buff,5000,7,232,equipItem
+351,Add Buff,5000,7,233,equipItem
+351,Add Buff,5000,7,234,equipItem
+352,Add Buff,5000,7,235,equipItem
+356,Add Buff,5000,6,236,usePotion
+357,Add Buff,5000,6,237,usePotion
+358,Add Buff,5000,6,238,usePotion
