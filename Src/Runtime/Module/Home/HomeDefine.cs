@@ -45,7 +45,10 @@ public static class HomeDefine
     /// 采集资源的动作集合
     /// </summary>
     public const eAction COLLECT_RESOURCE_ACTION_MASK = eAction.Mowing | eAction.Cut | eAction.Mining;
-
+    /// <summary>
+    /// 走收获动画的那种特殊动作集合
+    /// </summary>
+    public const eAction HARVEST_ANIMAL_ACTION_MASK = eAction.Harvest | eAction.Pick;
 
     #region 畜牧动物
 
@@ -189,6 +192,10 @@ public static class HomeDefine
         /// 作物收获
         /// </summary>
         Harvest = 1 << 15,
+        /// <summary>
+        /// 捡东西
+        /// </summary>
+        Pick = 1 << 16,
         /// <summary>
         /// 攻击敌人 怪物 boss（这个给伤害计算分类用的 家园并不使用）
         /// </summary>
