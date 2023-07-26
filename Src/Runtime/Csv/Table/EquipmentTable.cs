@@ -17,27 +17,37 @@ public class EquipmentTable
         }
     }
 
-    private Dictionary<int, DREquipment> _dic { get; set; } = new();
-
+    private Dictionary<int, List<DREquipment>> _dic { get; set; } = new();
     public EquipmentTable()
     {
         IDataTable<DREquipment> dt = GFEntryCore.DataTable.GetDataTable<DREquipment>();
         _rows = dt.GetAllDataRows();
         foreach (DREquipment row in _rows)
         {
-            try
+            if (!_dic.TryGetValue(row.ItemId, out List<DREquipment> qualityList))
             {
-                _dic[row.ItemId] = row;
+                qualityList = new();
+                _dic.Add(row.ItemId, qualityList);
             }
-            catch
-            {
 
+            //按品质从低到高排序
+            int index = 0;
+            for (int i = 0; i < qualityList.Count; i++)
+            {
+                if (row.GearQuality < qualityList[i].GearQuality)
+                {
+                    index = i;
+                    break;
+                }
             }
+
+            qualityList.Insert(index, row);
         }
     }
 
     /// <summary>
     /// 通过装备的itemID获取装备的配置数据
+    /// 默认返回品质最低的
     /// </summary>
     /// <param name="itemID"></param>
     /// <returns></returns>
@@ -45,7 +55,30 @@ public class EquipmentTable
     {
         if (_dic.ContainsKey(itemID))
         {
-            return _dic[itemID];
+            return _dic[itemID]?[0];
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// 通过装备的itemID和品质获取装备的配置数据
+    /// </summary>
+    /// <param name="itemID"></param>
+    /// <param name="quality"></param>
+    /// <returns></returns>
+    public DREquipment GetRowByItemID(int itemID, int quality)
+    {
+        if (_dic.TryGetValue(itemID, out List<DREquipment> qualityList))
+        {
+            for (int i = 0; i < qualityList.Count; i++)
+            {
+                DREquipment row = qualityList[i];
+                if (row.GearQuality == quality)
+                {
+                    return row;
+                }
+            }
         }
 
         return null;
