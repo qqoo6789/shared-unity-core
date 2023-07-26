@@ -198,3 +198,4 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,Yellow Flash,item-icon-236,236,Yellow Flash,1,3,0,1,356
 1,Combo Miss,item-icon-237,237,Combo Miss,1,3,0,1,357
 1,Buff Clear,item-icon-238,238,Buff Clear,1,3,0,1,358
+0,,,239,,,unknown,,,

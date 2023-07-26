@@ -42,6 +42,15 @@ public class DREntityAttribute : DataRowBase
     }
 
     /// <summary>
+  /**获取talentType-int。*/
+    /// </summary>
+    public int TalentType
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取type-int。*/
     /// </summary>
     public int Type
@@ -59,6 +68,24 @@ public class DREntityAttribute : DataRowBase
         private set;
     }
 
+    /// <summary>
+  /**获取icon-string。*/
+    /// </summary>
+    public string Icon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
+  /**获取isCore-boolean。*/
+    /// </summary>
+    public bool IsCore
+    {
+        get;
+        private set;
+    }
+
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
@@ -67,8 +94,11 @@ public class DREntityAttribute : DataRowBase
         DefaultValue = DataTableParseUtil.ParseInt(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         Name = DataTableParseUtil.ParseString(columnStrings[index++]);
+        TalentType = DataTableParseUtil.ParseInt(columnStrings[index++]);
         Type = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ValueType = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        Icon = DataTableParseUtil.ParseString(columnStrings[index++]);
+        IsCore = DataTableParseUtil.ParseBool(columnStrings[index++]);
 
         return true;
     }
@@ -83,8 +113,11 @@ public class DREntityAttribute : DataRowBase
                 DefaultValue = binaryReader.Read7BitEncodedInt32();
                 _id = binaryReader.Read7BitEncodedInt32();
                 Name = binaryReader.ReadString();
+                TalentType = binaryReader.Read7BitEncodedInt32();
                 Type = binaryReader.Read7BitEncodedInt32();
                 ValueType = binaryReader.Read7BitEncodedInt32();
+                Icon = binaryReader.ReadString();
+                IsCore = binaryReader.ReadBoolean();
             }
         }
 

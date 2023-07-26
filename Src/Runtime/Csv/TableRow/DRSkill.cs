@@ -168,6 +168,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取releaseEff-string。*/
+    /// </summary>
+    public string ReleaseEff
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取releaseSound-string[]。*/
     /// </summary>
     public string[] ReleaseSound
@@ -288,15 +297,6 @@ public class DRSkill : DataRowBase
   /**获取homeAttRate-int。*/
     /// </summary>
     public int HomeAttRate
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
-  /**获取releaseEff-string。*/
-    /// </summary>
-    public string ReleaseEff
     {
         get;
         private set;
@@ -432,6 +432,7 @@ public class DRSkill : DataRowBase
         IsRemote = DataTableParseUtil.ParseBool(columnStrings[index++]);
         RangeTips = DataTableParseUtil.ParseBool(columnStrings[index++]);
         ReleaseAct = DataTableParseUtil.ParseString(columnStrings[index++]);
+        ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         ReleaseSound = DataTableParseUtil.ParseArray<string>(columnStrings[index++]);
         ReleaseSpd = DataTableParseUtil.ParseInt(columnStrings[index++]);
         ReleaseTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -446,7 +447,6 @@ public class DRSkill : DataRowBase
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
-        ReleaseEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillAlertEffect = DataTableParseUtil.ParseString(columnStrings[index++]);
@@ -487,6 +487,7 @@ public class DRSkill : DataRowBase
                 IsRemote = binaryReader.ReadBoolean();
                 RangeTips = binaryReader.ReadBoolean();
                 ReleaseAct = binaryReader.ReadString();
+                ReleaseEff = binaryReader.ReadString();
                 ReleaseSound = binaryReader.ReadArray<String>();
                 ReleaseSpd = binaryReader.Read7BitEncodedInt32();
                 ReleaseTime = binaryReader.Read7BitEncodedInt32();
@@ -501,7 +502,6 @@ public class DRSkill : DataRowBase
                 TargetLock = binaryReader.ReadBoolean();
                 HomeAction = binaryReader.ReadArray<Int32>();
                 HomeAttRate = binaryReader.Read7BitEncodedInt32();
-                ReleaseEff = binaryReader.ReadString();
                 HitEff = binaryReader.ReadString();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 SkillAlertEffect = binaryReader.ReadString();
