@@ -32,11 +32,10 @@ public class EquipmentTable
 
             //按品质从低到高排序
             int index = 0;
-            for (int i = 0; i < qualityList.Count; i++)
+            for (; index < qualityList.Count; index++)
             {
-                if (row.GearQuality < qualityList[i].GearQuality)
+                if (qualityList[index].GearQuality > row.GearQuality)
                 {
-                    index = i;
                     break;
                 }
             }
