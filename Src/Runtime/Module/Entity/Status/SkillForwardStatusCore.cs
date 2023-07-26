@@ -71,12 +71,26 @@ public abstract class SkillForwardStatusCore : ListenEventStatusCore, IEntityCan
 
         TimeForwardFinish();
 
-        StatusCtrl.RefEntity.EntityEvent.EnterSkillForward?.Invoke(CurSkillCfg);
+        try
+        {
+            StatusCtrl.RefEntity.EntityEvent.EnterSkillForward?.Invoke(CurSkillCfg);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"skill forward invoke EnterSkillForward error ={e}");
+        }
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        StatusCtrl.RefEntity.EntityEvent.ExitSkillForward?.Invoke(CurSkillCfg, !IsContinueBattleLeave);
+        try
+        {
+            StatusCtrl.RefEntity.EntityEvent.ExitSkillForward?.Invoke(CurSkillCfg, !IsContinueBattleLeave);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"skill forward invoke ExitSkillForward error ={e}");
+        }
 
         CancelTimeForwardFinish();
 

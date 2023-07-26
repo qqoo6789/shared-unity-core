@@ -81,12 +81,26 @@ public class SkillCastStatusCore : ListenEventStatusCore, IEntityCanSkill
             TimeCastFinish();
         }
 
-        StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(InputSkillData, CurSkillCfg);
+        try
+        {
+            StatusCtrl.RefEntity.EntityEvent.EnterSkillCast?.Invoke(InputSkillData, CurSkillCfg);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Skill cast invoke EnterSkillCast error ={e}");
+        }
     }
 
     protected override void OnLeave(IFsm<EntityStatusCtrl> fsm, bool isShutdown)
     {
-        StatusCtrl.RefEntity.EntityEvent.ExitSkillCast?.Invoke();
+        try
+        {
+            StatusCtrl.RefEntity.EntityEvent.ExitSkillCast?.Invoke();
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Skill cast invoke ExitSkillCast error ={e}");
+        }
 
         if (CurSkillCfg.IsHoldSkill)
         {
