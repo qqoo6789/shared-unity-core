@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using GameMessageCore;
 /*
 * @Author: mangit
-* @LastEditors: Please set LastEditors
+ * @LastEditors: Please set LastEditors
 * @Description: 表定义
 * @Date: 2022-06-23 20:28:37
-* @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Aot/Csv/TableDefine.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Csv/TableDefine.cs
 */
 public static class TableDefine
 {
@@ -155,6 +155,15 @@ public enum eSkillEffectType : int
     SESkillEffectModifier = 15,
     SECaptureRopeHit = 16,
     SECaptureDamage = 17,
+    SELayerTrigger = 18,
+}
+
+public enum eSEFuncType : int
+{
+    None = 0,
+    SEFuncAddDamage = 1,
+    SEFunApplySkillEffect = 2,
+
 }
 /// <summary>
 /// 技能效果作用类型
