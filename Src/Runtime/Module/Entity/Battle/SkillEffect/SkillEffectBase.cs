@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -73,7 +73,7 @@ public class SkillEffectBase : IReference
     /// <summary>
     /// 下次间隔触发时间
     /// </summary>
-    protected long NextIntervalTime { get; set; }
+    public long NextIntervalTime { get; protected set; }
     /// <summary>
     /// 技能输入数据
     /// </summary>
@@ -215,6 +215,7 @@ public class SkillEffectBase : IReference
     public virtual void UpdateLayer(int layer)
     {
         CurLayer = layer;
+        RefEntity.EntityEvent.EntitySkillEffectLayerUpdate?.Invoke(EffectID);
     }
 
     //添加效果

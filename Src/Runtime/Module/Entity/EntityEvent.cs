@@ -1,7 +1,7 @@
 /* 
  * @Author XQ
  * @Date 2022-08-15 11:15:06
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/EntityEvent.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/EntityEvent.cs
  */
 using System;
 using System.Collections.Generic;
@@ -186,6 +186,11 @@ public class EntityEvent : EntityBaseComponent
     /// 实体效果删除  T0:效果ID
     /// </summary>
     public Action<int> EntitySkillEffectRemove;
+
+    /// <summary>
+    /// 实体效果添加  T0:效果ID
+    /// </summary>
+    public Action<int> EntitySkillEffectLayerUpdate;
     #endregion
 
     #region 捕获
