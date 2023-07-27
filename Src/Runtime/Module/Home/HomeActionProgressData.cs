@@ -46,6 +46,12 @@ public class HomeActionProgressData : MonoBehaviour
     private void Awake()
     {
         StopProgressLost();
+
+        if (!InitHomeProgressLostSpeed)
+        {
+            InitHomeProgressLostSpeed = true;
+            HomeProgressLostSpeed = TableUtil.GetGameValue(eGameValueID.homeActionLostSpeed).Value;
+        }
     }
 
     private void Update()
