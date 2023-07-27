@@ -223,7 +223,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
     }
 
-    public void ExecuteAction(eAction action, int toolCid, int skillId, object actionData)
+    public void ExecuteAction(eAction action, int toolCid, int skillId, long playerId, object actionData)
     {
         if (action == eAction.Appease)//安抚
         {
@@ -243,7 +243,7 @@ public abstract class HomeAnimalCore : EntityBaseComponent, ICollectResourceCore
         }
     }
 
-    public virtual void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit, bool isPreEffect)
+    public virtual void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit, bool isPreEffect, long playerId)
     {
 
     }
