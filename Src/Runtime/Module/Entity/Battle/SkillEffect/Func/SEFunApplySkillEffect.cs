@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-07-26 16:01:51
  * @Description: 检测应用效果球，更新层级
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/Func/SEFunApplySkillEffect.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/Func/SEFunApplySkillEffect.cs
  * 
  */
 
@@ -13,7 +13,7 @@ public class SEFunApplySkillEffect : SEFuncUpdateLayer
 {
     public enum eEventKey
     {
-        EffectId,
+        EffectId = 1,
         EffectType
     }
 

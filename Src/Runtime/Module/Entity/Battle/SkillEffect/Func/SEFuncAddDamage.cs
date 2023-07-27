@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2023-07-26 16:01:51
  * @Description: 检测受到伤害，更新层级
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/Func/SEFuncAddDamage.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/Func/SEFuncAddDamage.cs
  * 
  */
 
@@ -13,7 +13,7 @@ public class SEFuncAddDamage : SEFuncUpdateLayer
 {
     public enum eEventKey
     {
-        Count,
+        Count = 1,
         DamageValue
     }
 
