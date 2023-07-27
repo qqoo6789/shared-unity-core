@@ -20,7 +20,7 @@ public class SoilEvent : MonoBehaviour
     /// </summary>
     public Action<int> OnBeHit;
     /// <summary>
-    /// 开始收获特殊动画 T0:收获的实体
+    /// 开始收获特殊动画 T0:收获的玩家实体
     /// </summary>
     public Action<EntityBase> StartHarvestSpecialAnim;
 }
