@@ -193,7 +193,7 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,"Starry Scythe, a scythe shining with starlight, with countless bright stars embedded in its blade, emitting a mysterious glow. Its blade is incredibly sharp, capable of effortlessly cutting through any obstacles. The handle of the scythe is carved with exquisite constellation patterns, giving a sense of divinity and solemnity. Wielding the Starry Scythe feels like harnessing the power of the stars, allowing one to feel endless strength and glory. Whether in battle or ceremony, it is an excellent choice.",item-icon-231,231,Lv 7 Starlight Scythe,1,1,7,1,
 1,A Bomb,item-icon-232,232,Bomb,1,3,0,1,347
 1,Stun Potion,item-icon-233,233,Stun Potion,1,3,0,1,348
-1,Moderate Potion,item-icon-234,234,Moderate Potion,1,3,0,1,351
+1,Viscous Potion,item-icon-234,234,Viscous Potion,1,3,0,1,351
 1,Burning Postion,item-icon-235,235,Burning Postion,1,3,0,1,352
 1,Yellow Flash,item-icon-236,236,Yellow Flash,1,3,0,1,356
 1,Combo Miss,item-icon-237,237,Combo Miss,1,3,0,1,357

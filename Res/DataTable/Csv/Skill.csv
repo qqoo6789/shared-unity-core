@@ -296,7 +296,7 @@ IsBeHitBreakable-bool,IsIndependentLogic-bool,accuBreakable-bool,accuTime-int,at
 0,0,0,,0,,,,318,0,0,0,0,0,0,0,,,,,,-1,Increase the attack power and gathering proficiency against ores.,,1,Lv 7 Gold Miner,,,1,0,,1000,,,,,,,"269,270",,skill-icon-318,,,
 0,0,0,,0,,,,319,0,0,0,0,0,0,0,,,,,,-1,Increase the attack power and gathering proficiency against ores.,,1,Lv 8 Gold Miner,,,1,0,,1000,,,,,,,"269,270",,skill-icon-319,,,
 0,0,0,,0,,,,320,0,0,0,0,0,0,0,,,,,,-1,Increase the attack power and gathering proficiency against ores.,,1,Lv 9 Gold Miner,,,1,0,,1000,,,,,,,"269,270",,skill-icon-320,,,
-0,0,0,,0,,,300,321,0,0,1,0,0,0,0,harvest_crops,,harvest_crops,,370,-1,Improve individual harvesting proficiency.,,2,Individual Harvest,,,1,0,15,,,,,,,,,,,,,
+0,0,0,,0,,,300,321,0,0,1,0,0,0,0,harvest_crops,,harvest_crops,,370,-1,Improve individual harvesting proficiency.,,2,Individual Harvest,,,1,0,"15,16",,,,,,,,,,,,,
 0,0,0,0,0,"15,17",,333,323,0,0,1,0,0,0,0,sickle_grass,,sickle_grass,,500,-1,Cut grass effortlessly with specialized tools.,,2,Cut Grass,"4,300,150,12000",,1,0,5,1000,skill_rock_hurt,,,,,,,,,,,
 0,0,0,0,0,,,200,326,0,0,0,0,0,0,0,A-jianwu,Skill_gainBuff_Collector,A-skill-zhanzhengjianta,,400,30000,Temporarily increase gathering efficiency,,2,Lv 1 Crazy Collector,,,1,0,,1000,,,,,,,,"331,332,333",skill-icon-326,,,
 0,0,0,0,0,,,200,327,0,0,0,0,0,0,0,A-jianwu,Skill_gainBuff_Collector,A-skill-zhanzhengjianta,,400,30000,Temporarily increase gathering efficiency,,2,Lv 2 Crazy Collector,,,1,0,,1000,,,,,,,,"334,335,336",skill-icon-327,,,
