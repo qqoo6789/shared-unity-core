@@ -5,7 +5,7 @@ classifyLevel-int,desc-string,displayType-int,icon-string,id-int,level-int,matIt
 ,Crafting Lv 1 Iron Hoe,2,recipe-icon-62,62,1,"207,2;178,5;177,5",Lv 1 Iron Hoe Recipe,"80,1,1,10000",,1,1,10,1,4,,0,
 ,Crafting Lv 2 Cursed Hoe,2,recipe-icon-63,63,2,"208,2;213,2;74,5;73,5",Lv 2 Curse Hoe Recipe,"81,1,1,10000",,1,1,10,1,4,,0,
 ,Crafting Lv 3 Blessed Hoe,2,recipe-icon-64,64,3,"209,2;211,2;76,5;77,5",Lv 3 Blessing Hoe Recipe,"82,1,1,10000",,1,1,10,1,4,,0,
-,Crafting Lv 1 Iron Kettle,2,recipe-icon-66,66,1,"207,2;70,5;72,2",Lv 1 Iron Kettle Recipe,"84,1,1,10000",,1,1,10,1,4,,0,
+,Crafting Lv 1 Iron Kettle,2,recipe-icon-66,66,1,"207,2;70,5;72,1",Lv 1 Iron Kettle Recipe,"84,1,1,10000",,1,1,10,1,4,,0,
 ,Crafting Lv 2 Cursed Kettle,2,recipe-icon-67,67,2,"182,5;181,5;208,2;213,2",Lv 2 Cursed Kettle Recipe,"85,2,1,2000;84,1,1,8000",,1,1,10,1,4,,0,
 ,Crafting Lv 3 Blessed Kettle,2,recipe-icon-68,68,3,"183,5;185,5;209,2;214,2",Lv 3 Blessing Kettle Recipe,"86,1,1,10000",,1,1,10,1,4,,0,
 ,Crafting Lv 1 Iron Pickaxe,2,recipe-icon-70,70,1,"216,2;62,5;66,5",Lv 1 Iron Pickaxe Recipe,"88,1,1,10000",,1,1,10,3,4,,0,
@@ -30,15 +30,15 @@ classifyLevel-int,desc-string,displayType-int,icon-string,id-int,level-int,matIt
 ,Crafting Lv 1 Gathering Hat,2,recipe-icon-111,111,1,"216,2;58,5;66,5",Lv 1 Gather Hat Recipe,"116,1,1,10000",,2,1,10,3,4,,0,
 ,Crafting Lv 2 Gathering Hat,2,recipe-icon-112,112,2,"217,2;207,2;59,5;67,5",Lv 2 Gathering Hats Recipe,"117,1,1,8000;117,2,1,2000",,2,1,10,3,4,,0,
 ,Crafting Lv 3 Gathering Hat,2,recipe-icon-113,113,3,"218,2;208,2;64,5;68,5",Lv 3 Gathering Hats Recipe,"118,1,1,7900;118,3,1,500;118,2,1,1600",,2,1,10,3,4,,0,
-,Crafting Lv 1 Bamboo Seed,2,recipe-icon-123,123,1,"70,2",Lv 1 Bamboo Seed Recipe,"146,1,1,9000;150,1,1,1000",,3,1,10,1,1,,0,1
-,Crafting Lv 1 Clover Seed,2,recipe-icon-124,124,1,"71,2",Lv 1 Clover Seed Recipe,"147,1,1,9000;149,1,1,1000",,3,1,10,1,1,,0,1
-,Crafting Lv 1 Carrot Seed,2,recipe-icon-125,125,1,"72,2",Lv 1 Carrot Seed Recipe,"148,1,1,9000;151,1,1,1000",,3,1,10,1,1,,0,1
-,Crafting Lv 2 Pitcher Plant Seed,2,recipe-icon-126,126,2,"73,2",Lv 2 Pitcher plant Seed Recipe,"149,1,1,9000;154,1,1,1000",,3,1,10,1,1,,0,1
-,Crafting Lv 2 Cotton Seed,2,recipe-icon-127,127,2,"74,2",Lv 2 Cotton Seed Recipe,"150,1,1,9000;152,1,1,1000",,3,1,10,1,1,,0,1
-,Crafting Lv 2 Cactus Seed,2,recipe-icon-128,128,2,"75,2",Lv 2 Cactus Seed Recipe,"151,1,1,9000;153,1,1,1000",,3,1,10,1,1,,0,1
-,Make Lv 3 Hot Peppers Seed,2,recipe-icon-129,129,3,"76,2",Lv 3 Hot Peppers Recipe,"152,1,1,10000",,3,1,10,1,1,,0,1
-,Crafting Lv 3 Hard Fruit Seed,2,recipe-icon-130,130,3,"77,2",Lv 3 Hard Fruit Recipe,"153,1,1,10000",,3,1,10,1,1,,0,1
-,Crafting Lv 3 Blue Phantom Mushroom Seed,2,recipe-icon-131,131,3,"78,2",Lv 3 Blue Phantom Mushroom Seed Recipe,"154,1,1,10000",,3,1,10,1,1,,0,1
+,Crafting Lv 1 Bamboo Seed,2,recipe-icon-123,123,1,"70,1;62,5",Lv 1 Bamboo Seed Recipe,"146,1,2,9000;150,1,1,1000",,3,1,10,1,4,,0,
+,Crafting Lv 1 Clover Seed,2,recipe-icon-124,124,1,"71,1;62,5",Lv 1 Clover Seed Recipe,"147,1,2,9000;149,1,1,1000",,3,1,10,1,4,,0,
+,Crafting Lv 1 Carrot Seed,2,recipe-icon-125,125,1,"72,1;62,5",Lv 1 Carrot Seed Recipe,"148,1,2,9000;151,1,1,1000",,3,1,10,1,4,,0,
+,Crafting Lv 2 Pitcher Plant Seed,2,recipe-icon-126,126,2,"73,1;63,5",Lv 2 Pitcher plant Seed Recipe,"149,1,2,9000;154,1,1,1000",,3,1,10,1,4,,0,
+,Crafting Lv 2 Cotton Seed,2,recipe-icon-127,127,2,"74,1;63,5",Lv 2 Cotton Seed Recipe,"150,1,2,9000;152,1,1,1000",,3,1,10,1,4,,0,
+,Crafting Lv 2 Cactus Seed,2,recipe-icon-128,128,2,"75,1;63,5",Lv 2 Cactus Seed Recipe,"151,1,2,9000;153,1,1,1000",,3,1,10,1,4,,0,
+,Make Lv 3 Hot Peppers Seed,2,recipe-icon-129,129,3,"76,1;64,5",Lv 3 Hot Peppers Recipe,"152,1,2,10000",,3,1,10,1,4,,0,
+,Crafting Lv 3 Hard Fruit Seed,2,recipe-icon-130,130,3,"77,1;64,5",Lv 3 Hard Fruit Recipe,"153,1,2,10000",,3,1,10,1,4,,0,
+,Crafting Lv 3 Blue Phantom Mushroom Seed,2,recipe-icon-131,131,3,"78,1;64,5",Lv 3 Blue Phantom Mushroom Seed Recipe,"154,1,2,10000",,3,1,10,1,4,,0,
 ,Crafting Lv 2 Crystallized Healing Potion,2,recipe-icon-132,132,3,"68,2;78,2;38,5",Lv 2 Crystallized Healing Potion Recipe,"191,1,1,7500;192,1,1,500;194,1,1,500;195,1,1,500;196,1,1,500;197,1,1,500",,3,1,10,2,4,,0,
 ,Crafting Lv 1 Chip Head Ring,2,recipe-icon-133,133,1,"210,2;31,5;32,5",Lv 1 Chip Head Ring Recipe,"43,1,1,10000",,1,1,10,2,4,,0,
 ,Crafting Lv 2 Crystal Skin Soft Cap ,2,recipe-icon-134,134,2,"211,2;216,2;33,5;35,5",Lv 2 Crystal Skin Soft Cap Recipe,"44,1,1,8000;44,2,1,2000",,1,1,10,2,4,,0,
@@ -106,7 +106,7 @@ classifyLevel-int,desc-string,displayType-int,icon-string,id-int,level-int,matIt
 ,Crafting Lv 2 Copper Sickle,0,recipe-icon-203,203,,"217,2;207,2;63,5;59,5",Lv 2 Copper Sickle Recipe,"226,1,1,10000",,1,1,10,3,4,,0,
 ,Crafting Lv 3 Iron Sickle,0,recipe-icon-204,204,,"218,2;208,2;60,5;68,5",Lv 3 Iron Sickle Recipe,"227,1,1,10000",,1,1,10,3,4,,0,
 ,Crafting Lv 0 Small Feed,0,recipe-icon-205,205,0,"66,10;62,5",Lv 0 Small Feed Recipe,"28,1,1,10000",,1,0,10,1,1,,0,1
-,Making Lv 0 Large Feed,0,recipe-icon-206,206,0,"66,40;62,20",Lv 0 Big Feed Recipe,"29,1,1,10000",,1,0,10,1,1,,0,1
+,Making Lv 0 Large Feed,0,recipe-icon-206,206,1,"66,40;62,20",Lv 0 Big Feed Recipe,"29,1,1,10000",,1,0,10,1,4,,0,
 ,Crafting Lv 0 Wooden Bow,2,recipe-icon-207,207,0,"62,20;66,10",Lv 0 Wood Bow Recipe,"223,1,1,10000",,1,0,10,2,1,,0,1
 ,Crafting Lv 0 Stone Hammer,2,recipe-icon-208,208,0,"58,20;62,20",Lv 0 Stone Hammer Recipe,"222,1,1,10000",,1,0,10,2,1,,0,1
 ,,0,recipe-icon-212,212,,"62,3",Bomb Recipe,"232,1,1,10000",,,1,10,3,1,,0,1
