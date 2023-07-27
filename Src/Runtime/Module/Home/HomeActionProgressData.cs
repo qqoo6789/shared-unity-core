@@ -43,6 +43,11 @@ public class HomeActionProgressData : MonoBehaviour
 
     private bool _backProtectTimerRunning;//是否正在进度返回保护计时
 
+    private void Awake()
+    {
+        StopProgressLost();
+    }
+
     private void Update()
     {
         if (!_backProtectTimerRunning && !IsHoldToFulling)
@@ -66,16 +71,29 @@ public class HomeActionProgressData : MonoBehaviour
 
         if (CurProgressActionValue >= CurProgressActionMaxValue)//如果已经满了 不会衰减 此时在等服务器回包进入下一个阶段
         {
+            StopProgressLost();
             return;
         }
 
-        CurProgressActionValue -= TableUtil.GetGameValue(eGameValueID.homeActionLostSpeed).Value * Time.deltaTime;
+        CurProgressActionValue -= HomeProgressLostSpeed * Time.deltaTime;
         CurProgressActionValue = Mathf.Max(0, CurProgressActionValue);
 
         if (CurProgressActionValue.ApproximatelyEquals(0))
         {
             SetCurProgressOwnerId(0);
+
+            StopProgressLost();
         }
+    }
+
+    private void StartProgressLost()
+    {
+        enabled = true;
+    }
+
+    private void StopProgressLost()
+    {
+        enabled = false;
     }
 
     public void SetCurProgressOwnerId(long id)
@@ -182,6 +200,8 @@ public class HomeActionProgressData : MonoBehaviour
             _fullTimeStamp = 0;
             _tween = null;
         };
+
+        StartProgressLost();
     }
 
     /// <summary>
@@ -252,6 +272,11 @@ public class HomeActionProgressData : MonoBehaviour
         CurProgressActionValue = progressValue;
 
         CurProgressActionValue = Mathf.Clamp(CurProgressActionValue, 0, CurProgressActionMaxValue);
+
+        if (CurProgressActionValue > 0)
+        {
+            StartProgressLost();
+        }
     }
 
     private void StartBackProtectTimer()

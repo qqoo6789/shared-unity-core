@@ -5,6 +5,12 @@ using UnityEngine;
 /// </summary>
 public static class HomeDefine
 {
+    /// <summary>
+    /// 家园进度值流逝速度 每秒 
+    /// 为了性能 不要在进度数据组件中update读表
+    /// </summary>
+    public static float HomeProgressLostSpeed = 0;
+
     public const int COLLECT_RESOURCE_DEATH_TIME = 10;//采集资源死亡时间 ms
     public const float PROGRESS_FULL_ANIM_TIME = 0.7f;//进度满了后的动画时间 需要等待 秒
 
