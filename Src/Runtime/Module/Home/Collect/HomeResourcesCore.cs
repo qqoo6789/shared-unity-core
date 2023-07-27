@@ -79,7 +79,7 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         return (SupportAction & action) != 0;
     }
 
-    public void ExecuteAction(eAction action, int toolCid, int skillId, object actionData)
+    public void ExecuteAction(eAction action, int toolCid, int skillId, long playerId, object actionData)
     {
         if (!CheckSupportAction(action))
         {
@@ -87,17 +87,17 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
             return;
         }
 
-        OnExecuteAction(action, skillId);
+        OnExecuteAction(action, skillId, playerId);
 
         IsDead = true;
         OnDeath();
     }
 
-    protected virtual void OnExecuteAction(eAction action, int skillId)
+    protected virtual void OnExecuteAction(eAction action, int skillId, long playerId)
     {
     }
 
-    public virtual void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit, bool isPreEffect)
+    public virtual void ExecuteProgress(eAction targetCurAction, int skillId, int deltaProgress, bool isCrit, bool isPreEffect, long playerId)
     {
 
     }
