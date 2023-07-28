@@ -405,7 +405,7 @@ public class SkillEffectCpt : EntityBaseComponent
         List<SkillEffectBase> effectList = SkillEffectMap[statusType];
         for (int i = 0; i < effectList.Count; i++)
         {
-            if (isForce && effectList[i].IsStaticSync)
+            if (isForce || effectList[i].IsStaticSync)
             {
                 saveDataList.Add(effectList[i].GetSaveData());
             }
