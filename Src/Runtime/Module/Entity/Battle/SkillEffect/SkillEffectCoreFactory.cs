@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:49:14
  * @Description: 技能效果球工厂
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectCoreFactory.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectCoreFactory.cs
  * 
  */
 using System;
@@ -30,8 +30,9 @@ public class SkillEffectCoreFactory
     /// <param name="targetID">技能接收ID</param>
     /// <param name="duration">技能持续时间 小于0代表一致持续  0代表立即执行销毁  大于0即到时自动销毁</param>
     /// <param name="curLayer">当前层级</param>
+    /// <param name="nextIntervalTime">下次间隔触发时间</param>
     /// <returns></returns>
-    public SkillEffectBase CreateOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0, int curLayer = 1)
+    public SkillEffectBase CreateOneSkillEffect(int skillID, int effectID, long fromID, long targetID, int duration = 0, int curLayer = 1, long nextIntervalTime = 0)
     {
         if (SkillEffectMap == null)
         {
@@ -53,7 +54,7 @@ public class SkillEffectCoreFactory
         }
         Type skillEffectClass = SkillEffectMap[(eSkillEffectType)skillEffectCfg.EffectType];
         SkillEffectBase effect = SkillEffectBase.Create(skillEffectClass);
-        effect.SetData(skillID, skillEffectCfg, fromID, targetID, duration, curLayer);
+        effect.SetData(skillID, skillEffectCfg, fromID, targetID, duration, curLayer, nextIntervalTime);
         return effect;
     }
 }

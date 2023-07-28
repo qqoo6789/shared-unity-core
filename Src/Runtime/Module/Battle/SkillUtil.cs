@@ -325,7 +325,7 @@ public static partial class SkillUtil
         {
             for (int i = 0; i < effectList.Length; i++)
             {
-                effectCpt.AbolishSkillEffect(effectList[i], skillID, fromEntity.BaseData.Id);
+                effectCpt.AbolishSkillEffect(effectList[i], fromEntity.BaseData.Id);
             }
         }
     }

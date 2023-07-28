@@ -11,7 +11,8 @@ using UnityGameFramework.Runtime;
 
 public class SELayerTriggerCore : SkillEffectBase
 {
-
+    public override bool IsUpdate => true;
+    public override bool IsStaticSync => true;
     protected List<SEFuncBase> FuncList;
     protected List<SEFuncBase> UpdateFuncList;
     protected int[] EffectIDList;
@@ -63,9 +64,9 @@ public class SELayerTriggerCore : SkillEffectBase
         //层级触发
         if (CurLayer >= EffectCfg.MaxLayer)
         {
-            NextIntervalTime = curTimeStamp + EffectCfg.EffectInterval;
+            UpdateIntervalTime(curTimeStamp + EffectCfg.EffectInterval);
             UpdateTrigger();
-            base.UpdateLayer(0);
+            base.UpdateLayer(1);
         }
     }
     protected virtual void UpdateTrigger()
