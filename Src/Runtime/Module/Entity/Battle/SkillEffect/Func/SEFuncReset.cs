@@ -9,7 +9,7 @@
 
 using UnityGameFramework.Runtime;
 
-public class SEFunReset : SEFuncUpdateLayer
+public class SEFuncReset : SEFuncUpdateLayer
 {
     public override void Init()
     {

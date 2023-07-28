@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:49:14
  * @Description: 技能效果球方法工厂
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/Func/SEFuncFactory.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/Func/SEFuncFactory.cs
  * 
  */
 using System;
@@ -34,8 +34,9 @@ public class SEFuncFactory
     {
         SEFuncMap = new()
         {
-             {eSEFuncType.SEFuncAddDamage, typeof(SEFuncAddDamage)},
-             {eSEFuncType.SEFunApplySkillEffect, typeof(SEFunApplySkillEffect)},
+            {eSEFuncType.SEFuncAddDamage, typeof(SEFuncAddDamage)},
+            {eSEFuncType.SEFunApplySkillEffect, typeof(SEFunApplySkillEffect)},
+            {eSEFuncType.SEFuncReset, typeof(SEFuncReset)},
         };
     }
 
