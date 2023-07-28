@@ -163,6 +163,7 @@ public enum eSEFuncType : int
     None = 0,
     SEFuncAddDamage = 1,
     SEFunApplySkillEffect = 2,
+    SEFunReset = 99,
 
 }
 /// <summary>

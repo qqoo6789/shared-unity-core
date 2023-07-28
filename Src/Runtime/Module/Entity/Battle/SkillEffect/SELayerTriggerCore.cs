@@ -99,6 +99,9 @@ public class SELayerTriggerCore : SkillEffectBase
             return;
         }
 
+        SEFuncBase funcReset = SEFuncFactory.Inst.CreateSEFunc(eSEFuncType.SEFunReset, this, null);
+        FuncList.Add(funcReset);
+
         //方法列表
         for (int i = 0; i < EffectCfg.Parameters2.Length; i++)
         {
