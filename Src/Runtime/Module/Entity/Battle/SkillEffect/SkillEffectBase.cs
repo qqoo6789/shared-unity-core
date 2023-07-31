@@ -174,7 +174,7 @@ public class SkillEffectBase : IReference
     /// </summary>
     public virtual void Start()
     {
-
+        UpdateLayer(CurLayer);
     }
     /// <summary>
     /// 刷新效果
