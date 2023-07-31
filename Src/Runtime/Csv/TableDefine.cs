@@ -155,7 +155,7 @@ public enum eSkillEffectType : int
     SESkillEffectModifier = 15,
     SECaptureRopeHit = 16,
     SECaptureDamage = 17,
-    SELayerTrigger = 18,
+    SELayerTrigger = 31,
 }
 
 public enum eSEFuncType : int
