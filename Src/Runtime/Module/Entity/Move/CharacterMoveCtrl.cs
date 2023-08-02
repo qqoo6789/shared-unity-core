@@ -58,9 +58,15 @@ public class CharacterMoveCtrl : EntityBaseComponent
         if (_isAddColliderLoadEvent)
         {
             _isAddColliderLoadEvent = false;
-            RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
+            if (RefEntity != null)
+            {
+                RefEntity.EntityEvent.ColliderLoadFinish -= OnColliderLoadFinish;
+            }
         }
-        RefEntity.EntityEvent.SetPos -= OnSetPosition;
+        if (RefEntity != null)
+        {
+            RefEntity.EntityEvent.SetPos -= OnSetPosition;
+        }
     }
 
     /// <summary>
