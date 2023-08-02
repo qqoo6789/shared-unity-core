@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-08-12 14:36:36
  * @Description: 技能路径移动效果
- * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/HotFix/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
+ * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SEPathMoveCore.cs
  * 
  */
 
@@ -65,9 +65,14 @@ public class SEPathMoveCore : SkillEffectBase
         {
             delayTime = EffectCfg.Parameters[1];
         }
+        int dir = 1;
+        if (EffectCfg.Parameters.Length > 2)
+        {
+            dir = EffectCfg.Parameters[2];
+        }
         Vector3 curPos = targetEntity.Position;
         Vector3 forward = targetEntity.Forward;
-        forward.Set(forward.x, 0, forward.z);
+        forward.Set(forward.x * dir, 0, forward.z * dir);
         Vector3 targetPos = curPos + (forward.normalized * distance);
         GameMessageCore.DamageEffect effect = new();
         effect.BeatBackValue = new();

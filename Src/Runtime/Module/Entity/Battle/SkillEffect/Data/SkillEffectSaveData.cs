@@ -28,4 +28,8 @@ public class SkillEffectSaveData
     /// 当前层级
     /// </summary>
     public int CurLayer;
+    /// <summary>
+    /// 下次间隔触发时间
+    /// </summary>
+    public long NextIntervalTime;
 }

@@ -12,7 +12,9 @@ using UnityEngine;
 
 public class SkillEffectSaveDataConfig
 {
-    public List<SkillEffectSaveData> EffectSaveList;
+    public List<SkillEffectSaveData> RunTimeList;
+    public List<SkillEffectSaveData> StaticList;
+    public List<SkillEffectSaveData> StaticUpdateList;
     public string ToJson()
     {
         return JsonConvert.SerializeObject(this);

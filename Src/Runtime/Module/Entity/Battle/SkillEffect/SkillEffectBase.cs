@@ -2,7 +2,7 @@
  * @Author: xiang huan
  * @Date: 2022-07-19 10:08:06
  * @Description: 技能效果球基础, 用了引用池，记住继承Clear清除数据
- * @FilePath: /meland-unity/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
+ * @FilePath: /meland-scene-server/Assets/Plugins/SharedCore/Src/Runtime/Module/Entity/Battle/SkillEffect/SkillEffectBase.cs
  * 
  */
 using System;
@@ -60,6 +60,11 @@ public class SkillEffectBase : IReference
     /// 需要调用Update, 记得重写为true
     /// </summary>
     public virtual bool IsUpdate => false;
+
+    /// <summary>
+    /// 当效果球为静态时，也需要同步数据时，重写为true
+    /// </summary>
+    public virtual bool IsStaticSync => false;
     /// <summary>
     /// 效果数据
     /// </summary>
@@ -73,7 +78,7 @@ public class SkillEffectBase : IReference
     /// <summary>
     /// 下次间隔触发时间
     /// </summary>
-    protected long NextIntervalTime { get; private set; }
+    public long NextIntervalTime { get; private set; }
     /// <summary>
     /// 技能输入数据
     /// </summary>
@@ -88,7 +93,7 @@ public class SkillEffectBase : IReference
     /// <param name="targetID">技能接受者ID</param>
     /// <param name="duration">持续时间</param>
     /// <param name="curLayer">当前层级</param>
-    public virtual void SetData(int skillID, DRSkillEffect effectCfg, long fromID, long targetID, int duration, int curLayer = 1)
+    public virtual void SetData(int skillID, DRSkillEffect effectCfg, long fromID, long targetID, int duration, int curLayer = 1, long nextIntervalTime = 0)
     {
         SkillID = skillID;
         EffectID = effectCfg.Id;
@@ -98,6 +103,7 @@ public class SkillEffectBase : IReference
         Duration = duration;
         CurLayer = curLayer;
         EffectFlag = 0;
+        NextIntervalTime = nextIntervalTime;
         if (effectCfg.EffectFlag.Length > 0)
         {
             for (int i = 0; i < effectCfg.EffectFlag.Length; i++)
@@ -114,6 +120,7 @@ public class SkillEffectBase : IReference
             }
         }
     }
+
 
     /// <summary>
     /// 设置效果数据
@@ -167,9 +174,7 @@ public class SkillEffectBase : IReference
     /// </summary>
     public virtual void Start()
     {
-        //更新当前层级
         UpdateLayer(CurLayer);
-        NextIntervalTime = TimeUtil.GetTimeStamp() + EffectCfg.EffectInterval;
     }
     /// <summary>
     /// 刷新效果
@@ -182,7 +187,7 @@ public class SkillEffectBase : IReference
             long curTimeStamp = TimeUtil.GetTimeStamp();
             if (curTimeStamp >= NextIntervalTime)
             {
-                NextIntervalTime = TimeUtil.GetTimeStamp() + EffectCfg.EffectInterval;
+                UpdateIntervalTime(curTimeStamp + EffectCfg.EffectInterval);
                 OnInterval();
             }
         }
@@ -214,9 +219,26 @@ public class SkillEffectBase : IReference
     /// </summary>
     public virtual void UpdateLayer(int layer)
     {
+        if (CurLayer == layer)
+        {
+            return;
+        }
         CurLayer = layer;
+        RefEntity.EntityEvent.EntitySkillEffectLayerUpdate?.Invoke(EffectID);
     }
 
+    /// <summary>
+    /// 刷新间隔触发时间
+    /// </summary>
+    public virtual void UpdateIntervalTime(long time)
+    {
+        if (NextIntervalTime == time)
+        {
+            return;
+        }
+        NextIntervalTime = time;
+        RefEntity.EntityEvent.EntitySkillEffectIntervalTimeUpdate?.Invoke(EffectID);
+    }
     //添加效果
     public void AddEffect(EntityBase owner)
     {
@@ -257,6 +279,15 @@ public class SkillEffectBase : IReference
     }
 
     /// <summary>
+    /// 设置存储数据
+    /// </summary>
+    public virtual void SetSaveData(SkillEffectSaveData saveData)
+    {
+        UpdateLayer(saveData.CurLayer);
+        UpdateIntervalTime(saveData.NextIntervalTime);
+    }
+
+    /// <summary>
     /// 获取存储数据
     /// </summary>
     public SkillEffectSaveData GetSaveData()
@@ -268,6 +299,7 @@ public class SkillEffectBase : IReference
             SkillID = SkillID,
             EffectID = EffectID,
             CurLayer = CurLayer,
+            NextIntervalTime = NextIntervalTime,
         };
         return data;
     }
