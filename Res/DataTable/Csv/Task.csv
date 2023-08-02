@@ -39,28 +39,40 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 ",0,"3,188",19,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 ,"For love and peace, please give me these.
 ",0,"3,188",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
-"{""options"":[{""optionType"":4,""value"":""6,1"",""guiderPoint"":2101}]}",Kill the Metal Mutt. Be careful not to get bitten. Metal Mutts in a frenzy have significantly increased attack power. Rolling can avoid any damage.,,"2,117",21,0,12,Fresh Start,,,
+"{""options"":[{""optionType"":4,""value"":""6,1"",""guiderPoint"":2101}]}","When the monster's health is less than half, it will enter an angry state and emit a golden light from its body. At this point, the monster will gain some powerful buffs. But if you can get it into the Weak State with black smoke, you can defeat it more easily.
+Help Gunner to kill a Metal mutt.",,"2,117",21,0,12,Fresh Start,,,
 "{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101},{""optionType"":13,""value"":""657,80,512,500"",""guiderPoint"":30101}]}","Open your backpack and equip your sword and kill 5 Metal mutts.
-Enter the main town and find Nash to finish this mission.",,"2,117",22,0,11,Intelligence,,21,
-"{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0},{""optionType"":15,""value"":""11,1"",""guiderPoint"":0}]}","Press [Esc] to open your talent tree interface, select the main branch to upgrade, choose to upgrade the Trampling skill, and place the skill in the quick slot. By completing these steps, you can use the Trampling skill in combat. Mastering this skill will make your battles much easier.",,"2,117",23,0,,Lend a Hand,,22,
-"{""options"":[{""optionType"":2,""value"":""146,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""147,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""148,5"",""guiderPoint"":3601}]}","Follow the guide points to your homeland, use a hoe to till the cultivable land, and then sow the seeds on the tilled land.",,"1,117",24,0,31,Hoeing and Seeding,,45,
-"{""options"":[{""optionType"":1,""value"":""70,5"",""guiderPoint"":3601},{""optionType"":1,""value"":""71,5"",""guiderPoint"":3601},{""optionType"":1,""value"":""72,5"",""guiderPoint"":3601}]}","Patience is key. Observe the style of the land and the condition of the crops. If the land is dry, it needs to be watered immediately. The number of times different crops need to be watered to mature varies. Remember, crops can wither and die if not watered for too long.",,"1,117",25,0,13,Patient Watering and Harvesting,,24,
-"{""options"":[{""optionType"":3,""value"":""66,1"",""guiderPoint"":2101},{""optionType"":3,""value"":""62,1"",""guiderPoint"":3501},{""optionType"":3,""value"":""58,1"",""guiderPoint"":3401},{""optionType"":15,""value"":""245,1"",""guiderPoint"":0},{""optionType"":9,""value"":""158,1"",""guiderPoint"":0}]}","Follow the guide points to collect grass with a sickle, trees with an axe, and stones with a pickaxe. After completing these tasks, return to Silas and open the crafting interface. Select ""Craft Gathering Essence"" to begin crafting.",,"3,117",26,0,32,Essence of a Profession,,25,
-"{""options"":[{""optionType"":3,""value"":""58,5"",""guiderPoint"":3401},{""optionType"":3,""value"":""62,5"",""guiderPoint"":3501}]}",I have obtained five pieces of ordinary wood and five stones.,,"3,117",27,0,43,Gather Some Goodies,,26,
-"{""options"":[{""optionType"":3,""value"":""62,1"",""guiderPoint"":3501},{""optionType"":3,""value"":""66,1"",""guiderPoint"":2101},{""optionType"":15,""value"":""33,1"",""guiderPoint"":0},{""optionType"":9,""value"":""70,1"",""guiderPoint"":0}]}","Farm for enough regular wood and gather enough fiber to unlock recipes by upgrading the left side nodes of the gathering talent tree. Then, craft an iron pickaxe. Combat may be necessary to protect yourself while gathering resources.",,"3,117",28,0,44,Crafting an Iron Pickaxe,,27,
-"{""options"":[{""optionType"":3,""value"":""59,1"",""guiderPoint"":20103},{""optionType"":3,""value"":""63,1"",""guiderPoint"":20203},{""optionType"":3,""value"":""67,1"",""guiderPoint"":20201}]}","Get a black iron ore.
-Get a desert tree.
-Get an arctic mushroom.",,"3,117",29,0,42,Advanced Gather Challenge,,28,
-"{""options"":[{""optionType"":4,""value"":""8,5"",""guiderPoint"":3501},{""optionType"":4,""value"":""7,5"",""guiderPoint"":3401}]}",Kill 5 cactus with a stone hammer and kill 5 pumpkin monsters with a bow and arrow.,,"2,117",30,0,40,Teach Them a Lesson,,26,
-"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":3501},{""optionType"":3,""value"":""31,1"",""guiderPoint"":3401},{""optionType"":15,""value"":""95,1"",""guiderPoint"":0},{""optionType"":9,""value"":""44,1"",""guiderPoint"":0}]}",Farm to gather enough green slime and combat to unlock the recipe by upgrading the left side nodes of the talent tree. Gather enough pumpkin vines and craft an iron sword at Nash's workshop.,,"2,117",32,0,30,Crafting an Stone Sword,,30,
-"{""options"":[{""optionType"":4,""value"":""10,1"",""guiderPoint"":20103},{""optionType"":4,""value"":""9,1"",""guiderPoint"":20203},{""optionType"":4,""value"":""11,1"",""guiderPoint"":0}]}","Killing a bee, a hamster, and a lizard.",,"2,117",33,0,41,Advanced Combat Challenge,,32,
-"{""options"":[{""optionType"":15,""value"":""13,1"",""guiderPoint"":0},{""optionType"":15,""value"":""254,1"",""guiderPoint"":0}]}","Open your skill interface, switch to the farming and animal husbandry area, upgrade your capture skills.",,"1,117",34,0,35,Master the Art of Capture,,26,
-"{""options"":[{""optionType"":3,""value"":""178,1"",""guiderPoint"":4501},{""optionType"":3,""value"":""177,1"",""guiderPoint"":4501},{""optionType"":15,""value"":""78,1"",""guiderPoint"":0},{""optionType"":9,""value"":""62,1"",""guiderPoint"":0}]}","Farm to Gather Enough ScrewsCombat to Gather Enough Pumpkin Sprouts.
-Unlock the recipe by upgrading the left nodes of the Farm talent tree.
-Craft a hoe at Terrance's to start farming and gather enough screws.",,"1,117",35,0,34,Crafting an Iron Hoe,,34,
-"{""options"":[{""optionType"":2,""value"":""150,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""149,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""151,1"",""guiderPoint"":3601}]}","Plant cotton seeds.
-Plant pitcher plant seeds.
-Plant cactus seeds.",,"1,117",36,0,39,Advanced Farming Challenge,,35,
+Enter thetown and find Nash.",,"2,117",22,0,11,Intelligence,,21,
+"{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0},{""optionType"":15,""value"":""11,1"",""guiderPoint"":0}]}","- Press [Esc] to open your talent tree interface 
+- select upgrade main branch 
+- select upgrade War Stomp skill 
+- place the skill in the quick slot",,"2,117",23,0,,Lend a Hand,,22,
+"{""options"":[{""optionType"":2,""value"":""146,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""147,5"",""guiderPoint"":3601},{""optionType"":2,""value"":""148,5"",""guiderPoint"":3601}]}","Use a hoe to loosen the soil in the field, and then use seeds to sow on the loosened soil.
+Plant 5 Bamboo Seeds, 5 Trifoliums Seeds, and 5 Carrots Seeds in field.",,"1,117",24,0,31,Hoeing and Seeding,,45,
+"{""options"":[{""optionType"":1,""value"":""70,5"",""guiderPoint"":3601},{""optionType"":1,""value"":""71,5"",""guiderPoint"":3601},{""optionType"":1,""value"":""72,5"",""guiderPoint"":3601}]}","After planting the seeds, they need to be watered patiently three or four times before they mature. Once they are ready, you can approach it to harvest them. After that, go find Silas. He needs those.",,"1,117",25,0,13,Patient Watering and Harvesting,,24,
+"{""options"":[{""optionType"":3,""value"":""66,1"",""guiderPoint"":2101},{""optionType"":3,""value"":""62,1"",""guiderPoint"":3501},{""optionType"":3,""value"":""58,1"",""guiderPoint"":3401},{""optionType"":15,""value"":""245,1"",""guiderPoint"":0},{""optionType"":9,""value"":""158,1"",""guiderPoint"":0}]}","Open the Gather Crafting and refine a Gather Essence. Before that, you need to obtain enough materials.",,"3,117",26,0,32,Essence of a Profession,,25,
+"{""options"":[{""optionType"":3,""value"":""58,5"",""guiderPoint"":3401},{""optionType"":3,""value"":""62,5"",""guiderPoint"":3501}]}","Get 5 Ordinary Wood.
+Get 5 Stones.",,"3,117",27,0,43,Gather Some Goodies,,26,
+"{""options"":[{""optionType"":3,""value"":""62,1"",""guiderPoint"":3501},{""optionType"":3,""value"":""66,1"",""guiderPoint"":2101},{""optionType"":15,""value"":""33,1"",""guiderPoint"":0},{""optionType"":9,""value"":""70,1"",""guiderPoint"":0}]}",Get 5 Ordinary Wood and 5 Fibers to make an Iron Pickaxe.,,"3,117",28,0,44,Crafting an Iron Pickaxe,,27,
+"{""options"":[{""optionType"":3,""value"":""59,1"",""guiderPoint"":20103},{""optionType"":3,""value"":""63,1"",""guiderPoint"":20203},{""optionType"":3,""value"":""67,1"",""guiderPoint"":20201}]}","You have learned how to upgrade the talent tree and make equipment, try to gather some more advanced materials:
+Get a Dark Iron Ore.
+Get a Desert Tree.
+Get an Ice Cap Mushroom.",,"3,117",29,0,42,Advanced Gather Challenge,,28,
+"{""options"":[{""optionType"":4,""value"":""8,5"",""guiderPoint"":3501},{""optionType"":4,""value"":""7,5"",""guiderPoint"":3401}]}","Based on the latest intelligence:
+Cactus Warriors - Has high defense, using heavy attacks can break through its defense.
+Pumpkin Fiends - Possess remote skills, using Trampling can make it unable to use remote skills.",,"2,117",30,0,40,Teach Them a Lesson,,26,
+"{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":3501},{""optionType"":3,""value"":""31,1"",""guiderPoint"":3401},{""optionType"":15,""value"":""95,1"",""guiderPoint"":0},{""optionType"":9,""value"":""44,1"",""guiderPoint"":0}]}","Try making a Stone Sword in Combat Crafting, stronger weapons can make you more relaxed in battle.
+Before that, you need to unlock the recipe for Stone Sword in the talent tree.",,"2,117",32,0,30,Crafting an Stone Sword,,30,
+"{""options"":[{""optionType"":4,""value"":""10,1"",""guiderPoint"":20103},{""optionType"":4,""value"":""9,1"",""guiderPoint"":20203},{""optionType"":4,""value"":""11,1"",""guiderPoint"":0}]}","You have learned how to upgrade the talent tree and make equipment, try to defeat stronger monsters:
+Kill a Buzz Buddy.
+Kill a Mine Cat.
+Kill a Leafy Lurker.",,"2,117",33,0,41,Advanced Combat Challenge,,32,
+"{""options"":[{""optionType"":15,""value"":""13,1"",""guiderPoint"":0},{""optionType"":15,""value"":""254,1"",""guiderPoint"":0}]}",Open your talent tree and switch to the farming tree. Upgrade your Capture skill node on the far right.,,"1,117",34,0,35,Master the Capture,,26,
+"{""options"":[{""optionType"":3,""value"":""178,1"",""guiderPoint"":4501},{""optionType"":3,""value"":""177,1"",""guiderPoint"":4501},{""optionType"":15,""value"":""78,1"",""guiderPoint"":0},{""optionType"":9,""value"":""62,1"",""guiderPoint"":0}]}","If you want your crops to grow faster, you need a more advanced hoe. Try to crafting an Iron Hoe.",,"1,117",35,0,34,Crafting an Iron Hoe,,34,
+"{""options"":[{""optionType"":2,""value"":""150,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""149,1"",""guiderPoint"":3601},{""optionType"":2,""value"":""151,1"",""guiderPoint"":3601}]}","You have learned how to upgrade the talent tree and make equipment, try to plant more advanced seeds:
+Plant Cotton seeds.
+Plant Pitcher Plant seeds.
+Plant Endurance Fruit seeds.",,"1,117",36,0,39,Advanced Farming Challenge,,35,
 "{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}",Go to the exchange and buy something.,,"1,117;2,117;3,117",37,0,,Transaction 1,,"33,29,36",
 ,Monsters are running rampant. Go and exterminate them.,,"2,188",38,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":4,""value"":""6,4,100;8,4,100;7,4,100""}]}"
 ,Monsters are running rampant. Go and exterminate them.,,"2,278",39,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,4,100;10,4,100;11,4,100""}]}"
