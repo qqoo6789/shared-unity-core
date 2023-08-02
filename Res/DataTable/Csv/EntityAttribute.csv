@@ -11,9 +11,9 @@ defaultValue-int,id-int,name-string,talentType-int,type-int,valueType-int,icon-s
 500,10,HP,2,2,1,,
 500,11,MaxHP,2,2,1,attribute-icon-11,true
 10,12,HpRecovery,2,2,1,,
-50,13,CombatAtt,2,2,1,attribute-icon-13,true
+200,13,CombatAtt,2,2,1,attribute-icon-13,true
 0,14,CombatAttSpd,2,2,2,,
-30,15,CombatDef,2,2,1,attribute-icon-15,true
+150,15,CombatDef,2,2,1,attribute-icon-15,true
 100,16,CombatHit,2,2,1,,
 100,17,CombatDodge,2,2,1,,
 0,18,CombatVulnerable,2,2,2,,
@@ -42,9 +42,9 @@ defaultValue-int,id-int,name-string,talentType-int,type-int,valueType-int,icon-s
 0,41,HarvestSeedRate,1,7,2,,
 1,42,CropAvailableLv,1,7,1,,
 125,43,FertilityCapacity,1,1,1,attribute-icon-43,true
-6000,44,MaxFertility,1,1,1,,true
-125,46,PetHappinessCapacity,1,1,1,,true
-2000,47,MaxPetHappiness,1,1,1,,true
+6000,44,MaxFertility,1,1,1,attribute-icon-44,true
+125,46,PetHappinessCapacity,1,1,1,attribute-icon-46,true
+2000,47,MaxPetHappiness,1,1,1,attribute-icon-47,true
 270,49,PlantingProficiency,1,1,1,,true
 270,50,BreedingProficiency,1,1,1,,true
 400,51,GrassAtt,3,1,1,attribute-icon-51,true
