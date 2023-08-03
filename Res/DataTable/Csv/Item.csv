@@ -5,115 +5,329 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 0,"USDC, short for USD Coin, is a stablecoin pegged to the US Dollar (USD) and is maintained at a 1:1 ratio, meaning that for every USDC token issued, there is an equivalent of one US Dollar held in reserve by a regulated financial institution. USDC aims to provide a stable, secure, and transparent digital asset for various use cases such as trading, remittances, or payments.",item-icon-13,13,USDC,1,4,0,0,
 1,"Battery is a device that can store electrical energy and convert it into electricity, usually consisting of positive and negative electrodes, electrolytes, and a casing.
 ",item-icon-21,21,Battery,1,4,0,1,
-1,This green slime is a rare raw material that can be used to make various combat equipment. It has extremely strong adhesion and can bond with a variety of materials.,item-icon-30,30,Lv 1 Green Slime,1,4,1,1,
-1,"Pumpkin vines are a raw material that can be used to make weapons and armor. They have a tough texture and excellent toughness, providing reliable protection and attack power in combat.",item-icon-31,31,Lv 1 Pumpkin Vines,1,4,1,1,
-1,"This type of wire mesh is a raw material used for combat, which can be used to manufacture defensive structures or equipment with high strength and durability.",item-icon-32,32,Lv 1 Wire Mesh ,1,4,1,1,
-1,Cat Fangs from the mines are a sharp raw material that can be used to make weapons and armor. They come from feline animals that live in the mines and possess strong combat abilities and agility.,item-icon-33,33,Lv 2 Mining Cat Sharp Fang,1,4,2,1,
-1,This lightweight film is a raw material used for combat and can be used to manufacture various defensive equipment and weapons.,item-icon-34,34,Lv 2 Light Thin Film,1,4,2,1,
-1,The Grass Demon Crown is a second-level combat material made from the head of Grass Demons and possesses powerful combat abilities.,item-icon-35,35,Lv 2 Grass Demon Crown,1,4,2,1,
-1,"This hook claw is made of hard metal, very sharp, suitable for use in battle. Its shape is slender, and it can easily penetrate the enemy's defense.",item-icon-36,36,Lv 3 Slender Hook Claw,1,4,3,1,
-1,"Red fur is a high-end fur with excellent defensive performance, suitable for making combat equipment. It is a rare raw material with high collection difficulty.",item-icon-37,37,Lv 3 Crimson Fur,1,4,3,1,
-1,"This is a rare raw material that can be obtained in battles. It has an appearance like ice and snow, with a furry texture that makes people want to touch it.",item-icon-38,38,Lv 3 Ice Snow Fluff,1,4,3,1,
-1,"A sharp and sturdy weapon crafted from solid stone, perfect for close combat. Its weight and balance make it easy to wield, delivering powerful strikes with precision.",item-icon-40,40,Lv 1 Stone Sword,1,1,1,1,
-1,"A sharp and sturdy weapon forged from iron, capable of slicing through enemies with ease. Its weight provides a satisfying heft, allowing for powerful strikes that leave opponents reeling.",item-icon-41,41,Lv 2 Iron Sword,"1,2",1,2,1,
-1,"A powerful weapon forged from pure crystal, capable of slicing through enemies with ease. Its shimmering blade reflects light, dazzling opponents and striking fear into their hearts. With each swing, the Crystal Sword unleashes a deadly combination of speed and precision.",item-icon-42,42,Lv 3 Crystal Sword,"1,2,3",1,3,1,
-1,"A sturdy wooden weapon crafted for swift and precise strikes, perfect for beginners honing their combat skills. Its lightweight design allows for agile movements, making it an ideal choice for those seeking a versatile and reliable weapon.",item-icon-39,39,Lv 0 Wooden Sword,1,1,0,1,
-1,"A stylish accessory that adds a touch of elegance to any outfit. Crafted with intricate details, this ring exudes sophistication and charm. Its unique design is sure to catch the eye of fellow fashion enthusiasts.",item-icon-43,43,Lv 1 Chip Head Ring,1,1,1,1,
-1,"This hat is made of a unique material that feels incredibly soft against your skin. It provides a luxurious and comfortable fit, making it perfect for long gaming sessions.",item-icon-44,44,Lv 2 Crystal Skin Soft Hat,"1,2",1,2,1,
-1,"A sturdy helmet crafted from shimmering crystals, providing exceptional protection without compromising agility. Its enchanting glow grants the wearer enhanced vision in dark dungeons.",item-icon-45,45,Lv 3 Crystal Stone Helmet,"1,2,3",1,3,1,
-1,"This armor, with its cracked crystal design, exudes an aura of resilience and power. Its shimmering surface reflects the light, captivating all who lay eyes upon it. A symbol of strength and endurance, it is a must-have for any seasoned warrior.",item-icon-46,46,Lv 1 Cracked Crystal Armor,1,1,1,1,
-1,"This armor is crafted with a unique crystal-like material, providing exceptional protection without sacrificing mobility. Its sleek design and shimmering surface make it a true masterpiece of craftsmanship. With the Crystal Skin Armor, you'll feel invincible on the battlefield.",item-icon-47,47,Lv 2 Crystal Skin Armor,"1,2",1,2,1,
-1,"A formidable armor forged from enchanted crystals, providing unparalleled protection against both physical and magical attacks. Its shimmering surface reflects light, dazzling enemies and instilling fear in their hearts. Wearing this armor grants the wearer an aura of invincibility, making them an unstoppable force on the battlefield.",item-icon-48,48,Lv 3 Crystal Stone Armor,"1,2,3",1,3,1,
-1,"A unique piece of clothing made from delicate crystals, this grass skirt adds a touch of elegance to any outfit. Its cracked texture gives it a mysterious and enchanting allure, making it a must-have for fashion-forward adventurers.",item-icon-49,49,Lv 1 Cracked Crystal Grass Skirt,1,1,1,1,
-1,"These pants have a unique crystal-like texture, giving them a sleek and futuristic appearance. The smooth fabric feels cool against the skin, providing maximum comfort during intense battles. With their eye-catching design, these pants are sure to make you stand out on the battlefield.",item-icon-50,50,Lv 2 Crystal Skin Pant,"1,2",1,2,1,
-1,"These leggings are crafted from a rare crystal stone, providing unparalleled protection and durability. The shimmering surface reflects light, making the wearer appear ethereal and mysterious.",item-icon-51,51,Lv 3 Crystal Leg Armor,"1,2,3",1,3,1,
-1,"A shimmering accessory with delicate cracks, exuding an air of mystery and resilience. Its fractured surface reflects the wearer's strength and determination, making it a symbol of resilience and perseverance.",item-icon-52,52,Lv 1 Cracked Crystal Bracelet,1,1,1,1,
-1,"This glove is crafted with a unique crystal-like material, providing a sleek and smooth texture that enhances grip and dexterity. Its lightweight design allows for effortless movement, making it a favorite among gamers seeking precision and comfort.",item-icon-53,53,Lv 2 Crystal Skin Glove,"1,2",1,2,1,
-1,"A powerful gauntlet infused with the energy of crystals, granting the wearer enhanced strength and the ability to manipulate elemental forces. Harness the raw power of nature and unleash devastating attacks against your enemies. Dominate the battlefield with the Crystal Stone Gauntlet!",item-icon-54,54,Lv 3 Crystal Stone Gauntlet,"1,2,3",1,3,1,
-1,"These shoes are made from a unique material that provides excellent grip and traction, making them perfect for traversing slippery surfaces. The cracked crystal design adds a touch of elegance and mystique to your outfit. Slip them on and feel the confidence as you step onto any terrain.",item-icon-55,55,Lv 1 Cracked Crystal Grass Shoes,1,1,1,1,
-1,"These boots are crafted with a unique material that enhances agility and provides excellent protection. Their sleek design allows for swift movement, making them a favorite among adventurers. The Crystal Skin Boots are a must-have for any player seeking both style and functionality.",item-icon-56,56,Lv 2 Crystal Skin Boots,"1,2",1,2,1,
-1,"These shoes are crafted with a unique crystal stone design, adding a touch of elegance to your every step. The shimmering stones embedded in the shoes create a mesmerizing effect, making you the center of attention wherever you go. Slip into these exquisite shoes and feel the enchantment they bring to your outfit.",item-icon-57,57,Lv 3 Crystal Stone Shoes,"1,2,3",1,3,1,
-1,This stone is of first grade and can be used for collecting raw materials such as trees.,item-icon-58,58,Lv 1 Mineral,1,4,1,1,
-1,"Black iron ore is a secondary raw material that can be obtained through mining. It has a black color, a hard texture, and contains abundant iron elements.",item-icon-59,59,Lv 2 Dark Iron,1,4,2,1,
-1,This is a tier-three red crystal ore that can be collected in the forest. It is an important raw material that can be used to craft various equipment and items.,item-icon-60,60,Lv 3 Red Crystal Ore,1,4,3,1,
-1,"This type of wood is usually used for making simple furniture or building materials. Its texture is relatively soft, making it easy to process and carve.",item-icon-62,62,Lv 1 Ordinary Wood,1,4,1,1,
-1,"Desert trees are a type of tree that grows in the desert. They are usually of low height, with thick trunks and light green leaves. They can be used to collect raw materials and are suitable for making some special items.",item-icon-63,63,Lv 2 Desert Tree Wood,1,4,2,1,
-1,"Dark wood is a premium type of wood with black textures and a hard texture, suitable for making high-end furniture and crafts. It can only be harvested at specific collection points, which is difficult but also very profitable.",item-icon-64,64,Lv 3 Dark Wood,1,4,3,1,
-1,This type of bamboo is an agricultural output and a plant used for making various agricultural raw materials. It is very common in agriculture and can grow very quickly.,item-icon-70,70,Lv 1 Bamboo,1,4,1,1,
-1,"This item is a raw material produced in agriculture, usually harvestable at Lv 1. Its shape resembles three leaves, hence it is called a clover. It can be used to make many different items and is a very useful resource.",item-icon-71,71,Lv 1 Trifolium,1,4,1,1,
-1,This carrot is a level 1 agricultural output that can be obtained in the agricultural field. It is an important raw material.,item-icon-72,72,Lv 1 Carrot,1,4,1,1,
-1,Pitcher plants are a unique type of plant that can attract and capture insects as a source of food. They are considered as one of the agricultural outputs and can be used as raw materials in the agricultural field.,item-icon-73,73,Lv 2 Pitcher Plant,1,4,2,1,
-1,This cotton is of second-grade quality and is suitable for manufacturing textiles.,item-icon-74,74,Lv 2 Cotton,1,4,2,1,
-1,"This patience fruit is a raw material produced in agriculture, which can be planted in a level 2 farm and yields 2-3 fruits each time. It has the characteristics of strong durability and long preservation time, and is an important material for making various foods and medicines.",item-icon-75,75,Lv 2 Endurance Fruit,1,4,2,1,
-1,"This fiery chili is level 3 and extremely spicy, suitable for those who love spicy food. It is produced by agriculture and can be grown in fields. As an agricultural raw material, it can be used to make various chili products, such as chili sauce and chili oil.",item-icon-76,76,Lv 3 Hot Chili Pepper,1,4,3,1,347348351352
-1,"This hard fruit is a high-yield agricultural raw material that can be used to make various foods and medicines. It has a hard texture and rich nutritional components, making it an indispensable part of agricultural production.",item-icon-77,77,Lv 3 Hard Fruit,1,4,3,1,
-1,This blue mushroom is a premium mushroom species that is typically produced in the agricultural sector. It is a highly valuable raw material that can be used for making medicines and gourmet food.,item-icon-78,78,Lv 3 Blue Mushroom,1,4,3,1,
-1,This is a tool for farming that can help you easily till the soil and weed. It is suitable for beginners to use.,item-icon-79,79,Lv 0 Wooden Hoe,1,1,0,1,
-1,The Iron Hoe is a durable farming tool made of sturdy iron. It is essential for tilling soil and cultivating crops efficiently in the game.,item-icon-80,80,Lv 1 Iron Hoe,1,1,1,1,
-1,"This hoe can help farmers cultivate the land more easily, but at the same time it also brings some mysterious curses.",item-icon-81,81,Lv 2 Curse Hoe,"1,2",1,2,1,
-1,"The Blessing Hoe is a powerful tool that enhances farming efficiency and increases crop yields. It radiates a divine aura, imbuing each strike with blessings that promote healthy growth and bountiful harvests. With this enchanted hoe in hand, players can cultivate their land with ease and experience the joy of reaping the rewards of their hard work.",item-icon-82,82,Lv 3 Blessing Hoe,"1,2,3",1,3,1,
-1,"This wooden water pot is a piece of equipment suitable for agricultural use, which can be used to hold clean water or irrigation water.",item-icon-83,83,Lv 0 Wooden Kettle,1,1,0,1,
-1,"A sturdy and reliable cooking utensil made of durable iron. It heats up quickly and evenly, allowing for efficient cooking. Its ergonomic handle ensures a comfortable grip while pouring.",item-icon-84,84,  ,1,1,1,1,
-1,"A mysterious kettle that brings misfortune to those who possess it, causing chaos and despair. Its dark aura emanates an eerie presence, tempting fate with every brew. Be cautious, for its cursed power can turn even the most fortunate into victims of their own demise.",item-icon-85,85,Lv 2 Curse Kettle,"1,2",1,2,1,
-1,"A sacred artifact that brings blessings and good fortune to its owner, enhancing their luck and granting them unexpected opportunities. This mystical kettle is said to radiate positive energy, attracting prosperity and happiness wherever it goes. A cherished possession for those seeking a touch of divine intervention in their lives.",item-icon-86,86,Lv 3 Blessing Kettle,"1,2,3",1,3,1,
-1,"A sturdy tool made of wood, perfect for mining and gathering resources efficiently. Its durability ensures it won't break easily, making it a reliable choice for any adventurer.",item-icon-87,87,Lv 0 Wooden pickaxe,1,1,0,1,
-1,"A sturdy tool made of iron, perfect for mining and excavating valuable resources. Its sharp edge and durable construction make it an essential item for any adventurer. With this pickaxe in hand, you'll be able to dig deeper and uncover hidden treasures.",item-icon-88,88,Lv 1 Iron Pickaxe,1,1,1,1,
-1,This cursed pickaxe can help you gather trees and ores faster. It is a level 2 equipment with powerful gathering abilities.,item-icon-89,89,Lv 2 Cursed Pickaxe,"1,2",1,2,1,
-1,"The Blessing Pickaxe, a sacred tool bestowed with divine power, effortlessly cleaves through the toughest of rocks, leaving behind a trail of shimmering fragments. Its enchanted blade glows with a radiant light, guiding miners towards hidden treasures deep within the earth. With each swing, it grants blessings of fortune and prosperity, making it an essential companion for any adventurer.",item-icon-90,90,Lv 3 Blessing Pickaxe,"1,2,3",1,3,1,
-1,"This axe is a wooden tool, suitable for outdoor gathering work. It is a type of equipment that can help you complete gathering tasks more efficiently.",item-icon-91,91,Lv 0 Wooden Axe,1,1,0,1,
-1,This iron axe can be used to fell trees and is an essential tool for gathering wood. It can also be used as equipment to increase combat effectiveness.,item-icon-92,92,Lv 1 Iron Axe,1,1,1,1,
-1,"The sharpness of this axe has reached level 2, making it easy to gather trees. However, it has also been cursed, so caution is required when using it.",item-icon-93,93,Lv 2 Curse Axe,"1,2",1,2,1,
-1,"A powerful weapon bestowed with divine blessings, capable of cleaving through any obstacle with ease. Its razor-sharp blade glimmers with a holy light, instilling fear in the hearts of enemies. The Blessed Axe is a true symbol of strength and righteousness on the battlefield.",item-icon-94,94,Lv 3 Blessed Axe,"1,2,3",1,3,1,
-1,"This stylish hat brings good luck to its wearer, adding a touch of charm to any outfit. Its vibrant colors and intricate design make it a must-have accessory for fashion-forward players. Wear it and let the luck be on your side!",item-icon-98,98,Lv 1 Lucky Clover Hat,1,1,1,1,
-1,"This stylish hat is made of soft and comfortable cotton, bringing luck to its wearer. Its vibrant colors and intricate design make it a fashionable accessory for any outfit. With this hat, you'll feel confident and ready to take on any adventure.",item-icon-99,99,Lv 2 Lucky Cotton Hat,"1,2",1,2,1,
-1,"This sturdy hard hat brings good luck to its wearer, providing extra protection and increasing their chances of finding valuable treasures. Its vibrant colors and durable construction make it a favorite among adventurous players.",item-icon-100,100,Lv 3 Lucky Hard Hat,"1,2,3",1,3,1,
-1,"A stylish jacket perfect for outdoor adventures, providing warmth and protection against the elements. Its durable material and practical design make it a must-have for any adventurer. Stay comfortable and stylish with this Harvest Jacket.",item-icon-101,101,Lv 1 Farming Jacket,1,1,1,1,
-1,"A durable jacket designed for farmers, providing protection against the elements and rugged terrain. Its reinforced stitching and sturdy fabric make it ideal for outdoor work. Stay comfortable and focused on your tasks with this reliable piece of clothing.",item-icon-102,102,Lv 2 Farming Jacket,"1,2",1,2,1,
-1,"This jacket is specially designed for people who work in agriculture. It features protection, breathability, and durability, making your work in the fields more comfortable and safe.",item-icon-103,103,Lv 3 Farming Jacket,"1,2,3",1,3,1,
-1,"These pants are designed for farmers, providing comfort and durability for long hours of work in the fields. Made from high-quality materials, they offer excellent protection against dirt and stains. With their practical design and adjustable fit, these pants are a must-have for any dedicated farmer.",item-icon-104,104,Lv 1 Farming Pants,1,1,1,1,
-1,"This agricultural pants are specifically designed for agricultural work, with features such as waterproof and abrasion resistance, making your field work more comfortable and safe.",item-icon-105,105,Lv 2 Farming Pants,"1,2",1,2,1,
-1,"This pair of pants is designed specifically for agricultural workers, made with high-quality materials that are comfortable and durable. It features functions such as waterproofing, stain resistance, and puncture resistance, effectively protecting the worker's body and clothes. Additionally, it has multiple pockets and detailed designs to facilitate carrying tools and improve work efficiency.",item-icon-106,106,Lv 3 Farming Pants,"1,2,3",1,3,1,
-1,"This glove is suitable for use in the fields, and can protect hands from thorns, dirt and other sharp objects. It also has anti-slip function, making you more stable on wet soil.",item-icon-107,107,Lv 1 Farming Gloves,1,1,1,1,
-1,"These gloves are designed specifically for farming tasks, providing excellent grip and protection against thorns and rough surfaces. They are made with durable materials to withstand long hours of work in the fields. With these gloves, you can handle any farming job with ease and comfort.",item-icon-108,108,Lv 2 Farming Gloves,"1,2",1,2,1,
-1,"This glove is suitable for agricultural work, providing comfortable grip and protection to help farmers complete various farming activities.",item-icon-109,109,Lv 3 Farming Gloves,"1,2,3",1,3,1,
-1,"These collection shoes are specially designed for collection. Wearing them can make you more agile when walking in the forest, and easily collect the resources you need.",item-icon-113,113,Lv 1 Gathering Shoes,1,1,1,1,
-1,"These collection shoes are specially designed for collection. They can help you collect resources faster and more efficiently, making your collection journey smoother.",item-icon-114,114,Lv 2 Gathering Shoes,"1,2",1,2,1,
-1,"These shoes are designed for avid gatherers, providing enhanced agility and comfort during long expeditions. With their durable yet lightweight construction, they allow players to effortlessly traverse various terrains and gather resources with ease. The shoes also feature a specialized grip that ensures stability, preventing slips and falls even in treacherous environments.",item-icon-115,115,Lv 3 Gathering Shoes,"1,2,3",1,3,1,
-1,"Boost your crops' growth with this potent formula, ensuring a bountiful harvest in no time. Enhance your farming efficiency and watch your plants thrive with this powerful fertilizer.",item-icon-128,128,Lv 0 Accelerated Fertilizer,1,3,0,1,98
-1,"Fertilizer for increasing crop yields is a consumable designed specifically for agricultural production at level LV0 and above. It can provide sufficient nutrients for crops, promote their growth and development, and improve their yield and quality.",item-icon-129,129,Lv 0 Yield-Boosting Fertilizer,1,3,0,1,98
-1,"This nutrient-rich formula deeply nourishes plants, promoting healthy growth and vibrant blooms. It enhances soil moisture retention, ensuring plants stay hydrated for longer periods. Boost your garden's vitality with this essential fertilizer.",item-icon-130,130,Lv 0 Moisturizing Fertilizer,1,3,0,1,98
-1,This potion can be used during battles and provides a minor healing effect.,item-icon-134,134,Lv 0 Secondary Healing Potion,1,3,0,1,
-1,This potion can enhance your attack power.,item-icon-135,135,Lv 0 Secondary Attack Potion,1,3,0,1,
-1,"This potion enhances your agility, allowing you to move swiftly and dodge attacks with ease. It gives you a temporary burst of speed, making you a formidable force on the battlefield. Use it strategically to outmaneuver your opponents and gain the upper hand in combat.",item-icon-136,136,Lv 0 Secondary Movement Speed Potion,1,3,0,1,
-1,"This potion enhances your critical strike chance, allowing you to deal devastating blows to your enemies. It's a must-have for any player looking to maximize their damage output. Use it wisely and watch your foes crumble before you.",item-icon-137,137,Lv 0 Secondary Critical Strike Potion,1,3,0,1,
-1,"This potion is a lifeline in the game, providing a much-needed boost to your character's health. It instantly restores a significant amount of HP, allowing you to continue your adventure without interruption. With its vibrant color and refreshing taste, it's the perfect remedy for any dire situation.",item-icon-138,138,Lv 0 Secondary Life Potion,1,3,0,1,
-1,"This potion can provide a temporary defensive effect, suitable for emergency situations in battle.",item-icon-139,139,Lv 0 Secondary Defense Potion,1,3,0,1,
-1,"This is a type of seed that can be planted to grow bamboo, which is suitable for use in the agricultural field.",item-icon-146,146,Lv 1 Bamboo Seed,1,3,1,1,97
-1,Trifolium seeds are agricultural consumables used to plant trifolium and are suitable for use on low-grade land. They can grow rapidly and produce rich nutritional value in suitable environments.,item-icon-147,147,Lv 1 Trifolium Seed,1,3,1,1,97
-1,This type of carrot seeds can be used to grow fresh and delicious carrots. It is suitable for use in home gardens or small farms and can be planted in spring and autumn. The carrots grown from these seeds are tasty and nutritious.,item-icon-148,148,Lv 1 Carrot Seed,1,3,1,1,97
-1,"Pitcher plant seeds are an agricultural consumable that can be used to grow pitcher plants. This plant is a carnivorous plant that can absorb nutrients from insects. After planting, sufficient sunlight and water are needed for smooth growth.",item-icon-149,149,Lv 2 Pigmy Sundew Seed,1,3,2,1,97
-1,This type of cotton seed can be planted in fields and harvested for cotton to be used in textile production.,item-icon-150,150,Lv 2 Cotton Seed,1,3,2,1,97
-1,"This seed holds the potential for a prickly and resilient plant to grow. It promises a touch of desert beauty in your garden. Plant it and watch nature's wonders unfold.
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+This green slime is a rare raw material that can be used to make various combat equipment. It has extremely strong adhesion and can bond with a variety of materials.",item-icon-30,30,Lv 1 Green Slime,1,4,1,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+Pumpkin vines are a raw material that can be used to make weapons and armor. They have a tough texture and excellent toughness, providing reliable protection and attack power in combat.",item-icon-31,31,Lv 1 Pumpkin Vines,1,4,1,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+This type of wire mesh is a raw material used for combat, which can be used to manufacture defensive structures or equipment with high strength and durability.",item-icon-32,32,Lv 1 Wire Mesh ,1,4,1,1,
+1,"Someone once saw this material in the desert. It can be used to craft equipment or items.
+-------
+Cat Fangs from the mines are a sharp raw material that can be used to make weapons and armor. They come from feline animals that live in the mines and possess strong combat abilities and agility.",item-icon-33,33,Lv 2 Mining Cat Sharp Fang,1,4,2,1,
+1,"Someone once saw this material on the grasslands. It can be used to craft equipment or items.
+-------
+This lightweight film is a raw material used for combat and can be used to manufacture various defensive equipment and weapons.",item-icon-34,34,Lv 2 Light Thin Film,1,4,2,1,
+1,"Someone once saw this material in the canyon. It can be used to craft equipment or items.
+-------
+The Grass Demon Crown is a second-level combat material made from the head of Grass Demons and possesses powerful combat abilities.",item-icon-35,35,Lv 2 Grass Demon Crown,1,4,2,1,
+1,"Someone once saw this material in the Black Forest. It can be used to craft equipment or items.
+-------
+This hook claw is made of hard metal, very sharp, suitable for use in battle. Its shape is slender, and it can easily penetrate the enemy's defense.",item-icon-36,36,Lv 3 Slender Hook Claw,1,4,3,1,
+1,"Someone once saw this material in the Red Forest. It can be used to craft equipment or items.
+-------
+Red fur is a high-end fur with excellent defensive performance, suitable for making combat equipment. It is a rare raw material with high collection difficulty.",item-icon-37,37,Lv 3 Crimson Fur,1,4,3,1,
+1,"Someone once saw this material on the Snow Mountain. It can be used to craft equipment or items.
+-------
+This is a rare raw material that can be obtained in battles. It has an appearance like ice and snow, with a furry texture that makes people want to touch it.",item-icon-38,38,Lv 3 Ice Snow Fluff,1,4,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sharp and sturdy weapon crafted from solid stone, perfect for close combat. Its weight and balance make it easy to wield, delivering powerful strikes with precision.",item-icon-40,40,Lv 1 Stone Sword,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sharp and sturdy weapon forged from iron, capable of slicing through enemies with ease. Its weight provides a satisfying heft, allowing for powerful strikes that leave opponents reeling.",item-icon-41,41,Lv 2 Iron Sword,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A powerful weapon forged from pure crystal, capable of slicing through enemies with ease. Its shimmering blade reflects light, dazzling opponents and striking fear into their hearts. With each swing, the Crystal Sword unleashes a deadly combination of speed and precision.",item-icon-42,42,Lv 3 Crystal Sword,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sturdy wooden weapon crafted for swift and precise strikes, perfect for beginners honing their combat skills. Its lightweight design allows for agile movements, making it an ideal choice for those seeking a versatile and reliable weapon.",item-icon-39,39,Lv 0 Wooden Sword,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A stylish accessory that adds a touch of elegance to any outfit. Crafted with intricate details, this ring exudes sophistication and charm. Its unique design is sure to catch the eye of fellow fashion enthusiasts.",item-icon-43,43,Lv 1 Chip Head Ring,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This hat is made of a unique material that feels incredibly soft against your skin. It provides a luxurious and comfortable fit, making it perfect for long gaming sessions.",item-icon-44,44,Lv 2 Crystal Skin Soft Hat,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sturdy helmet crafted from shimmering crystals, providing exceptional protection without compromising agility. Its enchanting glow grants the wearer enhanced vision in dark dungeons.",item-icon-45,45,Lv 3 Crystal Stone Helmet,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This armor, with its cracked crystal design, exudes an aura of resilience and power. Its shimmering surface reflects the light, captivating all who lay eyes upon it. A symbol of strength and endurance, it is a must-have for any seasoned warrior.",item-icon-46,46,Lv 1 Cracked Crystal Armor,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This armor is crafted with a unique crystal-like material, providing exceptional protection without sacrificing mobility. Its sleek design and shimmering surface make it a true masterpiece of craftsmanship. With the Crystal Skin Armor, you'll feel invincible on the battlefield.",item-icon-47,47,Lv 2 Crystal Skin Armor,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A formidable armor forged from enchanted crystals, providing unparalleled protection against both physical and magical attacks. Its shimmering surface reflects light, dazzling enemies and instilling fear in their hearts. Wearing this armor grants the wearer an aura of invincibility, making them an unstoppable force on the battlefield.",item-icon-48,48,Lv 3 Crystal Stone Armor,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A unique piece of clothing made from delicate crystals, this grass skirt adds a touch of elegance to any outfit. Its cracked texture gives it a mysterious and enchanting allure, making it a must-have for fashion-forward adventurers.",item-icon-49,49,Lv 1 Cracked Crystal Grass Skirt,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These pants have a unique crystal-like texture, giving them a sleek and futuristic appearance. The smooth fabric feels cool against the skin, providing maximum comfort during intense battles. With their eye-catching design, these pants are sure to make you stand out on the battlefield.",item-icon-50,50,Lv 2 Crystal Skin Pant,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These leggings are crafted from a rare crystal stone, providing unparalleled protection and durability. The shimmering surface reflects light, making the wearer appear ethereal and mysterious.",item-icon-51,51,Lv 3 Crystal Leg Armor,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A shimmering accessory with delicate cracks, exuding an air of mystery and resilience. Its fractured surface reflects the wearer's strength and determination, making it a symbol of resilience and perseverance.",item-icon-52,52,Lv 1 Cracked Crystal Bracelet,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This glove is crafted with a unique crystal-like material, providing a sleek and smooth texture that enhances grip and dexterity. Its lightweight design allows for effortless movement, making it a favorite among gamers seeking precision and comfort.",item-icon-53,53,Lv 2 Crystal Skin Glove,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A powerful gauntlet infused with the energy of crystals, granting the wearer enhanced strength and the ability to manipulate elemental forces. Harness the raw power of nature and unleash devastating attacks against your enemies. Dominate the battlefield with the Crystal Stone Gauntlet!",item-icon-54,54,Lv 3 Crystal Stone Gauntlet,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These shoes are made from a unique material that provides excellent grip and traction, making them perfect for traversing slippery surfaces. The cracked crystal design adds a touch of elegance and mystique to your outfit. Slip them on and feel the confidence as you step onto any terrain.",item-icon-55,55,Lv 1 Cracked Crystal Grass Shoes,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These boots are crafted with a unique material that enhances agility and provides excellent protection. Their sleek design allows for swift movement, making them a favorite among adventurers. The Crystal Skin Boots are a must-have for any player seeking both style and functionality.",item-icon-56,56,Lv 2 Crystal Skin Boots,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These shoes are crafted with a unique crystal stone design, adding a touch of elegance to your every step. The shimmering stones embedded in the shoes create a mesmerizing effect, making you the center of attention wherever you go. Slip into these exquisite shoes and feel the enchantment they bring to your outfit.",item-icon-57,57,Lv 3 Crystal Stone Shoes,"1,2,3",1,3,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+This stone is of first grade and can be used for collecting raw materials such as trees.",item-icon-58,58,Lv 1 Mineral,1,4,1,1,
+1,"Someone once saw this material in the canyon. It can be used to craft equipment or items.
+-------
+Black iron ore is a secondary raw material that can be obtained through mining. It has a black color, a hard texture, and contains abundant iron elements.",item-icon-59,59,Lv 2 Dark Iron,1,4,2,1,
+1,"Someone once saw this material on the Snow Mountain. It can be used to craft equipment or items.
+-------
+This is a tier-three red crystal ore that can be collected in the forest. It is an important raw material that can be used to craft various equipment and items.",item-icon-60,60,Lv 3 Red Crystal Ore,1,4,3,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+This type of wood is usually used for making simple furniture or building materials. Its texture is relatively soft, making it easy to process and carve.",item-icon-62,62,Lv 1 Ordinary Wood,1,4,1,1,
+1,"Someone once saw this material in the desert. It can be used to craft equipment or items.
+-------
+Desert trees are a type of tree that grows in the desert. They are usually of low height, with thick trunks and light green leaves. They can be used to collect raw materials and are suitable for making some special items.",item-icon-63,63,Lv 2 Desert Tree Wood,1,4,2,1,
+1,"Someone once saw this material in the Red Forest. It can be used to craft equipment or items.
+-------
+Dark wood is a premium type of wood with black textures and a hard texture, suitable for making high-end furniture and crafts. It can only be harvested at specific collection points, which is difficult but also very profitable.",item-icon-64,64,Lv 3 Dark Wood,1,4,3,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This type of bamboo is an agricultural output and a plant used for making various agricultural raw materials. It is very common in agriculture and can grow very quickly.",item-icon-70,70,Lv 1 Bamboo,1,4,1,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This item is a raw material produced in agriculture, usually harvestable at Lv 1. Its shape resembles three leaves, hence it is called a clover. It can be used to make many different items and is a very useful resource.",item-icon-71,71,Lv 1 Trifolium,1,4,1,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This carrot is a level 1 agricultural output that can be obtained in the agricultural field. It is an important raw material.",item-icon-72,72,Lv 1 Carrot,1,4,1,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+Pitcher plants are a unique type of plant that can attract and capture insects as a source of food. They are considered as one of the agricultural outputs and can be used as raw materials in the agricultural field.",item-icon-73,73,Lv 2 Pitcher Plant,1,4,2,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This cotton is of second-grade quality and is suitable for manufacturing textiles.",item-icon-74,74,Lv 2 Cotton,1,4,2,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This patience fruit is a raw material produced in agriculture, which can be planted in a level 2 farm and yields 2-3 fruits each time. It has the characteristics of strong durability and long preservation time, and is an important material for making various foods and medicines.",item-icon-75,75,Lv 2 Endurance Fruit,1,4,2,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This fiery chili is level 3 and extremely spicy, suitable for those who love spicy food. It is produced by agriculture and can be grown in fields. As an agricultural raw material, it can be used to make various chili products, such as chili sauce and chili oil.",item-icon-76,76,Lv 3 Hot Chili Pepper,1,4,3,1,347348351352
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This hard fruit is a high-yield agricultural raw material that can be used to make various foods and medicines. It has a hard texture and rich nutritional components, making it an indispensable part of agricultural production.",item-icon-77,77,Lv 3 Hard Fruit,1,4,3,1,
+1,"You can obtain this type of material through planting. It can be used to craft equipment or items.
+-------
+This blue mushroom is a premium mushroom species that is typically produced in the agricultural sector. It is a highly valuable raw material that can be used for making medicines and gourmet food.",item-icon-78,78,Lv 3 Blue Mushroom,1,4,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This is a tool for farming that can help you easily till the soil and weed. It is suitable for beginners to use.",item-icon-79,79,Lv 0 Wooden Hoe,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+The Iron Hoe is a durable farming tool made of sturdy iron. It is essential for tilling soil and cultivating crops efficiently in the game.",item-icon-80,80,Lv 1 Iron Hoe,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This hoe can help farmers cultivate the land more easily, but at the same time it also brings some mysterious curses.",item-icon-81,81,Lv 2 Curse Hoe,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+The Blessing Hoe is a powerful tool that enhances farming efficiency and increases crop yields. It radiates a divine aura, imbuing each strike with blessings that promote healthy growth and bountiful harvests. With this enchanted hoe in hand, players can cultivate their land with ease and experience the joy of reaping the rewards of their hard work.",item-icon-82,82,Lv 3 Blessing Hoe,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This wooden water pot is a piece of equipment suitable for agricultural use, which can be used to hold clean water or irrigation water.",item-icon-83,83,Lv 0 Wooden Kettle,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sturdy and reliable cooking utensil made of durable iron. It heats up quickly and evenly, allowing for efficient cooking. Its ergonomic handle ensures a comfortable grip while pouring.",item-icon-84,84,  ,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A mysterious kettle that brings misfortune to those who possess it, causing chaos and despair. Its dark aura emanates an eerie presence, tempting fate with every brew. Be cautious, for its cursed power can turn even the most fortunate into victims of their own demise.",item-icon-85,85,Lv 2 Curse Kettle,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sacred artifact that brings blessings and good fortune to its owner, enhancing their luck and granting them unexpected opportunities. This mystical kettle is said to radiate positive energy, attracting prosperity and happiness wherever it goes. A cherished possession for those seeking a touch of divine intervention in their lives.",item-icon-86,86,Lv 3 Blessing Kettle,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sturdy tool made of wood, perfect for mining and gathering resources efficiently. Its durability ensures it won't break easily, making it a reliable choice for any adventurer.",item-icon-87,87,Lv 0 Wooden pickaxe,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sturdy tool made of iron, perfect for mining and excavating valuable resources. Its sharp edge and durable construction make it an essential item for any adventurer. With this pickaxe in hand, you'll be able to dig deeper and uncover hidden treasures.",item-icon-88,88,Lv 1 Iron Pickaxe,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This cursed pickaxe can help you gather trees and ores faster. It is a level 2 equipment with powerful gathering abilities.",item-icon-89,89,Lv 2 Cursed Pickaxe,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+The Blessing Pickaxe, a sacred tool bestowed with divine power, effortlessly cleaves through the toughest of rocks, leaving behind a trail of shimmering fragments. Its enchanted blade glows with a radiant light, guiding miners towards hidden treasures deep within the earth. With each swing, it grants blessings of fortune and prosperity, making it an essential companion for any adventurer.",item-icon-90,90,Lv 3 Blessing Pickaxe,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This axe is a wooden tool, suitable for outdoor gathering work. It is a type of equipment that can help you complete gathering tasks more efficiently.",item-icon-91,91,Lv 0 Wooden Axe,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This iron axe can be used to fell trees and is an essential tool for gathering wood. It can also be used as equipment to increase combat effectiveness.",item-icon-92,92,Lv 1 Iron Axe,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+The sharpness of this axe has reached level 2, making it easy to gather trees. However, it has also been cursed, so caution is required when using it.",item-icon-93,93,Lv 2 Curse Axe,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A powerful weapon bestowed with divine blessings, capable of cleaving through any obstacle with ease. Its razor-sharp blade glimmers with a holy light, instilling fear in the hearts of enemies. The Blessed Axe is a true symbol of strength and righteousness on the battlefield.",item-icon-94,94,Lv 3 Blessed Axe,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This stylish hat brings good luck to its wearer, adding a touch of charm to any outfit. Its vibrant colors and intricate design make it a must-have accessory for fashion-forward players. Wear it and let the luck be on your side!",item-icon-98,98,Lv 1 Lucky Clover Hat,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This stylish hat is made of soft and comfortable cotton, bringing luck to its wearer. Its vibrant colors and intricate design make it a fashionable accessory for any outfit. With this hat, you'll feel confident and ready to take on any adventure.",item-icon-99,99,Lv 2 Lucky Cotton Hat,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This sturdy hard hat brings good luck to its wearer, providing extra protection and increasing their chances of finding valuable treasures. Its vibrant colors and durable construction make it a favorite among adventurous players.",item-icon-100,100,Lv 3 Lucky Hard Hat,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A stylish jacket perfect for outdoor adventures, providing warmth and protection against the elements. Its durable material and practical design make it a must-have for any adventurer. Stay comfortable and stylish with this Harvest Jacket.",item-icon-101,101,Lv 1 Farming Jacket,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A durable jacket designed for farmers, providing protection against the elements and rugged terrain. Its reinforced stitching and sturdy fabric make it ideal for outdoor work. Stay comfortable and focused on your tasks with this reliable piece of clothing.",item-icon-102,102,Lv 2 Farming Jacket,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This jacket is specially designed for people who work in agriculture. It features protection, breathability, and durability, making your work in the fields more comfortable and safe.",item-icon-103,103,Lv 3 Farming Jacket,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These pants are designed for farmers, providing comfort and durability for long hours of work in the fields. Made from high-quality materials, they offer excellent protection against dirt and stains. With their practical design and adjustable fit, these pants are a must-have for any dedicated farmer.",item-icon-104,104,Lv 1 Farming Pants,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This agricultural pants are specifically designed for agricultural work, with features such as waterproof and abrasion resistance, making your field work more comfortable and safe.",item-icon-105,105,Lv 2 Farming Pants,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This pair of pants is designed specifically for agricultural workers, made with high-quality materials that are comfortable and durable. It features functions such as waterproofing, stain resistance, and puncture resistance, effectively protecting the worker's body and clothes. Additionally, it has multiple pockets and detailed designs to facilitate carrying tools and improve work efficiency.",item-icon-106,106,Lv 3 Farming Pants,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This glove is suitable for use in the fields, and can protect hands from thorns, dirt and other sharp objects. It also has anti-slip function, making you more stable on wet soil.",item-icon-107,107,Lv 1 Farming Gloves,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These gloves are designed specifically for farming tasks, providing excellent grip and protection against thorns and rough surfaces. They are made with durable materials to withstand long hours of work in the fields. With these gloves, you can handle any farming job with ease and comfort.",item-icon-108,108,Lv 2 Farming Gloves,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This glove is suitable for agricultural work, providing comfortable grip and protection to help farmers complete various farming activities.",item-icon-109,109,Lv 3 Farming Gloves,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These collection shoes are specially designed for collection. Wearing them can make you more agile when walking in the forest, and easily collect the resources you need.",item-icon-113,113,Lv 1 Gathering Shoes,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These collection shoes are specially designed for collection. They can help you collect resources faster and more efficiently, making your collection journey smoother.",item-icon-114,114,Lv 2 Gathering Shoes,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These shoes are designed for avid gatherers, providing enhanced agility and comfort during long expeditions. With their durable yet lightweight construction, they allow players to effortlessly traverse various terrains and gather resources with ease. The shoes also feature a specialized grip that ensures stability, preventing slips and falls even in treacherous environments.",item-icon-115,115,Lv 3 Gathering Shoes,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Boost your crops' growth with this potent formula, ensuring a bountiful harvest in no time. Enhance your farming efficiency and watch your plants thrive with this powerful fertilizer.",item-icon-128,128,Lv 0 Accelerated Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Fertilizer for increasing crop yields is a consumable designed specifically for agricultural production at level LV0 and above. It can provide sufficient nutrients for crops, promote their growth and development, and improve their yield and quality.",item-icon-129,129,Lv 0 Yield-Boosting Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This nutrient-rich formula deeply nourishes plants, promoting healthy growth and vibrant blooms. It enhances soil moisture retention, ensuring plants stay hydrated for longer periods. Boost your garden's vitality with this essential fertilizer.",item-icon-130,130,Lv 0 Moisturizing Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can be used during battles and provides a minor healing effect.",item-icon-134,134,Lv 0 Secondary Healing Potion,1,3,0,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can enhance your attack power.",item-icon-135,135,Lv 0 Secondary Attack Potion,1,3,0,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion enhances your agility, allowing you to move swiftly and dodge attacks with ease. It gives you a temporary burst of speed, making you a formidable force on the battlefield. Use it strategically to outmaneuver your opponents and gain the upper hand in combat.",item-icon-136,136,Lv 0 Secondary Movement Speed Potion,1,3,0,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion enhances your critical strike chance, allowing you to deal devastating blows to your enemies. It's a must-have for any player looking to maximize their damage output. Use it wisely and watch your foes crumble before you.",item-icon-137,137,Lv 0 Secondary Critical Strike Potion,1,3,0,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion is a lifeline in the game, providing a much-needed boost to your character's health. It instantly restores a significant amount of HP, allowing you to continue your adventure without interruption. With its vibrant color and refreshing taste, it's the perfect remedy for any dire situation.",item-icon-138,138,Lv 0 Secondary Life Potion,1,3,0,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can provide a temporary defensive effect, suitable for emergency situations in battle.",item-icon-139,139,Lv 0 Secondary Defense Potion,1,3,0,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This is a type of seed that can be planted to grow bamboo, which is suitable for use in the agricultural field.",item-icon-146,146,Lv 1 Bamboo Seed,1,3,1,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Trifolium seeds are agricultural consumables used to plant trifolium and are suitable for use on low-grade land. They can grow rapidly and produce rich nutritional value in suitable environments.",item-icon-147,147,Lv 1 Trifolium Seed,1,3,1,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This type of carrot seeds can be used to grow fresh and delicious carrots. It is suitable for use in home gardens or small farms and can be planted in spring and autumn. The carrots grown from these seeds are tasty and nutritious.",item-icon-148,148,Lv 1 Carrot Seed,1,3,1,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Pitcher plant seeds are an agricultural consumable that can be used to grow pitcher plants. This plant is a carnivorous plant that can absorb nutrients from insects. After planting, sufficient sunlight and water are needed for smooth growth.",item-icon-149,149,Lv 2 Pigmy Sundew Seed,1,3,2,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This type of cotton seed can be planted in fields and harvested for cotton to be used in textile production.",item-icon-150,150,Lv 2 Cotton Seed,1,3,2,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This seed holds the potential for a prickly and resilient plant to grow. It promises a touch of desert beauty in your garden. Plant it and watch nature's wonders unfold.
 ",item-icon-151,151,Lv 2 Cactus Seed,1,3,2,1,97
-1,"This seed is suitable for planting in warm environments, it grows quickly and has excellent quality. Its taste is extremely spicy, which can add a unique flavor to food, making it the best choice for chili lovers.",item-icon-152,152,Lv 3 Explosive Hot Pepper Seed,1,3,3,1,97
-1,"A tough and durable seed that boasts a strong outer shell, perfect for protection and longevity. Its robust nature ensures it can withstand harsh conditions and thrive in any environment. This seed is a symbol of resilience and strength.",item-icon-153,153,Lv 3 Hard-shelled Fruit Seed,1,3,3,1,97
-1,"This seed holds the promise of a vibrant blue mushroom, ready to bring a splash of color to your garden. Plant it and watch as it grows into a mesmerizing fungi that will captivate your senses.",item-icon-154,154,Lv 3 Blue Mushroom Seed,1,3,3,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This seed is suitable for planting in warm environments, it grows quickly and has excellent quality. Its taste is extremely spicy, which can add a unique flavor to food, making it the best choice for chili lovers.",item-icon-152,152,Lv 3 Explosive Hot Pepper Seed,1,3,3,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+A tough and durable seed that boasts a strong outer shell, perfect for protection and longevity. Its robust nature ensures it can withstand harsh conditions and thrive in any environment. This seed is a symbol of resilience and strength.",item-icon-153,153,Lv 3 Hard-shelled Fruit Seed,1,3,3,1,97
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This seed holds the promise of a vibrant blue mushroom, ready to bring a splash of color to your garden. Plant it and watch as it grows into a mesmerizing fungi that will captivate your senses.",item-icon-154,154,Lv 3 Blue Mushroom Seed,1,3,3,1,97
 1,"A powerful charm that enhances your magical abilities, allowing you to cast spells with greater precision and potency. It radiates an aura of mystic energy, empowering you in your quest for victory.",item-icon-161,161,Lv 0 Talisman,"1,2,3,4,5",4,0,1,
-1,"This powerful fertilizer enhances plant growth and boosts yields, allowing crops to flourish in record time. It provides essential nutrients and promotes strong root development, resulting in healthier and more abundant harvests. Experience accelerated growth like never before with this advanced formula.",item-icon-131,131,Lv 0 Advanced Accelerated Fertilizer,1,3,0,1,98
-1,"This powerful fertilizer significantly boosts crop yields, resulting in bountiful harvests. It enhances plant growth and maximizes nutrient absorption, ensuring healthier and more robust crops. With this advanced fertilizer, farmers can expect impressive improvements in their agricultural productivity.",item-icon-132,132,Lv 0 Advanced Yield-increasing Fertilizer,1,3,0,1,98
-1,"This fertilizer is specially formulated to provide deep hydration and nourishment to plants, resulting in healthier and more vibrant growth. Its advanced formula ensures optimal moisture retention in the soil, promoting strong roots and lush foliage. Give your plants the ultimate hydration boost with this advanced moisturizing fertilizer.",item-icon-133,133,Lv 0 Advanced Moisturizing Fertilizer,1,3,0,1,98
-1,"This potion can be used in battle, and it can heal your wounds.",item-icon-140,140,Lv 1 Treatment Potion,1,3,1,1,
-1,"This potion enhances your combat abilities, boosting your attack power for a limited time. It's a must-have for any adventurer looking to deal devastating blows to their enemies. Use it wisely and watch your foes tremble before you.",item-icon-141,141,Lv 1 Attack Potion,1,3,1,1,
-1,"This potion enhances your speed, allowing you to move swiftly and dodge attacks with ease. It's a must-have for any adventurer looking to gain an edge in battles.",item-icon-142,142,Lv 1 Swiftness Potion,1,3,1,1,
-1,"This potion enhances your combat abilities, increasing your chances of delivering devastating blows to your enemies. It boosts your critical strike rate, allowing you to deal massive damage in battles. With this potion, victory is within your grasp.",item-icon-143,143,Lv 1 Critical Strike Potion,1,3,1,1,
-1,This potion can restore your health points. It works better when used during battles.,item-icon-144,144,Lv 1 Life Potion,1,3,1,1,
-1,"A powerful elixir that enhances your defensive capabilities, providing a temporary shield against enemy attacks. This potion boosts your armor and resilience, allowing you to withstand even the toughest battles. Use it wisely to turn the tide in your favor and emerge victorious.",item-icon-145,145,Lv 1 Defensive Potion,1,3,1,1,
-1,"Clay is a highly malleable soil commonly used to make pottery, bricks, and other building materials. It typically comes in shades of grey-brown or red-brown and has a fine texture with a high concentration of organic matter and minerals. When collecting clay, it is important to keep the soil moist for better shaping and processing.",item-icon-61,61,Lv 1 Clay,1,4,1,1,
-1,"This resin is a highly viscous liquid that can be used to make adhesives, coatings, and sealants, among other things. It is usually collected from trees and requires special tools for collection.",item-icon-65,65,Lv 1 Resin,1,4,1,1,
-1,"A perennial herbaceous plant that grows in the wilderness, with strong drought resistance. Its thick leaves contain abundant water and nutrients, making it an important raw material for making alcoholic beverages and medicine.",item-icon-68,68,Lv 3 Maguey,1,4,3,1,
-1,"This plant fiber is a collected raw material that is usually obtained from trees. It can be used to make a variety of different items, such as ropes, fabrics, and paper.",item-icon-66,66,Lv 1 Plant Fibre,1,4,1,1,
-1,These mushrooms grow in the cold polar regions and have a light blue color. They have a delicious taste and are suitable for cooking.,item-icon-67,67,Lv 2 Frozen Fungus,1,4,2,1,
-1,This spider web is level 1 and can be collected in the forest. It is a raw material that can be used to make various items.,item-icon-69,69,Lv 1 Cobweb,1,4,1,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This powerful fertilizer enhances plant growth and boosts yields, allowing crops to flourish in record time. It provides essential nutrients and promotes strong root development, resulting in healthier and more abundant harvests. Experience accelerated growth like never before with this advanced formula.",item-icon-131,131,Lv 0 Advanced Accelerated Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This powerful fertilizer significantly boosts crop yields, resulting in bountiful harvests. It enhances plant growth and maximizes nutrient absorption, ensuring healthier and more robust crops. With this advanced fertilizer, farmers can expect impressive improvements in their agricultural productivity.",item-icon-132,132,Lv 0 Advanced Yield-increasing Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This fertilizer is specially formulated to provide deep hydration and nourishment to plants, resulting in healthier and more vibrant growth. Its advanced formula ensures optimal moisture retention in the soil, promoting strong roots and lush foliage. Give your plants the ultimate hydration boost with this advanced moisturizing fertilizer.",item-icon-133,133,Lv 0 Advanced Moisturizing Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can be used in battle, and it can heal your wounds.",item-icon-140,140,Lv 1 Treatment Potion,1,3,1,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion enhances your combat abilities, boosting your attack power for a limited time. It's a must-have for any adventurer looking to deal devastating blows to their enemies. Use it wisely and watch your foes tremble before you.",item-icon-141,141,Lv 1 Attack Potion,1,3,1,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion enhances your speed, allowing you to move swiftly and dodge attacks with ease. It's a must-have for any adventurer looking to gain an edge in battles.",item-icon-142,142,Lv 1 Swiftness Potion,1,3,1,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion enhances your combat abilities, increasing your chances of delivering devastating blows to your enemies. It boosts your critical strike rate, allowing you to deal massive damage in battles. With this potion, victory is within your grasp.",item-icon-143,143,Lv 1 Critical Strike Potion,1,3,1,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can restore your health points. It works better when used during battles.",item-icon-144,144,Lv 1 Life Potion,1,3,1,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+A powerful elixir that enhances your defensive capabilities, providing a temporary shield against enemy attacks. This potion boosts your armor and resilience, allowing you to withstand even the toughest battles. Use it wisely to turn the tide in your favor and emerge victorious.",item-icon-145,145,Lv 1 Defensive Potion,1,3,1,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+Clay is a highly malleable soil commonly used to make pottery, bricks, and other building materials. It typically comes in shades of grey-brown or red-brown and has a fine texture with a high concentration of organic matter and minerals. When collecting clay, it is important to keep the soil moist for better shaping and processing.",item-icon-61,61,Lv 1 Clay,1,4,1,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+This resin is a highly viscous liquid that can be used to make adhesives, coatings, and sealants, among other things. It is usually collected from trees and requires special tools for collection.",item-icon-65,65,Lv 1 Resin,1,4,1,1,
+1,"Someone once saw this material in the canyon. It can be used to craft equipment or items.
+-------
+A perennial herbaceous plant that grows in the wilderness, with strong drought resistance. Its thick leaves contain abundant water and nutrients, making it an important raw material for making alcoholic beverages and medicine.",item-icon-68,68,Lv 3 Maguey,1,4,3,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+This plant fiber is a collected raw material that is usually obtained from trees. It can be used to make a variety of different items, such as ropes, fabrics, and paper.",item-icon-66,66,Lv 1 Plant Fibre,1,4,1,1,
+1,"Someone once saw this material on the Snow Mountain. It can be used to craft equipment or items.
+-------
+These mushrooms grow in the cold polar regions and have a light blue color. They have a delicious taste and are suitable for cooking.",item-icon-67,67,Lv 2 Frozen Fungus,1,4,2,1,
+1,"Someone once saw this material by the seaside. It can be used to craft equipment or items.
+-------
+This spider web is level 1 and can be collected in the forest. It is a raw material that can be used to make various items.",item-icon-69,69,Lv 1 Cobweb,1,4,1,1,
 1,"This unique NFT Talisman is a powerful artifact that enhances your abilities and boosts your luck in the game. It radiates an aura of mystic energy, empowering you to overcome challenges and achieve greatness. Equip it to unlock hidden potential and embark on an extraordinary journey.",item-icon-162,162,Lv 0 NFT Talisman #1,1,4,0,1,
 1,"This NFT Talisman #2 is a powerful artifact that enhances your character's abilities, providing a boost to their strength and agility. It radiates a mystical aura, attracting luck and fortune to your adventures. With this talisman by your side, you'll become an unstoppable force in the game.",item-icon-163,163,Lv 0 NFT Talisman #2,1,4,0,1,
 1,"This NFT Talisman #4 is a powerful artifact that enhances your abilities and boosts your performance in battles. It radiates an aura of protection, granting you increased defense and resilience against enemy attacks. With this talisman by your side, you'll become an unstoppable force on the battlefield.",item-icon-164,164,Lv 0 NFT Talisman #4,"2,1",4,0,1,
@@ -126,75 +340,213 @@ canMint-int,desc-string,icon-string,id-int,name-string,quality-int[],type-int,us
 1,This ticket grants you access to an exclusive event filled with thrilling adventures and unforgettable experiences. Get ready to embark on a journey like no other and create memories that will last a lifetime.,item-icon-171,171,Lv 0 Ticket #1,1,4,0,1,
 1,This ticket grants you access to an exclusive event filled with thrilling adventures and unforgettable experiences. Get ready to embark on a journey like no other and create memories that will last a lifetime.,item-icon-172,172,Lv 0 Ticket #2,1,4,0,1,
 1,This ticket grants you access to an exclusive event filled with thrilling adventures and unforgettable experiences. Get ready to embark on a journey like no other and create memories that will last a lifetime.,item-icon-173,173,Lv 0 Ticket #3,1,4,0,1,
-1,"This withered plant may be caused by lack of water or nutrients. It can be used to make fertilizer or medicinal herbs, and can also be used as animal feed.",item-icon-174,174,Lv 0 Withered Plant,1,4,0,1,
-1,"This item is an organic substance that acts as a fertilizer and can be used in agricultural production. It is obtained by fermentation and decay of animal excrement and contains rich nutrients such as nitrogen, phosphorus, potassium, etc.",item-icon-176,176,Lv 0 Feces,1,4,0,1,
-1,"This tender shoot is harvested from cactus and has a light green color and soft texture. It is an important agricultural raw material that can be used to make medicines, food, and beauty products, among others.",item-icon-177,177,Lv 1 Cactus Sprout,1,4,1,1,
-1,This screw was obtained from monster husbandry and can be used as a raw material for agriculture.,item-icon-178,178,Lv 1 Screw,1,4,1,1,
-1,"Pumpkin sprouts are agricultural raw materials produced from monster breeding, presenting a tender green appearance and being rich in nutrients. They can be used to make a variety of foods and medicines.",item-icon-179,179,Lv 1 Pumpkin Sprout,1,4,1,1,
-1,Blue crystal is a rare agricultural raw material that comes from monster farming. It can help farmers improve the growth rate and yield of crops and is an indispensable part of agricultural production.,item-icon-180,180,Lv 2 Blue Crystal Stone,1,4,2,1,
-1,"This grass-type monster, Broadleaf, is a cute creature that is a livestock output in agricultural production, providing abundant raw materials.",item-icon-181,181,Lv 2 Grass monster leaf,1,4,2,1,
-1,This is honey produced from monster farms and can be used as agricultural raw materials.,item-icon-182,182,Lv 2 Honey,1,4,2,1,
-1,This item is produced from the monster ranch and is a raw material used in agriculture. It is a level 3 Dark Feather.,item-icon-183,183,Lv 3 Shadow Plume,1,4,3,1,
-1,"This solidified magma is produced by monster breeding and can be used for the production of agricultural raw materials. It has high viscosity and high temperature resistance, making it suitable for use under extreme conditions.",item-icon-184,184,Lv 3 Solidified Lava,1,4,3,1,
-1,This frost shard is obtained from monster husbandry and is a material used in agriculture. It has three levels of quality and can be used to make various ice-based items.,item-icon-185,185,Lv 3 Frost Shard,1,4,3,1,
-1,"This brush is a tool specifically designed for agriculture, which can easily clean crops and land.",item-icon-95,95,Lv 0 Brush,1,1,0,1,
-1,"This clipper can help farmers quickly and easily shear wool, improving shearing efficiency. It is suitable for different types of sheep.",item-icon-96,96,Lv 0 Hair Clipper,1,1,0,1,
-1,A handheld device used by farmers to efficiently extract milk from cows. It features a comfortable grip and a suction mechanism that ensures a smooth and gentle milking process.,item-icon-97,97,Lv 0 Milker,1,1,0,1,
-1,This crop appears to have rotted and is no longer edible. It may have been caused by overwatering or pest infestation. These crops can be used as fertilizer or disposed of by burial.,item-icon-175,175,Lv 0 Decaying Crop,1,4,0,1,
-1,"This stylish hat is perfect for any adventurer, providing extra protection from the elements without sacrificing style. Its wide brim and adjustable strap ensure a comfortable fit, making it a must-have accessory for any outdoor excursion.Crafted with durable materials, this hat is designed to withstand the toughest conditions. Its lightweight construction and breathable fabric keep you cool and protected during long hours of exploration. With its practical design and fashionable look, the Gathering Hat is a must-have for any seasoned adventurer.",item-icon-116,116,Lv 1 Gathering Hat,1,1,1,1,
-1,"These gloves are designed for avid collectors, allowing them to easily gather various resources without getting their hands dirty. With a comfortable fit and durable material, they provide a reliable grip and protect against sharp edges. Whether it's picking herbs or mining ores, these gloves are a must-have for any dedicated gatherer.",item-icon-126,126,Lv 2 Gathering Gloves,"1,2",1,2,1,
-1,"These gloves are designed for avid gatherers, providing enhanced grip and dexterity. They are made from durable materials that protect your hands from thorns and sharp edges, allowing you to gather resources with ease and efficiency. With these gloves, you'll never have to worry about blisters or cuts again.",item-icon-125,125,Lv 1 Gathering Gloves,1,1,1,1,
-1,"These pants are designed for avid adventurers, providing comfort and flexibility during long journeys. With reinforced stitching and durable fabric, they are perfect for gathering resources in the wilderness. Stay agile and focused with these essential pants for any dedicated explorer.",item-icon-122,122,Lv 1 Gathering Pants,1,1,1,1,
-1,"These pants are designed for avid adventurers, providing comfort and flexibility during long journeys. Crafted with durable materials, they offer excellent protection against the elements without sacrificing mobility. Perfect for those who seek to gather resources efficiently while exploring the vast landscapes of the game.",item-icon-124,124,Lv 3 Gathering Pants,"1,2,3",1,3,1,
-1,"These pants are perfect for gathering resources in the game, providing extra storage space and durability. They are designed with reinforced stitching and multiple pockets, allowing players to easily carry and collect various materials without worrying about wear and tear.",item-icon-123,123,Lv 2 Gathering Pants,"1,2",1,2,1,
-1,"These gloves are designed for avid gatherers, providing enhanced dexterity and grip. They are made from a durable material that offers protection against thorns and sharp objects. With these gloves, you can gather resources with ease and efficiency.",item-icon-127,127,Lv 3 Gathering Gloves,"1,2,3",1,3,1,
-1,"A practical jacket designed for adventurers, providing excellent protection against the elements. Its durable fabric and reinforced stitching make it ideal for long journeys and outdoor activities. Stay warm and comfortable without sacrificing mobility with this essential piece of gear.",item-icon-121,121,Lv 3 Gathering Jacket,"1,2,3",1,3,1,
-1,"A practical jacket designed for adventurers, providing excellent protection against the elements. Its durable fabric and reinforced stitching make it ideal for long journeys and outdoor exploration. With multiple pockets and adjustable straps, it offers convenience and functionality for any outdoor enthusiast.",item-icon-120,120,Lv 2 Gathering Jacket,"1,2",1,2,1,
-1,"A durable jacket designed for outdoor adventures, providing excellent protection against the elements. Its lightweight and breathable fabric ensures comfort during long hours of exploration. With multiple pockets and reinforced stitching, it's the perfect companion for any avid adventurer.",item-icon-119,119,Lv 1 Lv 1 Gathering Jacket,1,1,1,1,
-1,"A stylish hat that enhances your gathering abilities, making it easier to collect resources in the game.A practical accessory that boosts your gathering efficiency, allowing you to gather materials faster and more efficiently.",item-icon-118,118,Lv 3 Gathering Hat,"1,2,3",1,3,1,
-1,"A stylish hat that enhances your gathering abilities, allowing you to collect resources more efficiently. Its unique design provides comfort and protection, making it a must-have accessory for any dedicated gatherer.A practical hat designed specifically for gathering tasks. Its lightweight and breathable material keeps you cool and focused during long hours of gathering. ",item-icon-117,117,Lv 2 Gathering Hat,"1,2",1,2,1,
-1,"These agricultural shoes are designed specifically for agricultural workers. They feature non-slip, wear-resistant, and breathable characteristics, which can protect the feet and improve work efficiency.",item-icon-112,112,Lv 3 Farming Shoes,"1,2,3",1,3,1,
-1,"This agricultural shoe is designed specifically for farming activities such as plowing and planting. It is made from high-quality materials that are durable, breathable, and comfortable, providing protection for the feet of farmers.",item-icon-111,111,Lv 2 Farming Shoes,"1,2",1,2,1,
-1,"This agricultural shoe is made of high-quality materials, lightweight and comfortable, suitable for long-term wear. The sole is non-slip and suitable for various agricultural fields, making your work easier.",item-icon-110,110,Lv 1 Farming Shoes,1,1,1,1,
-1,"Pet feed is a consumable item that is suitable for level 0 pets, and can increase the pet's satiety and growth value. It is made from natural plants and nutrients, with a refreshing taste and easy digestion and absorption. Each pack of pet feed is lightweight and easy to carry, making it a must-have item for pet owners.",item-icon-28,28,Lv 0 Feed - Small,1,3,0,1,27
-1,"Animal feed is a consumable product that provides the necessary nutrients for animals to maintain healthy growth. It is suitable for various livestock and pets, and can increase their productivity and lifespan.",item-icon-29,29,Lv 0 Feed - Big,1,3,0,1,27
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This withered plant may be caused by lack of water or nutrients. It can be used to make fertilizer or medicinal herbs, and can also be used as animal feed.",item-icon-174,174,Lv 0 Withered Plant,1,4,0,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This item is an organic substance that acts as a fertilizer and can be used in agricultural production. It is obtained by fermentation and decay of animal excrement and contains rich nutrients such as nitrogen, phosphorus, potassium, etc.",item-icon-176,176,Lv 0 Feces,1,4,0,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This tender shoot is harvested from cactus and has a light green color and soft texture. It is an important agricultural raw material that can be used to make medicines, food, and beauty products, among others.",item-icon-177,177,Lv 1 Cactus Sprout,1,4,1,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This screw was obtained from monster husbandry and can be used as a raw material for agriculture.",item-icon-178,178,Lv 1 Screw,1,4,1,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+Pumpkin sprouts are agricultural raw materials produced from monster breeding, presenting a tender green appearance and being rich in nutrients. They can be used to make a variety of foods and medicines.",item-icon-179,179,Lv 1 Pumpkin Sprout,1,4,1,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+Blue crystal is a rare agricultural raw material that comes from monster farming. It can help farmers improve the growth rate and yield of crops and is an indispensable part of agricultural production.",item-icon-180,180,Lv 2 Blue Crystal Stone,1,4,2,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This grass-type monster, Broadleaf, is a cute creature that is a livestock output in agricultural production, providing abundant raw materials.",item-icon-181,181,Lv 2 Grass monster leaf,1,4,2,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This is honey produced from monster farms and can be used as agricultural raw materials.",item-icon-182,182,Lv 2 Honey,1,4,2,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This item is produced from the monster ranch and is a raw material used in agriculture. It is a level 3 Dark Feather.",item-icon-183,183,Lv 3 Shadow Plume,1,4,3,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This solidified magma is produced by monster breeding and can be used for the production of agricultural raw materials. It has high viscosity and high temperature resistance, making it suitable for use under extreme conditions.",item-icon-184,184,Lv 3 Solidified Lava,1,4,3,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This frost shard is obtained from monster husbandry and is a material used in agriculture. It has three levels of quality and can be used to make various ice-based items.",item-icon-185,185,Lv 3 Frost Shard,1,4,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This brush is a tool specifically designed for agriculture, which can easily clean crops and land.",item-icon-95,95,Lv 0 Brush,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This clipper can help farmers quickly and easily shear wool, improving shearing efficiency. It is suitable for different types of sheep.",item-icon-96,96,Lv 0 Hair Clipper,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A handheld device used by farmers to efficiently extract milk from cows. It features a comfortable grip and a suction mechanism that ensures a smooth and gentle milking process.",item-icon-97,97,Lv 0 Milker,1,1,0,1,
+1,"You can obtain this type of material through breeding. It can be used to craft equipment or items.
+-------
+This crop appears to have rotted and is no longer edible. It may have been caused by overwatering or pest infestation. These crops can be used as fertilizer or disposed of by burial.",item-icon-175,175,Lv 0 Decaying Crop,1,4,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This stylish hat is perfect for any adventurer, providing extra protection from the elements without sacrificing style. Its wide brim and adjustable strap ensure a comfortable fit, making it a must-have accessory for any outdoor excursion.Crafted with durable materials, this hat is designed to withstand the toughest conditions. Its lightweight construction and breathable fabric keep you cool and protected during long hours of exploration. With its practical design and fashionable look, the Gathering Hat is a must-have for any seasoned adventurer.",item-icon-116,116,Lv 1 Gathering Hat,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These gloves are designed for avid collectors, allowing them to easily gather various resources without getting their hands dirty. With a comfortable fit and durable material, they provide a reliable grip and protect against sharp edges. Whether it's picking herbs or mining ores, these gloves are a must-have for any dedicated gatherer.",item-icon-126,126,Lv 2 Gathering Gloves,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These gloves are designed for avid gatherers, providing enhanced grip and dexterity. They are made from durable materials that protect your hands from thorns and sharp edges, allowing you to gather resources with ease and efficiency. With these gloves, you'll never have to worry about blisters or cuts again.",item-icon-125,125,Lv 1 Gathering Gloves,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These pants are designed for avid adventurers, providing comfort and flexibility during long journeys. With reinforced stitching and durable fabric, they are perfect for gathering resources in the wilderness. Stay agile and focused with these essential pants for any dedicated explorer.",item-icon-122,122,Lv 1 Gathering Pants,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These pants are designed for avid adventurers, providing comfort and flexibility during long journeys. Crafted with durable materials, they offer excellent protection against the elements without sacrificing mobility. Perfect for those who seek to gather resources efficiently while exploring the vast landscapes of the game.",item-icon-124,124,Lv 3 Gathering Pants,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These pants are perfect for gathering resources in the game, providing extra storage space and durability. They are designed with reinforced stitching and multiple pockets, allowing players to easily carry and collect various materials without worrying about wear and tear.",item-icon-123,123,Lv 2 Gathering Pants,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These gloves are designed for avid gatherers, providing enhanced dexterity and grip. They are made from a durable material that offers protection against thorns and sharp objects. With these gloves, you can gather resources with ease and efficiency.",item-icon-127,127,Lv 3 Gathering Gloves,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A practical jacket designed for adventurers, providing excellent protection against the elements. Its durable fabric and reinforced stitching make it ideal for long journeys and outdoor activities. Stay warm and comfortable without sacrificing mobility with this essential piece of gear.",item-icon-121,121,Lv 3 Gathering Jacket,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A practical jacket designed for adventurers, providing excellent protection against the elements. Its durable fabric and reinforced stitching make it ideal for long journeys and outdoor exploration. With multiple pockets and adjustable straps, it offers convenience and functionality for any outdoor enthusiast.",item-icon-120,120,Lv 2 Gathering Jacket,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A durable jacket designed for outdoor adventures, providing excellent protection against the elements. Its lightweight and breathable fabric ensures comfort during long hours of exploration. With multiple pockets and reinforced stitching, it's the perfect companion for any avid adventurer.",item-icon-119,119,Lv 1 Lv 1 Gathering Jacket,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A stylish hat that enhances your gathering abilities, making it easier to collect resources in the game.A practical accessory that boosts your gathering efficiency, allowing you to gather materials faster and more efficiently.",item-icon-118,118,Lv 3 Gathering Hat,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A stylish hat that enhances your gathering abilities, allowing you to collect resources more efficiently. Its unique design provides comfort and protection, making it a must-have accessory for any dedicated gatherer.A practical hat designed specifically for gathering tasks. Its lightweight and breathable material keeps you cool and focused during long hours of gathering. ",item-icon-117,117,Lv 2 Gathering Hat,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+These agricultural shoes are designed specifically for agricultural workers. They feature non-slip, wear-resistant, and breathable characteristics, which can protect the feet and improve work efficiency.",item-icon-112,112,Lv 3 Farming Shoes,"1,2,3",1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This agricultural shoe is designed specifically for farming activities such as plowing and planting. It is made from high-quality materials that are durable, breathable, and comfortable, providing protection for the feet of farmers.",item-icon-111,111,Lv 2 Farming Shoes,"1,2",1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This agricultural shoe is made of high-quality materials, lightweight and comfortable, suitable for long-term wear. The sole is non-slip and suitable for various agricultural fields, making your work easier.",item-icon-110,110,Lv 1 Farming Shoes,1,1,1,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Pet feed is a consumable item that is suitable for level 0 pets, and can increase the pet's satiety and growth value. It is made from natural plants and nutrients, with a refreshing taste and easy digestion and absorption. Each pack of pet feed is lightweight and easy to carry, making it a must-have item for pet owners.",item-icon-28,28,Lv 0 Feed - Small,1,3,0,1,27
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Animal feed is a consumable product that provides the necessary nutrients for animals to maintain healthy growth. It is suitable for various livestock and pets, and can increase their productivity and lifespan.",item-icon-29,29,Lv 0 Feed - Big,1,3,0,1,27
 0,"Farming EXP is an experience value in the game that can be obtained through agricultural activities such as planting crops and raising animals. It is a key factor in improving agricultural skills and levels, and is also a necessary condition for unlocking higher-level agricultural tools and equipment.",item-icon-188,188,Farming EXP,1,4,0,0,
 0,"Combat EXP refers to the experience gained in battles. It can help players level up and improve their skills, enhancing their character's abilities. In many games, Combat EXP is one of the important ways for players to improve their strength.",item-icon-189,189,Combat EXP,1,4,0,0,
 0,"Gathering EXP is a key resource in the game, playing a vital role in boosting resource collection efficiency and character capabilities. Players accumulate experience through activities such as logging and mining to increase gathering skill levels. Skill levels determine collection speed, rare resource acquisition probability, and unlocking of higher-level skills. As the game progresses, character needs become more complex, making high gathering skills essential for support. Additionally, elevated gathering experience also contributes to enhanced attack abilities. Players should continuously learn skills and improve gathering experience to bravely face challenges and rise among the strongest.",item-icon-190,190,Gathering EXP,1,4,0,0,
-1,This potion can be used during battle to heal your wounds and restore your fighting ability.,item-icon-191,191,Lv 2 Crystallized Healing Potion,1,3,2,1,
-1,This potion can increase your attack power and make your attacks sharper. Using it in battle can give you a greater advantage.,item-icon-192,192,Lv 2 Crystallized Attack Potion,1,3,2,1,
-1,This potion can increase your movement speed and greatly assist you in battles.,item-icon-194,194,Lv 2 Crystallized Swiftness Potion,1,3,2,1,
-1,"This potion can increase your critical hit rate, making you more deadly in battle.",item-icon-195,195,Lv 2 Crystallized Critical Potion,1,3,2,1,
-1,"A potent elixir that restores vitality and rejuvenates the weary adventurer, providing a surge of energy and healing properties. This precious potion is a lifeline in dire situations, offering a quick and refreshing boost to keep you going in the face of danger.",item-icon-196,196,Lv 2 Crystallized Life Potion,1,3,2,1,
-1,"This potion can add a layer of crystalline protection to your defense, making you even more invincible in battle.",item-icon-197,197,Lv 2 Crystallized Defense Potion,1,3,2,1,
-1,This essence is collected from trees and can be used to produce various raw materials and synthetic substances.,item-icon-207,207,Lv 1 Gather Essence,1,4,1,1,
-1,This essence can be collected by harvesting from trees and is a necessary material for crafting various raw material compounds.,item-icon-208,208,Lv 2 Gather Essence,1,4,2,1,
-1,"This item is an essence used to collect raw materials for synthesis, and requires a level of 3 to use. It can be obtained by collecting from trees and is a very important resource.",item-icon-209,209,Lv 3 Gather Essence,1,4,3,1,
-1,"This agricultural planting essence is carefully synthesized from high-quality agricultural raw materials and is suitable for agricultural planting from grade one. It can improve the growth rate and yield of crops, as well as increase the quality and taste of crops. Using it can make your crops healthier and more prosperous, and make your agricultural production more efficient and stable.",item-icon-210,210,Lv 1 Agricultural Planting Essence,1,4,1,1,
-1,"This is an essence specially designed for agricultural planting, which can improve the growth rate and yield of crops and help improve agricultural production efficiency. It is synthesized from a variety of agricultural raw materials and is an indispensable important item in agricultural production.",item-icon-211,211,Lv 2 Agricultural Planting Essence,1,4,2,1,
-1,"This agricultural planting essence is a mixture of various precious plant essences, which has a miraculous effect on promoting crop growth and increasing yield. It is one of the indispensable raw materials in the agricultural field and is suitable for various types of crops.",item-icon-212,212,Lv 3 Agricultural Planting Essence,1,4,3,1,
-1,"This agricultural and animal husbandry essence is a mixture of various natural plant and animal essences, which can improve the production efficiency and yield of agriculture and animal husbandry. It is rich in nutritional components and bioactive substances, which can promote the healthy growth of crops and livestock.",item-icon-213,213,Lv 1 Agricultural Livestock Essence,1,4,1,1,
-1,"This is an essence extracted from agriculture and animal husbandry, which can be used to synthesize other agricultural raw materials.",item-icon-214,214,Lv 2 Agricultural Livestock Essence,1,4,2,1,
-1,"This essence is extracted from high-quality agricultural and livestock products, with extremely high nutritional and medicinal value. It can be used to make various agricultural and livestock-related medicines and seasonings.",item-icon-215,215,Lv 3 Agricultural Livestock Essence,1,4,3,1,
-1,"This essence of combat is a raw material used to synthesize higher level equipment, possessing powerful combat abilities and suitable for battles at level 1.",item-icon-216,216,Lv 1 Combat Essence,1,4,1,1,
-1,"This is a combat essence used to synthesize level 2 equipment, which can enhance the combat attributes of the equipment. It is synthesized from raw materials obtained during combat and is an indispensable item in battle.",item-icon-217,217,Lv 2 Combat Essence,1,4,2,1,
-1,"This is a raw material used for synthesizing combat equipment, which has a high combat capability and can enhance the level and attributes of the equipment.",item-icon-218,218,Lv 3 Combat Essence,1,4,3,1,
-1,This fertilizer can promote the growth rate of crops and is suitable for intermediate crops.,item-icon-219,219,Lv 0 Better Accelerated Fertilizer,1,3,0,1,98
-1,"These fertilizers are specially formulated to enhance crop yields, resulting in bountiful harvests. They provide essential nutrients and promote healthy plant growth, ensuring optimal productivity for farmers. Boost your yields with these high-quality fertilizers.",item-icon-220,220,Lv 0 Better Yield-Boosting Fertilizers,1,3,0,1,98
-1,"This fertilizer provides enhanced moisture retention for plants, ensuring they stay hydrated and healthy. It promotes optimal growth and nourishment without the need for constant watering. Give your plants the best care with this advanced moisturizing fertilizer.",item-icon-221,221,Lv 0 Better Moisturizing Fertilizer,1,3,0,1,98
-1,"This powerful tool is crafted from solid stone, making it incredibly durable and perfect for smashing through tough obstacles. Its weighty head delivers a satisfying impact, making it a favorite among adventurers and builders alike. ",item-icon-222,222,Lv 0 Stone Hammer,1,1,0,1,
-1,"A sturdy wooden bow crafted with precision, perfect for long-range attacks. Its smooth surface and expertly carved design ensure a comfortable grip and accurate shots.",item-icon-223,223,Lv 0 Wood Bow,1,1,0,1,
-1,"Stone sickle is a sickle made of hard stone. Its blade is sharp and can easily cut through various plants. The handle of the stone sickle is carefully designed, providing a comfortable grip and stable and flexible use. Its stone material makes it durable and resistant to rust, making it suitable for outdoor use. Whether it is trimming lawns or harvesting crops, the stone sickle is a practical tool.",item-icon-225,225,Lv 1 Stone Sickle,1,1,1,1,
-1,"Copper sickle is a farming tool made of pure copper, featuring a curved blade and a sturdy handle. Its sharp and durable blade is suitable for cutting crops and grass. The copper material makes the sickle more robust and resistant to rust. It is exquisitely designed, comfortable to hold, and easy to use. Copper sickle is one of the essential labor tools for farmers, helping them complete the harvest in the fields. Whether in the field or on the farm, the copper sickle demonstrates its practicality and durability.",item-icon-226,226,Lv 2 Copper sickle,1,1,2,1,
-1,"The iron sickle is a sturdy and durable tool made of high-quality iron. Its blade is sharp and suitable for cutting grass, harvesting crops, and other agricultural work. The curved design of the sickle allows users to easily cut crops and improve work efficiency. Its handle is carefully designed for a comfortable grip and stable use. Whether it is agricultural work or gardening pruning, the iron sickle is an indispensable tool.",item-icon-227,227,Lv 3 Iron sickle,1,1,3,1,
-1,"Crystal Scythe, a weapon shining with crystal clear brilliance, the blade is made of pure crystal, transparent like water, emitting a mysterious magic. The scythe's blade is incredibly sharp, capable of effortlessly cutting through any obstacles. Its handle is adorned with exquisite silver patterns, giving off a sense of nobility and mystery. Holding the Crystal Scythe, it feels as if one can control the power of nature, unleashing boundless energy, becoming an invincible presence in battle. Whether it is a warrior or a mage, they all yearn to possess this unique weapon to showcase their immense strength.",item-icon-228,228,Lv 4 Crystal Sickle,1,1,4,1,
-1,"Golden sickle, shining with golden light, incredibly sharp, the blade of the sickle is embedded with precious gold, exuding an air of luxury. The sickle blade is curved, perfect for harvesting crops. With one swing, it brings about a bountiful harvest, just like gold. The handle is meticulously carved, magnificent yet comfortable, holding it in your hand feels like possessing infinite power. Whether as a decoration or a practical tool, the golden sickle is a unique and luxurious choice.",item-icon-229,229,Lv 5 Golden sickle,1,1,5,1,
-1,"Diamond Scythe is an exquisite and magnificent weapon, with its blade made of pure diamond, shining with a captivating light. The scythe's blade is incredibly sharp, capable of effortlessly cutting through any obstacles. Its handle is intricately designed, providing a comfortable grip, allowing for greater agility and ease in battle. The Diamond Scythe not only possesses formidable attacking power but also possesses unique magical properties, able to unleash deadly energy waves, leaving enemies with nowhere to escape. Whether in battle or display, the Diamond Scythe is a remarkable treasure that captures attention.",item-icon-230,230,Lv 6 Diamond sickle,1,1,6,1,
-1,"Starry Scythe, a scythe shining with starlight, with countless bright stars embedded in its blade, emitting a mysterious glow. Its blade is incredibly sharp, capable of effortlessly cutting through any obstacles. The handle of the scythe is carved with exquisite constellation patterns, giving a sense of divinity and solemnity. Wielding the Starry Scythe feels like harnessing the power of the stars, allowing one to feel endless strength and glory. Whether in battle or ceremony, it is an excellent choice.",item-icon-231,231,Lv 7 Starlight Scythe,1,1,7,1,
-1,A Bomb,item-icon-232,232,Bomb,1,3,0,1,347
-1,Stun Potion,item-icon-233,233,Stun Potion,1,3,0,1,348
-1,Viscous Potion,item-icon-234,234,Viscous Potion,1,3,0,1,351
-1,Burning Postion,item-icon-235,235,Burning Postion,1,3,0,1,352
-1,Yellow Flash,item-icon-236,236,Yellow Flash,1,3,0,1,356
-1,Combo Miss,item-icon-237,237,Combo Miss,1,3,0,1,357
-1,Buff Clear,item-icon-238,238,Buff Clear,1,3,0,1,358
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can be used during battle to heal your wounds and restore your fighting ability.",item-icon-191,191,Lv 2 Crystallized Healing Potion,1,3,2,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can increase your attack power and make your attacks sharper. Using it in battle can give you a greater advantage.",item-icon-192,192,Lv 2 Crystallized Attack Potion,1,3,2,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can increase your movement speed and greatly assist you in battles.",item-icon-194,194,Lv 2 Crystallized Swiftness Potion,1,3,2,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can increase your critical hit rate, making you more deadly in battle.",item-icon-195,195,Lv 2 Crystallized Critical Potion,1,3,2,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+A potent elixir that restores vitality and rejuvenates the weary adventurer, providing a surge of energy and healing properties. This precious potion is a lifeline in dire situations, offering a quick and refreshing boost to keep you going in the face of danger.",item-icon-196,196,Lv 2 Crystallized Life Potion,1,3,2,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This potion can add a layer of crystalline protection to your defense, making you even more invincible in battle.",item-icon-197,197,Lv 2 Crystallized Defense Potion,1,3,2,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This essence is collected from trees and can be used to produce various raw materials and synthetic substances.",item-icon-207,207,Lv 1 Gather Essence,1,4,1,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This essence can be collected by harvesting from trees and is a necessary material for crafting various raw material compounds.",item-icon-208,208,Lv 2 Gather Essence,1,4,2,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This item is an essence used to collect raw materials for synthesis, and requires a level of 3 to use. It can be obtained by collecting from trees and is a very important resource.",item-icon-209,209,Lv 3 Gather Essence,1,4,3,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This agricultural planting essence is carefully synthesized from high-quality agricultural raw materials and is suitable for agricultural planting from grade one. It can improve the growth rate and yield of crops, as well as increase the quality and taste of crops. Using it can make your crops healthier and more prosperous, and make your agricultural production more efficient and stable.",item-icon-210,210,Lv 1 Agricultural Planting Essence,1,4,1,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This is an essence specially designed for agricultural planting, which can improve the growth rate and yield of crops and help improve agricultural production efficiency. It is synthesized from a variety of agricultural raw materials and is an indispensable important item in agricultural production.",item-icon-211,211,Lv 2 Agricultural Planting Essence,1,4,2,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This agricultural planting essence is a mixture of various precious plant essences, which has a miraculous effect on promoting crop growth and increasing yield. It is one of the indispensable raw materials in the agricultural field and is suitable for various types of crops.",item-icon-212,212,Lv 3 Agricultural Planting Essence,1,4,3,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This agricultural and animal husbandry essence is a mixture of various natural plant and animal essences, which can improve the production efficiency and yield of agriculture and animal husbandry. It is rich in nutritional components and bioactive substances, which can promote the healthy growth of crops and livestock.",item-icon-213,213,Lv 1 Agricultural Livestock Essence,1,4,1,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This is an essence extracted from agriculture and animal husbandry, which can be used to synthesize other agricultural raw materials.",item-icon-214,214,Lv 2 Agricultural Livestock Essence,1,4,2,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This essence is extracted from high-quality agricultural and livestock products, with extremely high nutritional and medicinal value. It can be used to make various agricultural and livestock-related medicines and seasonings.",item-icon-215,215,Lv 3 Agricultural Livestock Essence,1,4,3,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This essence of combat is a raw material used to synthesize higher level equipment, possessing powerful combat abilities and suitable for battles at level 1.",item-icon-216,216,Lv 1 Combat Essence,1,4,1,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This is a combat essence used to synthesize level 2 equipment, which can enhance the combat attributes of the equipment. It is synthesized from raw materials obtained during combat and is an indispensable item in battle.",item-icon-217,217,Lv 2 Combat Essence,1,4,2,1,
+1,"You can obtain this item through synthesis. It can be used to craft equipment or items.
+-------
+This is a raw material used for synthesizing combat equipment, which has a high combat capability and can enhance the level and attributes of the equipment.",item-icon-218,218,Lv 3 Combat Essence,1,4,3,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This fertilizer can promote the growth rate of crops and is suitable for intermediate crops.",item-icon-219,219,Lv 0 Better Accelerated Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+These fertilizers are specially formulated to enhance crop yields, resulting in bountiful harvests. They provide essential nutrients and promote healthy plant growth, ensuring optimal productivity for farmers. Boost your yields with these high-quality fertilizers.",item-icon-220,220,Lv 0 Better Yield-Boosting Fertilizers,1,3,0,1,98
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+This fertilizer provides enhanced moisture retention for plants, ensuring they stay hydrated and healthy. It promotes optimal growth and nourishment without the need for constant watering. Give your plants the best care with this advanced moisturizing fertilizer.",item-icon-221,221,Lv 0 Better Moisturizing Fertilizer,1,3,0,1,98
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+This powerful tool is crafted from solid stone, making it incredibly durable and perfect for smashing through tough obstacles. Its weighty head delivers a satisfying impact, making it a favorite among adventurers and builders alike. ",item-icon-222,222,Lv 0 Stone Hammer,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+A sturdy wooden bow crafted with precision, perfect for long-range attacks. Its smooth surface and expertly carved design ensure a comfortable grip and accurate shots.",item-icon-223,223,Lv 0 Wood Bow,1,1,0,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+Stone sickle is a sickle made of hard stone. Its blade is sharp and can easily cut through various plants. The handle of the stone sickle is carefully designed, providing a comfortable grip and stable and flexible use. Its stone material makes it durable and resistant to rust, making it suitable for outdoor use. Whether it is trimming lawns or harvesting crops, the stone sickle is a practical tool.",item-icon-225,225,Lv 1 Stone Sickle,1,1,1,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+Copper sickle is a farming tool made of pure copper, featuring a curved blade and a sturdy handle. Its sharp and durable blade is suitable for cutting crops and grass. The copper material makes the sickle more robust and resistant to rust. It is exquisitely designed, comfortable to hold, and easy to use. Copper sickle is one of the essential labor tools for farmers, helping them complete the harvest in the fields. Whether in the field or on the farm, the copper sickle demonstrates its practicality and durability.",item-icon-226,226,Lv 2 Copper sickle,1,1,2,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+The iron sickle is a sturdy and durable tool made of high-quality iron. Its blade is sharp and suitable for cutting grass, harvesting crops, and other agricultural work. The curved design of the sickle allows users to easily cut crops and improve work efficiency. Its handle is carefully designed for a comfortable grip and stable use. Whether it is agricultural work or gardening pruning, the iron sickle is an indispensable tool.",item-icon-227,227,Lv 3 Iron sickle,1,1,3,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+Crystal Scythe, a weapon shining with crystal clear brilliance, the blade is made of pure crystal, transparent like water, emitting a mysterious magic. The scythe's blade is incredibly sharp, capable of effortlessly cutting through any obstacles. Its handle is adorned with exquisite silver patterns, giving off a sense of nobility and mystery. Holding the Crystal Scythe, it feels as if one can control the power of nature, unleashing boundless energy, becoming an invincible presence in battle. Whether it is a warrior or a mage, they all yearn to possess this unique weapon to showcase their immense strength.",item-icon-228,228,Lv 4 Crystal Sickle,1,1,4,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+Golden sickle, shining with golden light, incredibly sharp, the blade of the sickle is embedded with precious gold, exuding an air of luxury. The sickle blade is curved, perfect for harvesting crops. With one swing, it brings about a bountiful harvest, just like gold. The handle is meticulously carved, magnificent yet comfortable, holding it in your hand feels like possessing infinite power. Whether as a decoration or a practical tool, the golden sickle is a unique and luxurious choice.",item-icon-229,229,Lv 5 Golden sickle,1,1,5,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+Diamond Scythe is an exquisite and magnificent weapon, with its blade made of pure diamond, shining with a captivating light. The scythe's blade is incredibly sharp, capable of effortlessly cutting through any obstacles. Its handle is intricately designed, providing a comfortable grip, allowing for greater agility and ease in battle. The Diamond Scythe not only possesses formidable attacking power but also possesses unique magical properties, able to unleash deadly energy waves, leaving enemies with nowhere to escape. Whether in battle or display, the Diamond Scythe is a remarkable treasure that captures attention.",item-icon-230,230,Lv 6 Diamond sickle,1,1,6,1,
+1,"You can obtain this item through synthesis. When equipped, it can enhance attributes.
+-------
+Starry Scythe, a scythe shining with starlight, with countless bright stars embedded in its blade, emitting a mysterious glow. Its blade is incredibly sharp, capable of effortlessly cutting through any obstacles. The handle of the scythe is carved with exquisite constellation patterns, giving a sense of divinity and solemnity. Wielding the Starry Scythe feels like harnessing the power of the stars, allowing one to feel endless strength and glory. Whether in battle or ceremony, it is an excellent choice.",item-icon-231,231,Lv 7 Starlight Scythe,1,1,7,1,
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+A Bomb",item-icon-232,232,Bomb,1,3,0,1,347
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Stun Potion",item-icon-233,233,Stun Potion,1,3,0,1,348
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Viscous Potion",item-icon-234,234,Viscous Potion,1,3,0,1,351
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Burning Postion",item-icon-235,235,Burning Postion,1,3,0,1,352
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Yellow Flash",item-icon-236,236,Yellow Flash,1,3,0,1,356
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Combo Miss",item-icon-237,237,Combo Miss,1,3,0,1,357
+1,"You can obtain this item through synthesis. Using it can trigger special effects.
+-------
+Buff Clear",item-icon-238,238,Buff Clear,1,3,0,1,358
