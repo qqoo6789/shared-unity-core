@@ -41,7 +41,7 @@ designateOptions-string,details-string,difficulty-int,expReward-int[][],id-int,i
 ",0,"3,188",20,1,24,Collecting,,,"{""options"":[{""optionType"":1,""value"":""30,1,100;58,3,200""},{""optionType"":1,""value"":""30,1,100""}]}"
 "{""options"":[{""optionType"":4,""value"":""6,1"",""guiderPoint"":2101}]}","When the monster's health is less than half, it will enter an angry state and emit a golden light from its body. At this point, the monster will gain some powerful buffs. But if you can get it into the Weak State with black smoke, you can defeat it more easily.
 Help Gunner to kill a Metal mutt.",,"2,117",21,0,12,Fresh Start,,,
-"{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101},{""optionType"":13,""value"":""657,80,512,500"",""guiderPoint"":30101}]}","Open your backpack and equip your sword and kill 5 Metal mutts.
+"{""options"":[{""optionType"":4,""value"":""6,5"",""guiderPoint"":2101},{""optionType"":13,""value"":""657,80,512,10"",""guiderPoint"":30101}]}","Open your backpack and equip your sword and kill 5 Metal mutts.
 Enter thetown and find Nash.",,"2,117",22,0,11,Intelligence,,21,
 "{""options"":[{""optionType"":15,""value"":""1,1"",""guiderPoint"":0},{""optionType"":15,""value"":""11,1"",""guiderPoint"":0}]}","- Press [Esc] to open your talent tree interface 
 - select upgrade main branch 
@@ -63,7 +63,7 @@ Cactus Warriors - Has high defense, using heavy attacks can break through its de
 Pumpkin Fiends - Possess remote skills, using Trampling can make it unable to use remote skills.",,"2,117",30,0,40,Teach Them a Lesson,,26,
 "{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":3501},{""optionType"":3,""value"":""31,1"",""guiderPoint"":3401},{""optionType"":15,""value"":""95,1"",""guiderPoint"":0},{""optionType"":9,""value"":""44,1"",""guiderPoint"":0}]}","Try making a Stone Sword in Combat Crafting, stronger weapons can make you more relaxed in battle.
 Before that, you need to unlock the recipe for Stone Sword in the talent tree.",,"2,117",32,0,30,Crafting an Stone Sword,,30,
-"{""options"":[{""optionType"":4,""value"":""10,1"",""guiderPoint"":20103},{""optionType"":4,""value"":""9,1"",""guiderPoint"":20203},{""optionType"":4,""value"":""11,1"",""guiderPoint"":0}]}","You have learned how to upgrade the talent tree and make equipment, try to defeat stronger monsters:
+"{""options"":[{""optionType"":4,""value"":""10,1"",""guiderPoint"":20103},{""optionType"":4,""value"":""9,1"",""guiderPoint"":20203},{""optionType"":4,""value"":""11,1"",""guiderPoint"":20102}]}","You have learned how to upgrade the talent tree and make equipment, try to defeat stronger monsters:
 Kill a Buzz Buddy.
 Kill a Mine Cat.
 Kill a Leafy Lurker.",,"2,117",33,0,41,Advanced Combat Challenge,,32,
@@ -81,7 +81,7 @@ Plant Endurance Fruit seeds.",,"1,117",36,0,39,Advanced Farming Challenge,,35,
 ,Hunt them down and bring back some loot.,,"2,278",42,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":4,""value"":""9,2,100;11,2,100;10,2,100""},{""optionType"":1,""value"":""33,1,100;34,1,100;35,1,100""}]}"
 ,Hunt them down and bring back some loot,,"2,369",43,1,,Daily-Lv3-Battle,,,"{""options"":[{""optionType"":4,""value"":""12,2,100;14,2,100;13,2,100""},{""optionType"":1,""value"":""36,1,100;37,1,100;38,1,100""}]}"
 "{""options"":[{""optionType"":3,""value"":""30,1"",""guiderPoint"":0}]}",Go to the exchange and buy something.,,"1,117;2,117;3,117",44,0,,Transaction 2,,37,
-"{""options"":[{""optionType"":1,""value"":""32,15"",""guiderPoint"":2101}]}","Terrance is probably in the town, let's go and look for him and bring some wire mesh for him.",,"1,117",45,0,17,Farmer Terrance,,23,
+"{""options"":[{""optionType"":1,""value"":""32,10"",""guiderPoint"":2101}]}","Terrance is probably in the town, let's go and look for him and bring some wire mesh for him.",,"1,117",45,0,17,Farmer Terrance,,23,
 "{""options"":[{""optionType"":3,""value"":""178,1"",""guiderPoint"":4501}]}",,,"1,117",46,0,,Capture can dog and output,,45,
 ,Give me these.,,"2,188",47,1,,Daily-Lv1-Battle,,,"{""options"":[{""optionType"":1,""value"":""30,2,100;31,2,100;32,2,100""}]}"
 ,Give me these.,,"2,278",48,1,,Daily-Lv2-Battle,,,"{""options"":[{""optionType"":1,""value"":""33,2,100;34,2,100;35,2,100""}]}"
@@ -116,7 +116,7 @@ Plant Endurance Fruit seeds.",,"1,117",36,0,39,Advanced Farming Challenge,,35,
 "{""options"":[{""optionType"":4,""value"":""6,10"",""guiderPoint"":2101}]}","Kill 10 Metal Mutts. Find Quincy to finish for this task. Someone may occasionally see him near the town, so you can go and look for him.",,"2,314",80,0,,Kill 10 Metal Mutts,,,
 "{""options"":[{""optionType"":4,""value"":""8,10"",""guiderPoint"":3501}]}","Kill 10 Cactus Warriors. Find Quincy to finish for this task. Someone may occasionally see him near the town, so you can go and look for him.",,"2,314",81,0,,Kill 10 Cactus Warriors,,89,
 "{""options"":[{""optionType"":4,""value"":""7,10"",""guiderPoint"":3401}]}","Kill 10 Pumpkin Fiends. Find Quincy to finish for this task. Someone may occasionally see him near the town, so you can go and look for him",,"2,314",82,0,,Kill 10 Pumpkin Fiends,,90,
-"{""options"":[{""optionType"":4,""value"":""11,15"",""guiderPoint"":0}]}","Kill 15 Buzz Buddies. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",83,0,,Kill 15 Buzz Buddies,,,
+"{""options"":[{""optionType"":4,""value"":""11,15"",""guiderPoint"":20102}]}","Kill 15 Buzz Buddies. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",83,0,,Kill 15 Buzz Buddies,,,
 "{""options"":[{""optionType"":4,""value"":""10,15"",""guiderPoint"":20103}]}","Kill 15 Leafy Lurkers. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",84,0,,Kill 15 Leafy Lurkers,,92,
 "{""options"":[{""optionType"":4,""value"":""9,15"",""guiderPoint"":20203}]}","Kill 15 Mine Cats. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",85,0,,Kill 15 Mine Cats,,93,
 "{""options"":[{""optionType"":4,""value"":""13,20"",""guiderPoint"":20101}]}",Kill 20 Crimson Gnashers. Find Drakonar to finish. Someone will occasionally see him near the Black Forest and Red Forest.,,"2,616",86,0,,Kill 20 Crimson Gnashers,,,
@@ -125,7 +125,7 @@ Plant Endurance Fruit seeds.",,"1,117",36,0,39,Advanced Farming Challenge,,35,
 "{""options"":[{""optionType"":1,""value"":""32,15"",""guiderPoint"":2101}]}","Submit 15 Wire Meshes. Find Quincy to finish for this task. Someone may occasionally see him near the town, so you can go and look for him.",,"2,314",89,0,,Submit 15 Wire Meshes,,80,
 "{""options"":[{""optionType"":1,""value"":""30,15"",""guiderPoint"":3501}]}","Submit 15 Green Slimes. Find Quincy to finish for this task. Someone may occasionally see him near the town, so you can go and look for him",,"2,314",90,0,,Submit 15 Green Slimes,,81,
 "{""options"":[{""optionType"":1,""value"":""31,15"",""guiderPoint"":3401}]}","Submit 15 Pumpkin Vines. Find Quincy to finish for this task. Someone may occasionally see him near the town, so you can go and look for him",,"2,314",91,0,,Submit 15 Pumpkin Vines,,82,
-"{""options"":[{""optionType"":1,""value"":""34,20"",""guiderPoint"":0}]}","Submit 20 Light Thin Films. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",92,0,,Submit 20 Light Thin Films,,83,
+"{""options"":[{""optionType"":1,""value"":""34,20"",""guiderPoint"":20102}]}","Submit 20 Light Thin Films. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",92,0,,Submit 20 Light Thin Films,,83,
 "{""options"":[{""optionType"":1,""value"":""35,20"",""guiderPoint"":20103}]}","Submit 20 Grass Demon crowns. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",93,0,,Submit 20 Grass Demon Crowns,,84,
 "{""options"":[{""optionType"":1,""value"":""33,20"",""guiderPoint"":20203}]}","Submit 20 Mining Cat Sharp Fangs. Find Torvald to finish this task. Someone may occasionally see him next to a grassland lake, so you can go and look for him.",,"2,465",94,0,,Submit 20 Mining Cat Sharp Fangs,,85,
 "{""options"":[{""optionType"":1,""value"":""37,25"",""guiderPoint"":20101}]}",Submit 25 Crimson Furs. Find Drakonar to finish. Someone will occasionally see him near the Black Forest and Red Forest.,,"2,616",95,0,,Submit 25 Crimson Furs,,86,

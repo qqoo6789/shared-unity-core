@@ -31,7 +31,7 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 0,Increase the probability of acquiring additional resources by 1%.,88,1,talentTree-31,31,1,8,1,Gather Combat 8,3,5819,7,0,30
 0,Increase the probability of acquiring additional resources by 1%. Cause higher damage to level 4 resources.,89,1,talentTree-32,32,1,9,1,Gather Combat 9,3,6912,8,0,31
 -3,Unlock Set Recipes Lv 1,"70,74,201;111,178;177,179,180",2,talentTree-33,33,0,1,3,Gather Set Recipes,3,"100,156,243",0,"0,0,0",
--3,Unlock Set Recipes Lv 2,"71,75,203;112,182;181,183,184",2,talentTree-34,34,0,2,3,Farm Set Recipe Unlocked,3,"311,485,758",0,"0,0,0",33
+-3,Unlock Set Recipes Lv 2,"71,75,203;112,182;181,183,184",2,talentTree-34,34,0,2,3,Gather Set Recipes,3,"311,485,758",0,"0,0,0",33
 -1,Lovely Touch,,0,talentTree-45,45,0,3,1,Lovely Touch,1,,0,,23
 -1,Efficiency Skills - Group Hoe,103,0,talentTree-46,46,0,4,1,Earth Splitter,1,547,0,0,45
 -4,Unlock equipment recipes Lv 4,,2,talentTree-47,47,0,4,1,Farming Set Recipes,1,,0,,88
@@ -219,7 +219,7 @@ col-int,desc-string,gainsArgs-int[][],gainsType-int,icon-string,id-int,isTrunk-b
 -4,Unlock Essence Recipes Lv 8,,2,talentTree-243,243,0,8,1,Combat Essence Recipes,2,,0,,242
 -4,Unlock Essence Recipes Lv 9,,2,talentTree-244,244,0,9,1,Combat Essence Recipes,2,,0,,243
 -2,Unlock Essence Recipes Lv 1,158,2,talentTree-245,245,0,1,1,Gather Essence Recipes,3,100,0,0,
--2,Unlock Essence Recipes Lv 2,159,2,talentTree-246,246,0,2,1,Unlock Essence Recipes,3,311,0,0,245
+-2,Unlock Essence Recipes Lv 2,159,2,talentTree-246,246,0,2,1,Gather Essence Recipes,3,311,0,0,245
 -2,Unlock Essence Recipes Lv 3,160,2,talentTree-247,247,0,3,1,Gather Essence Recipes,3,730,0,0,246
 -2,Unlock Essence Recipes Lv 4,,2,talentTree-248,248,0,4,1,Gather Essence Recipes,3,,0,,247
 -2,Unlock Essence Recipes Lv 5,,2,talentTree-249,249,0,5,1,Gather Essence Recipes,3,,0,,248
