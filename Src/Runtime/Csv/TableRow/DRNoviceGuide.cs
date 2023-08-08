@@ -24,6 +24,15 @@ public class DRNoviceGuide : DataRowBase
     public override int Id => _id;
 
     /// <summary>
+  /**获取customData-string。*/
+    /// </summary>
+    public string CustomData
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取event-string。*/
     /// </summary>
     public string Event
@@ -41,24 +50,15 @@ public class DRNoviceGuide : DataRowBase
         private set;
     }
 
-    /// <summary>
-  /**获取customData-string。*/
-    /// </summary>
-    public string CustomData
-    {
-        get;
-        private set;
-    }
-
     public override bool ParseDataRow(string dataRowString, object userData)
     {
         string[] columnStrings = CSVSerializer.ParseCSVCol(dataRowString);
 
         int index = 0;
+        CustomData = DataTableParseUtil.ParseString(columnStrings[index++]);
         Event = DataTableParseUtil.ParseString(columnStrings[index++]);
         _id = int.Parse(columnStrings[index++]);
         ResList = DataTableParseUtil.ParseArrayList<string>(columnStrings[index++]);
-        CustomData = DataTableParseUtil.ParseString(columnStrings[index++]);
 
         return true;
     }
@@ -70,10 +70,10 @@ public class DRNoviceGuide : DataRowBase
         {
             using (BinaryReader binaryReader = new(memoryStream, Encoding.UTF8))
             {
+                CustomData = binaryReader.ReadString();
                 Event = binaryReader.ReadString();
                 _id = binaryReader.Read7BitEncodedInt32();
                 ResList = binaryReader.ReadArrayList<String>();
-                CustomData = binaryReader.ReadString();
             }
         }
 
