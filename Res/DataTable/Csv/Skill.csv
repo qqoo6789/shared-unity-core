@@ -338,6 +338,6 @@ IsBeHitBreakable-bool,IsIndependentLogic-bool,accuBreakable-bool,accuTime-int,at
 0,0,0,,0,387,"220,223",350,369,0,0,0,0,0,0,0,attack,,,,733,0,Cyber Raze attack,400,2,Cyber Raze attack,"4,300,200,12000",,1,0,,1000,,,,,,,,,,,,
 0,0,0,,0,15,,2000,370,0,0,0,0,0,1,0,attack2,,,,2600,0,Cyber Raze ranged attack,2000,2,Cyber Raze ranged attack,"2,200",,1,0,,1000,,,top_down_bomb_2,[13],1.0,,,,,,,
 0,0,0,,0,,,,371,0,0,0,0,0,0,0,,,,,,0,,,2,Cyber Raze weak,,,1,0,,1000,,,,,,,421,,,,,
-0,0,0,,0,425,426,500,372,0,0,0,0,0,0,0,attack,Skill_Frosty_attack,,,2200,0,,500,2,Frosty Lord attack,"4,800,600,12000",,1,0,,1000,,,,,,,,,,,,
-0,0,0,,0,15,426,800,373,0,0,0,0,0,1,0,attackArea,Skill_Frosty_attackArea,,,1467,3000,,3000,2,Frosty Lord attack ranged,"2,500",,1,0,,1000,,,top_down_Thunder,[14],5.0,,,,,,,
+0,0,0,,0,,426,500,372,0,0,0,0,0,0,0,attack,Skill_Frosty_attack,,,2200,0,,500,2,Frosty Lord attack,"4,800,600,12000",,1,0,,1000,,,,,,,,425,,,,
+0,0,0,,0,15,426,800,373,0,0,0,0,0,1,0,attackArea,Skill_Frosty_attackArea,,,1467,3000,,3000,2,Frosty Lord attack ranged,"2,500",CameraShakeGrade_3,1,0,,1000,,,top_down_Thunder,[14],5.0,,,,,,,
 0,0,0,,0,,,,374,0,0,0,0,0,0,0,,,,,,0,,,2,Frosty Lord weak,,,1,0,,1000,,,,,,,424,,,,,
