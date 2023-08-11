@@ -23,7 +23,6 @@ public static class DataTableConfig
         "ItemEatable",
         "Language",
         "Monster",
-        "NoviceGuide",
         "Npc",
         "Recipes",
         "Reward",
