@@ -53,7 +53,11 @@ public abstract class HomeResourcesCore : EntityBaseComponent, ICollectResourceC
         DRHomeResources dr = Data.DRHomeResources;
         SupportAction = TableUtil.ToHomeAction(dr.HomeAction);
 
-        if ((PROGRESS_ACTION_MASK & SupportAction) != 0)
+        if ((SupportAction & eAction.Pick) != 0)//捡东西很特殊 没有进度但是需要选中显示进度icon 所以只能特殊处理一下 https://linear.app/project-linco/issue/LNCO-4361/砍树挖矿采草时，需要显示名字和提示等信息
+        {
+            GetComponent<HomeActionProgressData>().StartProgressAction(SupportAction, 1);//最大进度给1点 不要给0点 也加不了进度 所以给1没关系
+        }
+        else if ((PROGRESS_ACTION_MASK & SupportAction) != 0)
         {
             GetComponent<HomeActionProgressData>().StartProgressAction(SupportAction, dr.MaxActionValue);
         }
