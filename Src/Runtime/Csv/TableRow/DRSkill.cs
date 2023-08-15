@@ -303,6 +303,15 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
+  /**获取skillIcon-string。*/
+    /// </summary>
+    public string SkillIcon
+    {
+        get;
+        private set;
+    }
+
+    /// <summary>
   /**获取hitEff-string。*/
     /// </summary>
     public string HitEff
@@ -375,15 +384,6 @@ public class DRSkill : DataRowBase
     }
 
     /// <summary>
-  /**获取skillIcon-string。*/
-    /// </summary>
-    public string SkillIcon
-    {
-        get;
-        private set;
-    }
-
-    /// <summary>
   /**获取composeSkill-int[]。*/
     /// </summary>
     public int[] ComposeSkill
@@ -447,6 +447,7 @@ public class DRSkill : DataRowBase
         TargetLock = DataTableParseUtil.ParseBool(columnStrings[index++]);
         HomeAction = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         HomeAttRate = DataTableParseUtil.ParseInt(columnStrings[index++]);
+        SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
         HitEff = DataTableParseUtil.ParseString(columnStrings[index++]);
         AnimRotate = DataTableParseUtil.ParseInt(columnStrings[index++]);
         SkillAlertEffect = DataTableParseUtil.ParseString(columnStrings[index++]);
@@ -455,7 +456,6 @@ public class DRSkill : DataRowBase
         AccuEff = DataTableParseUtil.ParseInt(columnStrings[index++]);
         EffectInit = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         EffectSelf = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
-        SkillIcon = DataTableParseUtil.ParseString(columnStrings[index++]);
         ComposeSkill = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         CostPropType = DataTableParseUtil.ParseArray<int>(columnStrings[index++]);
         MaxAccuTime = DataTableParseUtil.ParseInt(columnStrings[index++]);
@@ -502,6 +502,7 @@ public class DRSkill : DataRowBase
                 TargetLock = binaryReader.ReadBoolean();
                 HomeAction = binaryReader.ReadArray<Int32>();
                 HomeAttRate = binaryReader.Read7BitEncodedInt32();
+                SkillIcon = binaryReader.ReadString();
                 HitEff = binaryReader.ReadString();
                 AnimRotate = binaryReader.Read7BitEncodedInt32();
                 SkillAlertEffect = binaryReader.ReadString();
@@ -510,7 +511,6 @@ public class DRSkill : DataRowBase
                 AccuEff = binaryReader.Read7BitEncodedInt32();
                 EffectInit = binaryReader.ReadArray<Int32>();
                 EffectSelf = binaryReader.ReadArray<Int32>();
-                SkillIcon = binaryReader.ReadString();
                 ComposeSkill = binaryReader.ReadArray<Int32>();
                 CostPropType = binaryReader.ReadArray<Int32>();
                 MaxAccuTime = binaryReader.Read7BitEncodedInt32();
