@@ -12,7 +12,15 @@ using UnityGameFramework.Runtime;
 
 public abstract class EntityCollisionCore : EntityBaseComponent
 {
+    /// <summary>
+    /// 碰撞盒所在GameObject 未加载完成为null
+    /// </summary>
+    /// <value></value>
     public GameObject CollisionObject { get; private set; }
+    /// <summary>
+    /// 碰撞盒 未加载完成为null 可以拿到碰撞盒的bounds范围盒中心点
+    /// </summary>
+    /// <value></value>
     public Collider BodyCollision { get; private set; }  //躯干碰撞盒
 
     public EntityCollisionTrigger EntityTrigger { get; private set; } //实体触发器

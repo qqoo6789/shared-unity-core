@@ -139,7 +139,8 @@ public class HomeActionProgressData : MonoBehaviour
     /// <param name="maxValue"></param>
     public void StartProgressAction(eAction action, float maxValue)
     {
-        if ((PROGRESS_ACTION_MASK & action) == 0)
+        //拾取动作比较特殊 不走进度但是要走进度icon  https://linear.app/project-linco/issue/LNCO-4361/砍树挖矿采草时，需要显示名字和提示等信息
+        if ((action & eAction.Pick) == 0 && (PROGRESS_ACTION_MASK & action) == 0)
         {
             Log.Error($"不支持的进度操作:{action}");
             return;
