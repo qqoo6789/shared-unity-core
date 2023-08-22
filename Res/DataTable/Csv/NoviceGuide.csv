@@ -8,3 +8,4 @@ customData-string,event-string,id-int,resList-string[][]
 -,FirstSelectSoil,9,"Tips_HoeingAndSeeding,2;Tips_RestoreHoeing,2"
 -,FirstSow,10,"Tips_Watering,2"
 -,FirstSelectPet,11,"Tips_TouchAndFeeding,2;Tips_HaverstPet,2"
+['166'],LearnedSpecificSkill,12,"Tips_InsertBullet,2;Tips_LockinMonster,2;Tips_CaptureMonster,2"
